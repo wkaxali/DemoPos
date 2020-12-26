@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- <meta http-equiv="refresh" content="1"> -->
     <meta name="Description" content="Enter your description here" />
+
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
@@ -91,7 +92,8 @@
             position: relative;
             float: right;
             margin-right: 50px !important;
-background-color: #0a549d;            color: #ffffff;
+            background-color: #0a549d;
+            color: #ffffff;
         }
 
         .circleContent {
@@ -182,7 +184,7 @@ background-color: #0a549d;            color: #ffffff;
                 var id = document.getElementById("demo");
                 var mytime = document.getElementById("timeDemo");
                 var today = new Date();
-              
+
 
                 var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
 
@@ -200,6 +202,8 @@ background-color: #0a549d;            color: #ffffff;
         }, 1000);
 
     </script>
+
+
 </body>
 
 </html>
