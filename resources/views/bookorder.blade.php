@@ -379,7 +379,7 @@
 
             var t=document.getElementById("BookingRecordTable");
             var tot=0;
-            var rem=0;
+            var rem=0;jo;jcs
             
             var x = document.getElementById("BookingRecordTable").rows.length;
 
