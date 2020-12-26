@@ -72,6 +72,11 @@
             width: 70px !important;
         }
 
+        th,
+        td {
+            padding: 2px !important;
+        }
+
     </style>
 </head>
 
@@ -152,6 +157,7 @@
 
 
                     </select>
+                    <button style="height: 25px; margin-top: -5px;" class="btn btn-info"></button>
 
                 </div>
 
