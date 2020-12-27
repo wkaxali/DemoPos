@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
+use App\Http\Controllers\OrderFlowController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,8 @@ use App\Http\Controllers\signInSignUPcontroller;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn'] );
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
+Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
+Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
 Route::get('/', function () {
     return view('signInSignUp');
 });
@@ -45,13 +48,13 @@ Route::get('/ip', function () {
 Route::get('/is', function () {
     return view('invoiceServices');
 });
-Route::get('/L', function () {
+Route::get('/l', function () {
     return view('ledger');
 });
 Route::get('/psi', function () {
     return view('printSaleInvoice');
 });
-Route::get('/Rec', function () {
+Route::get('/rec', function () {
     return view('Receiving');
 });
 Route::get('/sc', function () {
