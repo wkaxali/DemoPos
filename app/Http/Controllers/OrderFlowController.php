@@ -187,4 +187,47 @@ class OrderFlowController extends Controller
         
         ]);
       }
+     
+      function getOrderItem($OID){
+        $results=DB::select('select ProductName,EngineNumber,ChasisNumber,DilevedStatus from vw_purchaseorderdetails where InvoiceNumber='.$OID);
+        $table="";
+        $i=1;
+        $option="";
+  
+        foreach ($results as $ro){
+          if( $ro->DilevedStatus=="Received"){
+                $option='<select
+                class="selectpicker form-control" data-live-search="true" id="category"
+                tabindex="null"><option value=1 selected>Received</option><option value=2>Pending</option></select></td>';
+          }
+          else{
+            $option='<select
+             id="category"
+            tabindex="null"><option value=1 selected>Received</option><option value=2>Pending</option></select></td>';
+
+          }
+          //print $option;
+
+            $table=$table.'
+            <tr>
+            <td>'.$i.'</td>
+            <td>'.$ro->ProductName.'</td>
+            <td>'.$ro->ChasisNumber.'</td>
+            <td>'.$ro->EngineNumber.'</td>
+            <td><input type="text"></td>
+            <td> 
+                    '.$option.'
+
+
+                
+        </tr>';
+        $i++;
+        $option="";
+        }
+        return $table;
+
+
+
+
+      }
 }
