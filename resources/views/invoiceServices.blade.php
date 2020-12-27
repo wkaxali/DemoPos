@@ -240,7 +240,7 @@
                                 <label for="status">Chassis Number </label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="137000">
+                                    name="name" id="name" value="1300">
                             </div>
                             <div class="input-field">
                                 <label for="status">Engine Number</label>
