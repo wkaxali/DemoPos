@@ -66,9 +66,9 @@
         }
 
         .footerBtn {
-            text-align: right;
-            /* text-align: center; */
-            float: right;
+            /* text-align: right; */
+             text-align: center; 
+            /* float: right; */
             /* margin-top: 120px !important; */
         }
 
@@ -94,7 +94,7 @@
 
         .myBookingBorder {
             border: 1px solid #aaaaaa;
-            padding: 5px 8px;
+            padding: 16px 12px;
             border-radius: 10px;
         }
 
@@ -104,16 +104,17 @@
 
         .bookingRightTable {
             border-radius: 10px;
-            height: 514px !important;
+            height: 530px !important;
+            width:650px;
             border: 1px solid #aaaaaa;
-            padding: 0px 10px;
+            padding: 0px 1px;
             /* border-radius: 10px; */
         }
 
         .tableDiv {
             /* border: 1px solid #aaaaaa; */
             /* height: 505px !important; */
-            height: 319px;
+            height: 304px;
             overflow: auto;
             /* border-radius: 10px; */
             /* border: 1px solid #aaaaaa; */
@@ -124,7 +125,7 @@
 
 
         .input-group {
-            margin: 10px 0px;
+            margin: 20px 16px;
             /* float: right; */
         }
 
@@ -139,7 +140,7 @@
         }
 
         .mainInputGroups input {
-            width: 120px !important;
+            width: 140px !important;
         }
 
         th,
