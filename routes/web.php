@@ -17,6 +17,8 @@ use App\Http\Controllers\OrderFlowController;
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
+Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
+
 Route::get('/', function () {
     return view('signInSignUp');
 });
