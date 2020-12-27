@@ -151,7 +151,7 @@
     </style>
 </head>
 
-<body>
+<body onload="getOrderID()">
 
     <header id="myHeader">
         <div class="container">
@@ -169,9 +169,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Order No</label>
-                                <input type="number" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name="" value="1"
-                                    id="Orderno">
+                                <input type="text" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name="" 
+                                    id="OrderId" readonly="true">
                             </div>
                         </div><br>
                         <div class="row">
@@ -191,7 +191,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Invoice Price :</label>
-                                <input type="text" onkeyup="product()" class="form-control"
+                                <input type="text" onchange="product()" class="form-control"
                                     style="width: 200px !important; display: inline-block !important;" name=""
                                     id="invoice">
 
@@ -200,16 +200,16 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Qty :</label>
-                                <input type="number" onkeyup="product()" class="form-control"
+                                <input type="number" onchange="product()" class="form-control"
                                     style="width: 200px !important; display: inline-block !important;" name="" id="qty">
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Total</label>
-                                <input type="text" onkeyup="subtract()" class="form-control"
+                                <input type="text" class="form-control"
                                     style="width: 200px !important; display: inline-block !important;" name=""
-                                    id="total">
+                                    id="total" readonly="true">
                             </div>
                         </div><br>
                         <div class="row">
@@ -225,7 +225,7 @@
                                 <label for="">Remaining For This Order</label>
                                 <input type="text" class="form-control"
                                     style="width: 200px !important; display: inline-block !important;" name=""
-                                    id="remaining">
+                                    id="remaining"readonly="true">
                             </div>
                         </div>
                         <br>
@@ -272,23 +272,27 @@
                             </table>
                         </div>
                         <div class="mainInputGroups">
-
-
-                            <div class="input-group ">
-                                <label style="width: 150px  !important;" for="">Total Paid</label>
-                                <input type="text" name="" id="totalPaid">
-                            </div>
-                            <div class="input-group">
+                        <div class="input-group">
                                 <label style="width: 150px !important;" for="">Total Amount</label>
                                 <input type="text"  name="" id="mainTotal">
                             </div>
+
+                            <div class="input-group ">
+                                <label style="width: 150px  !important;" for="">Total Paid</label>
+                                <input type="text" name="" id="totalPaid" onchange="calculatonInTable()">
+                            </div>
+                            <div class="input-group ">
+                                <label style="width: 150px  !important;" for="">Total Remaining</label>
+                                <input type="text" name="" id="totRemaining">
+                            </div>
+                            
                         </div>
                         <div class="clear"></div>
 
 
                         <div class="footerBtn">
                             <a href="#" class="printBtns btn">Print Order</a>
-                            <a href="Receiving.html" class="placeBtns btn">Place Order</a>
+                            <button  class="placeBtns btn" onclick="placeOrder()">Place Order</button>
                         </div>
                     </div>
 
@@ -309,7 +313,7 @@
             var e;
             var f;
             var g;
-            a = document.getElementById("Orderno").value;
+            a = document.getElementById("OrderId").value;
             b = document.getElementById("category");
             c = document.getElementById("invoice").value;
             d = document.getElementById("qty").value;
@@ -380,11 +384,13 @@
             var t=document.getElementById("BookingRecordTable");
             var tot=0;
             var rem=0;
+            var paid=0;
             
             var x = document.getElementById("BookingRecordTable").rows.length;
 
             for (var i = 1; i <x ; i++){
                 tot=tot+Number(t.rows[i].cells[4].innerText);
+                paid=paid+Number(t.rows[i].cells[5].innerText);
                 rem=rem+Number(t.rows[i].cells[6].innerText);
 
 
@@ -393,10 +399,87 @@
 
             }
             document.getElementById("mainTotal").value=tot;
-            document.getElementById("totalPaid").value=rem;
+            document.getElementById("totalPaid").value=paid;
+            document.getElementById("totRemaining").value=rem;
            
 
         }
+function placeOrder()
+{
+    var orderDetails = [];
+        var table = document.getElementById("BookingRecordTable");
+        var myRow2 = [];
+
+        //alert(sp);
+        $('#BookingRecordTable tr').each(function (row, tr) {
+
+            orderDetails[row] = [
+
+                $(tr).find('td:eq(0)').text(), //AutoCategory
+                $(tr).find('td:eq(2)').text(), //Price
+                $(tr).find('td:eq(3)').text(), //qty
+               
+               
+                $(tr).find('td:eq(4)').text(), //totamount
+                $(tr).find('td:eq(5)').text(), //Paid
+                $(tr).find('td:eq(6)').text(), //remAmount
+                $(tr).find('td:eq(1)').text()//productName
+
+
+
+            ];
+
+
+        });
+        orderDetails.shift();
+        
+        
+
+       
+      var mainTotal=  document.getElementById("mainTotal").value;
+      var totlpaid=      document.getElementById("totalPaid").value;
+      var totRemaining=      document.getElementById("totRemaining").value;
+           alert(mainTotal);
+        var Order=[mainTotal,totlpaid,totRemaining,orderDetails];
+        
+
+        alert(Order);
+        
+
+
+        var OrderArray = JSON.stringify(Order);
+
+        alert(OrderArray);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                alert("Invoice =" + this.responseText + " is generated");
+                getOrderID();
+
+            }
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./placeOrder/" + OrderArray, true);
+        xhttp.send();
+    }
+    function getOrderID () {
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+
+        document.getElementById("OrderId").value = this.response;
+    }
+};
+//alert("ljd");
+xhttp.open("GET", "./getOrderId/", true);
+
+xhttp.send();
+
+
+}
      
 
 
