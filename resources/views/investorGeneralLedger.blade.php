@@ -81,7 +81,10 @@
         td {
             padding: 3px !important;
         }
-
+        .borderCustom-1 {
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -97,7 +100,7 @@
     </main>
     <section id="mainSection">
         <div class="container">
-            <div class="row">
+            <div class="row borderCustom-1">
                 <div class="col-md-5 offset-md-1">
                     <label for="">Name</label>
                     <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
@@ -116,8 +119,6 @@
 
                     <button style="height: 25px; margin-top: -5px;" class="btn"></button>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-5 offset-md-1">
                     <label for="">Budget</label>
                     <input type="text" class="form-control" style="width: 200px; display: inline-block;" value="80,000"
@@ -129,14 +130,13 @@
                     <input type="text" class="form-control" style="width: 200px; display: inline-block;" value="81,000"
                         name="" id="">
                 </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-md-7 offset-md-3">
+                <div class="col-md-6 offset-md-1 ">
                     <label style="width:300px;" for="">Total Returned Amount</label>
                     <input type="text" class="form-control" style="width: 200px; display: inline-block;" name="" id="">
 
                 </div>
             </div>
+  
         </div>
     </section>
     <section>

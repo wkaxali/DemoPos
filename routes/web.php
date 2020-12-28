@@ -25,6 +25,9 @@ Route::get('/db', function () {
 Route::get('/am', function () {
     return view('addMenu');
 });
+Route::get('/vs', function () {
+    return view('viewStock');
+});
 
 Route::get('/bo', function () {
     return view('bookOrder');
@@ -66,6 +69,21 @@ Route::get('/th', function () {
 Route::get('/vc', function () {
     return view('viewCustomers');
 });
-Route::get('/vs', function () {
-    return view('viewStock');
+Route::get('/investorLedger', function () {
+    return view('investorLedger');
+});
+Route::get('/investors', function () {
+    return view('investors');
+});
+
+Route::get('/investorGeneralLedger', function () {
+    return view('investorGeneralLedger');
+});
+
+Route::get('/expense', function () {
+    return view('expense');
+});
+
+Route::get('/attendance', function () {
+    return view('attendance');
 });

@@ -73,8 +73,9 @@
         }
 
         .footerBtn .btn:nth-child(1) {
-        
-        margin-right: 20px;}
+
+            margin-right: 20px;
+        }
 
 
         table {
@@ -124,23 +125,28 @@
 
 
 
-        .input-group{
+        .input-group {
             margin: 10px 0px;
             /* float: right; */
         }
-        .mainInputGroups{
+
+        .mainInputGroups {
             float: right;
             margin-top: 30px;
         }
-        .clear{
+
+        .clear {
             clear: both;
         }
-        .mainInputGroups input{
+
+        .mainInputGroups input {
             width: 120px !important;
         }
+
         /* body{
             background-color: lightgray;
         } */
+
     </style>
 </head>
 
@@ -169,8 +175,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="Model">Model :</label>
-                                <select
-                                    class="selectpicker form-control" data-live-search="true" id="category"
+                                <select class="selectpicker form-control" data-live-search="true" id="category"
                                     tabindex="null">
                                     <option value=1>Forland C13</option>
                                     <option value=2>Forland Trucks</option>
@@ -231,7 +236,7 @@
                     <div class="bookingRightTable">
 
                         <div class="tableContent  text-center">
-                           <h3>Your Current Orders </h3>
+                            <h3>Your Current Orders </h3>
                         </div>
 
 
@@ -239,7 +244,8 @@
                         <div class="tableDiv">
 
 
-                            <table id="BookingRecordTable" class=" table-striped" style="width: 100%; text-align: center; ">
+                            <table id="BookingRecordTable" class=" table-striped"
+                                style="width: 100%; text-align: center; ">
                                 <thead>
                                     <tr>
                                         <th>Order No</th>
@@ -281,7 +287,7 @@
                                         <td>Forland C10</td>
                                         <td>1</td>
                                         <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
+                                        <td>13,000,000</td>
                                         <td>&times;</td>
                                     </tr>
                                     <tr>
@@ -289,7 +295,7 @@
                                         <td>Forland C10</td>
                                         <td>1</td>
                                         <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
+                                        <td>13,000,000</td>
                                         <td>&times;</td>
                                     </tr>
                                     <tr>
@@ -297,7 +303,7 @@
                                         <td>Forland C10</td>
                                         <td>1</td>
                                         <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
+                                        <td>13,000,000</td>
                                         <td>&times;</td>
                                     </tr>
                                     <tr>
@@ -305,7 +311,7 @@
                                         <td>Forland C10</td>
                                         <td>1</td>
                                         <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
+                                        <td>13,000,000</td>
                                         <td>&times;</td>
                                     </tr>
                                     <tr>
@@ -313,10 +319,10 @@
                                         <td>Forland C10</td>
                                         <td>1</td>
                                         <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
+                                        <td>13,000,000</td>
                                         <td>&times;</td>
                                     </tr>
-                                    
+
 
                                 </tbody>
                             </table>
@@ -324,16 +330,16 @@
                         <div class="mainInputGroups">
 
 
-                        <div class="input-group ">
-                            <label style="width: 150px  !important;" for="">Total Paid</label>
-                            <input type="text" name="" id="">
+                            <div class="input-group ">
+                                <label style="width: 150px  !important;" for="">Total Paid</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div class="input-group">
+                                <label style="width: 150px !important;" for="">Total Amount</label>
+                                <input type="text" name="" id="">
+                            </div>
                         </div>
-                        <div class="input-group">
-                            <label style="width: 150px !important;" for="">Total Amount</label>
-                            <input type="text" name="" id="">
-                        </div>
-                    </div>
-                    <div class="clear"></div>
+                        <div class="clear"></div>
 
 
                         <div class="footerBtn">

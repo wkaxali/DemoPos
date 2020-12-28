@@ -90,7 +90,7 @@
     <section id="LabelSection">
         <div class="container">
             <div class="row borderCustom">
-                <div class="col-md-5 offset-md-2">
+                <div class="col-md-5 offset-md-1">
                     <label for="">Name</label>
                     <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
                         data-live-search="true" id="category" tabindex="null">
@@ -105,7 +105,7 @@
                     <input type="text" class="form-control" style="width: 200px; display: inline-block;" value="15Lac"
                         name="" id="">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 offset-md-1">
                     <label for="">From</label>
                     <input type="date" name="" style="width: 200px; display: inline-block; margin: 5px 0px;"
                         class="form-control" id="">
