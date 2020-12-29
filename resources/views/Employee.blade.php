@@ -44,10 +44,10 @@
         @media only screen and (max-width: 768px) {
 
             .mainContent {
-            border: 1px solid #333;
-            padding: 0px 10px; 
-            border-radius: 10px;
-        }
+                border: 1px solid #333;
+                padding: 0px 10px;
+                border-radius: 10px;
+            }
 
         }
 
