@@ -87,3 +87,8 @@ Route::get('/expense', function () {
 Route::get('/attendance', function () {
     return view('attendance');
 });
+
+
+Route::get('/payRoll', function () {
+    return view('payRoll');
+});

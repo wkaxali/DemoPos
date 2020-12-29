@@ -74,6 +74,15 @@
             text-decoration: underline !important;
         }
 
+        .summary-2 label {
+            width: 150px !important;
+        }
+
+        .summary-2 {
+            margin-top: 35px;
+
+        }
+
     </style>
 </head>
 
@@ -195,7 +204,7 @@
     <section id="Summary">
         <div class="container">
             <div class="row borderCustom">
-                <div class="col-md-6 offset-md-6">
+                <div class="col-md-5">
                     <div class="summaryLabels">
                         <label for="">Total Profit</label>
                         <input type="text" value="11,33,000" class="form-control"
@@ -209,26 +218,22 @@
                         <input type="text" value="91,33,000" class="form-control"
                             style="display: inline-block; width: 200px;" name="" id=""><br>
 
-                        <label for="">Amount Received By</label>
-                        <input type="text" value="65,000,00" class="form-control"
-                            style="display: inline-block; width: 200px;" name="" id=""><br>
 
-                        <label for="">Remaining</label>
-                        <input type="text" value="35,11,200" class="form-control"
-                            style="display: inline-block; width: 200px;" name="" id=""><br>
 
                     </div>
 
                 </div>
-            </div>
-            <div class="row mt-1">
-                <div class="col-md-4 offset-md-8">
-                    <div class="footerButtons">
-                        <button class="btn">Close</button>
-                        <button class="btn">Print</button>
-                    </div>
+                <div class="col-md-5 summary-2 offset-md-2">
+                    <label for="">Amount Received By</label>
+                    <input type="text" value="65,000,00" class="form-control"
+                        style="display: inline-block; width: 200px;" name="" id=""><br>
+
+                    <label for="">Remaining</label>
+                    <input type="text" value="35,11,200" class="form-control"
+                        style="display: inline-block; width: 200px;" name="" id=""><br>
                 </div>
             </div>
+
         </div>
 
 
