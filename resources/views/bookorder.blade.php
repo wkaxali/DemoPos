@@ -73,14 +73,13 @@
         }
 
         .footerBtn .btn:nth-child(1) {
-        
-        margin-right: 20px;}
+
+            margin-right: 20px;
+        }
 
 
         table {
-            border-spacing: 0;
-            border-collapse: collapse;
-            border-style: hidden;
+
 
             width: 100%;
             max-width: 100%;
@@ -95,7 +94,7 @@
 
         .myBookingBorder {
             border: 1px solid #aaaaaa;
-            padding: 15px;
+            padding: 5px 8px;
             border-radius: 10px;
         }
 
@@ -105,46 +104,54 @@
 
         .bookingRightTable {
             border-radius: 10px;
-            height: 505px !important;
+            height: 514px !important;
             border: 1px solid #aaaaaa;
             padding: 0px 10px;
             /* border-radius: 10px; */
         }
 
         .tableDiv {
-            border: 1px solid #aaaaaa;
+            /* border: 1px solid #aaaaaa; */
             /* height: 505px !important; */
-            height: 297px;
+            height: 319px;
             overflow: auto;
-            border-radius: 10px;
-            border: 1px solid #aaaaaa;
+            /* border-radius: 10px; */
+            /* border: 1px solid #aaaaaa; */
             /* padding: 3px; */
             /* margin-top: 80px !important; */
         }
 
 
 
-        .input-group{
+        .input-group {
             margin: 10px 0px;
             /* float: right; */
         }
-        .mainInputGroups{
+
+        .mainInputGroups {
             float: right;
-            margin-top: 30px;
+            margin-top: 5px;
+
         }
-        .clear{
+
+        .clear {
             clear: both;
         }
-        .mainInputGroups input{
+
+        .mainInputGroups input {
             width: 120px !important;
         }
-        /* body{
-            background-color: lightgray;
-        } */
+
+        th,
+        td {
+            border-bottom: 1px solid #333;
+        }
+
+
     </style>
 </head>
 
-<body>
+<body onload="getOrderID()">
 
     <header id="myHeader">
         <div class="container">
@@ -153,24 +160,24 @@
                     <h3>Book Order</h3>
                 </div>
             </div>
+     
             <div class="row">
                 <div class="col-md-6">
                     <div class="myBookingBorder">
 
-
+                        <br>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Order No</label>
                                 <input type="text" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name=""
-                                    value="1279" id="">
+                                    style="width: 200px !important; display: inline-block !important;" name="" 
+                                    id="OrderId" readonly="true">
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="Model">Model :</label>
-                                <select
-                                    class="selectpicker form-control" data-live-search="true" id="category"
+                                <select class="selectpicker form-control" data-live-search="true" id="category"
                                     tabindex="null">
                                     <option value=1>Forland C13</option>
                                     <option value=2>Forland Trucks</option>
@@ -184,44 +191,48 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Invoice Price :</label>
-                                <input type="text" value="13,96,000" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name="" id="">
+                                <input type="text" onchange="product()" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name=""
+                                    id="invoice">
 
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Qty :</label>
-                                <input type="text" value="5" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name="" id="">
+                                <input type="number" onchange="product()" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name="" id="qty">
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Total</label>
-                                <input type="text" value="6,980,000" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name="" id="">
+                                <input type="text" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name=""
+                                    id="total" readonly="true">
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Amount Paid</label>
-                                <input type="text" value="13,000,000" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name="" id="">
+                                <input type="text" onkeyup="subtract()" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name=""
+                                    id="amount">
                             </div>
                         </div><br>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Remaining For This Order</label>
-                                <input type="text" value="5,680,000" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name="" id="">
+                                <input type="text" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name=""
+                                    id="remaining"readonly="true">
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-md-11">
                                 <div class="successButtons text-right" style="margin-right: 7px !important;">
-                                    <button class="btn ">Add</button>
+                                    <button onclick="add()"  class="btn ">Add</button>
                                 </div>
                             </div>
                         </div>
@@ -231,7 +242,7 @@
                     <div class="bookingRightTable">
 
                         <div class="tableContent  text-center">
-                           <h3>Your Current Orders </h3>
+                            <h3>Your Current Orders </h3>
                         </div>
 
 
@@ -239,117 +250,241 @@
                         <div class="tableDiv">
 
 
-                            <table id="BookingRecordTable" class=" table-striped" style="width: 100%; text-align: center; ">
+                            <table id="BookingRecordTable" class=" table-striped"
+                                style="width: 100%; text-align: center; ">
                                 <thead>
                                     <tr>
-                                        <th>Order No</th>
+                                        <th>Id</th>
                                         <th>Model</th>
-                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>QTY</th>
                                         <th>Total</th>
-                                        <th>Amount Paid</th>
-                                        <th>Action</th>
-
+                                        <th>Paid</th>
+                                        <th>Remain</th>
+                                        <th>Delete
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>100,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>100,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>6980,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                         <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    
+
 
                                 </tbody>
                             </table>
                         </div>
                         <div class="mainInputGroups">
-
-
-                        <div class="input-group ">
-                            <label style="width: 150px  !important;" for="">Total Paid</label>
-                            <input type="text" name="" id="">
-                        </div>
                         <div class="input-group">
-                            <label style="width: 150px !important;" for="">Total Amount</label>
-                            <input type="text" name="" id="">
+                                <label style="width: 150px !important;" for="">Total Amount</label>
+                                <input type="text"  name="" id="mainTotal">
+                            </div>
+
+                            <div class="input-group ">
+                                <label style="width: 150px  !important;" for="">Total Paid</label>
+                                <input type="text" name="" id="totalPaid" onchange="calculatonInTable()">
+                            </div>
+                            <div class="input-group ">
+                                <label style="width: 150px  !important;" for="">Total Remaining</label>
+                                <input type="text" name="" id="totRemaining">
+                            </div>
+                            
                         </div>
-                    </div>
-                    <div class="clear"></div>
+                        <div class="clear"></div>
 
 
                         <div class="footerBtn">
                             <a href="#" class="printBtns btn">Print Order</a>
-                            <a href="Receiving.html" class="placeBtns btn">Place Order</a>
+                            <button  class="placeBtns btn" onclick="placeOrder()">Place Order</button>
                         </div>
                     </div>
 
 
                 </div>
             </div>
+      
         </div>
     </header>
 
+    <script>
+      
+        function add() {
+            var a;
+            var b;
+            var c;
+            var d;
+            var e;
+            var f;
+            var g;
+            a = document.getElementById("OrderId").value;
+            b = document.getElementById("category");
+            c = document.getElementById("invoice").value;
+            d = document.getElementById("qty").value;
+            e = document.getElementById("total").value;
+            f = document.getElementById("amount").value;
+            g = document.getElementById("remaining").value;
+
+            var table = document.getElementById("BookingRecordTable");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+            
+     
+
+            cell1.innerHTML = a;
+            cell2.innerHTML = b.options[b.selectedIndex].text;
+            cell3.innerHTML = c;
+            cell4.innerHTML = d;
+            cell5.innerHTML = e;
+            cell6.innerHTML = f;
+            cell7.innerHTML = g;
+            cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+            calculatonInTable();
+            
+  
+
+        }
 
 
+
+
+        function deleteRow(ele) {
+            var a = ele.parentNode.parentNode;
+
+            a.remove();
+            calculatonInTable();
+        }
+
+
+        function product() {
+            var invoice = document.getElementById("invoice").value;
+            var qty = document.getElementById("qty").value;
+
+            var product = invoice * qty;
+            document.getElementById("total").value = product;
+           // document.getElementById("mainTotal").value = product;
+
+        }
+
+        function subtract() {
+            var total = document.getElementById("total").value;
+            var amount = document.getElementById("amount").value;
+          //  document.getElementById("totalPaid").value = amount;
+
+            var subtract = total - amount;
+            document.getElementById("remaining").value = subtract;
+           
+
+        }
+        function calculatonInTable(){
+
+            var t=document.getElementById("BookingRecordTable");
+            var tot=0;
+            var rem=0;
+            var paid=0;
+            
+            var x = document.getElementById("BookingRecordTable").rows.length;
+
+            for (var i = 1; i <x ; i++){
+                tot=tot+Number(t.rows[i].cells[4].innerText);
+                paid=paid+Number(t.rows[i].cells[5].innerText);
+                rem=rem+Number(t.rows[i].cells[6].innerText);
+
+
+
+
+
+            }
+            document.getElementById("mainTotal").value=tot;
+            document.getElementById("totalPaid").value=paid;
+            document.getElementById("totRemaining").value=rem;
+           
+
+        }
+function placeOrder()
+{
+    var orderDetails = [];
+        var table = document.getElementById("BookingRecordTable");
+        var myRow2 = [];
+
+        //alert(sp);
+        $('#BookingRecordTable tr').each(function (row, tr) {
+
+            orderDetails[row] = [
+
+                $(tr).find('td:eq(0)').text(), //AutoCategory
+                $(tr).find('td:eq(2)').text(), //Price
+                $(tr).find('td:eq(3)').text(), //qty
+               
+               
+                $(tr).find('td:eq(4)').text(), //totamount
+                $(tr).find('td:eq(5)').text(), //Paid
+                $(tr).find('td:eq(6)').text(), //remAmount
+                $(tr).find('td:eq(1)').text()//productName
+
+
+
+            ];
+
+
+        });
+        orderDetails.shift();
+        
+        
+
+       
+      var mainTotal=  document.getElementById("mainTotal").value;
+      var totlpaid=      document.getElementById("totalPaid").value;
+      var totRemaining=      document.getElementById("totRemaining").value;
+           alert(mainTotal);
+        var Order=[mainTotal,totlpaid,totRemaining,orderDetails];
+        
+
+        alert(Order);
+        
+
+
+        var OrderArray = JSON.stringify(Order);
+
+        alert(OrderArray);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                alert("Invoice =" + this.responseText + " is generated");
+                getOrderID();
+
+            }
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./placeOrder/" + OrderArray, true);
+        xhttp.send();
+    }
+    function getOrderID () {
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+
+        document.getElementById("OrderId").value = this.response;
+    }
+};
+//alert("ljd");
+xhttp.open("GET", "./getOrderId/", true);
+
+xhttp.send();
+
+
+}
+     
+
+
+
+    </script>
 
 
 

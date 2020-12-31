@@ -107,8 +107,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <label style="width:130px ;" for="OrderNo">Order No</label>
-                    <input type="text" name="" value="1279" id="">
-                    <button class="btn btn-info"></button>
+                    <input type="text" name="" value="" id="OrderId">
+                    <button class="btn btn-info" onclick="getOrderDetails()">o</button>
                 </div>
             </div>
             <br>
@@ -130,75 +130,8 @@
 
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Forland C12</td>
-                                        <td>Chassis No</td>
-                                        <td>E56921</td>
-                                        <td>2500</td>
-                                        <td> <select
-                                                class="selectpicker form-control" data-live-search="true" id="category"
-                                                tabindex="null">
-                                                <option value=1>Received</option>
-                                                <option value=2>Not Received</option>
-                                                <option value=3>In Process</option>
-                                                <option value=4>Pending</option>
-
-
-                                            </select></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Forland C12</td>
-                                        <td>112231Fn</td>
-                                        <td>E56921</td>
-                                        <td>2500</td>
-                                        <td><select  
-                                                class="selectpicker form-control" data-live-search="true" id="category"
-                                                tabindex="null">
-                                                <option value=1>Received</option>
-                                                <option value=2>Not Received</option>
-                                                <option value=3>In Process</option>
-                                                <option value=4>Pending</option>
-
-
-                                            </select></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Forland C12</td>
-                                        <td>1132421Fn</td>
-                                        <td>C130816</td>
-                                        <td>2100</td>
-                                        <td><select  
-                                                class="selectpicker form-control" data-live-search="true" id="category"
-                                                tabindex="null">
-                                                <option value=1>Received</option>
-                                                <option value=2>Not Received</option>
-                                                <option value=3>In Process</option>
-                                                <option value=4>Pending</option>
-
-
-                                            </select></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Forland C12</td>
-                                        <td>Pending</td>
-                                        <td>Pending</td>
-                                        <td>Null</td>
-                                        <td><select  
-                                                class="selectpicker form-control" data-live-search="true" id="category"
-                                                tabindex="null">
-                                                <option value=1>Received</option>
-                                                <option value=2>Not Received</option>
-                                                <option value=3>In Process</option>
-                                                <option value=4>Pending</option>
-
-
-                                            </select></td>
-                                    </tr>
+                                <tbody id="autoTableBody">
+                                    
                                 </tbody>
 
                             </table>
@@ -240,7 +173,29 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
+<script>
+  function getOrderDetails() {
 
+
+var oid=document.getElementById("OrderId").value;
+var xhttp = new XMLHttpRequest();
+
+
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("autoTableBody").innerHTML = this.responseText;
+       
+
+
+
+    }
+
+};
+
+xhttp.open("GET", "./getOrderId/"+oid, true);
+xhttp.send();
+}
+</script>
 </body>
 
 </html>
