@@ -104,12 +104,9 @@ Route::get('/vc', function () {
 Route::get('/vs', function () {
     return view('viewStock');
 });
-<<<<<<< HEAD
 Route::get('/usama', function () {
     return view('usama');
 });
-=======
 Route::get('/abc', function () {
     return view('abc');
 });
->>>>>>> a1cca41cc4a497c3292642c6de5df9f50a3fe9ac
