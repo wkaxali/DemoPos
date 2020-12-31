@@ -21,6 +21,7 @@
                 $(".wrapper").toggleClass("hello");
             });
         });
+
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
@@ -216,7 +217,7 @@
             color: #fff;
             width: 40px;
             height: 40px;
-            background-color: #0abf53 !important;
+            background-color: #0a549d;
             border-radius: 50px;
             -webkit-border-radius: 50px;
             -o-border-radius: 50px;
@@ -274,12 +275,13 @@
 
         td:first-child {
             border: none !important;
+            display: none;
         }
 
 
 
         tr td:nth-child(2) {
-            width: 332px;
+            width: 367px;
         }
 
         tr td {
@@ -336,6 +338,7 @@
 
         .mainContCards .mainCards-1 {
             width: 26rem;
+            margin: 10px;
         }
 
         @media screen and (max-width: 1202px) {
@@ -357,6 +360,26 @@
                 transition: all 0.3s ease;
             }
         }
+
+
+        .card {
+            border-top: 10px solid #e61d2f;
+            border-left: 10px solid #0a549d;
+            border-radius: 10px;
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+
+            .mainCards-1 {
+
+                width: 850px !important;
+
+            }
+
+
+
+        }
+
     </style>
 </head>
 
@@ -371,7 +394,7 @@
             </div>
             <div class="top_menu">
                 <div class="logo"><label for="">Date</label>
-                    <input type="date">
+                    <input class="form-control" style="width: 200px; display: inline-block;" type="date">
                 </div>
                 <div class="rightSide">
                     <label for="">Search</label>
@@ -408,9 +431,7 @@
             <div class="mainContCards">
                 <div class="mainCards-1">
                     <div class="card">
-                        <div class="card-header">
 
-                        </div>
                         <div class="card-body">
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
@@ -422,18 +443,17 @@
                                     <span><i class="fa fa-wifi"></i></span>
                                 </div>
                             </div>
-                            <h4 style="font-size: 15px;" class="text-left mt-5">Meet Wajahat</h4>
+                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: pink; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
                                 </div>
                                 <div class="rightCardBody">
-                                    <!-- <button data-toggle="modal" data-target="#exampleModal"
-                            class="btn btn-danger">Details</button> -->
+
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
@@ -455,9 +475,7 @@
                 </div>
                 <div class="mainCards-1">
                     <div class="card">
-                        <div class="card-header">
 
-                        </div>
                         <div class="card-body">
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
@@ -469,11 +487,11 @@
                                     <span><i class="fa fa-wifi"></i></span>
                                 </div>
                             </div>
-                            <h4 style="font-size: 15px;" class="text-left mt-5">Meet Wajahat</h4>
+                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: pink; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -503,9 +521,7 @@
 
                 <div class="mainCards-1">
                     <div class="card">
-                        <div class="card-header">
 
-                        </div>
                         <div class="card-body">
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
@@ -517,11 +533,11 @@
                                     <span><i class="fa fa-wifi"></i></span>
                                 </div>
                             </div>
-                            <h4 style="font-size: 15px;" class="text-left mt-5">Meet Wajahat</h4>
+                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: pink; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -553,9 +569,7 @@
 
                 <div class="mainCards-1">
                     <div class="card">
-                        <div class="card-header">
 
-                        </div>
                         <div class="card-body">
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
@@ -567,11 +581,11 @@
                                     <span><i class="fa fa-wifi"></i></span>
                                 </div>
                             </div>
-                            <h4 style="font-size: 15px;" class="text-left mt-5">Meet Wajahat</h4>
+                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: pink; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -600,9 +614,7 @@
                 </div>
                 <div class="mainCards-1">
                     <div class="card">
-                        <div class="card-header">
 
-                        </div>
                         <div class="card-body">
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
@@ -614,11 +626,11 @@
                                     <span><i class="fa fa-wifi"></i></span>
                                 </div>
                             </div>
-                            <h4 style="font-size: 15px;" class="text-left mt-5">Meet Wajahat</h4>
+                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: pink; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -647,9 +659,7 @@
                 </div>
                 <div class="mainCards-1">
                     <div class="card">
-                        <div class="card-header">
 
-                        </div>
                         <div class="card-body">
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
@@ -661,11 +671,11 @@
                                     <span><i class="fa fa-wifi"></i></span>
                                 </div>
                             </div>
-                            <h4 style="font-size: 15px;" class="text-left mt-5">Meet Wajahat</h4>
+                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: pink; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -697,9 +707,7 @@
 
                 <div class="mainCards-1">
                     <div class="card">
-                        <div class="card-header">
 
-                        </div>
                         <div class="card-body">
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
@@ -711,11 +719,11 @@
                                     <span><i class="fa fa-wifi"></i></span>
                                 </div>
                             </div>
-                            <h4 style="font-size: 15px;" class="text-left mt-5">Meet Wajahat</h4>
+                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: pink; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -744,9 +752,7 @@
                 </div>
                 <div class="mainCards-1">
                     <div class="card">
-                        <div class="card-header">
 
-                        </div>
                         <div class="card-body">
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
@@ -758,11 +764,11 @@
                                     <span><i class="fa fa-wifi"></i></span>
                                 </div>
                             </div>
-                            <h4 style="font-size: 15px;" class="text-left mt-5">Meet Wajahat</h4>
+                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: pink; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -791,9 +797,7 @@
                 </div>
                 <div class="mainCards-1">
                     <div class="card">
-                        <div class="card-header">
 
-                        </div>
                         <div class="card-body">
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
@@ -805,11 +809,11 @@
                                     <span><i class="fa fa-wifi"></i></span>
                                 </div>
                             </div>
-                            <h4 style="font-size: 15px;" class="text-left mt-5">Meet Wajahat</h4>
+                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: pink; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -896,19 +900,14 @@
 
                             </div>
                         </div>
+
+                
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="mainButtons">
-                                    <button class="btn btn-info">Progress</button>
-                                    <button onclick="getRowId()" class="btn btn-success">Add New List</button>
-
-                                    <button class="btn btn-success">Done</button>
-                                </div>
-
-
+                                <label for="">Comments</label><br>
+                                <textarea name="" class="form-control" id="" cols="30" rows="7"></textarea>
                             </div>
                         </div>
-                        <br>
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">History</label>
@@ -958,6 +957,7 @@
                 $('#myModal').modal('show')
             })
         })
+
     </script>
     <script>
         function getRowId() {
@@ -989,6 +989,7 @@
 
 
         }
+
     </script>
 </body>
 
