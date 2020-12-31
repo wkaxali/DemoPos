@@ -2,8 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
+
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\UpdateStocksController;
+
+use App\Http\Controllers\AddMenucontroller;
+use App\Http\Controllers\CustomerViewcotroller;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +20,23 @@ use App\Http\Controllers\UpdateStocksController;
 |
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn'] );
+
+
+
+Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu'] );
+Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories'] );
+Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu'] );
+Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu'] );
+
+
+
+
+
+
+
+
+
+
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
@@ -30,7 +52,7 @@ Route::get('/', function () {
 Route::get('/db', function () {
     return view('dashboard');
 });
-
+Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
 Route::get('/am', function () {
     return view('addMenu');
 });
@@ -75,9 +97,13 @@ Route::get('/S', function () {
 Route::get('/th', function () {
     return view('transactionHistory');
 });
+Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo'] );
 Route::get('/vc', function () {
     return view('viewCustomers');
 });
 Route::get('/vs', function () {
     return view('viewStock');
+});
+Route::get('/abc', function () {
+    return view('abc');
 });
