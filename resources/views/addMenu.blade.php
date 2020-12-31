@@ -345,7 +345,7 @@
                         <table class="table table-bordered table-striped " id="MenuTable">
                             <thead>
                                 <tr>
-                                    <th>Product Name</th>
+                                    <th>Product Name </th>
                                     <th>Category</th>
 
                                     <th>Sale Price</th>
@@ -392,7 +392,7 @@
                 <div class="col-md-2 offset-md-10 text-right">
                     <button class="btn btn-success  mt-1"
                         style="height: 102px;width: 102px;  color: #ffffff;"
-                        onclick="insertProducts()">PlaceOrder</button>
+                        onclick="AddProduct()">PlaceOrder</button>
                 </div>
             </div>
         </div>
@@ -434,10 +434,14 @@
         cell2.innerHTML = catetext;
         cell3.innerHTML = document.getElementById("cost").value;
         cell4.innerHTML = document.getElementById("salePrice").value;
-        cell5.innerHTML = document.getElementById("Desc").value;
+       // cell5.innerHTML = document.getElementById("Desc").value;
         cell6.innerHTML =
             "<button onclick='deleteRow(this)' class=\"btn btn-danger \" style=\"height: 25px;width: 25px; padding:auto;\"></button>";
+          
+       
+    
     }
+
 
 
 
@@ -488,14 +492,95 @@
             if (this.readyState == 4 && this.status == 200) {
 
                 alert("This is comming from Controller ==" + this.responseText);
-
+              
             }
         };
 
         xhttp.open("GET", "./insertProducts/" + a, true);
         xhttp.send();
+      
     };
 </script>
+</script>
+<script>
+
+function AddProduct(){
+
+var ProductName=document.getElementById("productName").value;
+    alert("acceptable  "+ProductName);
+
+    var ProductCat=document.getElementById("category").value;
+    alert("acceptable  "+ProductCat);
+
+
+    var Productsaleprice=document.getElementById("salePrice").value;
+    alert("acceptable  "+Productsaleprice);
+
+    var ProductCost=document.getElementById("cost").value;
+    alert("acceptable  "+ProductCost);
+
+    var Product = [ProductName,ProductCat,Productsaleprice,ProductCost];
+
+    
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+  alert( this.responseText);
+}
+};
+var EC=JSON.stringify(Product);
+xhttp.open("GET", "./AddProduct/"+EC, true);
+xhttp.send();
+
+
+};
+function FetchMenu(CID) {
+            var xhttp = new XMLHttpRequest();
+
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("pills-tabContent").innerHTML = this.responseText;
+                    // alert();
+                    calculation();
+
+
+                }
+
+            };
+
+            
+
+            xhttp.open("GET", "./fetchMenu/" + CID, true);
+            xhttp.send();
+
+
+
+        };
+
+        function getAllCategories() {
+
+
+
+            var xhttp = new XMLHttpRequest();
+
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("pills-tab").innerHTML = this.responseText;
+                    FetchMenu(11);
+
+
+
+                }
+
+            };
+
+            xhttp.open("GET", "./fetchCategories", true);
+            xhttp.send();
+        }
+
+
 </script>
 
 </html>
