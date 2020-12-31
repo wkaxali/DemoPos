@@ -2,12 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
-<<<<<<< HEAD
+
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
-=======
 use App\Http\Controllers\OrderFlowController;
->>>>>>> 1a6eac0db2f234bae1c151fc7c17e94f22a55721
+
+
+use App\Http\Controllers\OrderFlowController;
+
+use App\Http\Controllers\AddMenucontroller;
+use App\Http\Controllers\CustomerViewcotroller;
+
+>>>>>>> af5a9ef3d5777da9cd96c7c4130430805d73c076
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +45,11 @@ Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategories
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
+<<<<<<< HEAD
+=======
+Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
+
+>>>>>>> af5a9ef3d5777da9cd96c7c4130430805d73c076
 Route::get('/', function () {
     return view('signInSignUp');
 });
