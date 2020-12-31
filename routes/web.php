@@ -69,3 +69,6 @@ Route::get('/vc', function () {
 Route::get('/vs', function () {
     return view('viewStock');
 });
+Route::get('/pr', function () {
+    return view('payRoll');
+});
