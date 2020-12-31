@@ -465,7 +465,7 @@ function placeOrder()
         xhttp.open("GET", "./placeOrder/" + OrderArray, true);
         xhttp.send();
     }
-    function getOrderID () {
+function getOrderID () {
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {

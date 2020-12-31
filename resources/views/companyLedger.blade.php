@@ -107,54 +107,8 @@
 
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>10/10/2020</td>
-                                        <td>Order Booked</td>
-                                        <td>121530</td>
-                                        <td>Advance Paid On Booking</td>
-                                        <td>60,000,000</td>
-                                        <td>50,000,000</td>
-                                        <td>10,000,000</td>
-                                        <td>Mcb Bank</td>
-                                        <td><a style="text-decoration: underline;" href="#">Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>12/12/2020</td>
-                                        <td>Advance Payment</td>
-                                        <td>1283430</td>
-                                        <td>Advance Payment for Order No 8142</td>
-                                        <td>37,000,000</td>
-
-                                        <td>35,000,000</td>
-                                        <td>2,000,000</td>
-                                        <td>Meezan Bank</td>
-                                        <td><a style="text-decoration: underline;" href="#">Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>10/10/2020</td>
-                                        <td>Clearance</td>
-                                        <td>129230</td>
-                                        <td>Order No 8160 is cleared</td>
-                                        <td>0</td>
-
-                                        <td>12,000,000</td>
-                                        <td>-12,000,000</td>
-                                        <td>HBL Bank</td>
-                                        <td><a style="text-decoration: underline;" href="#">Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>12/12/2020</td>
-                                        <td>Customer Paid</td>
-                                        <td>121253</td>
-                                        <td>This Was Paid By Waqas Ali</td>
-                                        <td>30,000,000</td>
-
-                                        <td>25,000,000</td>
-                                        <td>5,000,000</td>
-                                        <td>Alflah Bank</td>
-                                        <td><a style="text-decoration: underline;" href="#">Details</a></td>
-                                    </tr>
+                                <tbody id="ladgerTableBody">
+                                    
                                 </tbody>
 
                             </table>
