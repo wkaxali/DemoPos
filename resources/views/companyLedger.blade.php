@@ -186,7 +186,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="Footerbtns">
-                        <a class="btn" href="#">Print</a>
+                        <a class="btn" href="#" onclick="myFunction()">Print</a>
                         <a class="btn" href="#">Export To Pdf</a>
         
                     </div>
@@ -201,6 +201,11 @@
 
 
 
+    <script>
+function myFunction() {
+  location.replace("/db")
+}
+</script>
 
 
 

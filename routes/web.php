@@ -74,3 +74,6 @@ Route::get('/vc', function () {
 Route::get('/vs', function () {
     return view('viewStock');
 });
+Route::get('/usama', function () {
+    return view('usama');
+});
