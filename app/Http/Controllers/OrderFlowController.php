@@ -67,7 +67,7 @@ class OrderFlowController extends Controller
         return $IID+1;
     }
 
-    function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice){
+    function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice,$OrderID){
 
            
         $ProductSerial=DB::table('productdefination')->insertGetId(['ProductName'=> $Pname, 
@@ -91,6 +91,7 @@ class OrderFlowController extends Controller
             'ExpairyDate'=>NULL,
             'TotalCost'=>$UnitPurchasePrice,
             'TotalSaleAmount'=>$UnitPurchasePrice,
+            'Status'=>'Pending In Order No:  '.$OrderID
            
             ]);
         return $ProductSerial;
@@ -133,7 +134,7 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,$autoCategory,NULL,NULL,$purchasePrice);
+       $productSerial= self::addProductOnlyForAutos($Pname,$autoCategory,NULL,NULL,$purchasePrice,$InvoiceID);
   
         $DSID=DB::table('tblpurchaseoorderdetaile')->insertGetId(['InvoiceNumber'=>$InvoiceID,
             
@@ -189,7 +190,7 @@ class OrderFlowController extends Controller
       }
      
       function getOrderItem($OID){
-        $results=DB::select('select ProductName,EngineNumber,ChasisNumber,DilevedStatus from vw_purchaseorderdetails where InvoiceNumber='.$OID);
+        $results=DB::select('select ProductName,EngineNumber,ChasisNumber,DilevedStatus,ProductID from vw_purchaseorderdetails where InvoiceNumber='.$OID);
         $table="";
         $i=1;
         $option="";
@@ -203,7 +204,7 @@ class OrderFlowController extends Controller
           else{
             $option='<select
              id="category"
-            tabindex="null"><option value=1 selected>Received</option><option value=2>Pending</option></select></td>';
+            tabindex="null"><option value=1 >Received</option><option value=2 selected>Pending</option></select></td>';
 
           }
           //print $option;
@@ -211,9 +212,10 @@ class OrderFlowController extends Controller
             $table=$table.'
             <tr>
             <td>'.$i.'</td>
+            <td style="display:none">'.$ro->ProductID.'</td>
             <td>'.$ro->ProductName.'</td>
-            <td>'.$ro->ChasisNumber.'</td>
-            <td>'.$ro->EngineNumber.'</td>
+            <td><input type="text" value='.$ro->ChasisNumber.'></td>
+            <td><input type="text" value='.$ro->EngineNumber.'></td>
             <td><input type="text"></td>
             <td> 
                     '.$option.'
