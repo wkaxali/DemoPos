@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
+<<<<<<< HEAD
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
+=======
+use App\Http\Controllers\OrderFlowController;
+>>>>>>> 1a6eac0db2f234bae1c151fc7c17e94f22a55721
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +37,8 @@ Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategories
 
 
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
+Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
+Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
 Route::get('/', function () {
     return view('signInSignUp');
 });
@@ -64,13 +70,13 @@ Route::get('/ip', function () {
 Route::get('/is', function () {
     return view('invoiceServices');
 });
-Route::get('/L', function () {
+Route::get('/l', function () {
     return view('ledger');
 });
 Route::get('/psi', function () {
     return view('printSaleInvoice');
 });
-Route::get('/Rec', function () {
+Route::get('/rec', function () {
     return view('Receiving');
 });
 Route::get('/sc', function () {
