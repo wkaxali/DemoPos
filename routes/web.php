@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\OrderFlowController;
+use App\Http\Controllers\UpdateStocksController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,9 @@ Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
+
+Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
+
 
 Route::get('/', function () {
     return view('signInSignUp');
@@ -61,6 +65,9 @@ Route::get('/rec', function () {
 });
 Route::get('/sc', function () {
     return view('salesandcommission');
+});
+Route::get('/osama', function () {
+    return view('SalesAndCommission');
 });
 Route::get('/S', function () {
     return view('stock');
