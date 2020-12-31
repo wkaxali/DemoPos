@@ -96,11 +96,11 @@
                         <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Contact</th>
-                                    <th>Address</th>
-                                    <th>Interested In</th>
-                                    <th> Who Meet</th>
+                                    <th id ="Cusname">Name</th>
+                                    <th id="CusCont">Contact</th>
+                                    <th id ="Cusaddr">Address</th>
+                                    <th id="CusIntrs">Interested In</th>
+                                    <th id ="CusMeet"> Who Meet</th>
 
                                 </tr>
                             </thead>
@@ -158,7 +158,7 @@
             <br>
             <div class="row">
                 <div class="col-md-4 offset-md-8 text-right">
-                    <button class="btn printBtns">
+                    <button class="btn printBtns" onclick=" CustomerInfo()">
                         Print
                     </button>
                 </div>
@@ -186,7 +186,49 @@
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+
+
+    </script>
+    <script>
+    
+    function CustomerInfo(){
+
+        var CusName=documenty.getElementById(" Cusname").value;
+        alert(" coming from blade"+CusName);
+
+        
+        var cuscont=document.getElementById("CusCont").value;
+        alert("acceptable  "+cuscont);
+
+
+    var cusAddrs=document.getElementById("Cusaddr").value;
+    alert("acceptable  "+cusAddrs);
+
+    var CusIntr=document.getElementById("CusIntrs").value;
+    alert("acceptable  "+CusIntr);
+
+    var CusMeet=document.getElementById("CusMeet").value;
+    alert("acceptable  "+CusMeet);
+
+
+    var custinfo = [CusName,cuscont,cusAddrs,CusIntr,CusMeet];
+
+    
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+  alert( this.responseText);
+}
+};
+var EC=JSON.stringify(custinfo);
+xhttp.open("GET", "./customer/"+EC, true);
+xhttp.send();
+
+
+}; 
+    
     </script>
 </body>
+
 
 </html>
