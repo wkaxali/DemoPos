@@ -29,14 +29,6 @@ Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu'] );
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu'] );
 
 
-
-
-
-
-
-
-
-
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );

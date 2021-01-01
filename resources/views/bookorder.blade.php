@@ -306,20 +306,14 @@
     <script>
       
         function add() {
-            var a;
-            var b;
-            var c;
-            var d;
-            var e;
-            var f;
-            var g;
-            a = document.getElementById("OrderId").value;
-            b = document.getElementById("category");
-            c = document.getElementById("invoice").value;
-            d = document.getElementById("qty").value;
-            e = document.getElementById("total").value;
-            f = document.getElementById("amount").value;
-            g = document.getElementById("remaining").value;
+           
+           var  OrderID = document.getElementById("OrderId").value;
+          var  category = document.getElementById("category");
+            var invoicePrice = document.getElementById("invoice").value;
+            var qty = document.getElementById("qty").value;
+            var tot = document.getElementById("total").value;
+            var amontPaid = document.getElementById("amount").value;
+            var remaining = document.getElementById("remaining").value;
 
             var table = document.getElementById("BookingRecordTable");
             var row = table.insertRow(-1);
@@ -334,13 +328,13 @@
             
      
 
-            cell1.innerHTML = a;
-            cell2.innerHTML = b.options[b.selectedIndex].text;
-            cell3.innerHTML = c;
-            cell4.innerHTML = d;
-            cell5.innerHTML = e;
-            cell6.innerHTML = f;
-            cell7.innerHTML = g;
+            cell1.innerHTML = OrderID;
+            cell2.innerHTML = category.options[category.selectedIndex].text;
+            cell3.innerHTML = invoicePrice;
+            cell4.innerHTML = qty;
+            cell5.innerHTML = tot;
+            cell6.innerHTML = amontPaid;
+            cell7.innerHTML = remaining;
             cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
             calculatonInTable();
             
@@ -434,7 +428,7 @@ function placeOrder()
         orderDetails.shift();
         
         
-
+        alert("array for order"   + orderDetails);
        
       var mainTotal=  document.getElementById("mainTotal").value;
       var totlpaid=      document.getElementById("totalPaid").value;

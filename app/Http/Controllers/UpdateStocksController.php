@@ -12,14 +12,16 @@ class UpdateStocksController extends Controller
        
         
          $Array=json_decode($data);
-    foreach($Array as $oneProduct){
+         $InvoiceNumber=$Array[1];
+    foreach($Array[0] as $oneProduct){
+      if($oneProduct[4]==1){
          $PID=$oneProduct[0];
          $chasisNumber= $oneProduct[1];
          $EngineNumber=$oneProduct[2];
         $TransportCharges =$oneProduct[3];
          $status=$oneProduct[4];
          $dateNow= Carbon::now()->toDateTimeString();
-         $CID=DB::table('tbladditionalcostandprofits')->insertGetId(['PID'=> $ProductSerial, 
+         $CID=DB::table('tbladditionalcostandprofits')->insertGetId(['PID'=> $PID, 
          'CPName' =>"Transportation Charges",
          'Amount' =>$TransportCharges,
          'TType' =>"Cost",
@@ -27,9 +29,15 @@ class UpdateStocksController extends Controller
             
            
             ]);
-            TransactionFlow::addTransaction($InvoiceNo,$TType,$amount,$dateStamp,$UserID,$SBB,$SBA,$CBB,$CBA);
-
-
+            
+            TransactionFlow::addTransaction($InvoiceNumber,"Transportation Charges",$TransportCharges,$dateNow,"1",null,null,NULL,null);
+            //$OldPrice=DB::select('select TotalCost  from instock where ProductSerial='.$PID);
+            $OldPrice = DB::table('instock')
+            ->where('ProductSerial', '=', $PID)
+             ->get();
+            $CurrentPrice=floatval($OldPrice[0]->TotalCost)+floatval($TransportCharges);
+            
+           
 
 
 
@@ -37,18 +45,33 @@ class UpdateStocksController extends Controller
             ->where('ProductSerial', $PID)
             ->update(['EngineNumber' =>$EngineNumber,
             'ChasisNumber' =>$chasisNumber
+            
+         
+            ]);
+            DB::table('instock')
+            ->where('ProductSerial', $PID)
+            ->update(['Status'=>"Delivered on ".$dateNow,
+            'TotalCost' =>$CurrentPrice
+            
+         
+            ]);
+            DB::table('tblpurchaseoorderdetaile')
+            ->where('ProductSerial', $PID)
+            ->update(['DilevedStatus'=>"Received"
+            
          
             ]);
 
 
 
 
-         }
+         }//if condition
+        }
           
          //->format('Y-m-d h:iA');
         // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
  
-        return $EngineNumber;
+        return "Updated";
        
 
 
