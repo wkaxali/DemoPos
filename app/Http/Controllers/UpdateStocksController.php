@@ -50,8 +50,9 @@ class UpdateStocksController extends Controller
             ]);
             DB::table('instock')
             ->where('ProductSerial', $PID)
-            ->update(['Status'=>"Delivered on ".$dateNow,
-            'TotalCost' =>$CurrentPrice
+            ->update(['Remarks'=>"Delivered on ".$dateNow,
+            'TotalCost' =>$CurrentPrice,
+            'Status'=>'Available'
             
          
             ]);
@@ -78,4 +79,11 @@ class UpdateStocksController extends Controller
 
 
     }
+    public function getAllProducts(){
+      $results=DB::select('select * from  vw_stockdetails');
+      
+          
+      return $results;
+
+  }
 }

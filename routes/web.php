@@ -35,6 +35,7 @@ Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
+Route::get('/getAllProducts',[UpdateStocksController::class, 'getAllProducts'] );
 
 
 Route::get('/', function () {
@@ -77,11 +78,11 @@ Route::get('/psi', function () {
 Route::get('/rec', function () {
     return view('Receiving');
 });
+// Route::get('/sc', function () {
+//     return view('salesandcommission');
+// });
 Route::get('/sc', function () {
-    return view('salesandcommission');
-});
-Route::get('/osama', function () {
-    return view('SalesAndCommission');
+    return view('sac');
 });
 Route::get('/S', function () {
     return view('stock');

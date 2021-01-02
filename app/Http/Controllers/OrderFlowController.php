@@ -93,7 +93,8 @@ class OrderFlowController extends Controller
             'ExpairyDate'=>NULL,
             'TotalCost'=>$UnitPurchasePrice,
             'TotalSaleAmount'=>$UnitPurchasePrice,
-            'Status'=>'Pending In Order No:  '.$OrderID
+            'Remarks'=>'Pending In Order No:  '.$OrderID,
+            'Status'=>'Pending'
            
             ]);
         return $ProductSerial;
@@ -136,7 +137,7 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,$autoCategory,NULL,NULL,$purchasePrice,$InvoiceID);
+       $productSerial= self::addProductOnlyForAutos($Pname,"21",NULL,NULL,$purchasePrice,$InvoiceID);
        print ($productSerial);
       
   
@@ -205,7 +206,7 @@ class OrderFlowController extends Controller
 
           //return $charges;
 
-          if( $ro->DilevedStatus=="Received"){
+          if( $ro->DilevedStatus!="Pending"){
                 $option=$ro->DilevedStatus;
           }
           else{
