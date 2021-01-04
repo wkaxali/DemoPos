@@ -48,33 +48,38 @@ Route::get('/db', function () {
     return view('dashboard');
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
-Route::get('/am', function () {
+
+
+Route::get('/addMenu', function () {
     return view('addMenu');
 });
+Route::get('/viewStock', function () {
+    return view('viewStock');
+});
 
-Route::get('/bo', function () {
+Route::get('/bookOrder', function () {
     return view('bookOrder');
 });
 
-Route::get('/cl', function () {
+Route::get('/companyLedger', function () {
     return view('companyLedger');
 });
-Route::get('/deli', function () {
+Route::get('/delivery', function () {
     return view('delivery');
 });
-Route::get('/dl', function () {
+Route::get('/deliveryLetter', function () {
     return view('deliveryLetter');
 });
-Route::get('/ip', function () {
+Route::get('/increaseInPrice', function () {
     return view('increaseInPrice');
 });
-Route::get('/is', function () {
+Route::get('/invoiceServices', function () {
     return view('invoiceServices');
 });
 Route::get('/l', function () {
     return view('ledger');
 });
-Route::get('/psi', function () {
+Route::get('/printSaleInvoice', function () {
     return view('printSaleInvoice');
 });
 Route::get('/rec', function () {
@@ -86,10 +91,10 @@ Route::get('/rec', function () {
 Route::get('/sc', function () {
     return view('sac');
 });
-Route::get('/S', function () {
+Route::get('/stock', function () {
     return view('stock');
 });
-Route::get('/th', function () {
+Route::get('/transactionHistory', function () {
     return view('transactionHistory');
 });
 Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo'] );
