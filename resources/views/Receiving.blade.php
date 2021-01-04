@@ -64,7 +64,7 @@
             border: 1px solid #aaaaaa;
             border-radius: 10px;
             height: 400px;
-            /* overflow: auto; */
+             overflow: auto; 
         }
 
         .btn-print {
@@ -124,14 +124,14 @@
                                         <th>SR</th>
                                         <th>Name</th>
                                         <th>Chasis No</th>
-                                        <th>Eng No</th>
+                                        <th>Engine No</th>
                                         <th>Tranport Charges</th>
                                         <th>Status</th>
 
                                     </tr>
                                 </thead>
                                 <tbody id="autoTableBody">
-                                    
+                                    <!-- Rows are comming from OrderFlowController -->
                                 </tbody>
 
                             </table>
@@ -146,7 +146,7 @@
                     <div class="footerBtns text-right">
                         <a class="btn btn-view" href="viewStock.html">View Stock</a>
                         <a class="btn btn-print" href="viewStock.html">Print Details</a>
-                        <a class="btn btn-update" href="viewStock.html">Update</a>
+                        <a class="btn btn-update"  onclick="UpdateStatusAndTransaction()">Update</a>
                       
                      
                     </div>
@@ -194,6 +194,60 @@ xhttp.onreadystatechange = function () {
 
 xhttp.open("GET", "./getOrderId/"+oid, true);
 xhttp.send();
+}
+
+
+
+
+
+function UpdateStatusAndTransaction(){
+
+    var products = [];
+        var table = document.getElementById("autoTableBody");
+       
+
+        //alert(sp);
+        $('#autoTableBody tr').each(function (row, tr) {
+
+            products[row] = [
+
+                $(tr).find('td:eq(1)').text(), //PID
+                
+                $(tr).find('td:eq(3) input[type="text"]').val(),//chasisNumber
+               
+               
+                $(tr).find('td:eq(4) input[type="text"]').val(), //EngineNumber
+                $(tr).find('td:eq(5) input[type="text"]').val(), //Transport charges
+                $(tr).find('td:eq(6)').find(":selected").val()//Status
+                
+
+
+
+            ];
+
+
+        });
+        //products.shift();
+        alert(products);
+        var OID= document.getElementById("OrderId").value;
+        var array2=[products,OID];
+        var prod = JSON.stringify(array2);
+
+        alert(prod);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                alert("Stock =" + this.responseText + " Updated");
+               
+
+            }
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./ruautos/" + prod, true);
+        xhttp.send();
+
+
 }
 </script>
 </body>

@@ -142,11 +142,17 @@
             width: 120px !important;
         }
 
+<<<<<<< HEAD
         th,
         td {
             border-bottom: 1px solid #333;
         }
 
+=======
+        /* body{
+            background-color: lightgray;
+        } */
+>>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
 
     </style>
 </head>
@@ -266,12 +272,80 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+<<<<<<< HEAD
+=======
+                                    <tr>
+                                        <td>1321</td>
+                                        <td>Forland C10</td>
+                                        <td>1</td>
+                                        <td>6,98,0,000</td>
+                                        <td>100,000,000</td>
+                                        <td>&times;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1321</td>
+                                        <td>Forland C10</td>
+                                        <td>1</td>
+                                        <td>6,98,0,000</td>
+                                        <td>100,000,000</td>
+                                        <td>&times;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1321</td>
+                                        <td>Forland C10</td>
+                                        <td>1</td>
+                                        <td>6,98,0,000</td>
+                                        <td>6980,000</td>
+                                        <td>&times;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1321</td>
+                                        <td>Forland C10</td>
+                                        <td>1</td>
+                                        <td>6,98,0,000</td>
+                                        <td>13,000,000</td>
+                                        <td>&times;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1321</td>
+                                        <td>Forland C10</td>
+                                        <td>1</td>
+                                        <td>6,98,0,000</td>
+                                        <td>13,000,000</td>
+                                        <td>&times;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1321</td>
+                                        <td>Forland C10</td>
+                                        <td>1</td>
+                                        <td>6,98,0,000</td>
+                                        <td>13,000,000</td>
+                                        <td>&times;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1321</td>
+                                        <td>Forland C10</td>
+                                        <td>1</td>
+                                        <td>6,98,0,000</td>
+                                        <td>13,000,000</td>
+                                        <td>&times;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1321</td>
+                                        <td>Forland C10</td>
+                                        <td>1</td>
+                                        <td>6,98,0,000</td>
+                                        <td>13,000,000</td>
+                                        <td>&times;</td>
+                                    </tr>
+>>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
 
 
                                 </tbody>
                             </table>
                         </div>
                         <div class="mainInputGroups">
+<<<<<<< HEAD
                         <div class="input-group">
                                 <label style="width: 150px !important;" for="">Total Amount</label>
                                 <input type="text"  name="" id="mainTotal">
@@ -286,6 +360,18 @@
                                 <input type="text" name="" id="totRemaining">
                             </div>
                             
+=======
+
+
+                            <div class="input-group ">
+                                <label style="width: 150px  !important;" for="">Total Paid</label>
+                                <input type="text" name="" id="">
+                            </div>
+                            <div class="input-group">
+                                <label style="width: 150px !important;" for="">Total Amount</label>
+                                <input type="text" name="" id="">
+                            </div>
+>>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
                         </div>
                         <div class="clear"></div>
 
@@ -306,20 +392,14 @@
     <script>
       
         function add() {
-            var a;
-            var b;
-            var c;
-            var d;
-            var e;
-            var f;
-            var g;
-            a = document.getElementById("OrderId").value;
-            b = document.getElementById("category");
-            c = document.getElementById("invoice").value;
-            d = document.getElementById("qty").value;
-            e = document.getElementById("total").value;
-            f = document.getElementById("amount").value;
-            g = document.getElementById("remaining").value;
+           
+           var  OrderID = document.getElementById("OrderId").value;
+          var  category = document.getElementById("category");
+            var invoicePrice = document.getElementById("invoice").value;
+            var qty = document.getElementById("qty").value;
+            var tot = document.getElementById("total").value;
+            var amontPaid = document.getElementById("amount").value;
+            var remaining = document.getElementById("remaining").value;
 
             var table = document.getElementById("BookingRecordTable");
             var row = table.insertRow(-1);
@@ -334,13 +414,13 @@
             
      
 
-            cell1.innerHTML = a;
-            cell2.innerHTML = b.options[b.selectedIndex].text;
-            cell3.innerHTML = c;
-            cell4.innerHTML = d;
-            cell5.innerHTML = e;
-            cell6.innerHTML = f;
-            cell7.innerHTML = g;
+            cell1.innerHTML = OrderID;
+            cell2.innerHTML = category.options[category.selectedIndex].text;
+            cell3.innerHTML = invoicePrice;
+            cell4.innerHTML = qty;
+            cell5.innerHTML = tot;
+            cell6.innerHTML = amontPaid;
+            cell7.innerHTML = remaining;
             cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
             calculatonInTable();
             
@@ -434,7 +514,7 @@ function placeOrder()
         orderDetails.shift();
         
         
-
+        alert("array for order"   + orderDetails);
        
       var mainTotal=  document.getElementById("mainTotal").value;
       var totlpaid=      document.getElementById("totalPaid").value;
@@ -464,7 +544,7 @@ function placeOrder()
         xhttp.open("GET", "./placeOrder/" + OrderArray, true);
         xhttp.send();
     }
-    function getOrderID () {
+function getOrderID () {
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {

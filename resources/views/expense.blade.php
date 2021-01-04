@@ -69,6 +69,11 @@
             border-radius: 10px;
         }
 
+        .borderCustom-2 {
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
     </style>
 </head>
 
@@ -87,14 +92,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-5 offset-md-2">
-                            <h5>Your Current <br> Month Expenses Are</h5>
+                    <div class="row borderCustom-2">
+                        <div class="col-md-5 offset-md-1">
+                            <h5>Current Expenses</h5>
                             <input type="tel" value="43,360" name="" id="">
                             <h5>From Dec 25 to Jan 20</h5>
                         </div>
-                        <div class="col-md-4 offset-md-1">
-                            <h5>Your Expense <br> Account have</h5>
+                        <div class="col-md-4 offset-md-2">
+                            <h5>Your Expenses</h5>
                             <input type="tel" value="50,000" name="" id="">
                             <div class="mainButtons my-1">
                                 <button style="background-color: #0a549d; color: #ffffff;" class="btn ">Add</button>

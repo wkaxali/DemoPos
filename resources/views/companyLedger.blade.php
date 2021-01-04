@@ -88,7 +88,35 @@
                     <div class="receivingMain">
 
 
+<<<<<<< HEAD
                         <div class="receivingTable" id = "myTableDiv">
+=======
+                        <div class="receivingTable">
+                            <table class=" table-striped" style="width: 100%; text-align: center;">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Category</th>
+
+                                        <th>Transactional ID</th>
+
+                                        <th>Description</th>
+                                        <th>Total Amount</th>
+                                        <th>Amount Paid</th>
+                                        <th>Remaining</th>
+                                        <th>Paid By</th>
+
+                                        <th>Details</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody id="ladgerTableBody">
+                                    
+                                </tbody>
+
+                            </table>
+>>>>>>> c740b7f4d3ff63ef7ef17d1b119885fb631f4548
 
                         </div>
                     </div>
