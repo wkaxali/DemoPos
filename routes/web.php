@@ -61,25 +61,25 @@ Route::get('/bookOrder', function () {
     return view('bookOrder');
 });
 
-Route::get('/companyLedger', function () {
+Route::get('/cl', function () {
     return view('companyLedger');
 });
-Route::get('/delivery', function () {
+Route::get('/dl', function () {
     return view('delivery');
 });
-Route::get('/deliveryLetter', function () {
+Route::get('/d', function () {
     return view('deliveryLetter');
 });
-Route::get('/increaseInPrice', function () {
+Route::get('/ip', function () {
     return view('increaseInPrice');
 });
-Route::get('/invoiceServices', function () {
+Route::get('/is', function () {
     return view('invoiceServices');
 });
 Route::get('/l', function () {
     return view('ledger');
 });
-Route::get('/printSaleInvoice', function () {
+Route::get('/psi', function () {
     return view('printSaleInvoice');
 });
 Route::get('/rec', function () {
@@ -94,7 +94,7 @@ Route::get('/sc', function () {
 Route::get('/stock', function () {
     return view('stock');
 });
-Route::get('/transactionHistory', function () {
+Route::get('/th', function () {
     return view('transactionHistory');
 });
 Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo'] );
@@ -104,9 +104,7 @@ Route::get('/vc', function () {
 Route::get('/vs', function () {
     return view('viewStock');
 });
-Route::get('/abc', function () {
-    return view('abc');
-});
+
 Route::get('/ex', function () {
     return view('expense');
 });
