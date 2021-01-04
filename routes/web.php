@@ -37,10 +37,12 @@ Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategories
 
 
 
+
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
+Route::get('/abc',[OrderFlowController::class, 'abc'] );
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
 
@@ -107,6 +109,4 @@ Route::get('/vs', function () {
 Route::get('/usama', function () {
     return view('usama');
 });
-Route::get('/abc', function () {
-    return view('abc');
-});
+

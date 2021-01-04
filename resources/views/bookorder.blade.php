@@ -462,7 +462,7 @@ function placeOrder()
             }
         };
         // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./placeOrder/" + OrderArray, true);
+        xhttp.open("GET", "./placeOrder/"+OrderArray, true);
         xhttp.send();
     }
 function getOrderID () {
