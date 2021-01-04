@@ -85,9 +85,9 @@ Route::get('/psi', function () {
 Route::get('/rec', function () {
     return view('Receiving');
 });
-// Route::get('/sc', function () {
-//     return view('salesandcommission');
-// });
+Route::get('/sandc', function () {
+    return view('salesandcommission');
+});
 Route::get('/sc', function () {
     return view('sac');
 });
