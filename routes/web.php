@@ -50,14 +50,14 @@ Route::get('/db', function () {
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
 
 
-Route::get('/addMenu', function () {
+Route::get('/am', function () {
     return view('addMenu');
 });
-Route::get('/viewStock', function () {
+Route::get('/vs', function () {
     return view('viewStock');
 });
 
-Route::get('/bookOrder', function () {
+Route::get('/bo', function () {
     return view('bookOrder');
 });
 
