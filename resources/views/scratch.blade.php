@@ -67,6 +67,7 @@
 </head>
 
 <body onload="myFunction()">
+
     <header>
         <div class="container">
             <div class="row">
@@ -92,7 +93,7 @@
 
 
 
-                    <div class="receivingTable" id = "tableDiv">
+                    <div class="receivingTable" id = "quark">
                     <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
                         <thead>
                             <tr>
@@ -141,7 +142,7 @@
     </script>
     
     <script>
-
+    
     function CustomerInfo(){
 
         var CusName=documenty.getElementById(" Cusname").value;
@@ -188,28 +189,14 @@ function myFunction(){
         
         if (this.readyState == 4 && this.status == 200) {
     
-            var data = this.responseText;
-                //alert(data);
-                var table;
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                table = $('#myTable').DataTable();
-
-                $.each(a, function (i, item) {
-
-                    table.row.add([a[i].CustomerName, a[i].Contect, a[i].Address, a[i].Balance, a[
-                        i].CNIC]);
-                });
-                table.draw();
-
+            document.getElementById("quark").innerHTML = this.response;
         }
     };
     //alert("ljd");
-    xhttp.open("GET", "./viewCustomer/", true);
+    xhttp.open("GET", "./scratchFunc/", true);
     
     xhttp.send();
     }
-
     </script>
 
 <script>

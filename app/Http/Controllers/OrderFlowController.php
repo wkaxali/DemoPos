@@ -60,12 +60,12 @@ class OrderFlowController extends Controller
         //frf
         return "Your order ".$invoiceNumber;
     }
+
     function getOrderID(){
 
-
-        $IID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
-        return $IID+1;
-    }
+      $IID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
+      return $IID+1;
+  }
 
     function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice){
 
@@ -187,6 +187,128 @@ class OrderFlowController extends Controller
         
         ]);
       }
+
+      function viewCustomer(){
+        $data=DB:: select('select * from customeinformation');
+        return $data;
+      }
+      
+      function viewStock(){
+        $data=DB:: select('select * from vw_stockdetails');
+        return $data;
+      }
+      
+      function companyLedger(){
+        $data=DB:: select('select * from tbltransactionflow');
+        
+        $table='
+        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+          <thead>
+              <tr>
+                  
+                  <th id ="Cusname">Transaction ID</th>
+                  <th id="CusCont">Invoice No</th>
+                  <th id ="Cusaddr">Transection Catogery</th>
+                  <th id="CusIntrs">Amount</th>
+                  <th id ="CusMeet">Transaction Date</th>
+              </tr>
+          </thead>
+          <tbody>';
+ 
+
+        foreach ($data as $d){
+          //print $option;
+
+            $table=$table.'
+           
+       
+            <tr>
+            
+            <td>'.$d->TransactionID.'</td>
+            <td>'.$d->InvoiceNo.'</td>
+            <td>'.$d->TransectionCatogery.'</td>
+            <td>'.$d->Amount.'</td>
+            <td>'.$d->DateStamp.'</td>
+            </tr>';
+          
+        }
+        return $table.'<table>';
+      }
+
+      function transactionHistory(){
+        $data=DB:: select('select * from tbltransactionflow');
+        return $data;
+      }
+
+      function scratchFunc(){
+        $data=DB:: select('select CustomerName, Contect, Address, Balance, CNIC from customeinformation');
+        $table='
+        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+          <thead>
+              <tr>
+                  <th id ="Cusname">Name</th>
+                  <th id="CusCont">Contact</th>
+                  <th id ="Cusaddr">Address</th>
+                  <th id="CusIntrs">Interested In</th>
+                  <th id ="CusMeet"> Who Meet</th>
+
+              </tr>
+          </thead>
+          <tbody>';
+ 
+
+        foreach ($data as $d){
+          //print $option;
+
+            $table=$table.'
+           
+       
+            <tr>
+            <td>'.$d->CustomerName.'</td>
+            <td>'.$d->Contect.'</td>
+            <td>'.$d->Address.'</td>
+            <td>'.$d->Balance.'</td>
+            <td>'.$d->CNIC.'</td>
+            </tr>';
+      
+        }
+        return $table.'<table>';
+      }
+
+      function getTransaction(){
+      
+        $data=DB:: select('select * from companyinfo');
+        $i=1;
+        $table="
+        <table>
+        <tr>
+        <td>Increment</td>
+        <td>Transaction ID</td>
+        <td>Invoice Number</td>
+        <td>Transection Catogery</td> </tr>";
+ 
+
+        foreach ($data as $d){
+          //print $option;
+
+            $table=$table.'
+           
+       
+            <tr>
+            <td>'.$i.'</td>
+            <td>'.$d->CompanyName.'</td>
+            <td>'.$d->StoreName.'</td>
+            <td>'.$d->Address.'</td>
+            
+     
+        </tr>';
+        
+        $i++;
+        }
+        return $table.'<table>';
+        
+        
+    }
      
       function getOrderItem($OID){
         $results=DB::select('select ProductName,EngineNumber,ChasisNumber,DilevedStatus from vw_purchaseorderdetails where InvoiceNumber='.$OID);

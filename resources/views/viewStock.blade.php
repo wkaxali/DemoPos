@@ -10,7 +10,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
  
-    <title>Book Order</title>
+    <title>View Stock</title>
     <style>
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
@@ -46,7 +46,7 @@
     </style>
 </head>
 
-<body>
+<body onload="myFunction()">
 
     <header>
         <div class="container">
@@ -66,124 +66,16 @@
                                 <thead>
                                     <tr>
                                         <th>Product Id</th>
-                                        <th>Model</th>
-                                        <th>Status</th>
-                                        <th>Chasis No</th>
-                                        <th> Engine No</th>
-                                        <th>Sale Price</th>
-                                        <th>Details</th>
+                                        <th>Product Name</th>
+                                        <th>Unit Sale Price</th>
+                                        <th>Unit Purchase Price</th>
+                                        <th> Serial No</th>
+                                        <th>Stock</th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: rgb(211, 211, 19); font-weight: 700;">On Hold</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: red; font-weight: 700;">In Stock</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: rgb(0, 19, 128); font-weight: 700;">Pending</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: rgb(128, 41, 0); font-weight: 700;">In Progress</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: green; font-weight: 700;">Sold</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: rgb(211, 211, 19); font-weight: 700;">On Hold</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: rgb(211, 211, 19); font-weight: 700;">On Hold</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: red; font-weight: 700;">In Stock</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: rgb(0, 19, 128); font-weight: 700;">Pending</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: rgb(128, 41, 0); font-weight: 700;">In Progress</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: green; font-weight: 700;">Sold</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>1245</td>
-                                        <td>Fc130</td>
-                                        <td style="color: rgb(211, 211, 19); font-weight: 700;">On Hold</td>
-                                        <td>E56921</td>
-                                        <td>32FNK</td>
-                                        <td>1423,000</td>
-                                        <td><a href="salesandcommission.html">View Details</a></td>
-                                    </tr>
+                                    
                                 </tbody>
 
                             </table>
@@ -216,9 +108,41 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
+function myFunction(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            var data = this.responseText;
+                //alert(data);
+                var table;
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                table = $('#myTable').DataTable();
+
+                $.each(a, function (i, item) {
+
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice
+                    , a[i].ProductSerial, a[i].StockIn]);
+                });
+                table.draw();
+
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./viewStock/", true);
+    
+    xhttp.send();
+    }
+</script>
+
+<script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+
+
     </script>
 
 </body>

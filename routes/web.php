@@ -25,20 +25,20 @@ Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu'] );
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories'] );
 Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu'] );
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu'] );
-
-
-
-
-
-
-
-
-
-
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
-Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
+Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID']);
+Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
+Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
+Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
+Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
+
+
+// Test Functions
+Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
+Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
+
 
 Route::get('/', function () {
     return view('signInSignUp');
@@ -81,7 +81,7 @@ Route::get('/rec', function () {
     return view('Receiving');
 });
 Route::get('/sc', function () {
-    return view('salesandcommission');
+    return view('SalesAndComission');
 });
 Route::get('/S', function () {
     return view('stock');
@@ -96,6 +96,12 @@ Route::get('/vc', function () {
 Route::get('/vs', function () {
     return view('viewStock');
 });
-Route::get('/abc', function () {
-    return view('abc');
+Route::get('/ajax', function () {
+    return view('ajax');
+});
+Route::get('/scratch', function () {
+    return view('scratch');
+});
+Route::get('/test', function () {
+    return view('test');
 });
