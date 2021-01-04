@@ -8,6 +8,7 @@ use App\Http\Controllers\UpdateStocksController;
 
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
+use App\Http\Controllers\salesFlow;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,7 @@ Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
 Route::get('/getAllProducts',[UpdateStocksController::class, 'getAllProducts'] );
+Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 
 
 Route::get('/', function () {
@@ -99,4 +101,7 @@ Route::get('/vs', function () {
 });
 Route::get('/abc', function () {
     return view('abc');
+});
+Route::get('/ex', function () {
+    return view('expense');
 });

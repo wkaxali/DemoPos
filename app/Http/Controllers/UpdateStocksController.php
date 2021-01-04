@@ -86,4 +86,11 @@ class UpdateStocksController extends Controller
       return $results;
 
   }
+  public function getAllAvailableProducts(){
+    $results=DB::select('select * from  vw_stockdetails where StatusInStock="Available"');
+    
+        
+    return $results;
+
+}
 }
