@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\TransactionFlow;
 use Carbon\Carbon;
 use DB;
 class OrderFlowController extends Controller
@@ -15,6 +16,7 @@ class OrderFlowController extends Controller
         $totlpaid= $Array[1];
         $totRemaining=$Array[2];
        $orderDetails =$Array[3];
+       
         
          
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
@@ -89,7 +91,7 @@ class OrderFlowController extends Controller
          
             ]);
           
-            $ProductSerial=DB::table('instock')->insertGetId(['ProductSerial'=> $ProductSerial, 
+            $SID=DB::table('instock')->insertGetId(['ProductSerial'=> $ProductSerial, 
             'StockIn'=>'1',
             'PerUnitPurchasePrice'=> $UnitPurchasePrice,
              
@@ -97,7 +99,8 @@ class OrderFlowController extends Controller
             'ExpairyDate'=>NULL,
             'TotalCost'=>$UnitPurchasePrice,
             'TotalSaleAmount'=>$UnitPurchasePrice,
-            'Status'=>'Pending In Order No:  '.$OrderID
+            'Remarks'=>'Pending In Order No:  '.$OrderID,
+            'Status'=>'Pending'
            
             ]);
         return $ProductSerial;
@@ -140,7 +143,9 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,$autoCategory,NULL,NULL,$purchasePrice,$InvoiceID);
+       $productSerial= self::addProductOnlyForAutos($Pname,"21",NULL,NULL,$purchasePrice,$InvoiceID);
+       print ($productSerial);
+      
   
         $DSID=DB::table('tblpurchaseoorderdetaile')->insertGetId(['InvoiceNumber'=>$InvoiceID,
             
@@ -181,6 +186,7 @@ class OrderFlowController extends Controller
         'DateStamp'=>$dateNow,
         'UserID'=>$userID,
         'PattyCash'=>$pattyCash,
+        'TransactionType'=>"Credit",
         
         'SBB'=>NULL,
         'SBA'=>NULL,
@@ -202,10 +208,12 @@ class OrderFlowController extends Controller
         $option="";
   
         foreach ($results as $ro){
-          if( $ro->DilevedStatus=="Received"){
-                $option='<select
-                class="selectpicker form-control" data-live-search="true" id="category"
-                tabindex="null"><option value=1 selected>Received</option><option value=2>Pending</option></select></td>';
+        $charges= TransactionFlow::getChargesOrComissions($ro->ProductID,"Transportation Charges","Cost");
+
+          //return $charges;
+
+          if( $ro->DilevedStatus!="Pending"){
+                $option=$ro->DilevedStatus;
           }
           else{
             $option='<select
@@ -213,6 +221,24 @@ class OrderFlowController extends Controller
             tabindex="null"><option value=1 >Received</option><option value=2 selected>Pending</option></select></td>';
 
           }
+          if($charges==0){
+          $tc=' value='.$charges;
+          }
+          else{
+            $tc=' value='.$charges.' readonly ="true"';
+          }
+          if($ro->ChasisNumber==""){
+            $CHN=' value='.$ro->ChasisNumber;
+            }
+            else{
+              $CHN=' value='.$ro->ChasisNumber.' readonly ="true"';
+            }
+            if($ro->EngineNumber==""){
+              $EN=' value='.$ro->EngineNumber;
+              }
+              else{
+                $EN=' value='.$ro->EngineNumber.' readonly ="true"';
+              }
           //print $option;
 
             $table=$table.'
@@ -220,9 +246,9 @@ class OrderFlowController extends Controller
             <td>'.$i.'</td>
             <td style="display:none">'.$ro->ProductID.'</td>
             <td>'.$ro->ProductName.'</td>
-            <td><input type="text" value='.$ro->ChasisNumber.'></td>
-            <td><input type="text" value='.$ro->EngineNumber.'></td>
-            <td><input type="text"></td>
+            <td><input type="text" '.$CHN.'></td>
+            <td><input type="text" '.$EN.'></td>
+            <td><input type="text"'.$tc.'></td>
             <td> 
                     '.$option.'
 

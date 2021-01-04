@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class TransactionFlow extends Controller
 {
-    public function addTransaction($InvoiceNo,$TType,$amount,$dateStamp,$UserID,$SBB,$SBA,$CBB,$CBA){
+    public static function addTransaction($InvoiceNo,$TType,$amount,$dateStamp,$UserID,$SBB,$SBA,$CBB,$CBA){
 
        
         // InvoiceNo bigint(20) 
@@ -38,4 +38,43 @@ class TransactionFlow extends Controller
            ]);
 
     }
+
+    public static function UpdateCaT($PID,$TTname,$amount,$ttype,$dateNow){
+
+
+        $CID=DB::table('tbladditionalcostandprofits')->insertGetId(['PID'=> $PID, 
+        'CPName' =>$TTname,
+        'Amount' =>$amount,
+        'TType' =>$ttype,
+        'DateStamp'=>$dateNow
+           
+          
+           ]);
+           return $CID;
+    }
+    public static function getChargesOrComissions($PID,$TTname,$ttype){
+
+
+        $amount = DB::table('tbladditionalcostandprofits')
+            ->where([['PID', '=', $PID],
+            ['CPName', '=', $TTname],
+            ['TType', '=', $ttype]]         
+            
+            )
+             ->get();
+
+        
+
+
+        if($amount->isEmpty()){
+           
+            return 0;
+
+        }else{
+          
+            return $amount[0]->Amount;
+        }
+        
+    }
+
 }

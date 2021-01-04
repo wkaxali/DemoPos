@@ -29,6 +29,7 @@ Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu'] );
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu'] );
 
 
+<<<<<<< HEAD
 
 
 
@@ -38,6 +39,8 @@ Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategories
 
 
 
+=======
+>>>>>>> e9414e04f6c74a15703ba204c1b2ead9b1bc4af1
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
@@ -45,6 +48,7 @@ Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
 Route::get('/abc',[OrderFlowController::class, 'abc'] );
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
+Route::get('/getAllProducts',[UpdateStocksController::class, 'getAllProducts'] );
 
 
 Route::get('/', function () {
@@ -87,11 +91,11 @@ Route::get('/psi', function () {
 Route::get('/rec', function () {
     return view('Receiving');
 });
+// Route::get('/sc', function () {
+//     return view('salesandcommission');
+// });
 Route::get('/sc', function () {
-    return view('salesandcommission');
-});
-Route::get('/osama', function () {
-    return view('SalesAndCommission');
+    return view('sac');
 });
 Route::get('/S', function () {
     return view('stock');

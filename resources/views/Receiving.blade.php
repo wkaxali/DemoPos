@@ -229,7 +229,10 @@ function UpdateStatusAndTransaction(){
         });
         //products.shift();
         alert(products);
-        var prod = JSON.stringify(products);
+        var OID= document.getElementById("OrderId").value;
+        var array2=[products,OID];
+        var prod = JSON.stringify(array2);
+
         alert(prod);
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
