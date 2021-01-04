@@ -628,7 +628,7 @@
                 var a = JSON.parse(data);
                 //  alert(a[0].ProductSerial);
                 table = $('#searchProductTable').DataTable();
-
+                table.clear();
                 $.each(a, function (i, item) {
 
                     table.row.add([a[i].ProductID, a[i].ProductName, a[i].EngineNumber, a[i].ChasisNumber
