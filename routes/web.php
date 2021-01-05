@@ -36,7 +36,7 @@ Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
-Route::get('/getAllProducts',[UpdateStocksController::class, 'getAllProducts'] );
+Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts'] );
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 
 

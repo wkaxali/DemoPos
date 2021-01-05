@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\TransactionFlow;
+use App\Http\Controllers\LedgerPartiesController;
 use Carbon\Carbon;
 use DB;
 class OrderFlowController extends Controller
@@ -48,18 +49,20 @@ class OrderFlowController extends Controller
 
         
         self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
-      self::  addInTransactionFlowForPurchase($invoiceNumber,$dateNow,$totlpaid,'1',NULL,NULL,NULL);
-        //self::addInTransactionFlowForSales($invoiceNumber,$dateNow,$AP,"1",NULL,$CLB,$CCB);
-        //CustomerController::UpdateCustomerBalance($CID,$CCB);
+      $LID=1;
+      $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+
+      $currentBalance=floatval($oldBalance)+floatval($totRemaining);
+      LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
+      TransactionFlow::addTransaction($invoiceNumber,"Cedit","Booking Order",
+      $totlpaid,$dateNow,"1",$oldBalance,$currentBalance,NULL,NULL,$LID,"0",NULL,"FWJ","CASH",NULL);
+      
 
 
 
      
        
-        //insert into order details
-        //inster in transaction Flow
-        //update customer balance
-        //frf
+        
         return "Your order ".$invoiceNumber;
     }
     function getOrderID(){
@@ -193,6 +196,7 @@ class OrderFlowController extends Controller
         
         
         ]);
+        
       }
      
       function getOrderItem($OID){

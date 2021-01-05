@@ -318,7 +318,7 @@
                                 <label for="status">Discount</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="Discount" value="0" onkeypress="calc()">
+                                    name="name" id="Discount" value="0" onkeyup="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
@@ -483,7 +483,7 @@
                             <label for="status">Amount Paid</label>
                             <input type="text" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="amountPaid" value="0" onkeypress="calcRemainingAmount()">
+                                name="name" id="amountPaid" value="0" onkeyup="calcRemainingAmount()">
                         </div>
                         <div class="input-field">
                             <label for="status">Remaining</label>
@@ -639,7 +639,7 @@
             }
         };
 
-        xhttp.open("GET", "./getAllProducts/", true);
+        xhttp.open("GET", "./getAvailableProducts/", true);
         xhttp.send();
   }
 
@@ -671,6 +671,7 @@ $("#searchProductTable").on('click', 'tr', function () {
 
    var tot= document.getElementById("TotalPrice").value;
     var dis=document.getElementById("Discount").value;
+    
     var netTot=Number(tot)-Number(dis);
 
     document.getElementById("NetTotal").value=netTot;
@@ -683,7 +684,7 @@ $("#searchProductTable").on('click', 'tr', function () {
   function calcRemainingAmount(){
 
   var tot=  document.getElementById("NetTotal").value;
-   var ap= document.getElementById("ampountPaid").value;
+   var ap= document.getElementById("amountPaid").value;
    var rem=Number(tot)-Number(ap);
    document.getElementById("amountRemaining").value=rem;
 

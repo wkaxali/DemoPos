@@ -5,6 +5,8 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UpdateStocksController;
+use App\Http\Controllers\TransactionFlow;
+use App\Http\Controllers\LedgerPartiesController;
 use DB;
 
 
@@ -27,15 +29,22 @@ class salesFlow extends Controller
         
           //tot,discount,gross,tax,netTotal,amp,rmb,CID,CLB,CCB
         //insert into sales order
+        if( $rmb>0){
+          $invoiceStatus="Not Cleared";
+
+        }
+        else{
+          $invoiceStatus="CLEARED";
+        }
         $invoiceNumber=DB::table('tblsaleinvoice')->insertGetId(['CustomerID'=>$CID,
         'TotalAmount'=>$tot,
         'Discount'=>$OverAllDiscount,
         'DateStamp'=>$dateNow,
         'VAT'=>NULL,
-        'NetTotal'=>$tot,
+        'NetTotal'=>$AmountAfterDiscount,
         'AmountPaid'=>$amp,
         'Balance'=>$rmb,
-        'BillStatus'=>"CLEAR",
+        'BillStatus'=>$invoiceStatus,
         'HoldStatus'=>'0',
         'CustomerBalanceBeforeInvoiceBill'=>NULL,
         'CustomerBalanceAfterInvoiceBill'=>NULL,
@@ -46,11 +55,27 @@ class salesFlow extends Controller
         'returnDate' =>NULL
         
         ]);
-
-        $detailedOrder=array($pid,$tot,"1",$OverAllDiscount,$AmountAfterDiscount);
+        $TransactionMode='2';
+        $detailedOrder=array($pid,$tot,"1",$OverAllDiscount,$AmountAfterDiscount,$tot);
        // return  $detailedOrder[1];
         self::insertInDetailedOrder($detailedOrder,$invoiceNumber,$dateNow);
-        self::addInTransactionFlowForSales($invoiceNumber,$dateNow,$amp,"1",NULL,NULL,NULL);
+       // TransactionFlow::addInTransactionFlowForSales("1",$invoiceNumber,$dateNow,$amp,"1",NULL,NULL,NULL);
+        $LID=2;
+        $paidVia="CASH";
+        TransactionFlow::addTransaction($invoiceNumber,"Debit","Sales",
+        $amp,$dateNow,"1",NULL,NULL,NULL,NULL,$LID,"0",$CID,"MM",$paidVia,NULL);
+        if($TransactionMode='2'){
+          $LID=1;
+          $paidVia="CASH";
+          $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+          $currentBalance=floatval ($oldBalance)-floatval ($amp);
+          TransactionFlow::addTransaction($invoiceNumber,"Credit","Customer Paid to Company",
+          $amp,$dateNow,"1", $oldBalance,$currentBalance,NULL,NULL,$LID,"0",$CID,"FJW",$paidVia,NULL);
+         
+        
+         LedgerPartiesController::UpdatePartiesBalance($LID, $currentBalance);
+          
+        }
        return $invoiceNumber;
     }
     public function insertInDetailedOrder($row,$InvoiceID,$date){
@@ -64,7 +89,7 @@ class salesFlow extends Controller
       'DiscountOffered'=>$row[3],
       'DateStamp'=>$date,
       
-      'TotalAmount'=>0,
+      'TotalAmount'=>$row[5],
       'NetAmount'=>$row[4],
       
       'Activity'=>"Sales",
@@ -86,32 +111,7 @@ class salesFlow extends Controller
     return json_encode($obj);
       # code...
     }
-    public function addInTransactionFlowForSales($invoiceNumber,$dateNow,$AP,$userID,$pattyCash,$CLB,$CCB){
-
-      // [TransactionID]
-      
-      $TID=DB::table('tblTransactionFlow')->insertGetId(['InvoiceNo'=>$invoiceNumber,
-      'TransectionCatogery'=>"Sales",
-      'Amount'=>$AP,
-      'DateStamp'=>$dateNow,
-      'UserID'=>$userID,
-      'PattyCash'=>$pattyCash,
-      
-      'SBB'=>NULL,
-      'SBA'=>NULL,
-      'CBB'=>$CLB,
-      'CBA'=>$CCB
-      
-      
-      
-      
-      
-      
-      ]);
-
-
-
-    }
+   
 
 
     public function getInvoiceNewID(){
