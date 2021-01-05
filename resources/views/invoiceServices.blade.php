@@ -219,6 +219,7 @@
     </div>
     <header>
         <div class="container">
+            
             <div class="row">
                 <div class="col-md-12 ">
                     <div class="firstColor my-4">
@@ -439,7 +440,7 @@
                                                 <a href="#"> <i class="fas fa-lock"></i>
                                                 </a> <input type="password" autocomplete="OFF" name="password"
                                                     id="password" placeholder="Address">
-                                            </div>
+                                            </div >
                                             <div class="input-field">
                                                 <a href="#"> <i class="fas fa-lock"></i>
                                                 </a> <input type="password" autocomplete="OFF" name="password"
@@ -741,5 +742,71 @@ xhttp.onreadystatechange = function () {
 xhttp.open("GET", "./addSales/" + array, true);
 xhttp.send();
 };
+
+
+
+
+<script>
+      
+      function add() {
+         
+           var  date = document.getElementById(" date").value;
+         var  amount = document.getElementById(" amount ");
+         var expence = document.getElementById(" expence").value;
+         var paid to = document.getElementById(" paidto").value;
+         var paid by = document.getElementById(" paidby").value;
+         var remarks = document.getElementById(" remarks").value;
+          var action = document.getElementById(" action ").value;
+         
+
+          var table = document.getElementById("BookingRecordTable");
+          var row = table.insertRow(-1);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
+          var cell7 = row.insertCell(6);
+          var cell8 = row.insertCell(7);
+       
+          
+   
+
+          cell1.innerHTML = date  ;
+          cell2.innerHTML = amount ;
+          cell3.innerHTML = expence;
+          cell4.innerHTML = paid to;
+          cell5.innerHTML = paid by;
+          cell6.innerHTML = remarks;
+          cell7.innerHTML = action ;
+          cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+        
+          calculatonInTable();
+          
+
+
+      }
+
+
+
+
+      function deleteRow(ele) {
+          var a = ele.parentNode.parentNode;
+
+          a.remove();
+          calculatonInTable();
+      }
+
+
+      function product() {
+          var invoice = document.getElementById("invoice").value;
+          var qty = document.getElementById("qty").value;
+
+          var product = invoice * qty;
+          document.getElementById("total").value = product;
+         // document.getElementById("mainTotal").value = product;
+
+      }
     </script>
 </html>

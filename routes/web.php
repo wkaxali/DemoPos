@@ -28,19 +28,8 @@ Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories'] );
 Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu'] );
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu'] );
 
+Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> e9414e04f6c74a15703ba204c1b2ead9b1bc4af1
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
@@ -58,13 +47,10 @@ Route::get('/', function () {
 Route::get('/db', function () {
     return view('dashboard');
 });
-<<<<<<< HEAD
-Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
-Route::get('/am', function () {
-=======
+
+
 
 Route::get('/addMenu', function () {
->>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
     return view('addMenu');
 });
 Route::get('/viewStock', function () {
@@ -90,32 +76,17 @@ Route::get('/increaseInPrice', function () {
 Route::get('/invoiceServices', function () {
     return view('invoiceServices');
 });
-<<<<<<< HEAD
-Route::get('/l', function () {
-=======
 Route::get('/ledger', function () {
->>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
     return view('ledger');
 });
 Route::get('/printSaleInvoice', function () {
     return view('printSaleInvoice');
 });
-<<<<<<< HEAD
-Route::get('/rec', function () {
-    return view('Receiving');
-});
-// Route::get('/sc', function () {
-//     return view('salesandcommission');
-// });
-Route::get('/sc', function () {
-    return view('sac');
-=======
 Route::get('/Receiving', function () {
     return view('Receiving');
 });
 Route::get('/SalesAndComission', function () {
     return view('SalesAndComission');
->>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
 });
 Route::get('/stock', function () {
     return view('stock');
@@ -123,7 +94,6 @@ Route::get('/stock', function () {
 Route::get('/transactionHistory', function () {
     return view('transactionHistory');
 });
-<<<<<<< HEAD
 Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo'] );
 Route::get('/vc', function () {
     return view('viewCustomers');
@@ -135,7 +105,6 @@ Route::get('/usama', function () {
     return view('usama');
 });
 
-=======
 Route::get('/viewCustomers', function () {
     return view('viewCustomers');
 });
@@ -159,7 +128,7 @@ Route::get('/attendance', function () {
 });
 
 
-Route::get('/payRoll', function () {
+Route::get('/pr', function () {
     return view('payRoll');
 });
 
@@ -170,4 +139,3 @@ Route::get('/employerView', function () {
 Route::get('/EmployeeTaskView', function () {
     return view('EmployeeTaskView');
 });
->>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95

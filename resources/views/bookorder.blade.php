@@ -143,25 +143,14 @@
             clear: both;
         }
 
-        .mainInputGroups input {
-<<<<<<< HEAD
-            width: 140px !important;
-        }
-
-        th,
-        td {
-            border-bottom: 1px solid #333;
-        }
-
-=======
+        .mainInputGroups ,input {
             width: 120px !important;
         }
 
         /* body{
             background-color: lightgray;
         } */
->>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
-
+}
     </style>
 </head>
 
@@ -280,80 +269,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-<<<<<<< HEAD
-=======
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>100,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>100,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>6980,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
-                                    <tr>
-                                        <td>1321</td>
-                                        <td>Forland C10</td>
-                                        <td>1</td>
-                                        <td>6,98,0,000</td>
-                                        <td>13,000,000</td>
-                                        <td>&times;</td>
-                                    </tr>
->>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
+                                        /* data from database */
 
 
                                 </tbody>
                             </table>
                         </div>
                         <div class="mainInputGroups">
-<<<<<<< HEAD
                         <div class="input-group">
                                 <label style="width: 150px !important;" for="">Total Amount</label>
                                 <input type="text"  name="" id="mainTotal">
@@ -368,31 +290,18 @@
                                 <input type="text" name="" id="totRemaining">
                             </div>
                             
-=======
-
-
-                            <div class="input-group ">
-                                <label style="width: 150px  !important;" for="">Total Paid</label>
-                                <input type="text" name="" id="">
-                            </div>
-                            <div class="input-group">
-                                <label style="width: 150px !important;" for="">Total Amount</label>
-                                <input type="text" name="" id="">
-                            </div>
->>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
-                        </div>
+</div></div>
                         <div class="clear"></div>
 
 
                         <div class="footerBtn">
-                            <a href="#" class="printBtns btn">Print Order</a>
+                            <a href='#' class="printBtns btn">Print Order</a>
                             <button  class="placeBtns btn" onclick="placeOrder()">Place Order</button>
                         </div>
                     </div>
 
-
                 </div>
-            </div>
+        
       
         </div>
     </header>
