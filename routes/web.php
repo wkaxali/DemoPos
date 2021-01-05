@@ -8,6 +8,7 @@ use App\Http\Controllers\UpdateStocksController;
 
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
+use App\Http\Controllers\salesFlow;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,20 +30,14 @@ Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu'] );
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu'] );
 
 
-
-
-
-
-
-
-
-
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
+Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts'] );
+Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 
 
 Route::get('/', function () {
@@ -53,8 +48,13 @@ Route::get('/db', function () {
     return view('dashboard');
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
+
+
 Route::get('/am', function () {
     return view('addMenu');
+});
+Route::get('/vs', function () {
+    return view('viewStock');
 });
 
 Route::get('/bo', function () {
@@ -64,10 +64,10 @@ Route::get('/bo', function () {
 Route::get('/cl', function () {
     return view('companyLedger');
 });
-Route::get('/deli', function () {
+Route::get('/dl', function () {
     return view('delivery');
 });
-Route::get('/dl', function () {
+Route::get('/d', function () {
     return view('deliveryLetter');
 });
 Route::get('/ip', function () {
@@ -85,13 +85,13 @@ Route::get('/psi', function () {
 Route::get('/rec', function () {
     return view('Receiving');
 });
-Route::get('/sc', function () {
+Route::get('/sandc', function () {
     return view('salesandcommission');
 });
-Route::get('/osama', function () {
-    return view('SalesAndCommission');
+Route::get('/sc', function () {
+    return view('sac');
 });
-Route::get('/S', function () {
+Route::get('/stock', function () {
     return view('stock');
 });
 Route::get('/th', function () {
@@ -104,6 +104,7 @@ Route::get('/vc', function () {
 Route::get('/vs', function () {
     return view('viewStock');
 });
-Route::get('/abc', function () {
-    return view('abc');
+
+Route::get('/ex', function () {
+    return view('expense');
 });

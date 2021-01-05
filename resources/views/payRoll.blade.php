@@ -125,6 +125,10 @@
             border-radius: 10px;
         }
 
+        .updateButtons-1 {
+            margin-top: 100px;
+        }
+
     </style>
 </head>
 
@@ -285,8 +289,9 @@
                         <label for="">With 4 Sales</label> <input type="text" class="form-control"
                             style="display: inline-block; width: 200px;" value="21,500" name="" id="">
                         <h4 class="smallFont leftMrg">Under Performance</h4>
-                        <h4 class="smallFont">and 3 Leaves</h4>
-                        <div class="updateButtons-1">
+                        <h4 class="smallFont" style="display: inline-block; width: 153px;">and 3 Leaves</h4>
+                        <input type="text" style="display: inline-block;width: 200px;" class="form-control">
+                        <div class="updateButtons-1 ">
                             <button class="btn">Update</button>
                         </div>
                     </div>
