@@ -123,4 +123,7 @@ Route::get('/ev', function () {
 Route::get('/e', function () {
     return view('employee');
 });
+Route::get('/s', function () {
+    return view('salesandc');
+});
 
