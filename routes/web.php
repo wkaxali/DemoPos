@@ -48,12 +48,18 @@ Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
 
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
-Route::get('/getAllProducts',[UpdateStocksController::class, 'getAllProducts'] );
+Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts'] );
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 
 
 Route::get('/', function () {
     return view('signInSignUp');
+});
+Route::get('/investor', function () {
+    return view('investorLedger');
+});
+Route::get('/invgl', function () {
+    return view('investorGeneralLedger');
 });
 
 Route::get('/db', function () {

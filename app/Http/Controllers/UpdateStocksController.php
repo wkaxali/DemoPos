@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\TransactionFlow;
 use Illuminate\Http\Request;
+use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use DB;
 use Carbon\Carbon;
 
@@ -21,17 +22,22 @@ class UpdateStocksController extends Controller
         $TransportCharges =$oneProduct[3];
          $status=$oneProduct[4];
          $dateNow= Carbon::now()->toDateTimeString();
-         $CID=DB::table('tbladditionalcostandprofits')->insertGetId(['PID'=> $PID, 
-         'CPName' =>"Transportation Charges",
-         'Amount' =>$TransportCharges,
-         'TType' =>"Cost",
-         'DateStamp'=>$dateNow
-            
+        
+   //here from controller of taxes
+   // $CID=DB::table('tbladditionalcostandprofits')->insertGetId(['PID'=> $PID, 
+        // 'CPName' =>"Transportation Charges",
+        // 'Amount' =>$TransportCharges,
+        // 'TType' =>"Cost",
+        // 'DateStamp'=>$dateNow
            
-            ]);
-            
-            TransactionFlow::addTransaction($InvoiceNumber,"Transportation Charges",$TransportCharges,$dateNow,"1",null,null,NULL,null);
-            //$OldPrice=DB::select('select TotalCost  from instock where ProductSerial='.$PID);
+          
+        //    ]);
+
+       $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
+        $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
+            TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Transportation Charges',$TransportCharges,$dateNow,
+            "1",null,null,NULL,null,NULL,NULL,NULL,NULL,NULL,$CID);
+           
             $OldPrice = DB::table('instock')
             ->where('ProductSerial', '=', $PID)
              ->get();
@@ -92,5 +98,16 @@ class UpdateStocksController extends Controller
         
     return $results;
 
+}
+public static function UpdateStockStatus($PID,$Status){
+
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update([
+  
+  'Status'=>$Status
+  
+
+  ]);
 }
 }
