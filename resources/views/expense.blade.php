@@ -127,7 +127,7 @@
                             <input type="text" class="form-control" style="display: inline-block; width: 192px;"
                                 value="" name=""  onclick="calculatonInTable()" id="amount"><br>
                             <label for="">Paid To</label>
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select data-live-search="true"
                                 class="selectpicker form-control" id="paidto" >
                                 <option value=1>Mohsin</option>
                                 <option value=2>Ali</option>
@@ -136,10 +136,49 @@
 
 
                             </select>
-                            <button class="btn btn-info">+</button><br>
+
+                             <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
+                               margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
+
+  <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <div class="modal-body">
+                                        <form class="sign-in-form">
+                                            <h2 class="title">Add Customer</h2>
+                                            <div class="input-field">
+                                                <a href="#"> <i class="fas fa-user"></i>
+                                                </a> <input type="text" name="fname" autocomplete="OFF" id="fname"
+                                                    placeholder="Customer">
+                                            </div>
+                                          
+                                            <div class="input-field">
+                                                <a href="#"> <i class="fas fa-user"></i>
+                                                </a> <input type="text" name="fname" autocomplete="OFF" id="fname"
+                                                    placeholder="Contact">
+                                            </div>
+                                            
+
+
+                                            <input type="submit" value="Add Customer"
+                                                class="btn btn-success btn-submit solid">
+
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br>
                             <label for="">Paid by</label>
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select   data-live-search="true" 
                                 class="selectpicker form-control"  id="paidby" >
+
                                 <option value=1>Mamu</option>
                                 <option value=2>Ali</option>
                                 <option value=3>Malik</option>
@@ -150,8 +189,8 @@
                         </div>
                         <div class="col-md-4 offset-md-2">
                             <label for="">Expense Head</label>
-                            <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  id="expence" >
+                            <select 
+                                class="selectpicker form-control" data-live-search="true"  id="expence" >
                                 <option value=1>Bill</option>
                                 <option value=2>Document</option>
                                 <option value=3>Malik</option>
@@ -159,7 +198,7 @@
 
 
                             </select>
-                            <!-- <button class="btn">+</button> -->
+                            <button class="btn">+</button>
                             <br>
                             <label style="width: 100px !important;" for="">Date</label>
                             <input type="date" style="width: 240px;" name="" id="date"><br>
@@ -172,7 +211,7 @@
                             </div>
 
 
-                            
+
                         </div>
                     </div>
                 </div>

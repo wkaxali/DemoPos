@@ -18,6 +18,10 @@
             padding: 0;
             box-sizing: border-box;
         }
+        input{
+            height: 40px;
+     
+        }
 
         .recepi-table {
             border: 1px solid rgb(196, 218, 243);
@@ -270,7 +274,7 @@
         }
 
         .dropdown.bootstrap-select.form-control {
-            width: 200px !important;
+            width: 140px !important;
         }
 
         /* tr:nth-child(1n++) {
@@ -293,7 +297,7 @@
                 <div class="inputField-1">
                     <label for="prodName">Category</label> <br>
 
-                    <select style="height: 25px !important; width: 158px !important;" class="selectpicker form-control"
+                    <select  class="selectpicker form-control"
                         id="category" data-live-search="true" tabindex="null">
                         <option value=1>Soups</option>
                         <option value=2>Salads</option>
@@ -310,15 +314,19 @@
                 </div>
                 <div class="inputField-1">
                     <label for="cost">Cost</label>
-                    <input type="text" class="form-control" id="cost">
+                    <input type="text" class="form-control" style="width: 140px !important;" id="cost">
+                </div>
+                <div class="inputField-1">
+                    <label for="cost">Remarks</label>
+                    <input type="text" class="form-control" style="width: 140px !important;" id="cost">
                 </div>
                 <div class="inputField-1">
                     <label for="prodName">Product Name</label>
-                    <input type="text" id="productName" class="form-control">
+                    <input type="text" id="productName" style="width: 140px !important;" class="form-control">
                 </div>
-                <div class="inputField-1">
+                <div  class="inputField-1">
                     <label for="prodName">Sale Price</label>
-                    <input type="text" class="form-control" id="salePrice">
+                    <input type="text" class="form-control" style="width: 140px !important;" id="salePrice">
 
                 </div>
                 <div class="input-Btn-1">
@@ -356,31 +364,7 @@
                             </thead>
 
                             <tbody id="contact-list">
-                                <tr>
-                                    <td>Forland E-600</td>
-                                    <td>Truck</td>
-                                    <td>$1000</td>
-                                    <td>$1100</td>
-                                    <td>Nothing</td>
-                                    <td>&times;</td>
-                                </tr>
-                                <tr>
-                                    <td>Forland E-600</td>
-                                    <td>Truck</td>
-                                    <td>$1000</td>
-                                    <td>$1100</td>
-                                    <td>Nothing</td>
-                                    <td>&times;</td>
-                                </tr>
-                                <tr>
-                                    <td>Forland E-600</td>
-                                    <td>Truck</td>
-                                    <td>$1000</td>
-                                    <td>$1100</td>
-                                    <td>Nothing</td>
-                                    <td>&times;</td>
-                                </tr>
-
+                             
                             </tbody>
 
                         </table>
@@ -391,7 +375,7 @@
             <div class="row">
                 <div class="col-md-2 offset-md-10 text-right">
                     <button class="btn btn-success  mt-1"
-                        style="height: 102px;width: 102px;  color: #ffffff;"
+                        style="height: 52px;width: 102px;  color: #ffffff;"
                         onclick="AddProduct()">PlaceOrder</button>
                 </div>
             </div>
