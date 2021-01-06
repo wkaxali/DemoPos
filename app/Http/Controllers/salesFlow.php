@@ -76,7 +76,7 @@ class salesFlow extends Controller
          LedgerPartiesController::UpdatePartiesBalance($LID, $currentBalance);
           
         }
-        UpdateStocksController::UpdateStockStatus($PID,"Sold");
+        UpdateStocksController::UpdateStockStatus($pid,"Sold");
 
        return $invoiceNumber;
     }

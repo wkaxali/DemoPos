@@ -58,7 +58,7 @@ Route::get('/', function () {
     return view('signInSignUp');
 });
 Route::get('/investor', function () {
-    return view('investorLedger');
+    return view('investors');
 });
 Route::get('/inv', function () {
     return view('investors');
@@ -136,3 +136,7 @@ Route::get('/ex', function () {
 Route::get('/ct', function () {
     return view('comissionAndTaxes');
 });
+Route::get('/s', function () {
+    return view('salesandc');
+});
+

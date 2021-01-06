@@ -125,10 +125,10 @@
                         <div class="col-md-6">
                             <label for="">Amount</label>
                             <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-                                value="230" name="" id=""><br>
+                                value="" name=""  onclick="calculatonInTable()" id="amount"><br>
                             <label for="">Paid To</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
+                                class="selectpicker form-control" id="paidto" >
                                 <option value=1>Mohsin</option>
                                 <option value=2>Ali</option>
                                 <option value=3>Malik</option>
@@ -137,9 +137,9 @@
 
                             </select>
                             <button class="btn btn-info">+</button><br>
-                            <label for="">Paid To</label>
+                            <label for="">Paid by</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
+                                class="selectpicker form-control"  id="paidby" >
                                 <option value=1>Mamu</option>
                                 <option value=2>Ali</option>
                                 <option value=3>Malik</option>
@@ -151,7 +151,7 @@
                         <div class="col-md-4 offset-md-2">
                             <label for="">Expense Head</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
+                                class="selectpicker form-control"  id="expence" >
                                 <option value=1>Bill</option>
                                 <option value=2>Document</option>
                                 <option value=3>Malik</option>
@@ -159,13 +159,20 @@
 
 
                             </select>
-                            <button class="btn">+</button>
+                            <!-- <button class="btn">+</button> -->
                             <br>
                             <label style="width: 100px !important;" for="">Date</label>
-                            <input type="date" style="width: 240px;" name="" id=""><br>
+                            <input type="date" style="width: 240px;" name="" id="date"><br>
                             <div class="expenseButtons">
-                                <button class="btn">Add</button>
+                            <label for="">remarks</label>
+                            <input type="text" class="form-control" style="display: inline-block; width: 192px;"
+                                value="" name="" id="remarks">
+                                <br>
+                                <button class="btn" onclick="add(), calculatonInTable()"  >Add</button>
                             </div>
+
+
+                            
                         </div>
                     </div>
                 </div>
@@ -182,12 +189,12 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="expenseTable">
-                        <table class="table-bordered table-striped table-hover" style="width: 100%;">
+                        <table id="invoiceservices" class="table-bordered table-striped table-hover" style="width: 100%;">
                             <thead>
                                 <tr>
                                     <th>Date</th>
                                     <th>Amount</th>
-                                    <th>Expense</th>
+                                    <th>Expense Name</th>
                                     <th>Paid To</th>
                                     <th>Paid By</th>
                                     <th>Remarks</th>
@@ -195,45 +202,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>20-1-2020</td>
-                                    <td>13,000</td>
-                                    <td>Transport</td>
-                                    <td>Mohsin</td>
-                                    <td>Waqas</td>
-                                    <td>Good Deal</td>
-                                    <td>&times;</td>
-                                </tr>
-                                <tr>
-                                    <td>20-5-2020</td>
-                                    <td>13,000</td>
-                                    <td>Transport</td>
-                                    <td>Ali Asghar Malik</td>
-                                    <td>Waqas</td>
-                                    <td>Good Deal</td>
-                                    <td>&times;</td>
-
-                                </tr>
-                                <tr>
-                                    <td>25-1-2020</td>
-                                    <td>13,000</td>
-                                    <td>Transport</td>
-                                    <td>Usama Mehar</td>
-                                    <td>Waqas</td>
-                                    <td>Good Deal</td>
-                                    <td>&times;</td>
-
-                                </tr>
-                                <tr>
-                                    <td>20-1-2020</td>
-                                    <td>13,000</td>
-                                    <td>Transport</td>
-                                    <td>Mohsin</td>
-                                    <td>Waqas</td>
-                                    <td>Good Deal</td>
-                                    <td>&times;</td>
-
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -243,7 +211,7 @@
                 <div class="col-md-6 offset-md-6">
                     <div class="mainTableEnd">
                         <label for="">Total Expense</label>
-                        <input type="text" value="11,300" name="" id="">
+                        <input type="text"  onclick="calculatonInTable()" value="" name="" id="mainTotal">
                     </div>
                 </div>
             </div>
@@ -282,6 +250,73 @@
             $('#myTable').DataTable();
         });
 
+
+
+
+
+    
+      
+      function add() {
+         
+           var date = document.getElementById("date").value;
+         var  amount = document.getElementById("amount").value;
+         var expence = document.getElementById("expence");
+         var paidto = document.getElementById("paidto");
+         var paidby = document.getElementById("paidby");
+         var remarks = document.getElementById("remarks").value;
+       
+         
+
+          var table = document.getElementById("invoiceservices");
+          var row = table.insertRow(-1);
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
+          var cell7 = row.insertCell(6);
+       
+       
+          
+   
+
+          cell1.innerHTML = date  ;
+          cell2.innerHTML = amount ;
+          cell3.innerHTML = expence.options[expence.selectedIndex].text;
+          cell4.innerHTML = paidto.options[paidto.selectedIndex].text;
+          cell5.innerHTML = paidby.options[paidby.selectedIndex].text;
+          cell6.innerHTML = remarks;
+          cell7.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
+          
+        
+     
+
+
+      }
+
+
+
+
+      function deleteRow(ele) {
+          var a = ele.parentNode.parentNode;
+
+          a.remove();
+          calculatonInTable(5);
+      }
+
+      function calculatonInTable(){
+
+var t=document.getElementById("invoiceservices");
+var tot=0;
+
+var x = document.getElementById("invoiceservices").rows.length;
+
+for (var i = 1; i <x ; i++){
+    tot=tot+Number(t.rows[i].cells[1].innerText);
+}
+document.getElementById("mainTotal").value=tot;
+      }
     </script>
 </body>
 
