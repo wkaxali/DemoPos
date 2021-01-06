@@ -147,10 +147,19 @@
             width: 120px !important;
         }
 
+<<<<<<< HEAD
         /* body{
             background-color: lightgray;
         } */
 }
+=======
+        th,
+        td {
+            border-bottom: 1px solid #333;
+        }
+
+
+>>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
     </style>
 </head>
 
@@ -269,9 +278,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+<<<<<<< HEAD
                                         /* data from database */
+=======
+<<<<<<< HEAD
+>>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
 
 
+
+
+=======
+                                       <!-- from database -->
+>>>>>>> 2f7826b8dfd6dc7353e93bb1568a8091d82951f3
                                 </tbody>
                             </table>
                         </div>
@@ -290,7 +308,11 @@
                                 <input type="text" name="" id="totRemaining">
                             </div>
                             
+<<<<<<< HEAD
 </div></div>
+=======
+                        </div>
+>>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
                         <div class="clear"></div>
 
 

@@ -8,12 +8,15 @@ use Carbon\Carbon;
 
 class TransactionFlow extends Controller
 {
-    public static function addTransaction($InvoiceNo,$TType,$amount,$dateStamp,$UserID,$SBB,$SBA,$CBB,$CBA){
+    public static function addTransaction($InvoiceNo,$TType,$Tcate,$amount,$dateStamp,
+    $UserID,$SBB,$SBA,$CBB,$CBA,$LID,$pattyCash,$paidBy,$paidTo,$paidVia,$CID)
+    {
 
-       
-        // InvoiceNo bigint(20) 
-        // TransectionCatogery varchar(50) 
+         // InvoiceNo bigint(20) 
+        // TransactionCatogery varchar(50) 
         // Amount double 
+        // LID int(8) 
+        // TransactionType varchar(50) 
         // DateStamp datetime 
         // ModifiedOn datetime 
         // UserID varchar(50) 
@@ -21,23 +24,65 @@ class TransactionFlow extends Controller
         // SBB varchar(50) 
         // SBA varchar(50) 
         // CBB varchar(50) 
-        // CBA varchar(50)
+        // CBA varchar(50) 
+        // PaidTo varchar(50) 
+        // PaidBy varchar(50) 
+        // PaidVia
+    
         $dateNow= Carbon::now()->toDateTimeString();
-        $CID=DB::table('tbltransactionflow')->insertGetId(['InvoiceNo'=> $InvoiceNo, 
-        'TransectionCatogery' =>$TType,
+        $TID=DB::table('tbltransactionflow')->insertGetId(['InvoiceNo'=> $InvoiceNo, 
+        'TransactionType' =>$TType,
+        'TransactionCatogery'=>$Tcate,
         'Amount' =>$amount,
-        'DateStamp' =>"$dateStamp",
+        'DateStamp' =>$dateStamp,
         'ModifiedOn' =>$dateNow,
         'UserID' =>$UserID,
+        'LID'=>$LID,
         'SBB' =>$SBB,
         'SBA' =>$SBA,
         'CBB' =>$CBB,
-        'CBA' =>$CBA
+        'CBA' =>$CBA,
+        'PattyCash'=>$pattyCash,
+        'PaidTo'=>$paidTo,
+        'PaidBy'=>$paidBy,
+        'PaidVia'=>$paidVia,
+        'CID'=>$CID
+
            
           
            ]);
+           return $TID;
 
     }
+
+
+    public static function addInTransactionFlowForSales($LID,$invoiceNumber,$dateNow,$AP,$userID,$pattyCash,$CLB,$CCB){
+
+        // [TransactionID]
+        
+        $TID=DB::table('tblTransactionFlow')->insertGetId(['InvoiceNo'=>$invoiceNumber,
+        'TransactionCatogery'=>"Sales",
+        'Amount'=>$AP,
+        'LID'=>$LID,
+        'DateStamp'=>$dateNow,
+        'UserID'=>$userID,
+        'PattyCash'=>$pattyCash,
+        
+        'SBB'=>NULL,
+        'SBA'=>NULL,
+        'CBB'=>$CLB,
+        'CBA'=>$CCB
+        
+        
+        
+        
+        
+        
+        ]);
+      
+  
+  
+      }
 
     public static function UpdateCaT($PID,$TTname,$amount,$ttype,$dateNow){
 

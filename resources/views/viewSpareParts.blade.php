@@ -10,7 +10,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
  
-    <title>View Stock</title>
+    <title>Spare Parts</title>
     <style>
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
@@ -52,7 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 mt-3 text-center">
-                    <h3>View Stock</h3>
+                    <h3>Auto Spare Parts</h3>
                 </div>
             </div>
             <br>
@@ -125,14 +125,14 @@ function myFunction(){
                 $.each(a, function (i, item) {
 
                     table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice
-                    , a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
+                    , a[i].StatusInStock, a[i].EngineNumber, a[i].ChasisNumber]);
                 });
                 table.draw();
 
         }
     };
     //alert("ljd");
-    xhttp.open("GET", "./viewStock/", true);
+    xhttp.open("GET", "./spareParts/", true);
     
     xhttp.send();
     }

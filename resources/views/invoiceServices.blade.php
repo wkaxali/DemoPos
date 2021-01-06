@@ -324,7 +324,7 @@
                                 <label for="status">Discount</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="Discount" value="0" onkeypress="calc()">
+                                    name="name" id="Discount" value="0" onkeyup="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
@@ -489,7 +489,7 @@
                             <label for="status">Amount Paid</label>
                             <input type="text" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="ampountPaid" value="0" onkeypress="calcRemainingAmount()">
+                                name="name" id="amountPaid" value="0" onkeyup="calcRemainingAmount()">
                         </div>
                         <div class="input-field">
                             <label for="status">Remaining</label>
@@ -536,7 +536,7 @@
                 <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
                     <a class="btn" href="viewCustomers.html">view Customers</a>
                     <a class="btn" href="deliveryLetter.html">Print Docs</a>
-                    <a class="btn" href="p.html">Generate Sale</a>
+                    <a class="btn" onclick="generateSale()">Generate Sale</a>
                     <a class="btn" href="#">Close Form</a>
 
                    
@@ -605,6 +605,7 @@
 
                     </div>
                 </div>
+    </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -644,7 +645,7 @@
             }
         };
 
-        xhttp.open("GET", "./getAllProducts/", true);
+        xhttp.open("GET", "./getAvailableProducts/", true);
         xhttp.send();
   }
 
@@ -661,7 +662,7 @@ $("#searchProductTable").on('click', 'tr', function () {
 
     document.getElementById("PID").value = this.cells[0].innerText; // get current row 1st TD value
     document.getElementById("ProductName").value = this.cells[1].innerText;
-    document.getElementById("ProductName").value = this.cells[2].innerText;
+    document.getElementById("ChasisNumber").value = this.cells[2].innerText;
     
     document.getElementById("EngineNumber").value = this.cells[3].innerText; 
     document.getElementById("Status").value = this.cells[6].innerText; 
@@ -676,10 +677,11 @@ $("#searchProductTable").on('click', 'tr', function () {
 
    var tot= document.getElementById("TotalPrice").value;
     var dis=document.getElementById("Discount").value;
+    
     var netTot=Number(tot)-Number(dis);
 
     document.getElementById("NetTotal").value=netTot;
-    document.getElementById("ampountPaid").value=netTot;
+    document.getElementById("amountPaid").value=netTot;
 
 
 
@@ -688,7 +690,7 @@ $("#searchProductTable").on('click', 'tr', function () {
   function calcRemainingAmount(){
 
   var tot=  document.getElementById("NetTotal").value;
-   var ap= document.getElementById("ampountPaid").value;
+   var ap= document.getElementById("amountPaid").value;
    var rem=Number(tot)-Number(ap);
    document.getElementById("amountRemaining").value=rem;
 
@@ -700,33 +702,27 @@ $("#searchProductTable").on('click', 'tr', function () {
   function generateSale() {
 
 
-    document.getElementById("PID").value ; // get current row 1st TD value
+ var pid=   document.getElementById("PID").value ; 
    
-    document.getElementById("TotalPrice").value = this.cells[4].innerText; 
-var tot = document.getElementById("Total").value;
-var discount = document.getElementById('DiscountOverall').value;
-var gross = document.getElementById('grossTotal').value;
+    
+var totwT = document.getElementById("TotalPrice").value;
+var discount = document.getElementById('Discount').value;
 
 
-
-
-var tax = document.getElementById('tax').value;
 
 var netTotal = document.getElementById('NetTotal').value;
-var amp = document.getElementById('AmountPaid').value;
-var rmb = document.getElementById("RemainingBalance").value;
+var amp = document.getElementById('amountPaid').value;
+var rmb = document.getElementById("amountRemaining").value;
 
 
 var CID = document.getElementById("CID").value;
-var CLB = document.getElementById("LastBalance").value;
 
-var CCB = document.getElementById("CurrentBalance").value;
-myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB];
+order = [pid,totwT,discount,netTotal,amp,rmb,CID];
 
 
 
 
-var array = JSON.stringify(myRow2);
+var array = JSON.stringify(order);
 
 
 
