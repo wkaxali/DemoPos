@@ -9,7 +9,7 @@ use App\Http\Controllers\OrderFlowController;
 
 use App\Http\Controllers\UpdateStocksController;
 
-
+use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
 
 /*
@@ -50,6 +50,8 @@ Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts'] );
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
+Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
+Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor'] );
 
 
 Route::get('/', function () {
@@ -57,6 +59,9 @@ Route::get('/', function () {
 });
 Route::get('/investor', function () {
     return view('investorLedger');
+});
+Route::get('/inv', function () {
+    return view('investors');
 });
 Route::get('/invgl', function () {
     return view('investorGeneralLedger');
