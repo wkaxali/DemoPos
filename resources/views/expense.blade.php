@@ -277,7 +277,6 @@
           var cell6 = row.insertCell(5);
           var cell7 = row.insertCell(6);
        
-       
           
    
 
