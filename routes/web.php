@@ -107,7 +107,7 @@ Route::get('/rec', function () {
     return view('Receiving');
 });
 Route::get('/sc', function () {
-    return view('salesandcomission');
+    return view('salesandc');
 });
 Route::get('/stock', function () {
     return view('stock');

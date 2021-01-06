@@ -46,7 +46,7 @@
     </style>
 </head>
 
-<body onload="myFunction()">
+<body onload="getStock()">
 
     <header>
         <div class="container">
@@ -109,7 +109,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-function myFunction(){
+function getStock(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
@@ -142,9 +142,8 @@ function myFunction(){
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
-
-
-    </script>
+        
+</script>
 
 </body>
 
