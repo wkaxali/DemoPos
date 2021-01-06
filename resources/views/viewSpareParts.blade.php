@@ -46,7 +46,7 @@
     </style>
 </head>
 
-<body onload="myFunction()">
+<body onload="getSpareParts()">
 
     <header>
         <div class="container">
@@ -109,7 +109,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-function myFunction(){
+function getSpareParts(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
