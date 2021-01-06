@@ -99,8 +99,8 @@
                                 <th id ="Cusname">Name</th>
                                 <th id="CusCont">Contact</th>
                                 <th id ="Cusaddr">Address</th>
-                                <th id="CusIntrs">Interested In</th>
-                                <th id ="CusMeet"> Who Meet</th>
+                                <th id="CusIntrs">Balance</th>
+                                <th id ="CusMeet">CNIC</th>
 
                             </tr>
                         </thead>

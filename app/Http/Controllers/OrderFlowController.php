@@ -137,7 +137,7 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID);
+       $productSerial= self::addProductOnlyForAutos($Pname,"21",NULL,NULL,$purchasePrice,$InvoiceID);
        print ($productSerial);
       
   
@@ -195,18 +195,28 @@ class OrderFlowController extends Controller
         ]);
       }
 
+      function spareParts(){
+        $data=DB:: select('select * from vw_stockdetails where Category = 20');
+        return $data;
+      }
+
+      function viewStock(){
+        $data=DB:: select('select * from vw_stockdetails where Category = 20');
+        return $data;
+      }
+
       function viewCustomer(){
         $data=DB:: select('select * from customeinformation');
         return $data;
       }
       
-      function viewStock(){
-        $data=DB:: select('select * from vw_stockdetails');
+      function transactionHistory(){
+        $data=DB:: select('select * from tbltransactionflow');
         return $data;
       }
       
       function companyLedger(){
-        $data=DB:: select('select * from tbltransactionflow');
+        $data=DB:: select('select * from tbltransactionflow where LID = 1');
         
         $table='
         <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
@@ -240,11 +250,6 @@ class OrderFlowController extends Controller
           
         }
         return $table.'<table>';
-      }
-
-      function transactionHistory(){
-        $data=DB:: select('select * from tbltransactionflow');
-        return $data;
       }
 
       function scratchFunc(){
