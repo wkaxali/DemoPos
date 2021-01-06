@@ -44,7 +44,7 @@ Route::get('/', function () {
     return view('signInSignUp');
 });
 Route::get('/investor', function () {
-    return view('investorLedger');
+    return view('investors');
 });
 Route::get('/invgl', function () {
     return view('investorGeneralLedger');
