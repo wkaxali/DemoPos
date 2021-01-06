@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    
 
 
     <title>Expense</title>
@@ -139,7 +140,7 @@
                             <button class="btn btn-info">+</button><br>
                             <label for="">Paid by</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  id="paidby" >
+                                class="selectpicker form-control" data-live-search="true"  id="paidby" >
                                 <option value=1>Mamu</option>
                                 <option value=2>Ali</option>
                                 <option value=3>Malik</option>
@@ -151,7 +152,7 @@
                         <div class="col-md-4 offset-md-2">
                             <label for="">Expense Head</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  id="expense" >
+                                class="selectpicker form-control"  data-live-search="true"  id="expense" >
                             
                             </select>
                             <!-- <button class="btn">+</button> -->
@@ -241,6 +242,7 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
