@@ -8,7 +8,7 @@ use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
 
 use App\Http\Controllers\UpdateStocksController;
-
+use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
 
@@ -41,6 +41,7 @@ Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistor
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
+Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
@@ -52,7 +53,7 @@ Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvaila
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor'] );
-
+Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense'] );
 
 Route::get('/', function () {
     return view('signInSignUp');
