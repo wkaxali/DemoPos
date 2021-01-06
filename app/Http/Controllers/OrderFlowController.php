@@ -66,6 +66,12 @@ class OrderFlowController extends Controller
         $IID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
         return $IID+1;
     }
+    function osama(){
+
+
+      $IID=DB::select ('select TransactionID,Amount from tbltransactionflow');
+      return $IID;
+  }
 
     function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice){
 

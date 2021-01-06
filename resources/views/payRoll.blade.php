@@ -243,12 +243,12 @@
                 <div class="col-md-5 payRow  offset-md-1">
                     <h4 class="redBg">Pay Details</h4>
                     <label for="">Basic Pay</label>
-                    <input type="text" class="form-control" value="13,000" style="display: inline-block; width: 200px;"
-                        name="" id="">
+                    <input type="text" onkeypress = "product()"  class="form-control" value="13,000" style="display: inline-block; width: 200px;"
+                        name="" id="basicpay">
                     <br>
                     <label for="">Allows Rent/+</label>
-                    <input type="text" class="form-control" value="50,000" style="display: inline-block; width: 200px;"
-                        name="" id="">
+                    <input type="text" onkeypress =  "product()"   class="form-control" value="50,000" style="display: inline-block; width: 200px;"
+                        name="" id="allowrent">
                     <br>
                     <label for="">Comission On Sale</label>
                     <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
@@ -270,11 +270,11 @@
                         name="" id="">
                     <br>
                     <label for="">Total</label>
-                    <input type="text" class="form-control" value="48,000" style="display: inline-block; width: 200px;"
-                        name="" id="">
+                    <input type="text" class="form-control" value=" " style="display: inline-block; width: 200px;"
+                        name="" id="total">
                     <span>+ 5%</span>
                     <div class="updateButtons">
-                        <button class="btn">Update</button>
+                        <button class="btn" onclick = "product()" >Update</button>
                     </div>
                 </div>
                 <div class="col-md-5  payRow myOwnOffset">
@@ -311,7 +311,15 @@
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+        function product() {
+            var basicpay  = document.getElementById("basicpay").value;
+            var allowrent = document.getElementById("allowrent").value;
 
+            var product =  basicpay +  allowrent;
+            document.getElementById("total").value = product;
+           // document.getElementById("mainTotal").value = product;
+
+        }
     </script>
 </body>
 

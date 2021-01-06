@@ -108,6 +108,7 @@
 
 
             box-shadow: 0 15px 25px#264653;
+            
 
 
 
@@ -177,6 +178,11 @@
             background-color: #264653;
             color: #fff;
         }
+        .myRow{
+overflow:auto;
+height:550px;
+
+        }
 
     </style>
 </head>
@@ -206,6 +212,41 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+    <div class="row">
+        <div class="col-md-3 offset-md-1">
+            <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
+                <option value=1>Auto</option>
+                <option value=2>Service</option>
+                <option value=3>Parts</option>
+    
+    
+    
+            </select>
+        </div>
+        <div class="col-md-3 offset-md-1">
+            <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
+                <option value=1>Auto</option>
+                <option value=2>Service</option>
+                <option value=3>Parts</option>
+    
+    
+    
+            </select>
+        </div>
+        <div class="col-md-3 offset-md-1">
+            <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
+                <option value=1>Auto</option>
+                <option value=2>Service</option>
+                <option value=3>Parts</option>
+    
+    
+    
+            </select>
+        </div>
+        
+    </div>
+</div>
     </section>
 
     <section>
@@ -425,9 +466,112 @@
                                             </table>
                                         </div>
                                     </div>
-                                </div>
+                                  
+                             </div>
+                             <div class="mainDiv">
+                                    <div class="child" style="width: 30%;">
+                                        <div class="lastChild-1" style="width: 100%;">
+                                            <table>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Forland</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Budget</td>
+                                                    <td>80Lac</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Partner</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>From</td>
+                                                    <td>4-March-2020</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>To</td>
+                                                    <td>4-March-2020</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="lastChild-2"
+                                            style="width: 20%; font-size: 20px; color: #fff; background-color: #e9c46a;">
+                                            <p class="WordWrap-2 text-center">
+                                                P<br>R<br>O<br>F<br>I<br>T
+                                            </p>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="child" style="width: 30%;">
+                                        <div class="lastChild-1" style="width: 100%;">
+                                            <table>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Forland</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Budget</td>
+                                                    <td>80Lac</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Partner</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>From</td>
+                                                    <td>4-March-2020</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>To</td>
+                                                    <td>4-March-2020</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="lastChild-2"
+                                            style="width: 20%; background-color: #f4a261; font-size: 20px; color: #fff;">
+                                            <p class="WordWrap-2 text-center">
+                                                R<br>U<br>N<br>N<br>I<br>N<br>G
+                                            </p>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="child" style="width: 30%;">
+                                        <div class="lastChild-1" style="width: 100%;">
+                                            <table>
+                                                <tr>
+                                                    <td>Name</td>
+                                                    <td>Forland</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Budget</td>
+                                                    <td>80Lac</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Partner</td>
+                                                    <td>4</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>From</td>
+                                                    <td>4-March-2020</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>To</td>
+                                                    <td>4-March-2020</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="lastChild-2"
+                                            style="width: 20%; background-color: #e76f51; color: #fff; font-size: 20px;">
+                                            <p class="WordWrap-2 text-center">
+                                                P<br>R<br>O<br>F<br>I<br>T
+                                            </p>
+                                            </table>
+                                        </div>
+                                    </div>
+                                  
+                             </div>
                             </div>
-                        </div>
+                        
                     </section>
 
                 </div>

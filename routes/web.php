@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\OrderFlowController;
+use App\Http\Controllers\practice;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,10 @@ use App\Http\Controllers\OrderFlowController;
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
+Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
+Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
+Route::get('/osama',[practice::class, 'getOrderID'] );
+
 Route::get('/', function () {
     return view('signInSignUp');
 });
@@ -58,7 +63,7 @@ Route::get('/rec', function () {
     return view('Receiving');
 });
 Route::get('/sc', function () {
-    return view('salesandcommission');
+    return view('salesandcomission');
 });
 Route::get('/S', function () {
     return view('stock');
@@ -74,4 +79,10 @@ Route::get('/vs', function () {
 });
 Route::get('/pr', function () {
     return view('payRoll');
+});
+Route::get('/onclick', function () {
+    return view('onclick');
+});
+Route::get('/investors', function () {
+    return view('investors');
 });
