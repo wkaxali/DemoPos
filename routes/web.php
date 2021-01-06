@@ -139,3 +139,6 @@ Route::get('/employerView', function () {
 Route::get('/EmployeeTaskView', function () {
     return view('EmployeeTaskView');
 });
+Route::get('/sc', function () {
+    return view('sales and comissions');
+});

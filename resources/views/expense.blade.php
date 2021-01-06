@@ -170,6 +170,9 @@
                                 <br>
                                 <button class="btn" onclick="add(), calculatonInTable()"  >Add</button>
                             </div>
+
+
+                            
                         </div>
                     </div>
                 </div>
