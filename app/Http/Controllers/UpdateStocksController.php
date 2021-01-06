@@ -99,4 +99,15 @@ class UpdateStocksController extends Controller
     return $results;
 
 }
+public static function UpdateStockStatus($PID,$Status){
+
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update([
+  
+  'Status'=>$Status
+  
+
+  ]);
+}
 }

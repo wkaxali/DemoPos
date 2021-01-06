@@ -12,6 +12,20 @@
     <title>Sales And Commission</title>
 
     <style>
+             table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            border-style: hidden;
+            border: 1px solid #aaaaaa;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #aaaaaa;
+            padding: 5px;
+        }
         .mainSales {
             display: flex;
             justify-content: space-between;
@@ -48,6 +62,11 @@
             width: 50%;
             border-left: 1px solid #333;
             padding: 10px;
+        }
+        .modal-content{
+        height: 800px;
+        text-align:center;
+        width: 800px;
         }
 
         label {
@@ -154,13 +173,177 @@
 
                         </div>
                         <div class="sales-1">
-                            <button class="btn unit ">Sold Unit</button>
+                            <button class="btn unit" data-toggle="modal" data-target="#myModal">Sold Unit</button>
                         </div>
+                        
+
+                        <div class="container">
+                          
+                       
+                          
+                          
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" role="dialog">
+                              <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                       <h4 class="modal-title">View Stock </h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                   
+                                  </div>
+                                  <div class="modal-body">
+                                    <div class="receivingTable">
+                                        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product Id</th>
+                                                    <th>Model</th>
+                                                    <th>Status</th>
+                                                    <th>Chasis No</th>
+                                                    <th> Engine No</th>
+                                                    <th>Sale Price</th>
+                                                    <th>Details</th>
+            
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: rgb(211, 211, 19); font-weight: 700;">On Hold</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: red; font-weight: 700;">In Stock</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: rgb(0, 19, 128); font-weight: 700;">Pending</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: rgb(128, 41, 0); font-weight: 700;">In Progress</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: green; font-weight: 700;">Sold</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: rgb(211, 211, 19); font-weight: 700;">On Hold</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: rgb(211, 211, 19); font-weight: 700;">On Hold</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: red; font-weight: 700;">In Stock</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: rgb(0, 19, 128); font-weight: 700;">Pending</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: rgb(128, 41, 0); font-weight: 700;">In Progress</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: green; font-weight: 700;">Sold</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>1245</td>
+                                                    <td>Fc130</td>
+                                                    <td style="color: rgb(211, 211, 19); font-weight: 700;">On Hold</td>
+                                                    <td>E56921</td>
+                                                    <td>32FNK</td>
+                                                    <td>1423,000</td>
+                                                    <td><a href="salesandcommission.html">View Details</a></td>
+                                                </tr>
+                                            </tbody>
+            
+                                        </table>
+            
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+
+
+
+
+
+
                         <div class="sales-1">
                             <label for="">Profit / Loss</label>
                             <input type="text" class="form-control" style="display: inline-block; width: 200px;" name=""
                                 id="">
                         </div>
+                       
                     </div>
                 </div>
             </div>
@@ -313,22 +496,15 @@
                         <div class="myOwnRow-left permanentLabel">
 
 
-                            <input type="checkbox" name="" id="checkboxe-1"> <label for="">Bank Person</label>
-                            <div class="checkbox-1">
-
-                                <input type="text" name="" id="">
-                            </div><br> <br>
-
-                            <input type="checkbox" name="" id="checkboxe-2"> <label for="">Sales
-                                Per Commission</label>
-                            <div class="checkbox-3">
-
-                                <input type="text" name="" id="">
-                            </div>
-                            <br><br>
-                            <input type="checkbox" name="" id="checkboxe-3"> <label for="">Third
+                            <label for="">Bank Person</label>  <input type="text" name="" id="">
+                           <input type="checkbox" name="" id="checkboxe-1">
+                             <label for="">Sales
+                                Per Commission</label><input type="text" name="" id="">
+                                <input type="checkbox" name="" id="checkboxe-2">
+                            <label for="">Third
                                 Party Per Commission</label>
-                            <div class="checkMain-5">
+                                <input type="checkbox" name="" id="checkboxe-3"> 
+                            <div class>
                                 <div class="checkbox-5">
                                     <label for="">Remarks</label>
                                     <input type="text" name="" id="">
@@ -337,34 +513,22 @@
                                     <label for="">Amount</label>
                                     <input type="text" name="" id="">
                                 </div>
-                            </div>
 
+                            </div><br>
 
-
-                        </div>
-                        <div class="myOwnROw">
-
-                            <input type="checkbox" name="" id="checkboxe-4"> <label for="">Promotion
-                                Charges</label><br><br>
-                            <div class="checkbox-7">
-                                <input type="text" name="" id="">
-                            </div>
-
-                            <input type="checkbox" name="" id="checkboxe-5"> <label for="">PRA
-                                %</label><br><br>
-                            <div class="checkbox-9">
-                                <input type="text" name="" id="">
-                            </div>
-
-                            <input type="checkbox" name="" id="checkboxe-6"> <label for="">Nothing</label><br><br>
-                            <div class="checkbox-11">
-                                <input type="text" name="" id="">
-                            </div>
-
+    <label for="">Promotion
+                                Charges</label> <input type="text" name="" id="">
+                                <input type="checkbox" name="" id="checkboxe-4">
+                             <label for="">PRA
+                                %</label> <input type="text" name="" id="">
+                                <input type="checkbox" name="" id="checkboxe-5">
+                       
+                             <label for="">Nothing</label> <input type="text" name="" id="">
+                             <input type="checkbox" name="" id="checkboxe-6">
 
 
                         </div>
-
+                      
                     </div>
                 </div>
     </section>
@@ -393,6 +557,11 @@
 
 
 
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+    </script>
 
 
 
@@ -403,25 +572,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script>
-        $(document).ready(function () {
-            $("#checkboxe-1").click(function () {
-                $(".checkbox-1").toggleClass("myMain");
-
-
-            });
-
-            $("#checkboxe-2").click(function () {
-                $(".checkbox-3").toggleClass("myMain");
-            });
-
-            $("#checkboxe-3").click(function () {
-                $(".checkMain-5").toggleClass("myMain");
-            });
-            $("#checkboxe-4").click(function () {
-                $(".checkbox-7").toggleClass("myMain");
-            });
-
-        });
+        
     </script>
 </body>
 

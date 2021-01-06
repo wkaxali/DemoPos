@@ -43,6 +43,12 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/', function () {
     return view('signInSignUp');
 });
+Route::get('/investor', function () {
+    return view('investorLedger');
+});
+Route::get('/invgl', function () {
+    return view('investorGeneralLedger');
+});
 
 Route::get('/db', function () {
     return view('dashboard');
@@ -108,3 +114,13 @@ Route::get('/vs', function () {
 Route::get('/ex', function () {
     return view('expense');
 });
+Route::get('/emt', function () {
+    return view('EmployeeTaskView');
+});
+Route::get('/ev', function () {
+    return view('employerView');
+});
+Route::get('/e', function () {
+    return view('employee');
+});
+
