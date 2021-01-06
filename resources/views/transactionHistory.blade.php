@@ -27,7 +27,7 @@
     </style>
 </head>
 
-<body onload="myFunction()">
+<body onload="getTransactionHistory()">
     <header>
         <div class="container">
             <div class="row">
@@ -58,7 +58,7 @@
                                 <tr>
                                     <th id ="Cusname">Transaction ID</th>
                                     <th id="CusCont">Invoice No</th>
-                                    <th id ="Cusaddr">Transection Catogery</th>
+                                    <th id ="Cusaddr">Transaction Category</th>
                                     <th id="CusIntrs">Amount</th>
                                     <th id ="CusMeet">Transaction Date</th>
                                 </tr>
@@ -160,7 +160,7 @@
     </script>
 
 <script>
-function myFunction(){
+function getTransactionHistory(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
@@ -175,7 +175,7 @@ function myFunction(){
 
                 $.each(a, function (i, item) {
 
-                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransectionCatogery, a[i].Amount, 
+                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].Amount, 
                     a[i].DateStamp]);
                 });
                 table.draw();

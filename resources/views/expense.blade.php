@@ -191,7 +191,7 @@
                                     <th>Date</th>
                                     <th>Amount</th>
                                     <th>Expense Name</th>
-                                    <th>Expense ID</th>
+                                  
                                     <th>Paid To</th>
                                     <th>Paid By</th>
                                     <th>Remarks</th>
@@ -255,11 +255,11 @@
     
       
       function add() {
-         
+
            var date = document.getElementById("date").value;
          var  amount = document.getElementById("amount").value;
          var expense = document.getElementById("expense");
-         var expenseID='2';
+         var expenseID = document.getElementById("expense").value;
          var paidto = document.getElementById("paidto");
          var paidby = document.getElementById("paidby");
          var remarks = document.getElementById("remarks").value;
@@ -287,6 +287,7 @@
           cell7.innerHTML = remarks;
           cell8.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
           
+          cell4.style.display = "none";
         
      
 

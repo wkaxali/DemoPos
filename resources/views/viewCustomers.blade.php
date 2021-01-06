@@ -66,7 +66,7 @@
     </style>
 </head>
 
-<body onload="myFunction()">
+<body onload="getCustomers()">
     <header>
         <div class="container">
             <div class="row">
@@ -182,7 +182,7 @@ xhttp.send();
 
 
 <script>
-function myFunction(){
+function getCustomers(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
