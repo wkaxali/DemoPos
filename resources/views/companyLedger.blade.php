@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
 
-    <title></title>
+    <title>Company Ledger</title>
     <style>
         input {
 
@@ -37,13 +37,14 @@
         .receivingTable {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
+            
         }
 
         .receivingMain {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
             height: 450px;
-            /* overflow: auto; */
+            overflow: auto;
         }
 
         .ledgerFloat {
@@ -72,7 +73,7 @@
     </style>
 </head>
 
-<body>
+<body onload="myFunction()">
 
     <header>
         <div class="container">
@@ -87,31 +88,7 @@
                     <div class="receivingMain">
 
 
-                        <div class="receivingTable">
-                            <table class=" table-striped" style="width: 100%; text-align: center;">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Category</th>
-
-                                        <th>Transactional ID</th>
-
-                                        <th>Description</th>
-                                        <th>Total Amount</th>
-                                        <th>Amount Paid</th>
-                                        <th>Remaining</th>
-                                        <th>Paid By</th>
-
-                                        <th>Details</th>
-
-
-                                    </tr>
-                                </thead>
-                                <tbody id="ladgerTableBody">
-                                    
-                                </tbody>
-
-                            </table>
+                        <div class="receivingTable" id = "myTableDiv">
 
                         </div>
                     </div>
@@ -140,7 +117,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="Footerbtns">
-                        <a class="btn" href="#">Print</a>
+                        <a class="btn">Print</a>
                         <a class="btn" href="#">Export To Pdf</a>
         
                     </div>
@@ -165,6 +142,33 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+function myFunction(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("myTableDiv").innerHTML = this.response;
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./companyLedger/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
+<script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+</script>
+
+
 </body>
 
 </html>

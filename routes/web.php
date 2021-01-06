@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
 
-use App\Http\Controllers\OrderFlowController;
-use App\Http\Controllers\UpdateStocksController;
-
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
+use App\Http\Controllers\OrderFlowController;
+
+use App\Http\Controllers\UpdateStocksController;
+
+
 use App\Http\Controllers\salesFlow;
 
 /*
@@ -33,7 +35,17 @@ Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategories
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
-Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID'] );
+Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID']);
+Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
+Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
+Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
+Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
+Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
+
+// Test Functions
+Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
+Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
+
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts'] );
@@ -59,9 +71,6 @@ Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
 Route::get('/am', function () {
     return view('addMenu');
 });
-Route::get('/vs', function () {
-    return view('viewStock');
-});
 
 Route::get('/bo', function () {
     return view('bookOrder');
@@ -70,10 +79,10 @@ Route::get('/bo', function () {
 Route::get('/cl', function () {
     return view('companyLedger');
 });
-Route::get('/dl', function () {
+Route::get('/d', function () {
     return view('delivery');
 });
-Route::get('/d', function () {
+Route::get('/dl', function () {
     return view('deliveryLetter');
 });
 Route::get('/ip', function () {
@@ -91,11 +100,8 @@ Route::get('/psi', function () {
 Route::get('/rec', function () {
     return view('Receiving');
 });
-Route::get('/sandc', function () {
-    return view('salesandcommission');
-});
 Route::get('/sc', function () {
-    return view('sac');
+    return view('salesandcomission');
 });
 Route::get('/stock', function () {
     return view('stock');
@@ -107,21 +113,23 @@ Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo'] );
 Route::get('/vc', function () {
     return view('viewCustomers');
 });
+Route::get('/sp', function () {
+    return view('viewSpareParts');
+});
 Route::get('/vs', function () {
     return view('viewStock');
 });
-
+Route::get('/ajax', function () {
+    return view('ajax');
+});
+Route::get('/scratch', function () {
+    return view('scratch');
+});
 Route::get('/ex', function () {
     return view('expense');
 });
-Route::get('/emt', function () {
-    return view('EmployeeTaskView');
-});
-Route::get('/ev', function () {
-    return view('employerView');
-});
-Route::get('/e', function () {
-    return view('employee');
+Route::get('/ct', function () {
+    return view('comissionAndTaxes');
 });
 Route::get('/s', function () {
     return view('salesandc');

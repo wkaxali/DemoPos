@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,62 +11,10 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <title>View Customers</title>
-    <style>
-        .dropdown.bootstrap-select.form-control {
-            width: 200px !important;
-            display: inline-block !important;
-            /* background-color:#0a549d !important; */
-
-
-        }
-
-        .printBtns {
-
-            background-color: #ffffff;
-            border: 1px solid#0a549d;
-            color: #0a549d;
-            transition: .7s;
-        }
-
-        .printBtns:hover {
-            background-color: #0a549d;
-            border-color: #0a549d;
-            color: #ffffff;
-            transition: .7s;
-        }
-
-        .receivingMain {
-            border: 1px solid #aaaaaa;
-            border-radius: 10px;
-            height: 550px;
-            padding: 10px;
-            /* overflow: auto; */
-        }
-
-        .receivingTable {
-            border: 1px solid #aaaaaa;
-            border-radius: 10px;
-            padding: 10px;
-        }
-
-        table {
-            border-spacing: 0;
-            border-collapse: collapse;
-            border-style: hidden;
-
-            width: 100%;
-            max-width: 100%;
-        }
-
-        th,
-        td {
-            border: 1px solid #aaaaaa;
-            padding: 5px;
-        }
-    </style>
+    
 </head>
 
-<body onload="myFunction()">
+<body>
     <header>
         <div class="container">
             <div class="row">
@@ -92,22 +40,65 @@
 
 
 
-                    <div class="receivingTable" id = "tableDiv">
-                    <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
-                        <thead>
-                            <tr>
-                                <th id ="Cusname">Name</th>
-                                <th id="CusCont">Contact</th>
-                                <th id ="Cusaddr">Address</th>
-                                <th id="CusIntrs">Balance</th>
-                                <th id ="CusMeet">CNIC</th>
+                    <div class="receivingTable">
+                        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th id ="Cusname">Name</th>
+                                    <th id="CusCont">Contact</th>
+                                    <th id ="Cusaddr">Address</th>
+                                    <th id="CusIntrs">Interested In</th>
+                                    <th id ="CusMeet"> Who Meet</th>
 
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Rayan</td>
+                                    <td>030914200**</td>
+                                    <td>Chah Miran Lahore</td>
+                                    <td>Yes</td>
+                                    <td>Usama Mehar</td>
+                                </tr>
+                                <tr>
+                                    <td>Rayan</td>
+                                    <td>030914200**</td>
+                                    <td>Chah Miran Lahore</td>
+                                    <td>Yes</td>
+                                    <td>Usama Mehar</td>
+                                </tr>
+                                <tr>
+                                    <td>Rayan</td>
+                                    <td>030914200**</td>
+                                    <td>Chah Miran Lahore</td>
+                                    <td>Yes</td>
+                                    <td>Usama Mehar</td>
+                                </tr>
+                                <tr>
+                                    <td>Rayan</td>
+                                    <td>030914200**</td>
+                                    <td>Chah Miran Lahore</td>
+                                    <td>Yes</td>
+                                    <td>Usama Mehar</td>
+                                </tr>
+                                <tr>
+                                    <td>Rayan</td>
+                                    <td>030914200**</td>
+                                    <td>Chah Miran Lahore</td>
+                                    <td>Yes</td>
+                                    <td>Usama Mehar</td>
+                                </tr>
+                                <tr>
+                                    <td>Rayan</td>
+                                    <td>030914200**</td>
+                                    <td>Chah Miran Lahore</td>
+                                    <td>Yes</td>
+                                    <td>Usama Mehar</td>
+                                </tr>
+                            </tbody>
+
                         </table>
-                        
+
                     </div>
 
                 </div>
@@ -139,9 +130,15 @@
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
-    
     <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
 
+
+    </script>
+    <script>
+    
     function CustomerInfo(){
 
         var CusName=documenty.getElementById(" Cusname").value;
@@ -179,47 +176,6 @@ xhttp.send();
 }; 
     
     </script>
-
-
-<script>
-function myFunction(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            var data = this.responseText;
-                //alert(data);
-                var table;
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                table = $('#myTable').DataTable();
-
-                $.each(a, function (i, item) {
-
-                    table.row.add([a[i].CustomerName, a[i].Contect, a[i].Address, a[i].Balance, a[
-                        i].CNIC]);
-                });
-                table.draw();
-
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./viewCustomer/", true);
-    
-    xhttp.send();
-    }
-
-    </script>
-
-<script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
-        });
-
-
-    </script>
-
 </body>
 
 

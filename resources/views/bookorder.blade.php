@@ -266,7 +266,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+<<<<<<< HEAD
+
+
+
+
+=======
                                        <!-- from database -->
+>>>>>>> 2f7826b8dfd6dc7353e93bb1568a8091d82951f3
                                 </tbody>
                             </table>
                         </div>
