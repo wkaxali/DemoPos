@@ -127,11 +127,7 @@
                             <input type="text" class="form-control" style="display: inline-block; width: 192px;"
                                 value="" name=""  onclick="calculatonInTable()" id="amount"><br>
                             <label for="">Paid To</label>
-<<<<<<< HEAD
                             <select data-live-search="true"
-=======
-                            <select style="height: 25px !important; width: 158px !important; "
->>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
                                 class="selectpicker form-control" id="paidto" >
                                 <option value=1>Mohsin</option>
                                 <option value=2>Ali</option>
@@ -140,7 +136,6 @@
 
 
                             </select>
-<<<<<<< HEAD
 
                              <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
                                margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
@@ -179,17 +174,11 @@
 
                             </div>
                         </div>
-                        <br>
+                        
                             <label for="">Paid by</label>
                             <select   data-live-search="true" 
                                 class="selectpicker form-control"  id="paidby" >
 
-=======
-                            <button class="btn btn-info">+</button><br>
-                            <label for="">Paid by</label>
-                            <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  id="paidby" >
->>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
                                 <option value=1>Mamu</option>
                                 <option value=2>Ali</option>
                                 <option value=3>Malik</option>
@@ -200,13 +189,8 @@
                         </div>
                         <div class="col-md-4 offset-md-2">
                             <label for="">Expense Head</label>
-<<<<<<< HEAD
                             <select 
                                 class="selectpicker form-control" data-live-search="true"  id="expence" >
-=======
-                            <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  id="expence" >
->>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
                                 <option value=1>Bill</option>
                                 <option value=2>Document</option>
                                 <option value=3>Malik</option>
@@ -214,7 +198,7 @@
 
 
                             </select>
-                            <!-- <button class="btn">+</button> -->
+                            <button class="btn">+</button>
                             <br>
                             <label style="width: 100px !important;" for="">Date</label>
                             <input type="date" style="width: 240px;" name="" id="date"><br>
@@ -227,11 +211,7 @@
                             </div>
 
 
-<<<<<<< HEAD
 
-=======
-                            
->>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
                         </div>
                     </div>
                 </div>

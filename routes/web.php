@@ -68,8 +68,8 @@ Route::get('/db', function () {
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
 
 
-Route::get('/am', function () {
-    return view('addMenu');
+Route::get('/as', function () {
+    return view('addstock');
 });
 
 Route::get('/bo', function () {

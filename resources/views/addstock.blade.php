@@ -289,11 +289,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h2>Menu Products</h2>
+                    <h1>Spareparts & Services</h1Y>
                 </div>
             </div>
 
             <div class="myContentInputs">
+            
+             
+                <div class="inputField-1">
+                    <label for="prodName">Product Name</label>
+                    <input type="text" id="productName" style="width: 140px !important;" class="form-control">
+                </div>
+                <div class="inputField-1">
+                    <label for="cost">Cost</label>
+                    <input type="text" class="form-control" style="width: 140px !important;" id="cost">
+                </div>
+               
+                <div  class="inputField-1">
+                    <label for="prodName">Sale Price</label>
+                    <input type="text" class="form-control" style="width: 140px !important;" id="salePrice">
+
+                </div>
+                <div class="inputField-1">
+                    <label for="cost">Remarks</label>
+                    <input type="text" class="form-control" style="width: 140px !important;" id="cost">
+                </div>
                 <div class="inputField-1">
                     <label for="prodName">Category</label> <br>
 
@@ -311,23 +331,6 @@
                         <option value=8>FISH</option>
 
                     </select>
-                </div>
-                <div class="inputField-1">
-                    <label for="cost">Cost</label>
-                    <input type="text" class="form-control" style="width: 140px !important;" id="cost">
-                </div>
-                <div class="inputField-1">
-                    <label for="cost">Remarks</label>
-                    <input type="text" class="form-control" style="width: 140px !important;" id="cost">
-                </div>
-                <div class="inputField-1">
-                    <label for="prodName">Product Name</label>
-                    <input type="text" id="productName" style="width: 140px !important;" class="form-control">
-                </div>
-                <div  class="inputField-1">
-                    <label for="prodName">Sale Price</label>
-                    <input type="text" class="form-control" style="width: 140px !important;" id="salePrice">
-
                 </div>
                 <div class="input-Btn-1">
                     <button class="btn btn-success" style="margin-top: 30px !important;" onclick="AddItemInGrid()">Add

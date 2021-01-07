@@ -10016,20 +10016,23 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                                         <label class="labels" for="">Purchase</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
                                                             <button class="btn btn-myPrimary-add"
-                                                                onclick="location.href = 'bookOrder.html'">Book
+                                                            
+                                                                onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
-                                                                onclick="location.href = 'Receiving.html'">Dilivery</button><br>
-
+                                                                onclick="location.href = '/d'">Dilivery</button><br>
+                                                                <button class="btn btn-mysecondary"
+                                                                onclick="location.href = '/dl'">Dilivery letter</button><br>
                                                         </div>
+                                                        
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Sales</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                            <button class="btn btn-myPrimary-add">Add</button><br>
-                                                            <button class="btn btn-mysecondary">Delete</button><br>
-                                                            <button class="btn btn-myPrimary">View Stock</button><br>
+                                                            <a href="/is"></a><button class="btn btn-myPrimary-add">invoice services</button><br></a>
+                                                            <a href="/psi"></a><button class="btn btn-mysecondary">Print Sale Invoice</button><br></a>
+                                                            <a href="/sc"></a><button class="btn btn-myPrimary">Sales& comission</button><br></a>
                                                             <button class="btn btn-myPrimary-add">Add</button><br>
                                                             <button class="btn btn-mysecondary">Delete</button><br>
                                                             <button class="btn btn-myPrimary">View Stock</button><br>
@@ -10039,9 +10042,10 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Stock</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                            <button class="btn btn-myPrimary-add">Add</button><br>
-                                                            <button class="btn btn-mysecondary">Delete</button><br>
-                                                            <button class="btn btn-myPrimary">View Stock</button><br>
+                                                            
+                                                                <a href="/as"> <button class="btn btn-myPrimary-add">Add Stock</button><br></a> 
+                                                                <a href="/ip"><button class="btn btn-mysecondary">Increase In price</button><br></a>
+                                                                <a href="/stock"> <button class="btn btn-myPrimary">Stock</button><br></a>
                                                             <button class="btn btn-myPrimary-add">Add</button><br>
                                                             <button class="btn btn-mysecondary">Delete</button><br>
                                                             <button class="btn btn-myPrimary">View Stock</button><br>
@@ -10051,8 +10055,9 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                                         <label style="margin-left: 22px;" class="labels"
                                                             for="">Ledger</label>
                                                         <div class="leftBtns">
-                                                            <button class="btn btn-myPrimary-add">Add</button><br>
-                                                            <button class="btn btn-mysecondary">Delete</button><br>
+                                                            <button class="btn btn-myPrimary-add" 
+                                                             onclick="location.href = '/cl'">Company ledger</button><br>
+                                                             <a href="/l"> <button class="btn btn-mysecondary">Delete</button><br></a>
                                                             <button class="btn btn-myPrimary">View Stock</button><br>
                                                             <button class="btn btn-myPrimary-add">Add</button><br>
                                                             <button class="btn btn-mysecondary">Delete</button><br>
