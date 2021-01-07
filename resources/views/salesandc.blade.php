@@ -223,7 +223,7 @@
                                   </div>
                                   <div class="modal-body">
                                     <div class="receivingTable">
-                                        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+                                        <table id="productSearchTable" class=" table-striped" style="width: 100%; text-align: center;">
                                             <thead>
                                                 <tr>
                                                     <th>Product Id</th>
@@ -286,33 +286,33 @@
                                 <label for="status">Model</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="Cash">
+                                    name="name" id="productName" value="Cash">
                             </div>
 
                             <div class="input-field">
                                 <label for="status">Chassis Number </label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="137000">
+                                    name="name" id="chassisNumber" value="137000">
                             </div>
                             <div class="input-field">
                                 <label for="status">Engine Number</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="10000">
+                                    name="name" id="engineNumber" value="10000">
                             </div>
                             <div class="input-field">
                                 <label for="status">Status</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="0">
+                                    name="name" id="status" value="0">
                             </div>
 
                             <div class="input-field">
-                                <label for="status">Price + tax</label>
+                                <label for="status">Sale Price</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="138000">
+                                    name="name" id="price" value="138000">
                                 <a style="font-size: 14px;" href="#" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">View Details</a>
 
@@ -357,18 +357,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="input-field">
-                                <label for="status">Discount</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="0">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Net Total</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="0">
-                            </div>
+                            
                         </div>
                         <div class="myOwnROw">
 
@@ -535,46 +524,11 @@
 
 
 
-        function add() {
-           
-        
-           
-            var select = document.getElementById("select");
-            var amount = document.getElementById("amount").value;
-            var remarks = document.getElementById("remarks").value;
         
 
-            var table = document.getElementById("secondtable");
-            var row = table.insertRow(-1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-       
-    
-            
-     
-
-            cell1.innerHTML =select.options[select.selectedIndex].text;
-            cell2.innerHTML =amount;
-            cell3.innerHTML =remarks;
-            cell4.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
-          
-            calculatonInTable();
-            
-  
-
-        }
 
 
 
-
-        function deleteRow(ele) {
-            var a = ele.parentNode.parentNode;
-
-            a.remove();
-            calculatonInTable();
-        }
     </script>
 
 
@@ -592,6 +546,76 @@
         
     </script>
 <script>
+
+function add() {
+           
+        
+           
+           var select = document.getElementById("select");
+           var amount = document.getElementById("amount").value;
+           var remarks = document.getElementById("remarks").value;
+       
+
+           var table = document.getElementById("secondtable");
+           var row = table.insertRow(-1);
+           var cell1 = row.insertCell(0);
+           var cell2 = row.insertCell(1);
+           var cell3 = row.insertCell(2);
+           var cell4 = row.insertCell(3);
+      
+   
+           
+    
+
+           cell1.innerHTML =select.options[select.selectedIndex].text;
+           cell2.innerHTML =amount;
+           cell3.innerHTML =remarks;
+           cell4.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
+         
+           calculatonInTable();
+           
+ 
+
+       }
+
+
+
+
+       function deleteRow(ele) {
+           var a = ele.parentNode.parentNode;
+
+           a.remove();
+           calculatonInTable();
+       }
+
+       $("#productSearchTable").on('click', 'tr', function () {
+   // get the current row
+
+
+
+   //var table = document.getElementById("productSearchTable");
+
+   document.getElementById("productName").value = this.cells[0].innerText; // get current row 1st TD value
+   document.getElementById("chasisNumber").value = this.cells[1].innerText;
+   document.getElementById("engineNumber").value = this.cells[2].innerText;
+   
+   //document.getElementById("EngineNumber").value = this.cells[3].innerText; 
+   //document.getElementById("Status").value = this.cells[6].innerText; 
+   //document.getElementById("TotalPrice").value = this.cells[4].innerText; 
+   
+
+   
+   alert(this.cells[0].innerText);
+});
+
+
+
+
+
+
+
+
+
 function getStock(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -603,7 +627,7 @@ function getStock(){
                 var table;
                 var a = JSON.parse(data);
                 //  alert(a[0].ProductSerial);
-                table = $('#myTable').DataTable();
+                table = $('#productSearchTable').DataTable();
 
                 $.each(a, function (i, item) {
 
@@ -624,7 +648,7 @@ function getStock(){
 
 <script>
         $(document).ready(function () {
-            $('#myTable').DataTable();
+            $('#productSearchTable').DataTable();
         });
         
 </script>
