@@ -76,6 +76,8 @@ class salesFlow extends Controller
          LedgerPartiesController::UpdatePartiesBalance($LID, $currentBalance);
           
         }
+        UpdateStocksController::UpdateStockStatus($pid,"Sold");
+
        return $invoiceNumber;
     }
     public function insertInDetailedOrder($row,$InvoiceID,$date){
