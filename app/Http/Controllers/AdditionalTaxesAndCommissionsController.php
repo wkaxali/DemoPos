@@ -42,17 +42,26 @@ return $CID;
         $dateNow= Carbon::now()->toDateTimeString();
         $Array=json_decode($data);
         $PID=$Array[0];
+        $totCostHere=0;
         foreach($Array[1] as $item){
 
        self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Cost",$PID,NULL,NULL,
     $dateNow);
 
-
-    $oldCost=UpdateStocksController::
+        $totCostHere=floatval($totCostHere)+floatval($item[1]);
+       
+    
+        
+   
 
 
 
         }
+        $oldCost=UpdateStocksController::getTotalCost($PID);
+        $newCost=floatval($totCostHere)+floatval($oldCost);
+        UpdateStocksController::setTotalCost($PID,$newCost);
+
+
         return "HOLA";
 
     }

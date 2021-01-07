@@ -241,7 +241,9 @@
                                                     <th>Company</th>
                                                     <th>Unit Sale Price</th>
                                                     <th>Unit Purchase Price</th>
-                                                    <th>Stock</th>
+                                                    <th>Total Cost</th>
+                                                    <th>Price Sold</th>
+
                                                     <th>Engine Number</th>
                                                     <th>Chasis Number</th>
             
@@ -283,55 +285,131 @@
             </div>
         </div>
     </section>
-    <br>
     <section>
+        <div  class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="height: 120px;"class="myMainRow">
+
+
+                      
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="myMainRow">
-
-
-                        <div class="myOwnRow-left">
-                            <div class="input-field">
-                                <label for="status">Model</label>
+                    <label for="status">Model</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="productName" value="Cash">
                             </div>
-                            <div class="input-field">
+                          
                                 <label for="status">PID</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="PID" value="Cash">
-                            </div>
-
-                            <div class="input-field">
+                         
                                 <label for="status">Chassis Number </label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="chassisNumber" value="137000">
-                            </div>
-                            <div class="input-field">
+                  
                                 <label for="status">Engine Number</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="engineNumber" value="10000">
-                            </div>
-                            <div class="input-field">
+                   
                                 <label for="status">Status</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="status" value="0">
-                            </div>
-
-                            <div class="input-field">
+                      
                                 <label for="status">Sale Price</label>
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="price" value="138000">
+                                    name="name" id="SalePrice" value="">
                                 <a style="font-size: 14px;" href="#" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">View Details</a>
 
+                </div>
+            </div>
+        </div>
+                </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            </section>
+    <br>
+    <section>
+        <div  class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="height: 320px;"class="myMainRow">
+
+
+                        <div class="myOwnRow-left">
+                            <div class="input-field">
+                            <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                <h3 style="text-align: center; color:#e61d2f;" >Aditional Cost</h3>
+
+                        <label style="width: 60px !important;" for="">Select</label>
+                        <select class="selectpicker form-control" data-live-search="true" id="comissionHeadSelect"
+                            tabindex="null">
+                            <option value=1>Bank Person</option>
+                            <option value=2>sales per comissiions</option>
+                            <option value=3>Third party per comission</option>
+                            <option value=4>Promotion charges</option>
+                            <option value=5>PRA % </option>
+                            <option value=6>Nothing</option>
+                        </select>
+
+                     
+                     
+                                <label style="width: 50px;" for="">Amount</label> <input style="width: 80px;" type="text" name="" id="amount">
+                        
+                                <label style="width: 50px;" for="remarks">Remarks   </label> <input style="width: 100px;" type="text" name="" id="remarks">
+                            
+                                <button onclick="add()"  class="btn ">Add</button>
+</div>
+
+
+
+    <div class="bookingRightTable">
+
+        <!-- <div class="tableContent  text-center">
+            <h3>Your Current Data </h3>
+        </div> -->
+
+
+
+        <div class="tableDiv">
+
+
+                                    <table id="comissionTable" class="secondtable"
+                                        style="width: 100%; text-align: center; ">
+                                        <thead>
+                                            <tr>
+                                                <th>Head</th>
+                                                <th>Amount</th>
+                                                <th>Remarks</th>
+                                                <th>Delete</th>
+                                                <th>ComID</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+      
+                                        </tbody>
+                                    </table>
+                                </div>
+                    
+                                <button style="margin-left: 400px;" onclick="addCommissionsOrTaxes()"  class="btn ">Update</button>
+
+    </section>
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -380,117 +458,83 @@
 
 
 
-
-                            <div class="input-field">
-                                <label for="status">Client Name</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="PEL">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Address</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">contact</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="923124617477">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Manager</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="Mushtaq ">
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <br>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="myMainRow">
-                
-
-                        <label style="width: 100px !important;" for="">Select</label>
-                        <select class="selectpicker form-control" data-live-search="true" id="comissionHeadSelect"
-                            tabindex="null">
-                            <option value=1>Bank Person</option>
-                            <option value=2>sales per comissiions</option>
-                            <option value=3>Third party per comission</option>
-                            <option value=4>Promotion charges</option>
-                            <option value=5>PRA % </option>
-                            <option value=6>Nothing</option>
-                        </select>
-
+                       
+                                <div class="input-field">
+                                <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                    <h3 style="text-align: center;" >Comistions</h3>
+    
+                            <label style="width: 60px !important;" for="">Select</label>
+                            <select class="selectpicker form-control" data-live-search="true" id="comissionHeadSelect"
+                                tabindex="null">
+                                <option value=1>Bank Person</option>
+                                <option value=2>sales per comissiions</option>
+                                <option value=3>Third party per comission</option>
+                                <option value=4>Promotion charges</option>
+                                <option value=5>PRA % </option>
+                                <option value=6>Nothing</option>
+                            </select>
+    
                          
-                               
                          
-                                <label for="">Amount</label>
-                                <input type="text" name="" id="amount">
-                                <label for="remarks">Remarks</label>
-                                <input type="text" name="" id="remarks">
-                                <button onclick="add()"  class="btn ">Add</button>
-                                <button onclick="addCommissionsOrTaxes()"  class="btn ">Update</button>
-</div>
+                                    <label style="width: 50px;" for="">Amount</label> <input style="width: 80px;" type="text" name="" id="amount">
+                            
+                                    <label style="width: 50px;" for="remarks">Remarks   </label> <input style="width: 100px;" type="text" name="" id="remarks">
+                                
+                                    <button onclick="add()"  class="btn ">Add</button>
+    </div>
+    
+    
+    
+        <div class="bookingRightTable">
+    
+            <!-- <div class="tableContent  text-center">
+                <h3>Your Current Data </h3>
+            </div> -->
+    
+    
+    
+            <div class="tableDiv">
+    
+    
+                                        <table id="comissionTable" class="secondtable"
+                                            style="width: 100%; text-align: center; ">
+                                            <thead>
+                                                <tr>
+                                                    <th>Head</th>
+                                                    <th>Amount</th>
+                                                    <th>Remarks</th>
+                                                    <th>Delete</th>
+                                                    <th>ComID</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+          
+                                            </tbody>
+                                        </table>
+                                    </div>
+                        
+                                    <button style="margin-left: 400px;" onclick="addCommissionsOrTaxes()"  class="btn ">Update</button>
 
-
-<div class="col-md-12">
-    <div class="bookingRightTable">
-
-        <!-- <div class="tableContent  text-center">
-            <h3>Your Current Data </h3>
-        </div> -->
-
-
-
-        <div class="tableDiv">
-
-
-                                    <table id="comissionTable" class="secondtable"
-                                        style="width: 100%; text-align: center; ">
-                                        <thead>
-                                            <tr>
-                                                <th>Head</th>
-                                                <th>Amount</th>
-                                                <th>Remarks</th>
-                                                <th>Delete</th>
-                                                <th>ComID</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-      
-                                        </tbody>
-                                    </table>
-                                </div>
-                    
     </section>
-    <br>
-
+   <br><br>
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
                     <label for="">Total Cost</label>
-                    <input type="text" class="form-control" name="" id="">
+                    <input type="text" class="form-control" name="" id="TotalCost">
                 </div>
                 <div class="col-md-4">
                     <label for="">Total Sale Price</label>
-                    <input type="text" class="form-control" name="" id="">
+                    <input type="text" class="form-control" name="" id="SoldPrice">
                 </div>
                 <div class="col-md-4">
                     <label for="">Profit</label>
-                    <input type="text" class="form-control" name="" id="">
+                    <input type="text" class="form-control" name="" id="Profit">
                 </div>
             </div>
         </div>
@@ -627,8 +671,11 @@ $("#productSearchTable").on('click', 'tr', function () {
 
    document.getElementById("PID").value = this.cells[0].innerText;
    document.getElementById("productName").value = this.cells[1].innerText; // get current row 1st TD value
-   document.getElementById("chassisNumber").value = this.cells[6].innerText;
+   document.getElementById("chassisNumber").value = this.cells[8].innerText;
    document.getElementById("engineNumber").value = this.cells[7].innerText;
+   document.getElementById("TotalCost").value =this.cells[5].innerText;
+   document.getElementById("SalePrice").value =this.cells[3].innerText;
+   
    
    
 
@@ -660,7 +707,7 @@ function getStock(){
                 $.each(a, function (i, item) {
 
                     table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice
-                    , a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
+                    , a[i].TotalCost,a[i].TotalSaleAmount, a[i].EngineNumber, a[i].ChasisNumber]);
                 });
                 table.draw();
                 table.clear();
