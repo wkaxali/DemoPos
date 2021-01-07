@@ -109,5 +109,26 @@ public static function UpdateStockStatus($PID,$Status){
   
 
   ]);
+
+}
+
+public static function getTotalCost($PID){
+
+  $OldPrice = DB::table('instock')
+            ->where('ProductSerial', '=', $PID)
+             ->get();
+
+             return $OldPrice[0]->TotalCost;
+}
+public static function setTotalCost($PID,$amount){
+
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update(['TotalCost'=>$amount
+  
+
+  ]);
+  return "Cost Updated";
+
 }
 }

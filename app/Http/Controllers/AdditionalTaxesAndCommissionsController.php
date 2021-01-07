@@ -24,7 +24,7 @@ class AdditionalTaxesAndCommissionsController extends Controller
         ]);
        
         TransactionFlow:: addTransaction(NULL,"Credit",$CPName,$amount,$dateHere,
-        "1",$SBB,$SBA,$CBB,$CBA,$LID,$pattyCash,$paidBy,$paidTo,$paidVia,$CID);
+        "1",NULL,NULL,NULL,NULL,NULL,"0",NULL,NULL,NULL,$CID);
 
        
 return $CID;
@@ -43,8 +43,15 @@ return $CID;
         $Array=json_decode($data);
         $PID=$Array[0];
         foreach($Array[1] as $item){
+
        self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Cost",$PID,NULL,NULL,
     $dateNow);
+
+
+    $oldCost=UpdateStocksController::
+
+
+
         }
         return "HOLA";
 
