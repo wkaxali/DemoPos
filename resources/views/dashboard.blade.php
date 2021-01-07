@@ -10016,7 +10016,7 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                                         <label class="labels" for="">Purchase</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
                                                             <button class="btn btn-myPrimary-add"
-                                                                onclick="location.href = 'bookOrder.html'">Book
+                                                                onclick="location.href = 'is'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
                                                                 onclick="location.href = 'Receiving.html'">Dilivery</button><br>
