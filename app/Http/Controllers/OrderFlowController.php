@@ -240,7 +240,7 @@ class OrderFlowController extends Controller
                   
                   <th id ="Cusname">Transaction ID</th>
                   <th id="CusCont">Invoice No</th>
-                  <th id ="Cusaddr">Transection Catogery</th>
+                  <th id ="Cusaddr">Transaction Category</th>
                   <th id="CusIntrs">Amount</th>
                   <th id ="CusMeet">Transaction Date</th>
               </tr>

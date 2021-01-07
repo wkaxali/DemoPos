@@ -279,17 +279,17 @@
                                 </thead>
                                 <tbody>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         /* data from database */
 =======
 <<<<<<< HEAD
 >>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
-
-
-
-
 =======
-                                       <!-- from database -->
->>>>>>> 2f7826b8dfd6dc7353e93bb1568a8091d82951f3
+>>>>>>> e3ac0e4aeefe981e394ed2e4a5be2ee9001092eb
+
+
+
+
                                 </tbody>
                             </table>
                         </div>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    
 
 
     <title>Expense</title>
@@ -77,7 +78,7 @@
     </style>
 </head>
 
-<body>
+<body onload="loadExpenseHeads()">
     <main>
         <div class="container">
             <div class="row">
@@ -176,9 +177,14 @@
                         </div>
                         
                             <label for="">Paid by</label>
+<<<<<<< HEAD
                             <select   data-live-search="true" 
                                 class="selectpicker form-control"  id="paidby" >
 
+=======
+                            <select style="height: 25px !important; width: 158px !important; "
+                                class="selectpicker form-control" data-live-search="true"  id="paidby" >
+>>>>>>> e3ac0e4aeefe981e394ed2e4a5be2ee9001092eb
                                 <option value=1>Mamu</option>
                                 <option value=2>Ali</option>
                                 <option value=3>Malik</option>
@@ -189,6 +195,7 @@
                         </div>
                         <div class="col-md-4 offset-md-2">
                             <label for="">Expense Head</label>
+<<<<<<< HEAD
                             <select 
                                 class="selectpicker form-control" data-live-search="true"  id="expence" >
                                 <option value=1>Bill</option>
@@ -197,6 +204,11 @@
                                 <option value=4>Rayyan</option>
 
 
+=======
+                            <select style="height: 25px !important; width: 158px !important; "
+                                class="selectpicker form-control"  data-live-search="true"  id="expense" >
+                            
+>>>>>>> e3ac0e4aeefe981e394ed2e4a5be2ee9001092eb
                             </select>
                             <button class="btn">+</button>
                             <br>
@@ -228,12 +240,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="expenseTable">
-                        <table id="invoiceservices" class="table-bordered table-striped table-hover" style="width: 100%;">
+                        <table id="expenseTable" class="table-bordered table-striped table-hover" style="width: 100%;">
                             <thead>
                                 <tr>
                                     <th>Date</th>
                                     <th>Amount</th>
                                     <th>Expense Name</th>
+                                  
                                     <th>Paid To</th>
                                     <th>Paid By</th>
                                     <th>Remarks</th>
@@ -263,7 +276,7 @@
                     <div class="footerBtns">
                         <button class="btn">Close</button>
                         <button class="btn">Print</button>
-                        <button class="btn">Update</button>
+                        <button class="btn" onclick = "addExpenses()">Update</button>
                     </div>
                 </div>
             </div>
@@ -284,6 +297,7 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
@@ -296,17 +310,18 @@
     
       
       function add() {
-         
+
            var date = document.getElementById("date").value;
          var  amount = document.getElementById("amount").value;
-         var expence = document.getElementById("expence");
+         var expense = document.getElementById("expense");
+         var expenseID = document.getElementById("expense").value;
          var paidto = document.getElementById("paidto");
          var paidby = document.getElementById("paidby");
          var remarks = document.getElementById("remarks").value;
        
          
 
-          var table = document.getElementById("invoiceservices");
+          var table = document.getElementById("expenseTable");
           var row = table.insertRow(-1);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -315,19 +330,19 @@
           var cell5 = row.insertCell(4);
           var cell6 = row.insertCell(5);
           var cell7 = row.insertCell(6);
-       
+          var cell8 = row.insertCell(7);
        
           
-   
-
           cell1.innerHTML = date  ;
           cell2.innerHTML = amount ;
-          cell3.innerHTML = expence.options[expence.selectedIndex].text;
-          cell4.innerHTML = paidto.options[paidto.selectedIndex].text;
-          cell5.innerHTML = paidby.options[paidby.selectedIndex].text;
-          cell6.innerHTML = remarks;
-          cell7.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
+          cell3.innerHTML = expense.options[expense.selectedIndex].text;
+          cell4.innerHTML = expenseID;
+          cell5.innerHTML = paidto.options[paidto.selectedIndex].text;
+          cell6.innerHTML = paidby.options[paidby.selectedIndex].text;
+          cell7.innerHTML = remarks;
+          cell8.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
           
+          cell4.style.display = "none";
         
      
 
@@ -346,10 +361,10 @@
 
       function calculatonInTable(){
 
-var t=document.getElementById("invoiceservices");
+var t=document.getElementById("expenseTable");
 var tot=0;
 
-var x = document.getElementById("invoiceservices").rows.length;
+var x = document.getElementById("expenseTable").rows.length;
 
 for (var i = 1; i <x ; i++){
     tot=tot+Number(t.rows[i].cells[1].innerText);
@@ -357,6 +372,82 @@ for (var i = 1; i <x ; i++){
 document.getElementById("mainTotal").value=tot;
       }
     </script>
+
+
+<script>
+    function addExpenses()
+{
+    var expenseDetails = [];
+        var table = document.getElementById("expenseTable");
+        var myRow2 = [];
+
+        //alert(sp);
+        $('#expenseTable tr').each(function (row, tr) {
+
+            expenseDetails[row] = [
+
+                $(tr).find('td:eq(0)').text(), //Date
+                $(tr).find('td:eq(1)').text(),//Amount
+                $(tr).find('td:eq(2)').text(), //Expense Name
+                $(tr).find('td:eq(3)').text(), //Expense ID
+               
+               
+                $(tr).find('td:eq(4)').text(), //Paid To
+                $(tr).find('td:eq(5)').text(), //Paid By
+                $(tr).find('td:eq(6)').text() //Remarks
+                
+
+
+
+            ];
+
+
+        });
+        expenseDetails.shift();
+        var expTable = JSON.stringify(expenseDetails);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                alert("Expense number " + this.responseText + " is added");
+                
+
+            }
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./addExpense/" + expTable, true);
+        xhttp.send();
+    }
+</script>
+
+<script>
+function loadExpenseHeads(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("expense").innerHTML = this.response;
+            $('#expense').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getExpenseHeads/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
+<script>
+        $(document).ready(function () {
+            $('#expense').DataTable();
+        });
+</script>
+
+
+
 </body>
 
 </html>

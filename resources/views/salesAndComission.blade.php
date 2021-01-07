@@ -198,22 +198,21 @@
                                   </div>
                                   <div class="modal-body">
                                     <div class="receivingTable">
-                                        <table id="searchProductTable" class=" table-striped" style="width: 100%; text-align: center;">
+                                        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
                                             <thead>
                                                 <tr>
                                                     <th>Product Id</th>
-                                                    <th>Model</th>
-                                                    <th>Status</th>
-                                                    <th>Chasis No</th>
-                                                    <th> Engine No</th>
-                                                    <th>Sale Price</th>
-                                                    <th>Details</th>
-            
+                                                    <th>Product Name</th>
+                                                    <th>Company</th>
+                                                    <th>Unit Sale Price</th>
+                                                    <th>Unit Purchase Price</th>
+                                                    <th>Stock</th>
+                                                    <th>Engine Number</th>
+                                                    <th>Chasis Number</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
 
-                                            <!-- Data will be from database -->
                                             </tbody>
             
                                         </table>
@@ -527,6 +526,8 @@ $("#searchProductTable").on('click', 'tr', function () {
 });
   });
     </script>
+    <script>
+    
 </body>
 
 </html>
