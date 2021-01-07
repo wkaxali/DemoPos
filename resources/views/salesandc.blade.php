@@ -18,7 +18,7 @@
 
         .bookingRightTable {
             border-radius: 10px;
-            height: 330px !important;
+            height: 150px !important;
             width:100%;
             border: 1px solid #aaaaaa;
             padding: 0px 1px;
@@ -28,7 +28,7 @@
         .tableDiv {
             /* border: 1px solid #aaaaaa; */
             /* height: 505px !important; */
-            height: 285px;
+            height: 150px;
             overflow: auto;
             /* border-radius: 10px; */
             /* border: 1px solid #aaaaaa; */
@@ -176,8 +176,15 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <h4>Comission & Taxes</h4>
+                <div class="col-md-12">
+                <h4>Comission & Taxes</h4>
+                <label style="display: inline-block; width: 100px !important;" for="">Status</label>
+                            <select class="selectpicker form-control" data-live-search="true" id="category"
+                                tabindex="null">
+                                <option value=1>Sold</option>
+                                <option value=2>In Stock</option>
+                                <option value=3>Pending</option>
+                                <option value=4>Delivered</option>
                 </div>
             </div>
         </div>
@@ -185,26 +192,28 @@
     </header>
 
     <section>
+        
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="mainSales">
                         <div class="sales-1">
-                            <label style="width: 100px !important;" for="">Status</label>
-                            <select class="selectpicker form-control" data-live-search="true" id="category"
-                                tabindex="null">
-                                <option value=1>Sold</option>
-                                <option value=2>In Stock</option>
-                                <option value=3>Pending</option>
-                                <option value=4>Delivered</option>
+                       
+                       
+                            
+                     
 
 
                             </select>
+                            <button style="display: inline; " class="btn unit" data-toggle="modal" data-target="#myModal">Sold Unit</button>
 
                         </div>
+
                         <div class="sales-1">
                             <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold Unit</button>
                         </div>
+          
+
                         
 
                         <div class="container">
@@ -425,14 +434,14 @@
                                 <input type="text" name="" id="amount">
                                 <button onclick="add()"  class="btn ">Add</button>
 </div>
-<br>                              
+
 
 <div class="col-md-12">
     <div class="bookingRightTable">
 
-        <div class="tableContent  text-center">
+        <!-- <div class="tableContent  text-center">
             <h3>Your Current Data </h3>
-        </div>
+        </div> -->
 
 
 
