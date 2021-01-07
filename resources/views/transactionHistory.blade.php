@@ -27,7 +27,7 @@
     </style>
 </head>
 
-<body>
+<body onload="getTransactionHistory()">
     <header>
         <div class="container">
             <div class="row">
@@ -56,81 +56,15 @@
                         <table class="table table-bordered table-striped" id="myTable">
                             <thead>
                                 <tr>
-                                    <th>Sale ID</th>
-                                    <th>Invoice Type</th>
-                                    <th>Total</th>
-                                    <th>Amount Paid By Customer</th>
-                                    <th>Manager</th>
-
-                                    <th>Date</th>
-                                    <th>Balance</th>
+                                    <th id ="Cusname">Transaction ID</th>
+                                    <th id="CusCont">Invoice No</th>
+                                    <th id ="Cusaddr">Transaction Category</th>
+                                    <th id="CusIntrs">Amount</th>
+                                    <th id ="CusMeet">Transaction Date</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>#21</td>
-                                    <td>Cash</td>
-                                    <td>1230000</td>
-                                    <td>1200000</td>
-                                    <td>30000</td>
-                                    <td>10/10/2020</td>
-                                    <td>5000</td>
-                                </tr>
-                                <tr>
-                                    <td>#21</td>
-                                    <td>Cash</td>
-                                    <td>1230000</td>
-                                    <td>1200000</td>
-                                    <td>30000</td>
-                                    <td>10/10/2020</td>
-                                    <td>5000</td>
                                 
-                                </tr>
-                                <tr>
-                                    <td>#21</td>
-                                    <td>Written</td>
-                                    <td>5000</td>
-                                    <td>10000</td>
-                                    <td>20000</td>
-                                    <td>10/10/2020</td>
-                                    <td>5000</td>
-                                </tr>
-                                <tr>
-                                    <td>#21</td>
-                                    <td>Written</td>
-                                    <td>5000</td>
-                                    <td>10000</td>
-                                    <td>20000</td>
-                                    <td>10/10/2020</td>
-                                    <td>5000</td>
-                                </tr>
-                                <tr>
-                                    <td>#21</td>
-                                    <td>Written</td>
-                                    <td>5000</td>
-                                    <td>10000</td>
-                                    <td>20000</td>
-                                    <td>10/10/2020</td>
-                                    <td>5000</td>
-                                </tr>
-                                <tr>
-                                    <td>#21</td>
-                                    <td>Written</td>
-                                    <td>5000</td>
-                                    <td>10000</td>
-                                    <td>20000</td>
-                                    <td>10/10/2020</td>
-                                    <td>5000</td>
-                                </tr>
-                                <tr>
-                                    <td>#21</td>
-                                    <td>Written</td>
-                                    <td>5000</td>
-                                    <td>10000</td>
-                                    <td>20000</td>
-                                    <td>10/10/2020</td>
-                                    <td>5000</td>
-                                </tr>
                             </tbody>
 
                         </table>
@@ -225,10 +159,42 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
 
-    <script>
+<script>
+function getTransactionHistory(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            var data = this.responseText;
+                //alert(data);
+                var table;
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                table = $('#myTable').DataTable();
+
+                $.each(a, function (i, item) {
+
+                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].Amount, 
+                    a[i].DateStamp]);
+                });
+                table.draw();
+
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./transactionHistory/", true);
+    
+    xhttp.send();
+    }
+</script>
+
+<script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+
+
     </script>
 
 </body>

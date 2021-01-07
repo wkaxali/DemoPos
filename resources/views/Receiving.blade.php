@@ -64,7 +64,7 @@
             border: 1px solid #aaaaaa;
             border-radius: 10px;
             height: 400px;
-            /* overflow: auto; */
+             overflow: auto; 
         }
 
         .btn-print {
@@ -107,8 +107,8 @@
             <div class="row">
                 <div class="col-md-6">
                     <label style="width:130px ;" for="OrderNo">Order No</label>
-                    <input type="text" name="" value="1279" id="">
-                    <button class="btn btn-info"></button>
+                    <input type="text" name="" value="" id="OrderId">
+                    <button class="btn btn-info" onclick="getOrderDetails()">o</button>
                 </div>
             </div>
             <br>
@@ -124,81 +124,14 @@
                                         <th>SR</th>
                                         <th>Name</th>
                                         <th>Chasis No</th>
-                                        <th>Eng No</th>
+                                        <th>Engine No</th>
                                         <th>Tranport Charges</th>
                                         <th>Status</th>
 
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Forland C12</td>
-                                        <td>Chassis No</td>
-                                        <td>E56921</td>
-                                        <td>2500</td>
-                                        <td> <select
-                                                class="selectpicker form-control" data-live-search="true" id="category"
-                                                tabindex="null">
-                                                <option value=1>Received</option>
-                                                <option value=2>Not Received</option>
-                                                <option value=3>In Process</option>
-                                                <option value=4>Pending</option>
-
-
-                                            </select></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Forland C12</td>
-                                        <td>112231Fn</td>
-                                        <td>E56921</td>
-                                        <td>2500</td>
-                                        <td><select  
-                                                class="selectpicker form-control" data-live-search="true" id="category"
-                                                tabindex="null">
-                                                <option value=1>Received</option>
-                                                <option value=2>Not Received</option>
-                                                <option value=3>In Process</option>
-                                                <option value=4>Pending</option>
-
-
-                                            </select></td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Forland C12</td>
-                                        <td>1132421Fn</td>
-                                        <td>C130816</td>
-                                        <td>2100</td>
-                                        <td><select  
-                                                class="selectpicker form-control" data-live-search="true" id="category"
-                                                tabindex="null">
-                                                <option value=1>Received</option>
-                                                <option value=2>Not Received</option>
-                                                <option value=3>In Process</option>
-                                                <option value=4>Pending</option>
-
-
-                                            </select></td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Forland C12</td>
-                                        <td>Pending</td>
-                                        <td>Pending</td>
-                                        <td>Null</td>
-                                        <td><select  
-                                                class="selectpicker form-control" data-live-search="true" id="category"
-                                                tabindex="null">
-                                                <option value=1>Received</option>
-                                                <option value=2>Not Received</option>
-                                                <option value=3>In Process</option>
-                                                <option value=4>Pending</option>
-
-
-                                            </select></td>
-                                    </tr>
+                                <tbody id="autoTableBody">
+                                    <!-- Rows are comming from OrderFlowController -->
                                 </tbody>
 
                             </table>
@@ -213,7 +146,7 @@
                     <div class="footerBtns text-right">
                         <a class="btn btn-view" href="viewStock.html">View Stock</a>
                         <a class="btn btn-print" href="viewStock.html">Print Details</a>
-                        <a class="btn btn-update" href="viewStock.html">Update</a>
+                        <a class="btn btn-update"  onclick="UpdateStatusAndTransaction()">Update</a>
                       
                      
                     </div>
@@ -240,7 +173,83 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
+<script>
+  function getOrderDetails() {
 
+
+var oid=document.getElementById("OrderId").value;
+var xhttp = new XMLHttpRequest();
+
+
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("autoTableBody").innerHTML = this.responseText;
+       
+
+
+
+    }
+
+};
+
+xhttp.open("GET", "./getOrderId/"+oid, true);
+xhttp.send();
+}
+
+
+
+
+
+function UpdateStatusAndTransaction(){
+
+    var products = [];
+        var table = document.getElementById("autoTableBody");
+       
+
+        //alert(sp);
+        $('#autoTableBody tr').each(function (row, tr) {
+
+            products[row] = [
+
+                $(tr).find('td:eq(1)').text(), //PID
+                
+                $(tr).find('td:eq(3) input[type="text"]').val(),//chasisNumber
+               
+               
+                $(tr).find('td:eq(4) input[type="text"]').val(), //EngineNumber
+                $(tr).find('td:eq(5) input[type="text"]').val(), //Transport charges
+                $(tr).find('td:eq(6)').find(":selected").val()//Status
+                
+
+
+
+            ];
+
+
+        });
+        //products.shift();
+        alert(products);
+        var OID= document.getElementById("OrderId").value;
+        var array2=[products,OID];
+        var prod = JSON.stringify(array2);
+
+        alert(prod);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                alert("Stock =" + this.responseText + " Updated");
+               
+
+            }
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./ruautos/" + prod, true);
+        xhttp.send();
+
+
+}
+</script>
 </body>
 
 </html>

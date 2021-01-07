@@ -1,0 +1,23 @@
+table {
+    width: 60%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.my_class {
+    display: flex;
+}
+
+.btn {
+    margin-left: 10px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    background-color: rgb(12, 172, 212);
+    height: 40px;
+    width: 90px;
+    color: white;
+    border: 3px solid rgb(5, 138, 131);
+    border-radius: 30px;
+}
