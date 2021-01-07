@@ -11,6 +11,7 @@ use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
+use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,12 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor'] );
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense'] );
+
+
+
+
+Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
+
 
 Route::get('/', function () {
     return view('signInSignUp');

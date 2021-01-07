@@ -185,6 +185,7 @@
                                 <option value=2>In Stock</option>
                                 <option value=3>Pending</option>
                                 <option value=4>Delivered</option>
+                                </select>
                 </div>
             </div>
         </div>
@@ -204,26 +205,16 @@
                      
 
 
-                            </select>
-                            <button style="display: inline; " class="btn unit" data-toggle="modal" data-target="#myModal">Sold Unit</button>
+                           
+                          
 
-                        </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                      
-=======
-                        <div class="sales-1">
-                            <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold Unit</button>
-                        </div>
->>>>>>> 770f8977620acdbc62db8220869dea6965ee3cab
-=======
 
-                        <div class="sales-1">
+                        
                             <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold Unit</button>
                         </div>
           
 
->>>>>>> f04a4692779256a920a7135b5bdf53cb6fe4b7fc
+
                         
 
                         <div class="container">
@@ -306,6 +297,12 @@
                                 <input type="text" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="productName" value="Cash">
+                            </div>
+                            <div class="input-field">
+                                <label for="status">PID</label>
+                                <input type="text" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="PID" value="Cash">
                             </div>
 
                             <div class="input-field">
@@ -426,7 +423,7 @@
                 
 
                         <label style="width: 100px !important;" for="">Select</label>
-                        <select class="selectpicker form-control" data-live-search="true" id="select"
+                        <select class="selectpicker form-control" data-live-search="true" id="comissionHeadSelect"
                             tabindex="null">
                             <option value=1>Bank Person</option>
                             <option value=2>sales per comissiions</option>
@@ -437,12 +434,14 @@
                         </select>
 
                          
-                                <label for="remarks">Remarks</label>
-                                <input type="text" name="" id="remarks">
+                               
                          
                                 <label for="">Amount</label>
                                 <input type="text" name="" id="amount">
+                                <label for="remarks">Remarks</label>
+                                <input type="text" name="" id="remarks">
                                 <button onclick="add()"  class="btn ">Add</button>
+                                <button onclick="addCommissionsOrTaxes()"  class="btn ">Update</button>
 </div>
 
 
@@ -458,14 +457,15 @@
         <div class="tableDiv">
 
 
-                                    <table id="secondtable" class="secondtable"
+                                    <table id="comissionTable" class="secondtable"
                                         style="width: 100%; text-align: center; ">
                                         <thead>
-                                            <tr></tr>
-                                                <th>Select</th>
+                                            <tr>
+                                                <th>Head</th>
                                                 <th>Amount</th>
                                                 <th>Remarks</th>
                                                 <th>Delete</th>
+                                                <th>ComID</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -474,43 +474,6 @@
                                     </table>
                                 </div>
                     
-<!-- 
-
-                            <label for="">Bank Person</label>  <input type="text" name="" id="">
-                           <input type="checkbox" name="" id="checkboxe-1">
-                             <label for="">Sales
-                                Per Commission</label><input type="text" name="" id="">
-                                <input type="checkbox" name="" id="checkboxe-2">
-                            <label for="">Third
-                                Party Per Commission</label>
-                                <input type="checkbox" name="" id="checkboxe-3"> 
-                            <div class>
-                                <div class="checkbox-5">
-                                    <label for="">Remarks</label>
-                                    <input type="text" name="" id="">
-                                </div>
-                                <div class="checkbox-6">
-                                    <label for="">Amount</label>
-                                    <input type="text" name="" id="">
-                                </div>
-
-                            </div><br>
-
-    <label for="">Promotion
-                                Charges</label> <input type="text" name="" id="">
-                                <input type="checkbox" name="" id="checkboxe-4">
-                             <label for="">PRA
-                                %</label> <input type="text" name="" id="">
-                                <input type="checkbox" name="" id="checkboxe-5">
-                       
-                             <label for="">Nothing</label> <input type="text" name="" id="">
-                             <input type="checkbox" name="" id="checkboxe-6">
-
-
-                        </div>
-                      
-                    </div>
-                </div> -->
     </section>
     <br>
 
@@ -570,33 +533,86 @@ function add() {
            
         
            
-           var select = document.getElementById("select");
+           var CH = document.getElementById("comissionHeadSelect");
            var amount = document.getElementById("amount").value;
            var remarks = document.getElementById("remarks").value;
        
 
-           var table = document.getElementById("secondtable");
+           var table = document.getElementById("comissionTable");
            var row = table.insertRow(-1);
            var cell1 = row.insertCell(0);
            var cell2 = row.insertCell(1);
            var cell3 = row.insertCell(2);
            var cell4 = row.insertCell(3);
+           var cell5 = row.insertCell(4);
       
    
            
     
 
-           cell1.innerHTML =select.options[select.selectedIndex].text;
+           cell1.innerHTML =CH.options[CH.selectedIndex].text;
+           cell5.innerHTML =CH.options[CH.selectedIndex].value;
+
            cell2.innerHTML =amount;
            cell3.innerHTML =remarks;
            cell4.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
          
-           calculatonInTable();
+         //  calculatonInTable();
            
  
 
        }
+       function addCommissionsOrTaxes(){
+        var  commissionArray = [];
+        var table = document.getElementById("comissionTable");
+        var OverAllDetails = [];
 
+        //alert(sp);
+        $('#comissionTable tr').each(function (row, tr) {
+
+            commissionArray[row] = [
+
+                $(tr).find('td:eq(0)').text(),//head
+                $(tr).find('td:eq(1)').text(), //Amount
+                $(tr).find('td:eq(2)').text(), //Remarks
+                $(tr).find('td:eq(4)').text() //ComID
+                        ];
+
+
+        });
+        commissionArray.shift();
+        
+        
+        alert("array for order"   + commissionArray);
+       
+      var PID=  document.getElementById("PID").value;
+     
+           alert(PID);
+        var OverAllDetails=[PID,commissionArray];
+        
+
+        alert(OverAllDetails);
+        
+
+
+        var CA = JSON.stringify(OverAllDetails);
+
+        alert(CA);
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                alert("Invoice =" + this.responseText + " is generated");
+                
+
+            }
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./insertInCommission/" + CA, true);
+        xhttp.send();
+    }
+       
 
 
 
@@ -604,23 +620,16 @@ function add() {
            var a = ele.parentNode.parentNode;
 
            a.remove();
-           calculatonInTable();
+          
        }
 
-       $("#productSearchTable").on('click', 'tr', function () {
-   // get the current row
+$("#productSearchTable").on('click', 'tr', function () {
 
-
-
-   //var table = document.getElementById("productSearchTable");
-
-   document.getElementById("productName").value = this.cells[0].innerText; // get current row 1st TD value
-   document.getElementById("chasisNumber").value = this.cells[1].innerText;
-   document.getElementById("engineNumber").value = this.cells[2].innerText;
+   document.getElementById("PID").value = this.cells[0].innerText;
+   document.getElementById("productName").value = this.cells[1].innerText; // get current row 1st TD value
+   document.getElementById("chassisNumber").value = this.cells[6].innerText;
+   document.getElementById("engineNumber").value = this.cells[7].innerText;
    
-   //document.getElementById("EngineNumber").value = this.cells[3].innerText; 
-   //document.getElementById("Status").value = this.cells[6].innerText; 
-   //document.getElementById("TotalPrice").value = this.cells[4].innerText; 
    
 
    
