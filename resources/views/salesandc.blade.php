@@ -209,11 +209,20 @@
 
                         </div>
 
+                      
+
+                        <div class="sales-1">
+                            <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold Unit</button>
+                        </div>
+>>>>>>> 770f8977620acdbc62db8220869dea6965ee3cab
+=======
+
                         <div class="sales-1">
                             <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold Unit</button>
                         </div>
           
 
+>>>>>>> f04a4692779256a920a7135b5bdf53cb6fe4b7fc
                         
 
                         <div class="container">

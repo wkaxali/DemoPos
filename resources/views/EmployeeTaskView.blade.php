@@ -270,7 +270,7 @@
         } */
 
         td {
-            border: 1px solid #333;
+            /* border: 1px solid #333; */
         }
 
         td:first-child {
@@ -284,20 +284,15 @@
             width: 367px;
         }
 
-        tr td {
 
-            display: inline-block;
-            margin: 4px 0px;
-            padding: .375rem .75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #495057;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 1px solid #ced4da;
-            border-radius: .25rem;
-            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        input[type="checkbox"] {
+            height: 35px;
+            width: 43px;
+            /* margin-top: 4px; */
+            margin: 3px 0px;
         }
+
+        tr td {}
 
         .mainButtons {
             margin-top: 10px;
@@ -478,21 +473,21 @@
                                 <table id="MainTables">
                                     <tr>
                                         <td>1</td>
-                                        <td contenteditable="true">Task 1</td>
-                                        <td> <input type="checkbox" name="" id="">
+                                        <td><input type="text" class="form-control" name="" id=""></td>
+                                        <td> <input type="checkbox" class="form-control" name="" id="">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
 
-                                        <td contenteditable="true">Task 2</td>
+                                        <td><input type="text" class="form-control" name="" id=""></td>
                                         <td> <input type="checkbox" name="" id="">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td id="td-1">3</td>
 
-                                        <td contenteditable="true" id="td-2">Task 3</td>
+                                        <td><input type="text" class="form-control" name="" id=""></td>
                                         <td id="td-3"> <input type="checkbox" name="" id="">
                                         </td>
                                     </tr>
@@ -501,7 +496,7 @@
                             </div>
                         </div>
 
-                
+
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Comments</label><br>

@@ -251,52 +251,32 @@
         }
 
         #myBtnGroup {
-            margin: 3px 0px;
+            margin-left: 49px;
         }
 
         #myBtnGroup button {
-            width: 150px;
-            height: 35px;
+            width: 121px;
         }
 
         .rightButtons {
             float: right;
         }
 
-        /* @media only screen and (max-width: 768px) {
-            input {
-                width: 200px !important;
-            }
-        } */
-
-        td {
-            border: 1px solid #333;
-        }
-
         td:first-child {
             border: none !important;
+            width: 50px;
+
         }
 
 
 
         tr td:nth-child(2) {
             width: 332px;
+
+
         }
 
-        tr td {
 
-            display: inline-block;
-            margin: 4px 0px;
-            padding: .375rem .75rem;
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #495057;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 1px solid #ced4da;
-            border-radius: .25rem;
-            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-        }
 
         .mainButtons {
             margin-top: 10px;
@@ -306,6 +286,8 @@
 
         .mainButtons button {
             margin: 0px 3px;
+            width: 116px !important;
+            font-size: 14px;
         }
 
         @media (min-width: 768px) {
@@ -384,18 +366,16 @@
             }
         }
 
-        /* .btn-group span {
-            margin-top: 20px;
-            margin-left: -25px;
-            width: 120px;
-            text-align: center;
-
-        } */
 
 
+
+        #groupButtons {
+            margin-left: 49px;
+        }
 
         #groupButtons button {
-            width: 150px;
+            width: 121px;
+
         }
 
         .btn-secondary-1 {
@@ -515,7 +495,7 @@
                                     type="button" class="btn btn-secondary-1"><i
                                         class="fas fa-plus-circle"></i></button>
 
-                    
+
                             </div>
                         </div>
 
@@ -562,6 +542,7 @@
                                         <option value=2>Abdullah Mehar</option>
                                         <option value=3>Usman</option>
                                         <option value=4>Waqax Ali</option>
+                                        <option value=4>Rayan Naeem</option>
 
 
                                     </select>
@@ -569,13 +550,20 @@
                                     <table id="subTasks">
                                         <tr>
                                             <td id="td-1">1</td>
+<<<<<<< HEAD
                                             <td contenteditable="true" id="td-2"><input type="text" name="" id=""></td>
                                             <td id="td-3"> <input type="checkbox" class="form-control" name="" id="">
+=======
+                                            <td id="td-2"><input type="text" class="form-control" name="" id=""></td>
+                                            <td id="td-3"> <input type="checkbox"
+                                                    style="height: 35px; width: 35px; margin-top: 7px; margin-left: 10px; border-color: #aaaaaa !important;"
+                                                    name="" id="">
+>>>>>>> 8f685b92c94f293e61c856be4749a91b781e816f
                                             </td>
                                         </tr>
                                     </table>
                                     <div class="row">
-                                        <div class="col-md-12" style="margin-left:60px;">
+                                        <div class="col-md-12" style="margin-left:20px;">
                                             <div class="mainButtons">
                                                 <button class="btn btn-info">Progress</button>
                                                 <button onclick="getRowId()" class="btn btn-success">Add New
@@ -589,23 +577,31 @@
                                     </div>
                                     <label for="">Due On</label><br>
                                     <div class="btn-group" id="groupButtons" role="group" aria-label="Basic example">
-                                        <button type="button" style="background-color: #e61d2f; color: #ffffff;"
+                                        <button onclick="GetDates()" type="button" id="Today"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
                                             class="btn ">Today</button>
-                                        <button type="button" style="background-color: #2e4ead;color: #ffffff;"
+                                        <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
                                             class="btn ">Tomorrow</button>
-                                        <button type="button" style="background-color: #e61d2f; color: #ffffff;"
-                                            class="btn "><input type="date"
-                                                style="background: none !important; width:133px; border: none !important;"
+                                        <button type="button" id="Date"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn "><input class="hello" onchange="customDate()" type="date"
+                                                style="background: none !important; width:103px; border: none !important;"
                                                 name="" id="date"></button>
                                     </div>
+                                    <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
                                     <br>
                                     <label for="">Priority</label><br>
+
                                     <div class="btn-group" id="myBtnGroup" role="group" aria-label="Basic example">
-                                        <button type="button" style="background-color: #e61d2f; color: #ffffff;"
+                                        <button type="button" id="Urgent"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
                                             class="btn ">Urgent</button>
-                                        <button type="button" style="background-color: #2e4ead;color: #ffffff;"
+                                        <button type="button" id="Normal"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
                                             class="btn ">Normal</button>
-                                        <button type="button" style="background-color: #e61d2f;color: #ffffff;"
+                                        <button type="button" id="Easily"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
                                             class="btn">Easily</button>
                                     </div><br>
                                     <label for="">Category</label><br>
@@ -628,7 +624,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary-1" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="addTasks()">Save</button>
+                    <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
                 </div>
             </div>
         </div>
@@ -646,6 +642,160 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
+    <script>
+        $(document).ready(function () {
+            $("#Today").click(function () {
+                $(this).css({
+                    "backgroundColor": "Green",
+                    "color": "#fff",
+
+                });
+                $("#Tomorrow").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+                $("#Date").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+                });
+
+            });
+            $("#Tomorrow").click(function () {
+                $(this).css({
+                    "backgroundColor": "Green",
+                    "color": "#fff",
+                });
+                $("#Today").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+                $("#Date").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+
+            });
+            $("#Date").click(function () {
+                $(this).css({
+                    "backgroundColor": "Green",
+                    "color": "#fff",
+
+
+                });
+                $("#Today").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+
+                });
+                $("#Tomorrow").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+
+                });
+
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#Urgent").click(function () {
+                $(this).css({
+                    "backgroundColor": "#e61d2f",
+                    "color": "#fff",
+
+                });
+                $("#Normal").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+                $("#Easily").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+                });
+
+            });
+            $("#Normal").click(function () {
+                $(this).css({
+                    "backgroundColor": "#e61d2f",
+                    "color": "#fff",
+                });
+                $("#Easily").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+                $("#Urgent").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+
+            });
+            $("#Easily").click(function () {
+                $(this).css({
+                    "backgroundColor": "#e61d2f",
+                    "color": "#fff",
+
+
+
+                });
+                $("#Urgent").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+
+                });
+                $("#Normal").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+
+                });
+
+            });
+        });
+
+    </script>
+    <script>
+        function GetDates() {
+            var date = new Date();
+            alert(date);
+            var mainValue = document.getElementById("changeme");
+            mainValue.value = date;
+
+
+        }
+
+        function TomorrowDate() {
+            const today = new Date()
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            alert(tomorrow);
+
+
+            var mainValue = document.getElementById("changeme");
+            mainValue.value = tomorrow;
+        }
+
+        function customDate() {
+            var custumDate = document.getElementById("date").value;
+            alert(custumDate);
+
+            var mainValue = document.getElementById("changeme");
+            mainValue.value = custumDate;
+
+
+        }
+
+    </script>
+
     <script>
         $(document).ready(function () {
             $("#MainSpan").click(function () {
@@ -668,7 +818,6 @@
 
             var cell2 = document.getElementById("td-2").innerHTML;
             var cell3 = document.getElementById("td-3").innerHTML;
-
             var row = t.insertRow(-1);
             var mcell1 = row.insertCell(0);
             var mcell2 = row.insertCell(1);
@@ -677,67 +826,61 @@
             mcell1.innerHTML = totalRow;
             mcell2.innerHTML = cell2;
             mcell3.innerHTML = cell3;
-
-
-
-
-
-
         }
 
     </script>
 
 
-<script>
-    function addTasks()
-{
-    
-        var taskSubject = document.getElementById("taskSubject").value;
-        var assignedTo = document.getElementById("assignedTo").value;
-        var dueDate = document.getElementById("date").value;
-        var category = document.getElementById("category").value;
-        //var taskSubject = document.getElementById("taskSubject").value;
-        //var priority = document.getElementById("taskSubject").value;
-        
-        
-        var taskDetails = [];
-        var OverallTask=[];
-        
+    <script>
+        function addTasks() {
 
-        //alert(sp);
-        $('#subTasks tr').each(function (row, tr) {
-
-            taskDetails[row] = [
-
-            
-                $(tr).find('td:eq(1)').text(),//Amount
-                
-                
-            ];
+            var taskSubject = document.getElementById("taskSubject").value;
+            var assignedTo = document.getElementById("assignedTo").value;
+            var dueDate = document.getElementById("date").value;
+            var category = document.getElementById("category").value;
+            //var taskSubject = document.getElementById("taskSubject").value;
+            //var priority = document.getElementById("taskSubject").value;
 
 
-        });
-        //expenseDetails.shift();
-        //
-        //var taskTable = JSON.stringify(taskDetails);
-        OverallTask=[taskDetails, taskSubject, assignedTo, dueDate, category];
-        var taskTable = JSON.stringify(OverallTask);
-        alert(taskTable);
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+            var taskDetails = [];
+            var OverallTask = [];
 
-                alert("Expense number " + this.responseText + " is added");
-                
 
-            }
-        };
-        alert(taskTable);
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addTasks/" + taskTable, true);
-        xhttp.send();
-    }
-</script>
+            //alert(sp);
+            $('#subTasks tr').each(function (row, tr) {
+
+                taskDetails[row] = [
+
+
+                    $(tr).find('td:eq(1)').text(), //Amount
+
+
+                ];
+
+
+            });
+            //expenseDetails.shift();
+            //
+            //var taskTable = JSON.stringify(taskDetails);
+            OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category];
+            var taskTable = JSON.stringify(OverallTask);
+            alert(taskTable);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert("Expense number " + this.responseText + " is added");
+
+
+                }
+            };
+            alert(taskTable);
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addTasks/" + taskTable, true);
+            xhttp.send();
+        }
+
+    </script>
 
 
 
