@@ -550,15 +550,10 @@
                                     <table id="subTasks">
                                         <tr>
                                             <td id="td-1">1</td>
-<<<<<<< HEAD
-                                            <td contenteditable="true" id="td-2"><input type="text" name="" id=""></td>
-                                            <td id="td-3"> <input type="checkbox" class="form-control" name="" id="">
-=======
                                             <td id="td-2"><input type="text" class="form-control" name="" id=""></td>
                                             <td id="td-3"> <input type="checkbox"
                                                     style="height: 35px; width: 35px; margin-top: 7px; margin-left: 10px; border-color: #aaaaaa !important;"
                                                     name="" id="">
->>>>>>> 8f685b92c94f293e61c856be4749a91b781e816f
                                             </td>
                                         </tr>
                                     </table>
@@ -852,11 +847,10 @@
                 taskDetails[row] = [
 
 
-                    $(tr).find('td:eq(1)').text(), //Amount
-
+                    $(tr).find('td:eq(1) input[type="text"]').val(),
 
                 ];
-
+alert(taskDetails)
 
             });
             //expenseDetails.shift();
