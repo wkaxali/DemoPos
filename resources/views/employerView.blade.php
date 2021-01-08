@@ -569,8 +569,8 @@
                                     <table id="subTasks">
                                         <tr>
                                             <td id="td-1">1</td>
-                                            <td contenteditable="true" id="td-2">Task Description</td>
-                                            <td id="td-3"> <input type="checkbox" name="" id="">
+                                            <td contenteditable="true" id="td-2"><input type="text" name="" id=""></td>
+                                            <td id="td-3"> <input type="checkbox" class="form-control" name="" id="">
                                             </td>
                                         </tr>
                                     </table>

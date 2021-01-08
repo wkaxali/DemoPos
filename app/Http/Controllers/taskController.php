@@ -83,7 +83,7 @@ public static function employeeData(){
                     </div>
                 </div>
             </div>
-        </div>';
+        </div></div>';
 
     }
 

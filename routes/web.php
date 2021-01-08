@@ -12,6 +12,7 @@ use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
 use App\Http\Controllers\taskController;
+use App\Http\Controllers\attendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +57,9 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor'] );
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense'] );
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks'] );
+Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance'] );
 Route::get('/getEmployeeData',[taskController::class, 'employeeData'] );
+Route::get('/getAttendance',[attendanceController::class, 'getAttendance'] );
 
 Route::get('/', function () {
     return view('signInSignUp');
@@ -149,4 +152,9 @@ Route::get('/ev', function () {
 Route::get('/etv', function () {
     return view('EmployeeTaskView');
 });
-
+Route::get('/at', function () {
+    return view('attendance');
+});
+Route::get('/atv', function () {
+    return view('attendanceView');
+});
