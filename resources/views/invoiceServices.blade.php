@@ -23,7 +23,7 @@
             width: 200px;
         }
 
-        #smallFontLabel input {}
+       
 
         .SecondColor {
             background-color: #0a549d;

@@ -19,9 +19,9 @@
         .bookingRightTable {
             border-radius: 10px;
             height: 150px !important;
-            width:100%;
+            width: 100%;
             border: 1px solid #aaaaaa;
-            padding: 0px 1px;
+        padding: 10px;
             /* border-radius: 10px; */
         }
 
@@ -39,10 +39,10 @@
 
 
 
-     
-        
-        
-             table {
+
+
+
+        table {
             border-spacing: 0;
             border-collapse: collapse;
             border-style: hidden;
@@ -56,6 +56,7 @@
             border: 1px solid #aaaaaa;
             padding: 5px;
         }
+
         .mainSales {
             display: flex;
             justify-content: space-between;
@@ -77,9 +78,12 @@
         .myMainRow {
             display: flex;
             justify-content: space-between;
-            border: 1px solid #333;
-            /* padding: 10px ; */
+            border: 1px solid rgba(0, 0, 0, 0.75);
+            padding: 10px 0px 10px 50px;
             border-radius: 10px;
+            -webkit-box-shadow: 10px 10px 60px -15px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 10px 10px 60px -15px rgba(0, 0, 0, 0.75);
+            box-shadow: 10px 10px 60px -15px rgba(0, 0, 0, 0.75);
 
         }
 
@@ -93,15 +97,14 @@
             border-left: 1px solid #333;
             padding: 10px;
         }
-        .modal-content{
-        height: 800px;
-        text-align:center;
-        width: 800px;
+
+        .modal-content {
+            height: 800px;
+            text-align: center;
+            width: 800px;
         }
 
-        label {
-            width: 150px !important;
-        }
+
 
         .checkbox-1 {
             display: none;
@@ -168,45 +171,66 @@
             box-shadow: 0 1px 1px #e61d2f inset, 0 0 8px #e61d2f;
             outline: 0 none;
         }
+        .comissionTable{
+            
+        }
+        #mainGetLabels label{
+           width: 200px;
+        }
+
     </style>
 
 </head>
 
 <body>
     <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                <h4>Comission & Taxes</h4>
-                <label style="display: inline-block; width: 100px !important;" for="">Status</label>
-                            <select class="selectpicker form-control" data-live-search="true" id="category"
-                                tabindex="null">
-                                <option value=1>Sold</option>
-                                <option value=2>In Stock</option>
-                                <option value=3>Pending</option>
-                                <option value=4>Delivered</option>
+        <div class="container-fluid">
+            <div class="row my-3">
+                <div class="col-md-12 text-center">
+                    <h4 style="font-weight: 700;">Comission & Taxes</h4>
                 </div>
             </div>
+            <div class="row my-3" style="padding-left: 130px;">
+                <div class="col-md-4">
+                    <label style="display: inline-block; width: 100px !important;" for="">Status</label>
+                    <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
+                        <option value=1>Sold</option>
+                        <option value=2>In Stock</option>
+                        <option value=3>Pending</option>
+                        <option value=4>Delivered</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <div class="sales-1" style="margin-left: 110px; ">
+                        <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold
+                            Unit</button>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="sales-1" style="margin-left:80px ;">
+                        <label for="">Profit / Loss</label>
+                        <input type="text" class="form-control"
+                            style="display: inline-block !important; width: 200px !important;" name="" id="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
         </div>
 
     </header>
 
     <section>
-        
-        <div class="container">
+
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="mainSales">
-                        <div class="sales-1">
-                       
-                       
-                            
-                     
 
 
-                            </select>
-                            <button style="display: inline; " class="btn unit" data-toggle="modal" data-target="#myModal">Sold Unit</button>
 
+<<<<<<< HEAD
                         </div>
 
                       
@@ -216,124 +240,226 @@
                         </div>
 >>>>>>> 770f8977620acdbc62db8220869dea6965ee3cab
 =======
+=======
+>>>>>>> 3af97f60241fd3b4123116fd2957f327037d0daa
 
-                        <div class="sales-1">
-                            <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold Unit</button>
-                        </div>
-          
 
->>>>>>> f04a4692779256a920a7135b5bdf53cb6fe4b7fc
-                        
 
-                        <div class="container">
-                          
-                       
-                          
-                          
+                        <div class="container-fluid">
+
+
+
+
                             <!-- Modal -->
                             <div class="modal fade" id="myModal" role="dialog">
-                              <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                       <h4 class="modal-title">View Stock </h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                   
-                                  </div>
-                                  <div class="modal-body">
-                                    <div class="receivingTable">
-                                        <table id="productSearchTable" class=" table-striped" style="width: 100%; text-align: center;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product Id</th>
-                                                    <th>Product Name</th>
-                                                    <th>Company</th>
-                                                    <th>Unit Sale Price</th>
-                                                    <th>Unit Purchase Price</th>
-                                                    <th>Stock</th>
-                                                    <th>Engine Number</th>
-                                                    <th>Chasis Number</th>
-            
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                               
-                                            </tbody>
-            
-                                        </table>
-            
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">View Stock </h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="receivingTable">
+                                                <table id="productSearchTable" class=" table-striped"
+                                                    style="width: 100%; text-align: center;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Product Id</th>
+                                                            <th>Product Name</th>
+                                                            <th>Company</th>
+                                                            <th>Unit Sale Price</th>
+                                                            <th>Unit Purchase Price</th>
+                                                            <th>Total Cost</th>
+                                                            <th>Price Sold</th>
+
+                                                            <th>Engine Number</th>
+                                                            <th>Chasis Number</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
                                     </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                  </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
-
-
-
-
-
-
-
-
-
-
-                        <div class="sales-1">
-                            <label for="">Profit / Loss</label>
-                            <input type="text" class="form-control" style="display: inline-block; width: 200px;" name=""
-                                id="">
                         </div>
-                       
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <br>
     <section>
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="myMainRow">
+                    <div style="height: 120px;" class="myMainRow">
+
+
+
+                        <div class="container-fluid" id="mainGetLabels">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label  for="status">Model</label>
+                                    <input type="text" class="form-control"
+                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                        name="name" id="productName" value="Cash">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="status">Product Id</label>
+                                    <input type="text" class="form-control"
+                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                        name="name" id="PID" value="Cash">
+                                </div>
+
+                                <div class="col-md-4" >
+                                    <label for="status">Chassis Number </label>
+                                    <input type="text" class="form-control"
+                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                        name="name" id="chassisNumber" value="137000">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="status">Engine Number</label>
+                                    <input type="text" class="form-control"
+                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                        name="name" id="engineNumber" value="10000">
+
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="status">Status</label>
+                                    <input type="text" class="form-control"
+                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                        name="name" id="status" value="0">
+
+                                </div>
+                                <div class="col-md-4">
+
+                                    <label  for="status">Sale Price</label>
+                                    <input type="text" class="form-control"
+                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                        name="name" id="SalePrice" value="">
+                                </div>
+                            </div>
+
+
+                            <a style="font-size: 14px;" href="#" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">View Details</a>
+
+                        </div>
+                    </div>
+                </div>
+    </section>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    </section>
+    <br>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div style="height: 460px;" class="myMainRow">
 
 
                         <div class="myOwnRow-left">
                             <div class="input-field">
-                                <label for="status">Model</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="productName" value="Cash">
-                            </div>
+                                <section>
+                                    <div class="container-fluid">
+                                        <div class="row my-3">
+                                            <div class="col-md-12" style="padding: 0px !important;">
 
-                            <div class="input-field">
-                                <label for="status">Chassis Number </label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="chassisNumber" value="137000">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Engine Number</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="engineNumber" value="10000">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Status</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="status" value="0">
-                            </div>
+                                                <h3 style="text-align: center; color:#e61d2f; font-weight: 600;">Additional Cost</h3>
 
-                            <div class="input-field">
-                                <label for="status">Sale Price</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="price" value="138000">
-                                <a style="font-size: 14px;" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">View Details</a>
+                                                <select class="selectpicker form-control" data-live-search="true"
+                                                    id="comissionHeadSelect" tabindex="null">
+                                                    <option value=1>Bank Person</option>
+                                                    <option value=2>sales per comissiions</option>
+                                                    <option value=3>Third party per comission</option>
+                                                    <option value=4>Promotion charges</option>
+                                                    <option value=5>PRA % </option>
+                                                    <option value=6>Nothing</option>
+                                                </select>
 
+
+
+                                                <label style="margin-left: 30px;" for="">Amount</label> <input
+                                                 class="form-control" style="display: inline-block !important; width: 130px !important;" type="text" name="" id="amount">
+
+                                                <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
+                                                class="form-control" style="display: inline-block !important; width: 135px !important;" type="text" name="" id="remarks">
+
+                                                <button onclick="add()" style="margin-top: -3px;" class="btn">+</button>
+                                            </div>
+                                        </div><div class="row my-3">
+                                            <div class="col-md-12" style="padding: 0px !important;">
+                                                <div class="bookingRightTable">
+
+
+
+
+                                                    <div class="tableDiv">
+    
+    
+                                                        <table id="comissionTable" class="secondtable"
+                                                            style="width: 100%; text-align: center; ">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Head</th>
+                                                                    <th>Amount</th>
+                                                                    <th>Remarks</th>
+                                                                    <th>Delete</th>
+                                                                    <th>ComID</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+    
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                      
+                                                <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
+                                                    class="btn ">Update</button>
+                                                    <div class="row">
+                                                        <div class="col-md-7" style="margin-left: 416px; margin-top: 30px;">
+                                                            <label for="">Total Cost</label>
+                                                            <input type="text" style="display: inline-block !important; width: 200px !important;" class="form-control" name="" id="TotalCost">
+                                                        </div></div>
+
+                                </section>
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -375,7 +501,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="myOwnROw">
 
@@ -384,292 +510,286 @@
 
 
                             <div class="input-field">
-                                <label for="status">Client Name</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="PEL">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Address</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">contact</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="923124617477">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Manager</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="Mushtaq ">
-                            </div>
+                                <section>
+                                    <div class="container-fluid">
+                                        <div class="row my-3">
+                                            <div class="col-md-12" style="padding: 0px !important;">
 
+                                                <h3 style="text-align: center; color: #0a549d; font-weight: 600;">Commissions</h3>
 
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <br>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="myMainRow">
-                
-
-                        <label style="width: 100px !important;" for="">Select</label>
-                        <select class="selectpicker form-control" data-live-search="true" id="select"
-                            tabindex="null">
-                            <option value=1>Bank Person</option>
-                            <option value=2>sales per comissiions</option>
-                            <option value=3>Third party per comission</option>
-                            <option value=4>Promotion charges</option>
-                            <option value=5>PRA % </option>
-                            <option value=6>Nothing</option>
-                        </select>
-
-                         
-                                <label for="remarks">Remarks</label>
-                                <input type="text" name="" id="remarks">
-                         
-                                <label for="">Amount</label>
-                                <input type="text" name="" id="amount">
-                                <button onclick="add()"  class="btn ">Add</button>
-</div>
-
-
-<div class="col-md-12">
-    <div class="bookingRightTable">
-
-        <!-- <div class="tableContent  text-center">
-            <h3>Your Current Data </h3>
-        </div> -->
+                                                <select class="selectpicker form-control" data-live-search="true"
+                                                    id="comissionHeadSelect" tabindex="null">
+                                                    <option value=1>Bank Person</option>
+                                                    <option value=2>sales per comissiions</option>
+                                                    <option value=3>Third party per comission</option>
+                                                    <option value=4>Promotion charges</option>
+                                                    <option value=5>PRA % </option>
+                                                    <option value=6>Nothing</option>
+                                                </select>
 
 
 
-        <div class="tableDiv">
+                                                <label style="margin-left: 30px;" for="">Amount</label> <input
+                                                class="form-control" style="display: inline-block !important; width: 130px !important;" type="text" name="" id="amount">
 
+                                                <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
+                                                class="form-control" style="display: inline-block !important; width: 135px !important;" type="text" name="" id="remarks">
 
-                                    <table id="secondtable" class="secondtable"
-                                        style="width: 100%; text-align: center; ">
-                                        <thead>
-                                            <tr></tr>
-                                                <th>Select</th>
-                                                <th>Amount</th>
-                                                <th>Remarks</th>
-                                                <th>Delete</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-      
-                                        </tbody>
-                                    </table>
-                                </div>
-                    
-<!-- 
-
-                            <label for="">Bank Person</label>  <input type="text" name="" id="">
-                           <input type="checkbox" name="" id="checkboxe-1">
-                             <label for="">Sales
-                                Per Commission</label><input type="text" name="" id="">
-                                <input type="checkbox" name="" id="checkboxe-2">
-                            <label for="">Third
-                                Party Per Commission</label>
-                                <input type="checkbox" name="" id="checkboxe-3"> 
-                            <div class>
-                                <div class="checkbox-5">
-                                    <label for="">Remarks</label>
-                                    <input type="text" name="" id="">
-                                </div>
-                                <div class="checkbox-6">
-                                    <label for="">Amount</label>
-                                    <input type="text" name="" id="">
-                                </div>
-
-                            </div><br>
-
-    <label for="">Promotion
-                                Charges</label> <input type="text" name="" id="">
-                                <input type="checkbox" name="" id="checkboxe-4">
-                             <label for="">PRA
-                                %</label> <input type="text" name="" id="">
-                                <input type="checkbox" name="" id="checkboxe-5">
-                       
-                             <label for="">Nothing</label> <input type="text" name="" id="">
-                             <input type="checkbox" name="" id="checkboxe-6">
-
-
-                        </div>
-                      
-                    </div>
-                </div> -->
-    </section>
-    <br>
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <label for="">Total Cost</label>
-                    <input type="text" class="form-control" name="" id="">
-                </div>
-                <div class="col-md-4">
-                    <label for="">Total Sale Price</label>
-                    <input type="text" class="form-control" name="" id="">
-                </div>
-                <div class="col-md-4">
-                    <label for="">Profit</label>
-                    <input type="text" class="form-control" name="" id="">
-                </div>
-            </div>
-        </div>
-    </footer>
-
-
-
-
-
-    <script>
-  
-
-
-
+                                                <button onclick="add()" style="margin-top: -3px;" class="btn ">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="row my-3">
+                                            <div class="col-md-12" style="padding: 0px !important;">
+                                                <div class="bookingRightTable">
 
         
 
 
 
-
-    </script>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-    </script>
-    <!-- <script src="js/bootstrap.min.js"></script> -->
+                                                    <div class="tableDiv">
     
-    <script>
-        
-    </script>
-<script>
-
-function add() {
-           
-        
-           
-           var select = document.getElementById("select");
-           var amount = document.getElementById("amount").value;
-           var remarks = document.getElementById("remarks").value;
-       
-
-           var table = document.getElementById("secondtable");
-           var row = table.insertRow(-1);
-           var cell1 = row.insertCell(0);
-           var cell2 = row.insertCell(1);
-           var cell3 = row.insertCell(2);
-           var cell4 = row.insertCell(3);
-      
-   
-           
     
-
-           cell1.innerHTML =select.options[select.selectedIndex].text;
-           cell2.innerHTML =amount;
-           cell3.innerHTML =remarks;
-           cell4.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
-         
-           calculatonInTable();
-           
- 
-
-       }
-
-
-
-
-       function deleteRow(ele) {
-           var a = ele.parentNode.parentNode;
-
-           a.remove();
-           calculatonInTable();
-       }
-
-       $("#productSearchTable").on('click', 'tr', function () {
-   // get the current row
-
-
-
-   //var table = document.getElementById("productSearchTable");
-
-   document.getElementById("productName").value = this.cells[0].innerText; // get current row 1st TD value
-   document.getElementById("chasisNumber").value = this.cells[1].innerText;
-   document.getElementById("engineNumber").value = this.cells[2].innerText;
-   
-   //document.getElementById("EngineNumber").value = this.cells[3].innerText; 
-   //document.getElementById("Status").value = this.cells[6].innerText; 
-   //document.getElementById("TotalPrice").value = this.cells[4].innerText; 
-   
-
-   
-   alert(this.cells[0].innerText);
-});
-
-
-
-
-
-
-
-
-
-function getStock(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
+                                                        <table id="comissionTable" class="secondtable"
+                                                            style="width: 100%; text-align: center; ">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Head</th>
+                                                                    <th>Amount</th>
+                                                                    <th>Remarks</th>
+                                                                    <th>Delete</th>
+                                                                    <th>ComID</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
     
-            var data = this.responseText;
-                //alert(data);
-                var table;
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                table = $('#productSearchTable').DataTable();
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                $.each(a, function (i, item) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice
-                    , a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
-                });
-                table.draw();
-                table.clear();
+                                          
 
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./viewStock/", true);
-    
-    xhttp.send();
-    }
-</script>
+                                                <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
+                                                    class="btn ">Update</button>
 
-<script>
-        $(document).ready(function () {
-            $('#productSearchTable').DataTable();
-        });
-        
-</script>
+                                </section>
+                                
+                                <footer>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                   
+                                            <div class="col-md-4">
+                                                <label for="">Total Sale Price</label>
+                                                <input type="text" class="form-control" name="" id="SoldPrice">
+                                            </div>
+                                            <div class="col-md-4 offset-md-4">
+                                                <label for="">Profit</label>
+                                                <input type="text" class="form-control" name="" id="Profit">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </footer>
+
+
+
+
+
+                                <script>
+
+
+
+
+
+
+
+
+
+
+                                </script>
+
+
+
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                                <script type="text/javascript"
+                                    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
+                                </script>
+                                <script type="text/javascript"
+                                    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
+                                </script>
+                                <script type="text/javascript" charset="utf8"
+                                    src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+                                </script>
+                                <!-- <script src="js/bootstrap.min.js"></script> -->
+
+                                <script>
+
+                                </script>
+                                <script>
+                                    function add() {
+
+
+
+                                        var CH = document.getElementById("comissionHeadSelect");
+                                        var amount = document.getElementById("amount").value;
+                                        var remarks = document.getElementById("remarks").value;
+
+
+                                        var table = document.getElementById("comissionTable");
+                                        var row = table.insertRow(-1);
+                                        var cell1 = row.insertCell(0);
+                                        var cell2 = row.insertCell(1);
+                                        var cell3 = row.insertCell(2);
+                                        var cell4 = row.insertCell(3);
+                                        var cell5 = row.insertCell(4);
+
+
+
+
+
+                                        cell1.innerHTML = CH.options[CH.selectedIndex].text;
+                                        cell5.innerHTML = CH.options[CH.selectedIndex].value;
+
+                                        cell2.innerHTML = amount;
+                                        cell3.innerHTML = remarks;
+                                        cell4.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+
+                                        //  calculatonInTable();
+
+
+
+                                    }
+
+                                    function addCommissionsOrTaxes() {
+                                        var commissionArray = [];
+                                        var table = document.getElementById("comissionTable");
+                                        var OverAllDetails = [];
+
+                                        //alert(sp);
+                                        $('#comissionTable tr').each(function (row, tr) {
+
+                                            commissionArray[row] = [
+
+                                                $(tr).find('td:eq(0)').text(), //head
+                                                $(tr).find('td:eq(1)').text(), //Amount
+                                                $(tr).find('td:eq(2)').text(), //Remarks
+                                                $(tr).find('td:eq(4)').text() //ComID
+                                            ];
+
+
+                                        });
+                                        commissionArray.shift();
+
+
+                                        alert("array for order" + commissionArray);
+
+                                        var PID = document.getElementById("PID").value;
+
+                                        alert(PID);
+                                        var OverAllDetails = [PID, commissionArray];
+
+
+                                        alert(OverAllDetails);
+
+
+
+                                        var CA = JSON.stringify(OverAllDetails);
+
+                                        alert(CA);
+
+                                        var xhttp = new XMLHttpRequest();
+                                        xhttp.onreadystatechange = function () {
+                                            if (this.readyState == 4 && this.status == 200) {
+
+                                                alert("Invoice =" + this.responseText + " is generated");
+
+
+                                            }
+                                        };
+                                        // var MenuID=$('#Menus').find(":selected").val();
+                                        xhttp.open("GET", "./insertInCommission/" + CA, true);
+                                        xhttp.send();
+                                    }
+
+
+
+
+                                    function deleteRow(ele) {
+                                        var a = ele.parentNode.parentNode;
+
+                                        a.remove();
+
+                                    }
+
+                                    $("#productSearchTable").on('click', 'tr', function () {
+
+                                        document.getElementById("PID").value = this.cells[0].innerText;
+                                        document.getElementById("productName").value = this.cells[1]
+                                            .innerText; // get current row 1st TD value
+                                        document.getElementById("chassisNumber").value = this.cells[8]
+                                            .innerText;
+                                        document.getElementById("engineNumber").value = this.cells[7].innerText;
+                                        document.getElementById("TotalCost").value = this.cells[5].innerText;
+                                        document.getElementById("SalePrice").value = this.cells[3].innerText;
+
+
+
+
+
+                                        alert(this.cells[0].innerText);
+                                    });
+
+
+
+
+
+
+
+
+
+                                    function getStock() {
+                                        var xhttp = new XMLHttpRequest();
+                                        xhttp.onreadystatechange = function () {
+
+                                            if (this.readyState == 4 && this.status == 200) {
+
+                                                var data = this.responseText;
+                                                //alert(data);
+                                                var table;
+                                                var a = JSON.parse(data);
+                                                //  alert(a[0].ProductSerial);
+                                                table = $('#productSearchTable').DataTable();
+
+                                                $.each(a, function (i, item) {
+
+                                                    table.row.add([a[i].ProductID, a[i].ProductName, a[i]
+                                                        .Company, a[i].PerUnitSalePrice, a[i]
+                                                        .PerUnitPurchasePrice, a[i].TotalCost, a[i]
+                                                        .TotalSaleAmount, a[i].EngineNumber, a[i]
+                                                        .ChasisNumber
+                                                    ]);
+                                                });
+                                                table.draw();
+                                                table.clear();
+
+                                            }
+                                        };
+                                        //alert("ljd");
+                                        xhttp.open("GET", "./viewStock/", true);
+
+                                        xhttp.send();
+                                    }
+
+                                </script>
+
+                                <script>
+                                    $(document).ready(function () {
+                                        $('#productSearchTable').DataTable();
+                                    });
+
+                                </script>
 
 </body>
 

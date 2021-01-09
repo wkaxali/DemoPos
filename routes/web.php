@@ -16,8 +16,12 @@ use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
+<<<<<<< HEAD
 use App\Http\Controllers\taskController;
 
+=======
+use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
+>>>>>>> 3af97f60241fd3b4123116fd2957f327037d0daa
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +70,12 @@ Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor'] )
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense'] );
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks'] );
 Route::get('/getEmployeeData',[taskController::class, 'employeeData'] );
+
+
+
+
+
+Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
 
 
 Route::get('/', function () {
