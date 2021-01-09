@@ -21,7 +21,7 @@
             height: 150px !important;
             width: 100%;
             border: 1px solid #aaaaaa;
-        padding: 10px;
+            padding: 10px;
             /* border-radius: 10px; */
         }
 
@@ -171,11 +171,11 @@
             box-shadow: 0 1px 1px #e61d2f inset, 0 0 8px #e61d2f;
             outline: 0 none;
         }
-        .comissionTable{
-            
-        }
-        #mainGetLabels label{
-           width: 200px;
+
+        .comissionTable {}
+
+        #mainGetLabels label {
+            width: 200px;
         }
 
     </style>
@@ -230,85 +230,79 @@
 
 
 
-<<<<<<< HEAD
-                        </div>
 
-                      
-
-                        <div class="sales-1">
-                            <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold Unit</button>
-                        </div>
->>>>>>> 770f8977620acdbc62db8220869dea6965ee3cab
-=======
-=======
->>>>>>> 3af97f60241fd3b4123116fd2957f327037d0daa
-
-
-
-                        <div class="container-fluid">
+                    </div>
 
 
 
 
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal" role="dialog">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">View Stock </h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+
+
+                    <div class="container-fluid">
+
+
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" role="dialog">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">View Stock </h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="receivingTable">
+                                            <table id="productSearchTable" class=" table-striped"
+                                                style="width: 100%; text-align: center;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Product Id</th>
+                                                        <th>Product Name</th>
+                                                        <th>Company</th>
+                                                        <th>Unit Sale Price</th>
+                                                        <th>Unit Purchase Price</th>
+                                                        <th>Total Cost</th>
+                                                        <th>Price Sold</th>
+
+                                                        <th>Engine Number</th>
+                                                        <th>Chasis Number</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+
+                                            </table>
 
                                         </div>
-                                        <div class="modal-body">
-                                            <div class="receivingTable">
-                                                <table id="productSearchTable" class=" table-striped"
-                                                    style="width: 100%; text-align: center;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Product Id</th>
-                                                            <th>Product Name</th>
-                                                            <th>Company</th>
-                                                            <th>Unit Sale Price</th>
-                                                            <th>Unit Purchase Price</th>
-                                                            <th>Total Cost</th>
-                                                            <th>Price Sold</th>
-
-                                                            <th>Engine Number</th>
-                                                            <th>Chasis Number</th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-
-                                                    </tbody>
-
-                                                </table>
-
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default"
-                                                data-dismiss="modal">Close</button>
-                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default"
+                                            data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
             </div>
+        </div>
         </div>
     </section>
     <section>
@@ -322,7 +316,7 @@
                         <div class="container-fluid" id="mainGetLabels">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <label  for="status">Model</label>
+                                    <label for="status">Model</label>
                                     <input type="text" class="form-control"
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                         name="name" id="productName" value="Cash">
@@ -334,7 +328,7 @@
                                         name="name" id="PID" value="Cash">
                                 </div>
 
-                                <div class="col-md-4" >
+                                <div class="col-md-4">
                                     <label for="status">Chassis Number </label>
                                     <input type="text" class="form-control"
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
@@ -359,7 +353,7 @@
                                 </div>
                                 <div class="col-md-4">
 
-                                    <label  for="status">Sale Price</label>
+                                    <label for="status">Sale Price</label>
                                     <input type="text" class="form-control"
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                         name="name" id="SalePrice" value="">
@@ -396,7 +390,8 @@
                                         <div class="row my-3">
                                             <div class="col-md-12" style="padding: 0px !important;">
 
-                                                <h3 style="text-align: center; color:#e61d2f; font-weight: 600;">Additional Cost</h3>
+                                                <h3 style="text-align: center; color:#e61d2f; font-weight: 600;">
+                                                    Additional Cost</h3>
 
                                                 <select class="selectpicker form-control" data-live-search="true"
                                                     id="comissionHeadSelect" tabindex="null">
@@ -411,14 +406,19 @@
 
 
                                                 <label style="margin-left: 30px;" for="">Amount</label> <input
-                                                 class="form-control" style="display: inline-block !important; width: 130px !important;" type="text" name="" id="amount">
+                                                    class="form-control"
+                                                    style="display: inline-block !important; width: 130px !important;"
+                                                    type="text" name="" id="amount">
 
                                                 <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
-                                                class="form-control" style="display: inline-block !important; width: 135px !important;" type="text" name="" id="remarks">
+                                                    class="form-control"
+                                                    style="display: inline-block !important; width: 135px !important;"
+                                                    type="text" name="" id="remarks">
 
                                                 <button onclick="add()" style="margin-top: -3px;" class="btn">+</button>
                                             </div>
-                                        </div><div class="row my-3">
+                                        </div>
+                                        <div class="row my-3">
                                             <div class="col-md-12" style="padding: 0px !important;">
                                                 <div class="bookingRightTable">
 
@@ -426,8 +426,8 @@
 
 
                                                     <div class="tableDiv">
-    
-    
+
+
                                                         <table id="comissionTable" class="secondtable"
                                                             style="width: 100%; text-align: center; ">
                                                             <thead>
@@ -440,7 +440,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-    
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -450,14 +450,17 @@
 
 
 
-                                      
-                                                <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
-                                                    class="btn ">Update</button>
-                                                    <div class="row">
-                                                        <div class="col-md-7" style="margin-left: 416px; margin-top: 30px;">
-                                                            <label for="">Total Cost</label>
-                                                            <input type="text" style="display: inline-block !important; width: 200px !important;" class="form-control" name="" id="TotalCost">
-                                                        </div></div>
+
+                                        <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
+                                            class="btn ">Update</button>
+                                        <div class="row">
+                                            <div class="col-md-7" style="margin-left: 416px; margin-top: 30px;">
+                                                <label for="">Total Cost</label>
+                                                <input type="text"
+                                                    style="display: inline-block !important; width: 200px !important;"
+                                                    class="form-control" name="" id="TotalCost">
+                                            </div>
+                                        </div>
 
                                 </section>
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -515,7 +518,8 @@
                                         <div class="row my-3">
                                             <div class="col-md-12" style="padding: 0px !important;">
 
-                                                <h3 style="text-align: center; color: #0a549d; font-weight: 600;">Commissions</h3>
+                                                <h3 style="text-align: center; color: #0a549d; font-weight: 600;">
+                                                    Commissions</h3>
 
                                                 <select class="selectpicker form-control" data-live-search="true"
                                                     id="comissionHeadSelect" tabindex="null">
@@ -530,25 +534,30 @@
 
 
                                                 <label style="margin-left: 30px;" for="">Amount</label> <input
-                                                class="form-control" style="display: inline-block !important; width: 130px !important;" type="text" name="" id="amount">
+                                                    class="form-control"
+                                                    style="display: inline-block !important; width: 130px !important;"
+                                                    type="text" name="" id="amount">
 
                                                 <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
-                                                class="form-control" style="display: inline-block !important; width: 135px !important;" type="text" name="" id="remarks">
+                                                    class="form-control"
+                                                    style="display: inline-block !important; width: 135px !important;"
+                                                    type="text" name="" id="remarks">
 
-                                                <button onclick="add()" style="margin-top: -3px;" class="btn ">+</button>
+                                                <button onclick="add()" style="margin-top: -3px;"
+                                                    class="btn ">+</button>
                                             </div>
                                         </div>
                                         <div class="row my-3">
                                             <div class="col-md-12" style="padding: 0px !important;">
                                                 <div class="bookingRightTable">
 
-        
+
 
 
 
                                                     <div class="tableDiv">
-    
-    
+
+
                                                         <table id="comissionTable" class="secondtable"
                                                             style="width: 100%; text-align: center; ">
                                                             <thead>
@@ -561,7 +570,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-    
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -570,17 +579,17 @@
                                         </div>
 
 
-                                          
 
-                                                <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
-                                                    class="btn ">Update</button>
+
+                                        <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
+                                            class="btn ">Update</button>
 
                                 </section>
-                                
+
                                 <footer>
                                     <div class="container-fluid">
                                         <div class="row">
-                                   
+
                                             <div class="col-md-4">
                                                 <label for="">Total Sale Price</label>
                                                 <input type="text" class="form-control" name="" id="SoldPrice">

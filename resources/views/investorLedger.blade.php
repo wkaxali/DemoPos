@@ -83,6 +83,10 @@
 
         }
 
+        #mainRowGame {
+            pointer-events: none !important;
+        }
+
     </style>
 </head>
 
@@ -114,7 +118,7 @@
                     <input type="text" class="form-control" style="width: 200px; display: inline-block;" value="15Lac"
                         name="" id="">
                 </div>
-                <div class="col-md-5 offset-md-1">
+                <div class="col-md-5">
                     <label for="">From</label>
                     <input type="date" name="" style="width: 200px; display: inline-block; margin: 5px 0px;"
                         class="form-control" id="">
@@ -122,6 +126,11 @@
                     <label for="">To</label>
                     <input type="date" name="" class="form-control" style="width: 200px; display: inline-block;" id="">
 
+                </div>
+                <div class="col-md-1" style="margin-left: -40px;margin-top: 2px; ">
+                    <button type="button" style="height: 90px; background-color: #e61d2f; color: #ffffff;" class="btn "
+                        data-toggle="modal" data-target=".bd-example-modal-lg">Assign
+                        Data</button>
                 </div>
             </div>
         </div>
@@ -239,7 +248,86 @@
 
 
     </section>
+    <section>
 
+     
+
+
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Sales Ledger</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table style="width: 100%;" class=" table table-bordered" id="myTables">
+                            <thead>
+                                <tr id="mainRowGame">
+                                    <th>Sale ID</th>
+                                    <th>Modal</th>
+                                    <th>Total Cost</th>
+                                    <th>Sale Pr</th>
+                                    <th>Share</th>
+                                    <th>Status</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20242</td>
+                                    <td>2021</td>
+                                    <td>13,000,000</td>
+                                    <td>14,500,300</td>
+                                    <td>Waqas</td>
+                                    <td>Received</td>
+                                    <td><a href="#">Details</a></td>
+
+                                </tr>
+                                <tr>
+                                    <td>20242</td>
+                                    <td>2021</td>
+                                    <td>13,000,000</td>
+                                    <td>14,500,300</td>
+                                    <td>Waqas</td>
+                                    <td>Received</td>
+                                    <td><a href="#">Details</a></td>
+
+                                </tr>
+                                <tr>
+                                    <td>20242</td>
+                                    <td>2021</td>
+                                    <td>13,000,000</td>
+                                    <td>14,500,300</td>
+                                    <td>Waqas</td>
+                                    <td>Received</td>
+                                    <td><a href="#">Details</a></td>
+
+                                </tr>
+                                <tr>
+                                    <td>242</td>
+                                    <td>2021</td>
+                                    <td>13,000,000</td>
+                                    <td>14,500,300</td>
+                                    <td>Waqas</td>
+                                    <td>Received</td>
+                                    <td><a href="#">Details</a></td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -254,6 +342,49 @@
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
+        });
+
+    </script>
+    <script>
+        $("#myTables").on('click', 'tr', function () {
+
+
+
+
+            var cell1 = this.cells[0].innerText;
+            var cell2 = this.cells[1].innerText;
+            var cell3 = this.cells[2].innerText;
+            var cell4 = this.cells[3].innerText;
+            var cell5 = this.cells[4].innerText;
+            var cell6 = this.cells[5].innerText;
+            var cell7 = this.cells[6].innerText;
+
+            var addtable = document.getElementById("myTable");
+            var row = addtable.insertRow(-1);
+            var mcell1 = row.insertCell(0);
+            var mcell2 = row.insertCell(1);
+            var mcell3 = row.insertCell(2);
+            var mcell4 = row.insertCell(3);
+            var mcell5 = row.insertCell(4);
+            var mcell6 = row.insertCell(5);
+            var mcell7 = row.insertCell(6);
+            var mcell8 = row.insertCell(7);
+
+
+            mcell1.innerHTML = cell1;
+            mcell2.innerHTML = cell2;
+            mcell3.innerHTML = cell3;
+            mcell4.innerHTML = cell4;
+            mcell5.innerHTML = cell5;
+            mcell6.innerHTML = cell6;
+            mcell7.innerHTML = cell7;
+
+
+
+
+
+
+
         });
 
     </script>

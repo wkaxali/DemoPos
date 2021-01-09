@@ -23,7 +23,7 @@
             width: 200px;
         }
 
-       
+
 
         .SecondColor {
             background-color: #0a549d;
@@ -1137,7 +1137,7 @@
 
                 alert("Invoice =" + this.responseText + " is generated");
 
-                
+
             }
         };
         // var MenuID=$('#Menus').find(":selected").val();
@@ -1148,4 +1148,3 @@
 </script>
 
 </html>
-

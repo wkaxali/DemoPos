@@ -16,12 +16,8 @@ use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
-<<<<<<< HEAD
 use App\Http\Controllers\taskController;
 
-=======
-use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
->>>>>>> 3af97f60241fd3b4123116fd2957f327037d0daa
 
 /*
 |--------------------------------------------------------------------------
@@ -122,8 +118,8 @@ Route::get('/ip', function () {
 Route::get('/is', function () {
     return view('invoiceServices');
 });
-Route::get('/l', function () {
-    return view('ledger');
+Route::get('/investorLedger', function () {
+    return view('investorLedger');
 });
 Route::get('/psi', function () {
     return view('printSaleInvoice');
