@@ -109,9 +109,6 @@ Route::get('/bo', function () {
 Route::get('/cl', function () {
     return view('companyLedger');
 });
-Route::get('/d', function () {
-    return view('delivery');
-});
 Route::get('/dl', function () {
     return view('deliveryLetter');
 });
@@ -127,7 +124,7 @@ Route::get('/l', function () {
 Route::get('/psi', function () {
     return view('printSaleInvoice');
 });
-Route::get('/rec', function () {
+Route::get('/d', function () {
     return view('Receiving');
 });
 Route::get('/sc', function () {
