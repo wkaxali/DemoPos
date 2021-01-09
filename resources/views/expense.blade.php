@@ -396,9 +396,6 @@ document.getElementById("mainTotal").value=tot;
                 $(tr).find('td:eq(5)').text(), //Paid By
                 $(tr).find('td:eq(6)').text() //Remarks
                 
-
-
-
             ];
 
 

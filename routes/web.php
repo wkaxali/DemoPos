@@ -11,6 +11,7 @@ use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
+use App\Http\Controllers\taskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,8 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor'] );
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense'] );
+Route::get('/addTasks/{data}',[taskController::class, 'insertTasks'] );
+Route::get('/getEmployeeData',[taskController::class, 'employeeData'] );
 
 Route::get('/', function () {
     return view('signInSignUp');
@@ -140,3 +143,10 @@ Route::get('/ct', function () {
 Route::get('/s', function () {
     return view('salesandc');
 });
+Route::get('/ev', function () {
+    return view('employerView');
+});
+Route::get('/etv', function () {
+    return view('EmployeeTaskView');
+});
+
