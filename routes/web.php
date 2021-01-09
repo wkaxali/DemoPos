@@ -71,6 +71,12 @@ Route::get('/getEmployeeData',[taskController::class, 'employeeData'] );
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance'] );
 
 
+
+
+
+Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
+
+
 Route::get('/', function () {
     return view('signInSignUp');
 });
@@ -155,7 +161,7 @@ Route::get('/scratch', function () {
 Route::get('/ex', function () {
     return view('expense');
 });
-Route::get('/ct', function () {
+//Route::get('/ct', function () {
     return view('comissionAndTaxes');
 });
 Route::get('/s', function () {

@@ -348,6 +348,7 @@ document.getElementById("mainTotal").value=tot;
         expenseDetails.shift();
         var expTable = JSON.stringify(expenseDetails);
         var xhttp = new XMLHttpRequest();
+
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 

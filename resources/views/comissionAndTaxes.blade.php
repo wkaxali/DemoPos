@@ -510,7 +510,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="">Total Cost</label>
-                    <input type="text" class="form-control" name="" id="">
+                    <input type="text" class="form-control" name="" id="totalCost">
                 </div>
                 <div class="col-md-4">
                     <label for="">Total Sale Price</label>
@@ -604,7 +604,7 @@ function myFunction(){
                 $.each(a, function (i, item) {
 
                     table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice
-                    , a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
+                    , a[i].TotalCost, a[i].EngineNumber, a[i].ChasisNumber]);
                 });
                 table.draw();
 
