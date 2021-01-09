@@ -162,8 +162,8 @@ Route::get('/ex', function () {
     return view('expense');
 });
 //Route::get('/ct', function () {
-    return view('comissionAndTaxes');
-});
+    //return view('comissionAndTaxes');
+//});
 Route::get('/s', function () {
     return view('salesandc');
 });
