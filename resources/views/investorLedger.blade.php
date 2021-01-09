@@ -87,6 +87,16 @@
             pointer-events: none !important;
         }
 
+        .tableParent {
+            border: 1px solid #333;
+            padding: 10px;
+            border-radius: 10px;
+            height: auto;
+            max-height: 419px;
+            overflow: auto !important;
+
+        }
+
     </style>
 </head>
 
@@ -127,10 +137,11 @@
                     <input type="date" name="" class="form-control" style="width: 200px; display: inline-block;" id="">
 
                 </div>
-                <div class="col-md-1" style="margin-left: -40px;margin-top: 2px; ">
-                    <button type="button" style="height: 90px; background-color: #e61d2f; color: #ffffff;" class="btn "
-                        data-toggle="modal" data-target=".bd-example-modal-lg">Assign
-                        Data</button>
+                <div class="col-md-1" style="margin-left: -32px;margin-top: 2.5px; ">
+                    <button type="button"
+                        style=" border-radius: 10px; height: 90px; background-color:#13579a; color: #ffffff;"
+                        class="btn " data-toggle="modal" data-target=".bd-example-modal-lg">Assign
+                        Auto</button>
                 </div>
             </div>
         </div>
@@ -141,62 +152,64 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table-bordered" id="myTable">
-                        <thead>
-                            <tr>
-                                <th>Sale ID</th>
-                                <th>Modal</th>
-                                <th>Total Cost</th>
-                                <th>Sale Pr</th>
-                                <th>Share</th>
-                                <th>Status</th>
-                                <th>Details</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>20242</td>
-                                <td>2021</td>
-                                <td>13,000,000</td>
-                                <td>14,500,300</td>
-                                <td>Waqas</td>
-                                <td>Received</td>
-                                <td><a href="#">Details</a></td>
+                    <div class="tableParent">
+                        <table class="table-bordered" id="myTable">
+                            <thead>
+                                <tr>
+                                    <th>Sale ID</th>
+                                    <th>Modal</th>
+                                    <th>Total Cost</th>
+                                    <th>Sale Pr</th>
+                                    <th>Share</th>
+                                    <th>Status</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>20242</td>
+                                    <td>2021</td>
+                                    <td>13,000,000</td>
+                                    <td>14,500,300</td>
+                                    <td>Waqas</td>
+                                    <td>Received</td>
+                                    <td><a href="#">Details</a></td>
 
-                            </tr>
-                            <tr>
-                                <td>20242</td>
-                                <td>2021</td>
-                                <td>13,000,000</td>
-                                <td>14,500,300</td>
-                                <td>Waqas</td>
-                                <td>Received</td>
-                                <td><a href="#">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>20242</td>
+                                    <td>2021</td>
+                                    <td>13,000,000</td>
+                                    <td>14,500,300</td>
+                                    <td>Waqas</td>
+                                    <td>Received</td>
+                                    <td><a href="#">Details</a></td>
 
-                            </tr>
-                            <tr>
-                                <td>20242</td>
-                                <td>2021</td>
-                                <td>13,000,000</td>
-                                <td>14,500,300</td>
-                                <td>Waqas</td>
-                                <td>Received</td>
-                                <td><a href="#">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>20242</td>
+                                    <td>2021</td>
+                                    <td>13,000,000</td>
+                                    <td>14,500,300</td>
+                                    <td>Waqas</td>
+                                    <td>Received</td>
+                                    <td><a href="#">Details</a></td>
 
-                            </tr>
-                            <tr>
-                                <td>20242</td>
-                                <td>2021</td>
-                                <td>13,000,000</td>
-                                <td>14,500,300</td>
-                                <td>Waqas</td>
-                                <td>Received</td>
-                                <td><a href="#">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>20242</td>
+                                    <td>2021</td>
+                                    <td>13,000,000</td>
+                                    <td>14,500,300</td>
+                                    <td>Waqas</td>
+                                    <td>Received</td>
+                                    <td><a href="#">Details</a></td>
 
-                            </tr>
-                        </tbody>
+                                </tr>
+                            </tbody>
 
-                    </table>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
@@ -250,7 +263,7 @@
     </section>
     <section>
 
-     
+
 
 
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -273,7 +286,6 @@
                                     <th>Sale Pr</th>
                                     <th>Share</th>
                                     <th>Status</th>
-                                    <th>Details</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -284,7 +296,7 @@
                                     <td>14,500,300</td>
                                     <td>Waqas</td>
                                     <td>Received</td>
-                                    <td><a href="#">Details</a></td>
+
 
                                 </tr>
                                 <tr>
@@ -294,7 +306,7 @@
                                     <td>14,500,300</td>
                                     <td>Waqas</td>
                                     <td>Received</td>
-                                    <td><a href="#">Details</a></td>
+
 
                                 </tr>
                                 <tr>
@@ -304,7 +316,6 @@
                                     <td>14,500,300</td>
                                     <td>Waqas</td>
                                     <td>Received</td>
-                                    <td><a href="#">Details</a></td>
 
                                 </tr>
                                 <tr>
@@ -314,7 +325,6 @@
                                     <td>14,500,300</td>
                                     <td>Waqas</td>
                                     <td>Received</td>
-                                    <td><a href="#">Details</a></td>
 
                                 </tr>
                             </tbody>
@@ -357,7 +367,7 @@
             var cell4 = this.cells[3].innerText;
             var cell5 = this.cells[4].innerText;
             var cell6 = this.cells[5].innerText;
-            var cell7 = this.cells[6].innerText;
+
 
             var addtable = document.getElementById("myTable");
             var row = addtable.insertRow(-1);
@@ -377,7 +387,7 @@
             mcell4.innerHTML = cell4;
             mcell5.innerHTML = cell5;
             mcell6.innerHTML = cell6;
-            mcell7.innerHTML = cell7;
+            mcell7.innerHTML = "<a href='#'>Details</a>";
 
 
 
