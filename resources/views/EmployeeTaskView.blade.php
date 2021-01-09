@@ -323,17 +323,17 @@
             padding: 3px;
         }
 
-        .mainContCards {
-            display: flex;
-            justify-content: space-between;
-            flex: 1;
-            margin: 10px 0px;
+        #cardsCanvas {
+        display: flex;
+        justify-content: center;
+     flex-wrap: wrap;
+     flex-direction: row;
 
         }
 
-        .mainContCards .mainCards-1 {
-            width: 26rem;
-            margin: 10px;
+        .mainContCards .mainCards-1 .card {
+        margin: 10px;
+        width: 23rem;
         }
 
         @media screen and (max-width: 1202px) {

@@ -186,3 +186,6 @@ Route::get('/at', function () {
 Route::get('/atv', function () {
     return view('attendanceView');
 });
+Route::get('/il', function () {
+    return view('investorLedger');
+});

@@ -44,7 +44,7 @@ public static function employeeData(){
     $card="";
     $data=DB:: select('select * from vw_employeetask');
     foreach ($data as $obj){
-        $card=$card.'<div class="card">
+        $card=$card.'<div class="card" >
 
         <div class="card-body">
             <div class="mainCardBody">
