@@ -70,7 +70,7 @@
         .btn-print {
 
             background-color: #ffffff;
-            border: 1px solid#0a549d;
+            border: 1px solid #0a549d;
             color: #0a549d;
 
             transition: .7s;

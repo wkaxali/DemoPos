@@ -152,27 +152,26 @@
 
         }
 
-        .sales-1 input[type="text"]:focus,
-        .sales-1 input[type="password"]:focus,
-        .sales-1 input[type="datetime"]:focus,
-        .sales-1 input[type="datetime-local"]:focus,
-        .sales-1 input[type="date"]:focus,
-        .sales-1 input[type="month"]:focus,
-        .sales-1 input[type="time"]:focus,
-        .sales-1 input[type="week"]:focus,
-        .sales-1 input[type="number"]:focus,
-        .sales-1 input[type="email"]:focus,
-        .sales-1 input[type="url"]:focus,
-        .sales-1 input[type="search"]:focus,
-        .sales-1 input[type="tel"]:focus,
-        .sales-1 input[type="color"]:focus,
-        .sales-1 .uneditable-input:focus {
-            border-color: #e61d2f;
-            box-shadow: 0 1px 1px #e61d2f inset, 0 0 8px #e61d2f;
+         input[type="text"]:focus,
+         input[type="password"]:focus,
+         input[type="datetime"]:focus,
+         input[type="datetime-local"]:focus,
+         input[type="date"]:focus,
+         input[type="month"]:focus,
+         input[type="time"]:focus,
+         input[type="week"]:focus,
+         input[type="number"]:focus,
+         input[type="email"]:focus,
+         input[type="url"]:focus,
+         input[type="search"]:focus,
+         input[type="tel"]:focus,
+         input[type="color"]:focus,
+         .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
 
-        .comissionTable {}
 
         #mainGetLabels label {
             width: 200px;
