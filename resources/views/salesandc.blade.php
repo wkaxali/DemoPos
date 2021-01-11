@@ -156,30 +156,6 @@
 
         }
 
-         input[type="text"]:focus,
-         input[type="password"]:focus,
-         input[type="datetime"]:focus,
-         input[type="datetime-local"]:focus,
-         input[type="date"]:focus,
-         input[type="month"]:focus,
-         input[type="time"]:focus,
-         input[type="week"]:focus,
-         input[type="number"]:focus,
-         input[type="email"]:focus,
-         input[type="url"]:focus,
-         input[type="search"]:focus,
-         input[type="tel"]:focus,
-         input[type="color"]:focus,
-         .uneditable-input:focus {
-            border-color: #0a549d;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
-            outline: 0 none;
-        }
-
-
-        #mainGetLabels label {
-            width: 200px;
-        }
         input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
@@ -199,11 +175,42 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
-        .comissionTable{
-            
+
+
+        #mainGetLabels label {
+            width: 200px;
         }
-        #mainGetLabels label{
-           width: 200px;
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
         }
 
     </style>
@@ -237,7 +244,7 @@
                 <div class="col-md-5">
                     <div class="sales-1" style="margin-left:80px ;">
                         <label for="">Profit / Loss</label>
-                        <input type="text" class="form-control"
+                        <input type="number" class="form-control"
                             style="display: inline-block !important; width: 200px !important;" name="" id="">
                     </div>
                 </div>
@@ -257,30 +264,15 @@
                     <div class="mainSales">
 
 
-<<<<<<< HEAD
-                        </div>
-=======
-
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
                     </div>
 
-<<<<<<< HEAD
-                        <div class="sales-1">
-                            <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold Unit</button>
-                        </div>
-
-
-                        <div class="container-fluid">
-=======
-
-
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
 
 
 
-<<<<<<< HEAD
+
+
                             <!-- Modal -->
                             <div class="modal fade" id="myModal" role="dialog">
                                 <div class="modal-dialog modal-lg">
@@ -321,60 +313,11 @@
                                             <button type="button" class="btn btn-default"
                                                 data-dismiss="modal">Close</button>
                                         </div>
-=======
-                    <div class="container-fluid">
-
-
-
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title">View Stock </h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="receivingTable">
-                                            <table id="productSearchTable" class=" table-striped"
-                                                style="width: 100%; text-align: center;">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Product Id</th>
-                                                        <th>Product Name</th>
-                                                        <th>Company</th>
-                                                        <th>Unit Sale Price</th>
-                                                        <th>Unit Purchase Price</th>
-                                                        <th>Total Cost</th>
-                                                        <th>Price Sold</th>
-
-                                                        <th>Engine Number</th>
-                                                        <th>Chasis Number</th>
-
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                </tbody>
-
-                                            </table>
-
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default"
-                                            data-dismiss="modal">Close</button>
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
                                     </div>
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
-=======
                     </div>
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
 
 
@@ -387,14 +330,10 @@
 
 
 
-<<<<<<< HEAD
-                    </div>
-=======
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
                 </div>
             </div>
         </div>
-        </div>
+     
     </section>
     <section>
         <div class="container-fluid">
@@ -407,11 +346,7 @@
                         <div class="container-fluid" id="mainGetLabels">
                             <div class="row">
                                 <div class="col-md-4">
-<<<<<<< HEAD
                                     <label  for="status">Model</label>
-=======
-                                    <label for="status">Model</label>
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
                                     <input type="text" class="form-control"
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                         name="name" id="productName" value="Cash">
@@ -423,11 +358,7 @@
                                         name="name" id="PID" value="Cash">
                                 </div>
 
-<<<<<<< HEAD
                                 <div class="col-md-4" >
-=======
-                                <div class="col-md-4">
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
                                     <label for="status">Chassis Number </label>
                                     <input type="text" class="form-control"
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
@@ -452,12 +383,13 @@
                                 </div>
                                 <div class="col-md-4">
 
-<<<<<<< HEAD
-                                    <label  for="status">Sale Price</label>
-=======
+
                                     <label for="status">Sale Price</label>
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
-                                    <input type="text" class="form-control"
+
+                                   
+
+                                    <input type="number" autocomplete="OFF" class="form-control"
+
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                         name="name" id="SalePrice" value="">
                                 </div>
@@ -493,12 +425,7 @@
                                         <div class="row my-3">
                                             <div class="col-md-12" style="padding: 0px !important;">
 
-<<<<<<< HEAD
                                                 <h3 style="text-align: center; color:#e61d2f; font-weight: 600;">Additional Cost</h3>
-=======
-                                                <h3 style="text-align: center; color:#e61d2f; font-weight: 600;">
-                                                    Additional Cost</h3>
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
                                                 <select class="selectpicker form-control" data-live-search="true"
                                                     id="comissionHeadSelect" tabindex="null">
@@ -513,7 +440,6 @@
 
 
                                                 <label style="margin-left: 30px;" for="">Amount</label> <input
-<<<<<<< HEAD
                                                  class="form-control" style="display: inline-block !important; width: 130px !important;" type="text" name="" id="amount">
 
                                                 <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
@@ -531,30 +457,6 @@
                                                     <div class="tableDiv">
     
     
-=======
-                                                    class="form-control"
-                                                    style="display: inline-block !important; width: 130px !important;"
-                                                    type="text" name="" id="amount">
-
-                                                <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
-                                                    class="form-control"
-                                                    style="display: inline-block !important; width: 135px !important;"
-                                                    type="text" name="" id="remarks">
-
-                                                <button onclick="add()" style="margin-top: -3px;" class="btn">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="row my-3">
-                                            <div class="col-md-12" style="padding: 0px !important;">
-                                                <div class="bookingRightTable">
-
-
-
-
-                                                    <div class="tableDiv">
-
-
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
                                                         <table id="comissionTable" class="secondtable"
                                                             style="width: 100%; text-align: center; ">
                                                             <thead>
@@ -567,11 +469,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-<<<<<<< HEAD
     
-=======
-
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -581,7 +479,6 @@
 
 
 
-<<<<<<< HEAD
                                       
                                                 <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
                                                     class="btn ">Update</button>
@@ -590,19 +487,6 @@
                                                             <label for="">Total Cost</label>
                                                             <input type="text" style="display: inline-block !important; width: 200px !important;" class="form-control" name="" id="TotalCost">
                                                         </div></div>
-=======
-
-                                        <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
-                                            class="btn ">Update</button>
-                                        <div class="row">
-                                            <div class="col-md-7" style="margin-left: 416px; margin-top: 30px;">
-                                                <label for="">Total Cost</label>
-                                                <input type="text"
-                                                    style="display: inline-block !important; width: 200px !important;"
-                                                    class="form-control" name="" id="TotalCost">
-                                            </div>
-                                        </div>
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
                                 </section>
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -659,46 +543,9 @@
                                     <div class="container-fluid">
                                         <div class="row my-3">
                                             <div class="col-md-12" style="padding: 0px !important;">
-<<<<<<< HEAD
-=======
-
-                                                <h3 style="text-align: center; color: #0a549d; font-weight: 600;">
-                                                    Commissions</h3>
-
-                                                <select class="selectpicker form-control" data-live-search="true"
-                                                    id="comissionHeadSelect" tabindex="null">
-                                                    <option value=1>Bank Person</option>
-                                                    <option value=2>sales per comissiions</option>
-                                                    <option value=3>Third party per comission</option>
-                                                    <option value=4>Promotion charges</option>
-                                                    <option value=5>PRA % </option>
-                                                    <option value=6>Nothing</option>
-                                                </select>
-
-
-
-                                                <label style="margin-left: 30px;" for="">Amount</label> <input
-                                                    class="form-control"
-                                                    style="display: inline-block !important; width: 130px !important;"
-                                                    type="text" name="" id="amount">
-
-                                                <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
-                                                    class="form-control"
-                                                    style="display: inline-block !important; width: 135px !important;"
-                                                    type="text" name="" id="remarks">
-
-                                                <button onclick="add()" style="margin-top: -3px;"
-                                                    class="btn ">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="row my-3">
-                                            <div class="col-md-12" style="padding: 0px !important;">
-                                                <div class="bookingRightTable">
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
                                                 <h3 style="text-align: center; color: #0a549d; font-weight: 600;">Commissions</h3>
 
-<<<<<<< HEAD
                                                 <select class="selectpicker form-control" data-live-search="true"
                                                     id="comissionHeadSelect" tabindex="null">
                                                     <option value=1>Bank Person</option>
@@ -713,17 +560,10 @@
 
                                                 <label style="margin-left: 30px;" for="">Amount</label> <input
                                                 class="form-control" style="display: inline-block !important; width: 130px !important;" type="text" name="" id="amount">
-=======
-
-
-
-                                                    <div class="tableDiv">
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
                                                 <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
                                                 class="form-control" style="display: inline-block !important; width: 135px !important;" type="text" name="" id="remarks">
 
-<<<<<<< HEAD
                                                 <button onclick="add()" style="margin-top: -3px;" class="btn ">+</button>
                                             </div>
                                         </div>
@@ -732,33 +572,6 @@
                                                 <div class="bookingRightTable">
 
         
-=======
-                                                        <table id="comissionTable" class="secondtable"
-                                                            style="width: 100%; text-align: center; ">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Head</th>
-                                                                    <th>Amount</th>
-                                                                    <th>Remarks</th>
-                                                                    <th>Delete</th>
-                                                                    <th>ComID</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
-                                            class="btn ">Update</button>
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
                                 </section>
 
@@ -766,7 +579,6 @@
                                     <div class="container-fluid">
                                         <div class="row">
 
-<<<<<<< HEAD
                                                     <div class="tableDiv">
     
     
@@ -792,21 +604,6 @@
 
 
                                           
-=======
-                                            <div class="col-md-4">
-                                                <label for="">Total Sale Price</label>
-                                                <input type="text" class="form-control" name="" id="SoldPrice">
-                                            </div>
-                                            <div class="col-md-4 offset-md-4">
-                                                <label for="">Profit</label>
-                                                <input type="text" class="form-control" name="" id="Profit">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </footer>
-
-
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
                                                 <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
                                                     class="btn ">Update</button>
@@ -829,22 +626,11 @@
                                     </div>
                                 </footer>
 
-                                <script>
+                                
 
 
 
 
-                                <script>
-
-
-
-
-
-<<<<<<< HEAD
-=======
-
-                                </script>
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
 
 
@@ -860,11 +646,7 @@
                                 </script>
                                 <!-- <script src="js/bootstrap.min.js"></script> -->
 
-                                <script>
-
-                                </script>
-<<<<<<< HEAD
-
+                              
 
 
                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -878,21 +660,7 @@
                                     src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
                                 </script>
                                 <!-- <script src="js/bootstrap.min.js"></script> -->
-=======
-                                <script>
-                                    function add() {
 
-
-
-                                        var CH = document.getElementById("comissionHeadSelect");
-                                        var amount = document.getElementById("amount").value;
-                                        var remarks = document.getElementById("remarks").value;
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
-
-                                <script>
-
-<<<<<<< HEAD
-                                </script>
                                 <script>
                                     function add() {
 
@@ -910,22 +678,6 @@
                                         var cell3 = row.insertCell(2);
                                         var cell4 = row.insertCell(3);
                                         var cell5 = row.insertCell(4);
-=======
-                                        var table = document.getElementById("comissionTable");
-                                        var row = table.insertRow(-1);
-                                        var cell1 = row.insertCell(0);
-                                        var cell2 = row.insertCell(1);
-                                        var cell3 = row.insertCell(2);
-                                        var cell4 = row.insertCell(3);
-                                        var cell5 = row.insertCell(4);
-
-
-
-
-
-                                        cell1.innerHTML = CH.options[CH.selectedIndex].text;
-                                        cell5.innerHTML = CH.options[CH.selectedIndex].value;
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
                                         cell2.innerHTML = amount;
                                         cell3.innerHTML = remarks;
@@ -935,7 +687,6 @@
 
 
 
-<<<<<<< HEAD
                                         cell1.innerHTML = CH.options[CH.selectedIndex].text;
                                         cell5.innerHTML = CH.options[CH.selectedIndex].value;
 
@@ -965,26 +716,6 @@
                                                 $(tr).find('td:eq(4)').text() //ComID
                                             ];
 
-=======
-                                    }
-
-                                    function addCommissionsOrTaxes() {
-                                        var commissionArray = [];
-                                        var table = document.getElementById("comissionTable");
-                                        var OverAllDetails = [];
-
-                                        //alert(sp);
-                                        $('#comissionTable tr').each(function (row, tr) {
-
-                                            commissionArray[row] = [
-
-                                                $(tr).find('td:eq(0)').text(), //head
-                                                $(tr).find('td:eq(1)').text(), //Amount
-                                                $(tr).find('td:eq(2)').text(), //Remarks
-                                                $(tr).find('td:eq(4)').text() //ComID
-                                            ];
-
->>>>>>> f4ebcb6f5450dfd9650c2dbf6be501bd73d887b2
 
                                         });
                                         commissionArray.shift();

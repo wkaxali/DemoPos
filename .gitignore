@@ -10,5 +10,10 @@ docker-compose.override.yml
 Homestead.json
 Homestead.yaml
 npm-debug.log
+<<<<<<< HEAD
 yarn-error.lo/g
+=======
+yarn-error.log
+/routes/web.php
+>>>>>>> 21a031cb84bf93b21d1366b4e4cd21806f67b498
 
