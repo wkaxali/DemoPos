@@ -180,5 +180,8 @@ Route::get('/ev', function () {
 Route::get('/etv', function () {
     return view('EmployeeTaskView');
 });
+Route::get('/pr', function () {
+    return view('payRoll');
+});
 
 

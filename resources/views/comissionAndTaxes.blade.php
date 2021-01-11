@@ -19,7 +19,7 @@
         .bookingRightTable {
             border-radius: 10px;
             height: 330px !important;
-            width:100%;
+            width: 100%;
             border: 1px solid #aaaaaa;
             padding: 0px 1px;
             /* border-radius: 10px; */
@@ -39,10 +39,10 @@
 
 
 
-     
-        
-        
-             table {
+
+
+
+        table {
             border-spacing: 0;
             border-collapse: collapse;
             border-style: hidden;
@@ -56,6 +56,7 @@
             border: 1px solid #aaaaaa;
             padding: 5px;
         }
+
         .mainSales {
             display: flex;
             justify-content: space-between;
@@ -78,7 +79,7 @@
             display: flex;
             justify-content: space-between;
             border: 1px solid #333;
-            /* padding: 10px ; */
+            padding: 10px;
             border-radius: 10px;
 
         }
@@ -93,10 +94,11 @@
             border-left: 1px solid #333;
             padding: 10px;
         }
-        .modal-content{
-        height: 800px;
-        text-align:center;
-        width: 800px;
+
+        .modal-content {
+            height: 800px;
+            text-align: center;
+            width: 800px;
         }
 
         label {
@@ -168,6 +170,19 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
     </style>
 
 </head>
@@ -205,52 +220,54 @@
                         <div class="sales-1">
                             <button class="btn unit" data-toggle="modal" data-target="#myModal">Sold Unit</button>
                         </div>
-                        
+
 
                         <div class="container">
-                          
-                       
-                          
-                          
+
+
+
+
                             <!-- Modal -->
                             <div class="modal fade" id="myModal" role="dialog">
-                              <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                       <h4 class="modal-title">View Stock </h4>
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                   
-                                  </div>
-                                  <div class="modal-body">
-                                    <div class="receivingTable">
-                                        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
-                                            <thead>
-                                            <tr>
-                                                <th>Product Id</th>
-                                                <th>Product Name</th>
-                                                <th>Company</th>
-                                                <th>Unit Sale Price</th>
-                                                <th>Unit Purchase Price</th>
-                                                <th>Stock</th>
-                                                <th>Engine Number</th>
-                                                <th>Chasis Number</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">View Stock </h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-                                            </tbody>
-            
-                                        </table>
-            
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="receivingTable">
+                                                <table id="myTable" class=" table-striped"
+                                                    style="width: 100%; text-align: center;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Product Id</th>
+                                                            <th>Product Name</th>
+                                                            <th>Company</th>
+                                                            <th>Unit Sale Price</th>
+                                                            <th>Unit Purchase Price</th>
+                                                            <th>Stock</th>
+                                                            <th>Engine Number</th>
+                                                            <th>Chasis Number</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
                                     </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                  </div>
                                 </div>
-                              </div>
                             </div>
-                          </div>
+                        </div>
 
 
 
@@ -263,10 +280,10 @@
 
                         <div class="sales-1">
                             <label for="">Profit / Loss</label>
-                            <input type="text" class="form-control" style="display: inline-block; width: 200px;" name=""
-                                id="">
+                            <input type="number" class="form-control" style="display: inline-block; width: 200px;"
+                                name="" id="">
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
@@ -309,7 +326,7 @@
 
                             <div class="input-field">
                                 <label for="status">Price + tax</label>
-                                <input type="text" class="form-control"
+                                <input type="number" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="name" value="138000">
                                 <a style="font-size: 14px;" href="#" data-bs-toggle="modal"
@@ -358,13 +375,13 @@
                             </div>
                             <div class="input-field">
                                 <label for="status">Discount</label>
-                                <input type="text" class="form-control"
+                                <input type="number" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="name" value="0">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
-                                <input type="text" class="form-control"
+                                <input type="number" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="name" value="0">
                             </div>
@@ -389,7 +406,7 @@
                             </div>
                             <div class="input-field">
                                 <label for="status">contact</label>
-                                <input type="text" class="form-control"
+                                <input type="number" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="name" value="923124617477">
                             </div>
@@ -414,11 +431,10 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="myMainRow">
-                
+
 
                         <label style="width: 100px !important;" for="">Select</label>
-                        <select class="selectpicker form-control" data-live-search="true" id="select"
-                            tabindex="null">
+                        <select class="selectpicker form-control" data-live-search="true" id="select" tabindex="null">
                             <option value=1>Bank Person</option>
                             <option value=2>sales per comissiions</option>
                             <option value=3>Third party per comission</option>
@@ -427,45 +443,44 @@
                             <option value=6>Nothing</option>
                         </select>
 
-                         
-                                <label for="remarks">Remarks</label>
-                                <input type="text" name="" id="remarks">
-                         
-                                <label for="">Amount</label>
-                                <input type="text" name="" id="amount">
-                                <button onclick="add()"  class="btn ">Add</button>
-</div>
-<br>                              
 
-<div class="col-md-12">
-    <div class="bookingRightTable">
+                        <label for="remarks">Remarks</label>
+                        <input type="number" name="" id="remarks">
 
-        <div class="tableContent  text-center">
-            <h3>Your Current Data </h3>
-        </div>
+                        <label for="">Amount</label>
+                        <input type="number" name="" id="amount">
+                        <button onclick="add()" class="btn ">Add</button>
+                    </div>
+                    <br>
 
+                    <div class="col-md-12">
+                        <div class="bookingRightTable">
 
-
-        <div class="tableDiv">
+                            <div class="tableContent  text-center">
+                                <h3>Your Current Data </h3>
+                            </div>
 
 
-                                    <table id="secondtable" class="secondtable"
-                                        style="width: 100%; text-align: center; ">
-                                        <thead>
-                                            <tr></tr>
-                                                <th>Select</th>
-                                                <th>Amount</th>
-                                                <th>Remarks</th>
-                                                <th>Delete</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-      
-                                        </tbody>
-                                    </table>
-                                </div>
-                    
-<!-- 
+
+                            <div class="tableDiv">
+
+
+                                <table id="secondtable" class="secondtable" style="width: 100%; text-align: center; ">
+                                    <thead>
+                                        <tr></tr>
+                                        <th>Select</th>
+                                        <th>Amount</th>
+                                        <th>Remarks</th>
+                                        <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- 
 
                             <label for="">Bank Person</label>  <input type="text" name="" id="">
                            <input type="checkbox" name="" id="checkboxe-1">
@@ -510,15 +525,15 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="">Total Cost</label>
-                    <input type="text" class="form-control" name="" id="totalCost">
+                    <input type="number" class="form-control" name="" id="totalCost">
                 </div>
                 <div class="col-md-4">
                     <label for="">Total Sale Price</label>
-                    <input type="text" class="form-control" name="" id="">
+                    <input type="number" class="form-control" name="" id="">
                 </div>
                 <div class="col-md-4">
                     <label for="">Profit</label>
-                    <input type="text" class="form-control" name="" id="">
+                    <input type="number" class="form-control" name="" id="">
                 </div>
             </div>
         </div>
@@ -529,19 +544,14 @@
 
 
     <script>
-  
-
-
-
-
         function add() {
-           
-        
-           
+
+
+
             var select = document.getElementById("select");
             var amount = document.getElementById("amount").value;
             var remarks = document.getElementById("remarks").value;
-        
+
 
             var table = document.getElementById("secondtable");
             var row = table.insertRow(-1);
@@ -549,19 +559,19 @@
             var cell2 = row.insertCell(1);
             var cell3 = row.insertCell(2);
             var cell4 = row.insertCell(3);
-       
-    
-            
-     
 
-            cell1.innerHTML =select.options[select.selectedIndex].text;
-            cell2.innerHTML =amount;
-            cell3.innerHTML =remarks;
-            cell4.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
-          
+
+
+
+
+            cell1.innerHTML = select.options[select.selectedIndex].text;
+            cell2.innerHTML = amount;
+            cell3.innerHTML = remarks;
+            cell4.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+
             calculatonInTable();
-            
-  
+
+
 
         }
 
@@ -574,6 +584,7 @@
             a.remove();
             calculatonInTable();
         }
+
     </script>
 
 
@@ -585,46 +596,48 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script>
-        
+
     </script>
-        <script>
-function myFunction(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            var data = this.responseText;
-                //alert(data);
-                var table;
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                table = $('#myTable').DataTable();
+    <script>
+        function myFunction() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
 
-                $.each(a, function (i, item) {
+                if (this.readyState == 4 && this.status == 200) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice
-                    , a[i].TotalCost, a[i].EngineNumber, a[i].ChasisNumber]);
-                });
-                table.draw();
+                    var data = this.responseText;
+                    //alert(data);
+                    var table;
+                    var a = JSON.parse(data);
+                    //  alert(a[0].ProductSerial);
+                    table = $('#myTable').DataTable();
 
+                    $.each(a, function (i, item) {
+
+                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
+                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].TotalCost, a[i]
+                            .EngineNumber, a[i].ChasisNumber
+                        ]);
+                    });
+                    table.draw();
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./viewStock/", true);
+
+            xhttp.send();
         }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./viewStock/", true);
-    
-    xhttp.send();
-    }
-</script>
 
-<script>
+    </script>
+
+    <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
 
-
     </script>
-    
+
 </body>
 
 </html>
