@@ -77,6 +77,12 @@ Route::get('/getEmployeeName',[payController::class, 'getEmployeeName'] );
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
 
 
+
+
+
+Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
+
+
 Route::get('/', function () {
     return view('signInSignUp');
 });
@@ -118,8 +124,8 @@ Route::get('/ip', function () {
 Route::get('/is', function () {
     return view('invoiceServices');
 });
-Route::get('/l', function () {
-    return view('ledger');
+Route::get('/investorLedger', function () {
+    return view('investorLedger');
 });
 Route::get('/psi', function () {
     return view('printSaleInvoice');

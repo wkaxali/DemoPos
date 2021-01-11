@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
 
-    <title>Attendance</title>
+    <title>Salary Slip</title>
     <style>
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
@@ -107,25 +107,6 @@
             margin-top: 30px;
             margin-left: 134px;
         }
-        input[type="text"]:focus,
-         input[type="password"]:focus,
-         input[type="datetime"]:focus,
-         input[type="datetime-local"]:focus,
-         input[type="date"]:focus,
-         input[type="month"]:focus,
-         input[type="time"]:focus,
-         input[type="week"]:focus,
-         input[type="number"]:focus,
-         input[type="email"]:focus,
-         input[type="url"]:focus,
-         input[type="search"]:focus,
-         input[type="tel"]:focus,
-         input[type="color"]:focus,
-         .uneditable-input:focus {
-            border-color: #0a549d;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
-            outline: 0 none;
-        }
 
         .mainRows {
             width: 910px;
@@ -134,6 +115,25 @@
             border-radius: 10px;
         }
 
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
     </style>
 </head>
 
@@ -142,7 +142,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h4>Attendance</h4>
+                    <h4>ATTANDANCE</h4>
                 </div>
             </div>
         </div>
@@ -164,14 +164,14 @@
                 <div class="col-md-6 offset-md-3">
                     <label style="width: 200px;" for="">Employee ID</label>
                     <input type="text" class="form-control"
-                        style="display: inline-block; width: 200px; margin: 5px 0px;" name="" id="employeeID">
+                        style="display: inline-block; width: 200px; margin: 5px 0px;" name="" id="">
                     <br>
                     <label style="width: 200px;" for="">Password</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px;" name="" id="">
                     <br>
                     <div class="loginButtons">
                         <button class="btn" style="background-color: #e61d2f; color: #ffffff;">View Previous</button>
-                        <button class="btn" style="background-color:  #0a549d; color: #ffffff;" onclick="markAttendance()">Mark Attandance</button>
+                        <button class="btn" style="background-color:  #0a549d; color: #ffffff;">Mark Attandance</button>
                     </div>
                 </div>
             </div>
@@ -221,31 +221,6 @@
         }, 1000);
 
     </script>
-
-
-
-<script>
-    function markAttendance(){
-    
-        var employeeID = [document.getElementById("employeeID").value];
-
-        alert(employeeID);
-
-        //var taskTable = JSON.stringify(OverallTask);
-    
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-
-                alert("Expense number " + this.responseText + " is added");
-                
-            }
-        };
-        alert(employeeID);
-        xhttp.open("GET", "./markAttendance/" + employeeID, true);
-        xhttp.send();
-    }
-</script>
 
 
 </body>

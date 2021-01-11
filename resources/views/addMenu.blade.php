@@ -19,6 +19,26 @@
             box-sizing: border-box;
         }
 
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
+
         .recepi-table {
             border: 1px solid rgb(196, 218, 243);
             overflow: auto;
@@ -63,7 +83,7 @@
         .btn-success:hover {
             color: #fff;
             background-color: #e61d2f;
-           border-color: #e61d2f;
+            border-color: #e61d2f;
         }
 
         .btn-success.focus,
@@ -276,11 +296,12 @@
         /* tr:nth-child(1n++) {
             background-color: #0a549d;
         } */
+
     </style>
 
 </head>
 
-<body>
+<body id="mainBody">
     <header>
         <div class="container">
             <div class="row">
@@ -356,30 +377,7 @@
                             </thead>
 
                             <tbody id="contact-list">
-                                <tr>
-                                    <td>Forland E-600</td>
-                                    <td>Truck</td>
-                                    <td>$1000</td>
-                                    <td>$1100</td>
-                                    <td>Nothing</td>
-                                    <td>&times;</td>
-                                </tr>
-                                <tr>
-                                    <td>Forland E-600</td>
-                                    <td>Truck</td>
-                                    <td>$1000</td>
-                                    <td>$1100</td>
-                                    <td>Nothing</td>
-                                    <td>&times;</td>
-                                </tr>
-                                <tr>
-                                    <td>Forland E-600</td>
-                                    <td>Truck</td>
-                                    <td>$1000</td>
-                                    <td>$1100</td>
-                                    <td>Nothing</td>
-                                    <td>&times;</td>
-                                </tr>
+
 
                             </tbody>
 
@@ -390,8 +388,7 @@
 
             <div class="row">
                 <div class="col-md-2 offset-md-10 text-right">
-                    <button class="btn btn-success  mt-1"
-                        style="height: 102px;width: 102px;  color: #ffffff;"
+                    <button class="btn btn-success  mt-1" style="height: 102px;width: 102px;  color: #ffffff;"
                         onclick="AddProduct()">PlaceOrder</button>
                 </div>
             </div>
@@ -434,15 +431,13 @@
         cell2.innerHTML = catetext;
         cell3.innerHTML = document.getElementById("cost").value;
         cell4.innerHTML = document.getElementById("salePrice").value;
-       // cell5.innerHTML = document.getElementById("Desc").value;
+        // cell5.innerHTML = document.getElementById("Desc").value;
         cell6.innerHTML =
             "<button onclick='deleteRow(this)' class=\"btn btn-danger \" style=\"height: 25px;width: 25px; padding:auto;\"></button>";
-          
-       
-    
+        valid();
+
+
     }
-
-
 
 
 
@@ -492,94 +487,94 @@
             if (this.readyState == 4 && this.status == 200) {
 
                 alert("This is comming from Controller ==" + this.responseText);
-              
+
             }
         };
 
         xhttp.open("GET", "./insertProducts/" + a, true);
         xhttp.send();
-      
+
     };
+
 </script>
 </script>
 <script>
+    function AddProduct() {
 
-function AddProduct(){
+        var ProductName = document.getElementById("productName").value;
+        alert("acceptable  " + ProductName);
 
-var ProductName=document.getElementById("productName").value;
-    alert("acceptable  "+ProductName);
-
-    var ProductCat=document.getElementById("category").value;
-    alert("acceptable  "+ProductCat);
-
-
-    var Productsaleprice=document.getElementById("salePrice").value;
-    alert("acceptable  "+Productsaleprice);
-
-    var ProductCost=document.getElementById("cost").value;
-    alert("acceptable  "+ProductCost);
-
-    var Product = [ProductName,ProductCat,Productsaleprice,ProductCost];
-
-    
-    var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-if (this.readyState == 4 && this.status == 200) {
-  alert( this.responseText);
-}
-};
-var EC=JSON.stringify(Product);
-xhttp.open("GET", "./AddProduct/"+EC, true);
-xhttp.send();
+        var ProductCat = document.getElementById("category").value;
+        alert("acceptable  " + ProductCat);
 
 
-};
-function FetchMenu(CID) {
-            var xhttp = new XMLHttpRequest();
+        var Productsaleprice = document.getElementById("salePrice").value;
+        alert("acceptable  " + Productsaleprice);
+
+        var ProductCost = document.getElementById("cost").value;
+        alert("acceptable  " + ProductCost);
+
+        var Product = [ProductName, ProductCat, Productsaleprice, ProductCost];
 
 
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("pills-tabContent").innerHTML = this.responseText;
-                    // alert();
-                    calculation();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+            }
+        };
+        var EC = JSON.stringify(Product);
+        xhttp.open("GET", "./AddProduct/" + EC, true);
+        xhttp.send();
 
 
-                }
+    };
 
-            };
-
-            
-
-            xhttp.open("GET", "./fetchMenu/" + CID, true);
-            xhttp.send();
+    function FetchMenu(CID) {
+        var xhttp = new XMLHttpRequest();
 
 
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("pills-tabContent").innerHTML = this.responseText;
+                // alert();
+                calculation();
+
+
+            }
 
         };
 
-        function getAllCategories() {
+
+
+        xhttp.open("GET", "./fetchMenu/" + CID, true);
+        xhttp.send();
 
 
 
-            var xhttp = new XMLHttpRequest();
+    };
 
-
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("pills-tab").innerHTML = this.responseText;
-                    FetchMenu(11);
+    function getAllCategories() {
 
 
 
-                }
+        var xhttp = new XMLHttpRequest();
 
-            };
 
-            xhttp.open("GET", "./fetchCategories", true);
-            xhttp.send();
-        }
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("pills-tab").innerHTML = this.responseText;
+                FetchMenu(11);
 
+
+
+            }
+
+        };
+
+        xhttp.open("GET", "./fetchCategories", true);
+        xhttp.send();
+    }
 
 </script>
 
