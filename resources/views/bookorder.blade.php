@@ -365,42 +365,30 @@
             if (invoicePrice == "") {
                 document.getElementById('invoice').focus();
 
-            } else if (isNaN(invoicePrice)) {
-                alert("Input Field Should Be Numeric");
-                document.getElementById("invoice").value = "";
-
-
             } else if (qty == "") {
                 document.getElementById('qty').focus();
-            } else if (isNaN(amontPaid)) {
-                alert("Input Field Should Be Numeric");
-                document.getElementById("amount").value = "";
-
             } else if (amontPaid == "") {
                 document.getElementById('amount').focus();
             } else {
                 add();
 
-                // document.getElementById("OrderId").value = "";
+                document.getElementById("OrderId").value = "";
 
-                // document.getElementById("category");
+                document.getElementById("category");
 
-                // document.getElementById("invoice").value = "";
+                document.getElementById("invoice").value = "";
 
-                // document.getElementById("qty").value = "";
+                document.getElementById("qty").value = "";
 
-                // document.getElementById("total").value = "";
+                document.getElementById("total").value = "";
 
-                // document.getElementById("amount").value = "";
+                document.getElementById("amount").value = "";
 
-                // document.getElementById("remaining").value = "";
+                document.getElementById("remaining").value = "";
 
             }
 
         }
-        // setInterval(function () {
-           
-        // }, 0)
 
     </script>
 
