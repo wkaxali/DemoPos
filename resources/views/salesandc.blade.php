@@ -152,30 +152,6 @@
 
         }
 
-         input[type="text"]:focus,
-         input[type="password"]:focus,
-         input[type="datetime"]:focus,
-         input[type="datetime-local"]:focus,
-         input[type="date"]:focus,
-         input[type="month"]:focus,
-         input[type="time"]:focus,
-         input[type="week"]:focus,
-         input[type="number"]:focus,
-         input[type="email"]:focus,
-         input[type="url"]:focus,
-         input[type="search"]:focus,
-         input[type="tel"]:focus,
-         input[type="color"]:focus,
-         .uneditable-input:focus {
-            border-color: #0a549d;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
-            outline: 0 none;
-        }
-
-
-        #mainGetLabels label {
-            width: 200px;
-        }
         input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
@@ -195,6 +171,44 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+
+
+        #mainGetLabels label {
+            width: 200px;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
     </style>
 
 </head>
@@ -226,7 +240,7 @@
                 <div class="col-md-5">
                     <div class="sales-1" style="margin-left:80px ;">
                         <label for="">Profit / Loss</label>
-                        <input type="text" class="form-control"
+                        <input type="number" class="form-control"
                             style="display: inline-block !important; width: 200px !important;" name="" id="">
                     </div>
                 </div>
@@ -371,7 +385,7 @@
                                 <div class="col-md-4">
 
                                     <label for="status">Sale Price</label>
-                                    <input type="text" class="form-control"
+                                    <input type="number" autocomplete="OFF" class="form-control"
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                         name="name" id="SalePrice" value="">
                                 </div>
@@ -425,12 +439,12 @@
                                                 <label style="margin-left: 30px;" for="">Amount</label> <input
                                                     class="form-control"
                                                     style="display: inline-block !important; width: 130px !important;"
-                                                    type="text" name="" id="amount">
+                                                    type="number" name="" id="amount">
 
                                                 <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
                                                     class="form-control"
                                                     style="display: inline-block !important; width: 135px !important;"
-                                                    type="text" name="" id="remarks">
+                                                    type="number" name="" id="remarks">
 
                                                 <button onclick="add()" style="margin-top: -3px;" class="btn">+</button>
                                             </div>
@@ -473,7 +487,7 @@
                                         <div class="row">
                                             <div class="col-md-7" style="margin-left: 416px; margin-top: 30px;">
                                                 <label for="">Total Cost</label>
-                                                <input type="text"
+                                                <input type="number"
                                                     style="display: inline-block !important; width: 200px !important;"
                                                     class="form-control" name="" id="TotalCost">
                                             </div>
@@ -553,12 +567,12 @@
                                                 <label style="margin-left: 30px;" for="">Amount</label> <input
                                                     class="form-control"
                                                     style="display: inline-block !important; width: 130px !important;"
-                                                    type="text" name="" id="amount">
+                                                    type="number" name="" id="amount">
 
                                                 <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
                                                     class="form-control"
                                                     style="display: inline-block !important; width: 135px !important;"
-                                                    type="text" name="" id="remarks">
+                                                    type="number" name="" id="remarks">
 
                                                 <button onclick="add()" style="margin-top: -3px;"
                                                     class="btn ">+</button>
@@ -609,11 +623,11 @@
 
                                             <div class="col-md-4">
                                                 <label for="">Total Sale Price</label>
-                                                <input type="text" class="form-control" name="" id="SoldPrice">
+                                                <input type="number" class="form-control" name="" id="SoldPrice">
                                             </div>
                                             <div class="col-md-4 offset-md-4">
                                                 <label for="">Profit</label>
-                                                <input type="text" class="form-control" name="" id="Profit">
+                                                <input type="number" class="form-control" name="" id="Profit">
                                             </div>
                                         </div>
                                     </div>

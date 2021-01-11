@@ -37,7 +37,7 @@
         .receivingTable {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
-            
+
         }
 
         .receivingMain {
@@ -54,22 +54,30 @@
         label {
             font-weight: bold;
         }
-        .Footerbtns{
+
+        .Footerbtns {
             float: right;
         }
-        .clear{
+
+        .clear {
             clear: both;
         }
-        .Footerbtns .btn{
+
+        .Footerbtns .btn {
             width: 120px;
         }
-        .Footerbtns .btn:nth-child(2){
+
+        .Footerbtns .btn:nth-child(2) {
             background-color: #0a549d;
-            color: #fff;        }
-            .Footerbtns .btn:nth-child(1){
-                background-color: #e61d2f;
-            color: #fff;    }
-            input[type="text"]:focus,
+            color: #fff;
+        }
+
+        .Footerbtns .btn:nth-child(1) {
+            background-color: #e61d2f;
+            color: #fff;
+        }
+
+        input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
         input[type="datetime-local"]:focus,
@@ -87,6 +95,18 @@
             border-color: #0a549d;
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
         }
 
     </style>
@@ -107,29 +127,29 @@
                     <div class="receivingMain">
 
 
-                        <div class="receivingTable" id = "myTableDiv">
+                        <div class="receivingTable" id="myTableDiv">
 
                         </div>
                     </div>
                 </div>
             </div>
             <br>
-            <div class="row" >
+            <div class="row">
                 <div class="col-md-4">
                     <label style="width: 185px;" for="">Total Amount</label>
-                    <input type="text" value="127,000,000" name="" id="footerInput">
+                    <input type="number" value="127000000" name="" id="footerInput">
                 </div>
                 <div class="col-md-4">
                     <label style="width: 185px;" for="">Amount Paid</label>
-                    <input type="text" value="122,000,000" name="" id="footerInput">
+                    <input type="number" value="122000000" name="" id="footerInput">
                 </div>
                 <div class="col-md-4">
-              
+
                     <label style="width: 185px;" for="">Remaining</label>
-                    <input type="text" value="5,000,000" name="" id="footerInput">
+                    <input type="number" value="5000000" name="" id="footerInput">
                     <h4 style="font-size: 16px; font-weight: 600;">Has To Be Paid By MM Motors To JWW </h4>
 
-                
+
                 </div>
             </div>
             <br>
@@ -138,12 +158,12 @@
                     <div class="Footerbtns">
                         <a class="btn">Print</a>
                         <a class="btn" href="#">Export To Pdf</a>
-        
+
                     </div>
                     <div class="clear"></div>
                 </div>
             </div>
-      
+
         </div>
     </header>
 
@@ -163,29 +183,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-function getCompanyLedger(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("myTableDiv").innerHTML = this.response;
+        function getCompanyLedger() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("myTableDiv").innerHTML = this.response;
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./companyLedger/", true);
+
+            xhttp.send();
+
+
         }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./companyLedger/", true);
-    
-    xhttp.send();
 
+    </script>
 
-    }
-</script>
-
-<script>
+    <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
-</script>
+
+    </script>
 
 
 </body>

@@ -174,6 +174,18 @@
             width: 100vw;
         }
 
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
     </style>
 </head>
 
@@ -223,7 +235,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Invoice Price :</label>
-                                <input type="text" onchange="product()" class="form-control"
+                                <input type="number" onchange="product()" class="form-control"
                                     style="width: 200px !important; display: inline-block !important;" name=""
                                     id="invoice">
 
@@ -247,7 +259,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Amount Paid</label>
-                                <input type="text" title="Press Enter To Submit" onkeyup="subtract()"
+                                <input type="number" title="Press Enter To Submit" onkeyup="subtract()"
                                     class="form-control"
                                     style="width: 200px !important; display: inline-block !important;" name=""
                                     id="amount">
@@ -350,12 +362,19 @@
             var amontPaid = document.getElementById("amount").value;
             var remaining = document.getElementById("remaining").value;
             if (invoicePrice == "") {
-
                 document.getElementById('invoice').focus();
+
+            } else if (isNaN(invoicePrice)) {
+                alert("Input Field Should Be Numeric");
+                document.getElementById("invoice").value = "";
 
 
             } else if (qty == "") {
                 document.getElementById('qty').focus();
+            } else if (isNaN(amontPaid)) {
+                alert("Input Field Should Be Numeric");
+                document.getElementById("amount").value = "";
+
             } else if (amontPaid == "") {
                 document.getElementById('amount').focus();
             } else {
@@ -566,6 +585,7 @@
             xhttp.open("GET", "./getOrderId/", true);
             xhttp.send();
         }
+
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"
