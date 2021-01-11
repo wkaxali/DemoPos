@@ -193,7 +193,7 @@ Route::get('/atv', function () {
     return view('attendanceView');
 });
 Route::get('/il', function () {
-    return view('investorGeneralLedger');
+    return view('investorLedger');
 });
 Route::get('/pr', function () {
     return view('payRoll');
