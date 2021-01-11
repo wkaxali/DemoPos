@@ -351,19 +351,29 @@
             var remaining = document.getElementById("remaining").value;
             if (invoicePrice == "") {
 
-                // alert("Please Input The Invoice Price");
                 document.getElementById('invoice').focus();
 
 
-            }  else if (qty == "") {
-                // alert("Please Input The Quantity");
+            } else if (qty == "") {
                 document.getElementById('qty').focus();
             } else if (amontPaid == "") {
-                // alert("Please Input The Paid Amount");
                 document.getElementById('amount').focus();
-            }
-            else{
+            } else {
                 add();
+                document.getElementById("OrderId").value = "";
+
+                document.getElementById("category");
+
+                document.getElementById("invoice").value = "";
+
+                document.getElementById("qty").value = "";
+
+                document.getElementById("total").value = "";
+
+                document.getElementById("amount").value = "";
+
+                document.getElementById("remaining").value = "";
+
             }
 
         }
@@ -409,6 +419,8 @@
         }
 
 
+
+
         var body = document.getElementById("mainBody");
 
         body.addEventListener('keypress', function (event) {
@@ -420,7 +432,15 @@
 
 
         function deleteRow(ele) {
+            var conf = confirm("Do You Want To Delete This Row");
+
             var a = ele.parentNode.parentNode;
+            if (conf === true) {
+                a.remove();
+            } else {
+                return false;
+            }
+
 
             a.remove();
             calculatonInTable();
@@ -539,35 +559,19 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-
                     document.getElementById("OrderId").value = this.response;
                 }
             };
             //alert("ljd");
             xhttp.open("GET", "./getOrderId/", true);
-
             xhttp.send();
-
-
         }
-
     </script>
-
-
-
-
-
-
-
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-    <!-- <script src="js/bootstrap.min.js"></script> -->
 
 </body>
 
