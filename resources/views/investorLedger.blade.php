@@ -96,6 +96,7 @@
             overflow: auto !important;
 
         }
+
         input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
@@ -115,6 +116,7 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+
     </style>
 </head>
 
@@ -234,10 +236,14 @@
     </section>
     <section>
         <div class="container">
-            <div class="row customBorder">
-                <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 customBorder">
                     <h4>SUMMARY</h4>
                 </div>
+                <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
+                    <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;">Update</button>
+                </div>
+
             </div>
         </div>
     </section>
