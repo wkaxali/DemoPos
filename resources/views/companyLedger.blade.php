@@ -88,8 +88,21 @@
                     <div class="receivingMain">
 
 
-                        <div class="receivingTable" id = "myTableDiv">
+                        <div class="receivingTable" id = "companyLedgerTable">
+                        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+                        <thead>
+                            <tr>
+                                <th id ="Cusname">Name</th>
+                                <th id="CusCont">Contact</th>
+                                <th id ="Cusaddr">Address</th>
+                                <th id="CusIntrs">Interested In</th>
+                                <th id ="CusMeet"> Who Meet</th>
 
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        </table>
                         </div>
                     </div>
                 </div>
@@ -135,6 +148,8 @@
 
 
 
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+    </script>
 
 
 
@@ -144,29 +159,43 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-function getCompanyLedger(){
+function companyLedger(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
         if (this.readyState == 4 && this.status == 200) {
     
-            document.getElementById("myTableDiv").innerHTML = this.response;
+            var data = this.responseText;
+                //alert(data);
+                var table;
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                table = $('#myTable').DataTable();
+
+                $.each(a, function (i, item) {
+
+                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].Amount, a[
+                        i].DateStamp]);
+                });
+                table.draw();
+
         }
     };
     //alert("ljd");
-    xhttp.open("GET", "./companyLedger/", true);
+    xhttp.open("GET", "./viewCustomer/", true);
     
     xhttp.send();
-
-
     }
-</script>
+
+    </script>
 
 <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
-</script>
+
+
+    </script>
 
 
 </body>
