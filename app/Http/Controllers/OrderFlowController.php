@@ -247,7 +247,7 @@ class OrderFlowController extends Controller
             
             <td>'.$d->TransactionID.'</td>
             <td>'.$d->InvoiceNo.'</td>
-            <td>'.$d->TransectionCatogery.'</td>
+            <td>'.$d->TransactionCatogery.'</td>
             <td>'.$d->Amount.'</td>
             <td>'.$d->DateStamp.'</td>
             </tr>';

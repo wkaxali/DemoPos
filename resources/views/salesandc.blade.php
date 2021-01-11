@@ -229,8 +229,13 @@
                     <div class="mainSales">
 
 
+                        </div>
 
+                      
 
+                        <div class="sales-1">
+                            <button class="btn unit" data-toggle="modal" data-target="#myModal" onclick="getStock()">Sold Unit</button>
+                        </div>
 
 
                         <div class="container-fluid">

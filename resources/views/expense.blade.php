@@ -341,9 +341,6 @@ document.getElementById("mainTotal").value=tot;
                 $(tr).find('td:eq(5)').text(), //Paid By
                 $(tr).find('td:eq(6)').text() //Remarks
                 
-
-
-
             ];
 
 
@@ -351,6 +348,7 @@ document.getElementById("mainTotal").value=tot;
         expenseDetails.shift();
         var expTable = JSON.stringify(expenseDetails);
         var xhttp = new XMLHttpRequest();
+
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
