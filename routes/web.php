@@ -9,7 +9,7 @@ use App\Http\Controllers\OrderFlowController;
 
 use App\Http\Controllers\UpdateStocksController;
 
-
+use App\Http\Controllers\payController;
 
 
 
@@ -69,7 +69,7 @@ Route::get('/addTasks/{data}',[taskController::class, 'insertTasks'] );
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance'] );
 Route::get('/getEmployeeData',[taskController::class, 'employeeData'] );
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance'] );
-
+Route::get('/getEmployeeName',[payController::class, 'getEmployeeName'] );
 
 
 
@@ -188,4 +188,7 @@ Route::get('/atv', function () {
 });
 Route::get('/il', function () {
     return view('investorGeneralLedger');
+});
+Route::get('/pr', function () {
+    return view('payRoll');
 });

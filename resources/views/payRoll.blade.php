@@ -132,7 +132,7 @@
     </style>
 </head>
 
-<body>
+<body onload="loadNames()">
     <main>
         <div class="container">
             <div class="row">
@@ -165,14 +165,8 @@
                         <div class="col-md-5 offset-md-2">
                             <label for="">Name</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                                <option value=""></option>
-                                <option value=1>Rayan Naeem</option>
-                                <option value=2>Waqas Ali</option>
-                                <option value=3>Arslan</option>
-                                <option value=4>Usman</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="name" >
+                            
                             </select>
                         </div>
                         <div class="col-md-5  ">
@@ -312,6 +306,28 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
+
+<script>
+function loadNames(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("name").innerHTML = this.response;
+            $('#name').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployeeName/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
