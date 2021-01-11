@@ -179,6 +179,7 @@
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
+
         }
 
         /* Firefox */
@@ -321,16 +322,16 @@
                         <div class="mainInputGroups">
                             <div class="input-group">
                                 <label style="width: 150px !important;" for="">Total Amount</label>
-                                <input type="text" name="" id="mainTotal">
+                                <input type="number" name="" id="mainTotal">
                             </div>
 
                             <div class="input-group ">
                                 <label style="width: 150px  !important;" for="">Total Paid</label>
-                                <input type="text" name="" id="totalPaid" onchange="calculatonInTable()">
+                                <input type="number" name="" id="totalPaid" onchange="calculatonInTable()">
                             </div>
                             <div class="input-group ">
                                 <label style="width: 150px  !important;" for="">Total Remaining</label>
-                                <input type="text" name="" id="totRemaining">
+                                <input type="number" name="" id="totRemaining">
                             </div>
 
                         </div>
@@ -379,23 +380,27 @@
                 document.getElementById('amount').focus();
             } else {
                 add();
-                document.getElementById("OrderId").value = "";
 
-                document.getElementById("category");
+                // document.getElementById("OrderId").value = "";
 
-                document.getElementById("invoice").value = "";
+                // document.getElementById("category");
 
-                document.getElementById("qty").value = "";
+                // document.getElementById("invoice").value = "";
 
-                document.getElementById("total").value = "";
+                // document.getElementById("qty").value = "";
 
-                document.getElementById("amount").value = "";
+                // document.getElementById("total").value = "";
 
-                document.getElementById("remaining").value = "";
+                // document.getElementById("amount").value = "";
+
+                // document.getElementById("remaining").value = "";
 
             }
 
         }
+        // setInterval(function () {
+           
+        // }, 0)
 
     </script>
 

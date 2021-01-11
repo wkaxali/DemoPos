@@ -208,6 +208,9 @@
         input[type=number] {
             -moz-appearance: textfield;
         }
+        .container-fluid{
+            width: 95% !important;
+        }
 
     </style>
 
