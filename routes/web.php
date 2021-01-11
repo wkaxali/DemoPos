@@ -70,8 +70,9 @@ Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendanc
 Route::get('/getEmployeeData',[taskController::class, 'employeeData'] );
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance'] );
 Route::get('/getEmployeeName',[payController::class, 'getEmployeeName'] );
-
-
+Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC'] );
+Route::get('/getEmployeeID',[payController::class, 'getEmployeeID'] );
+Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact'] );
 
 
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
@@ -186,8 +187,11 @@ Route::get('/at', function () {
 Route::get('/atv', function () {
     return view('attendanceView');
 });
-Route::get('/il', function () {
+Route::get('/igl', function () {
     return view('investorGeneralLedger');
+});
+Route::get('/il', function () {
+    return view('investorLedger');
 });
 Route::get('/pr', function () {
     return view('payRoll');

@@ -28,7 +28,7 @@ public static function getEmployeeName(){
   }
 
 
-  public static function getEmployeeName(){
+  public static function getEmployeeCNIC(){
     $data=DB:: select('select * from tblemployees');
     
     $option='';
@@ -38,7 +38,39 @@ public static function getEmployeeName(){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->EID.'>'.$d->FirstName.'</option>';
+        <option value= '.$d->EID.'>'.$d->CNIC.'</option>';
+      
+    }
+    return $option;
+  }
+
+  public static function getEmployeeID(){
+    $data=DB:: select('select * from tblemployees');
+    
+    $option='';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->EID.'>'.$d->EID.'</option>';
+      
+    }
+    return $option;
+  }
+
+  public static function getEmployeeContact(){
+    $data=DB:: select('select * from tblemployees');
+    
+    $option='';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->EID.'>'.$d->ContactNo.'</option>';
       
     }
     return $option;

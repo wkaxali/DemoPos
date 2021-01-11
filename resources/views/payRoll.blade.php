@@ -132,7 +132,7 @@
     </style>
 </head>
 
-<body onload="loadNames()">
+<body onload="loadEmployeeInfo()">
     <main>
         <div class="container">
             <div class="row">
@@ -152,14 +152,8 @@
                         <div class="col-md-5 ">
                             <label for="">Employee ID</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                                <option value=""></option>
-                                <option value=1>62923</option>
-                                <option value=2>62927</option>
-                                <option value=3>62921</option>
-                                <option value=4>62929</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="id" >
+                            
                             </select>
                         </div>
                         <div class="col-md-5 offset-md-2">
@@ -172,28 +166,15 @@
                         <div class="col-md-5  ">
                             <label for="">Contact</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                                <option value=""></option>
-                                <option value=1>03091320095</option>
-                                <option value=2>03132420095</option>
-                                <option value=3>03092520095</option>
-                                <option value=4>03134108643</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="contact" >
+                            
                             </select>
                         </div>
                         <div class="col-md-5 offset-md-2">
                             <label for="">CNIC</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                                <option value=""></option>
-
-                                <option value=1>35202-111-67091</option>
-                                <option value=2>35202-111-67321</option>
-                                <option value=3>35202-111-69691</option>
-                                <option value=4>35202-111-87652</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="cnic" >
+                            
                             </select>
                         </div>
                         <div class="col-md-12 ">
@@ -308,7 +289,17 @@
     </script>
 
 <script>
-function loadNames(){
+function loadEmployeeInfo(){
+    loadEmployeeNames();
+    loadEmployeeCNIC();
+    loadEmployeeID();
+    loadEmployeeContact();;
+}
+</script>
+
+
+<script>
+function loadEmployeeNames(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
@@ -326,7 +317,66 @@ function loadNames(){
 
     }
 </script>
+<script>
+function loadEmployeeCNIC(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("cnic").innerHTML = this.response;
+            $('#cnic').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployeeCNIC/", true);
+    
+    xhttp.send();
 
+
+    }
+</script>
+
+
+<script>
+function loadEmployeeID(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("id").innerHTML = this.response;
+            $('#id').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployeeID/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
+<script>
+function loadEmployeeContact(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("contact").innerHTML = this.response;
+            $('#contact').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployeeContact/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
 
     <script>
         $(document).ready(function () {
