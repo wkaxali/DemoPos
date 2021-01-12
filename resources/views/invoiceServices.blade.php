@@ -14,6 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+
 
     <title>Invoice</title>
     <style>
@@ -21,7 +23,7 @@
             width: 200px;
         }
 
-        #smallFontLabel input {}
+
 
         .SecondColor {
             background-color: #0a549d;
@@ -333,7 +335,7 @@
 
 
         .appointment-form {
-            padding: 10px 60px 70px 60px;
+            padding: 10px 60px 0px 60px;
         }
 
         .appointment-form input,
@@ -539,12 +541,42 @@
             }
         }
 
-        /*# sourceMappingURL=style.css.map */
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 10px 8px#0a549d inset, 0 13 15px #0a549d !important;
+            outline: 0 none;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
 
     </style>
 </head>
 
-<body style="font-family: 'Roboto', sans-serif;">
+<body id="mainBody" style="font-family: 'Roboto', sans-serif;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center mt-1">
@@ -573,7 +605,10 @@
 
 
                 </select>
-                <button class="btn btn-Search" style="height: 25px;"></button>
+                <!-- <button type="button" class="btn btn-info" style="height: 25px; margin-top: -5px;" data-toggle="modal"
+                    data-target=".bd-example-modal-xl"></button> -->
+                <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
+                    style="height: 25px;" onclick="loadStock()"></button>
             </div>
         </div>
     </div>
@@ -599,36 +634,42 @@
 
                         <div class="myOwnRow-left">
                             <div class="input-field">
-                                <label for="status">Model</label>
-                                <input type="text" class="form-control"
+                                <label for="status">Product ID</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="Cash">
+                                    name="name" id="PID">
+                            </div>
+                            <div class="input-field">
+                                <label for="status">Model</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="ProductName">
                             </div>
 
                             <div class="input-field">
                                 <label for="status">Chassis Number </label>
-                                <input type="text" class="form-control"
+                                <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="137000">
+                                    name="name" id="ChasisNumber">
                             </div>
                             <div class="input-field">
                                 <label for="status">Engine Number</label>
-                                <input type="text" class="form-control"
+                                <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="10000">
+                                    name="name" id="EngineNumber">
                             </div>
                             <div class="input-field">
                                 <label for="status">Status</label>
-                                <input type="text" class="form-control"
+                                <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="0">
+                                    name="name" id="Status">
                             </div>
 
                             <div class="input-field">
                                 <label for="status">Price + tax</label>
-                                <input type="text" class="form-control"
+                                <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="138000">
+                                    name="name" id="TotalPrice">
                                 <a style="font-size: 14px;" href="increaseInPrice.html" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">View Details</a>
 
@@ -675,15 +716,15 @@
                             </div>
                             <div class="input-field">
                                 <label for="status">Discount</label>
-                                <input type="text" class="form-control"
+                                <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="0">
+                                    name="name" id="Discount" onkeyup="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="name" value="0">
+                                <input type="text" readonly class="form-control"
+                                    style=" pointer-events: none; display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="NetTotal">
                             </div>
                         </div>
                         <div class="myOwnROw">
@@ -732,11 +773,18 @@
 
                         <div class="input-field">
                             <label for="status">Client Name</label>
-                            <input type="text" class="form-control"
+                            <input type="text" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="name" value="PEL">
+                                name="name" id="CustomerName">
                             <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
                                margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
+                        </div>
+                        <div class="input-field">
+                            <label for="status">Customer ID</label>
+                            <input type="text" autocomplete="OFF" class="form-control"
+                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                name="name" id="CID">
+
                         </div>
                         <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
                             aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -751,17 +799,16 @@
                                                     required />
                                                 <input type="text" name="name" id="name" placeholder="Customer ID"
                                                     required />
-                                                <input type="email" name="email" id="email" placeholder="Contact"
-                                                    required />
-                                                    <input type="number" name="phone_number" id="Profession"
+                                                <input type="number" name="tel" id="tel" placeholder="Contact" required />
+                                                <input type="number" name="phone_number" id="Profession"
                                                     placeholder="Profession" required />
-                                                    <input type="number" name="phone_number" id="Profession"
+                                                <input type="number" name="phone_number" id="Balance"
                                                     placeholder="Balance" required />
-                                                    <input type="number" name="phone_number" id="Profession"
+                                                <input type="number" name="phone_number" id="Profession"
                                                     placeholder="Address" required />
-                                                    <input type="number" name="phone_number" id="Profession"
+                                                <input type="number" name="phone_number" id="Profession"
                                                     placeholder="Comments" required />
-                                                 
+
                                                 <div class="select-list">
                                                     <select name="course_type" id="course_type">
                                                         <option slected value="">Category</option>
@@ -770,10 +817,10 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        
+
                                             <div class="form-submit">
-                                                <input type="submit" name="submit" id="submit" class="submit"
-                                                    value="Add Customer" />
+                                                <input onclick="modalValidation()" name="submit" id="submit"
+                                                    class="submit" value="Add Customer" />
                                             </div>
                                         </form>
                                     </div>
@@ -786,21 +833,21 @@
                         </div>
                         <div class="input-field">
                             <label for="status">Address</label>
-                            <input type="text" class="form-control"
+                            <input type="text" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="name">
+                                name="name" id="Address">
                         </div>
                         <div class="input-field">
                             <label for="status">contact</label>
-                            <input type="text" class="form-control"
+                            <input type="text" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="name" value="923124617477">
+                                name="name" id="contact">
                         </div>
                         <div class="input-field">
                             <label for="status">Manager</label>
-                            <input type="text" class="form-control"
+                            <input type="text" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="name" value="Mushtaq ">
+                                name="name" id="Manager">
                         </div>
 
                     </div>
@@ -810,15 +857,15 @@
 
                         <div class="input-field">
                             <label for="status">Amount Paid</label>
-                            <input type="text" class="form-control"
+                            <input type="number" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="name" value="1320000">
+                                name="name" id="amountPaid" onkeyup="calcRemainingAmount()">
                         </div>
                         <div class="input-field">
                             <label for="status">Remaining</label>
-                            <input type="text" class="form-control"
+                            <input type="number" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="name" value="50000">
+                                name="name" id="amountRemaining">
                         </div>
                         <div class="input-field">
                             <label for="status">Payment Mode</label>
@@ -859,7 +906,7 @@
                 <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
                     <a class="btn" href="viewCustomers.html">view Customers</a>
                     <a class="btn" href="deliveryLetter.html">Print Docs</a>
-                    <a class="btn" href="p.html">Generate Sale</a>
+                    <a class="btn" onclick="validPlz()">Generate Sale</a>
                     <a class="btn" href="#">Close Form</a>
 
 
@@ -871,6 +918,49 @@
         </div>
 
     </footer>
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" style="margin-left:100px;">
+            <div class="modal-content" style="width: 1300px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="text-center my-4">Products Table</h4>
+                            <table class="table  table-bordered mb-4" id="searchProductTable">
+                                <thead>
+                                    <tr>
+
+                                        <th>Product Id</th>
+
+                                        <th>Product Name</th>
+                                        <th>Engine #</th>
+
+                                        <th>Chasis #</th>
+
+                                        <th>Purchse Price</th>
+                                        <th>Cost with Additional charges</th>
+                                        <th>Status</th>
+
+
+
+
+
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -879,6 +969,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script>
         (function ($) {
@@ -956,5 +1047,296 @@
 
     </script>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#myTables').DataTable();
+    });
+
+</script>
+<script>
+    function loadStock() {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = this.responseText;
+                //alert(data);
+                var table;
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                table = $('#searchProductTable').DataTable();
+                table.clear();
+                $.each(a, function (i, item) {
+
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].EngineNumber, a[i].ChasisNumber,
+                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock
+                    ]);
+                });
+                table.draw();
+            }
+        };
+
+        xhttp.open("GET", "./getAvailableProducts/", true);
+        xhttp.send();
+    }
+
+
+    $(document).ready(function () {
+
+        // code to read selected table row cell data (values).
+        $("#searchProductTable").on('click', 'tr', function () {
+            // get the current row
+
+
+
+            var table = document.getElementById("ProductSaleTable");
+
+            document.getElementById("PID").value = this.cells[0]
+                .innerText; // get current row 1st TD value
+            document.getElementById("ProductName").value = this.cells[1].innerText;
+            document.getElementById("ChasisNumber").value = this.cells[2].innerText;
+
+            document.getElementById("EngineNumber").value = this.cells[3].innerText;
+            document.getElementById("Status").value = this.cells[6].innerText;
+            document.getElementById("TotalPrice").value = this.cells[4].innerText;
+
+
+
+            alert(this.cells[0].innerText);
+        });
+    });
+
+    function calc() {
+
+        var tot = document.getElementById("TotalPrice").value;
+        var dis = document.getElementById("Discount").value;
+
+        var netTot = Number(tot) - Number(dis);
+
+        document.getElementById("NetTotal").value = netTot;
+        document.getElementById("amountPaid").value = netTot;
+
+
+
+
+    }
+
+    function calcRemainingAmount() {
+
+        var tot = document.getElementById("NetTotal").value;
+        var ap = document.getElementById("amountPaid").value;
+        var rem = Number(tot) - Number(ap);
+        document.getElementById("amountRemaining").value = rem;
+
+
+    }
+
+
+
+    function generateSale() {
+
+
+        var pid = document.getElementById("PID").value;
+
+
+        var totwT = document.getElementById("TotalPrice").value;
+        var discount = document.getElementById('Discount').value;
+
+
+
+        var netTotal = document.getElementById('NetTotal').value;
+        var amp = document.getElementById('amountPaid').value;
+        var rmb = document.getElementById("amountRemaining").value;
+
+
+        var CID = document.getElementById("CID").value;
+
+        order = [pid, totwT, discount, netTotal, amp, rmb, CID];
+
+
+
+
+        var array = JSON.stringify(order);
+
+
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                alert("Invoice =" + this.responseText + " is generated");
+
+
+            }
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./addSales/" + array, true);
+        xhttp.send();
+        alert("Generated");
+    };
+
+</script>
+<script>
+    function validPlz() {
+
+        var PID = document.getElementById("PID").value;
+        var ProductName = document.getElementById("ProductName").value;
+        var ChasisNumber = document.getElementById("ChasisNumber").value;
+        var EngineNumber = document.getElementById("EngineNumber").value;
+
+        var Status = document.getElementById("Status").value;
+
+        var TotalPrice = document.getElementById("TotalPrice").value;
+        var Discount = document.getElementById("Discount").value;
+        var NetTotal = document.getElementById("NetTotal").value;
+
+        var CustomerName = document.getElementById("CustomerName").value;
+        var CID = document.getElementById("CID").value;
+        var Address = document.getElementById("Address").value;
+        var contact = document.getElementById("contact").value;
+        var Manager = document.getElementById("Manager").value;
+        var amountPaid = document.getElementById("amountPaid").value;
+        var amountRemaining = document.getElementById("amountRemaining").value;
+
+        if (PID == "") {
+            // alert("Product Id Field Must Be Valid");
+            document.getElementById("PID").focus();
+        } else if (ProductName == "") {
+            // alert("Product Name Field Must Be Valid");
+            document.getElementById("ProductName").focus();
+        } else if (ChasisNumber == "") {
+            // alert("Chasis Number Field Must Be Valid");
+            document.getElementById("ChasisNumber").focus();
+
+
+        } else if (EngineNumber == "") {
+            // alert("Engine Number Field Must Be Valid");
+            document.getElementById("EngineNumber").focus();
+
+
+        } else if (Status == "") {
+            // alert("Status Must Be Mentioned");
+            document.getElementById("Status").focus();
+
+
+        } else if (TotalPrice == "") {
+            // alert("Total Price Field Must Be Valid");
+            document.getElementById("Status").focus();
+
+            document.getElementById("TotalPrice").focus();
+
+
+        } else if (isNaN(TotalPrice)) {
+            alert("Total Price Field Must Be Numeric");
+            document.getElementById("TotalPrice").value = "";
+
+
+
+        } else if (Discount == "") {
+            // alert("Total Price Field Must Be Valid");
+            document.getElementById("Discount").focus();
+
+
+        } else if (isNaN(Discount)) {
+            alert("Discount Field Must Be Numeric");
+            document.getElementById("Discount").value = "";
+
+
+        } else if (NetTotal == "") {
+            // alert("Total Price Field Must Be Valid");
+            document.getElementById("NetTotal").focus();
+
+
+        } else if (CustomerName == "") {
+            // alert("Customer Name Field Must Be Valid");
+            document.getElementById("CustomerName").focus();
+
+
+        } else if (CID == "") {
+            // alert("Customer ID Field Must Be Valid");
+            document.getElementById("CID").focus();
+
+
+        } else if (Address == "") {
+            // alert("Address  Must Be Mentioned");
+            document.getElementById("Address").focus();
+
+
+        } else if (contact == "") {
+            // alert("Contact Field Must Be Valid");
+            document.getElementById("contact").focus();
+
+
+        } else if (isNaN(contact)) {
+
+            alert("Contact Field Must Be Number");
+            document.getElementById("contact").value = "";
+
+
+        } else if (Manager == "") {
+            // alert("Manager Name Must Be Mentioned");
+            document.getElementById("Manager").focus();
+
+
+        } else if (amountPaid == "") {
+            // alert("Amount Paid  Must Be Mentioned");
+            document.getElementById("amountPaid").focus();
+
+
+        } else if (amountRemaining == "") {
+            // alert("Amount Remaining  Must Be Mentioned");
+            document.getElementById("amountRemaining").focus();
+
+
+        } else {
+            generateSale();
+
+        }
+
+
+    }
+
+    $("#mainBody").on('keypress', function (event) {
+        if (event.keyCode === 13) {
+            validPlz();
+        } else {}
+    })
+
+
+
+
+    function addCustomer() {
+
+
+
+        alert("Customer Added");
+
+
+
+
+
+
+
+
+    }
+
+    function modalValidation() {
+        var tel = document.getElementById("tel").value;
+        var Balance = document.getElementById("Balance").value;
+
+        if (tel == "") {
+            document.getElementById("tel").focus();
+        } else if (isNaN(tel)) {
+            alert("Contact Should Be A Number");
+        } else if (Balance == "") {
+            document.getElementById("Balance").focus();
+        } else if (isNaN(Balance)) {
+            alert("Balance Field Should Be  Numeric");
+        } else {
+            addCustomer();
+        }
+    }
+
+</script>
 
 </html>

@@ -374,11 +374,29 @@
 
 
         }
-
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
     </style>
 </head>
 
-<body>
+<body onload="getEmployeeData()">
 
     <div class="wrapper">
         <div class="top_navbar">
@@ -424,418 +442,18 @@
 
         <div class="main_container">
             <div class="mainContCards">
-                <div class="mainCards-1">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="mainCardBody">
-                                <div class="leftCardBody">
-                                    <button
-                                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
-                                </div>
-                                <div class="rightCardBody">
-                                    <span><i class="fa fa-fire"></i></span>
-                                    <span><i class="fa fa-wifi"></i></span>
-                                </div>
-                            </div>
-                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
-                            <div class="mainCardBody" style="padding-top: 20px;">
-                                <div class="leftCardBody">
-                                    <div
-                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                                        W A</div>
-
-                                    <span>Waqas Ali</span>
-                                </div>
-                                <div class="rightCardBody">
-
-                                    <div>Overdue</div>
-                                    <div class="mainDots text-center">
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="mainCards-1" id="cardsCanvas">
+                    
 
                     </div>
+                    
                 </div>
-                <div class="mainCards-1">
-                    <div class="card">
+                
 
-                        <div class="card-body">
-                            <div class="mainCardBody">
-                                <div class="leftCardBody">
-                                    <button
-                                        style="border-radius: 20px; background-color: #0a549d; border-color: #0a549d; color: #fff;">Urgent</button>
-                                </div>
-                                <div class="rightCardBody">
-                                    <span><i class="fa fa-fire"></i></span>
-                                    <span><i class="fa fa-wifi"></i></span>
-                                </div>
-                            </div>
-                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
-                            <div class="mainCardBody" style="padding-top: 20px;">
-                                <div class="leftCardBody">
-                                    <div
-                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                                        W A</div>
-
-                                    <span>Waqas Ali</span>
-                                </div>
-                                <div class="rightCardBody">
-                                    <!-- <button data-toggle="modal" data-target="#exampleModal"
-                            class="btn btn-danger">Details</button> -->
-                                    <div>Overdue</div>
-                                    <div class="mainDots text-center">
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="mainCards-1">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="mainCardBody">
-                                <div class="leftCardBody">
-                                    <button
-                                        style="border-radius: 20px; background-color: #87f010; border-color: #87f010; color: #fff;">Elective</button>
-                                </div>
-                                <div class="rightCardBody">
-                                    <span><i class="fa fa-fire"></i></span>
-                                    <span><i class="fa fa-wifi"></i></span>
-                                </div>
-                            </div>
-                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
-                            <div class="mainCardBody" style="padding-top: 20px;">
-                                <div class="leftCardBody">
-                                    <div
-                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                                        W A</div>
-
-                                    <span>Waqas Ali</span>
-                                </div>
-                                <div class="rightCardBody">
-                                    <!-- <button data-toggle="modal" data-target="#exampleModal"
-                            class="btn btn-danger">Details</button> -->
-                                    <div>Overdue</div>
-                                    <div class="mainDots text-center">
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+               
             </div>
-            <div class="mainContCards">
-
-                <div class="mainCards-1">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="mainCardBody">
-                                <div class="leftCardBody">
-                                    <button
-                                        style="border-radius: 20px; background-color: #0a549d; border-color: #0a549d; color: #fff;">Urgent</button>
-                                </div>
-                                <div class="rightCardBody">
-                                    <span><i class="fa fa-fire"></i></span>
-                                    <span><i class="fa fa-wifi"></i></span>
-                                </div>
-                            </div>
-                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
-                            <div class="mainCardBody" style="padding-top: 20px;">
-                                <div class="leftCardBody">
-                                    <div
-                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                                        W A</div>
-
-                                    <span>Waqas Ali</span>
-                                </div>
-                                <div class="rightCardBody">
-                                    <!-- <button data-toggle="modal" data-target="#exampleModal"
-                            class="btn btn-danger">Details</button> -->
-                                    <div>Overdue</div>
-                                    <div class="mainDots text-center">
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="mainCards-1">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="mainCardBody">
-                                <div class="leftCardBody">
-                                    <button
-                                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
-                                </div>
-                                <div class="rightCardBody">
-                                    <span><i class="fa fa-fire"></i></span>
-                                    <span><i class="fa fa-wifi"></i></span>
-                                </div>
-                            </div>
-                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
-                            <div class="mainCardBody" style="padding-top: 20px;">
-                                <div class="leftCardBody">
-                                    <div
-                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                                        W A</div>
-
-                                    <span>Waqas Ali</span>
-                                </div>
-                                <div class="rightCardBody">
-                                    <!-- <button data-toggle="modal" data-target="#exampleModal"
-                            class="btn btn-danger">Details</button> -->
-                                    <div>Overdue</div>
-                                    <div class="mainDots text-center">
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="mainCards-1">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="mainCardBody">
-                                <div class="leftCardBody">
-                                    <button
-                                        style="border-radius: 20px; background-color: #87f010; border-color: #87f010; color: #fff;">Elective</button>
-                                </div>
-                                <div class="rightCardBody">
-                                    <span><i class="fa fa-fire"></i></span>
-                                    <span><i class="fa fa-wifi"></i></span>
-                                </div>
-                            </div>
-                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
-                            <div class="mainCardBody" style="padding-top: 20px;">
-                                <div class="leftCardBody">
-                                    <div
-                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                                        W A</div>
-
-                                    <span>Waqas Ali</span>
-                                </div>
-                                <div class="rightCardBody">
-                                    <!-- <button data-toggle="modal" data-target="#exampleModal"
-                            class="btn btn-danger">Details</button> -->
-                                    <div>Overdue</div>
-                                    <div class="mainDots text-center">
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="mainContCards">
-
-                <div class="mainCards-1">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="mainCardBody">
-                                <div class="leftCardBody">
-                                    <button
-                                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
-                                </div>
-                                <div class="rightCardBody">
-                                    <span><i class="fa fa-fire"></i></span>
-                                    <span><i class="fa fa-wifi"></i></span>
-                                </div>
-                            </div>
-                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
-                            <div class="mainCardBody" style="padding-top: 20px;">
-                                <div class="leftCardBody">
-                                    <div
-                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                                        W A</div>
-
-                                    <span>Waqas Ali</span>
-                                </div>
-                                <div class="rightCardBody">
-                                    <!-- <button data-toggle="modal" data-target="#exampleModal"
-                            class="btn btn-danger">Details</button> -->
-                                    <div>Overdue</div>
-                                    <div class="mainDots text-center">
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="mainCards-1">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="mainCardBody">
-                                <div class="leftCardBody">
-                                    <button
-                                        style="border-radius: 20px; background-color: #87f010; border-color: #87f010; color: #fff;">Elective</button>
-                                </div>
-                                <div class="rightCardBody">
-                                    <span><i class="fa fa-fire"></i></span>
-                                    <span><i class="fa fa-wifi"></i></span>
-                                </div>
-                            </div>
-                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
-                            <div class="mainCardBody" style="padding-top: 20px;">
-                                <div class="leftCardBody">
-                                    <div
-                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                                        W A</div>
-
-                                    <span>Waqas Ali</span>
-                                </div>
-                                <div class="rightCardBody">
-                                    <!-- <button data-toggle="modal" data-target="#exampleModal"
-                            class="btn btn-danger">Details</button> -->
-                                    <div>Overdue</div>
-                                    <div class="mainDots text-center">
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="mainCards-1">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <div class="mainCardBody">
-                                <div class="leftCardBody">
-                                    <button
-                                        style="border-radius: 20px; background-color: #0a549d; border-color: #0a549d; color: #fff;">Urgent</button>
-                                </div>
-                                <div class="rightCardBody">
-                                    <span><i class="fa fa-fire"></i></span>
-                                    <span><i class="fa fa-wifi"></i></span>
-                                </div>
-                            </div>
-                            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Meet Wajahat</h4>
-                            <div class="mainCardBody" style="padding-top: 20px;">
-                                <div class="leftCardBody">
-                                    <div
-                                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                                        W A</div>
-
-                                    <span>Waqas Ali</span>
-                                </div>
-                                <div class="rightCardBody">
-                                    <!-- <button data-toggle="modal" data-target="#exampleModal"
-                            class="btn btn-danger">Details</button> -->
-                                    <div>Overdue</div>
-                                    <div class="mainDots text-center">
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                                        </div>
-                                        <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+        
+         
 
 
 
@@ -986,6 +604,26 @@
         }
 
     </script>
+    <script>
+function getEmployeeData(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("cardsCanvas").innerHTML = this.responseText;
+            
+                
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployeeData/", true);
+    
+    xhttp.send();
+    }
+</script>
+
+
 </body>
 
 </html>

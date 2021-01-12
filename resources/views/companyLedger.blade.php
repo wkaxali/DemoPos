@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
 
-    <title></title>
+    <title>Company Ledger</title>
     <style>
         input {
 
@@ -37,13 +37,14 @@
         .receivingTable {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
+
         }
 
         .receivingMain {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
             height: 450px;
-            /* overflow: auto; */
+            overflow: auto;
         }
 
         .ledgerFloat {
@@ -53,26 +54,65 @@
         label {
             font-weight: bold;
         }
-        .Footerbtns{
+
+        .Footerbtns {
             float: right;
         }
-        .clear{
+
+        .clear {
             clear: both;
         }
-        .Footerbtns .btn{
+
+        .Footerbtns .btn {
             width: 120px;
         }
-        .Footerbtns .btn:nth-child(2){
+
+        .Footerbtns .btn:nth-child(2) {
             background-color: #0a549d;
-            color: #fff;        }
-            .Footerbtns .btn:nth-child(1){
-                background-color: #e61d2f;
-            color: #fff;    }
+            color: #fff;
+        }
+
+        .Footerbtns .btn:nth-child(1) {
+            background-color: #e61d2f;
+            color: #fff;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
 
     </style>
 </head>
 
-<body>
+<body onload="getCompanyLedger()">
 
     <header>
         <div class="container">
@@ -87,113 +127,43 @@
                     <div class="receivingMain">
 
 
-                        <div class="receivingTable">
-                            <table class=" table-striped" style="width: 100%; text-align: center;">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Category</th>
-
-                                        <th>Transactional ID</th>
-
-                                        <th>Description</th>
-                                        <th>Total Amount</th>
-                                        <th>Amount Paid</th>
-                                        <th>Remaining</th>
-                                        <th>Paid By</th>
-
-                                        <th>Details</th>
-
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>10/10/2020</td>
-                                        <td>Order Booked</td>
-                                        <td>121530</td>
-                                        <td>Advance Paid On Booking</td>
-                                        <td>60,000,000</td>
-                                        <td>50,000,000</td>
-                                        <td>10,000,000</td>
-                                        <td>Mcb Bank</td>
-                                        <td><a style="text-decoration: underline;" href="#">Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>12/12/2020</td>
-                                        <td>Advance Payment</td>
-                                        <td>1283430</td>
-                                        <td>Advance Payment for Order No 8142</td>
-                                        <td>37,000,000</td>
-
-                                        <td>35,000,000</td>
-                                        <td>2,000,000</td>
-                                        <td>Meezan Bank</td>
-                                        <td><a style="text-decoration: underline;" href="#">Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>10/10/2020</td>
-                                        <td>Clearance</td>
-                                        <td>129230</td>
-                                        <td>Order No 8160 is cleared</td>
-                                        <td>0</td>
-
-                                        <td>12,000,000</td>
-                                        <td>-12,000,000</td>
-                                        <td>HBL Bank</td>
-                                        <td><a style="text-decoration: underline;" href="#">Details</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>12/12/2020</td>
-                                        <td>Customer Paid</td>
-                                        <td>121253</td>
-                                        <td>This Was Paid By Waqas Ali</td>
-                                        <td>30,000,000</td>
-
-                                        <td>25,000,000</td>
-                                        <td>5,000,000</td>
-                                        <td>Alflah Bank</td>
-                                        <td><a style="text-decoration: underline;" href="#">Details</a></td>
-                                    </tr>
-                                </tbody>
-
-                            </table>
+                        <div class="receivingTable" id="myTableDiv">
 
                         </div>
                     </div>
                 </div>
             </div>
             <br>
-            <div class="row" >
+            <div class="row">
                 <div class="col-md-4">
                     <label style="width: 185px;" for="">Total Amount</label>
-                    <input type="text" value="127,000,000" name="" id="footerInput">
+                    <input type="number" value="127000000" name="" id="footerInput">
                 </div>
                 <div class="col-md-4">
                     <label style="width: 185px;" for="">Amount Paid</label>
-                    <input type="text" value="122,000,000" name="" id="footerInput">
+                    <input type="number" value="122000000" name="" id="footerInput">
                 </div>
                 <div class="col-md-4">
-              
+
                     <label style="width: 185px;" for="">Remaining</label>
-                    <input type="text" value="5,000,000" name="" id="footerInput">
+                    <input type="number" value="5000000" name="" id="footerInput">
                     <h4 style="font-size: 16px; font-weight: 600;">Has To Be Paid By MM Motors To JWW </h4>
 
-                
+
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-12">
                     <div class="Footerbtns">
-                        <a class="btn" href="#">Print</a>
+                        <a class="btn">Print</a>
                         <a class="btn" href="#">Export To Pdf</a>
-        
+
                     </div>
                     <div class="clear"></div>
                 </div>
             </div>
-      
+
         </div>
     </header>
 
@@ -211,6 +181,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function getCompanyLedger() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("myTableDiv").innerHTML = this.response;
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./companyLedger/", true);
+
+            xhttp.send();
+
+
+        }
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable();
+        });
+
+    </script>
+
+
 </body>
 
 </html>
