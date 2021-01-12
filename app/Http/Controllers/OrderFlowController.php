@@ -221,39 +221,7 @@ class OrderFlowController extends Controller
       
       function companyLedger(){
         $data=DB:: select('select * from tbltransactionflow where LID = 1');
-        
-        $table='
-        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
-          <thead>
-              <tr>
-                  
-                  <th id ="Cusname">Transaction ID</th>
-                  <th id="CusCont">Invoice No</th>
-                  <th id ="Cusaddr">Transaction Category</th>
-                  <th id="CusIntrs">Amount</th>
-                  <th id ="CusMeet">Transaction Date</th>
-              </tr>
-          </thead>
-          <tbody>';
- 
-
-        foreach ($data as $d){
-          //print $option;
-
-            $table=$table.'
-           
-       
-            <tr>
-            
-            <td>'.$d->TransactionID.'</td>
-            <td>'.$d->InvoiceNo.'</td>
-            <td>'.$d->TransactionCatogery.'</td>
-            <td>'.$d->Amount.'</td>
-            <td>'.$d->DateStamp.'</td>
-            </tr>';
-          
-        }
-        return $table.'<table>';
+        return $data;
       }
 
       function scratchFunc(){

@@ -301,12 +301,12 @@
 
 </head>
 
-<body id="mainBody">
+<body id="mainBody" onload="loadData()">
     <header>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h2>Menu Products</h2>
+                    <h2>Add new Stock</h2>
                 </div>
             </div>
 
@@ -314,20 +314,10 @@
                 <div class="inputField-1">
                     <label for="prodName">Category</label> <br>
 
-                    <select style="height: 25px !important; width: 158px !important;" class="selectpicker form-control"
-                        id="category" data-live-search="true" tabindex="null">
-                        <option value=1>Soups</option>
-                        <option value=2>Salads</option>
-                        <option value=3>Chiness</option>
-                        <option value=4>Continantal</option>
-                        <option value=5>Bar B Q</option>
-
-                        <option value=6>Default</option>
-                        <option value=7>fries</option>
-                        <option value=8>Sauce</option>
-                        <option value=8>FISH</option>
-
-                    </select>
+                    <select style="height: 25px !important; width: 158px !important; "
+                                class="selectpicker form-control"  data-live-search="true"  id="category">
+                            
+                            </select>
                 </div>
                 <div class="inputField-1">
                     <label for="cost">Cost</label>
@@ -340,6 +330,11 @@
                 <div class="inputField-1">
                     <label for="prodName">Sale Price</label>
                     <input type="text" class="form-control" id="salePrice">
+
+                </div>
+                <div class="inputField-1">
+                    <label for="prodName">Description</label>
+                    <input type="text" class="form-control" id="description">
 
                 </div>
                 <div class="input-Btn-1">
@@ -431,10 +426,10 @@
         cell2.innerHTML = catetext;
         cell3.innerHTML = document.getElementById("cost").value;
         cell4.innerHTML = document.getElementById("salePrice").value;
-        // cell5.innerHTML = document.getElementById("Desc").value;
+        cell5.innerHTML = document.getElementById("description").value;
         cell6.innerHTML =
             "<button onclick='deleteRow(this)' class=\"btn btn-danger \" style=\"height: 25px;width: 25px; padding:auto;\"></button>";
-        valid();
+        
 
 
     }
@@ -502,19 +497,21 @@
     function AddProduct() {
 
         var ProductName = document.getElementById("productName").value;
-        alert("acceptable  " + ProductName);
+        
 
         var ProductCat = document.getElementById("category").value;
-        alert("acceptable  " + ProductCat);
-
+        
 
         var Productsaleprice = document.getElementById("salePrice").value;
-        alert("acceptable  " + Productsaleprice);
+        
 
         var ProductCost = document.getElementById("cost").value;
-        alert("acceptable  " + ProductCost);
+        
 
-        var Product = [ProductName, ProductCat, Productsaleprice, ProductCost];
+        var Description = document.getElementById("description").value;
+        
+
+        var Product = [ProductName, ProductCat, Productsaleprice, ProductCost, Description];
 
 
         var xhttp = new XMLHttpRequest();
@@ -577,5 +574,48 @@
     }
 
 </script>
+
+
+<script>
+function loadData(){
+    clearAll();
+    loadProductCategory();
+}
+</script>
+
+<script>
+function clearAll(){
+    // document.getElementById("date").value = "";
+    // document.getElementById("address").value = "";
+    // document.getElementById("basicPay").value = "";
+    // document.getElementById("allowedHolidays").value = "";
+    // document.getElementById("allownces").value = "";
+    // document.getElementById("saleTarget").value = "";
+    // document.getElementById("address").value = "";
+    // document.getElementById("address").value = "";
+}
+</script>
+
+
+<script>
+function loadProductCategory(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("category").innerHTML = this.response;
+            $('#category').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./loadProductCategory/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
 
 </html>

@@ -76,6 +76,15 @@ public static function getEmployeeName(){
     return $option;
   }
 
+  public static function getEmpbyID(Request $request, $ID){
+   
+   // return $ID;
+    $data=DB:: select('select * from vw_employeealowncspay where EID ='.$ID );
+
+    
+    return $data;
+  }
+
 }
 
   

@@ -62,7 +62,7 @@
 
 
                         <div class="receivingTable">
-                            <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+                            <table id="stockTable" class=" table-striped" style="width: 100%; text-align: center;">
                                 <thead>
                                     <tr>
                                         <th>Product Id</th>
@@ -120,7 +120,7 @@ function getStock(){
                 var table;
                 var a = JSON.parse(data);
                 //  alert(a[0].ProductSerial);
-                table = $('#myTable').DataTable();
+                table = $('#stockTable').DataTable();
 
                 $.each(a, function (i, item) {
 
@@ -140,7 +140,7 @@ function getStock(){
 
 <script>
         $(document).ready(function () {
-            $('#myTable').DataTable();
+            $('#stockTable').DataTable();
         });
         
 </script>

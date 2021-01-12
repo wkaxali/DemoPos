@@ -171,14 +171,14 @@
                         <div class="col-md-5 ">
                             <label for="">Employee ID</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  data-live-search="true"  id="id" >
+                                class="selectpicker form-control"  data-live-search="true"  id="id" onchange="getByID()">
                             
                             </select>
                         </div>
-                        <div class="col-md-5 offset-md-2">
+                        <div class="col-md-5 offset-md-2" id="divName">
                             <label for="">Name</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  data-live-search="true"  id="name" >
+                                class="selectpicker form-control"  data-live-search="true"  id="name">
                             
                             </select>
                         </div>
@@ -199,7 +199,7 @@
                         <div class="col-md-12 ">
                             <label for="">Address</label>
                             <input type="text" style="display: inline-block; width: 810px;" class="form-control" name=""
-                                id="">
+                                id="address">
                         </div>
                         <div class="col-md-5 ">
                             <label for="">Status</label>
@@ -215,8 +215,8 @@
                         </div>
                         <div class="col-md-5 offset-md-2">
                             <label for="">Joining</label>
-                            <input type="text" value="21/12/2020" class="form-control"
-                                style="display: inline-block; width: 200px;margin-top: 3px;" name="" id="">
+                            <input type="text" value="date" class="form-control"
+                                style="display: inline-block; width: 200px;margin-top: 3px;" name="" id="date">
                         </div>
                         <div class="col-md-12 ">
                             <div class="payButtons text-right">
@@ -242,11 +242,11 @@
                     <h4 class="redBg">Pay Details</h4>
                     <label for="">Basic Pay</label>
                     <input type="text" class="form-control" value="13,000" style="display: inline-block; width: 200px;"
-                        name="" id="">
+                        name="" id="basicPay">
                     <br>
                     <label for="">Allows Rent/+</label>
                     <input type="text" class="form-control" value="50,000" style="display: inline-block; width: 200px;"
-                        name="" id="">
+                        name="" id="allownces">
                     <br>
                     <label for="">Comission On Sale</label>
                     <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
@@ -261,11 +261,11 @@
                     <br>
                     <label for="">Allowed Holidays</label>
                     <input type="text" class="form-control" value="5" style="display: inline-block; width: 200px;"
-                        name="" id="">
+                        name="" id="allowedHolidays">
                     <br>
                     <label for="">Target Sales</label>
                     <input type="text" class="form-control" value="10" style="display: inline-block; width: 200px;"
-                        name="" id="">
+                        name="" id="saleTarget">
                     <br>
                     <label for="">Total</label>
                     <input type="text" class="form-control" value="48,000" style="display: inline-block; width: 200px;"
@@ -309,6 +309,7 @@
 
 <script>
 function loadEmployeeInfo(){
+    clearAll();
     loadEmployeeNames();
     loadEmployeeCNIC();
     loadEmployeeID();
@@ -316,6 +317,63 @@ function loadEmployeeInfo(){
 }
 </script>
 
+<script>
+function clearAll(){
+    document.getElementById("date").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("basicPay").value = "";
+    document.getElementById("allowedHolidays").value = "";
+    document.getElementById("allownces").value = "";
+    document.getElementById("saleTarget").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("address").value = "";
+}
+</script>
+
+<script>
+function getByID(){
+    var xhttp = new XMLHttpRequest();
+    var id = $('#id').find(":selected").val();
+        //alert(id);
+    xhttp.onreadystatechange = function () {
+      
+      //  var id=document.getElementById("id").value;
+        
+        //alert(id);
+        if (this.readyState == 4 && this.status == 200) {
+            
+          // alert(this.response);
+          var a = JSON.parse(this.response);
+            //$('#name').find(":selected").value="1";
+           $("#name").val(a[0].EID);
+          
+           //document.getElementById("name").selectedIndex = 2;
+            document.getElementById("date").value = a[0].JoiningDate;
+            document.getElementById("address").value = a[0].HomeAddress;
+            document.getElementById("basicPay").value = a[0].BasicPay;
+            document.getElementById("allowedHolidays").value = a[0].AllowedHolidays;
+            document.getElementById("allownces").value = a[0].Alownces;
+            document.getElementById("saleTarget").value = a[0].SaleTarget;
+            
+                
+
+            //     // alert(a[0].FirstName);
+            //     // alert(a[0].LastName);
+                // alert(a[0].CNIC);
+                // alert(a[0].ContactNo);
+                // alert(a[0].HomeAddress);
+                // alert(a[0].EmailID);
+                // alert(a[0].DesignationID);
+
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmpbyID/"+id, true);
+    
+    xhttp.send();
+}
+
+</script>
 
 <script>
 function loadEmployeeNames(){
