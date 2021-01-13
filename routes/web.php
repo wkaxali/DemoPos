@@ -49,7 +49,7 @@ Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistor
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
-
+Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 
 
@@ -69,43 +69,28 @@ Route::get('/addTasks/{data}',[taskController::class, 'insertTasks'] );
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance'] );
 Route::get('/getEmployeeData',[taskController::class, 'employeeData'] );
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance'] );
+Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID'] );
 Route::get('/getEmployeeName',[payController::class, 'getEmployeeName'] );
-
-
-
-
-Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
-
-
-
+Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC'] );
+Route::get('/getEmployeeID',[payController::class, 'getEmployeeID'] );
+Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact'] );
+Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory'] );
+Route::get('/getEmployee',[expenseController::class, 'getEmployee'] );
 
 
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
-
 
 Route::get('/', function () {
     return view('signInSignUp');
 });
-Route::get('/investor', function () {
-    return view('investors');
-});
-
-Route::get('/inv', function () {
-    return view('investors');
-});
-
-Route::get('/invgl', function () {
-    return view('investorGeneralLedger');
-});
-
 Route::get('/db', function () {
     return view('dashboard');
 });
-Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
+Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct'] );
 
 
-Route::get('/am', function () {
-    return view('addMenu');
+Route::get('/as', function () {
+    return view('addNewStock');
 });
 
 Route::get('/bo', function () {
@@ -124,13 +109,10 @@ Route::get('/ip', function () {
 Route::get('/is', function () {
     return view('invoiceServices');
 });
-Route::get('/investorLedger', function () {
-    return view('investorLedger');
-});
 Route::get('/psi', function () {
     return view('printSaleInvoice');
 });
-Route::get('/d', function () {
+Route::get('/rec', function () {
     return view('Receiving');
 });
 Route::get('/sc', function () {
@@ -192,8 +174,18 @@ Route::get('/at', function () {
 Route::get('/atv', function () {
     return view('attendanceView');
 });
+
 Route::get('/il', function () {
     return view('investorLedger');
+});
+
+Route::get('/igl', function () {
+    return view('investorGeneralLedger');
+
+});
+
+Route::get('/inv', function () {
+    return view('investors');
 });
 Route::get('/pr', function () {
     return view('payRoll');

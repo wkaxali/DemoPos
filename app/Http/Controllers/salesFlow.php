@@ -22,6 +22,7 @@ class salesFlow extends Controller
        $amp =$Array[4];
         $rmb=$Array[5];
        $CID=$Array[6];
+       $paidTo=$Array[7];
          
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
@@ -29,6 +30,22 @@ class salesFlow extends Controller
         
           //tot,discount,gross,tax,netTotal,amp,rmb,CID,CLB,CCB
         //insert into sales order
+        $LID=1;
+        $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+        
+      if($paidTo="FJW"){
+        $companyBalance=$oldBalance+1000;
+        $selfBalance=$oldBalance-1000;
+        LedgerPartiesController::UpdatePartiesBalance(1, $companyBalance);
+        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+      }
+      else{
+        $selfBalance=$oldBalance+1000;
+        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+      }
+
+
+
         if( $rmb>0){
           $invoiceStatus="Not Cleared";
 

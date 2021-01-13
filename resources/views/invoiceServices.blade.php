@@ -878,7 +878,7 @@
                         </div>
                         <div class="input-field">
                             <label for="status">Paid To</label>
-                            <select data-live-search="true" class=" selectpicker">
+                            <select data-live-search="true" class=" selectpicker" id="paidTo">
 
                                 <option>FJW</option>
                                 <option>Forland Modren Motors</option>
@@ -1151,14 +1151,16 @@
 
         var CID = document.getElementById("CID").value;
 
-        order = [pid, totwT, discount, netTotal, amp, rmb, CID];
+        var paidTo = document.getElementById("paidTo").value;
+
+        order = [pid, totwT, discount, netTotal, amp, rmb, CID, paidTo];
 
 
 
 
         var array = JSON.stringify(order);
 
-
+        alert(array);
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {

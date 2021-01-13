@@ -128,7 +128,7 @@
 
 
                         <div class="receivingTable" id = "companyLedgerTable">
-                        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+                        <table id="companyLedgerData" class=" table-striped" style="width: 100%; text-align: center;">
                         <thead>
                             <tr>
                                 <th id ="Cusname">Name</th>
@@ -187,18 +187,22 @@
 
 
 
+ 
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
 
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-function companyLedger(){
+<script>
+function getCompanyLedger(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
@@ -209,24 +213,23 @@ function companyLedger(){
                 var table;
                 var a = JSON.parse(data);
                 //  alert(a[0].ProductSerial);
-                table = $('#myTable').DataTable();
+                table = $('#companyLedgerData').DataTable();
 
                 $.each(a, function (i, item) {
 
-                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].Amount, a[
-                        i].DateStamp]);
+                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].Amount, 
+                    a[i].DateStamp]);
                 });
                 table.draw();
 
         }
     };
     //alert("ljd");
-    xhttp.open("GET", "./viewCustomer/", true);
+    xhttp.open("GET", "./companyLedger/", true);
     
     xhttp.send();
     }
-
-    </script>
+</script>
 
 
         }
@@ -235,10 +238,12 @@ function companyLedger(){
 
     <script>
         $(document).ready(function () {
-            $('#myTable').DataTable();
+            $('#companyLedgerData').DataTable();
         });
 
     </script>
+
+</body>
 
 
 </body>

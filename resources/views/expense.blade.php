@@ -96,7 +96,7 @@
     </style>
 </head>
 
-<body onload="loadExpenseHeads()">
+<body onload="loadFunctions()">
     <main>
         <div class="container">
             <div class="row">
@@ -147,24 +147,14 @@
                                 value="" name=""  onclick="calculatonInTable()" id="amount"><br>
                             <label for="">Paid To</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" id="paidto" >
-                                <option value=1>Mohsin</option>
-                                <option value=2>Ali</option>
-                                <option value=3>Malik</option>
-                                <option value=4>Rayyan</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="paidTo" >
+                            
                             </select>
                             <button class="btn btn-info">+</button><br>
                             <label for="">Paid by</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true"  id="paidby" >
-                                <option value=1>Mamu</option>
-                                <option value=2>Ali</option>
-                                <option value=3>Malik</option>
-                                <option value=4>Rayyan</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="paidBy" >
+                            
                             </select>
                         </div>
                         <div class="col-md-4 offset-md-2">
@@ -274,12 +264,12 @@
       
       function add() {
 
-           var date = document.getElementById("date").value;
-         var  amount = document.getElementById("amount").value;
+         var date = document.getElementById("date").value;
+         var amount = document.getElementById("amount").value;
          var expense = document.getElementById("expense");
          var expenseID = document.getElementById("expense").value;
-         var paidto = document.getElementById("paidto");
-         var paidby = document.getElementById("paidby");
+         var paidto = document.getElementById("paidTo");
+         var paidby = document.getElementById("paidBy");
          var remarks = document.getElementById("remarks").value;
        
          
@@ -357,8 +347,8 @@ document.getElementById("mainTotal").value=tot;
                
                 $(tr).find('td:eq(4)').text(), //Paid To
                 $(tr).find('td:eq(5)').text(), //Paid By
-                $(tr).find('td:eq(6)').text() //Remarks
-                
+                $(tr).find('td:eq(6)').text(), //Remarks
+                $(tr).find('td:eq(7)').text()
             ];
 
 
@@ -382,6 +372,14 @@ document.getElementById("mainTotal").value=tot;
 </script>
 
 <script>
+
+function loadFunctions(){
+    loadExpenseHeads();
+    loadEmployee();
+}
+</script>
+
+<script>
 function loadExpenseHeads(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -400,6 +398,29 @@ function loadExpenseHeads(){
 
     }
 </script>
+
+<script>
+function loadEmployee(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("paidTo").innerHTML = this.response;
+            document.getElementById("paidBy").innerHTML = this.response;
+            $('#paidTo').selectpicker('refresh');
+            $('#paidBy').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployee/", true);
+    
+    xhttp.send();
+    }
+</script>
+
+
+
 
 <script>
         $(document).ready(function () {

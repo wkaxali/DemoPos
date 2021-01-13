@@ -34,7 +34,23 @@ class expenseController extends Controller
         return $id;
 }
 
-public static function getExpenseHeads(){
+public static function getEmployee(){
+    $data=DB:: select('select * from tblemployees');
+    
+    $option='';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->EID.'>'.$d->FirstName.'</option>';
+      
+    }
+    return $option;
+  }
+
+  public static function getExpenseHeads(){
     $data=DB:: select('select * from tblexpenseheads');
     
     $option='';
@@ -49,6 +65,7 @@ public static function getExpenseHeads(){
     }
     return $option;
   }
+
 }
 
   
