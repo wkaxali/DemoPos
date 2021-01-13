@@ -75,24 +75,14 @@ Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC'] );
 Route::get('/getEmployeeID',[payController::class, 'getEmployeeID'] );
 Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact'] );
 Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory'] );
+Route::get('/getEmployee',[expenseController::class, 'getEmployee'] );
+
 
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
 
 Route::get('/', function () {
     return view('signInSignUp');
 });
-Route::get('/investor', function () {
-    return view('investors');
-});
-
-Route::get('/inv', function () {
-    return view('investors');
-});
-
-Route::get('/igl', function () {
-    return view('investorGeneralLedger');
-});
-
 Route::get('/db', function () {
     return view('dashboard');
 });
@@ -119,13 +109,10 @@ Route::get('/ip', function () {
 Route::get('/is', function () {
     return view('invoiceServices');
 });
-Route::get('/investorLedger', function () {
-    return view('investorLedger');
-});
 Route::get('/psi', function () {
     return view('printSaleInvoice');
 });
-Route::get('/d', function () {
+Route::get('/rec', function () {
     return view('Receiving');
 });
 Route::get('/sc', function () {
@@ -192,6 +179,9 @@ Route::get('/igl', function () {
 });
 Route::get('/il', function () {
     return view('investorLedger');
+});
+Route::get('/inv', function () {
+    return view('investors');
 });
 Route::get('/pr', function () {
     return view('payRoll');

@@ -8,6 +8,7 @@ use Carbon\Carbon;
 
 class TransactionFlow extends Controller
 {
+    
     public static function addTransaction($InvoiceNo,$TType,$Tcate,$amount,$dateStamp,
     $UserID,$SBB,$SBA,$CBB,$CBA,$LID,$pattyCash,$paidBy,$paidTo,$paidVia,$CID)
     {

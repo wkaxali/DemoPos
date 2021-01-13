@@ -48,21 +48,23 @@ class OrderFlowController extends Controller
         ]);
 
         
-        self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
+      self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
       $LID=1;
-      $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+      $oldBalance=LedgerPartiesController::getPartyBalance($LID);
 
       $currentBalance=floatval($oldBalance)+floatval($totRemaining);
       LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
       TransactionFlow::addTransaction($invoiceNumber,"Cedit","Booking Order",
       $totlpaid,$dateNow,"1",$oldBalance,$currentBalance,NULL,NULL,$LID,"0",NULL,"FWJ","CASH",NULL);
-      
-
-
-
-     
-       
-        
+      $selfBalance=floatval($oldBalance)-floatval($totlpaid);
+      $companyBalance=floatval($oldBalance)+floatval($totlpaid);
+      DB::table('tblledgerparties')
+        ->where('LID', 2)
+        ->update(['Balance' =>$selfBalance]);
+      DB::table('tblledgerparties')
+        ->where('LID', 1)
+        ->update(['Balance' =>$companyBalance]);
+    
         return "Your order ".$invoiceNumber;
     }
 

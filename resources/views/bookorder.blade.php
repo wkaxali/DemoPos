@@ -526,10 +526,10 @@
             alert("array for order" + orderDetails);
 
             var mainTotal = document.getElementById("mainTotal").value;
-            var totlpaid = document.getElementById("totalPaid").value;
+            var totalpaid = document.getElementById("totalPaid").value;
             var totRemaining = document.getElementById("totRemaining").value;
             alert(mainTotal);
-            var Order = [mainTotal, totlpaid, totRemaining, orderDetails];
+            var Order = [mainTotal, totalpaid, totRemaining, orderDetails];
 
 
             alert(Order);
