@@ -22,7 +22,9 @@ class salesFlow extends Controller
        $amp =$Array[4];
         $rmb=$Array[5];
        $CID=$Array[6];
-       $paidTo=$Array[7];
+       $TransactionMode=$Array[7];
+       
+       //return $TransactionMode;
          
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
@@ -30,22 +32,8 @@ class salesFlow extends Controller
         
           //tot,discount,gross,tax,netTotal,amp,rmb,CID,CLB,CCB
         //insert into sales order
-        $LID=1;
-        $oldBalance= LedgerPartiesController::getPartyBalance($LID);
         
-      if($paidTo="FJW"){
-        $companyBalance=$oldBalance+1000;
-        $selfBalance=$oldBalance-1000;
-        LedgerPartiesController::UpdatePartiesBalance(1, $companyBalance);
-        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
-      }
-      else{
-        $selfBalance=$oldBalance+1000;
-        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
-      }
-
-
-
+       
         if( $rmb>0){
           $invoiceStatus="Not Cleared";
 
@@ -72,27 +60,39 @@ class salesFlow extends Controller
         'returnDate' =>NULL
         
         ]);
-        $TransactionMode='2';
+       // $TransactionMode='2';
         $detailedOrder=array($pid,$tot,"1",$OverAllDiscount,$AmountAfterDiscount,$tot);
        // return  $detailedOrder[1];
         self::insertInDetailedOrder($detailedOrder,$invoiceNumber,$dateNow);
        // TransactionFlow::addInTransactionFlowForSales("1",$invoiceNumber,$dateNow,$amp,"1",NULL,NULL,NULL);
-        $LID=2;
+       $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+        $oldCompanyBalance= LedgerPartiesController::getPartyBalance(1); 
+       $LID=2;
         $paidVia="CASH";
+        $selfBalance=$oldSelfBalance+$amp;
         TransactionFlow::addTransaction($invoiceNumber,"Debit","Sales",
-        $amp,$dateNow,"1",NULL,NULL,NULL,NULL,$LID,"0",$CID,"MM",$paidVia,NULL);
-        if($TransactionMode='2'){
+        $amp,$dateNow,"1",$oldSelfBalance,$selfBalance,NULL,NULL,$LID,"0",$CID,"MM",$paidVia,NULL);
+       
+        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+        if($TransactionMode==2){
           $LID=1;
           $paidVia="CASH";
           $oldBalance= LedgerPartiesController::getPartyBalance($LID);
           $currentBalance=floatval ($oldBalance)-floatval ($amp);
           TransactionFlow::addTransaction($invoiceNumber,"Credit","Customer Paid to Company",
           $amp,$dateNow,"1", $oldBalance,$currentBalance,NULL,NULL,$LID,"0",$CID,"FJW",$paidVia,NULL);
-         
+          $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+          $companyBalance=$oldCompanyBalance-$amp;
+        $selfBalance=$oldSelfBalance-$amp;
+        LedgerPartiesController::UpdatePartiesBalance(1, $companyBalance);
+        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
         
-         LedgerPartiesController::UpdatePartiesBalance($LID, $currentBalance);
+         
           
         }
+        
+
+
         UpdateStocksController::UpdateStockStatus($pid,"Sold");
 
        return $invoiceNumber;
