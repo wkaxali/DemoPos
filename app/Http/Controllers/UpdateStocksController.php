@@ -33,6 +33,13 @@ class UpdateStocksController extends Controller
           
         //    ]);
 
+
+      $LID=2;
+      $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+      $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
+      LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
+
+            
        $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
         $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
             TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Transportation Charges',$TransportCharges,$dateNow,
@@ -97,6 +104,38 @@ class UpdateStocksController extends Controller
     
         
     return $results;
+
+}
+public static function UpdateStockStatus($PID,$Status){
+
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update([
+  
+  'Status'=>$Status
+  
+
+  ]);
+
+}
+
+public static function getTotalCost($PID){
+
+  $OldPrice = DB::table('instock')
+            ->where('ProductSerial', '=', $PID)
+             ->get();
+
+             return $OldPrice[0]->TotalCost;
+}
+public static function setTotalCost($PID,$amount){
+
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update(['TotalCost'=>$amount
+  
+
+  ]);
+  return "Cost Updated";
 
 }
 }

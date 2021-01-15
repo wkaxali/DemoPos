@@ -48,29 +48,32 @@ class OrderFlowController extends Controller
         ]);
 
         
-        self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
+      self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
       $LID=1;
-      $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+      $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
+      $oldCompanyBalance=LedgerPartiesController::getPartyBalance(1);
 
-      $currentBalance=floatval($oldBalance)+floatval($totRemaining);
-      LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
+      $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
+      LedgerPartiesController::UpdatePartiesBalance(1,$currentCompanyBalance);
       TransactionFlow::addTransaction($invoiceNumber,"Cedit","Booking Order",
-      $totlpaid,$dateNow,"1",$oldBalance,$currentBalance,NULL,NULL,$LID,"0",NULL,"FWJ","CASH",NULL);
-      
-
-
-
-     
-       
-        
+      $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,NULL,NULL,$LID,"0",NULL,'1',"CASH",NULL);
+      $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
+      $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
+      DB::table('tblledgerparties')
+        ->where('LID', 2)
+        ->update(['Balance' =>$selfBalance]);
+      DB::table('tblledgerparties')
+        ->where('LID', 1)
+        ->update(['Balance' =>$companyBalance]);
+    
         return "Your order ".$invoiceNumber;
     }
+
     function getOrderID(){
 
-
-        $IID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
-        return $IID+1;
-    }
+      $IID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
+      return $IID+1;
+  }
 
     function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice,$OrderID){
 
@@ -140,7 +143,7 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID);
+       $productSerial= self::addProductOnlyForAutos($Pname,"21",NULL,NULL,$purchasePrice,$InvoiceID);
        print ($productSerial);
       
   
@@ -198,6 +201,101 @@ class OrderFlowController extends Controller
         ]);
         
       }
+
+      function spareParts(){
+        $data=DB:: select('select * from vw_stockdetails where Category = 20');
+        return $data;
+      }
+
+      function viewStock(){
+        $data=DB:: select('select * from vw_stockdetails where Category = 20');
+        return $data;
+      }
+
+      function viewCustomer(){
+        $data=DB:: select('select * from customeinformation');
+        return $data;
+      }
+      
+      function transactionHistory(){
+        $data=DB:: select('select * from tbltransactionflow');
+        return $data;
+      }
+      
+      function companyLedger(){
+        $data=DB:: select('select * from tbltransactionflow where LID = 1');
+        return $data;
+      }
+
+      function scratchFunc(){
+        $data=DB:: select('select CustomerName, Contect, Address, Balance, CNIC from customeinformation');
+        $table='
+        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+          <thead>
+              <tr>
+                  <th id ="Cusname">Name</th>
+                  <th id="CusCont">Contact</th>
+                  <th id ="Cusaddr">Address</th>
+                  <th id="CusIntrs">Interested In</th>
+                  <th id ="CusMeet"> Who Meet</th>
+
+              </tr>
+          </thead>
+          <tbody>';
+ 
+
+        foreach ($data as $d){
+          //print $option;
+
+            $table=$table.'
+           
+       
+            <tr>
+            <td>'.$d->CustomerName.'</td>
+            <td>'.$d->Contect.'</td>
+            <td>'.$d->Address.'</td>
+            <td>'.$d->Balance.'</td>
+            <td>'.$d->CNIC.'</td>
+            </tr>';
+      
+        }
+        return $table.'<table>';
+      }
+
+      function getTransaction(){
+      
+        $data=DB:: select('select * from companyinfo');
+        $i=1;
+        $table="
+        <table>
+        <tr>
+        <td>Increment</td>
+        <td>Transaction ID</td>
+        <td>Invoice Number</td>
+        <td>Transection Catogery</td> </tr>";
+ 
+
+        foreach ($data as $d){
+          //print $option;
+
+            $table=$table.'
+           
+       
+            <tr>
+            <td>'.$i.'</td>
+            <td>'.$d->CompanyName.'</td>
+            <td>'.$d->StoreName.'</td>
+            <td>'.$d->Address.'</td>
+            
+     
+        </tr>';
+        
+        $i++;
+        }
+        return $table.'<table>';
+        
+        
+    }
      
       function getOrderItem($OID){
         $results=DB::select('select ProductName,EngineNumber,ChasisNumber,DilevedStatus,ProductID from vw_purchaseorderdetails where InvoiceNumber='.$OID);

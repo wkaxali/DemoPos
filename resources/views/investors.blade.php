@@ -177,7 +177,25 @@
             background-color: #264653;
             color: #fff;
         }
-
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
     </style>
 </head>
 
@@ -451,16 +469,22 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="modalView">
+                        
                                     <label style="width: 100px;" for="">Name</label>
-                                    <input type="text" name="" id=""> <br>
+                                    <input type="text" name="companyName" id="name"> <br>
+                                    <label style="width: 100px;" for="">Category</label>
+                                    <input type="text" name="category" id="category"> <br>
                                     <label style="width: 100px;" for="">Investment</label>
-                                    <input type="text" name="" id=""><br>
-                                    <label style="width: 100px;" for="">Ratio</label>
-                                    <input style="width: 50px;" type="text" value="60" name="" id="">
-                                    <input style="width: 50px;" type="text" value="60" name="" id="">
-                                </div>
-                                <div class="modalButton">
-                                    <button class="btn">Add</button>
+                                    <input type="text" name="investment" id="investment"><br>
+                                    <label style="width: 100px;" for="">Contact No</label>
+                                    <input type="text" name="contactNo" id="contactNo"> <br>
+                                    <label style="width: 100px;" for="">Address</label>
+                                    <input type="text" name="address" id="address"> <br>
+                                    <label style="width: 100px;" for="">Self Profit Ratio</label>
+                                    <input style="width: 50px;" type="text" value="60" name="selfRatio" id="selfRatio"><br>
+                                    <label style="width: 100px;" for="">Investor Profit Ratio</label>
+                                    <input style="width: 50px;" type="text" value="60" name="investorRatio" id="investorRatio"><br>
+                                  
                                 </div>
 
                             </div>
@@ -469,7 +493,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick = "addInvestors()">Save changes</button>
                 </div>
             </div>
         </div>
@@ -492,6 +516,32 @@
             $('#myTable').DataTable();
         });
 
+    </script>
+    <script>
+        function addInvestors(){
+        
+      var name=  document.getElementById("name").value;
+      var category=      document.getElementById("category").value;
+      var investment=      document.getElementById("investment").value;
+      var contactNo=      document.getElementById("contactNo").value;
+      var address=      document.getElementById("address").value;
+      var selfRatio=      document.getElementById("selfRatio").value;
+      var investorRatio=      document.getElementById("investorRatio").value;
+        //   alert(mainTotal);
+        var investorData=[name, category, investment, contactNo, address, selfRatio, investorRatio];
+        var iA = JSON.stringify(investorData);
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                alert("Investor Number " + this.responseText + " is generated");
+
+            }
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./addInvestor/" + iA, true);
+        xhttp.send();
+    }
     </script>
 </body>
 

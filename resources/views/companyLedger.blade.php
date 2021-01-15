@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
 
-    <title></title>
+    <title>Company Ledger</title>
     <style>
         input {
 
@@ -37,13 +37,14 @@
         .receivingTable {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
+            
         }
 
         .receivingMain {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
             height: 450px;
-            /* overflow: auto; */
+            overflow: auto;
         }
 
         .ledgerFloat {
@@ -68,11 +69,30 @@
             .Footerbtns .btn:nth-child(1){
                 background-color: #e61d2f;
             color: #fff;    }
+            input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
 
     </style>
 </head>
 
-<body>
+<body onload="getCompanyLedger()">
 
     <header>
         <div class="container">
@@ -87,32 +107,21 @@
                     <div class="receivingMain">
 
 
-                        <div class="receivingTable">
-                            <table class=" table-striped" style="width: 100%; text-align: center;">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Category</th>
+                        <div class="receivingTable" id = "companyLedgerTable">
+                        <table id="companyLedgerData" class=" table-striped" style="width: 100%; text-align: center;">
+                        <thead>
+                            <tr>
+                                <th id ="Cusname">Name</th>
+                                <th id="CusCont">Contact</th>
+                                <th id ="Cusaddr">Address</th>
+                                <th id="CusIntrs">Interested In</th>
+                                <th id ="CusMeet"> Who Meet</th>
 
-                                        <th>Transactional ID</th>
-
-                                        <th>Description</th>
-                                        <th>Total Amount</th>
-                                        <th>Amount Paid</th>
-                                        <th>Remaining</th>
-                                        <th>Paid By</th>
-
-                                        <th>Details</th>
-
-
-                                    </tr>
-                                </thead>
-                                <tbody id="ladgerTableBody">
-                                    
-                                </tbody>
-
-                            </table>
-
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        </table>
                         </div>
                     </div>
                 </div>
@@ -140,7 +149,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="Footerbtns">
-                        <a class="btn" href="#">Print</a>
+                        <a class="btn">Print</a>
                         <a class="btn" href="#">Export To Pdf</a>
         
                     </div>
@@ -158,13 +167,61 @@
 
 
 
+ 
 
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+    </script>
+
+<script>
+function getCompanyLedger(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            var data = this.responseText;
+                //alert(data);
+                var table;
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                table = $('#companyLedgerData').DataTable();
+
+                $.each(a, function (i, item) {
+
+                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].Amount, 
+                    a[i].DateStamp]);
+                });
+                table.draw();
+
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./companyLedger/", true);
+    
+    xhttp.send();
+    }
+</script>
+
+<script>
+        $(document).ready(function () {
+            $('#companyLedgerData').DataTable();
+        });
+
+
+    </script>
+
+</body>
+
+
 </body>
 
 </html>

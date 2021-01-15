@@ -116,11 +116,30 @@
             background-color: transparent;
             margin-left: 3px;
         }
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
 
     </style>
 </head>
 
-<body>
+<body onload="getInvestorData()">
     <main>
         <div class="container">
             <div class="row">
@@ -201,131 +220,10 @@
                                     <th>Current</th>
                                     <th>Mode</th>
                                     <th>Account</th>
-                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-                                <tr>
-                                    <td>10/10/2020</td>
-                                    <td>19,230,000</td>
-                                    <td>E12-8</td>
-                                    <td>Cash</td>
-                                    <td>5000</td>
-                                    <td>Balance</td>
-                                    <td>Save</td>
-                                    <td>Habib Bank</td>
-
-                                    <td>Pending</td>
-                                </tr>
-
+                                
                             </tbody>
 
                         </table>
@@ -396,6 +294,39 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
+
+<script>
+function getInvestorData(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            var data = this.responseText;
+                //alert(data);
+                var table;
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                table = $('#myTable').DataTable();
+
+                $.each(a, function (i, item) {
+
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice
+                    , a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
+                });
+                table.draw();
+
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getInvestorData/", true);
+    
+    xhttp.send();
+    }
+</script>
+
+
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
