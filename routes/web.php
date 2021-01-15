@@ -179,7 +179,7 @@ Route::get('/atv', function () {
 });
 
 Route::get('/il', function () {
-    return view('investorLedger');
+    return view('Ledger');
 });
 
 Route::get('/igl', function () {
