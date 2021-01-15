@@ -18,6 +18,8 @@ use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\attendanceController;
+use App\Http\Controllers\accountsController;
+use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 
 
 /*
@@ -51,6 +53,7 @@ Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
+Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
 
 
 // Test Functions

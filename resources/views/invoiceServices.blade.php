@@ -596,7 +596,7 @@
     </style>
 </head>
 
-<body id="mainBody" style="font-family: 'Roboto', sans-serif;">
+<body style="font-family: 'Roboto', sans-serif;" onload="fetchAccounts()">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center mt-1">
@@ -890,9 +890,8 @@
                         </div>
                         <div class="input-field">
                             <label for="status">Payment Mode</label>
-                            <select data-live-search="true" class=" selectpicker">
-                                <option>Cash</option>
-                                <option>Bank</option>
+                            <select data-live-search="true" class=" selectpicker" id='slctAccounts'>
+                                
 
 
                             </select>
@@ -900,9 +899,9 @@
                         <div class="input-field">
                             <label for="status">Paid To</label>
                             <select data-live-search="true" class=" selectpicker" id="paidTo">
-
-                                <option>FJW</option>
-                                <option>Forland Modren Motors</option>
+                            <option value=1>Forland Modren Motors</option>
+                                <option value=2>FJW</option>
+                                
 
                             </select> </div>
                     </div>
@@ -1120,11 +1119,12 @@
             document.getElementById("EngineNumber").value = this.cells[3].innerText;
             document.getElementById("Status").value = this.cells[6].innerText;
             document.getElementById("TotalPrice").value = this.cells[4].innerText;
-
+            document.getElementById("Discount").value="0";
 
 
             alert(this.cells[0].innerText);
         });
+        calc();
     });
 
     function calc() {
@@ -1137,7 +1137,7 @@
         document.getElementById("NetTotal").value = netTot;
         document.getElementById("amountPaid").value = netTot;
 
-
+        calcRemainingAmount();
 
 
     }
@@ -1177,8 +1177,6 @@
         order = [pid, totwT, discount, netTotal, amp, rmb, CID, paidTo];
 
 
-
-
         var array = JSON.stringify(order);
 
         alert(array);
@@ -1198,6 +1196,26 @@
         alert("Generated");
     };
 
+
+</script>
+<script>
+function fetchAccounts(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("slctAccounts").innerHTML = this.response;
+            $('#slctAccounts').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getAccountHeads/", true);
+    
+    xhttp.send();
+
+
+    }
 </script>
 <script>
     function validPlz() {
