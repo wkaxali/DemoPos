@@ -186,6 +186,64 @@
             -moz-appearance: textfield;
         }
 
+        @media only screen and (max-width: 768px) {
+            .mainSection {
+                top: 80% !important;
+            }
+
+            .myBookingBorder {
+                margin: 20px 0px !important;
+            }
+
+         
+
+        }
+
+        @media only screen and (max-width: 503px) {
+      
+            .mainSection label {
+                width: 150px !important;
+
+            }
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+            .mainSection {
+                top: 84% !important;
+            }
+
+            /* / uncomment this and :checked centeralized version at iphone x / */
+            /* .myBookingBorder .row{
+                text-align: center !important;
+            } */
+
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 667px) and (-webkit-device-pixel-ratio : 2) {
+            .mainSection {
+                top: 102% !important;
+            }
+        }
+
+        @media only screen and (max-width: 1197px) {
+            .mainSection label {
+                width: 225px !important;
+            }
+        }
+
+        @media screen and (device-aspect-ratio: 40/71) {
+            .mainSection {
+                top: 127% !important;
+            }
+        }
+        @media only screen 
+    and (device-width : 414px) 
+    and (device-height : 736px) 
+    and (-webkit-device-pixel-ratio : 3) {
+        .mainSection {
+                top: 93% !important;
+            }
+     }
     </style>
 </head>
 

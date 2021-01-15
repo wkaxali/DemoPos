@@ -297,6 +297,17 @@
             background-color: #0a549d;
         } */
 
+        @media only screen and (max-width: 993px) {
+            .myContentInputs {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .ent-table table {
+                width: 595px !important;
+            }
+
+
+        }
     </style>
 
 </head>

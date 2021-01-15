@@ -573,6 +573,26 @@
             -moz-appearance: textfield;
         }
 
+        @media only screen and (max-width: 641px) {
+
+            .myMainRow {
+                display: block;
+            }
+
+            .head-left {
+                margin: 20px 0px;
+            }
+
+            .myFooterButtons .btn {
+                margin: 10px 0px !important;
+            }
+
+            .LastInput {
+                height: 315px !important;
+            }
+
+        }
+
     </style>
 </head>
 
@@ -799,7 +819,8 @@
                                                     required />
                                                 <input type="text" name="name" id="name" placeholder="Customer ID"
                                                     required />
-                                                <input type="number" name="tel" id="tel" placeholder="Contact" required />
+                                                <input type="number" name="tel" id="tel" placeholder="Contact"
+                                                    required />
                                                 <input type="number" name="phone_number" id="Profession"
                                                     placeholder="Profession" required />
                                                 <input type="number" name="phone_number" id="Balance"
