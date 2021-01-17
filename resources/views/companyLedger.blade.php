@@ -132,9 +132,11 @@
                         <thead>
                             <tr>
                                 <th id ="Cusname">Transaction ID</th>
-                                <th id="CusCont">Invoice No</th>
+                                <th id="CusCont">Order No</th>
                                 <th id ="Cusaddr">Transaction Category</th>
-                                <th id="CusIntrs">Amount</th>
+                                <th id ="CusMeet">Net Total</th>
+                                <th id="CusIntrs">Amount Paid</th>
+                                <th id ="CusMeet">Balance</th>
                                 <th id ="CusMeet">Date</th>
 
                             </tr>
@@ -154,12 +156,12 @@
                 </div>
                 <div class="col-md-4">
                     <label style="width: 185px;" for="">Amount Paid</label>
-                    <input type="number" value="122000000" name="" id="footerInput">
+                    <input type="number" value="" name="" id="totalPaid">
                 </div>
                 <div class="col-md-4">
 
                     <label style="width: 185px;" for="">Remaining</label>
-                    <input type="number" value="5000000" name="" id="footerInput">
+                    <input type="number" value="" name="" id="remaining">
                     <h4 style="font-size: 16px; font-weight: 600;">Has To Be Paid By MM Motors To JWW </h4>
 
 
@@ -214,6 +216,27 @@ function totalAmount(){
             
             document.getElementById("totalAmount").value = sum;
 }
+
+function totalPaid(){
+    var table = document.getElementById("companyLedgerData");
+    var sum = 0;
+
+    for(var i = 1; i < table.rows.length; i++)
+            {
+                sum = sum + parseInt(table.rows[i].cells[4].innerHTML);
+            }
+            
+            document.getElementById("totalPaid").value = sum;
+}
+
+
+function remaining(){
+    var totalPaid = document.getElementById("totalPaid").value;
+    var totalAmount = document.getElementById("totalAmount").value;
+    var remaining = totalAmount - totalPaid;
+    document.getElementById("remaining").value = remaining;
+}
+
 </script>
 
 
@@ -232,12 +255,24 @@ function getCompanyLedger(){
                 table = $('#companyLedgerData').DataTable();
 
                 $.each(a, function (i, item) {
+                        alert(a[i].NetTotal );
+                    if (a[i].NetTotal == null){
+                        a[i].NetTotal = 0;
+                    }
+                    if (a[i].Amount == null){
+                        a[i].Amount = 0;
+                    }
+                    if (a[i].Balance == null){
+                        a[i].Balance = 0;
+                    }
 
-                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].Amount, 
-                    a[i].DateStamp]);
+                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].NetTotal, 
+                    a[i].Amount, a[i].Balance, a[i].DateStamp]);
                 });
                 table.draw();
                 totalAmount();
+                totalPaid();
+                remaining();
 
         }
         
