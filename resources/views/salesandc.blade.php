@@ -201,6 +201,9 @@
         #mainGetLabels label{
            width: 200px;
         }
+        .container-fluid{
+            width: 95% !important;
+        }
 
     </style>
 

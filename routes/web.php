@@ -171,6 +171,7 @@ Route::get('/ev', function () {
 Route::get('/etv', function () {
     return view('EmployeeTaskView');
 });
+<<<<<<< HEAD
 Route::get('/at', function () {
     return view('attendance');
 });
@@ -184,6 +185,11 @@ Route::get('/il', function () {
 
 Route::get('/igl', function () {
     return view('investorGeneralLedger');
+=======
+Route::get('/pr', function () {
+    return view('payRoll');
+});
+>>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
 
 });
 
