@@ -112,7 +112,7 @@
     </style>
 </head>
 
-<body onload="getCompanyLedger()">
+<body onload="loadFunctions()">
 
     <header>
         <div class="container">
@@ -131,11 +131,11 @@
                         <table id="companyLedgerData" class=" table-striped" style="width: 100%; text-align: center;">
                         <thead>
                             <tr>
-                                <th id ="Cusname">Name</th>
-                                <th id="CusCont">Contact</th>
-                                <th id ="Cusaddr">Address</th>
-                                <th id="CusIntrs">Interested In</th>
-                                <th id ="CusMeet"> Who Meet</th>
+                                <th id ="Cusname">Transaction ID</th>
+                                <th id="CusCont">Invoice No</th>
+                                <th id ="Cusaddr">Transaction Category</th>
+                                <th id="CusIntrs">Amount</th>
+                                <th id ="CusMeet">Date</th>
 
                             </tr>
                         </thead>
@@ -150,7 +150,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <label style="width: 185px;" for="">Total Amount</label>
-                    <input type="number" value="127000000" name="" id="footerInput">
+                    <input type="number" value="" name="" id="totalAmount">
                 </div>
                 <div class="col-md-4">
                     <label style="width: 185px;" for="">Amount Paid</label>
@@ -182,16 +182,6 @@
 
 
 
-
-
-
-
-
- 
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
@@ -201,13 +191,39 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
 
+
+
+
+
+<script>
+function loadFunctions(){
+    getCompanyLedger();
+}
+</script>
+
+
+<script>
+function totalAmount(){
+    var table = document.getElementById("companyLedgerData");
+    var sum = 0;
+
+    for(var i = 1; i < table.rows.length; i++)
+            {
+                sum = sum + parseInt(table.rows[i].cells[3].innerHTML);
+            }
+            
+            document.getElementById("totalAmount").value = sum;
+}
+</script>
+
+
 <script>
 function getCompanyLedger(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
         if (this.readyState == 4 && this.status == 200) {
-    
+            
             var data = this.responseText;
                 //alert(data);
                 var table;
@@ -221,8 +237,10 @@ function getCompanyLedger(){
                     a[i].DateStamp]);
                 });
                 table.draw();
+                totalAmount();
 
         }
+        
     };
     //alert("ljd");
     xhttp.open("GET", "./companyLedger/", true);
