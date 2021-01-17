@@ -78,7 +78,10 @@ Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC'] );
 Route::get('/getEmployeeID',[payController::class, 'getEmployeeID'] );
 Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact'] );
 Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory'] );
-Route::get('/getEmployee',[expenseController::class, 'getEmployee'] );
+Route::get('/getPartyNames',[expenseController::class, 'getPartyNames'] );
+Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
+Route::get('/getCategory',[taskController::class, 'getCategory'] );
+Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 
 
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
