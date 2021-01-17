@@ -437,7 +437,7 @@
                 document.getElementById('amount').focus();
             } else {
                 add();
-                document.getElementById("OrderId").value = "";
+               // document.getElementById("OrderId").value = "";
 
                 document.getElementById("category");
 
