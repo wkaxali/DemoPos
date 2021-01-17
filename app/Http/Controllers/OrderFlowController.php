@@ -58,7 +58,7 @@ class OrderFlowController extends Controller
       TransactionFlow::addTransaction($invoiceNumber,"Cedit","Booking Order",
       $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,NULL,NULL,$LID,"0",NULL,'1',"CASH",NULL);
       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
-      $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
+     // $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
       DB::table('tblledgerparties')
         ->where('LID', 2)
         ->update(['Balance' =>$selfBalance]);
@@ -223,7 +223,11 @@ class OrderFlowController extends Controller
       }
       
       function companyLedger(){
+<<<<<<< HEAD
         $data=DB:: select('select * from vw_purchase_transactions where paidTo = 1');
+=======
+        $data=DB:: select('select * from tbltransactionflow where PaidTo = 1');
+>>>>>>> 46c923307e906894bdc1ea6cfd3f22c9655061ea
         return $data;
       }
 

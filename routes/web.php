@@ -177,12 +177,16 @@ Route::get('/at', function () {
 Route::get('/atv', function () {
     return view('attendanceView');
 });
+
+Route::get('/il', function () {
+    return view('Ledger');
+});
+
 Route::get('/igl', function () {
     return view('investorGeneralLedger');
+
 });
-Route::get('/il', function () {
-    return view('investorLedger');
-});
+
 Route::get('/inv', function () {
     return view('investors');
 });

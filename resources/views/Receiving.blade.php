@@ -111,6 +111,28 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+        .orderNOLabel {
+            width: 130px;
+        }
+
+        @media only screen and (max-width: 578px) {
+            .receivingTable {
+                width: 509px !important;
+                overflow: auto !important;
+            }
+        }
+
+        @media screen and (device-aspect-ratio: 375/667) {
+            .orderNOLabel {
+                width: 109px;
+            }
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+            .orderNOLabel {
+                width: 109px;
+            }
+        }
     </style>
 </head>
 
@@ -125,7 +147,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <label style="width:130px ;" for="OrderNo">Order No</label>
+                <label class="orderNOLabel" for="OrderNo">Order No</label>
                     <input type="text" name="" value="" id="OrderId">
                     <button class="btn btn-info" onclick="getOrderDetails()">o</button>
                 </div>
