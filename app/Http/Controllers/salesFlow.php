@@ -7,6 +7,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\LedgerPartiesController;
+use App\Http\Controllers\accountsController;
 use DB;
 
 
@@ -23,6 +24,7 @@ class salesFlow extends Controller
         $rmb=$Array[5];
        $CID=$Array[6];
        $TransactionMode=$Array[7];
+       $AID=$Array[8];
        
        //return $TransactionMode;
          
@@ -68,25 +70,32 @@ class salesFlow extends Controller
        $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
         $oldCompanyBalance= LedgerPartiesController::getPartyBalance(1); 
        $LID=2;
-        $paidVia="CASH";
+        $paidVia=$AID;
         $selfBalance=$oldSelfBalance+$amp;
         TransactionFlow::addTransaction($invoiceNumber,"Debit","Sales",
-        $amp,$dateNow,"1",$oldSelfBalance,$selfBalance,NULL,NULL,$LID,"0",$CID,"MM",$paidVia,NULL);
+        $amp,$dateNow,"1",$oldSelfBalance,$selfBalance,NULL,NULL,$LID,"0",$CID,"0",$paidVia,NULL);
        
         LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+        $OldAccBalance=accountsController::getAccountBalance($AID);
+        $newAccountBalance=floatval($OldAccBalance)+floatval($amp);
+        
+        accountsController::UpdateNewBalance($AID,$newAccountBalance);
         if($TransactionMode==2){
-          $LID=1;
-          $paidVia="CASH";
+          $LID=2;
+          $paidVia=$AID;
           $oldBalance= LedgerPartiesController::getPartyBalance($LID);
           $currentBalance=floatval ($oldBalance)-floatval ($amp);
           TransactionFlow::addTransaction($invoiceNumber,"Credit","Customer Paid to Company",
-          $amp,$dateNow,"1", $oldBalance,$currentBalance,NULL,NULL,$LID,"0",$CID,"FJW",$paidVia,NULL);
+          $amp,$dateNow,"2", $oldBalance,$currentBalance,NULL,NULL,$LID,"0",$CID,"1",$paidVia,NULL);
           $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
           $companyBalance=$oldCompanyBalance-$amp;
         $selfBalance=$oldSelfBalance-$amp;
         LedgerPartiesController::UpdatePartiesBalance(1, $companyBalance);
         LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
-        
+        $OldAccBalance=accountsController::getAccountBalance($AID);
+        $newAccountBalance=floatval($OldAccBalance)-floatval($amp);
+       // accountsController::getAccountBalance($AID);
+        accountsController::UpdateNewBalance($AID,$newAccountBalance);
          
           
         }

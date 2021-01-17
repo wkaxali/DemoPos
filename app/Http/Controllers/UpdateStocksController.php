@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use DB;
 use Carbon\Carbon;
-
+use App\Http\Controllers\accountsController;
 class UpdateStocksController extends Controller
 {
     function updateStockDetails(Request $request,$data){
@@ -23,15 +23,7 @@ class UpdateStocksController extends Controller
          $status=$oneProduct[4];
          $dateNow= Carbon::now()->toDateTimeString();
         
-   //here from controller of taxes
-   // $CID=DB::table('tbladditionalcostandprofits')->insertGetId(['PID'=> $PID, 
-        // 'CPName' =>"Transportation Charges",
-        // 'Amount' =>$TransportCharges,
-        // 'TType' =>"Cost",
-        // 'DateStamp'=>$dateNow
-           
-          
-        //    ]);
+   
 
 
       $LID=2;
@@ -44,7 +36,10 @@ class UpdateStocksController extends Controller
         $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
             TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Transportation Charges',$TransportCharges,$dateNow,
             "1",null,null,NULL,null,NULL,NULL,NULL,NULL,NULL,$CID);
-           
+            $AID=5;//This needs o be changed in production
+            $OldAccBalance=accountsController::getAccountBalance($AID);
+            $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
+            accountsController::UpdateNewBalance($AID,$newAccountBalance);
             $OldPrice = DB::table('instock')
             ->where('ProductSerial', '=', $PID)
              ->get();

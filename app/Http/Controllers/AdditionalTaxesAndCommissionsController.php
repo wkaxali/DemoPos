@@ -23,8 +23,8 @@ class AdditionalTaxesAndCommissionsController extends Controller
         'percentOfAmount'=>$POA
         ]);
        
-        TransactionFlow:: addTransaction(NULL,"Credit",$CPName,$amount,$dateHere,
-        "1",NULL,NULL,NULL,NULL,NULL,"0",NULL,NULL,NULL,$CID);
+        // TransactionFlow:: addTransaction(NULL,"Credit",$CPName,$amount,$dateHere,
+        // "1",NULL,NULL,NULL,NULL,NULL,"0",NULL,NULL,NULL,$CID);
 
        
 return $CID;

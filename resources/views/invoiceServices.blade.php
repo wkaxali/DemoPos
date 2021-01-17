@@ -1173,8 +1173,9 @@
         var CID = document.getElementById("CID").value;
 
         var paidTo = document.getElementById("paidTo").value;
+        var AID=document.getElementById("slctAccounts").value;
 
-        order = [pid, totwT, discount, netTotal, amp, rmb, CID, paidTo];
+        order = [pid, totwT, discount, netTotal, amp, rmb, CID, paidTo,AID];
 
 
         var array = JSON.stringify(order);
