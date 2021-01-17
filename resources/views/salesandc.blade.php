@@ -466,16 +466,110 @@
                                             </div>
                                         </div>
 
+                                </section>
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Purchase Price Details
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body" id="SmallFontlabel">
+                                                <div class="input-field">
+                                                    <label for="">Invoice Price</label>
+                                                    <input type="text" name=""
+                                                        style="display: inline-block; width: 200px;"
+                                                        class="form-control" id="">
+                                                </div>
+                                                <div class="input-field">
+                                                    <label for="">Price With Additional Tax</label>
+                                                    <input type="text" name=""
+                                                        style="display: inline-block; width: 200px;"
+                                                        class="form-control" id="">
+                                                </div>
 
 
-                                      
-                                                <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
-                                                    class="btn ">Update</button>
-                                                    <div class="row">
-                                                        <div class="col-md-7" style="margin-left: 416px; margin-top: 30px;">
-                                                            <label for="">Total Cost</label>
-                                                            <input type="text" style="display: inline-block !important; width: 200px !important;" class="form-control" name="" id="TotalCost">
-                                                        </div></div>
+                                                <div class="input-field">
+                                                    <label for="">Increase In Price</label>
+                                                    <input type="text" name=""
+                                                        style="display: inline-block; width: 200px;"
+                                                        class="form-control" id="">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                                
+                        <div class="myOwnRow-right">
+                            <div class="input-field">
+                                <section>
+                                    <div class="container-fluid">
+                                        <div class="row my-3">
+                                            <div class="col-md-12" style="padding: 0px !important;">
+
+                                                <h3 style="text-align: center; color:#e61d2f; font-weight: 600;">Comistion & Taxes</h3>
+
+                                                <select class="selectpicker form-control" data-live-search="true"
+                                                    id="comissionHeadSelect" tabindex="null">
+                                                    <option value=1>Bank Person</option>
+                                                    <option value=2>sales per comissiions</option>
+                                                    <option value=3>Third party per comission</option>
+                                                    <option value=4>Promotion charges</option>
+                                                    <option value=5>PRA % </option>
+                                                    <option value=6>Nothing</option>
+                                                </select>
+
+
+
+                                                <label style="margin-left: 30px;" for="">Amount</label> <input
+                                                 class="form-control" style="display: inline-block !important; width: 130px !important;" type="text" name="" id="amount">
+
+                                                <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
+                                                class="form-control" style="display: inline-block !important; width: 135px !important;" type="text" name="" id="remarks">
+
+                                                <button onclick="add()" style="margin-top: -3px;" class="btn">+</button>
+                                            </div>
+                                        </div><div class="row my-3">
+                                            <div class="col-md-12" style="padding: 0px !important;">
+                                                <div class="bookingRightTable">
+
+
+
+
+                                                    <div class="tableDiv">
+    
+    
+                                                        <table id="comissionTable" class="secondtable"
+                                                            style="width: 100%; text-align: center; ">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Head</th>
+                                                                    <th>Amount</th>
+                                                                    <th>Remarks</th>
+                                                                    <th>Delete</th>
+                                                                    <th>ComID</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+    
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                 </section>
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -521,117 +615,11 @@
                             </div>
 
                         </div>
-                        <div class="myOwnROw">
+                        </div>
+                        </div>
+                        </div>
+                        </section>
 
-
-
-
-
-                            <div class="input-field">
-                                <section>
-                                    <div class="container-fluid">
-                                        <div class="row my-3">
-                                            <div class="col-md-12" style="padding: 0px !important;">
-
-                                                <h3 style="text-align: center; color: #0a549d; font-weight: 600;">
-                                                    Commissions</h3>
-
-                                                <select class="selectpicker form-control" data-live-search="true"
-                                                    id="comissionHeadSelect" tabindex="null">
-                                                    <option value=1>Bank Person</option>
-                                                    <option value=2>sales per comissiions</option>
-                                                    <option value=3>Third party per comission</option>
-                                                    <option value=4>Promotion charges</option>
-                                                    <option value=5>PRA % </option>
-                                                    <option value=6>Nothing</option>
-                                                </select>
-
-
-
-                                                <label style="margin-left: 30px;" for="">Amount</label> <input
-                                                    class="form-control"
-                                                    style="display: inline-block !important; width: 130px !important;"
-                                                    type="text" name="" id="amount">
-
-                                                <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
-                                                    class="form-control"
-                                                    style="display: inline-block !important; width: 135px !important;"
-                                                    type="text" name="" id="remarks">
-
-                                                <button onclick="add()" style="margin-top: -3px;"
-                                                    class="btn ">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="row my-3">
-                                            <div class="col-md-12" style="padding: 0px !important;">
-                                                <div class="bookingRightTable">
-
-                                                <h3 style="text-align: center; color: #0a549d; font-weight: 600;">Commissions</h3>
-
-                                                <select class="selectpicker form-control" data-live-search="true"
-                                                    id="comissionHeadSelect" tabindex="null">
-                                                    <option value=1>Bank Person</option>
-                                                    <option value=2>sales per comissiions</option>
-                                                    <option value=3>Third party per comission</option>
-                                                    <option value=4>Promotion charges</option>
-                                                    <option value=5>PRA % </option>
-                                                    <option value=6>Nothing</option>
-                                                </select>
-
-
-
-                                                <label style="margin-left: 30px;" for="">Amount</label> <input
-                                                class="form-control" style="display: inline-block !important; width: 130px !important;" type="text" name="" id="amount">
-
-                                                <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
-                                                class="form-control" style="display: inline-block !important; width: 135px !important;" type="text" name="" id="remarks">
-
-                                                <button onclick="add()" style="margin-top: -3px;" class="btn ">+</button>
-                                            </div>
-                                        </div>
-                                        <div class="row my-3">
-                                            <div class="col-md-12" style="padding: 0px !important;">
-                                                <div class="bookingRightTable">
-
-        
-
-                                </section>
-
-                                <footer>
-                                    <div class="container-fluid">
-                                        <div class="row">
-
-                                                    <div class="tableDiv">
-    
-    
-                                                        <table id="comissionTable" class="secondtable"
-                                                            style="width: 100%; text-align: center; ">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Head</th>
-                                                                    <th>Amount</th>
-                                                                    <th>Remarks</th>
-                                                                    <th>Delete</th>
-                                                                    <th>ComID</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-    
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                          
-
-                                                <button style="margin-left: 616px;" onclick="addCommissionsOrTaxes()"
-                                                    class="btn ">Update</button>
-
-                                </section>
-                                
                                 <footer>
                                     <div class="container-fluid">
                                         <div class="row">
@@ -643,6 +631,18 @@
                                             <div class="col-md-4 offset-md-4">
                                                 <label for="">Profit</label>
                                                 <input type="text" class="form-control" name="" id="Profit">
+                                                
+
+
+                                      
+                                                <button style= ; onclick="addCommissionsOrTaxes()"
+                                                    class="btn ">Update</button>
+                                                    <div class="row">
+                                                 
+                                                            <label for="">Total Cost</label>
+                                                            <input type="text" style="display: inline-block !important; width: 200px !important;" class="form-control" name="" id="TotalCost">
+                                                    
+
                                             </div>
                                         </div>
                                     </div>
