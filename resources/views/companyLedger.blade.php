@@ -255,7 +255,7 @@ function getCompanyLedger(){
                 table = $('#companyLedgerData').DataTable();
 
                 $.each(a, function (i, item) {
-                        alert(a[i].NetTotal );
+                        
                     if (a[i].NetTotal == null){
                         a[i].NetTotal = 0;
                     }
