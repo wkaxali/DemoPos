@@ -31,12 +31,12 @@ class UpdateStocksController extends Controller
       $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
       LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
 
-            
+            $paidVia=5;
        $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
         $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
             TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Transportation Charges',$TransportCharges,$dateNow,
-            "1",null,null,NULL,null,NULL,NULL,NULL,NULL,NULL,$CID);
-            $AID=5;//This needs o be changed in production
+            "1",null,null,NULL,null,NULL,NULL,NULL,NULL,$paidVia,$CID);
+            $AID=$paidVia;//This needs o be changed in production
             $OldAccBalance=accountsController::getAccountBalance($AID);
             $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
             accountsController::UpdateNewBalance($AID,$newAccountBalance);
