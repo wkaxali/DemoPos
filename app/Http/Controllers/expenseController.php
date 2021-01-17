@@ -24,7 +24,7 @@ class expenseController extends Controller
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
-        'TransactionCatogery'=>"Expense",
+        'TransactionCatogery'=>"Payment",
         'EID'=>$expenseID,
         'PaidTo'=>$paidTo,
         'PaidBy'=>$paidBy,
@@ -34,6 +34,9 @@ class expenseController extends Controller
         $oldSelfBalance = LedgerPartiesController::getPartyBalance(2);
         $newBalance = $oldSelfBalance - $amount;
         LedgerPartiesController::UpdatePartiesBalance(2, $newBalance);
+        $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
+        $newBalanceOfParty=$balanceForParty-$amount;
+        LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
 
         $oldAccountBalance = accountsController::getAccountBalance($paidBy);
         $newAccountBalance = $oldAccountBalance - $amount;
