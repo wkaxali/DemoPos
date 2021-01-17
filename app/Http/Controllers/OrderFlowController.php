@@ -229,7 +229,7 @@ class OrderFlowController extends Controller
       }
       
       function companyLedger(){
-        $data=DB:: select('select * from tbltransactionflow where PaidTo = 1');
+        $data=DB:: select('select * from vw_purchase_transactions where paidTo = 1');
         return $data;
       }
 
