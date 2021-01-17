@@ -381,13 +381,31 @@
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                         name="name" id="SalePrice" value="">
                                 </div>
+                                <div class="col-md-4">
+                                    <label for="status">Status</label>
+                                    <input type="text" class="form-control"
+                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                        name="name" id="status" value="0">
+
+                                </div>
+                                <div class="col-md-4">
+
+                                    <label  for="status">Sale Price</label>
+                                    <input type="text" class="form-control"
+                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                        name="name" id="SalePrice" value="">
+                                </div>
+                                 <div class="col-md-4">
+
+<label  for="status">Sale Price</label>
+<input type="text" class="form-control"
+    style="display: inline-block !important; height: 30px !important; width: 183px;"
+    name="name" id="SalePrice" value="">
+</div>
                             </div>
 
 
-                            <a style="font-size: 14px;" href="#" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">View Details</a>
-
-                        </div>
+                                                  </div>
                     </div>
                 </div>
     </section>
@@ -406,7 +424,7 @@
                     <div style="height: 460px;" class="myMainRow">
 
 
-                        <div class="myOwnRow-left">
+                        <div class="myOwnRow-left" style="width:630px;">
                             <div class="input-field">
                                 <section>
                                     <div class="container-fluid">
@@ -464,7 +482,25 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <footer>
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                   
+                                          
+                                                <div class="col-md-3 ">
+                                                <label for="">Total Cost</label>
+                                                <input type="text" class="form-control" name="" id="TotalCost">
+                                                </div>
 
+
+                                      
+                                                <button style=margin-top:20px ; onclick="addComissionN()"
+                                                    class="btn ">Update Cost</button>
+
+                                                   
+                                        </div>
+                                    </div>
+                                </footer>
                                 </section>
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -498,11 +534,14 @@
                                                         class="form-control" id="">
                                                 </div>
                                             </div>
+                                            
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Close</button>
                                                 <button type="button" class="btn btn-primary">Save changes</button>
+                                                
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -620,27 +659,19 @@
                                                 <label for="">Total Sale Price</label>
                                                 <input type="text" class="form-control" name="" id="SoldPrice">
                                             </div>
+                                            
                                             <div class="col-md-3 ">
                                                 <label for="">Profit</label>
                                                 <input type="text" class="form-control" name="" id="Profit">
                                                 </div>
-                                                <div class="col-md-3 ">
-                                                <label for="">Total Cost</label>
-                                                <input type="text" class="form-control" name="" id="TotalCost">
-                                                </div>
-
-
-                                      
-                                                <button style=margin-top:20px ; onclick="addComissionN()"
-                                                    class="btn ">Update Cost</button>
-
                                                     <button style=margin-top:20px ; onclick="addComissionP()"
                                                     class="btn ">Update Profit</button>
                                                 
                                         </div>
                                     </div>
+                                    
                                 </footer>
-
+                              
                       
 
                            
