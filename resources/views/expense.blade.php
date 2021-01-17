@@ -28,7 +28,7 @@
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
-            /* background-color:#0a549d !important; */
+            / background-color:#0a549d !important; /
             margin: 5px 0px !important;
 
         }
@@ -74,29 +74,11 @@
             border: 1px solid #333;
             border-radius: 10px;
         }
-        input[type="text"]:focus,
-        input[type="password"]:focus,
-        input[type="datetime"]:focus,
-        input[type="datetime-local"]:focus,
-        input[type="date"]:focus,
-        input[type="month"]:focus,
-        input[type="time"]:focus,
-        input[type="week"]:focus,
-        input[type="number"]:focus,
-        input[type="email"]:focus,
-        input[type="url"]:focus,
-        input[type="search"]:focus,
-        input[type="tel"]:focus,
-        input[type="color"]:focus,
-        .uneditable-input:focus {
-            border-color: #0a549d;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
-            outline: 0 none;
-        }
+
     </style>
 </head>
 
-<body onload="loadFunctions()">
+<body onload="loadExpenseHeads()">
     <main>
         <div class="container">
             <div class="row">
@@ -147,14 +129,24 @@
                                 value="" name=""  onclick="calculatonInTable()" id="amount"><br>
                             <label for="">Paid To</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  data-live-search="true"  id="paidTo" >
-                            
+                                class="selectpicker form-control" id="paidto" >
+                                <option value=1>Mohsin</option>
+                                <option value=2>Ali</option>
+                                <option value=3>Malik</option>
+                                <option value=4>Rayyan</option>
+
+
                             </select>
                             <button class="btn btn-info">+</button><br>
                             <label for="">Paid by</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  data-live-search="true"  id="paidBy" >
-                            
+                                class="selectpicker form-control" data-live-search="true"  id="paidby" >
+                                <option value=1>Mamu</option>
+                                <option value=2>Ali</option>
+                                <option value=3>Malik</option>
+                                <option value=4>Rayyan</option>
+
+
                             </select>
                         </div>
                         <div class="col-md-4 offset-md-2">
@@ -198,7 +190,7 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Amount</th>
-                                    <th>Expense ID</th>
+                                    <th>Expense Name</th>
                                   
                                     <th>Paid To</th>
                                     <th>Paid By</th>
@@ -264,12 +256,12 @@
       
       function add() {
 
-         var date = document.getElementById("date").value;
-         var amount = document.getElementById("amount").value;
+           var date = document.getElementById("date").value;
+         var  amount = document.getElementById("amount").value;
          var expense = document.getElementById("expense");
          var expenseID = document.getElementById("expense").value;
-         var paidto = document.getElementById("paidTo");
-         var paidby = document.getElementById("paidBy");
+         var paidto = document.getElementById("paidto");
+         var paidby = document.getElementById("paidby");
          var remarks = document.getElementById("remarks").value;
        
          
@@ -288,10 +280,10 @@
           
           cell1.innerHTML = date  ;
           cell2.innerHTML = amount ;
-          cell3.innerHTML = expense.options[expense.selectedIndex].value;
+          cell3.innerHTML = expense.options[expense.selectedIndex].text;
           cell4.innerHTML = expenseID;
-          cell5.innerHTML = paidto.options[paidto.selectedIndex].value;
-          cell6.innerHTML = paidby.options[paidby.selectedIndex].value;
+          cell5.innerHTML = paidto.options[paidto.selectedIndex].text;
+          cell6.innerHTML = paidby.options[paidby.selectedIndex].text;
           cell7.innerHTML = remarks;
           cell8.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
           
@@ -330,8 +322,9 @@ document.getElementById("mainTotal").value=tot;
 <script>
     function addExpenses()
 {
-        var expenseDetails = [];
+    var expenseDetails = [];
         var table = document.getElementById("expenseTable");
+        var myRow2 = [];
 
         //alert(sp);
         $('#expenseTable tr').each(function (row, tr) {
@@ -346,8 +339,8 @@ document.getElementById("mainTotal").value=tot;
                
                 $(tr).find('td:eq(4)').text(), //Paid To
                 $(tr).find('td:eq(5)').text(), //Paid By
-                $(tr).find('td:eq(6)').text(), //Remarks
-                $(tr).find('td:eq(7)').text()
+                $(tr).find('td:eq(6)').text() //Remarks
+                
             ];
 
 
@@ -355,7 +348,6 @@ document.getElementById("mainTotal").value=tot;
         expenseDetails.shift();
         var expTable = JSON.stringify(expenseDetails);
         var xhttp = new XMLHttpRequest();
-
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
@@ -368,15 +360,6 @@ document.getElementById("mainTotal").value=tot;
         xhttp.open("GET", "./addExpense/" + expTable, true);
         xhttp.send();
     }
-</script>
-
-<script>
-
-function loadFunctions(){
-    loadExpenseHeads();
-    loadParties();
-    loadAccounts();
-}
 </script>
 
 <script>
@@ -398,43 +381,6 @@ function loadExpenseHeads(){
 
     }
 </script>
-
-<script>
-function loadParties(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("paidTo").innerHTML = this.response;
-            $('#paidTo').selectpicker('refresh');
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getPartyNames/", true);
-    
-    xhttp.send();
-    }
-</script>
-
-<script>
-function loadAccounts(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("paidBy").innerHTML = this.response;
-            $('#paidBy').selectpicker('refresh');
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getAccounts/", true);
-    
-    xhttp.send();
-    }
-</script>
-
 
 <script>
         $(document).ready(function () {

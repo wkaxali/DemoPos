@@ -187,6 +187,9 @@ Route::get('/il', function () {
 
 Route::get('/igl', function () {
     return view('investorGeneralLedger');
+Route::get('/pr', function () {
+    return view('payRoll');
+});
 
 });
 
