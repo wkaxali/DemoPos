@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\LedgerPartiesController;
 use Carbon\Carbon;
+use App\Http\Controllers\accountsController;
 use DB;
 class OrderFlowController extends Controller
 {
@@ -52,11 +53,16 @@ class OrderFlowController extends Controller
       $LID=1;
       $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
       $oldCompanyBalance=LedgerPartiesController::getPartyBalance(1);
-
+      $paidVia=5;
+      $AID=5;
       $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
       LedgerPartiesController::UpdatePartiesBalance(1,$currentCompanyBalance);
       TransactionFlow::addTransaction($invoiceNumber,"Cedit","Booking Order",
-      $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,NULL,NULL,$LID,"0",NULL,'1',"CASH",NULL);
+      $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,NULL,NULL,$LID,"0",NULL,'1',$paidVia,NULL);
+      $OldAccBalance=accountsController::getAccountBalance($AID);
+      $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
+      
+      accountsController::UpdateNewBalance($AID,$newAccountBalance);
       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
      // $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
       DB::table('tblledgerparties')
