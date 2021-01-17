@@ -498,7 +498,7 @@ var xhttp = new XMLHttpRequest();
             table.draw();
         }
     };
-
+alert();
     xhttp.open("GET", "./getAvailableProducts/", true);
     xhttp.send();
 }

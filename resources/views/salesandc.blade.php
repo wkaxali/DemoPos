@@ -284,14 +284,13 @@
                                                         <tr>
                                                             <th>Product Id</th>
                                                             <th>Product Name</th>
-                                                            <th>Company</th>
-                                                            <th>Unit Sale Price</th>
-                                                            <th>Unit Purchase Price</th>
-                                                            <th>Total Cost</th>
-                                                            <th>Price Sold</th>
-
                                                             <th>Engine Number</th>
                                                             <th>Chasis Number</th>
+                                                            <th>Total Cost</th>
+                                                            <th>Price Sold</th>
+                                                            <th> Status</th>
+
+                                                           
 
                                                         </tr>
                                                     </thead>
@@ -551,7 +550,7 @@
                                                     <div class="tableDiv">
     
     
-                                                        <table id="comissionTabled" class="secondtable"
+                                                        <table id="profitTable" class="secondtable"
                                                             style="width: 100%; text-align: center; ">
                                                             <thead>
                                                                 <tr>
@@ -627,13 +626,16 @@
                                                 </div>
                                                 <div class="col-md-3 ">
                                                 <label for="">Total Cost</label>
-                                                <input type="text" class="form-control" name="" id="Profit">
+                                                <input type="text" class="form-control" name="" id="TotalCost">
                                                 </div>
 
 
                                       
-                                                <button style=margin-top:20px ; onclick="addCommissionsOrTaxes()"
-                                                    class="btn ">Update</button>
+                                                <button style=margin-top:20px ; onclick="addComissionN()"
+                                                    class="btn ">Update Cost</button>
+
+                                                    <button style=margin-top:20px ; onclick="addComissionP()"
+                                                    class="btn ">Update Profit</button>
                                                 
                                         </div>
                                     </div>
@@ -642,12 +644,7 @@
                       
 
                            
-                                <script>
-
-
-
-
-                                <script>
+                               
 
 
 
@@ -656,21 +653,8 @@
 
 
 
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                                <script type="text/javascript"
-                                    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js">
-                                </script>
-                                <script type="text/javascript"
-                                    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
-                                </script>
-                                <script type="text/javascript" charset="utf8"
-                                    src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-                                </script>
-                                <!-- <script src="js/bootstrap.min.js"></script> -->
 
-                                <script>
-
-                                </script>
+                               
 
 
 
@@ -684,11 +668,7 @@
                                 <script type="text/javascript" charset="utf8"
                                     src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
                                 </script>
-                                <!-- <script src="js/bootstrap.min.js"></script> -->
-
-                                <script>
-
-                                </script>
+                               
                                 <script>
                                     function add() {
 
@@ -736,7 +716,7 @@ var amountd = document.getElementById("amountd").value;
 var remarksd = document.getElementById("remarksd").value;
 
 
-var table = document.getElementById("comissionTabled");
+var table = document.getElementById("profitTable");
 var row = table.insertRow(-1);
 var cell1 = row.insertCell(0);
 var cell2 = row.insertCell(1);
@@ -763,7 +743,7 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
 
 
 
-                                    function addCommissionsOrTaxes() {
+                                    function addComissionN() {
                                         var commissionArray = [];
                                         var table = document.getElementById("comissionTable");
                                         var OverAllDetails = [];
@@ -810,7 +790,57 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
                                             }
                                         };
                                         // var MenuID=$('#Menus').find(":selected").val();
-                                        xhttp.open("GET", "./insertInCommission/" + CA, true);
+                                        xhttp.open("GET", "./negativeComission/" + CA, true);
+                                        xhttp.send();
+                                    }
+                                    function addComissionP() {
+                                        var commissionArray = [];
+                                        var table = document.getElementById("comissionTable");
+                                        var OverAllDetails = [];
+
+                                        //alert(sp);
+                                        $('#profitTable tr').each(function (row, tr) {
+
+                                            commissionArray[row] = [
+
+                                                $(tr).find('td:eq(0)').text(), //head
+                                                $(tr).find('td:eq(1)').text(), //Amount
+                                                $(tr).find('td:eq(2)').text(), //Remarks
+                                                $(tr).find('td:eq(4)').text() //ComID
+                                            ];
+
+
+                                        });
+                                        commissionArray.shift();
+
+
+                                        alert("array for order" + commissionArray);
+
+                                        var PID = document.getElementById("PID").value;
+
+                                        alert(PID);
+                                        var OverAllDetails = [PID, commissionArray];
+
+
+                                        alert(OverAllDetails);
+
+
+
+                                        var CA = JSON.stringify(OverAllDetails);
+
+                                        alert(CA);
+
+                                        var xhttp = new XMLHttpRequest();
+                                        xhttp.onreadystatechange = function () {
+                                            if (this.readyState == 4 && this.status == 200) {
+
+                                                alert("Invoice =" + this.responseText + " is generated");
+
+
+                                            }
+                                        };
+                                        // var MenuID=$('#Menus').find(":selected").val();
+                                        xhttp.open("GET", "./PostiveCommision/" + CA, true);
                                         xhttp.send();
                                     }
 
@@ -829,11 +859,11 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
                                         document.getElementById("PID").value = this.cells[0].innerText;
                                         document.getElementById("productName").value = this.cells[1]
                                             .innerText; // get current row 1st TD value
-                                        document.getElementById("chassisNumber").value = this.cells[8]
+                                        document.getElementById("chassisNumber").value = this.cells[3]
                                             .innerText;
-                                        document.getElementById("engineNumber").value = this.cells[7].innerText;
-                                        document.getElementById("TotalCost").value = this.cells[5].innerText;
-                                        document.getElementById("SalePrice").value = this.cells[3].innerText;
+                                        document.getElementById("engineNumber").value = this.cells[2].innerText;
+                                        document.getElementById("TotalCost").value = this.cells[4].innerText;
+                                        document.getElementById("SalePrice").value = this.cells[5].innerText;
 
 
 
@@ -850,38 +880,33 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
 
 
 
-                                    function getStock() {
-                                        var xhttp = new XMLHttpRequest();
-                                        xhttp.onreadystatechange = function () {
+ function getStock() {
+ var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = this.responseText;
+            //alert(data);
+            var table;
+            var a = JSON.parse(data);
+             
+            table = $('#productSearchTable').DataTable();
+            table.clear();
+            
+            $.each(a, function (i, item) {
+                //alert(a[0].ProductSerial);
 
-                                            if (this.readyState == 4 && this.status == 200) {
+                table.row.add([a[i].ProductID, a[i].ProductName, a[i].EngineNumber, a[i].ChasisNumber
+                ,a[i].ActualPurchsePrice,a[i].TotalCost,a[i].StatusInStock]);
 
-                                                var data = this.responseText;
-                                                //alert(data);
-                                                var table;
-                                                var a = JSON.parse(data);
-                                                //  alert(a[0].ProductSerial);
-                                                table = $('#productSearchTable').DataTable();
-
-                                                $.each(a, function (i, item) {
-
-                                                    table.row.add([a[i].ProductID, a[i].ProductName, a[i]
-                                                        .Company, a[i].PerUnitSalePrice, a[i]
-                                                        .PerUnitPurchasePrice, a[i].TotalCost, a[i]
-                                                        .TotalSaleAmount, a[i].EngineNumber, a[i]
-                                                        .ChasisNumber
-                                                    ]);
-                                                });
-                                                table.draw();
-                                                table.clear();
-
-                                            }
-                                        };
-                                        //alert("ljd");
-                                        xhttp.open("GET", "./viewStock/", true);
-
-                                        xhttp.send();
-                                    }
+               
+            });
+            table.draw();
+        }
+    };
+//alert();
+    xhttp.open("GET", "./getAllAutos/", true);
+    xhttp.send();
+  }
 
                                 </script>
 

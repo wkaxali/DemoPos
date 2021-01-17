@@ -64,13 +64,9 @@ class OrderFlowController extends Controller
       
       accountsController::UpdateNewBalance($AID,$newAccountBalance);
       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
+      LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
      // $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
-      DB::table('tblledgerparties')
-        ->where('LID', 2)
-        ->update(['Balance' =>$selfBalance]);
-      DB::table('tblledgerparties')
-        ->where('LID', 1)
-        ->update(['Balance' =>$companyBalance]);
+   
     
         return "Your order ".$invoiceNumber;
     }

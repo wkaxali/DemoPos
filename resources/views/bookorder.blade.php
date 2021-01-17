@@ -429,12 +429,7 @@
                 document.getElementById('amount').focus();
             } else {
                 add();
-<<<<<<< HEAD
                // document.getElementById("OrderId").value = "";
-=======
-
-                document.getElementById("OrderId").value = "";
->>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
 
                 document.getElementById("category");
 
