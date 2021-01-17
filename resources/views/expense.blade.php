@@ -437,9 +437,9 @@ function loadAccounts(){
 
 
 <script>
-        $(document).ready(function () {
-            $('#expense').DataTable();
-        });
+        // $(document).ready(function () {
+        //     $('#expenseTable').DataTable();
+        // });
 </script>
 
 
