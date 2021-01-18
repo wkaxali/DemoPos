@@ -7,6 +7,7 @@ use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\LedgerPartiesController;
 use Carbon\Carbon;
 use App\Http\Controllers\accountsController;
+use App\Http\Controllers\UpdateStocksController;
 use DB;
 class OrderFlowController extends Controller
 {
@@ -186,7 +187,7 @@ class OrderFlowController extends Controller
         $dis=$row[3];
         $totamount=$row[4];
         
-        for($i=0;$i<$qty;$i++){
+       // for($i=0;$i<$qty;$i++){
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
@@ -216,7 +217,12 @@ class OrderFlowController extends Controller
         'DeliveredQuantity'=>$qty
   
         ]);
-        }
+
+
+        $oldStock= UpdateStocksController::getCurrentStock($pid);
+    $newStock= floatval($oldStock)+floatval($qty);
+    UpdateStocksController::updateStock($pid,$newStock);
+       // }
         }
         return $DSID;
         

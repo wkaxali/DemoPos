@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LedgerPartiesController;
+use App\Http\Controllers\accountsController;
+use App\Http\Controllers\UpdateStocksController;
 use DB;
 
 
@@ -13,7 +16,7 @@ class serviceSalesFlow extends Controller
 
         $Array=json_decode($data);
         $tot=$Array[1];
-        return $tot;
+        
         $OverAllDiscount= $Array[2];
         $AmountAfterDiscount=$Array[3];
        $tax =$Array[4];
@@ -51,11 +54,24 @@ class serviceSalesFlow extends Controller
         
         ]);
 
-        
+        $totlpaid=$AP;
         self::insertInDetailedOrder($Array[0],$invoiceNumber,$dateNow);
-        self::addInTransactionFlowForSales($invoiceNumber,$dateNow,$AP,"1",NULL,$CLB,$CCB);
-        CustomerController::UpdateCustomerBalance($CID,$CCB);
-
+      $LID=2;
+       $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
+       $oldCustomerBalance=CustomerController::getCustomerBalance($CID);
+       $paidVia=5;
+       $AID=5;
+       $currentCustomerBalance=floatval($oldCustomerBalance)+floatval($RBI);
+       CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
+       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
+       LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
+       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock Purchased",
+       $totlpaid,$dateNow,"1",$oldCustomerBalance,$currentCustomerBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$CID,$paidVia,NULL);
+       $OldAccBalance=accountsController::getAccountBalance($AID);
+       $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
+       
+       accountsController::UpdateNewBalance($AID,$newAccountBalance);
+       
 
 
      
@@ -82,6 +98,10 @@ class serviceSalesFlow extends Controller
       'RentedDays'=>0
 
       ]);
+     $oldStock= UpdateStocksController::getCurrentStock($row[0]);
+    $newStock= floatval($oldStock)-floatval($row[2]);
+    UpdateStocksController::updateStock($row[0],$newStock);
+
       }
       return $DSID;
       
@@ -102,7 +122,7 @@ class serviceSalesFlow extends Controller
       // [TransactionID]
       
       $TID=DB::table('tblTransactionFlow')->insertGetId(['InvoiceNo'=>$invoiceNumber,
-      'TransectionCatogery'=>"Sales",
+      'TransactionCatogery'=>"Sales",
       'Amount'=>$AP,
       'DateStamp'=>$dateNow,
       'UserID'=>$userID,

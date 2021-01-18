@@ -166,11 +166,27 @@ public static function setTotalSaleAmount($PID,$amount){
   return "Cost Updated";
 
 }
+public static function updateStock($PID,$qty){
 
-function viewSoldStock(){
-  $data=DB:: select('select * from vw_stockdetails where StatusInStock = "Sold"');
-  return $data;
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update(['StockIn'=>$qty
+  
+
+  ]);
+  return "Stock Update";
+
 }
+public static function getCurrentStock($PID){
+
+  $re = DB::table('instock')
+            ->where('ProductSerial', '=', $PID)
+             ->get();
+
+             return $re[0]->StockIn;
+}
+
+
 
 
 }
