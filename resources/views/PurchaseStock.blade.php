@@ -1327,15 +1327,9 @@
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
                 <div class="total-buttons" id="hideme">
-<<<<<<< HEAD
-                    <button class="btn btn-info" onclick="insertInOrder()">Save</button>
-                    <button class="btn btn-info">Hold</button>
-                    <button class="btn btn-info">Save</button>
-=======
-                    <button class="btn" style="background-color: #0a549d;" onclick="insertInSales()">Save</button>
+                    <button class="btn" style="background-color: #0a549d;" onclick="insertInOrder()">Save</button>
                     <button class="btn" style="background-color: #e61d2f ;">Print</button>
                     <button class="btn" style="background-color:#0a549d;">Edit</button>
->>>>>>> f214a9d32a2f23e94ca3bec6530c797cb97dfbbb
                 </div>
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #e61d2f;">Hold</button>
@@ -1823,12 +1817,7 @@
 
             }
         };
-<<<<<<< HEAD
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-=======
         xhttp.open("GET", "./addSalesForSS/" + array, true);
->>>>>>> f214a9d32a2f23e94ca3bec6530c797cb97dfbbb
         xhttp.send();
     };
 
