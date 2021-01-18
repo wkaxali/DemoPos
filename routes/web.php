@@ -46,6 +46,7 @@ Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategories
 
 
 Route::get('/getAllProducts',[getProducts::class, 'getAllProducts'] );
+Route::get('/getProductByCategory/{CID}',[getProducts::class, 'getProductByCategory'] );
 
 
 //---------------------------//
@@ -123,7 +124,9 @@ Route::get('/db', function () {
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct'] );
 
-
+Route::get('/ps', function () {
+    return view('PurchaseStock');
+});
 Route::get('/as', function () {
     return view('addNewStock');
 });

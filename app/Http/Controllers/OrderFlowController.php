@@ -145,7 +145,7 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,"21",NULL,NULL,$purchasePrice,$InvoiceID);
+       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID);
        print ($productSerial);
       
   
