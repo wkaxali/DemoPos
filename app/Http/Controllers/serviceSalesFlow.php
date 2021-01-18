@@ -27,7 +27,7 @@ class serviceSalesFlow extends Controller
          $CLB=$Array[9];
 
          $CCB=$Array[10];
-         
+       //  return $CLB;
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
          //return $dateNow;
