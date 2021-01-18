@@ -86,6 +86,7 @@ Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
+Route::get('/getInvestors',[investorController::class, 'getInvestors']);
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);

@@ -38,5 +38,21 @@ function getInvestorData(){
   }
 
 
+public static function getInvestors(){
+    $data=DB:: select('select * from tblledgerparties');
+    
+    $option='';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->LID.'>'.$d->LID.') '.$d->PartyName.'</option>';
+      
+    }
+    return $option;
+  }
+
 }
 

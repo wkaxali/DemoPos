@@ -133,7 +133,7 @@
     </style>
 </head>
 
-<body>
+<body onload="loadFunctions()">
     <main>
         <div class="container">
             <div class="row  my-2">
@@ -148,15 +148,11 @@
             <div class="row borderCustom">
                 <div class="col-md-5 offset-md-1">
                     <label for="">Name</label>
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
-                        data-live-search="true" id="category" tabindex="null">
-                        <option value=1>1242</option>
-                        <option value=2>1279</option>
-                        <option value=3>1342</option>
-                        <option value=4>9754</option>
-
-
-                    </select><br>
+                    <select style="height: 25px !important; width: 158px !important; "
+                    class="selectpicker form-control"  data-live-search="true"  id="investors">
+                
+                </select>
+                <br>
                     <label for="">Budget</label>
                     <input type="text" class="form-control" style="width: 200px; display: inline-block;" value="15Lac"
                         name="" id="">
@@ -191,10 +187,9 @@
                             <tr>
                                     <th>Product Id</th>
                                     <th>Product Name</th>
-                                    <th>Company</th>
                                     <th>Unit Sale Price</th>
                                     <th>Unit Purchase Price</th>
-                                    <th>Stock</th>
+                                    <th>Profit</th>
                                     <th>Engine Number</th>
                                     <th>Chasis Number</th>
                                 </tr>
@@ -216,7 +211,7 @@
                     <h4>SUMMARY</h4>
                 </div>
                 <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
-                    <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;">Update</button>
+                    <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;" onclick="totalProfit()">Update</button>
                 </div>
 
             </div>
@@ -229,7 +224,7 @@
                     <div class="summaryLabels">
                         <label for="">Total Profit</label>
                         <input type="number" value="1133000" class="form-control"
-                            style="display: inline-block; width: 200px;" name="" id=""><br>
+                            style="display: inline-block; width: 200px;" value="" id="profit"><br>
 
                         <label for="">Capital</label>
                         <input type="number" value="80000000" class="form-control"
@@ -281,7 +276,6 @@
                                 <tr>
                                     <th>Product Id</th>
                                     <th>Product Name</th>
-                                    <th>Company</th>
                                     <th>Unit Sale Price</th>
                                     <th>Unit Purchase Price</th>
                                     <th>Stock</th>
@@ -313,12 +307,30 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        $(document).ready(function () {
-            $('#mainStockTable').DataTable();
+         $(document).ready(function () {
+             $('#mainStockTable').DataTable();
         });
 
     </script>
-    <script>
+
+<script>
+    function totalProfit(){
+        var table = document.getElementById("mainStockTable");
+        var totalSail = 0;
+        var totalPurchase = 0;
+        var profit =0;
+        for(var i = 1; i < table.rows.length-1; i++)
+                {
+                    totalSail = parseInt(table.rows[i].cells[2].innerHTML); 
+                    totalPurchase = parseInt(table.rows[i].cells[3].innerHTML);
+                   profit = totalSail - totalPurchase;
+                   table.rows[i].cells[4].innerHTML=profit;
+
+                }  
+               
+                document.getElementById("profit").value = profit;
+    }
+    
         $("#stockTable").on('click', 'tr', function () {
 
 
@@ -331,7 +343,7 @@
             var cell5 = this.cells[4].innerText;
             var cell6 = this.cells[5].innerText;
             var cell7 = this.cells[6].innerText;
-            var cell8 = this.cells[7].innerText;
+            
 
 
             var addtable = document.getElementById("mainStockTable");
@@ -350,27 +362,15 @@
             mcell2.innerHTML = cell2;
             mcell3.innerHTML = cell3;
             mcell4.innerHTML = cell4;
-            mcell5.innerHTML = cell5;
+            mcell5.innerHTML = "";
             mcell6.innerHTML = cell6;
             mcell7.innerHTML = cell7;
-            mcell8.innerHTML = cell8;
+            
         });
 
     </script>
 
-<script>
-    function sailPriceTotal(){
-        var table = document.getElementById("stockTable");
-        var sum = 0;
-    
-        for(var i = 1; i < table.rows.length; i++)
-                {
-                    sum = sum + parseInt(table.rows[i].cells[4].innerHTML);
-                }
-                alert(sum)
-                document.getElementById("totalPaid").value = sum;
-    }
-    </script>
+
 
 <script>
 function getStock(){
@@ -388,7 +388,7 @@ function getStock(){
                 table.clear();
                 $.each(a, function (i, item) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].TotalSaleAmount, a[i].TotalCost,
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].TotalSaleAmount, a[i].TotalCost,
                     a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
                 });
                 table.draw();
@@ -400,9 +400,34 @@ function getStock(){
     
     xhttp.send();
     }
-    
-  
     </script>
+
+
+<script>
+
+function loadFunctions(){
+    loadInvestors();
+}
+
+
+    function loadInvestors(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            
+            if (this.readyState == 4 && this.status == 200) {
+        
+                document.getElementById("investors").innerHTML = this.response;
+                $('#investors').selectpicker('refresh');
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getInvestors/", true);
+        
+        xhttp.send();
+        }
+    </script>
+
+
     <script>
         $(document).ready(function () {
             $('#stockTable').DataTable();
