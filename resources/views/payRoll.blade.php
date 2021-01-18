@@ -164,7 +164,7 @@
     </style>
 </head>
 
-<body>
+<body onload="loadEmployeeInfo()">
     <main>
         <div class="container">
             <div class="row">
@@ -184,60 +184,35 @@
                         <div class="col-md-5 ">
                             <label for="">Employee ID</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                                <option value=""></option>
-                                <option value=1>62923</option>
-                                <option value=2>62927</option>
-                                <option value=3>62921</option>
-                                <option value=4>62929</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="id" onchange="getByID()">
+                            
                             </select>
                         </div>
-                        <div class="col-md-5 offset-md-2">
+                        <div class="col-md-5 offset-md-2" id="divName">
                             <label for="">Name</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                                <option value=""></option>
-                                <option value=1>Rayan Naeem</option>
-                                <option value=2>Waqas Ali</option>
-                                <option value=3>Arslan</option>
-                                <option value=4>Usman</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="name">
+                            
                             </select>
                         </div>
                         <div class="col-md-5  ">
                             <label for="">Contact</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                                <option value=""></option>
-                                <option value=1>03091320095</option>
-                                <option value=2>03132420095</option>
-                                <option value=3>03092520095</option>
-                                <option value=4>03134108643</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="contact" >
+                            
                             </select>
                         </div>
                         <div class="col-md-5 offset-md-2">
                             <label for="">CNIC</label>
                             <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                                <option value=""></option>
-
-                                <option value=1>35202-111-67091</option>
-                                <option value=2>35202-111-67321</option>
-                                <option value=3>35202-111-69691</option>
-                                <option value=4>35202-111-87652</option>
-
-
+                                class="selectpicker form-control"  data-live-search="true"  id="cnic" >
+                            
                             </select>
                         </div>
                         <div class="col-md-12 ">
                             <label for="">Address</label>
                             <input type="text" style="display: inline-block; width: 810px;" class="form-control" name=""
-                                id="">
+                                id="address">
                         </div>
                         <div class="col-md-5 ">
                             <label for="">Status</label>
@@ -253,8 +228,8 @@
                         </div>
                         <div class="col-md-5 offset-md-2">
                             <label for="">Joining</label>
-                            <input type="text" value="21/12/2020" class="form-control"
-                                style="display: inline-block; width: 200px;margin-top: 3px;" name="" id="">
+                            <input type="text" value="date" class="form-control"
+                                style="display: inline-block; width: 200px;margin-top: 3px;" name="" id="date">
                         </div>
                         <div class="col-md-12 ">
                             <div class="payButtons text-right">
@@ -279,12 +254,17 @@
                 <div class="col-md-5 payRow  offset-md-1">
                     <h4 class="redBg">Pay Details</h4>
                     <label for="">Basic Pay</label>
+<<<<<<< HEAD
+                    <input type="text" class="form-control" value="13,000" style="display: inline-block; width: 200px;"
+                        name="" id="basicPay">
+=======
                     <input type="number" class="form-control" value="13,000" style="display: inline-block; width: 200px;"
                         name="" id="">
+>>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
                     <br>
                     <label for="">Allows Rent/+</label>
                     <input type="text" class="form-control" value="50,000" style="display: inline-block; width: 200px;"
-                        name="" id="">
+                        name="" id="allownces">
                     <br>
                     <label for="">Comission On Sale</label>
                     <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
@@ -298,12 +278,21 @@
                     </select>
                     <br>
                     <label for="">Allowed Holidays</label>
+<<<<<<< HEAD
+                    <input type="text" class="form-control" value="5" style="display: inline-block; width: 200px;"
+                        name="" id="allowedHolidays">
+                    <br>
+                    <label for="">Target Sales</label>
+                    <input type="text" class="form-control" value="10" style="display: inline-block; width: 200px;"
+                        name="" id="saleTarget">
+=======
                     <input type="number" class="form-control" value="5" style="display: inline-block; width: 200px;"
                         name="" id="">
                     <br>
                     <label for="">Target Sales</label>
                     <input type="number" class="form-control" value="10" style="display: inline-block; width: 200px;"
                         name="" id="">
+>>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
                     <br>
                     <label for="">Total</label>
                     <input type="number" class="form-control" value="48000" style="display: inline-block; width: 200px;"
@@ -344,6 +333,155 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
+
+<script>
+function loadEmployeeInfo(){
+    clearAll();
+    loadEmployeeNames();
+    loadEmployeeCNIC();
+    loadEmployeeID();
+    loadEmployeeContact();;
+}
+</script>
+
+<script>
+function clearAll(){
+    document.getElementById("date").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("basicPay").value = "";
+    document.getElementById("allowedHolidays").value = "";
+    document.getElementById("allownces").value = "";
+    document.getElementById("saleTarget").value = "";
+    document.getElementById("address").value = "";
+    document.getElementById("address").value = "";
+}
+</script>
+
+<script>
+function getByID(){
+    var xhttp = new XMLHttpRequest();
+    var id = $('#id').find(":selected").val();
+        //alert(id);
+    xhttp.onreadystatechange = function () {
+      
+      //  var id=document.getElementById("id").value;
+        
+        //alert(id);
+        if (this.readyState == 4 && this.status == 200) {
+            
+          // alert(this.response);
+          var a = JSON.parse(this.response);
+            //$('#name').find(":selected").value="1";
+           $("#name").val(a[0].EID);
+          
+           //document.getElementById("name").selectedIndex = 2;
+            document.getElementById("date").value = a[0].JoiningDate;
+            document.getElementById("address").value = a[0].HomeAddress;
+            document.getElementById("basicPay").value = a[0].BasicPay;
+            document.getElementById("allowedHolidays").value = a[0].AllowedHolidays;
+            document.getElementById("allownces").value = a[0].Alownces;
+            document.getElementById("saleTarget").value = a[0].SaleTarget;
+            
+                
+
+            //     // alert(a[0].FirstName);
+            //     // alert(a[0].LastName);
+                // alert(a[0].CNIC);
+                // alert(a[0].ContactNo);
+                // alert(a[0].HomeAddress);
+                // alert(a[0].EmailID);
+                // alert(a[0].DesignationID);
+
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmpbyID/"+id, true);
+    
+    xhttp.send();
+}
+
+</script>
+
+<script>
+function loadEmployeeNames(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("name").innerHTML = this.response;
+            $('#name').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployeeName/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+<script>
+function loadEmployeeCNIC(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("cnic").innerHTML = this.response;
+            $('#cnic').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployeeCNIC/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
+
+<script>
+function loadEmployeeID(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("id").innerHTML = this.response;
+            $('#id').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployeeID/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
+<script>
+function loadEmployeeContact(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("contact").innerHTML = this.response;
+            $('#contact').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployeeContact/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();

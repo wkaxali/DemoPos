@@ -9598,50 +9598,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <label class="labels" for="">Purchase</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
                                                             <button class="btn btn-myPrimary-add"
-                                                                onclick="location.href = 'bookOrder.html'">Book
+                                                            
+                                                                onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
+<<<<<<< HEAD
                                                                 onclick="location.href = 'Receiving.html'">Dilivery</button><br>
                                                             <button data-toggle="modal" id="killme"
                                                                 data-target="#staticBackdrop"
                                                                 class="btn btn-mysecondary">Quotation</button><br>
 
+=======
+                                                                onclick="location.href = '/d'">Dilivery</button><br>
+                                                                <button class="btn btn-mysecondary"
+                                                                onclick="location.href = '/dl'">Dilivery letter</button><br>
+                                                                <button class="btn btn-mysecondary"
+                                                                onclick="location.href = '/ct'">Comissions</button><br>
+>>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
                                                         </div>
+                                                        
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Sales</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                            <button class="btn btn-myPrimary-add">Add</button><br>
-                                                            <button class="btn btn-mysecondary">Delete</button><br>
-                                                            <button class="btn btn-myPrimary">View Stock</button><br>
-                                                            <button class="btn btn-myPrimary-add">Add</button><br>
-                                                            <button class="btn btn-mysecondary">Delete</button><br>
-                                                            <button class="btn btn-myPrimary">View Stock</button><br>
+                                                            <a href="/is"><button class="btn btn-myPrimary-add">invoice services</button><br></a>
+                                                            <a href="/psi"><button class="btn btn-mysecondary">Print Sale Invoice</button><br></a>
+                                                            <a href="/s"><button class="btn btn-myPrimary">Sales& comission</button><br></a>
+                                                            <a href="/ct"> <button class="btn btn-myPrimary-add">texes</button><br></a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Stock</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                            <button class="btn btn-myPrimary-add">Add</button><br>
-                                                            <button class="btn btn-mysecondary">Delete</button><br>
-                                                            <button class="btn btn-myPrimary">View Stock</button><br>
-                                                            <button class="btn btn-myPrimary-add">Add</button><br>
-                                                            <button class="btn btn-mysecondary">Delete</button><br>
-                                                            <button class="btn btn-myPrimary">View Stock</button><br>
+                                                            
+                                                                <a href="/as"> <button class="btn btn-myPrimary-add">Add Stock</button><br></a> 
+                                                                <a href="/ip"><button class="btn btn-mysecondary">Increase In price</button><br></a>
+                                                                <a href="/stock"> <button class="btn btn-myPrimary">Stock</button><br></a>
+                                                                <a href="/vc"><button class="btn btn-myPrimary-add">ViewCustmer</button><br></a>
+                                                                    <a href="/sp"> <button class="btn btn-mysecondary">View Spareoarts</button><br></a>
+                                                                        <a href="/vs"> <button class="btn btn-myPrimary">View Stock</button><br></a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 22px;" class="labels"
                                                             for="">Ledger</label>
                                                         <div class="leftBtns">
-                                                            <button class="btn btn-myPrimary-add">Add</button><br>
-                                                            <button class="btn btn-mysecondary">Delete</button><br>
-                                                            <button class="btn btn-myPrimary">View Stock</button><br>
-                                                            <button class="btn btn-myPrimary-add">Add</button><br>
-                                                            <button class="btn btn-mysecondary">Delete</button><br>
-                                                            <button class="btn btn-myPrimary">View Stock</button><br>
+                                                            <button class="btn btn-myPrimary-add" 
+                                                             onclick="location.href = '/cl'">Company ledger</button><br>
+                                                             <a href="/l"> <button class="btn btn-mysecondary">ledger</button><br></a>
+                                                             <a href="/th"><button class="btn btn-myPrimary">Transaction History</button><br></a>
+                                                             <a href="/ex"><button class="btn btn-myPrimary-add">Expance</button><br></a>
+                                                           
                                                         </div>
                                                     </div>
 

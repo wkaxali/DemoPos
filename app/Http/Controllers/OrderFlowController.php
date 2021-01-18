@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\LedgerPartiesController;
 use Carbon\Carbon;
+use App\Http\Controllers\accountsController;
 use DB;
 class OrderFlowController extends Controller
 {
@@ -48,21 +49,25 @@ class OrderFlowController extends Controller
         ]);
 
         
-        self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
+      self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
       $LID=1;
-      $oldBalance= LedgerPartiesController::getPartyBalance($LID);
-
-      $currentBalance=floatval($oldBalance)+floatval($totRemaining);
-      LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
+      $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
+      $oldCompanyBalance=LedgerPartiesController::getPartyBalance(1);
+      $paidVia=5;
+      $AID=5;
+      $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
+      LedgerPartiesController::UpdatePartiesBalance(1,$currentCompanyBalance);
       TransactionFlow::addTransaction($invoiceNumber,"Cedit","Booking Order",
-      $totlpaid,$dateNow,"1",$oldBalance,$currentBalance,NULL,NULL,$LID,"0",NULL,"FWJ","CASH",NULL);
+      $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,NULL,NULL,$LID,"0",NULL,'1',$paidVia,NULL);
+      $OldAccBalance=accountsController::getAccountBalance($AID);
+      $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
       
-
-
-
-     
-       
-        
+      accountsController::UpdateNewBalance($AID,$newAccountBalance);
+      $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
+      LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
+     // $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
+   
+    
         return "Your order ".$invoiceNumber;
     }
 
@@ -220,40 +225,8 @@ class OrderFlowController extends Controller
       }
       
       function companyLedger(){
-        $data=DB:: select('select * from tbltransactionflow where LID = 1');
-        
-        $table='
-        <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
-          <thead>
-              <tr>
-                  
-                  <th id ="Cusname">Transaction ID</th>
-                  <th id="CusCont">Invoice No</th>
-                  <th id ="Cusaddr">Transaction Category</th>
-                  <th id="CusIntrs">Amount</th>
-                  <th id ="CusMeet">Transaction Date</th>
-              </tr>
-          </thead>
-          <tbody>';
- 
-
-        foreach ($data as $d){
-          //print $option;
-
-            $table=$table.'
-           
-       
-            <tr>
-            
-            <td>'.$d->TransactionID.'</td>
-            <td>'.$d->InvoiceNo.'</td>
-            <td>'.$d->TransectionCatogery.'</td>
-            <td>'.$d->Amount.'</td>
-            <td>'.$d->DateStamp.'</td>
-            </tr>';
-          
-        }
-        return $table.'<table>';
+        $data=DB:: select('select * from vw_purchase_transactions where paidTo = 1');
+        return $data;
       }
 
       function scratchFunc(){

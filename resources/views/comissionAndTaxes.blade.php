@@ -169,6 +169,45 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+<<<<<<< HEAD
+        .mainSales {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media only screen and (max-width: 768px) {
+            .myMainRow {
+                display: block;
+            }
+
+            .myOwnROw {
+                border-left: none !important;
+                border-top: 1px solid #333;
+                width: 100% !important;
+            }
+
+            .myOwnRow-left {
+                width: 100%;
+            }
+
+            .mainSales {
+                display: block;
+            }
+
+            label {
+                width: 115px !important;
+            }
+
+            .lossLabel label {
+                width: 102px !important;
+            }
+
+            .unitSalesBtn {
+                text-align: center !important;
+                margin: 10px 0px;
+            }
+
+        }
+=======
 
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
@@ -182,6 +221,7 @@
             -moz-appearance: textfield;
         }
 
+<<<<<<< HEAD
         .mainSales {
             display: flex;
             justify-content: space-between;
@@ -220,6 +260,9 @@
 
         }
 
+=======
+>>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
+>>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
     </style>
 
 </head>

@@ -187,7 +187,6 @@
             -moz-appearance: textfield;
         }
 
-
         @media only screen and (max-width: 768px) {
             .mainSection {
                 top: 80% !important;
@@ -438,8 +437,7 @@
                 document.getElementById('invoice').focus();
 
                 add();
-
-                document.getElementById("OrderId").value = "";
+               // document.getElementById("OrderId").value = "";
 
                 document.getElementById("category");
 
@@ -605,10 +603,10 @@
             alert("array for order" + orderDetails);
 
             var mainTotal = document.getElementById("mainTotal").value;
-            var totlpaid = document.getElementById("totalPaid").value;
+            var totalpaid = document.getElementById("totalPaid").value;
             var totRemaining = document.getElementById("totRemaining").value;
             alert(mainTotal);
-            var Order = [mainTotal, totlpaid, totRemaining, orderDetails];
+            var Order = [mainTotal, totalpaid, totRemaining, orderDetails];
 
 
             alert(Order);

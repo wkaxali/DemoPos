@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="refresh" content="1"> -->
     <meta name="Description" content="Enter your description here" />
+
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
@@ -13,68 +15,97 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
 
-    <title>ATTANDANCE</title>
+    <title>Attendance</title>
     <style>
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
             /* background-color:#0a549d !important; */
-
-
-        }
-
-        .dropdown.bootstrap-select.form-control-1 {
-            width: 120px !important;
-            display: inline-block !important;
-            /* background-color:#0a549d !important; */
-
+            margin: 5px 0px !important;
 
         }
 
-        .dropdown.bootstrap-select.form-control-2 {
-            width: 120px !important;
-            display: inline-block !important;
-            /* background-color:#0a549d !important; */
-
-
+        #mainSection label {
+            width: 100px;
         }
 
-        label {
-            width: 145px;
+        @media (min-width: 768px) {
+            .offset-md-3 {
+                margin-left: 27% !important;
+            }
         }
 
-        th,
-        td {
-            text-align: center;
-        }
-
-        .customButtons button {
-            width: 150px;
-            margin: 10px 15px;
-        }
-
-        .customButtons {
-            text-align: right;
-        }
-
-        #TblSection label {
-            width: auto !important;
-
-        }
-
-        .customClassBorder {
+        .borderDiv {
             border: 1px solid #333;
-            padding: 10px 0px;
-            border-radius: 20%;
+            width: 100%;
+            height: 30px;
+            border-radius: 10px;
+            margin-top: 10px;
+
         }
 
-        .customClassBorder label {
-            width: 70px !important;
+        .footerBtns {
+            float: right !important;
+            margin-bottom: 10px;
         }
 
-        th,
+        .summaryLabels {
+            float: right !important;
+            margin-top: 20px !important;
+        }
+
+        #Summary label {
+            width: 225px;
+        }
+
+        .borderCustom {
+            background-color: #e61d2f;
+            border-radius: 10%;
+            margin-top: 5px;
+        }
+
+        .borderCustom h4 {
+            color: #ffffff;
+        }
+
+        .borderCustom-1 {
+            border: 1px solid #333;
+            border-radius: 10px;
+            margin-top: 5px;
+            padding: 3px;
+        }
+
+        .borderCustom-1 input {
+            margin: 3px 0px;
+        }
+
+        #myTable th,
         td {
-            padding: 2px !important;
+            padding: 3px !important;
+        }
+
+        .circle {
+            border: 1px solid #333;
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            position: relative;
+            float: right;
+            margin-right: 50px !important;
+            background-color: #0a549d;
+            color: #ffffff;
+        }
+
+        .circleContent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loginButtons {
+            margin-top: 30px;
+            margin-left: 134px;
         }
 
         input[type="text"]:focus,
@@ -97,309 +128,60 @@
             outline: 0 none;
         }
 
+<<<<<<< HEAD
+        .mainRows {
+            width: 910px;
+            margin: 50px auto;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+=======
+>>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
     </style>
 </head>
 
-<body>
+<body onload="myFunction()">
     <main>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3>ATTANDANCE VIEW</h3>
+                    <h4>Attendance</h4>
                 </div>
             </div>
         </div>
     </main>
-    <header>
+    <section>
         <div class="container">
-            <div class="row">
-                <div class="col-md-5 offset-md-1">
-                    <label for="">Employee ID</label>
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
-                        data-live-search="true" id="category" tabindex="null">
-                        <option value=1>1242</option>
-                        <option value=2>1279</option>
-                        <option value=3>1342</option>
-                        <option value=4>9754</option>
-
-
-                    </select>
-
+            <div class="row mainRows" style="border: 1px solid #333;">
+                <div class="col-md-4 offset-md-1">
+                    <h4 id="demo"></h4>
+                    <h4>Forland MM</h4>
                 </div>
-
-                <div class="col-md-5 ">
-                    <label for="">Name</label>
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
-                        data-live-search="true" id="category" tabindex="null">
-                        <option value=1>1242</option>
-                        <option value=2>1279</option>
-                        <option value=3>1342</option>
-                        <option value=4>9754</option>
-
-
-                    </select>
-
+                <div class="col-md-7 ">
+                    <div class="circle">
+                        <div class="circleContent">
+                            <h4 id="timeDemo"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 offset-md-3">
+                    <label style="width: 200px;" for="">Employee ID</label>
+                    <input type="text" class="form-control"
+                        style="display: inline-block; width: 200px; margin: 5px 0px;" name="" id="employeeID">
+                    <br>
+                    <label style="width: 200px;" for="">Password</label>
+                    <input type="text" class="form-control" style="display: inline-block; width: 200px;" name="" id="">
+                    <br>
+                    <div class="loginButtons">
+                        <button class="btn" style="background-color: #e61d2f; color: #ffffff;">View Previous</button>
+                        <button class="btn" style="background-color:  #0a549d; color: #ffffff;" onclick="markAttendance()">Mark Attandance</button>
+                    </div>
                 </div>
             </div>
-            <div class="row customClassBorder my-3">
-                <div class="col-md-5 offset-md-1">
-                    <h4>Mohsin Jabbar</h4>
-                </div>
-                <div class="col-md-5">
-                    <label for="">Month</label>
-                    <select class="selectpicker form-control-1 form-control" data-live-search="true" id="category"
-                        tabindex="null">
-                        <option value=1>January</option>
-                        <option value=2>Febraury</option>
-                        <option value=3>March</option>
-                        <option value=4>April</option>
-                        <option value=1>May</option>
-                        <option value=2>June</option>
-                        <option value=3>July</option>
-                        <option value=4>August</option>
-                        <option value=1>Sepetember</option>
-                        <option value=2>October</option>
-                        <option value=3>November</option>
-                        <option value=4>December</option>
 
-
-
-
-
-                    </select>
-                    <label for="">Year</label>
-                    <select class="selectpicker form-control-1 form-control" data-live-search="true" id="category"
-                        tabindex="null">
-                        <option value=1>2020</option>
-                        <option value=2>2019</option>
-                        <option value=3>2018</option>
-                        <option value=4>2017</option>
-
-
-                    </select>
-                    <button style="height: 25px; margin-top: -5px;" class="btn btn-info"></button>
-
-                </div>
-
-
-            </div>
-        </div>
-    </header>
-    <section id="TblSection">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <table class="table-bordered" id="myTable">
-                        <thead>
-                            <tr>
-                                <th>Day</th>
-                                <th>Date</th>
-                                <th>Time In</th>
-                                <th>Time Out</th>
-                                <th>Status</th>
-                                <th>Edit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                            <tr>
-                                <td>Friday</td>
-                                <td>01/10/2020</td>
-                                <td>8:23pm</td>
-                                <td>10:00pm</td>
-                                <td> <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=1>Late</option>
-                                        <option value=2>Ontime</option>
-                                        <option value=3>Absent</option>
-                                        <option value=4>Share Leave</option>
-                                        <option value="5">Ontime</option>
-
-
-                                    </select></td>
-                                <td>+</td>
-                            </tr>
-                        </tbody>
-
-
-
-                    </table>
-                </div>
-            </div>
         </div>
     </section>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 customButtons offset-md-6">
-                    <button style="background-color: #e61d2f;color: #ffffff;" class="btn ">Update</button>
-                    <button style="background-color: #0a549d;color: #ffffff;" class="btn ">Print</button>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 
 
@@ -419,6 +201,57 @@
         });
 
     </script>
+    <script>
+        function myFunction() {
+            setTimeout(function () {
+                var id = document.getElementById("demo");
+                var mytime = document.getElementById("timeDemo");
+                var today = new Date();
+
+
+                var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+
+                var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+                var dateTime = date;
+                var myTime = time;
+
+                id.innerHTML = dateTime;
+                mytime.innerHTML = time;
+            }, 1000);
+        }
+        window.setInterval(function () {
+            myFunction()
+        }, 1000);
+
+    </script>
+
+
+
+<script>
+    function markAttendance(){
+    
+        var employeeID = [document.getElementById("employeeID").value];
+
+        alert(employeeID);
+
+        //var taskTable = JSON.stringify(OverallTask);
+    
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                alert("Expense number " + this.responseText + " is added");
+                
+            }
+        };
+        alert(employeeID);
+        xhttp.open("GET", "./markAttendance/" + employeeID, true);
+        xhttp.send();
+    }
+</script>
+
+
 </body>
 
 </html>

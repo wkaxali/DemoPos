@@ -32,6 +32,10 @@ class investorController extends Controller
         return $id;
 }
 
+function getInvestorData(){
+    $data=DB:: select('select * from vw_stockdetails where Category = 20');
+    return $data;
+  }
 
 }
 

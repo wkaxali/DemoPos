@@ -510,7 +510,7 @@
                             <div class="btn-group ml-3 mt-3" id="basicExample" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-secondary-1">66%</button>
                                 <button type="button" class="btn btn-dark-1">2/3 Complete</button> <button id="MainSpan"
-                                    type="button" class="btn btn-secondary-1"><i
+                                    type="button" class="btn btn-secondary-1" onclick="loadHeads()"><i
                                         class="fas fa-plus-circle"></i></button>
 
 
@@ -553,16 +553,9 @@
                                     <input type="text" class="form-control" name="" id="taskSubject">
 
                                     <label for="">Assign To</label><br>
-                                    <select class="selectpicker form-control" data-live-search="true" id="assignedTo"
-                                        tabindex="null">
-                                        <option value=""></option>
-                                        <option value=1>Usama Mehar</option>
-                                        <option value=2>Abdullah Mehar</option>
-                                        <option value=3>Usman</option>
-                                        <option value=4>Waqax Ali</option>
-                                        <option value=4>Rayan Naeem</option>
-
-
+                                    <select style="height: 25px !important; width: 158px !important; "
+                                        class="selectpicker form-control"  data-live-search="true"  id="assignTo" >
+                            
                                     </select>
                                     <label for="">Details</label>
                                     <table id="subTasks">
@@ -615,15 +608,9 @@
                                             class="btn">Easily</button>
                                     </div><br>
                                     <label for="">Category</label><br>
-                                    <select class="selectpicker form-control" data-live-search="true" id="category"
-                                        tabindex="null">
-                                        <option value=""></option>
-                                        <option value=1>Usama Mehar</option>
-                                        <option value=2>Abdullah Mehar</option>
-                                        <option value=3>Usman</option>
-                                        <option value=4>Waqax Ali</option>
-
-
+                                    <select style="height: 25px !important; width: 158px !important; "
+                                        class="selectpicker form-control"  data-live-search="true"  id="category" >
+                            
                                     </select>
 
                                 </div>
@@ -843,7 +830,7 @@
         function addTasks() {
 
             var taskSubject = document.getElementById("taskSubject").value;
-            var assignedTo = document.getElementById("assignedTo").value;
+            var assignedTo = document.getElementById("assignTo").value;
             var dueDate = document.getElementById("date").value;
             var category = document.getElementById("category").value;
             //var taskSubject = document.getElementById("taskSubject").value;
@@ -860,11 +847,10 @@
                 taskDetails[row] = [
 
 
-                    $(tr).find('td:eq(1)').text(), //Amount
-
+                    $(tr).find('td:eq(1) input[type="text"]').val(),
 
                 ];
-
+            
 
             });
             //expenseDetails.shift();
@@ -890,8 +876,53 @@
 
     </script>
 
+<script>
+function loadHeads(){
+    loadEmployees();
+    loadCategory();
+}
+
+</script>
 
 
+
+<script>
+function loadEmployees(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("assignTo").innerHTML = this.response;
+            $('#assignTo').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getEmployees/", true);
+    
+    xhttp.send();
+
+
+    }
+
+function loadCategory(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("category").innerHTML = this.response;
+            $('#category').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getCategory/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
 
 
 </body>

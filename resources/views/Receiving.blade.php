@@ -114,7 +114,10 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+<<<<<<< HEAD
 /* THis is receiveing Media Query */
+=======
+>>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
         .orderNOLabel {
             width: 130px;
         }
@@ -137,8 +140,11 @@
                 width: 109px;
             }
         }
+<<<<<<< HEAD
 
 /* Receiving Media Query Ends */
+=======
+>>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
     </style>
 </head>
 
@@ -152,8 +158,13 @@
                 </div>
             </div>
             <div class="row">
+<<<<<<< HEAD
                 <div class="col-md-12">
                     <label class="orderNOLabel" for="OrderNo">Order No</label>
+=======
+                <div class="col-md-6">
+                <label class="orderNOLabel" for="OrderNo">Order No</label>
+>>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
                     <input type="text" name="" value="" id="OrderId">
                     <button class="btn btn-info" onclick="getOrderDetails()">o</button>
                 </div>

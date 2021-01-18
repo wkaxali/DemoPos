@@ -205,12 +205,59 @@ class AddMenucontroller extends Controller
 
         $results=DB::select('select * from  vw_stockdetails');
         
-       
-       
-
-
-
-
         return $results;
     }
+
+    public static function loadProductCategory(){
+        $data=DB:: select('select * from tblpcategory');
+        
+        $option='';
+    
+    
+        foreach ($data as $d){
+          //print $option;
+    
+            $option=$option.'
+            <option value= '.$d->PCID.'>'.$d->CategoryName.'</option>';
+          
+        }
+        return $option;
+      }
+
+      public static function insertProduct(Request $request, $CO){
+
+        $obj=json_decode($CO);
+        $ProductName=$obj[0];
+        $ProductCat=$obj[1];
+        $Productsaleprice=$obj[2];
+        $ProductCost=$obj[3];
+        $Description=$obj[4];
+        
+        $ProductSerial=DB::table('productdefination')->insertGetId([
+        'ProductName'=>$ProductName,
+        'Category'=>$ProductCat,
+        ]);
+        DB::table('productdefination')
+        ->where('ProductSerial', $ProductSerial)
+        ->update(['ProductID' =>$ProductSerial,
+        'Barcode' =>'*'.$ProductSerial.'*'
+     
+        ]);
+
+        $id2=DB::table('instock')->insertGetId([
+            'ProductSerial'=>$ProductSerial,
+            'StockIn'=>'1',
+            
+             
+            
+            'TotalCost'=>$ProductCost,
+            'TotalSaleAmount'=>$Productsaleprice,
+            'PerUnitSalePrice'=>$Productsaleprice,
+            'PerUnitPurchasePrice'=>$ProductCost,
+            'Remarks'=>$Description,
+            ]);
+
+        return $ProductSerial;
+}
+
 }

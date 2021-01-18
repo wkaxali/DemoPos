@@ -44,7 +44,7 @@ public static function employeeData(){
     $card="";
     $data=DB:: select('select * from vw_employeetask');
     foreach ($data as $obj){
-        $card=$card.'<div class="card">
+        $card=$card.'<div class="card" >
 
         <div class="card-body">
             <div class="mainCardBody">
@@ -83,16 +83,48 @@ public static function employeeData(){
                     </div>
                 </div>
             </div>
-        </div>';
+        </div></div>';
 
     }
 
 
     return $card;
-
-
      
 }
+
+public static function getEmployees(){
+    $data=DB:: select('select * from tblemployees');
+    
+    $option='';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->EID.'>'.$d->FirstName.' '.$d->LastName.'</option>';
+      
+    }
+    return $option;
+  }
+
+  public static function getCategory(){
+    $data=DB:: select('select * from tblemployees');
+    
+    $option='';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->EID.'>'.$d->FirstName.' '.$d->LastName.'</option>';
+      
+    }
+    return $option;
+  }
+
+
 }
 
   

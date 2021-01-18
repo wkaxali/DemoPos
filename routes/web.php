@@ -9,7 +9,7 @@ use App\Http\Controllers\OrderFlowController;
 
 use App\Http\Controllers\UpdateStocksController;
 
-
+use App\Http\Controllers\payController;
 
 
 
@@ -17,6 +17,9 @@ use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
 use App\Http\Controllers\taskController;
+use App\Http\Controllers\attendanceController;
+use App\Http\Controllers\accountsController;
+use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 
 
 /*
@@ -48,8 +51,12 @@ Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistor
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
-
+Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
+Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
+Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
+Route::get('/getAllAutos',[UpdateStocksController::class, 'getAllAutos']);
+
 
 
 // Test Functions
@@ -65,38 +72,36 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor'] );
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense'] );
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks'] );
+Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance'] );
 Route::get('/getEmployeeData',[taskController::class, 'employeeData'] );
+Route::get('/getAttendance',[attendanceController::class, 'getAttendance'] );
+Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID'] );
+Route::get('/getEmployeeName',[payController::class, 'getEmployeeName'] );
+Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC'] );
+Route::get('/getEmployeeID',[payController::class, 'getEmployeeID'] );
+Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact'] );
+Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory'] );
+Route::get('/getPartyNames',[expenseController::class, 'getPartyNames'] );
+Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
+Route::get('/getCategory',[taskController::class, 'getCategory'] );
+Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 
 
-
-
-
-Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
+Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative'] );
+Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive'] );
 
 
 Route::get('/', function () {
     return view('signInSignUp');
 });
-Route::get('/investor', function () {
-    return view('investors');
-});
-
-Route::get('/inv', function () {
-    return view('investors');
-});
-
-Route::get('/invgl', function () {
-    return view('investorGeneralLedger');
-});
-
 Route::get('/db', function () {
     return view('dashboard');
 });
-Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'fetchMenu'] );
+Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct'] );
 
 
-Route::get('/am', function () {
-    return view('addMenu');
+Route::get('/as', function () {
+    return view('addNewStock');
 });
 
 Route::get('/bo', function () {
@@ -106,9 +111,6 @@ Route::get('/bo', function () {
 Route::get('/cl', function () {
     return view('companyLedger');
 });
-Route::get('/d', function () {
-    return view('delivery');
-});
 Route::get('/dl', function () {
     return view('deliveryLetter');
 });
@@ -117,9 +119,6 @@ Route::get('/ip', function () {
 });
 Route::get('/is', function () {
     return view('invoiceServices');
-});
-Route::get('/investorLedger', function () {
-    return view('investorLedger');
 });
 Route::get('/psi', function () {
     return view('printSaleInvoice');
@@ -158,9 +157,9 @@ Route::get('/scratch', function () {
 Route::get('/ex', function () {
     return view('expense');
 });
-Route::get('/ct', function () {
-    return view('comissionAndTaxes');
-});
+//Route::get('/ct', function () {
+    //return view('comissionAndTaxes');
+//});
 Route::get('/s', function () {
     return view('salesandc');
 });
@@ -180,8 +179,28 @@ Route::get('/ev', function () {
 Route::get('/etv', function () {
     return view('EmployeeTaskView');
 });
+Route::get('/at', function () {
+    return view('attendance');
+});
+Route::get('/atv', function () {
+    return view('attendanceView');
+});
+
+Route::get('/il', function () {
+    return view('Ledger');
+});
+
+Route::get('/igl', function () {
+    return view('investorGeneralLedger');
 Route::get('/pr', function () {
     return view('payRoll');
 });
 
+});
 
+Route::get('/inv', function () {
+    return view('investors');
+});
+Route::get('/pr', function () {
+    return view('payRoll');
+});
