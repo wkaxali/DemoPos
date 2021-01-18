@@ -45,7 +45,8 @@
             float: right !important;
         }
 
-        #myTable th,
+
+        #mainStockTable th,
         td {
             padding: 2px !important;
         }
@@ -172,7 +173,7 @@
                 <div class="col-md-1" style="margin-left: -32px;margin-top: 2.5px; ">
                     <button type="button"
                         style=" border-radius: 10px; height: 90px; background-color:#13579a; color: #ffffff;"
-                        class="btn " data-toggle="modal" data-target=".bd-example-modal-lg">Assign
+                        class="btn " data-toggle="modal" data-target=".bd-example-modal-lg" onclick="getStock()">Assign
                         Auto</button>
                 </div>
             </div>
@@ -185,59 +186,21 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="tableParent">
-                        <table class="table-bordered" id="myTable">
+                        <table class="table-bordered" id="mainStockTable">
                             <thead>
-                                <tr>
-                                    <th>Sale ID</th>
-                                    <th>Modal</th>
-                                    <th>Total Cost</th>
-                                    <th>Sale Pr</th>
-                                    <th>Share</th>
-                                    <th>Status</th>
-                                    <th>Details</th>
+                            <tr>
+                                    <th>Product Id</th>
+                                    <th>Product Name</th>
+                                    <th>Company</th>
+                                    <th>Unit Sale Price</th>
+                                    <th>Unit Purchase Price</th>
+                                    <th>Stock</th>
+                                    <th>Engine Number</th>
+                                    <th>Chasis Number</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>20242</td>
-                                    <td>2021</td>
-                                    <td>13,000,000</td>
-                                    <td>14,500,300</td>
-                                    <td>Waqas</td>
-                                    <td>Received</td>
-                                    <td><a href="#">Details</a></td>
-
-                                </tr>
-                                <tr>
-                                    <td>20242</td>
-                                    <td>2021</td>
-                                    <td>13,000,000</td>
-                                    <td>14,500,300</td>
-                                    <td>Waqas</td>
-                                    <td>Received</td>
-                                    <td><a href="#">Details</a></td>
-
-                                </tr>
-                                <tr>
-                                    <td>20242</td>
-                                    <td>2021</td>
-                                    <td>13,000,000</td>
-                                    <td>14,500,300</td>
-                                    <td>Waqas</td>
-                                    <td>Received</td>
-                                    <td><a href="#">Details</a></td>
-
-                                </tr>
-                                <tr>
-                                    <td>20242</td>
-                                    <td>2021</td>
-                                    <td>13,000,000</td>
-                                    <td>14,500,300</td>
-                                    <td>Waqas</td>
-                                    <td>Received</td>
-                                    <td><a href="#">Details</a></td>
-
-                                </tr>
+                               
                             </tbody>
 
                         </table>
@@ -313,56 +276,20 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <table style="width: 100%;" class=" table table-bordered" id="myTables">
+                        <table style="width: 100%;" class=" table table-bordered" id="stockTable">
                             <thead>
-                                <tr id="mainRowGame">
-                                    <th>Sale ID</th>
-                                    <th>Modal</th>
-                                    <th>Total Cost</th>
-                                    <th>Sale Pr</th>
-                                    <th>Share</th>
-                                    <th>Status</th>
+                                <tr>
+                                    <th>Product Id</th>
+                                    <th>Product Name</th>
+                                    <th>Company</th>
+                                    <th>Unit Sale Price</th>
+                                    <th>Unit Purchase Price</th>
+                                    <th>Stock</th>
+                                    <th>Engine Number</th>
+                                    <th>Chasis Number</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>20242</td>
-                                    <td>2021</td>
-                                    <td>13,000,000</td>
-                                    <td>14,500,300</td>
-                                    <td>Waqas</td>
-                                    <td>Received</td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>20242</td>
-                                    <td>2021</td>
-                                    <td>13,000,000</td>
-                                    <td>14,500,300</td>
-                                    <td>Waqas</td>
-                                    <td>Received</td>
-
-
-                                </tr>
-                                <tr>
-                                    <td>20242</td>
-                                    <td>2021</td>
-                                    <td>13,000,000</td>
-                                    <td>14,500,300</td>
-                                    <td>Waqas</td>
-                                    <td>Received</td>
-
-                                </tr>
-                                <tr>
-                                    <td>242</td>
-                                    <td>2021</td>
-                                    <td>13,000,000</td>
-                                    <td>14,500,300</td>
-                                    <td>Waqas</td>
-                                    <td>Received</td>
-
-                                </tr>
                             </tbody>
 
                         </table>
@@ -387,12 +314,12 @@
     </script>
     <script>
         $(document).ready(function () {
-            $('#myTable').DataTable();
+            $('#mainStockTable').DataTable();
         });
 
     </script>
     <script>
-        $("#myTables").on('click', 'tr', function () {
+        $("#stockTable").on('click', 'tr', function () {
 
 
 
@@ -403,10 +330,12 @@
             var cell4 = this.cells[3].innerText;
             var cell5 = this.cells[4].innerText;
             var cell6 = this.cells[5].innerText;
+            var cell7 = this.cells[6].innerText;
+            var cell8 = this.cells[7].innerText;
 
 
-            var addtable = document.getElementById("myTable");
-            var row = addtable.insertRow(-1);
+            var addtable = document.getElementById("mainStockTable");
+            var row = addtable.insertRow(1);
             var mcell1 = row.insertCell(0);
             var mcell2 = row.insertCell(1);
             var mcell3 = row.insertCell(2);
@@ -423,17 +352,63 @@
             mcell4.innerHTML = cell4;
             mcell5.innerHTML = cell5;
             mcell6.innerHTML = cell6;
-            mcell7.innerHTML = "<a href='#'>Details</a>";
-
-
-
-
-
-
-
+            mcell7.innerHTML = cell7;
+            mcell8.innerHTML = cell8;
         });
 
     </script>
+
+<script>
+    function sailPriceTotal(){
+        var table = document.getElementById("stockTable");
+        var sum = 0;
+    
+        for(var i = 1; i < table.rows.length; i++)
+                {
+                    sum = sum + parseInt(table.rows[i].cells[4].innerHTML);
+                }
+                alert(sum)
+                document.getElementById("totalPaid").value = sum;
+    }
+    </script>
+
+<script>
+function getStock(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            var data = this.responseText;
+                //alert(data);
+                var table;
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                table = $('#stockTable').DataTable();
+                table.clear();
+                $.each(a, function (i, item) {
+
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].TotalSaleAmount, a[i].TotalCost,
+                    a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
+                });
+                table.draw();
+
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./viewSoldStock/", true);
+    
+    xhttp.send();
+    }
+    
+  
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#stockTable').DataTable();
+        });
+        
+</script>
 </body>
 
 </html>

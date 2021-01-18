@@ -14,7 +14,7 @@
     
 
 
-    <title>Expense</title>
+    <title>Payments</title>
     <style>
         .footerBtns {
             float: right !important;
@@ -28,7 +28,7 @@
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
-            / background-color:#0a549d !important; /
+            /* background-color:#0a549d !important; */
             margin: 5px 0px !important;
 
         }
@@ -101,7 +101,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h4>Expense</h4>
+                    <h4>Payments</h4>
                 </div>
             </div>
         </div>
@@ -109,29 +109,10 @@
 
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row borderCustom-2">
-                        <div class="col-md-5 offset-md-1">
-                            <h5>Current Expenses</h5>
-                            <input type="tel" value="43,360" name="" id="">
-                            <h5>From Dec 25 to Jan 20</h5>
-                        </div>
-                        <div class="col-md-4 offset-md-2">
-                            <h5>Your Expenses</h5>
-                            <input type="tel" value="50,000" name="" id="">
-                            <div class="mainButtons my-1">
-                                <button style="background-color: #0a549d; color: #ffffff;" class="btn ">Add</button>
-                                <button style="background-color: #e61d2f; color: #ffffff;" class="btn ">View
-                                    Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="row customBorder">
                 <div class="col-md-4">
-                    <h4>Add Expense</h4>
+                    <h4>Add Payments</h4>
                 </div>
             </div>
         </div>
@@ -199,7 +180,6 @@
                                     <th>Date</th>
                                     <th>Amount</th>
                                     <th>Expense ID</th>
-                                  
                                     <th>Paid To</th>
                                     <th>Paid By</th>
                                     <th>Remarks</th>
@@ -252,16 +232,7 @@
     </script>
 
     <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
-        });
-
-
-
-
-
-    
-      
+        
       function add() {
 
          var date = document.getElementById("date").value;
@@ -284,18 +255,23 @@
           var cell6 = row.insertCell(5);
           var cell7 = row.insertCell(6);
           var cell8 = row.insertCell(7);
-       
+          var cell9 = row.insertCell(8);
+          var cell10 = row.insertCell(9);
           
           cell1.innerHTML = date  ;
           cell2.innerHTML = amount ;
           cell3.innerHTML = expense.options[expense.selectedIndex].value;
           cell4.innerHTML = expenseID;
-          cell5.innerHTML = paidto.options[paidto.selectedIndex].value;
-          cell6.innerHTML = paidby.options[paidby.selectedIndex].value;
-          cell7.innerHTML = remarks;
-          cell8.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
+          cell5.innerHTML = paidto.options[paidto.selectedIndex].text;
+          cell6.innerHTML = paidby.options[paidby.selectedIndex].text;
+          cell7.innerHTML = paidto.options[paidto.selectedIndex].value;
+          cell8.innerHTML = paidby.options[paidby.selectedIndex].value;
+          cell9.innerHTML = remarks;
+          cell10.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
           
           cell4.style.display = "none";
+          cell7.style.display = "none";
+          cell8.style.display = "none";
         
      
 
@@ -333,6 +309,7 @@ document.getElementById("mainTotal").value=tot;
         var expenseDetails = [];
         var table = document.getElementById("expenseTable");
 
+
         //alert(sp);
         $('#expenseTable tr').each(function (row, tr) {
 
@@ -344,16 +321,21 @@ document.getElementById("mainTotal").value=tot;
                 $(tr).find('td:eq(3)').text(), //Expense ID
                
                
-                $(tr).find('td:eq(4)').text(), //Paid To
-                $(tr).find('td:eq(5)').text(), //Paid By
-                $(tr).find('td:eq(6)').text(), //Remarks
-                $(tr).find('td:eq(7)').text()
+                //$(tr).find('td:eq(4)').text(), //Paid To
+                //$(tr).find('td:eq(5)').text(), //Paid By
+
+                $(tr).find('td:eq(6)').text(), //Paid To ID
+                $(tr).find('td:eq(7)').text(), //Paid By ID
+
+                $(tr).find('td:eq(8)').text(), //Remarks
+                $(tr).find('td:eq(9)').text()
             ];
 
 
         });
         expenseDetails.shift();
         var expTable = JSON.stringify(expenseDetails);
+        alert(expTable);
         var xhttp = new XMLHttpRequest();
 
         xhttp.onreadystatechange = function () {
@@ -434,15 +416,6 @@ function loadAccounts(){
     xhttp.send();
     }
 </script>
-
-
-<script>
-        // $(document).ready(function () {
-        //     $('#expenseTable').DataTable();
-        // });
-</script>
-
-
 
 </body>
 

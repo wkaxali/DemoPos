@@ -1327,9 +1327,15 @@
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
                 <div class="total-buttons" id="hideme">
+<<<<<<< HEAD
                     <button class="btn" style="background-color: #0a549d;" onclick="insertInSales()">Save</button>
                     <button class="btn" style="background-color: #e61d2f ;">Print</button>
                     <button class="btn" style="background-color:#0a549d;">Edit</button>
+=======
+                    <button class="btn btn-info" onclick="insertInOrder()">Save</button>
+                    <button class="btn btn-info">Hold</button>
+                    <button class="btn btn-info">Save</button>
+>>>>>>> 213506c6d6c3ac8ce51ae49b2d4a3ca06e3fad0a
                 </div>
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #e61d2f;">Hold</button>
@@ -1547,7 +1553,7 @@
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./getInvoiceID", true);
+        xhttp.open("GET", "./getOrderId", true);
 
         xhttp.send();
 
@@ -1757,7 +1763,7 @@
 
 
 
-    function insertInSales() {
+    function insertInOrder() {
 
         var myTrows = [];
         var table = document.getElementById("ProductSaleTable");
@@ -1769,7 +1775,7 @@
             myTrows[row] = [
 
                 $(tr).find('td:eq(0)').text(), //productID
-                $(tr).find('td:eq(3)').text(), //salePrice
+                $(tr).find('td:eq(3)').text(), //purchase
                 $(tr).find('td:eq(4) input[type="text"]').val(), //qty
                 $(tr).find('td:eq(5) input[type="text"]').val(), //discount
                 $(tr).find('td:eq(6)').text() //totamount
@@ -1817,7 +1823,12 @@
 
             }
         };
+<<<<<<< HEAD
         xhttp.open("GET", "./addSalesForSS/" + array, true);
+=======
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+>>>>>>> 213506c6d6c3ac8ce51ae49b2d4a3ca06e3fad0a
         xhttp.send();
     };
 

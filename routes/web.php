@@ -62,6 +62,8 @@ Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDet
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail'] );
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
+
+Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 
 
@@ -83,8 +85,7 @@ Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos',[UpdateStocksController::class, 'getAllAutos']);
-
-
+Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
@@ -189,16 +190,6 @@ Route::get('/scratch', function () {
 Route::get('/ex', function () {
     return view('expense');
 });
-//Route::get('/ct', function () {
-    //return view('comissionAndTaxes');
-//});
-Route::get('/s', function () {
-    return view('salesandc');
-});
-
-Route::get('/ex', function () {
-    return view('expense');
-});
 Route::get('/ct', function () {
     return view('comissionAndTaxes');
 });
@@ -219,17 +210,17 @@ Route::get('/atv', function () {
 });
 
 Route::get('/il', function () {
-    return view('Ledger');
+    return view('investorLedger');
 });
-
+Route::get('/il', function () {
+    return view('investorLedger');
+});
 Route::get('/igl', function () {
     return view('investorGeneralLedger');
+});
 Route::get('/pr', function () {
     return view('payRoll');
 });
-
-});
-
 Route::get('/inv', function () {
     return view('investors');
 });
