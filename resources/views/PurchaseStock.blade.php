@@ -1199,7 +1199,7 @@ border-radius:30px;
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
                 <div class="total-buttons" id="hideme">
-                    <button class="btn btn-info" onclick="insertInSales()">Save</button>
+                    <button class="btn btn-info" onclick="insertInOrder()">Save</button>
                     <button class="btn btn-info">Hold</button>
                     <button class="btn btn-info">Save</button>
                 </div>
@@ -1419,7 +1419,7 @@ border-radius:30px;
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./getInvoiceID", true);
+        xhttp.open("GET", "./getOrderId", true);
 
         xhttp.send();
 
@@ -1629,7 +1629,7 @@ border-radius:30px;
 
 
 
-    function insertInSales() {
+    function insertInOrder() {
 
         var myTrows = [];
         var table = document.getElementById("ProductSaleTable");
@@ -1641,7 +1641,7 @@ border-radius:30px;
             myTrows[row] = [
 
                 $(tr).find('td:eq(0)').text(), //productID
-                $(tr).find('td:eq(3)').text(), //salePrice
+                $(tr).find('td:eq(3)').text(), //purchase
                 $(tr).find('td:eq(4) input[type="text"]').val(), //qty
                 $(tr).find('td:eq(5) input[type="text"]').val(), //discount
                 $(tr).find('td:eq(6)').text() //totamount
@@ -1691,7 +1691,7 @@ border-radius:30px;
             }
         };
         // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addSalesForSS/" + array, true);
+        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
         xhttp.send();
     };
 

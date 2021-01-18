@@ -62,6 +62,8 @@ Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDet
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail'] );
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
+
+Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 
 
@@ -207,8 +209,8 @@ Route::get('/atv', function () {
     return view('attendanceView');
 });
 
-Route::get('/l', function () {
-    return view('Ledger');
+Route::get('/il', function () {
+    return view('investorLedger');
 });
 Route::get('/il', function () {
     return view('investorLedger');
