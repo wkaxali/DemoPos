@@ -179,7 +179,7 @@
             margin: 10px 0px;
         }
 
-      
+
 
         .my-div {
             background-color: #ffffff;
@@ -747,7 +747,7 @@
             overflow: hidden;
         }
 
-      
+
 
         #kt_body .sign-in-form input {
             border: none !important;
@@ -1047,6 +1047,11 @@
             .okay-invo-hide {
                 display: none;
             }
+        }
+
+        body {
+            background-color: lightblue;
+
         }
 
     </style>
@@ -1797,7 +1802,7 @@
         var SCB = document.getElementById("CurrentBalance").value;
         myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB];
 
- 
+
 
 
         var array = JSON.stringify(myRow2);

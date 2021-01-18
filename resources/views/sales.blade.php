@@ -1021,8 +1021,8 @@
         }
 
         @media only screen and (max-width: 768px) {
-          
-            .overFlowingTable table thead th{
+
+            .overFlowingTable table thead th {
                 font-size: 10px !important;
             }
 
@@ -1063,6 +1063,11 @@
             .okay-invo-hide {
                 display: none;
             }
+        }
+
+        body {
+            /* background-color: lightcoral; */
+            background-color: lightsalmon;
         }
 
     </style>
@@ -1107,29 +1112,29 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="overFlowingTable"
-                                    style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
+                                        style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
 
 
-                                    <table class="table  table-bordered " id="searchProductTable">
-                                        <thead>
-                                            <tr>
+                                        <table class="table  table-bordered " id="searchProductTable">
+                                            <thead>
+                                                <tr>
 
-                                                <th>Product Id</th>
+                                                    <th>Product Id</th>
 
-                                                <th>Product Name</th>
-                                                <th>Company</th>
-                                                <th>Price</th>
-                                                <th>Stock</th>
-
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                                    <th>Product Name</th>
+                                                    <th>Company</th>
+                                                    <th>Price</th>
+                                                    <th>Stock</th>
 
 
-                                        </tbody>
-                                    </table>
-                                </div>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
