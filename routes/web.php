@@ -19,6 +19,9 @@ use App\Http\Controllers\salesFlow;
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\attendanceController;
 use App\Http\Controllers\accountsController;
+use App\Http\Controllers\getProducts;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\serviceSalesFlow;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 
 
@@ -40,6 +43,24 @@ Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu'] );
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories'] );
 Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu'] );
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu'] );
+
+
+Route::get('/getAllProducts',[getProducts::class, 'getAllProducts'] );
+
+
+//---------------------------//
+Route::get('/addCustomer/{data}',[CustomerController::class, 'check'] );
+
+Route::get('/getAllCustomers/',[CustomerController::class, 'getAllCustomers'] );
+Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail'] );
+
+//__________________________Sales Flow___________________________________
+Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
+Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
+
+
+Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
+
 
 
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
@@ -68,7 +89,7 @@ Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts'] );
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 
-Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
+//Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor'] );
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense'] );
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks'] );
@@ -93,6 +114,9 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 Route::get('/', function () {
     return view('signInSignUp');
+});
+Route::get('/ss', function () {
+    return view('sales');
 });
 Route::get('/db', function () {
     return view('dashboard');
