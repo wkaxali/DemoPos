@@ -45,6 +45,7 @@
             float: right !important;
         }
 
+
         #mainStockTable th,
         td {
             padding: 2px !important;
