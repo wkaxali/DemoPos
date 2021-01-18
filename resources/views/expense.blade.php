@@ -63,7 +63,7 @@
             margin-top: 10px;
         }
 
-        .expenseTable {
+        .expenseTableID {
             border: 1px solid #333;
             height: 400px;
             overflow: auto !important;
@@ -101,7 +101,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h4>Expense</h4>
+                    <h4>Payments</h4>
                 </div>
             </div>
         </div>
@@ -109,29 +109,9 @@
 
     <section>
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row borderCustom-2">
-                        <div class="col-md-5 offset-md-1">
-                            <h5>Current Expenses</h5>
-                            <input type="tel" value="43,360" name="" id="">
-                            <h5>From Dec 25 to Jan 20</h5>
-                        </div>
-                        <div class="col-md-4 offset-md-2">
-                            <h5>Your Expenses</h5>
-                            <input type="tel" value="50,000" name="" id="">
-                            <div class="mainButtons my-1">
-                                <button style="background-color: #0a549d; color: #ffffff;" class="btn ">Add</button>
-                                <button style="background-color: #e61d2f; color: #ffffff;" class="btn ">View
-                                    Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="row customBorder">
                 <div class="col-md-4">
-                    <h4>Add Expense</h4>
+                    <h4>Add Payments</h4>
                 </div>
             </div>
         </div>
@@ -193,7 +173,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="expenseTable">
-                        <table id="expenseTable" class="table-bordered table-striped table-hover" style="width: 100%;">
+                        <table id="expenseTableID" class="table-bordered table-striped table-hover" style="width: 100%;">
                             <thead>
                                 <tr>
                                     <th>Date</th>
@@ -206,6 +186,7 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
+                                
                             <tbody>
                             </tbody>
                         </table>
@@ -252,16 +233,7 @@
     </script>
 
     <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
-        });
-
-
-
-
-
-    
-      
+        
       function add() {
 
          var date = document.getElementById("date").value;
@@ -274,7 +246,7 @@
        
          
 
-          var table = document.getElementById("expenseTable");
+          var table = document.getElementById("expenseTableID");
           var row = table.insertRow(-1);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -286,8 +258,8 @@
           var cell8 = row.insertCell(7);
        
           
-          cell1.innerHTML = date  ;
-          cell2.innerHTML = amount ;
+          cell1.innerHTML = date;
+          cell2.innerHTML = amount;
           cell3.innerHTML = expense.options[expense.selectedIndex].value;
           cell4.innerHTML = expenseID;
           cell5.innerHTML = paidto.options[paidto.selectedIndex].value;
@@ -314,10 +286,10 @@
 
       function calculatonInTable(){
 
-var t=document.getElementById("expenseTable");
+var t=document.getElementById("expenseTableID");
 var tot=0;
 
-var x = document.getElementById("expenseTable").rows.length;
+var x = document.getElementById("expenseTableID").rows.length;
 
 for (var i = 1; i <x ; i++){
     tot=tot+Number(t.rows[i].cells[1].innerText);
@@ -331,10 +303,10 @@ document.getElementById("mainTotal").value=tot;
     function addExpenses()
 {
         var expenseDetails = [];
-        var table = document.getElementById("expenseTable");
+        var table = document.getElementById("expenseTableID");
 
         //alert(sp);
-        $('#expenseTable tr').each(function (row, tr) {
+        $('#expenseTableID tr').each(function (row, tr) {
 
             expenseDetails[row] = [
 
@@ -352,7 +324,7 @@ document.getElementById("mainTotal").value=tot;
 
 
         });
-        expenseDetails.shift();
+        //expenseDetails.shift();
         var expTable = JSON.stringify(expenseDetails);
         var xhttp = new XMLHttpRequest();
 
@@ -434,15 +406,6 @@ function loadAccounts(){
     xhttp.send();
     }
 </script>
-
-
-<script>
-        $(document).ready(function () {
-            $('#expense').DataTable();
-        });
-</script>
-
-
 
 </body>
 
