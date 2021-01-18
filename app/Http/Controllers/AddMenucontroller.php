@@ -190,7 +190,7 @@ class AddMenucontroller extends Controller
         return $pill;
    
     }
-    function getCategoriesForSelectMenu(){
+    function getAllCategories(){
         $results=DB::select('select * from  tblpcategory');
         $options="";
         
@@ -209,7 +209,7 @@ class AddMenucontroller extends Controller
     }
 
     public static function loadProductCategory(){
-        $data=DB:: select('select * from tblpcategory');
+        $data=DB:: select('select * from tblpcategory where CategoryName <> "Autos"');
         
         $option='';
     
