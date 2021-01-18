@@ -435,8 +435,8 @@
         var catetext = e.options[e.selectedIndex].text;
         cell1.innerHTML = document.getElementById("productName").value;
         cell2.innerHTML = catetext;
-        cell3.innerHTML = document.getElementById("cost").value;
-        cell4.innerHTML = document.getElementById("salePrice").value;
+        cell3.innerHTML = document.getElementById("salePrice").value;
+        cell4.innerHTML = document.getElementById("cost").value;
         cell5.innerHTML = document.getElementById("description").value;
         cell6.innerHTML =
             "<button onclick='deleteRow(this)' class=\"btn btn-danger \" style=\"height: 25px;width: 25px; padding:auto;\"></button>";

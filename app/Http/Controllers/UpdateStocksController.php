@@ -166,4 +166,11 @@ public static function setTotalSaleAmount($PID,$amount){
   return "Cost Updated";
 
 }
+
+function viewSoldStock(){
+  $data=DB:: select('select * from vw_stockdetails where StatusInStock = "Sold"');
+  return $data;
+}
+
+
 }

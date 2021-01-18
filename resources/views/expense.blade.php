@@ -14,7 +14,7 @@
     
 
 
-    <title>Expense</title>
+    <title>Payments</title>
     <style>
         .footerBtns {
             float: right !important;
@@ -63,7 +63,7 @@
             margin-top: 10px;
         }
 
-        .expenseTableID {
+        .expenseTable {
             border: 1px solid #333;
             height: 400px;
             overflow: auto !important;
@@ -109,6 +109,7 @@
 
     <section>
         <div class="container">
+            
             <div class="row customBorder">
                 <div class="col-md-4">
                     <h4>Add Payments</h4>
@@ -173,20 +174,18 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="expenseTable">
-                        <table id="expenseTableID" class="table-bordered table-striped table-hover" style="width: 100%;">
+                        <table id="expenseTable" class="table-bordered table-striped table-hover" style="width: 100%;">
                             <thead>
                                 <tr>
                                     <th>Date</th>
                                     <th>Amount</th>
                                     <th>Expense ID</th>
-                                  
                                     <th>Paid To</th>
                                     <th>Paid By</th>
                                     <th>Remarks</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                                
                             <tbody>
                             </tbody>
                         </table>
@@ -246,7 +245,7 @@
        
          
 
-          var table = document.getElementById("expenseTableID");
+          var table = document.getElementById("expenseTable");
           var row = table.insertRow(-1);
           var cell1 = row.insertCell(0);
           var cell2 = row.insertCell(1);
@@ -256,18 +255,23 @@
           var cell6 = row.insertCell(5);
           var cell7 = row.insertCell(6);
           var cell8 = row.insertCell(7);
-       
+          var cell9 = row.insertCell(8);
+          var cell10 = row.insertCell(9);
           
-          cell1.innerHTML = date;
-          cell2.innerHTML = amount;
+          cell1.innerHTML = date  ;
+          cell2.innerHTML = amount ;
           cell3.innerHTML = expense.options[expense.selectedIndex].value;
           cell4.innerHTML = expenseID;
-          cell5.innerHTML = paidto.options[paidto.selectedIndex].value;
-          cell6.innerHTML = paidby.options[paidby.selectedIndex].value;
-          cell7.innerHTML = remarks;
-          cell8.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
+          cell5.innerHTML = paidto.options[paidto.selectedIndex].text;
+          cell6.innerHTML = paidby.options[paidby.selectedIndex].text;
+          cell7.innerHTML = paidto.options[paidto.selectedIndex].value;
+          cell8.innerHTML = paidby.options[paidby.selectedIndex].value;
+          cell9.innerHTML = remarks;
+          cell10.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
           
           cell4.style.display = "none";
+          cell7.style.display = "none";
+          cell8.style.display = "none";
         
      
 
@@ -286,10 +290,10 @@
 
       function calculatonInTable(){
 
-var t=document.getElementById("expenseTableID");
+var t=document.getElementById("expenseTable");
 var tot=0;
 
-var x = document.getElementById("expenseTableID").rows.length;
+var x = document.getElementById("expenseTable").rows.length;
 
 for (var i = 1; i <x ; i++){
     tot=tot+Number(t.rows[i].cells[1].innerText);
@@ -303,10 +307,11 @@ document.getElementById("mainTotal").value=tot;
     function addExpenses()
 {
         var expenseDetails = [];
-        var table = document.getElementById("expenseTableID");
+        var table = document.getElementById("expenseTable");
+
 
         //alert(sp);
-        $('#expenseTableID tr').each(function (row, tr) {
+        $('#expenseTable tr').each(function (row, tr) {
 
             expenseDetails[row] = [
 
@@ -316,16 +321,21 @@ document.getElementById("mainTotal").value=tot;
                 $(tr).find('td:eq(3)').text(), //Expense ID
                
                
-                $(tr).find('td:eq(4)').text(), //Paid To
-                $(tr).find('td:eq(5)').text(), //Paid By
-                $(tr).find('td:eq(6)').text(), //Remarks
-                $(tr).find('td:eq(7)').text()
+                //$(tr).find('td:eq(4)').text(), //Paid To
+                //$(tr).find('td:eq(5)').text(), //Paid By
+
+                $(tr).find('td:eq(6)').text(), //Paid To ID
+                $(tr).find('td:eq(7)').text(), //Paid By ID
+
+                $(tr).find('td:eq(8)').text(), //Remarks
+                $(tr).find('td:eq(9)').text()
             ];
 
 
         });
-        //expenseDetails.shift();
+        expenseDetails.shift();
         var expTable = JSON.stringify(expenseDetails);
+        alert(expTable);
         var xhttp = new XMLHttpRequest();
 
         xhttp.onreadystatechange = function () {
