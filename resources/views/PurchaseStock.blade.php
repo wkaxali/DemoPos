@@ -179,13 +179,7 @@
             margin: 10px 0px;
         }
 
-        .row-games {
-            /* padding: 10px; */
-        }
-
-        /* .complete {
-    background-color: #;
-} */
+      
 
         .my-div {
             background-color: #ffffff;
@@ -753,9 +747,7 @@
             overflow: hidden;
         }
 
-        .modal-title {
-            /* font-size: 44px; */
-        }
+      
 
         #kt_body .sign-in-form input {
             border: none !important;
@@ -1355,7 +1347,7 @@
 
     <section>
         <div class="total-buttons mb-5" id="holdPlz" style="text-align: center;">
-            <button class="btn" style="background-color:#0a549d; !important">Save</button>
+            <button class="btn" style="background-color:#0a549d;">Save</button>
             <button class="btn btn-info">Hold</button>
             <button class="btn btn-info">Save</button>
 
@@ -1805,8 +1797,7 @@
         var SCB = document.getElementById("CurrentBalance").value;
         myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB];
 
-        //alert(myRow2[0][1]);
-        //alert(myRow2[11]);
+ 
 
 
         var array = JSON.stringify(myRow2);
@@ -1821,7 +1812,6 @@
 
             }
         };
-        // var MenuID=$('#Menus').find(":selected").val();
         xhttp.open("GET", "./addSalesForSS/" + array, true);
         xhttp.send();
     };
