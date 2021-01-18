@@ -251,7 +251,7 @@
                 max-width: auto;
             }
 
-            #customer {
+            #Supplier {
                 margin: 10px 0px !important;
 
             }
@@ -944,7 +944,7 @@ border-radius:30px;
 </head>
 
 
-<body id="kt_bodys" onload="getAllProducts()">
+<body id="kt_bodys" onload="getPartsAndServices()">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -1029,9 +1029,9 @@ border-radius:30px;
 
             <div class="col-md-6  okay-invo-1">
                 <div class="o-inv">
-                    <label for="invo-1">Customer Id</label>
+                    <label for="invo-1">Supplier Id</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                        name="invo-1" id="CID">
+                        name="invo-1" id="SID">
                     <button class="btn btn-info" style="height: 25px; margin-top: -5px;"></button> <br>
                     <label for="prod-1">Last Balance</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
@@ -1045,9 +1045,9 @@ border-radius:30px;
                 <div class="o-inv-2">
 
 
-                    <label for="issue-3">Customer Name</label>
-                    <select class="selectpicker" data-live-search="true" tabindex="null" id="CustomerName"
-                        onchange="getCurrentCustomerInfo()">
+                    <label for="issue-3">Supplier Name</label>
+                    <select class="selectpicker" data-live-search="true" tabindex="null" id="SupplierName"
+                        onchange="getCurrentSupplierInfo()">
                         <!-- from database -->
                     </select>
 
@@ -1061,7 +1061,7 @@ border-radius:30px;
                     <br>
                     <label for="prod-1">Category</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                        name="invo-1" id="CustomerCategory">
+                        name="invo-1" id="SupplierCategory">
                     <br>
                 </div>
                 <div class="clear">
@@ -1081,16 +1081,16 @@ border-radius:30px;
 
     <div class="registration-form">
         <form>
-	 <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
-	 <h2>Add Customer</h2>
+	 <div class="SupplierAddition  mb-3" style="margin-top:-20px !important;">
+	 <h2>Add Supplier</h2>
 	 
 	 </div>
 		
             <div class="form-group">
-                <input type="text" class="form-control item" autocomplete="OFF" id="username" placeholder="Customer ID">
+                <input type="text" class="form-control item" autocomplete="OFF" id="username" placeholder="Supplier ID">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control item" autocomplete="OFF" id="password" placeholder="Customer Name">
+                <input type="password" class="form-control item" autocomplete="OFF" id="password" placeholder="Supplier Name">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control item" autocomplete="OFF" id="email" placeholder="Email">
@@ -1286,9 +1286,9 @@ border-radius:30px;
 
 
 <script>
-    function getSpacePartsAndServices() {
+    function getPartsAndServices() {
         var xhttp = new XMLHttpRequest();
-        var CID=21;
+        var CatID=21;
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var data = this.responseText;
@@ -1307,10 +1307,10 @@ border-radius:30px;
             }
         };
 
-        xhttp.open("GET", "./getProductByCategory/"+CID, true);
+        xhttp.open("GET", "./getPartsAndServices", true);
         xhttp.send();
         calc();
-        loadAllCustomers();
+        LoadAllSupliers();
         getInvoiceID();
 
 
@@ -1318,37 +1318,38 @@ border-radius:30px;
 
 
 
-    function loadAllCustomers() {
+    function LoadAllSupliers() {
 
 
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("CustomerName").innerHTML =
+                alert(  this.responseText);
+                document.getElementById("SupplierName").innerHTML =
                     this.responseText;
-                $('#CustomerName').selectpicker('refresh');
+                $('#SupplierName').selectpicker('refresh');
 
             }
         };
 
-        xhttp.open("GET", "./getAllCustomers", true);
+        xhttp.open("GET", "./getAllSupliers", true);
         xhttp.send();
     };
 
-    function getCurrentCustomerInfo() {
+    function getCurrentSupplierInfo() {
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var data = this.responseText;
                 var a = JSON.parse(data);
-                document.getElementById("CID").value = a[0].CustomerID;
+                document.getElementById("SID").value = a[0].LID;
                 document.getElementById("LastBalance").value = a[0].Balance;
                 document.getElementById("CurrentBalance").value = a[0].Balance;
                 calc();
-                document.getElementById("CNO").value = a[0].Contect;
-                document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+                document.getElementById("CNO").value = a[0].ContantNo;
+              //  document.getElementById("SupplierCategory").value = a[0].SupplierCatogery;
 
 
 
@@ -1357,41 +1358,41 @@ border-radius:30px;
                 //alert( this.responseText);
             }
         };
-        var CustomerID = $('#CustomerName').find(":selected").val();
+        var SupplierID = $('#SupplierName').find(":selected").val();
 
-        xhttp.open("GET", "./getCustomersInfo/" + CustomerID, true);
+        xhttp.open("GET", "./getSuppliersInfo/" + SupplierID, true);
         xhttp.send();
 
 
     }
 
-    function AddCustomer() {
+    function AddSupplier() {
 
-        var CustomerName = document.getElementById("CustomerName").value;
-        //	alert("It is working"+CustomerName);
+        var SupplierName = document.getElementById("SupplierName").value;
+        //	alert("It is working"+SupplierName);
 
         var password = document.getElementById("password").value;
         //	alert("It is working"+password);
 
-        var CustomerContact = document.getElementById("Contact").value;
-        //alert("It is working"+CustomerContact);
+        var SupplierContact = document.getElementById("Contact").value;
+        //alert("It is working"+SupplierContact);
 
 
-        var CustomerProfession = document.getElementById("Profession").value;
-        //alert("It is working"+CustomerProfession);
+        var SupplierProfession = document.getElementById("Profession").value;
+        //alert("It is working"+SupplierProfession);
 
 
-        var CustomerBalance = 0;
-        //alert("It is working"+CustomerBalance);
+        var SupplierBalance = 0;
+        //alert("It is working"+SupplierBalance);
 
-        var CustomerAddress = document.getElementById("Address").value;
-        //alert("It is working"+CustomerAddress);
+        var SupplierAddress = document.getElementById("Address").value;
+        //alert("It is working"+SupplierAddress);
 
-        var CustomerComments = document.getElementById("Comments").value;
-        //alert("It is working"+CustomerComments);
+        var SupplierComments = document.getElementById("Comments").value;
+        //alert("It is working"+SupplierComments);
 
-        var Customer = [CustomerName, password, CustomerContact, CustomerProfession, CustomerBalance, CustomerAddress,
-            CustomerComments
+        var Supplier = [SupplierName, password, SupplierContact, SupplierProfession, SupplierBalance, SupplierAddress,
+            SupplierComments
         ];
 
         var xhttp = new XMLHttpRequest();
@@ -1400,8 +1401,8 @@ border-radius:30px;
                 //  alert( this.responseText);
             }
         };
-        var EC = JSON.stringify(Customer);
-        xhttp.open("GET", "./addCustomer/" + EC, true);
+        var EC = JSON.stringify(Supplier);
+        xhttp.open("GET", "./addSupplier/" + EC, true);
         xhttp.send();
 
 
@@ -1585,8 +1586,8 @@ border-radius:30px;
         var RBForInvoice = 0;
         RBForInvoice = (Number(tot) - Number(Ap)).toFixed(2);
         document.getElementById('RemainingBalance').value = RBForInvoice;
-        var CustomerLastBalance = document.getElementById('LastBalance').value;
-        var newBalance = Number(CustomerLastBalance) + Number(RBForInvoice);
+        var SupplierLastBalance = document.getElementById('LastBalance').value;
+        var newBalance = Number(SupplierLastBalance) + Number(RBForInvoice);
         document.getElementById("CurrentBalance").value = newBalance;
 
 
@@ -1667,11 +1668,11 @@ border-radius:30px;
         var rmb = document.getElementById("RemainingBalance").value;
 
 
-        var CID = document.getElementById("CID").value;
-        var CLB = document.getElementById("LastBalance").value;
+        var SID = document.getElementById("SID").value;
+        var SLB = document.getElementById("LastBalance").value;
 
-        var CCB = document.getElementById("CurrentBalance").value;
-        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB];
+        var SCB = document.getElementById("CurrentBalance").value;
+        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB];
 
         //alert(myRow2[0][1]);
         //alert(myRow2[11]);

@@ -23,6 +23,8 @@ use App\Http\Controllers\getProducts;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\serviceSalesFlow;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
+use App\Http\Controllers\LedgerPartiesController;
+
 
 
 /*
@@ -47,14 +49,17 @@ Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategories
 
 Route::get('/getAllProducts',[getProducts::class, 'getAllProducts'] );
 Route::get('/getProductByCategory/{CID}',[getProducts::class, 'getProductByCategory'] );
+Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices'] );
+Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties'] );
 
-
-//---------------------------//
+//---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check'] );
 
 Route::get('/getAllCustomers/',[CustomerController::class, 'getAllCustomers'] );
+//Route::get('/getAllSupliers/',[CustomerController::class, 'getAllCustomers'] );
 Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail'] );
 
+Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail'] );
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
