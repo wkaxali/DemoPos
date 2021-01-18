@@ -43,6 +43,12 @@
             border: 1px solid #aaaaaa;
             padding: 5px;
         }
+        .receivingTable{
+            border: 1px solid #333;
+            padding: 10px ;
+            border-radius: 10px;
+            overflow: auto !important;
+        }
     </style>
 </head>
 

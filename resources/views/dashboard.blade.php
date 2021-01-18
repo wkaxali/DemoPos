@@ -20,7 +20,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <style>
-
         h4,
         h5,
         h6,
@@ -5821,6 +5820,213 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: #fff;
         }
 
+        .appointment-form {
+            padding: 10px 60px 0px 60px;
+        }
+
+        .appointment-form input,
+        select {
+            width: 100%;
+            display: block;
+            border: none;
+            border-bottom: 2px solid #ebebeb;
+            padding: 5px 0;
+            color: #222;
+            margin-bottom: 11px;
+            font-family: 'Roboto Slab';
+        }
+
+        .appointment-form input:focus,
+        select:focus {
+            color: #222;
+            border-bottom: 2px solid #4966b1;
+        }
+
+        .appointment-form input[type=checkbox]:not(old) {
+            width: 2em;
+            margin: 0;
+            padding: 0;
+            font-size: 1em;
+            display: none;
+        }
+
+        .appointment-form input[type=checkbox]:not(old)+label {
+            display: inline-block;
+            margin-top: 7px;
+            margin-bottom: 25px;
+        }
+
+        .appointment-form input[type=checkbox]:not(old)+label>span {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            margin-right: 15px;
+            margin-bottom: 3px;
+            border: 1px solid #ebebeb;
+            background: white;
+            background-image: -moz-linear-gradient(white, white);
+            background-image: -ms-linear-gradient(white, white);
+            background-image: -o-linear-gradient(white, white);
+            background-image: -webkit-linear-gradient(white, white);
+            background-image: linear-gradient(white, white);
+            vertical-align: bottom;
+        }
+
+        .appointment-form input[type=checkbox]:not(old):checked+label>span {
+            background-image: -moz-linear-gradient(white, white);
+            background-image: -ms-linear-gradient(white, white);
+            background-image: -o-linear-gradient(white, white);
+            background-image: -webkit-linear-gradient(white, white);
+            background-image: linear-gradient(white, white);
+        }
+
+        .appointment-form input[type=checkbox]:not(old):checked+label>span:before {
+            content: '\f26b';
+            display: block;
+            color: #222;
+            font-size: 11px;
+            line-height: 1.2;
+            text-align: center;
+            font-family: 'Material-Design-Iconic-Font';
+            font-weight: bold;
+        }
+
+        .appointment-form .label-agree-term {
+            color: #999;
+        }
+
+        .appointment-form .term-service {
+            color: #222;
+        }
+
+        .appointment-form .submit {
+            width: auto;
+            background: #4966b1;
+            color: #fff;
+            padding: 16px 17px;
+            font-size: 13px;
+            border: none;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -o-border-radius: 5px;
+            -ms-border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+            -moz-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+            -webkit-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+            -o-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+            -ms-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+        }
+
+        .appointment-form .submit:hover {
+            background: #3a518d;
+        }
+
+        .appointment-form ul {
+            background: 0 0;
+            z-index: 9;
+        }
+
+        .appointment-form ul li {
+            padding: 3px 0px;
+            z-index: 2;
+            color: #999;
+        }
+
+        ul li:last-child {
+            border-bottom: 1px solid #ebebeb;
+        }
+
+        .appointment-form ul li:not(.init) {
+            display: none;
+            background: #fff;
+            color: #222;
+            padding: 5px 10px;
+            border-left: 1px solid #ebebeb;
+            border-right: 1px solid #ebebeb;
+            border-top: 1px solid #ebebeb;
+        }
+
+        .appointment-form ul li:not(.init):hover,
+        ul li.selected:not(.init) {
+            background: #4966b1;
+            color: #fff;
+        }
+
+        .appointment-form li.init {
+            cursor: pointer;
+            position: relative;
+            border-bottom: 2px solid #ebebeb;
+        }
+
+        .appointment-form li.init:after {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            font-size: 20px;
+            color: #999;
+            font-family: 'Material-Design-Iconic-Font';
+            content: '\f2f9';
+        }
+
+        .appointment-form #confirm_type {
+            margin-bottom: 30px;
+        }
+
+        .appointment-form .form-group-2 {
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .appointment-form .form-check {
+            margin-bottom: 20px;
+        }
+
+        .appointment-form .select-list {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 55px;
+        }
+
+        .appointment-form .list-item {
+            position: absolute;
+            width: 100%;
+        }
+
+        .appointment-form #confirm_type {
+            z-index: 99;
+        }
+
+        .appointment-form #hour_appointment {
+            z-index: 9;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .container {
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: calc(100% - 30px);
+                max-width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .appointment-form {
+                padding: 50px 30px 70px 30px;
+            }
+        }
+
         .btn-my::before {
             content: "";
             position: absolute;
@@ -9207,20 +9413,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             border: 1px solid #e61d2f;
             margin: 10px 5px;
             font-weight: bold;
-            /* -webkit-box-shadow: 9px 10px 13px -9px #e61d2f;
--moz-box-shadow: 9px 10px 13px -9px #e61d2f;
-box-shadow: 9px 10px 13px -9px #e61d2f; */
+
             -webkit-box-shadow: 10px 10px 5px -10px gray;
             -moz-box-shadow: 10px 10px 5px -10px gray;
             box-shadow: 10px 10px 5px -10px gray;
         }
 
-        /* .nav-pills .nav-link.active,
-		.nav-pills .show>.nav-link {
-			color: #ffffff;
-			background: #e61d2f !important;
-			border: 1px solid #e61d2f;
-		} */
+
 
         .leftBtns .btn:hover {
             color: #ffffff;
@@ -9315,6 +9514,46 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
 </head>
 
 <body>
+    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <form method="POST" class="appointment-form" id="appointment-form">
+                        <h2>Create Invoice</h2>
+                        <div class="form-group-1">
+                            <input type="text" name="title" id="title" placeholder="Customer" required />
+                            <input type="text" name="name" id="name" placeholder="Customer ID" required />
+                            <input type="number" name="tel" id="tel" placeholder="Contact" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Profession"
+                                required />
+                            <input type="number" name="phone_number" id="Balance" placeholder="Balance" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Address" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Comments" required />
+
+                            <div class="select-list">
+                                <select name="course_type" id="course_type">
+                                    <option slected value="">Category</option>
+                                    <option value="society">Society</option>
+                                    <option value="language">Language</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-submit">
+                            <input onclick="modalValidation()" name="submit" id="submit" class="submit"
+                                value="Add Customer" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <div class="page-container">
         <div class="left-content">
             <div class="mother-grid-inner">
@@ -9331,137 +9570,7 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                     </div>
                     <div class="header-right">
                         <div class="profile_details_left">
-                            <!-- <ul class="nofitications-dropdown">
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>You have 3 new messages</h3>
-												</div>
-											</li>
-											<li><a href="#">
-											   <div class="user_img"><img src="images/p4.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											</a></li>
-											<li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p2.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor </p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											</a></li>
-											<li><a href="#">
-											   <div class="user_img"><img src="images/p3.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											</a></li>
-											<li>
-												<div class="notification_bottom">
-													<a href="#">See all messages</a>
-												</div> 
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>You have 3 new notification</h3>
-												</div>
-											</li>
-											<li><a href="#">
-												<div class="user_img"><img src="images/p5.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											 </a></li>
-											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p6.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li><a href="#">
-												<div class="user_img"><img src="images/p7.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li>
-												<div class="notification_bottom">
-													<a href="#">See all notifications</a>
-												</div> 
-											</li>
-										</ul>
-									</li>	
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i><span class="badge blue1">9</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>You have 8 pending task</h3>
-												</div>
-											</li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Database update</span><span class="percentage">40%</span>
-													<div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													<div class="bar yellow" style="width:40%;"></div>
-												</div>
-											</a></li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
-												   <div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													 <div class="bar green" style="width:90%;"></div>
-												</div>
-											</a></li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Mobile App</span><span class="percentage">33%</span>
-													<div class="clearfix"></div>	
-												</div>
-											   <div class="progress progress-striped active">
-													 <div class="bar red" style="width: 33%;"></div>
-												</div>
-											</a></li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
-												   <div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													 <div class="bar  blue" style="width: 80%;"></div>
-												</div>
-											</a></li>
-											<li>
-												<div class="notification_bottom">
-													<a href="#">See all pending tasks</a>
-												</div> 
-											</li>
-										</ul>
-									</li>	
-								</ul> -->
+
 
                             <button class="btn-my btn1" data-toggle="modal"
                                 data-target=".bd-example-modal-lg">Operations</button>
@@ -9476,534 +9585,7 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <!-- <div class="modal-body">
-											<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-												<li class="nav-item" role="presentation">
-													<a class="nav-link active" id="pills-Sales-tab" data-toggle="pill"
-														href="#pills-Sales" role="tab" aria-controls="pills-Sales"
-														aria-selected="true">Sales</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Purchase-tab" data-toggle="pill"
-														href="#pills-Purchase" role="tab" aria-controls="pills-Purchase"
-														aria-selected="false">Purchase</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Inventory-tab" data-toggle="pill"
-														href="#pills-Inventory" role="tab"
-														aria-controls="pills-Inventory" aria-selected="false">Inventory
-														Management</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Customer-tab" data-toggle="pill"
-														href="#pills-Customer" role="tab" aria-controls="pills-Customer"
-														aria-selected="false">Customer
-														Management</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Transaction-tab" data-toggle="pill"
-														href="#pills-Transaction" role="tab"
-														aria-controls="pills-Transaction"
-														aria-selected="false">Transaction Flow
-													</a>
-												</li>
-												<li class="nav-item" style="    margin-left: 67px;" role="presentation">
-													<a class="nav-link" id="pills-Secuirty-tab" data-toggle="pill"
-														href="#pills-Secuirty" role="tab" aria-controls="pills-Secuirty"
-														aria-selected="false">Secuirty
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Expense -tab" data-toggle="pill"
-														href="#pills-Expense " role="tab" aria-controls="pills-Expense "
-														aria-selected="false">Expense
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Attendance -tab" data-toggle="pill"
-														href="#pills-Attendance " role="tab"
-														aria-controls="pills-Attendance "
-														aria-selected="false">Attendance
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Investors-tab" data-toggle="pill"
-														href="#pills-Investors" role="tab"
-														aria-controls="pills-Investors" aria-selected="false">Investors
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Printing-tab" data-toggle="pill"
-														href="#pills-Printing" role="tab" aria-controls="pills-Printing"
-														aria-selected="false">Printing
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-taskList-tab" data-toggle="pill"
-														href="#pills-taskList" role="tab" aria-controls="pills-taskList"
-														aria-selected="false">taskList
-													</a>
-												</li>
-											</ul>
-											<div class="tab-content" id="pills-tabContent">
-												<div class="tab-pane fade show active" id="pills-Sales" role="tabpanel"
-													aria-labelledby="pills-Sales-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
 
-
-												</div>
-												<div class="tab-pane fade" id="pills-Purchase" role="tabpanel"
-													aria-labelledby="pills-Purchase-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Inventory" role="tabpanel"
-													aria-labelledby="pills-Inventory-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade show " id="pills-Customer" role="tabpanel"
-													aria-labelledby="pills-Customer-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade show " id="pills-Transaction" role="tabpanel"
-													aria-labelledby="pills-Transaction-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Secuirty" role="tabpanel"
-													aria-labelledby="pills-Secuirty-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Expense" role="tabpanel"
-													aria-labelledby="pills-Expense-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade show " id="pills-Attendance" role="tabpanel"
-													aria-labelledby="pills-Attendance-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Investors" role="tabpanel"
-													aria-labelledby="pills-Investors-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Printing" role="tabpanel"
-													aria-labelledby="pills-Printing-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade show " id="pills-taskList" role="tabpanel"
-													aria-labelledby="pills-taskList-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-
-											</div>
-
-
-										</div> -->
 
                                         <div class="modal-body">
                                             <div class="container-fluid">
@@ -10020,6 +9602,9 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
                                                                 onclick="location.href = 'Receiving.html'">Dilivery</button><br>
+                                                            <button data-toggle="modal" id="killme"
+                                                                data-target="#staticBackdrop"
+                                                                class="btn btn-mysecondary">Quotation</button><br>
 
                                                         </div>
                                                     </div>
@@ -10445,41 +10030,46 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
     <script>
-        (function () {
-            "use strict";
+        $(document).ready(function () {
+                $("#killme").click(function () {
+                    $('.bd-example-modal-lg').modal('hide');
+                })
+            })
+            (function () {
+                "use strict";
 
-            // custom scrollbar
+                // custom scrollbar
 
-            $("html").niceScroll({
-                styler: "fb",
-                cursorcolor: "#68ae00",
-                cursorwidth: '6',
-                cursorborderradius: '10px',
-                background: '#FFFFFF',
-                spacebarenabled: false,
-                cursorborder: '0',
-                zindex: '1000'
-            });
+                $("html").niceScroll({
+                    styler: "fb",
+                    cursorcolor: "#68ae00",
+                    cursorwidth: '6',
+                    cursorborderradius: '10px',
+                    background: '#FFFFFF',
+                    spacebarenabled: false,
+                    cursorborder: '0',
+                    zindex: '1000'
+                });
 
-            $(".scrollbar1").niceScroll({
-                styler: "fb",
-                cursorcolor: "#68ae00",
-                cursorwidth: '6',
-                cursorborderradius: '0',
-                autohidemode: 'false',
-                background: '#FFFFFF',
-                spacebarenabled: false,
-                cursorborder: '0'
-            });
+                $(".scrollbar1").niceScroll({
+                    styler: "fb",
+                    cursorcolor: "#68ae00",
+                    cursorwidth: '6',
+                    cursorborderradius: '0',
+                    autohidemode: 'false',
+                    background: '#FFFFFF',
+                    spacebarenabled: false,
+                    cursorborder: '0'
+                });
 
 
 
-            $(".scrollbar1").getNiceScroll();
-            if ($('body').hasClass('scrollbar1-collapsed')) {
-                $(".scrollbar1").getNiceScroll().hide();
-            }
+                $(".scrollbar1").getNiceScroll();
+                if ($('body').hasClass('scrollbar1-collapsed')) {
+                    $(".scrollbar1").getNiceScroll().hide();
+                }
 
-        })(jQuery);
+            })(jQuery);
 
     </script>
     <script>

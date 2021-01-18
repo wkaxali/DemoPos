@@ -172,7 +172,7 @@ Route::get('/ct', function () {
     return view('comissionAndTaxes');
 });
 Route::get('/s', function () {
-    return view('salesandc');
+    return view('salesAndComission');
 });
 Route::get('/ev', function () {
     return view('employerView');

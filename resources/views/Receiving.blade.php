@@ -14,13 +14,15 @@
 
 
     <style>
-        a{
+        a {
             text-decoration: none;
         }
-        a:hover{
+
+        a:hover {
             text-decoration: none !important;
             color: #ffffff;
         }
+
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
@@ -48,7 +50,7 @@
             width: 100px;
         }
 
-   
+
 
         th,
         td {
@@ -64,7 +66,7 @@
             border: 1px solid #aaaaaa;
             border-radius: 10px;
             height: 400px;
-             overflow: auto; 
+            overflow: auto;
         }
 
         .btn-print {
@@ -90,8 +92,9 @@
 
         .btn-update {
             background-color: #e61d2f;
-            color: #ffffff;
+            color: #ffffff !important;
         }
+
         input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
@@ -111,6 +114,31 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+/* THis is receiveing Media Query */
+        .orderNOLabel {
+            width: 130px;
+        }
+
+        @media only screen and (max-width: 578px) {
+            .receivingTable {
+                width: 509px !important;
+                overflow: auto !important;
+            }
+        }
+
+        @media screen and (device-aspect-ratio: 375/667) {
+            .orderNOLabel {
+                width: 109px;
+            }
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+            .orderNOLabel {
+                width: 109px;
+            }
+        }
+
+/* Receiving Media Query Ends */
     </style>
 </head>
 
@@ -124,8 +152,8 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <label style="width:130px ;" for="OrderNo">Order No</label>
+                <div class="col-md-12">
+                    <label class="orderNOLabel" for="OrderNo">Order No</label>
                     <input type="text" name="" value="" id="OrderId">
                     <button class="btn btn-info" onclick="getOrderDetails()">o</button>
                 </div>
@@ -165,9 +193,9 @@
                     <div class="footerBtns text-right">
                         <a class="btn btn-view" href="viewStock.html">View Stock</a>
                         <a class="btn btn-print" href="viewStock.html">Print Details</a>
-                        <a class="btn btn-update"  onclick="UpdateStatusAndTransaction()">Update</a>
-                      
-                     
+                        <a class="btn btn-update" onclick="UpdateStatusAndTransaction()">Update</a>
+
+
                     </div>
                 </div>
             </div>
@@ -192,83 +220,84 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
-<script>
-  function getOrderDetails() {
+    <script>
+        function getOrderDetails() {
 
 
-var oid=document.getElementById("OrderId").value;
-var xhttp = new XMLHttpRequest();
+            var oid = document.getElementById("OrderId").value;
+            var xhttp = new XMLHttpRequest();
 
 
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("autoTableBody").innerHTML = this.responseText;
-       
-
-
-
-    }
-
-};
-
-xhttp.open("GET", "./getOrderId/"+oid, true);
-xhttp.send();
-}
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("autoTableBody").innerHTML = this.responseText;
 
 
 
 
+                }
 
-function UpdateStatusAndTransaction(){
+            };
 
-    var products = [];
-        var table = document.getElementById("autoTableBody");
-       
-
-        //alert(sp);
-        $('#autoTableBody tr').each(function (row, tr) {
-
-            products[row] = [
-
-                $(tr).find('td:eq(1)').text(), //PID
-                
-                $(tr).find('td:eq(3) input[type="text"]').val(),//chasisNumber
-               
-               
-                $(tr).find('td:eq(4) input[type="text"]').val(), //EngineNumber
-                $(tr).find('td:eq(5) input[type="text"]').val(), //Transport charges
-                $(tr).find('td:eq(6)').find(":selected").val()//Status
-                
+            xhttp.open("GET", "./getOrderId/" + oid, true);
+            xhttp.send();
+        }
 
 
 
-            ];
 
 
-        });
-        //products.shift();
-        alert(products);
-        var OID= document.getElementById("OrderId").value;
-        var array2=[products,OID];
-        var prod = JSON.stringify(array2);
+        function UpdateStatusAndTransaction() {
 
-        alert(prod);
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-
-                alert("Stock =" + this.responseText + " Updated");
-               
-
-            }
-        };
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./ruautos/" + prod, true);
-        xhttp.send();
+            var products = [];
+            var table = document.getElementById("autoTableBody");
 
 
-}
-</script>
+            //alert(sp);
+            $('#autoTableBody tr').each(function (row, tr) {
+
+                products[row] = [
+
+                    $(tr).find('td:eq(1)').text(), //PID
+
+                    $(tr).find('td:eq(3) input[type="text"]').val(), //chasisNumber
+
+
+                    $(tr).find('td:eq(4) input[type="text"]').val(), //EngineNumber
+                    $(tr).find('td:eq(5) input[type="text"]').val(), //Transport charges
+                    $(tr).find('td:eq(6)').find(":selected").val() //Status
+
+
+
+
+                ];
+
+
+            });
+            //products.shift();
+            alert(products);
+            var OID = document.getElementById("OrderId").value;
+            var array2 = [products, OID];
+            var prod = JSON.stringify(array2);
+
+            alert(prod);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert("Stock =" + this.responseText + " Updated");
+
+
+                }
+            };
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./ruautos/" + prod, true);
+            xhttp.send();
+
+
+        }
+
+    </script>
 </body>
 
 </html>

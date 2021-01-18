@@ -57,10 +57,9 @@
             padding: 5px;
         }
 
-        .mainSales {
-            display: flex;
-            justify-content: space-between;
-        }
+     
+
+
 
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
@@ -183,6 +182,44 @@
             -moz-appearance: textfield;
         }
 
+        .mainSales {
+            display: flex;
+            justify-content: space-between;
+        }
+        @media only screen and (max-width: 768px) {
+            .myMainRow {
+                display: block;
+            }
+
+            .myOwnROw {
+                border-left: none !important;
+                border-top: 1px solid #333;
+                width: 100% !important;
+            }
+
+            .myOwnRow-left {
+                width: 100%;
+            }
+
+            .mainSales {
+                display: block;
+            }
+
+            label {
+                width: 115px !important;
+            }
+
+            .lossLabel label {
+                width: 102px !important;
+            }
+
+            .unitSalesBtn {
+                text-align: center !important;
+                margin: 10px 0px;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -217,76 +254,77 @@
                             </select>
 
                         </div>
-                        <div class="sales-1">
+                        <div class="sales-1 unitSalesBtn">
                             <button class="btn unit" data-toggle="modal" data-target="#myModal">Sold Unit</button>
                         </div>
 
-
-                        <div class="container">
-
-
-
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="myModal" role="dialog">
-                                <div class="modal-dialog modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">View Stock </h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="receivingTable">
-                                                <table id="myTable" class=" table-striped"
-                                                    style="width: 100%; text-align: center;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Product Id</th>
-                                                            <th>Product Name</th>
-                                                            <th>Company</th>
-                                                            <th>Unit Sale Price</th>
-                                                            <th>Unit Purchase Price</th>
-                                                            <th>Stock</th>
-                                                            <th>Engine Number</th>
-                                                            <th>Chasis Number</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-
-                                                    </tbody>
-
-                                                </table>
-
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default"
-                                                data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-
-
-
-
-
-
-                        <div class="sales-1">
+                        <div class="sales-1 lossLabel">
                             <label for="">Profit / Loss</label>
                             <input type="number" class="form-control" style="display: inline-block; width: 200px;"
                                 name="" id="">
                         </div>
-
                     </div>
                 </div>
             </div>
+            <div class="container">
+
+
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">View Stock </h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            </div>
+                            <div class="modal-body">
+                                <div class="receivingTable">
+                                    <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
+                                        <thead>
+                                            <tr>
+                                                <th>Product Id</th>
+                                                <th>Product Name</th>
+                                                <th>Company</th>
+                                                <th>Unit Sale Price</th>
+                                                <th>Unit Purchase Price</th>
+                                                <th>Stock</th>
+                                                <th>Engine Number</th>
+                                                <th>Chasis Number</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        </div>
+        </div>
         </div>
     </section>
     <br>

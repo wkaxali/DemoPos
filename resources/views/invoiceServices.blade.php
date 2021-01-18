@@ -99,6 +99,7 @@
             -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
             -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
             box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            height: 229px !important;
 
 
         }
@@ -573,6 +574,27 @@
             -moz-appearance: textfield;
         }
 
+        @media only screen and (max-width: 641px) {
+
+            .myMainRow {
+                display: block;
+            }
+
+            .head-left {
+                margin: 20px 0px;
+            }
+
+            .myFooterButtons .btn {
+                margin: 10px 0px !important;
+            }
+
+            .LastInput {
+                height: 315px !important;
+            }
+
+        }
+/* Invoice Services Media Query Starts */
+/* Invoice Services Media Query Ends */
     </style>
 </head>
 
@@ -799,7 +821,8 @@
                                                     required />
                                                 <input type="text" name="name" id="name" placeholder="Customer ID"
                                                     required />
-                                                <input type="number" name="tel" id="tel" placeholder="Contact" required />
+                                                <input type="number" name="tel" id="tel" placeholder="Contact"
+                                                    required />
                                                 <input type="number" name="phone_number" id="Profession"
                                                     placeholder="Profession" required />
                                                 <input type="number" name="phone_number" id="Balance"
