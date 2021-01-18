@@ -116,6 +116,7 @@
             background-color: transparent;
             margin-left: 3px;
         }
+
         input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
@@ -134,6 +135,18 @@
             border-color: #0a549d;
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
+        }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
         }
 
     </style>
@@ -166,27 +179,27 @@
                 </div>
                 <div class="col-md-5 offset-md-1">
                     <label for="">Contact No</label>
-                    <input type="text" class="form-control"
+                    <input type="number" class="form-control"
                         style="width: 200px; display: inline-block;height: 25px !important;" name="" id="">
 
                     <button style="height: 25px; margin-top: -5px;" class="btn"></button>
                 </div>
                 <div class="col-md-5 offset-md-1">
                     <label for="">Budget</label>
-                    <input type="text" class="form-control"
+                    <input type="number" class="form-control"
                         style="width: 200px; display: inline-block;height: 25px !important;" value="80,000" name=""
                         id=""><br>
 
                 </div>
                 <div class="col-md-5 offset-md-1">
                     <label for="">Profit</label>
-                    <input type="text" class="form-control"
+                    <input type="number" class="form-control"
                         style="width: 200px; display: inline-block;height: 25px !important;" value="81,000" name=""
                         id="">
                 </div>
                 <div class="col-md-6 offset-md-1 ">
                     <label for="">Amount</label>
-                    <input type="text" class="form-control"
+                    <input type="number" class="form-control"
                         style="width: 200px; display: inline-block;height: 25px !important;" name="" id="">
 
                 </div>
@@ -239,7 +252,7 @@
                 <div class="col-md-4">
                     <div class="summaryLabels">
                         <label for="">Total Profit</label>
-                        <input type="text" value="11,33,000" class="form-control"
+                        <input type="number" value="11,33,000" class="form-control"
                             style="width: 200px; display: inline-block;height: 25px !important;" name="" id=""><br>
 
                         <label for="">Capital</label>
@@ -247,7 +260,7 @@
                             style="width: 200px; display: inline-block;height: 25px !important;" name="" id=""><br>
 
                         <label for="">Net Total</label>
-                        <input type="text" value="91,33,000" class="form-control"
+                        <input type="number" value="91,33,000" class="form-control"
                             style="width: 200px; display: inline-block;height: 25px !important;" name="" id=""><br>
 
 
@@ -261,7 +274,7 @@
                         style="width: 200px; display: inline-block;height: 25px !important;" name="" id=""><br>
 
                     <label for="">Remaining</label>
-                    <input type="text" value="35,11,200" class="form-control"
+                    <input type="number" value="35,11,200" class="form-control"
                         style="width: 200px; display: inline-block;height: 25px !important;" name="" id=""><br>
                 </div>
             </div>

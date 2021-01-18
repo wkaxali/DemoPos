@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use DB;
 use Carbon\Carbon;
-
+use App\Http\Controllers\accountsController;
 class UpdateStocksController extends Controller
 {
     function updateStockDetails(Request $request,$data){
@@ -23,15 +23,7 @@ class UpdateStocksController extends Controller
          $status=$oneProduct[4];
          $dateNow= Carbon::now()->toDateTimeString();
         
-   //here from controller of taxes
-   // $CID=DB::table('tbladditionalcostandprofits')->insertGetId(['PID'=> $PID, 
-        // 'CPName' =>"Transportation Charges",
-        // 'Amount' =>$TransportCharges,
-        // 'TType' =>"Cost",
-        // 'DateStamp'=>$dateNow
-           
-          
-        //    ]);
+   
 
 
       $LID=2;
@@ -39,12 +31,15 @@ class UpdateStocksController extends Controller
       $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
       LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
 
-            
+            $paidVia=5;
        $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
         $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
             TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Transportation Charges',$TransportCharges,$dateNow,
-            "1",null,null,NULL,null,NULL,NULL,NULL,NULL,NULL,$CID);
-           
+            "1",null,null,NULL,null,NULL,NULL,NULL,NULL,$paidVia,$CID);
+            $AID=$paidVia;//This needs o be changed in production
+            $OldAccBalance=accountsController::getAccountBalance($AID);
+            $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
+            accountsController::UpdateNewBalance($AID,$newAccountBalance);
             $OldPrice = DB::table('instock')
             ->where('ProductSerial', '=', $PID)
              ->get();
@@ -99,11 +94,25 @@ class UpdateStocksController extends Controller
       return $results;
 
   }
+  public function getAllAutos(){
+    $results=DB::select('select * from  vw_stockdetails where Category=21 and  StatusInStock<>"Pending"');
+    
+        
+    return $results;
+
+}
   public function getAllAvailableProducts(){
     $results=DB::select('select * from  vw_stockdetails where StatusInStock="Available"');
     
         
     return $results;
+
+}
+public function getAllSoldProducts(){
+  $results=DB::select('select * from  vw_stockdetails where StatusInStock="Sold"');
+  
+      
+  return $results;
 
 }
 public static function UpdateStockStatus($PID,$Status){
@@ -127,11 +136,30 @@ public static function getTotalCost($PID){
 
              return $OldPrice[0]->TotalCost;
 }
+public static function getTotalSoldPrice($PID){
+
+  $OldPrice = DB::table('instock')
+            ->where('ProductSerial', '=', $PID)
+             ->get();
+
+             return $OldPrice[0]->TotalSaleAmount;
+}
 public static function setTotalCost($PID,$amount){
 
   DB::table('instock')
   ->where('ProductSerial', $PID)
   ->update(['TotalCost'=>$amount
+  
+
+  ]);
+  return "Cost Updated";
+
+}
+public static function setTotalSaleAmount($PID,$amount){
+
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update(['TotalSaleAmount'=>$amount
   
 
   ]);

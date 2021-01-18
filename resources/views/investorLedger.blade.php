@@ -96,6 +96,7 @@
             overflow: auto !important;
 
         }
+
         input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
@@ -115,6 +116,19 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
     </style>
 </head>
 
@@ -234,10 +248,14 @@
     </section>
     <section>
         <div class="container">
-            <div class="row customBorder">
-                <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-4 customBorder">
                     <h4>SUMMARY</h4>
                 </div>
+                <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
+                    <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;">Update</button>
+                </div>
+
             </div>
         </div>
     </section>
@@ -247,15 +265,15 @@
                 <div class="col-md-5">
                     <div class="summaryLabels">
                         <label for="">Total Profit</label>
-                        <input type="text" value="11,33,000" class="form-control"
+                        <input type="number" value="1133000" class="form-control"
                             style="display: inline-block; width: 200px;" name="" id=""><br>
 
                         <label for="">Capital</label>
-                        <input type="text" value="80,000,000" class="form-control"
+                        <input type="number" value="80000000" class="form-control"
                             style="display: inline-block; width: 200px;" name="" id=""><br>
 
                         <label for="">Net Total</label>
-                        <input type="text" value="91,33,000" class="form-control"
+                        <input type="number" value="9133000" class="form-control"
                             style="display: inline-block; width: 200px;" name="" id=""><br>
 
 
@@ -265,11 +283,11 @@
                 </div>
                 <div class="col-md-5 summary-2 offset-md-2">
                     <label for="">Amount Received By</label>
-                    <input type="text" value="65,000,00" class="form-control"
+                    <input type="number" value="6500000" class="form-control"
                         style="display: inline-block; width: 200px;" name="" id=""><br>
 
                     <label for="">Remaining</label>
-                    <input type="text" value="35,11,200" class="form-control"
+                    <input type="number" value="3511200" class="form-control"
                         style="display: inline-block; width: 200px;" name="" id=""><br>
                 </div>
             </div>

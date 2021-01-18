@@ -24,18 +24,30 @@ class expenseController extends Controller
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
-        'TransactionCatogery'=>"Expense",
+        'TransactionCatogery'=>"Payment",
         'EID'=>$expenseID,
         'PaidTo'=>$paidTo,
         'PaidBy'=>$paidBy,
         'TransactionType'=>"Credit"
         ]);
+
+        $oldSelfBalance = LedgerPartiesController::getPartyBalance(2);
+        $newBalance = $oldSelfBalance - $amount;
+        LedgerPartiesController::UpdatePartiesBalance(2, $newBalance);
+        $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
+        $newBalanceOfParty=$balanceForParty-$amount;
+        LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
+
+        $oldAccountBalance = accountsController::getAccountBalance($paidBy);
+        $newAccountBalance = $oldAccountBalance - $amount;
+        accountsController::UpdateNewBalance($paidBy, $newAccountBalance);
+        
         }
         return $id;
 }
 
-public static function getEmployee(){
-    $data=DB:: select('select * from tblemployees');
+public static function getPartyNames(){
+    $data=DB:: select('select * from tblledgerparties');
     
     $option='';
 
@@ -44,7 +56,23 @@ public static function getEmployee(){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->EID.'>'.$d->FirstName.'</option>';
+        <option value= '.$d->LID.'>'.$d->LID.') '.$d->PartyName.'</option>';
+      
+    }
+    return $option;
+  }
+
+  public static function getAccounts(){
+    $data=DB:: select('select * from tblaccounts');
+    
+    $option='';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->AID.'>'.$d->AID.') '.$d->AccountName.'</option>';
       
     }
     return $option;
@@ -60,11 +88,12 @@ public static function getEmployee(){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->ID.'>'.$d->ExpenseHead.'</option>';
+        <option value= '.$d->ID.'>'.$d->ID.') '.$d->ExpenseHead.'</option>';
       
     }
     return $option;
   }
+
 
 }
 

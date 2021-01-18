@@ -28,7 +28,7 @@
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
-            /* background-color:#0a549d !important; */
+            / background-color:#0a549d !important; /
             margin: 5px 0px !important;
 
         }
@@ -198,7 +198,7 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Amount</th>
-                                    <th>Expense Name</th>
+                                    <th>Expense ID</th>
                                   
                                     <th>Paid To</th>
                                     <th>Paid By</th>
@@ -288,10 +288,10 @@
           
           cell1.innerHTML = date  ;
           cell2.innerHTML = amount ;
-          cell3.innerHTML = expense.options[expense.selectedIndex].text;
+          cell3.innerHTML = expense.options[expense.selectedIndex].value;
           cell4.innerHTML = expenseID;
-          cell5.innerHTML = paidto.options[paidto.selectedIndex].text;
-          cell6.innerHTML = paidby.options[paidby.selectedIndex].text;
+          cell5.innerHTML = paidto.options[paidto.selectedIndex].value;
+          cell6.innerHTML = paidby.options[paidby.selectedIndex].value;
           cell7.innerHTML = remarks;
           cell8.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
           
@@ -330,9 +330,8 @@ document.getElementById("mainTotal").value=tot;
 <script>
     function addExpenses()
 {
-    var expenseDetails = [];
+        var expenseDetails = [];
         var table = document.getElementById("expenseTable");
-        var myRow2 = [];
 
         //alert(sp);
         $('#expenseTable tr').each(function (row, tr) {
@@ -375,7 +374,8 @@ document.getElementById("mainTotal").value=tot;
 
 function loadFunctions(){
     loadExpenseHeads();
-    loadEmployee();
+    loadParties();
+    loadAccounts();
 }
 </script>
 
@@ -400,32 +400,46 @@ function loadExpenseHeads(){
 </script>
 
 <script>
-function loadEmployee(){
+function loadParties(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
         if (this.readyState == 4 && this.status == 200) {
     
             document.getElementById("paidTo").innerHTML = this.response;
-            document.getElementById("paidBy").innerHTML = this.response;
             $('#paidTo').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getPartyNames/", true);
+    
+    xhttp.send();
+    }
+</script>
+
+<script>
+function loadAccounts(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("paidBy").innerHTML = this.response;
             $('#paidBy').selectpicker('refresh');
         }
     };
     //alert("ljd");
-    xhttp.open("GET", "./getEmployee/", true);
+    xhttp.open("GET", "./getAccounts/", true);
     
     xhttp.send();
     }
 </script>
 
 
-
-
 <script>
-        $(document).ready(function () {
-            $('#expense').DataTable();
-        });
+        // $(document).ready(function () {
+        //     $('#expenseTable').DataTable();
+        // });
 </script>
 
 

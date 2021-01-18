@@ -37,7 +37,7 @@
         .receivingTable {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
-            
+
         }
 
         .receivingMain {
@@ -54,22 +54,30 @@
         label {
             font-weight: bold;
         }
-        .Footerbtns{
+
+        .Footerbtns {
             float: right;
         }
-        .clear{
+
+        .clear {
             clear: both;
         }
-        .Footerbtns .btn{
+
+        .Footerbtns .btn {
             width: 120px;
         }
-        .Footerbtns .btn:nth-child(2){
+
+        .Footerbtns .btn:nth-child(2) {
             background-color: #0a549d;
-            color: #fff;        }
-            .Footerbtns .btn:nth-child(1){
-                background-color: #e61d2f;
-            color: #fff;    }
-            input[type="text"]:focus,
+            color: #fff;
+        }
+
+        .Footerbtns .btn:nth-child(1) {
+            background-color: #e61d2f;
+            color: #fff;
+        }
+
+        input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
         input[type="datetime-local"]:focus,
@@ -89,10 +97,22 @@
             outline: 0 none;
         }
 
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
     </style>
 </head>
 
-<body onload="getCompanyLedger()">
+<body onload="loadFunctions()">
 
     <header>
         <div class="container">
@@ -111,11 +131,13 @@
                         <table id="companyLedgerData" class=" table-striped" style="width: 100%; text-align: center;">
                         <thead>
                             <tr>
-                                <th id ="Cusname">Name</th>
-                                <th id="CusCont">Contact</th>
-                                <th id ="Cusaddr">Address</th>
-                                <th id="CusIntrs">Interested In</th>
-                                <th id ="CusMeet"> Who Meet</th>
+                                <th id ="Cusname">Transaction ID</th>
+                                <th id="CusCont">Order No</th>
+                                <th id ="Cusaddr">Transaction Category</th>
+                                <th id ="CusMeet">Net Total</th>
+                                <th id="CusIntrs">Amount Paid</th>
+                                <th id ="CusMeet">Balance</th>
+                                <th id ="CusMeet">Date</th>
 
                             </tr>
                         </thead>
@@ -127,22 +149,22 @@
                 </div>
             </div>
             <br>
-            <div class="row" >
+            <div class="row">
                 <div class="col-md-4">
                     <label style="width: 185px;" for="">Total Amount</label>
-                    <input type="text" value="127,000,000" name="" id="footerInput">
+                    <input type="number" value="" name="" id="totalAmount">
                 </div>
                 <div class="col-md-4">
                     <label style="width: 185px;" for="">Amount Paid</label>
-                    <input type="text" value="122,000,000" name="" id="footerInput">
+                    <input type="number" value="" name="" id="totalPaid">
                 </div>
                 <div class="col-md-4">
-              
+
                     <label style="width: 185px;" for="">Remaining</label>
-                    <input type="text" value="5,000,000" name="" id="footerInput">
+                    <input type="number" value="" name="" id="remaining">
                     <h4 style="font-size: 16px; font-weight: 600;">Has To Be Paid By MM Motors To JWW </h4>
 
-                
+
                 </div>
             </div>
             <br>
@@ -151,24 +173,14 @@
                     <div class="Footerbtns">
                         <a class="btn">Print</a>
                         <a class="btn" href="#">Export To Pdf</a>
-        
+
                     </div>
                     <div class="clear"></div>
                 </div>
             </div>
-      
+
         </div>
     </header>
-
-
-
-
-
-
-
-
- 
-
 
 
 
@@ -181,13 +193,60 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
 
+
+
+
+
+<script>
+function loadFunctions(){
+    getCompanyLedger();
+}
+</script>
+
+
+<script>
+function totalAmount(){
+    var table = document.getElementById("companyLedgerData");
+    var sum = 0;
+
+    for(var i = 1; i < table.rows.length; i++)
+            {
+                sum = sum + parseInt(table.rows[i].cells[3].innerHTML);
+            }
+            
+            document.getElementById("totalAmount").value = sum;
+}
+
+function totalPaid(){
+    var table = document.getElementById("companyLedgerData");
+    var sum = 0;
+
+    for(var i = 1; i < table.rows.length; i++)
+            {
+                sum = sum + parseInt(table.rows[i].cells[4].innerHTML);
+            }
+            
+            document.getElementById("totalPaid").value = sum;
+}
+
+
+function remaining(){
+    var totalPaid = document.getElementById("totalPaid").value;
+    var totalAmount = document.getElementById("totalAmount").value;
+    var remaining = totalAmount - totalPaid;
+    document.getElementById("remaining").value = remaining;
+}
+
+</script>
+
+
 <script>
 function getCompanyLedger(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         
         if (this.readyState == 4 && this.status == 200) {
-    
+            
             var data = this.responseText;
                 //alert(data);
                 var table;
@@ -196,13 +255,27 @@ function getCompanyLedger(){
                 table = $('#companyLedgerData').DataTable();
 
                 $.each(a, function (i, item) {
+                        
+                    if (a[i].NetTotal == null){
+                        a[i].NetTotal = 0;
+                    }
+                    if (a[i].Amount == null){
+                        a[i].Amount = 0;
+                    }
+                    if (a[i].Balance == null){
+                        a[i].Balance = 0;
+                    }
 
-                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].Amount, 
-                    a[i].DateStamp]);
+                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].NetTotal, 
+                    a[i].Amount, a[i].Balance, a[i].DateStamp]);
                 });
                 table.draw();
+                totalAmount();
+                totalPaid();
+                remaining();
 
         }
+        
     };
     //alert("ljd");
     xhttp.open("GET", "./companyLedger/", true);
@@ -211,11 +284,15 @@ function getCompanyLedger(){
     }
 </script>
 
-<script>
+
+        }
+
+    </script>
+
+    <script>
         $(document).ready(function () {
             $('#companyLedgerData').DataTable();
         });
-
 
     </script>
 

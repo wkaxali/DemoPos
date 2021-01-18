@@ -174,6 +174,77 @@
             width: 100vw;
         }
 
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .mainSection {
+                top: 80% !important;
+            }
+
+            .myBookingBorder {
+                margin: 20px 0px !important;
+            }
+
+         
+
+        }
+
+        @media only screen and (max-width: 503px) {
+      
+            .mainSection label {
+                width: 150px !important;
+
+            }
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+            .mainSection {
+                top: 84% !important;
+            }
+
+            /* / uncomment this and :checked centeralized version at iphone x / */
+            /* .myBookingBorder .row{
+                text-align: center !important;
+            } */
+
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 667px) and (-webkit-device-pixel-ratio : 2) {
+            .mainSection {
+                top: 102% !important;
+            }
+        }
+
+        @media only screen and (max-width: 1197px) {
+            .mainSection label {
+                width: 225px !important;
+            }
+        }
+
+        @media screen and (device-aspect-ratio: 40/71) {
+            .mainSection {
+                top: 127% !important;
+            }
+        }
+        @media only screen 
+    and (device-width : 414px) 
+    and (device-height : 736px) 
+    and (-webkit-device-pixel-ratio : 3) {
+        .mainSection {
+                top: 93% !important;
+            }
+     }
     </style>
 </head>
 
@@ -223,7 +294,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Invoice Price :</label>
-                                <input type="text" onchange="product()" class="form-control"
+                                <input type="number" onchange="product()" class="form-control"
                                     style="width: 200px !important; display: inline-block !important;" name=""
                                     id="invoice">
 
@@ -247,7 +318,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">Amount Paid</label>
-                                <input type="text" title="Press Enter To Submit" onkeyup="subtract()"
+                                <input type="number" title="Press Enter To Submit" onkeyup="subtract()"
                                     class="form-control"
                                     style="width: 200px !important; display: inline-block !important;" name=""
                                     id="amount">
@@ -309,16 +380,16 @@
                         <div class="mainInputGroups">
                             <div class="input-group">
                                 <label style="width: 150px !important;" for="">Total Amount</label>
-                                <input type="text" name="" id="mainTotal">
+                                <input type="number" name="" id="mainTotal">
                             </div>
 
                             <div class="input-group ">
                                 <label style="width: 150px  !important;" for="">Total Paid</label>
-                                <input type="text" name="" id="totalPaid" onchange="calculatonInTable()">
+                                <input type="number" name="" id="totalPaid" onchange="calculatonInTable()">
                             </div>
                             <div class="input-group ">
                                 <label style="width: 150px  !important;" for="">Total Remaining</label>
-                                <input type="text" name="" id="totRemaining">
+                                <input type="number" name="" id="totRemaining">
                             </div>
 
                         </div>
@@ -350,9 +421,7 @@
             var amontPaid = document.getElementById("amount").value;
             var remaining = document.getElementById("remaining").value;
             if (invoicePrice == "") {
-
                 document.getElementById('invoice').focus();
-
 
             } else if (qty == "") {
                 document.getElementById('qty').focus();
@@ -360,7 +429,7 @@
                 document.getElementById('amount').focus();
             } else {
                 add();
-                document.getElementById("OrderId").value = "";
+               // document.getElementById("OrderId").value = "";
 
                 document.getElementById("category");
 
@@ -566,6 +635,7 @@
             xhttp.open("GET", "./getOrderId/", true);
             xhttp.send();
         }
+
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"

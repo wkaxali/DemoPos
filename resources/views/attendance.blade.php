@@ -107,26 +107,28 @@
             margin-top: 30px;
             margin-left: 134px;
         }
+
         input[type="text"]:focus,
-         input[type="password"]:focus,
-         input[type="datetime"]:focus,
-         input[type="datetime-local"]:focus,
-         input[type="date"]:focus,
-         input[type="month"]:focus,
-         input[type="time"]:focus,
-         input[type="week"]:focus,
-         input[type="number"]:focus,
-         input[type="email"]:focus,
-         input[type="url"]:focus,
-         input[type="search"]:focus,
-         input[type="tel"]:focus,
-         input[type="color"]:focus,
-         .uneditable-input:focus {
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
             border-color: #0a549d;
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
 
+<<<<<<< HEAD
         .mainRows {
             width: 910px;
             margin: 50px auto;
@@ -134,6 +136,8 @@
             border-radius: 10px;
         }
 
+=======
+>>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
     </style>
 </head>
 

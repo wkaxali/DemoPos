@@ -54,6 +54,9 @@ Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
+Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
+Route::get('/getAllAutos',[UpdateStocksController::class, 'getAllAutos']);
+
 
 
 // Test Functions
@@ -78,10 +81,15 @@ Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC'] );
 Route::get('/getEmployeeID',[payController::class, 'getEmployeeID'] );
 Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact'] );
 Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory'] );
-Route::get('/getEmployee',[expenseController::class, 'getEmployee'] );
+Route::get('/getPartyNames',[expenseController::class, 'getPartyNames'] );
+Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
+Route::get('/getCategory',[taskController::class, 'getCategory'] );
+Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 
 
-Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
+Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative'] );
+Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive'] );
+
 
 Route::get('/', function () {
     return view('signInSignUp');
@@ -177,12 +185,19 @@ Route::get('/at', function () {
 Route::get('/atv', function () {
     return view('attendanceView');
 });
+
+Route::get('/il', function () {
+    return view('Ledger');
+});
+
 Route::get('/igl', function () {
     return view('investorGeneralLedger');
+Route::get('/pr', function () {
+    return view('payRoll');
 });
-Route::get('/il', function () {
-    return view('investorLedger');
+
 });
+
 Route::get('/inv', function () {
     return view('investors');
 });
