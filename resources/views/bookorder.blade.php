@@ -196,12 +196,19 @@
                 margin: 20px 0px !important;
             }
 
-         
+            body {
+                background-color: #0a549d;
+            }
 
         }
 
         @media only screen and (max-width: 503px) {
-      
+            body {
+                background-color: lightblue;
+            }
+
+            /* Background Colors are for checking media queries You Can remove */
+
             .mainSection label {
                 width: 150px !important;
 
@@ -213,7 +220,7 @@
                 top: 84% !important;
             }
 
-            /* / uncomment this and :checked centeralized version at iphone x / */
+            /* uncomment this and :checked centeralized version at iphone x */
             /* .myBookingBorder .row{
                 text-align: center !important;
             } */
@@ -237,14 +244,13 @@
                 top: 127% !important;
             }
         }
-        @media only screen 
-    and (device-width : 414px) 
-    and (device-height : 736px) 
-    and (-webkit-device-pixel-ratio : 3) {
-        .mainSection {
+
+        @media only screen and (device-width : 414px) and (device-height : 736px) and (-webkit-device-pixel-ratio : 3) {
+            .mainSection {
                 top: 93% !important;
             }
-     }
+        }
+
     </style>
 </head>
 
@@ -428,6 +434,8 @@
             } else if (amontPaid == "") {
                 document.getElementById('amount').focus();
             } else {
+                document.getElementById('invoice').focus();
+
                 add();
                // document.getElementById("OrderId").value = "";
 

@@ -99,6 +99,7 @@
             -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
             -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
             box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            height: 229px !important;
 
 
         }
@@ -592,7 +593,12 @@
             }
 
         }
+<<<<<<< HEAD
+/* Invoice Services Media Query Starts */
+/* Invoice Services Media Query Ends */
+=======
 
+>>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
     </style>
 </head>
 

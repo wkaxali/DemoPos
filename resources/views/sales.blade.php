@@ -327,7 +327,7 @@
         }
 
         .my-main-tables {
-            height: 400px !important;
+            height: 425px !important;
         }
 
 
@@ -545,7 +545,7 @@
 
         .myGoggle {
             border: 1px solid rgb(196, 218, 243);
-            height: 400px;
+            height: 425px;
             border-radius: 10px;
         }
 
@@ -817,7 +817,7 @@
             }
 
             .o-inv-2 label {
-                width: 100px;
+                width: 111px;
                 text-align: left;
             }
 
@@ -839,9 +839,9 @@
             }
 
 
-            .okay-invo #invo-1 {
+            /* .okay-invo #invo-1 {
                 width: 100px !important;
-            }
+            } */
 
             .okay-invo label {
                 width: 90px;
@@ -887,59 +887,189 @@
         }
 
 
-.registration-form{
-	padding: 50px 0;
-	/* background-color: #fff; */
+        .registration-form {
+            padding: 50px 0;
+            /* background-color: #fff; */
 
-}
+        }
 
-.registration-form form{
-    background-color: #fff;
-    max-width: 600px;
-    margin: auto;
-    padding: 30px 70px;
-border-radius:30px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
-}
-
-
-
-.registration-form .item{
-	border-radius: 20px;
-    margin-bottom: 25px;
-    padding: 10px 20px;
-}
-
-.registration-form .create-account{
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #5791ff;
-    border: none;
-    color: white;
-    margin-top: 20px;
-}
-.registration-form .form-group{
-	padding:0;
-	margin:0;
-}
+        .registration-form form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px 70px;
+            border-radius: 30px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+        }
 
 
 
+        .registration-form .item {
+            border-radius: 20px;
+            margin-bottom: 25px;
+            padding: 10px 20px;
+        }
 
-@media (max-width: 576px) {
-    .registration-form form{
-        padding: 50px 20px;
-    }
+        .registration-form .create-account {
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #5791ff;
+            border: none;
+            color: white;
+            margin-top: 20px;
+        }
 
-    .registration-form .form-icon{
-        width: 70px;
-        height: 70px;
-        font-size: 30px;
-        line-height: 70px;
-    }
-}
+        .registration-form .form-group {
+            padding: 0;
+            margin: 0;
+        }
+
+
+
+
+        @media (max-width: 576px) {
+            .registration-form form {
+                padding: 50px 20px;
+            }
+
+            .registration-form .form-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 30px;
+                line-height: 70px;
+            }
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
+
+
+
+        @media only screen and (max-width: 768px) {
+
+
+            .okay-invo-1 label {
+                width: 120px !important;
+                font-size: 7px;
+                text-align: left !important;
+
+            }
+
+            .dropdown {
+                width: auto !important;
+            }
+
+            .o-inv-2 {
+                margin-left: 20px;
+            }
+
+        }
+
+        @media only screen and (max-width: 686px) {
+
+            .o-inv-2 {
+                margin-left: 0px;
+            }
+
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+
+            /* .okay-invo-hide {
+                display: none;
+            } */
+
+
+        }
+
+
+
+
+        /* your css rules for ipad landscape */
+
+
+        @media all and (device-width: 768px) and (device-height: 1024px) and (orientation:portrait) {
+
+            .okay-invo-hide {
+                display: none;
+            }
+
+            .okay-invo {
+                width: 100% !important;
+            }
+
+
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .overFlowingTable table thead th {
+                font-size: 10px !important;
+            }
+
+
+
+        }
+
+        /* Landscape*/
+
+        @media only screen and (min-device-width: 1366px) and (max-device-height: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {}
+
+        /* Portrait*/
+        @media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+
+            .okay-invo-hide {
+                display: none;
+            }
+        }
+
+
+        @media screen and (device-aspect-ratio: 40/71) {
+            #InvoiceID {
+                width: 150px !important;
+            }
+
+            #invo-1 {
+                width: 150px !important;
+            }
+        }
+
+        @media screen and (device-aspect-ratio: 16/9) {
+            .okay-invo-hide {
+                display: none;
+            }
+        }
+
+        @media only screen and (max-width: 1197px) {
+            .okay-invo-hide {
+                display: none;
+            }
+        }
+
+        body {
+            /* background-color: lightcoral; */
+            background-color: lightsalmon;
+        }
+
     </style>
 </head>
 
@@ -948,22 +1078,22 @@ border-radius:30px;
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <h5>Sales</h5>
+                <h1>Sales</h1>
             </div>
         </div>
     </div>
     <div class="container">
-        <div class="row">
-            <div class="col-md-3 okay-invo">
+        <div class="row" id="selectFirst">
+            <div class="col-xl-3  col-lg-6 col-md-6   okay-invo">
                 <label for="invo-1">Invoice Number</label>
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="InvoiceID">
-                <button class="btn btn-info" style="height: 25px; margin-top: -5px;"></button> <br>
-                <label for="prod-1">Product Number</label>
+                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
+                <br class="hideBr"> <label for="prod-1">Product Number</label>
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="invo-1">
-                <button type="button" class="btn btn-info" style="height: 25px; margin-top: -5px;" data-toggle="modal"
-                    data-target=".bd-example-modal-xl"></button>
+                <button type="button" class="btn" style="height: 25px; margin-top: -5px; background-color: #e61d2f;"
+                    data-toggle="modal" data-target=".bd-example-modal-xl"></button>
 
                 </button>
 
@@ -971,7 +1101,7 @@ border-radius:30px;
 
                 <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
                     aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-xl">
+                    <div class="modal-dialog modal-dialog-centered modal-xl">
                         <div class="modal-content">
                             <div class="container">
                                 <div class="row">
@@ -981,7 +1111,10 @@ border-radius:30px;
 
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-8 offset-md-2 mt-5 mb-5">
+                                    <div class="overFlowingTable"
+                                        style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
+
+
                                         <table class="table  table-bordered " id="searchProductTable">
                                             <thead>
                                                 <tr>
@@ -1018,11 +1151,11 @@ border-radius:30px;
                 </div>
                 <label style="visibility: hidden;" for="prod-hour">Product Number</label>
                 <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
-                <br>
+
                 <div class="centhour">
-                    <button class="btn btn-info">New</button>
-                    <button class="btn btn-warning ">Edit</button>
-                    <button class="btn" style="background-color: #dc3545;;">Delete</button>
+                    <button class="btn" style="background-color: #13579a;">New</button>
+                    <button class="btn" style="background-color: #e61d2f;">Edit</button>
+                    <button class="btn" style="background-color: #13579a;">Delete</button>
                 </div>
                 <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
             </div>
@@ -1032,11 +1165,12 @@ border-radius:30px;
                     <label for="invo-1">Customer Id</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CID">
-                    <button class="btn btn-info" style="height: 25px; margin-top: -5px;"></button> <br>
+                    <button class="btn" style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
+                    <br>
                     <label for="prod-1">Last Balance</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="LastBalance">
-                    <button class="btn btn-info" style="height: 25px; margin-top: -5px;"></button> <br>
+                    <button class="btn" style="height: 25px; margin-top: -5px;background-color: #13579a;"></button> <br>
                     <label for="prod-1">Current Balance</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CurrentBalance">
@@ -1068,7 +1202,8 @@ border-radius:30px;
 
                 </div>
                 <div class="inv-bor-btns">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">Add</button>
+                    <button class="btn" style="background-color: #e61d2f;" data-toggle="modal"
+                        data-target="#staticBackdrop">Add</button>
 
 
 
@@ -1077,63 +1212,72 @@ border-radius:30px;
                         <div class="modal-dialog">
                             <div class="modal-content" style="background:none;">
 
-                       <div class="modal-body">
+                                <div class="modal-body">
 
-    <div class="registration-form">
-        <form>
-	 <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
-	 <h2>Add Customer</h2>
-	 
-	 </div>
-		
-            <div class="form-group">
-                <input type="text" class="form-control item" autocomplete="OFF" id="username" placeholder="Customer ID">
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control item" autocomplete="OFF" id="password" placeholder="Customer Name">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" autocomplete="OFF" id="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" autocomplete="OFF" id="phone-number" placeholder="Phone Number">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" autocomplete="OFF" id="birth-date" placeholder="Birth Date">
-			</div>
-			<div class="form-group">
-                <input type="text" class="form-control item" autocomplete="OFF" id="email" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" autocomplete="OFF" id="phone-number" placeholder="Phone Number">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control item" autocomplete="OFF" id="birth-date" placeholder="Birth Date">
-			</div>
-			
-            <div class="form-group">
-                <button type="button" class="btn btn-block create-account">Add</button>
-			</div>
-		
-		
-        </form>
-  
-    </div>
+                                    <div class="registration-form">
+                                        <form>
+                                            <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
+                                                <h2>Add Customer</h2>
+
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                    id="username" placeholder="Customer ID">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control item" autocomplete="OFF"
+                                                    id="password" placeholder="Customer Name">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                    id="email" placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                    id="phone-number" placeholder="Phone Number">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                    id="birth-date" placeholder="Birth Date">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                    id="email" placeholder="Email">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                    id="phone-number" placeholder="Phone Number">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                    id="birth-date" placeholder="Birth Date">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button type="button" class="btn btn-block create-account">Add</button>
+                                            </div>
 
 
-					   </div>
-                               
+                                        </form>
+
+                                    </div>
+
+
+                                </div>
+
                             </div>
 
                         </div>
                     </div>
-                    <button class="btn btn-success">View</button>
-                    <button class="btn btn-success">History</button>
-                    <button class="btn btn-success">Info</button>
+                    <button class="btn" style="background-color: #13579a;">View</button>
+                    <button class="btn" style="background-color: #e61d2f;">History</button>
+                    <button class="btn" style="background-color: #13579a;">Info</button>
                 </div>
             </div>
 
-            <div class="col-md-3 okay-invo">
+            <div class="col-md-3 okay-invo okay-invo-hide">
+                <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid" alt="">
 
             </div>
 
@@ -1145,7 +1289,7 @@ border-radius:30px;
     <br>
     <div class="container">
         <div class="row">
-            <div class="col-md-9 myGoggle" style="overflow-x: hidden; overflow-y: auto;">
+            <div class="col-md-9 myGoggle" style="overflow-x: auto; overflow-y: auto;">
                 <div>
                     <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
                         id="ProductSaleTable">
@@ -1199,14 +1343,14 @@ border-radius:30px;
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
                 <div class="total-buttons" id="hideme">
-                    <button class="btn btn-info" onclick="insertInSales()">Save</button>
-                    <button class="btn btn-info">Hold</button>
-                    <button class="btn btn-info">Save</button>
+                    <button class="btn" style="background-color: #e61d2f;" onclick="insertInSales()">Save</button>
+                    <button class="btn" style="background-color: #0a549d;">Print</button>
+                    <button class="btn" style="background-color: #e61d2f;">Edit</button>
                 </div>
                 <div class="total-buttons" id="hideme">
-                    <button class="btn btn-info">Save</button>
-                    <button class="btn btn-info">Hold</button>
-                    <button class="btn btn-info">Save</button>
+                    <button class="btn" style="background-color: #0a549d;">Hold</button>
+                    <button class="btn" style="background-color: #e61d2f;">Update</button>
+                    <button class="btn" style="background-color: #0a549d;">Delete</button>
                 </div>
 
 
