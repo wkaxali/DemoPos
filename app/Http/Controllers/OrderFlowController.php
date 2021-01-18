@@ -64,13 +64,9 @@ class OrderFlowController extends Controller
       
       accountsController::UpdateNewBalance($AID,$newAccountBalance);
       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
+      LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
      // $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
-      DB::table('tblledgerparties')
-        ->where('LID', 2)
-        ->update(['Balance' =>$selfBalance]);
-      DB::table('tblledgerparties')
-        ->where('LID', 1)
-        ->update(['Balance' =>$companyBalance]);
+   
     
         return "Your order ".$invoiceNumber;
     }
@@ -149,7 +145,7 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,"21",NULL,NULL,$purchasePrice,$InvoiceID);
+       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID);
        print ($productSerial);
       
   

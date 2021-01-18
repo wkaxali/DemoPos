@@ -179,6 +179,7 @@
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
+
         }
 
         /* Firefox */
@@ -379,16 +380,16 @@
                         <div class="mainInputGroups">
                             <div class="input-group">
                                 <label style="width: 150px !important;" for="">Total Amount</label>
-                                <input type="text" name="" id="mainTotal">
+                                <input type="number" name="" id="mainTotal">
                             </div>
 
                             <div class="input-group ">
                                 <label style="width: 150px  !important;" for="">Total Paid</label>
-                                <input type="text" name="" id="totalPaid" onchange="calculatonInTable()">
+                                <input type="number" name="" id="totalPaid" onchange="calculatonInTable()">
                             </div>
                             <div class="input-group ">
                                 <label style="width: 150px  !important;" for="">Total Remaining</label>
-                                <input type="text" name="" id="totRemaining">
+                                <input type="number" name="" id="totRemaining">
                             </div>
 
                         </div>
@@ -422,17 +423,8 @@
             if (invoicePrice == "") {
                 document.getElementById('invoice').focus();
 
-            } else if (isNaN(invoicePrice)) {
-                alert("Input Field Should Be Numeric");
-                document.getElementById("invoice").value = "";
-
-
             } else if (qty == "") {
                 document.getElementById('qty').focus();
-            } else if (isNaN(amontPaid)) {
-                alert("Input Field Should Be Numeric");
-                document.getElementById("amount").value = "";
-
             } else if (amontPaid == "") {
                 document.getElementById('amount').focus();
             } else {

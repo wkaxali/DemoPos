@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\TransactionFlow;
+use App\Http\Controllers\LedgerPartiesController;
 
 class AdditionalTaxesAndCommissionsController extends Controller
 {
@@ -33,7 +34,7 @@ return $CID;
         
 
     }
-    public function AddTaxOrCommission(Request $request,$data){
+    public function AddTaxOrCommissionNegative(Request $request,$data){
 
         // $(tr).find('td:eq(0)').text(),//head
         // $(tr).find('td:eq(1)').text(), //Amount
@@ -43,12 +44,24 @@ return $CID;
         $Array=json_decode($data);
         $PID=$Array[0];
         $totCostHere=0;
+        $AID="5";
         foreach($Array[1] as $item){
-
+            $amp=$item[1];
        self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Cost",$PID,NULL,NULL,
     $dateNow);
-
+        $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+        $selfBalance=$oldSelfBalance-$item[1];
+        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
         $totCostHere=floatval($totCostHere)+floatval($item[1]);
+         TransactionFlow:: addTransaction(NULL,"Credit",$item[0],$item[1],$dateNow,
+        "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null);
+        $OldAccBalance=accountsController::getAccountBalance($AID);
+        $newAccountBalance=floatval($OldAccBalance)-floatval($amp);
+       
+        accountsController::UpdateNewBalance($AID,$newAccountBalance);
+
+        // public static function addTransaction($InvoiceNo,$TType,$Tcate,$amount,$dateStamp,
+        // $UserID,$SBB,$SBA,$CBB,$CBA,$LID,$pattyCash,$paidBy,$paidTo,$paidVia,$CID)
        
     
         
@@ -60,6 +73,47 @@ return $CID;
         $oldCost=UpdateStocksController::getTotalCost($PID);
         $newCost=floatval($totCostHere)+floatval($oldCost);
         UpdateStocksController::setTotalCost($PID,$newCost);
+
+
+        return "HOLA";
+
+    }
+    public function AddTaxOrCommissionPositive(Request $request,$data){
+
+        
+        $dateNow= Carbon::now()->toDateTimeString();
+        $Array=json_decode($data);
+        $PID=$Array[0];
+        $TotalSaleAmount=0;
+        $AID="5";
+        foreach($Array[1] as $item){
+            $amp=$item[1];
+       self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Profit",$PID,NULL,NULL,
+    $dateNow);
+        $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+        $selfBalance=$oldSelfBalance+$item[1];
+        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+        $TotalSaleAmount=floatval($TotalSaleAmount)+floatval($item[1]);
+         TransactionFlow:: addTransaction(NULL,"Debit",$item[0],$item[1],$dateNow,
+        "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null);
+        $OldAccBalance=accountsController::getAccountBalance($AID);
+        $newAccountBalance=floatval($OldAccBalance)+floatval($amp);
+       
+        accountsController::UpdateNewBalance($AID,$newAccountBalance);
+
+        // public static function addTransaction($InvoiceNo,$TType,$Tcate,$amount,$dateStamp,
+        // $UserID,$SBB,$SBA,$CBB,$CBA,$LID,$pattyCash,$paidBy,$paidTo,$paidVia,$CID)
+       
+    
+        
+   
+
+
+
+        }
+        $oldCost=UpdateStocksController::getTotalSoldPrice($PID);
+        $newCost=floatval($TotalSaleAmount)+floatval($oldCost);
+        UpdateStocksController::setTotalSaleAmount($PID,$newCost);
 
 
         return "HOLA";

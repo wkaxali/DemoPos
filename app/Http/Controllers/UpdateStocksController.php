@@ -94,11 +94,25 @@ class UpdateStocksController extends Controller
       return $results;
 
   }
+  public function getAllAutos(){
+    $results=DB::select('select * from  vw_stockdetails where Category=21 and  StatusInStock<>"Pending"');
+    
+        
+    return $results;
+
+}
   public function getAllAvailableProducts(){
     $results=DB::select('select * from  vw_stockdetails where StatusInStock="Available"');
     
         
     return $results;
+
+}
+public function getAllSoldProducts(){
+  $results=DB::select('select * from  vw_stockdetails where StatusInStock="Sold"');
+  
+      
+  return $results;
 
 }
 public static function UpdateStockStatus($PID,$Status){
@@ -122,11 +136,30 @@ public static function getTotalCost($PID){
 
              return $OldPrice[0]->TotalCost;
 }
+public static function getTotalSoldPrice($PID){
+
+  $OldPrice = DB::table('instock')
+            ->where('ProductSerial', '=', $PID)
+             ->get();
+
+             return $OldPrice[0]->TotalSaleAmount;
+}
 public static function setTotalCost($PID,$amount){
 
   DB::table('instock')
   ->where('ProductSerial', $PID)
   ->update(['TotalCost'=>$amount
+  
+
+  ]);
+  return "Cost Updated";
+
+}
+public static function setTotalSaleAmount($PID,$amount){
+
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update(['TotalSaleAmount'=>$amount
   
 
   ]);
