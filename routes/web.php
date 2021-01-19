@@ -86,7 +86,7 @@ Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
-Route::get('/getAllAutos',[UpdateStocksController::class, 'getAllAutos']);
+Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
 
