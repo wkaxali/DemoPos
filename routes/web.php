@@ -125,6 +125,8 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 
 Route::get('/', function () {
+    session(['UserName' => "Waqas"]);
+      session(['ID' => '5']);
     return view('signInSignUp');
 });
 Route::get('/ss', function () {
