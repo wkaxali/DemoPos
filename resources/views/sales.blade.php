@@ -888,7 +888,7 @@
 
 
         .registration-form {
-            padding: 50px 0;
+            padding: 0px 0;
             /* background-color: #fff; */
 
         }
@@ -942,7 +942,7 @@
             }
         }
 
-        input[type="text"]:focus,
+        input[type="number"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
         input[type="datetime-local"]:focus,
@@ -1016,6 +1016,9 @@
             .okay-invo {
                 width: 100% !important;
             }
+            .o-inv-2 {
+                margin-left: 0px;
+            }
 
 
         }
@@ -1039,6 +1042,9 @@
 
             .okay-invo-hide {
                 display: none;
+            }
+            .o-inv-2 {
+                margin-left: 0px;
             }
         }
 
@@ -1066,8 +1072,9 @@
         }
 
         body {
-            /* background-color: lightcoral; */
-            background-color: lightsalmon;
+            background: rgb(10, 84, 157);
+            background: radial-gradient(circle, rgba(10, 84, 157, 1) 0%, rgba(230, 29, 47, 0.9444152661064426) 100%);
+            color: #ffffff;
         }
 
     </style>
@@ -1086,11 +1093,11 @@
         <div class="row" id="selectFirst">
             <div class="col-xl-3  col-lg-6 col-md-6   okay-invo">
                 <label for="invo-1">Invoice Number</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="InvoiceID">
                 <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
                 <br class="hideBr"> <label for="prod-1">Product Number</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="invo-1">
                 <button type="button" class="btn" style="height: 25px; margin-top: -5px; background-color: #e61d2f;"
                     data-toggle="modal" data-target=".bd-example-modal-xl"></button>
@@ -1101,7 +1108,7 @@
 
                 <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
                     aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-dialog  modal-xl">
                         <div class="modal-content">
                             <div class="container">
                                 <div class="row">
@@ -1150,7 +1157,7 @@
                     </div>
                 </div>
                 <label style="visibility: hidden;" for="prod-hour">Product Number</label>
-                <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
+                <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
 
                 <div class="centhour">
                     <button class="btn" style="background-color: #13579a;">New</button>
@@ -1163,16 +1170,16 @@
             <div class="col-md-6  okay-invo-1">
                 <div class="o-inv">
                     <label for="invo-1">Customer Id</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CID">
                     <button class="btn" style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
                     <br>
                     <label for="prod-1">Last Balance</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="LastBalance">
                     <button class="btn" style="height: 25px; margin-top: -5px;background-color: #13579a;"></button> <br>
                     <label for="prod-1">Current Balance</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CurrentBalance">
 
                 </div>
@@ -1190,11 +1197,11 @@
 
                     <br>
                     <label for="prod-1">Contact Number</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CNO">
                     <br>
                     <label for="prod-1">Category</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CustomerCategory">
                     <br>
                 </div>
@@ -1215,7 +1222,9 @@
                                 <div class="modal-body">
 
                                     <div class="registration-form">
+                                    
                                         <form>
+                                            <h3 style="color: black !important;">Add Customer</h3>
                                             <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
                                                 <h2>Add Customer</h2>
 
@@ -1234,11 +1243,11 @@
                                                     id="email" placeholder="Email">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                <input type="number" class="form-control item" autocomplete="OFF"
                                                     id="phone-number" placeholder="Phone Number">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                <input type="number" class="form-control item" autocomplete="OFF"
                                                     id="birth-date" placeholder="Birth Date">
                                             </div>
                                             <div class="form-group">
@@ -1321,26 +1330,26 @@
             </div>
             <div class="col-md-3 okay-invo-3">
                 <label for="invo-1" style="width: 130px;">Total</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="Total">
 
                 <label for="prod-1" style="width: 130px;">Discount</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="DiscountOverall" onchange="calc()">
                 <label for="invo-1" style="width: 130px;">Gross Total</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="grossTotal">
                 <label for="prod-1" style="width: 130px;"> Tax 17%</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="tax" onchange="calc()">
                 <label for="prod-1" style="width: 130px;">Net Total</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="NetTotal">
                 <label for="invo-1" style="width: 130px; font-weight: 500;">Amount Paid</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="AmountPaid" onchange="calcForBalance()">
                 <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #e61d2f;" onclick="insertInSales()">Save</button>
@@ -1605,9 +1614,9 @@
                 cell3.innerHTML = CompanyName;
                 cell4.innerHTML = SalePrice;
                 cell5.innerHTML =
-                    '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
+                    '<input type="number" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
                 cell6.innerHTML =
-                    '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
+                    '<input type="number" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
                 var tot = SalePrice * 1;
                 cell7.innerHTML = tot;
                 calc();
@@ -1784,8 +1793,8 @@
 
                 $(tr).find('td:eq(0)').text(), //productID
                 $(tr).find('td:eq(3)').text(), //salePrice
-                $(tr).find('td:eq(4) input[type="text"]').val(), //qty
-                $(tr).find('td:eq(5) input[type="text"]').val(), //discount
+                $(tr).find('td:eq(4) input[type="number"]').val(), //qty
+                $(tr).find('td:eq(5) input[type="number"]').val(), //discount
                 $(tr).find('td:eq(6)').text() //totamount
 
 
