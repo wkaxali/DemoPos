@@ -95,8 +95,8 @@ class UpdateStocksController extends Controller
       return $results;
 
   }
-  public function getAllAutos(){
-    $results=DB::select('select * from  vw_stockdetails where Category=21 and  StatusInStock<>"Pending"');
+  public function getAllAutos($PC){
+    $results=DB::select('select * from  vw_stockdetails where Category='.$PC.' and  StatusInStock<>"Pending"');
     
         
     return $results;

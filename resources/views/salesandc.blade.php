@@ -944,10 +944,12 @@ calcProfitTable();
                
             });
             table.draw();
+            
         }
     };
+    var PC=20;
 //alert();
-    xhttp.open("GET", "./getAllAutos/", true);
+    xhttp.open("GET", "./getAllAutos/"+PC, true);
     xhttp.send();
   }
   function calcProfitTable(){
