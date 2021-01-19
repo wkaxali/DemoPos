@@ -109,6 +109,13 @@
             -moz-appearance: textfield;
         }
 
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
     </style>
 </head>
 

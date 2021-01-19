@@ -260,9 +260,13 @@
 
         }
 
-=======
->>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
     </style>
 
 </head>

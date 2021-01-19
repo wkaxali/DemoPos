@@ -1076,7 +1076,13 @@
             background: radial-gradient(circle, rgba(10, 84, 157, 1) 0%, rgba(230, 29, 47, 0.9444152661064426) 100%);
             color: #ffffff;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
 
+        }
     </style>
 </head>
 

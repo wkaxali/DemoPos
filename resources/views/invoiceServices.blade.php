@@ -596,7 +596,13 @@
 
         /* Invoice Services Media Query Starts */
         /* Invoice Services Media Query Ends */
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
 
+        }
     </style>
 </head>
 
@@ -629,8 +635,7 @@
 
 
                 </select>
-                <button type="button" class="btn btn-info" style="height: 25px; margin-top: -5px;" data-toggle="modal"
-                    data-target=".bd-example-modal-xl"></button> -->
+           
                 <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
                     style="height: 25px;" onclick="loadStock()"></button>
             </div>
@@ -1346,7 +1351,7 @@
 
     }
 
-    $("#mainBody").on('keypress', function (event) {
+    $("body").on('keypress', function (event) {
         if (event.keyCode === 13) {
             validPlz();
         } else {}
