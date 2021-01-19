@@ -118,6 +118,8 @@ Route::get('/getPartyNames',[expenseController::class, 'getPartyNames'] );
 Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
 Route::get('/getCategory',[taskController::class, 'getCategory'] );
 Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
+Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
+
 
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative'] );
