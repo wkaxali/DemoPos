@@ -43,9 +43,10 @@ return $CID;
         $dateNow= Carbon::now()->toDateTimeString();
         $Array=json_decode($data);
         $PID=$Array[0];
+        $AID=$Array[1];
         $totCostHere=0;
-        $AID="5";
-        foreach($Array[1] as $item){
+        
+        foreach($Array[2] as $item){
             $amp=$item[1];
        self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Cost",$PID,NULL,NULL,
     $dateNow);
@@ -85,8 +86,8 @@ return $CID;
         $Array=json_decode($data);
         $PID=$Array[0];
         $TotalSaleAmount=0;
-        $AID="5";
-        foreach($Array[1] as $item){
+        $AID=$Array[1];;
+        foreach($Array[2] as $item){
             $amp=$item[1];
        self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Profit",$PID,NULL,NULL,
     $dateNow);

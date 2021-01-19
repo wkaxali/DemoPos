@@ -27,6 +27,7 @@ class serviceSalesFlow extends Controller
          $CLB=$Array[9];
 
          $CCB=$Array[10];
+         $AID=$Array[11];
        //  return $CLB;
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
@@ -59,8 +60,8 @@ class serviceSalesFlow extends Controller
       $LID=2;
        $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
        $oldCustomerBalance=CustomerController::getCustomerBalance($CID);
-       $paidVia=5;
-       $AID=5;
+       $paidVia=$AID;
+       
        $currentCustomerBalance=floatval($oldCustomerBalance)+floatval($RBI);
        CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
        $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);

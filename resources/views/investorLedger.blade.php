@@ -197,7 +197,7 @@
                                     <th>Chasis Number</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="mainStocktBody">
                                
                             </tbody>
 
@@ -450,7 +450,7 @@ function loadFunctions(){
     <script>
         $(document).ready(function () {
             $('#stockTable').DataTable();
-            $('#mainStockTable').DataTable();
+            
         });
         
 </script>
@@ -464,8 +464,8 @@ function getInvestorDetails(){
                 var a = JSON.parse(data);
                 //alert(a);
                 var table;
-                table = $('#mainStockTable').DataTable();
-                table.clear();
+                document.getElementById("mainStocktBody").innerHTML="";
+               
                 document.getElementById("selfRatio").value = a[0].OurProfitRatio;
                 document.getElementById("investorRatio").value = a[0].InvestorProfitRatio;
                 document.getElementById("budget").value = a[0].Balance;

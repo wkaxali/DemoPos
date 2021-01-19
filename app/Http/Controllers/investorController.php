@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\accountsController;
+use App\Http\Controllers\LedgerPartiesController;
 use Carbon\Carbon;
 
 use DB;
@@ -13,8 +14,9 @@ class investorController extends Controller
   public static function addInvestorProduct(Request $request, $CO){
 
     $ata=json_decode($CO);
-    $LID=$ata[0];
+    $investorID=$ata[0];
     $data=$ata[1];
+    $totalProfit=0;
     foreach ($data as $obj){
       $PID=$obj[0];
       $salePrice=$obj[1];
@@ -27,7 +29,7 @@ class investorController extends Controller
       
       $id=DB::table('tbl_investor_product')->insertGetId([
       'PID'=>$PID,
-      'LID'=>$LID,
+      'LID'=>$investorID,
       'totalProfit'=>$profit,
       'LIDProfit'=>$investorProfit,
       'LIDProfitRatio'=>$investorProfitRatio,
@@ -35,8 +37,16 @@ class investorController extends Controller
       'SelfProfitRatio'=>$selfProfitRatio,
       'Status'=>"Pending"
       ]);
-      return $id;
+      $totalProfit=$totalProfit+$investorProfit;
+      
     }
+
+
+    $oldCompanyBalance=LedgerPartiesController::getPartyBalance($investorID);
+      
+      $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totalProfit);
+      LedgerPartiesController::UpdatePartiesBalance($investorID,$currentCompanyBalance);
+    return $id;
   }
   
     

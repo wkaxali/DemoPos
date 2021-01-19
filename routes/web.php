@@ -89,6 +89,7 @@ Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProd
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
+Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']);
 
 
 // Test Functions

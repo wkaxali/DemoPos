@@ -802,9 +802,9 @@ calcProfitTable();
                                         alert("array for order" + commissionArray);
 
                                         var PID = document.getElementById("PID").value;
-
+                                        var AID = 1;
                                         alert(PID);
-                                        var OverAllDetails = [PID, commissionArray];
+                                        var OverAllDetails = [PID, AID, commissionArray];
 
 
                                         alert(OverAllDetails);
@@ -853,9 +853,9 @@ calcProfitTable();
                                         alert("array for order" + commissionArray);
 
                                         var PID = document.getElementById("PID").value;
-
+                                        var AID = 1;
                                         alert(PID);
-                                        var OverAllDetails = [PID, commissionArray];
+                                        var OverAllDetails = [PID, AID, commissionArray];
 
 
                                         alert(OverAllDetails);

@@ -1342,6 +1342,12 @@
                 <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
+
+                    <label for="">Paid From</label>
+                            <select style="height: 25px !important; width: 158px !important; "
+                                class="selectpicker form-control"  data-live-search="true"  id="accounts" >
+                            
+                            </select>
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #e61d2f;" onclick="insertInSales()">Save</button>
                     <button class="btn" style="background-color: #0a549d;">Print</button>
@@ -1454,6 +1460,7 @@
         xhttp.send();
         calc();
         loadAllCustomers();
+        loadAccounts();
         getInvoiceID();
 
 
@@ -1506,6 +1513,21 @@
         xhttp.send();
 
 
+    }
+    function loadAccounts(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("accounts").innerHTML = this.response;
+            $('#accounts').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getAccounts/", true);
+    
+    xhttp.send();
     }
 
     function AddCustomer() {
@@ -1814,7 +1836,8 @@
         var CLB = document.getElementById("LastBalance").value;
 
         var CCB = document.getElementById("CurrentBalance").value;
-        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB];
+        var AID=$('#accounts').find(":selected").val();
+        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB,AID];
 
         //alert(myRow2[0][1]);
         //alert(myRow2[11]);
