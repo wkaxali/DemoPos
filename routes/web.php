@@ -214,7 +214,7 @@ Route::get('/atv', function () {
     return view('attendanceView');
 });
 
-Route::get('/il', function () {
+Route::get('/l', function () {
     return view('investorLedger');
 });
 Route::get('/il', function () {
@@ -231,4 +231,16 @@ Route::get('/inv', function () {
 });
 Route::get('/pr', function () {
     return view('payRoll');
+});
+
+Route::get('/pm', function () {
+    return view('paymentFile');
+});
+
+Route::get('/ivs', function () {
+    return view('inventorysheet');
+});
+
+Route::get('/d', function () {
+    return view('delivery');
 });

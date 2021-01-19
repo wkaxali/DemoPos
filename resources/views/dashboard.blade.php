@@ -9542,8 +9542,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
 
                         <div class="form-submit">
-                            <input onclick="modalValidation()" name="submit" id="submit" class="submit"
-                                value="Add Customer" />
+                            <a href="pm">Add Customer</a>
                         </div>
                     </form>
                 </div>
@@ -9602,7 +9601,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
-                                                            onclick="location.href = 'Receiving.html'">Dilivery</button><br>
+                                                            onclick="location.href = '/d'">Dilivery</button><br>
                                                             <button data-toggle="modal" id="killme"
                                                                 data-target="#staticBackdrop"
                                                                 class="btn btn-mysecondary">Quotation</button><br>
@@ -9621,7 +9620,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
                                                             <a href="/is"><button class="btn btn-myPrimary-add">invoice services</button><br></a>
                                                             <a href="/psi"><button class="btn btn-mysecondary">Print Sale Invoice</button><br></a>
-                                                            <a href="/s"><button class="btn btn-myPrimary">Sales& comission</button><br></a>
+                                                            <a href="/sc"><button class="btn btn-myPrimary">Sales& comission</button><br></a>
                                                             <a href="/ct"> <button class="btn btn-myPrimary-add">texes</button><br></a>
                                                         </div>
                                                     </div>
