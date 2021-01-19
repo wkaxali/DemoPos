@@ -9542,8 +9542,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
 
                         <div class="form-submit">
-                            <input onclick="modalValidation()" name="submit" id="submit" class="submit"
-                                value="Add Customer" />
+                            <a href="pm">Add Customer</a>
                         </div>
                     </form>
                 </div>
@@ -9602,19 +9601,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
-<<<<<<< HEAD
                                                                 onclick="location.href = 'Receiving.html'">Dilivery</button><br>
                                                             <button data-toggle="modal" id="killme"
                                                                 data-target="#staticBackdrop"
                                                                 class="btn btn-mysecondary">Quotation</button><br>
 
-=======
-                                                                onclick="location.href = '/d'">Dilivery</button><br>
-                                                                <button class="btn btn-mysecondary"
-                                                                onclick="location.href = '/dl'">Dilivery letter</button><br>
-                                                                <button class="btn btn-mysecondary"
-                                                                onclick="location.href = '/ct'">Comissions</button><br>
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
                                                         </div>
                                                         
                                                     </div>
