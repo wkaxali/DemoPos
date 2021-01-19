@@ -609,7 +609,7 @@
             var totalpaid = document.getElementById("totalPaid").value;
             var totRemaining = document.getElementById("totRemaining").value;
             alert(mainTotal);
-            var Order = [mainTotal, totalpaid, totRemaining, orderDetails];
+            var Order = [mainTotal, totalpaid, totRemaining, orderDetails,];
 
 
             alert(Order);
