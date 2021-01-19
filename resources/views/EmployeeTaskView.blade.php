@@ -324,16 +324,16 @@
         }
 
         #cardsCanvas {
-        display: flex;
-        justify-content: center;
-     flex-wrap: wrap;
-     flex-direction: row;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: row;
 
         }
 
         .mainContCards .mainCards-1 .card {
-        margin: 10px;
-        width: 23rem;
+            margin: 10px;
+            width: 23rem;
         }
 
         @media screen and (max-width: 1202px) {
@@ -617,6 +617,7 @@
             height: 35px;
             margin-left: 5px;
         }
+
         * {
             margin: 0;
             padding: 0;
@@ -1014,6 +1015,7 @@
 
 
         }
+
         input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
@@ -1033,7 +1035,7 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
-     
+
     </style>
 </head>
 
@@ -1062,7 +1064,7 @@
                 <li><a href="#">
                         <span class="icon"><i class="fas fa-user"></i></span>
                         <span class="title">User</span></a></li>
-                <li><a href="#"data-toggle="modal" data-target="#exampleModal">
+                <li><a href="#" data-toggle="modal" data-target="#exampleModal">
                         <span class="icon"><i class="fas fa-plus-circle"></i></span>
                         <span class="title">Add Task</span>
                     </a></li>
@@ -1342,15 +1344,15 @@
 
                                     <label for="">Assign To</label><br>
                                     <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control"  data-live-search="true"  id="assignTo" >
-                            
+                                        class="selectpicker form-control" data-live-search="true" id="assignTo">
+
                                     </select>
                                     <label for="">Details</label>
                                     <table id="subTasks">
                                         <tr>
                                             <td id="td-1">1</td>
                                             <td id="td-2"><input type="text" class="form-control" name="" id=""></td>
-                                           
+
                                         </tr>
                                     </table>
                                     <div class="row">
@@ -1397,8 +1399,8 @@
                                     </div><br>
                                     <label for="">Category</label><br>
                                     <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control"  data-live-search="true"  id="category" >
-                            
+                                        class="selectpicker form-control" data-live-search="true" id="category">
+
                                     </select>
 
                                 </div>
@@ -1500,7 +1502,7 @@
         }
 
     </script>
- <script>
+    <script>
         function getRowId() {
             var t = document.getElementById("subTasks");
             var x = document.getElementById("subTasks").rows.length;
@@ -1513,7 +1515,7 @@
 
 
             var cell2 = document.getElementById("td-2").innerHTML;
-         
+
             var row = t.insertRow(-1);
             var mcell1 = row.insertCell(0);
             var mcell2 = row.insertCell(1);
@@ -1523,7 +1525,7 @@
         }
 
     </script>
-   <script>
+    <script>
         function GetDates() {
             var date = new Date();
             alert(date);

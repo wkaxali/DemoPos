@@ -742,7 +742,7 @@
                                 <label for="status">Discount</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="Discount" onkeyup="calc()">
+                                    name="name" value="0" id="Discount" onkeyup="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
