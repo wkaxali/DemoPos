@@ -237,7 +237,7 @@
                     <div class="sales-1" style="margin-left:80px ;">
                         <label for="">Profit / Loss</label>
                         <input type="text" class="form-control"
-                            style="display: inline-block !important; width: 200px !important;" name="" id="">
+                            style="display: inline-block !important; width: 200px !important;" name="" id="PLinDB">
                     </div>
                 </div>
             </div>
@@ -286,11 +286,14 @@
                                                             <th>Product Name</th>
                                                             <th>Engine Number</th>
                                                             <th>Chasis Number</th>
+                                                            <th>Purchse Price</th>
+                                                            
                                                             <th>Total Cost</th>
-                                                            <th>Price Sold</th>
+                                                            <th>Sale Price</th>
+                                                            <th>Price + Comission</th>
                                                             <th> Status</th>
 
-                                                           
+                                                          
 
                                                         </tr>
                                                     </thead>
@@ -376,31 +379,31 @@
                                 </div>
                                 <div class="col-md-4">
 
-                                    <label  for="status">Sale Price</label>
+                                    <label  for="status">Purchase Price</label>
                                     <input type="text" class="form-control"
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                        name="name" id="SalePrice" value="">
+                                        name="name" id="PurchasePrice" value="">
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="status">Status</label>
+                                    <label for="status">Invoice Price</label>
                                     <input type="text" class="form-control"
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                        name="name" id="status" value="0">
+                                        name="name" id="SalePrice" value="0">
 
                                 </div>
                                 <div class="col-md-4">
 
-                                    <label  for="status">Sale Price</label>
+                                    <label  for="status">Total Cost+ tax</label>
                                     <input type="text" class="form-control"
                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                        name="name" id="SalePrice" value="">
+                                        name="name" id="totalCost" value="">
                                 </div>
                                  <div class="col-md-4">
 
-<label  for="status">Sale Price</label>
+<label  for="status">Sale Price + Comission</label>
 <input type="text" class="form-control"
     style="display: inline-block !important; height: 30px !important; width: 183px;"
-    name="name" id="SalePrice" value="">
+    name="name" id="SPC" value="">
 </div>
                             </div>
 
@@ -450,7 +453,7 @@
                                                 <label style="margin-left: 10px;" for="remarks">Remarks </label> <input
                                                 class="form-control" style="display: inline-block !important; width: 100px !important;" type="text" name="" id="remarks">
 
-                                                <button onclick="add()" style="margin-top: -3px;" class="btn">+</button>
+                                                <button onclick="addInCost()" style="margin-top: -3px;" class="btn">+</button>
                                             </div>
                                             </div>
                                         </div><div class="row my-3">
@@ -488,8 +491,8 @@
                                    
                                           
                                                 <div class="col-md-3 ">
-                                                <label for="">Total Cost</label>
-                                                <input type="text" class="form-control" name="" id="TotalCost">
+                                                <label for="">Cost (current)</label>
+                                                <input type="text" class="form-control" name="" id="overallTotalCost">
                                                 </div>
 
 
@@ -577,7 +580,7 @@
                                                 <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
                                                 class="form-control" style="display: inline-block !important; width: 135px !important;" type="text" name="" id="remarksd">
 
-                                                <button onclick="addd()" style="margin-top: -3px;" class="btn">+</button>
+                                                <button onclick="addInProfit()" style="margin-top: -3px;" class="btn">+</button>
                                             </div>
                                         </div><div class="row my-3">
                                             <div class="col-md-12" style="padding: 0px !important;">
@@ -657,12 +660,12 @@
                                    
                                             <div class="col-md-3">
                                                 <label for="">Total Sale Price</label>
-                                                <input type="text" class="form-control" name="" id="SoldPrice">
+                                                <input type="text" class="form-control" name="" id="currentSPC">
                                             </div>
                                             
                                             <div class="col-md-3 ">
-                                                <label for="">Profit</label>
-                                                <input type="text" class="form-control" name="" id="Profit">
+                                                <label for="">Profit(Current)</label>
+                                                <input type="text" class="form-control" name="" id="CurrentProfit">
                                                 </div>
                                                     <button style=margin-top:20px ; onclick="addComissionP()"
                                                     class="btn ">Update Profit</button>
@@ -701,7 +704,7 @@
                                 </script>
                                
                                 <script>
-                                    function add() {
+                                    function addInCost() {
 
 
 
@@ -734,11 +737,12 @@
                                         cell4.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
 
                                         //  calculatonInTable();
+                                        calcCostTable();
 
 
 
                                     }
-                                    function addd() {
+                                    function addInProfit() {
 
 
 
@@ -768,7 +772,7 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
 
 
 
-
+calcProfitTable();
 
 }
 
@@ -798,9 +802,9 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
                                         alert("array for order" + commissionArray);
 
                                         var PID = document.getElementById("PID").value;
-
+                                        var AID = 1;
                                         alert(PID);
-                                        var OverAllDetails = [PID, commissionArray];
+                                        var OverAllDetails = [PID, AID, commissionArray];
 
 
                                         alert(OverAllDetails);
@@ -823,6 +827,7 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
                                         // var MenuID=$('#Menus').find(":selected").val();
                                         xhttp.open("GET", "./negativeComission/" + CA, true);
                                         xhttp.send();
+                                       
                                     }
                                     function addComissionP() {
                                         var commissionArray = [];
@@ -848,9 +853,9 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
                                         alert("array for order" + commissionArray);
 
                                         var PID = document.getElementById("PID").value;
-
+                                        var AID = 1;
                                         alert(PID);
-                                        var OverAllDetails = [PID, commissionArray];
+                                        var OverAllDetails = [PID, AID, commissionArray];
 
 
                                         alert(OverAllDetails);
@@ -873,6 +878,7 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
                                         // var MenuID=$('#Menus').find(":selected").val();
                                         xhttp.open("GET", "./PostiveCommision/" + CA, true);
                                         xhttp.send();
+                                        
                                     }
 
 
@@ -889,18 +895,24 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
 
                                         document.getElementById("PID").value = this.cells[0].innerText;
                                         document.getElementById("productName").value = this.cells[1]
-                                            .innerText; // get current row 1st TD value
+                                            .innerText; // get current row 1st TD value PurchasePrice
                                         document.getElementById("chassisNumber").value = this.cells[3]
                                             .innerText;
                                         document.getElementById("engineNumber").value = this.cells[2].innerText;
-                                        document.getElementById("TotalCost").value = this.cells[4].innerText;
-                                        document.getElementById("SalePrice").value = this.cells[5].innerText;
+                                        document.getElementById("totalCost").value = this.cells[5].innerText;
+                                        document.getElementById("overallTotalCost").value = this.cells[5].innerText;
+                                        document.getElementById("SalePrice").value = this.cells[6].innerText;
+                                        document.getElementById("PurchasePrice").value = this.cells[4].innerText;
+                                        document.getElementById("SPC").value = this.cells[7].innerText;
+                                        document.getElementById("currentSPC").value = this.cells[7].innerText;
+                                        
 
 
 
 
 
                                         alert(this.cells[0].innerText);
+                                        CalcProfit();
                                     });
 
 
@@ -927,17 +939,52 @@ cell5.innerHTML = CH.options[CH.selectedIndex].value;
                 //alert(a[0].ProductSerial);
 
                 table.row.add([a[i].ProductID, a[i].ProductName, a[i].EngineNumber, a[i].ChasisNumber
-                ,a[i].ActualPurchsePrice,a[i].TotalCost,a[i].StatusInStock]);
+                ,a[i].ActualPurchsePrice,a[i].TotalCost,a[i].SalePrice,a[i].TotalSaleAmount,a[i].StatusInStock]);
 
                
             });
             table.draw();
+            
         }
     };
+    var PC=20;
 //alert();
-    xhttp.open("GET", "./getAllAutos/", true);
+    xhttp.open("GET", "./getAllAutos/"+PC, true);
     xhttp.send();
   }
+  function calcProfitTable(){
+    var table = document.getElementById("profitTable");
+    var sum = 0;
+
+    for(var i = 1; i < table.rows.length; i++)
+            {
+                sum = sum + parseInt(table.rows[i].cells[1].innerHTML);
+            }
+         var SPC=   document.getElementById("SPC").value;
+      sum= sum+  parseInt(SPC);
+            document.getElementById("currentSPC").value = sum;
+            CalcProfit();
+}
+function CalcProfit(){
+    var s= document.getElementById("currentSPC").value;
+    var c=document.getElementById("overallTotalCost").value;
+    var p;
+    p= parseInt(s)-parseInt(c);
+    document.getElementById("CurrentProfit").value=p;
+}
+function calcCostTable(){
+    var table = document.getElementById("comissionTable");
+    var sum = 0;
+
+    for(var i = 1; i < table.rows.length; i++)
+            {
+                sum = sum + parseInt(table.rows[i].cells[1].innerHTML);
+            }
+            var SPC=   document.getElementById("totalCost").value;
+      sum= sum+  parseInt(SPC);
+            document.getElementById("overallTotalCost").value = sum;
+            CalcProfit();
+}
 
                                 </script>
 

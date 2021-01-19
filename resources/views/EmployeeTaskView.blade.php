@@ -374,6 +374,7 @@
 
 
         }
+
         input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
@@ -393,6 +394,230 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        /* .mainWords {
+	width: 500px;
+	margin: auto;
+} */
+        .mainWords {
+            height: 383px !important;
+            overflow: auto;
+            /* border-radius: 20px !important; */
+        }
+
+        .chat {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: #f1f0e8;
+        }
+
+        .chat-header {
+            display: flex;
+            cursor: pointer;
+        }
+
+        .profile {
+            width: 78.5%;
+            background: #032360;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            padding: 0px 10px;
+            position: fixed;
+        }
+
+        .profile .pp {
+            width: 50px;
+            display: inline-block;
+            border-radius: 50%;
+            margin-left: 32px;
+        }
+
+        .profile .arrow {
+            display: inline-block;
+            width: 30px;
+            position: absolute;
+            top: 19px;
+            cursor: pointer;
+        }
+
+        .profile h2 {
+            display: inline-block;
+            line-height: 60px;
+            vertical-align: bottom;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .profile span {
+            color: #ccc;
+            position: absolute;
+            top: 42px;
+            left: 100px;
+            font-size: 14px;
+        }
+
+        .right .icon {
+            display: inline-block;
+            width: 25px;
+            margin-left: 10px;
+        }
+
+        .profile .left {
+            flex: 1;
+        }
+
+        .chat-box {
+            background: url('../img/bg.jpeg');
+            background-attachment: fixed;
+            padding-left: 20px;
+            overflow: hidden;
+            flex: 1;
+
+        }
+
+        .chat-box img {
+            display: none;
+        }
+
+        .chat-box .img_chat {
+            width: 280px;
+        }
+
+        .chat-r {
+            display: flex;
+        }
+
+        .chat-r .sp {
+            flex: 1;
+        }
+
+        .chat-l {
+            display: flex;
+        }
+
+        .chat-l .sp {
+            flex: 1;
+        }
+
+        .chat-box .mess {
+            max-width: 300px;
+            background: #F7FCF6;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px 0px;
+            cursor: pointer;
+        }
+
+        .chat-box .mess p {
+            word-break: break-all;
+            font-size: 18px;
+        }
+
+        .chat-box .mess-r {
+            background: #E2FFC7;
+        }
+
+        .chat-box .emoji {
+            width: 20px;
+        }
+
+        .chat-box .check {
+            float: right;
+        }
+
+        .chat-box .check img {
+            width: 20px;
+        }
+
+        .chat-box .check span {
+            color: #888;
+            font-size: 12px;
+            font-weight: 700px;
+        }
+
+        *::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        *::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background: #aaa;
+        }
+
+        *::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .chat-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 60px;
+            position: fixed;
+            cursor: pointer;
+            top: 56.5%;
+            width: 81%;
+            left: 9.5%;
+        }
+
+        .chat-footer textarea {
+            display: block;
+            flex: 1;
+            width: 100%;
+            height: 50px;
+            border-radius: 60px;
+            margin: 5px;
+            padding: 10px;
+            outline: none;
+            font-size: 19px;
+            padding-left: 40px;
+            padding-right: 90px;
+            border: 2px solid #ccc;
+            color: #555;
+            resize: none;
+        }
+
+        .chat-footer .mic {
+            display: block;
+            width: 55px;
+            height: 55px;
+            margin-right: 20px;
+        }
+
+        .chat-footer .emo {
+            display: block;
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            left: 10px;
+            top: 12px;
+        }
+
+        .chat-footer .icons {
+            position: absolute;
+            right: 100px;
+            top: 10px;
+        }
+
+        .chat-footer .icons img {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            margin-left: 5px;
+        }
+
     </style>
 </head>
 
@@ -443,22 +668,22 @@
         <div class="main_container">
             <div class="mainContCards">
                 <div class="mainCards-1" id="cardsCanvas">
-                    
 
-                    </div>
-                    
+
                 </div>
-                
 
-               
             </div>
-        
-         
-
 
 
 
         </div>
+
+
+
+
+
+
+    </div>
     </div>
     </div>
     <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
@@ -513,14 +738,142 @@
 
                             </div>
                         </div>
-
-
+                    </div>
+                    <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <label for="">Comments</label><br>
-                                <textarea name="" class="form-control" id="" cols="30" rows="7"></textarea>
+                                <div class="mainWords">
+                                    <div class="chat">
+                                        <div class="chat-header">
+                                            <div class="profile">
+                                                <div class="left">
+                                                    <img src="img/arrow.png" class="arrow">
+                                                    <img src="img/pp.png" class="pp">
+                                                    <h2>Waqas Ali </h2>
+                                                    <span>online</span>
+                                                </div>
+                                                <div class="right">
+                                                    <img src="img/phone.png" class="icon">
+
+                                                    <img src="img/phone.png" class="icon">
+                                                    <img src="img/more.png" class="icon">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="mainChats" class="chat-box">
+                                            <div class="chat-r">
+                                                <div class="sp"></div>
+                                                <div id="mess-r" class="mess mess-r">
+                                                    <p><img src="img/emoji-1.png" class="emoji">
+                                                        Hi, Elias
+                                                    </p>
+                                                    <div class="check">
+                                                        <span>4:00 PM</span>
+                                                        <img src="img/check-2.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="chat-l">
+                                                <div class="mess">
+                                                    <p>
+                                                        Oh! hi <img src="img/emoji-2.png" class="emoji">
+                                                    </p>
+                                                    <div class="check">
+                                                        <span>4:00 PM</span>
+                                                    </div>
+                                                </div>
+                                                <div class="sp"></div>
+                                            </div>
+
+
+                                            <div class="chat-r">
+                                                <div class="sp"></div>
+                                                <div class="mess mess-r">
+                                                    <p>
+                                                        Not too bad. The weather is great isn't it?
+                                                    </p>
+                                                    <div class="check">
+                                                        <span>4:00 PM</span>
+                                                        <img src="img/check-2.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="chat-l">
+                                                <div class="mess">
+                                                    <p>
+                                                        Yes. It's absolutely beautiful today.
+                                                    </p>
+                                                    <div class="check">
+                                                        <span>4:00 PM</span>
+                                                    </div>
+                                                </div>
+                                                <div class="sp"></div>
+                                            </div>
+
+                                            <div class="chat-r">
+                                                <div class="sp"></div>
+                                                <div class="mess mess-r">
+                                                    <img src="img/post2.jpg" class="img_chat">
+                                                    <div class="check">
+                                                        <span>4:00 PM</span>
+                                                        <img src="img/check-2.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="chat-r">
+                                                <div class="sp"></div>
+                                                <div class="mess mess-r">
+                                                    <p>I wish it was like this more frequently.</p>
+                                                    <div class="check">
+                                                        <span>4:00 PM</span>
+                                                        <img src="img/check-2.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="chat-l">
+                                                <div class="mess">
+                                                    <p>
+                                                        Me too. <img src="img/heart.png" class="emoji">
+                                                    </p>
+                                                    <div class="check">
+                                                        <span>4:00 PM</span>
+                                                    </div>
+                                                </div>
+                                                <div class="sp"></div>
+                                            </div>
+                                            <div class="chat-r">
+                                                <div class="sp"></div>
+                                                <div class="mess mess-r">
+                                                    <p>
+                                                        So where are you going now?
+                                                    </p>
+                                                    <div class="check">
+                                                        <span>4:00 PM</span>
+                                                        <img src="img/check-1.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="chat-footer">
+                                            <img src="img/emo.png" style="visibility: hidden;" class="emo">
+                                            <div class="input-group mb-3">
+                                                <input type="text" class="form-control" id="getValuesmsg"
+                                                    placeholder="Type A Message" aria-label="Recipient's username"
+                                                    aria-describedby="basic-addon2">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" onclick="sendData()"
+                                                        id="basic-addon2">Send</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <br><br><br>
+                    <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <label for="">History</label>
@@ -605,23 +958,41 @@
 
     </script>
     <script>
-function getEmployeeData(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("cardsCanvas").innerHTML = this.responseText;
-            
-                
+        function getEmployeeData() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployeeData/", true);
+
+            xhttp.send();
         }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getEmployeeData/", true);
-    
-    xhttp.send();
-    }
-</script>
+
+    </script>
+    <script>
+        function sendData() {
+            let msg = document.getElementById("getValuesmsg").value;
+            let newDiv = document.createElement('div');
+            newDiv.classList.add('chat-l');
+            let text = document.createTextNode(msg);
+            text.innerText = msg;
+            newDiv.appendChild(text);
+
+
+            document.getElementById("mess-r").appendChild(newDiv);
+            //   alert(msg);
+
+        }
+
+    </script>
+
 
 
 </body>

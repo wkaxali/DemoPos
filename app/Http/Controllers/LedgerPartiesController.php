@@ -40,4 +40,35 @@ class LedgerPartiesController extends Controller
 
 
     }
+    public static function getAllSuplierParties(){
+
+        $results=DB::select('select * from  tblledgerparties where Category="Supplier"' );
+        
+        $sOp='<option value=" "></option>';
+                                
+                                
+                            
+                            
+        $tableOfHtml="";
+            foreach ($results as $ro){
+    
+    
+               $tableOfHtml=$tableOfHtml." <option value=".$ro->LID.">".$ro->PartyName."</option>";
+    
+    
+            }
+        
+          $endSelect="</select>";
+          $allHtml=$sOp . $tableOfHtml . $endSelect;
+          return $allHtml;   
+
+    }
+    public function getPartyDetail($SID){
+        $results=DB::select('select * from tblledgerparties where LID= '.$SID);
+       // mysql_insert_id()
+        return $results;
+
+
+
+    }
 }

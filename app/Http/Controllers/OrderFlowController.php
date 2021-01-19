@@ -7,6 +7,7 @@ use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\LedgerPartiesController;
 use Carbon\Carbon;
 use App\Http\Controllers\accountsController;
+use App\Http\Controllers\UpdateStocksController;
 use DB;
 class OrderFlowController extends Controller
 {
@@ -18,6 +19,8 @@ class OrderFlowController extends Controller
         $totlpaid= $Array[1];
         $totRemaining=$Array[2];
        $orderDetails =$Array[3];
+       $AID=$Array[4];
+       
        
         
          
@@ -50,14 +53,14 @@ class OrderFlowController extends Controller
 
         
       self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
-      $LID=1;
+      $LID=2;
       $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
       $oldCompanyBalance=LedgerPartiesController::getPartyBalance(1);
-      $paidVia=5;
-      $AID=5;
+      $paidVia=$AID;
+     
       $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
       LedgerPartiesController::UpdatePartiesBalance(1,$currentCompanyBalance);
-      TransactionFlow::addTransaction($invoiceNumber,"Cedit","Booking Order",
+      TransactionFlow::addTransaction($invoiceNumber,"Credit","Booking Order",
       $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,NULL,NULL,$LID,"0",NULL,'1',$paidVia,NULL);
       $OldAccBalance=accountsController::getAccountBalance($AID);
       $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
@@ -111,21 +114,7 @@ class OrderFlowController extends Controller
       }
 
     public function insertInDetailedPurchaseOrder($OrderDetails,$InvoiceID,$date){
-        // SID bigint(20) 
-        // InvoiceNumber bigint(20) 
-        // ProductSerial varchar(50) 
-        // ProductCategory varchar(50) 
-        // DiscountOffered float 
-        // DateStamp datetime(4) 
-        // TotalAmount float 
-        // NetAmount float 
-        // Activity varchar(50) 
-        // OrderedQuantiy varchar(50) 
-        // PurchasePricePerUnit varchar(50) 
-        // RetailPricePerUnit varchar(50) 
-        // DilevedStatus varchar(50) 
-        // DeliveredQuantity varchar(50)
-        //------------------------------------------------------
+        
         
         
         
@@ -145,7 +134,7 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,"21",NULL,NULL,$purchasePrice,$InvoiceID);
+       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID);
        print ($productSerial);
       
   
@@ -178,6 +167,70 @@ class OrderFlowController extends Controller
         
   
       }
+
+
+
+      /////
+      public function insertInDetailedPurchaseOrderForSP($OrderDetails,$InvoiceID,$date){
+        
+        
+        
+        
+        foreach ($OrderDetails as $row){
+          // $(tr).find('td:eq(0)').text(), //productID
+          // $(tr).find('td:eq(3)').text(), //purchase
+          // $(tr).find('td:eq(4) input[type="text"]').val(), //qty
+          // $(tr).find('td:eq(5) input[type="text"]').val(), //discount
+          // $(tr).find('td:eq(6)').text() //totamount
+        $pid=$row[0];
+        $purchasePrice=$row[1];
+        $qty=$row[2];
+        
+        $dis=$row[3];
+        $totamount=$row[4];
+        
+       // for($i=0;$i<$qty;$i++){
+        // $(tr).find('td:eq(4)').text(), //totamount
+        // $(tr).find('td:eq(5)').text(), //Paid
+        // $(tr).find('td:eq(6)').text() //remAmount
+       
+      
+  
+        $DSID=DB::table('tblpurchaseoorderdetaile')->insertGetId(['InvoiceNumber'=>$InvoiceID,
+            
+        'ProductSerial'=>$pid,
+        'PurchasePricePerUnit'=>$purchasePrice,
+        
+        'DiscountOffered'=>$dis,
+        'DateStamp'=>$date,
+        
+        'TotalAmount'=>$totamount,
+        'NetAmount'=>$totamount,
+        
+        'Activity'=>"Purchased Stock",
+        'OrderedQuantiy'=>$qty,
+        
+        
+        'RetailPricePerUnit'=>$purchasePrice,
+        'DilevedStatus'=>'Delivered',
+        'AmountPaid'=>$totamount,
+        
+        'Balance'=>"0",
+        'DeliveredQuantity'=>$qty
+  
+        ]);
+
+
+        $oldStock= UpdateStocksController::getCurrentStock($pid);
+    $newStock= floatval($oldStock)+floatval($qty);
+    UpdateStocksController::updateStock($pid,$newStock);
+       // }
+        }
+        return $DSID;
+        
+  
+      }
+      /////
       public function addInTransactionFlowForPurchase($invoiceNumber,$dateNow,$AP,$userID,$pattyCash,$CLB,$CCB){
 
         // [TransactionID]
@@ -298,12 +351,15 @@ class OrderFlowController extends Controller
         
         
     }
-     
+    
+    ////
+    
+    //// 
       function getOrderItem($OID){
         $results=DB::select('select ProductName,EngineNumber,ChasisNumber,DilevedStatus,ProductID from vw_purchaseorderdetails where InvoiceNumber='.$OID);
         $table="";
         $i=1;
-        $option="";
+        $option='<option value=" "></option>';
   
         foreach ($results as $ro){
         $charges= TransactionFlow::getChargesOrComissions($ro->ProductID,"Transportation Charges","Cost");
@@ -362,4 +418,72 @@ class OrderFlowController extends Controller
 
 
       }
+
+
+      public function PurchaseOrderWithStockUpdate(Request $request,$data){
+       //myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB];
+ 
+         $Array=json_decode($data);
+         $mainTotal=$Array[1];
+         $totlpaid= $Array[6];
+         $totRemaining=$Array[7];
+        $orderDetails =$Array[0];
+        //$pid=$orderDetails[0];
+        $SID=$Array[8];
+        $SLB=$Array[9];
+        $SCB=$Array[10];
+        $AID=$Array[11];
+        
+         
+          
+          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
+        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
+ 
+ 
+       
+        
+         $invoiceNumber=DB::table('tblpurchaseorder')->insertGetId(['SupplierID'=>$SID,
+         'TotalAmount'=>$mainTotal,
+         'Discount'=>'0',
+         'DateStamp'=>$dateNow,
+         'VAT'=>'0',
+         'NetTotal'=>$mainTotal,
+         'AmountPaid'=>$totlpaid,
+         'Balance'=>$totRemaining,
+         'BillStatus'=>"Pending",
+         'HoldStatus'=>'0',
+         'SupplierBalanceBeforeInvoiceBill'=>$SLB,
+         'SupplierBalanceAfterInvoiceBill'=>$SCB,
+         'CashPaidBack'=>NULL,
+         'CashNote'=>NULL,
+         'Remarks'=>NULL,
+         'dliveryDate'=>NULL,
+         'returnDate' =>NULL,
+         'VATRate'=>NULL
+         
+         ]);
+ 
+         
+       self::insertInDetailedPurchaseOrderForSP($orderDetails,$invoiceNumber,$dateNow);
+       $LID=2;
+       $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
+       $oldCompanyBalance=LedgerPartiesController::getPartyBalance($SID);
+       $paidVia=$AID;
+     
+       $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
+       LedgerPartiesController::UpdatePartiesBalance($SID,$currentCompanyBalance);
+       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
+       LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
+       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock Purchased",
+       $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$SID,$paidVia,NULL);
+       $OldAccBalance=accountsController::getAccountBalance($AID);
+       $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
+       
+       accountsController::UpdateNewBalance($AID,$newAccountBalance);
+       
+      // $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
+    
+     
+         return "Your order ".$invoiceNumber;
+     }
 }

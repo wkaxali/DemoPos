@@ -14,6 +14,7 @@ class UpdateStocksController extends Controller
         
          $Array=json_decode($data);
          $InvoiceNumber=$Array[1];
+         $AID=$Array[2];
     foreach($Array[0] as $oneProduct){
       if($oneProduct[4]==1){
          $PID=$oneProduct[0];
@@ -31,7 +32,7 @@ class UpdateStocksController extends Controller
       $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
       LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
 
-            $paidVia=5;
+            $paidVia=$AID;
        $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
         $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
             TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Transportation Charges',$TransportCharges,$dateNow,
@@ -94,8 +95,8 @@ class UpdateStocksController extends Controller
       return $results;
 
   }
-  public function getAllAutos(){
-    $results=DB::select('select * from  vw_stockdetails where Category=21 and  StatusInStock<>"Pending"');
+  public function getAllAutos($PC){
+    $results=DB::select('select * from  vw_stockdetails where Category='.$PC.' and  StatusInStock<>"Pending"');
     
         
     return $results;
@@ -108,7 +109,7 @@ class UpdateStocksController extends Controller
     return $results;
 
 }
-public function getAllSoldProducts(){
+public function viewSoldStock(){
   $results=DB::select('select * from  vw_stockdetails where StatusInStock="Sold"');
   
       
@@ -166,4 +167,27 @@ public static function setTotalSaleAmount($PID,$amount){
   return "Cost Updated";
 
 }
+public static function updateStock($PID,$qty){
+
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update(['StockIn'=>$qty
+  
+
+  ]);
+  return "Stock Update";
+
+}
+public static function getCurrentStock($PID){
+
+  $re = DB::table('instock')
+            ->where('ProductSerial', '=', $PID)
+             ->get();
+
+             return $re[0]->StockIn;
+}
+
+
+
+
 }
