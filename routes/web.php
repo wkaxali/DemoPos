@@ -125,7 +125,20 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 
 Route::get('/', function () {
+    
     return view('signInSignUp');
+});
+
+Route::get('/chksessions',function(){
+
+   // $request->session()->forget('name');
+   session(['key' => '58']);
+   // $request->session()->put('key', '8');
+    $value = session()->get('CID');
+
+    echo $value;
+   
+
 });
 Route::get('/ss', function () {
     return view('sales');
