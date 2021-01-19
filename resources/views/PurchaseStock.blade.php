@@ -1348,7 +1348,10 @@
                     <button class="btn" style="background-color: #0a549d;" onclick="insertInOrder()">Save</button>
                     <button class="btn" style="background-color: #e61d2f ;">Print</button>
                     <button class="btn" style="background-color:#0a549d;">Edit</button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7f6f6415b81b4560f65332b878507988010be853
                 </div>
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #e61d2f;">Hold</button>
@@ -1836,8 +1839,12 @@
 
             }
         };
+<<<<<<< HEAD
         // var MenuID=$('#Menus').find(":selected").val();
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+=======
+        xhttp.open("GET", "./addSalesForSS/" + array, true);
+>>>>>>> 7f6f6415b81b4560f65332b878507988010be853
         xhttp.send();
     };
 

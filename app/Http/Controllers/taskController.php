@@ -95,7 +95,7 @@ public static function employeeData(){
 public static function getEmployees(){
     $data=DB:: select('select * from tblemployees');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){
@@ -111,7 +111,7 @@ public static function getEmployees(){
   public static function getCategory(){
     $data=DB:: select('select * from tblemployees');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){

@@ -14,6 +14,7 @@ class UpdateStocksController extends Controller
         
          $Array=json_decode($data);
          $InvoiceNumber=$Array[1];
+         $AID=$Array[2];
     foreach($Array[0] as $oneProduct){
       if($oneProduct[4]==1){
          $PID=$oneProduct[0];
@@ -31,7 +32,7 @@ class UpdateStocksController extends Controller
       $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
       LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
 
-            $paidVia=5;
+            $paidVia=$AID;
        $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
         $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
             TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Transportation Charges',$TransportCharges,$dateNow,
@@ -108,7 +109,7 @@ class UpdateStocksController extends Controller
     return $results;
 
 }
-public function getAllSoldProducts(){
+public function viewSoldStock(){
   $results=DB::select('select * from  vw_stockdetails where StatusInStock="Sold"');
   
       

@@ -192,7 +192,7 @@ class AddMenucontroller extends Controller
     }
     function getAllCategories(){
         $results=DB::select('select * from  tblpcategory');
-        $options="";
+        $option='<option value=" "></option>';
         
         foreach ($results as $ro){
             $options=$options.'<option value='.$ro->PCID.'>'.$ro->CategoryName.'</option>';
@@ -211,7 +211,7 @@ class AddMenucontroller extends Controller
     public static function loadProductCategory(){
         $data=DB:: select('select * from tblpcategory where CategoryName <> "Autos"');
         
-        $option='';
+        $option='<option value=" "></option>';
     
     
         foreach ($data as $d){

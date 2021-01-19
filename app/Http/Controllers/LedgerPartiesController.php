@@ -44,7 +44,7 @@ class LedgerPartiesController extends Controller
 
         $results=DB::select('select * from  tblledgerparties where Category="Supplier"' );
         
-        $sOp='';
+        $sOp='<option value=" "></option>';
                                 
                                 
                             
