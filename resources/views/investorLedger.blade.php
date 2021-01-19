@@ -182,27 +182,27 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="tableParent">
-                        <table class="table-bordered" id="mainStockTable">
-                            <thead>
-                            <tr>
-                                    <th>Product Id</th>
-                                    <th>Product Name</th>
-                                    <th>Sale Price</th>
-                                    <th>Purchase Price</th>
-                                    <th>Profit</th>
-                                    <th>Self Profit</th>
-                                    <th>Investor Profit</th>
-                                    <th>Engine Number</th>
-                                    <th>Chasis Number</th>
-                                </tr>
-                            </thead>
-                            <tbody id="mainStocktBody">
-                               
-                            </tbody>
-
+                   
+                    
+                        <table class=" table-striped" style="width: 100%; text-align: center;" id="mainStockTable">
+                        <thead>
+    <tr>
+      <th>Product Id</th>
+      <th>Product Name</th>
+      <th>Sale Price</th>
+      <th>Purchase Price</th>
+      <th>Profit</th>
+      <th>Self Profit</th>
+      <th>Investor Profit</th>
+      <th>Engine Number</th>
+      <th>Chasis Number</th>
+      <th>Assigned</th>
+    </tr>
+    <tbody id="MainStockTableBody">
+    </tbody>
+  </thead>
                         </table>
-                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -360,7 +360,7 @@
 
 
             var addtable = document.getElementById("mainStockTable");
-            var row = addtable.insertRow(1);
+            var row = addtable.insertRow(-1);
             var mcell1 = row.insertCell(0);
             var mcell2 = row.insertCell(1);
             var mcell3 = row.insertCell(2);
@@ -457,27 +457,31 @@ function loadFunctions(){
 
 <script>
 function getInvestorDetails(){
+
     var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var data = this.responseText;
+
                 var a = JSON.parse(data);
-                //alert(a);
+                alert(a);
                 var table;
-                document.getElementById("mainStocktBody").innerHTML="";
+                //document.getElementById("mainStocktBody").innerHTML="";
                
                 document.getElementById("selfRatio").value = a[0].OurProfitRatio;
                 document.getElementById("investorRatio").value = a[0].InvestorProfitRatio;
                 document.getElementById("budget").value = a[0].Balance;
+                getInvestorStock();
             }
             
                 //alert( this.responseText);
             
         };
         var LID = $('#investors').find(":selected").val();
-
+        
         xhttp.open("GET", "./invetorDetails/" + LID, true);
         xhttp.send();
+        
         }
 </script>
 
@@ -526,6 +530,30 @@ function getInvestorDetails(){
         xhttp.open("GET", "./addInvestorProduct/" + productTable, true);
         xhttp.send();
     }
+</script>
+
+
+<script>
+function getInvestorStock(){
+    var xhttp = new XMLHttpRequest();
+    var LID = $('#investors').find(":selected").val();
+        //alert(LID);
+    xhttp.onreadystatechange = function () {
+       
+        
+        if (this.readyState == 4 && this.status == 200) {
+
+          
+    
+            document.getElementById("MainStockTableBody").innerHTML = this.response;
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getInvestorStock/" +LID, true);
+    
+    xhttp.send();
+    }
+    </script>
 </script>
 
 
