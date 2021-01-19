@@ -14,7 +14,7 @@ class payController extends Controller
 public static function getEmployeeName(){
     $data=DB:: select('select * from tblemployees');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){

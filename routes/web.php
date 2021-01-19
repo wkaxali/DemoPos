@@ -68,9 +68,11 @@ Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 
 
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
+Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
 
 
 
+Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct'] );
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
@@ -87,6 +89,7 @@ Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProd
 Route::get('/getAllAutos',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
+
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);

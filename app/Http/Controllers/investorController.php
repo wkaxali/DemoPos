@@ -10,6 +10,51 @@ use DB;
 
 class investorController extends Controller
 {
+  public static function addInvestorProduct(Request $request, $CO){
+
+    $ata=json_decode($CO);
+    $LID=$ata[0];
+    $data=$ata[1];
+    foreach ($data as $obj){
+      $PID=$obj[0];
+      $salePrice=$obj[1];
+      $purchasePrice=$obj[2];
+      $profit=$obj[3];
+      $selfProfit=$obj[4];
+      $investorProfit=$obj[5];
+      $investorProfitRatio=$investorProfit/$profit;
+      $selfProfitRatio=$selfProfit/$profit;
+      
+      $id=DB::table('tbl_investor_product')->insertGetId([
+      'PID'=>$PID,
+      'LID'=>$LID,
+      'totalProfit'=>$profit,
+      'LIDProfit'=>$investorProfit,
+      'LIDProfitRatio'=>$investorProfitRatio,
+      'SelfProfit'=>$selfProfitRatio,
+      'SelfProfitRatio'=>$selfProfitRatio,
+      'Status'=>"Pending"
+      ]);
+      return $id;
+    }
+  }
+  
+    
+/*
+    $oldSelfBalance = LedgerPartiesController::getPartyBalance(2);
+    $newBalance = $oldSelfBalance - $amount;
+    LedgerPartiesController::UpdatePartiesBalance(2, $newBalance);
+    $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
+    $newBalanceOfParty=$balanceForParty-$amount;
+    LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
+
+    $oldAccountBalance = accountsController::getAccountBalance($paidBy);
+    $newAccountBalance = $oldAccountBalance - $amount;
+    accountsController::UpdateNewBalance($paidBy, $newAccountBalance);
+*/
+
+
+
     public static function insertInvestor(Request $request, $CO){
 
         $obj=json_decode($CO);
@@ -39,20 +84,26 @@ function getInvestorData(){
 
 
 public static function getInvestors(){
-    $data=DB:: select('select * from tblledgerparties');
+    $data=DB:: select('select * from tblledgerparties where Category = "Investor"');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){
       //print $option;
-
-        $option=$option.'
-        <option value= '.$d->LID.'>'.$d->LID.') '.$d->PartyName.'</option>';
+      $option=$option.'
+      <option value= '.$d->LID.'>'.$d->LID.') '.$d->PartyName.'</option>';
       
     }
     return $option;
   }
+
+
+  public static function getInvestorDetails(Request $request, $LID){
+  
+    $investorDetails=DB:: select('select * from tblledgerparties where LID ='.$LID);
+    return $investorDetails;
+}
 
 }
 

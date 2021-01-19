@@ -49,7 +49,7 @@ class expenseController extends Controller
 public static function getPartyNames(){
     $data=DB:: select('select * from tblledgerparties');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){

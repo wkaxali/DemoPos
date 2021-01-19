@@ -408,7 +408,7 @@ class OrderFlowController extends Controller
                 
         </tr>';
         $i++;
-        $option="";
+        $option='<option value=" "></option>';
         }
         return $table;
 
