@@ -19,6 +19,7 @@ class OrderFlowController extends Controller
         $totlpaid= $Array[1];
         $totRemaining=$Array[2];
        $orderDetails =$Array[3];
+       $AID=$Array[4];
        
        
         
@@ -52,11 +53,11 @@ class OrderFlowController extends Controller
 
         
       self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
-      $LID=1;
+      $LID=2;
       $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
       $oldCompanyBalance=LedgerPartiesController::getPartyBalance(1);
-      $paidVia=5;
-      $AID=5;
+      $paidVia=$AID;
+     
       $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
       LedgerPartiesController::UpdatePartiesBalance(1,$currentCompanyBalance);
       TransactionFlow::addTransaction($invoiceNumber,"Credit","Booking Order",
@@ -431,6 +432,7 @@ class OrderFlowController extends Controller
         $SID=$Array[8];
         $SLB=$Array[9];
         $SCB=$Array[10];
+        $AID=$Array[11];
         
          
           
@@ -466,8 +468,8 @@ class OrderFlowController extends Controller
        $LID=2;
        $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
        $oldCompanyBalance=LedgerPartiesController::getPartyBalance($SID);
-       $paidVia=5;
-       $AID=5;
+       $paidVia=$AID;
+     
        $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
        LedgerPartiesController::UpdatePartiesBalance($SID,$currentCompanyBalance);
        $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);

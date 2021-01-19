@@ -1,8 +1,4 @@
-<<<<<<< HEAD
  <!DOCTYPE html>
-=======
-<!DOCTYPE html>
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
  <html lang="en">
 
  <head>
@@ -19,11 +15,7 @@
          .dropdown.bootstrap-select.form-control {
              width: 200px !important;
              display: inline-block !important;
-<<<<<<< HEAD
              /* background-color:#0a549d !important; */
-=======
-             / background-color:#0a549d !important; /
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
 
 
          }
@@ -48,11 +40,7 @@
              border-radius: 10px;
              height: 550px;
              padding: 10px;
-<<<<<<< HEAD
-             /* overflow: auto; */
-=======
-             / overflow: auto; /
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
+              overflow: auto; 
          }
 
      
@@ -243,8 +231,4 @@
  </body>
 
 
-<<<<<<< HEAD
  </html>
-=======
- </html>
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719

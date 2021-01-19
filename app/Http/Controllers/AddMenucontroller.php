@@ -224,9 +224,11 @@ class AddMenucontroller extends Controller
         return $option;
       }
 
-      public static function insertProduct(Request $request, $CO){
+      public static function insertProducts(Request $request, $CO){
 
-        $obj=json_decode($CO);
+        $array=json_decode($CO);
+        foreach($array as $obj){
+
         $ProductName=$obj[0];
         $ProductCat=$obj[1];
         $Productsaleprice=$obj[2];
@@ -246,7 +248,7 @@ class AddMenucontroller extends Controller
 
         $id2=DB::table('instock')->insertGetId([
             'ProductSerial'=>$ProductSerial,
-            'StockIn'=>'1',
+            'StockIn'=>'0',
             
              
             
@@ -257,7 +259,10 @@ class AddMenucontroller extends Controller
             'Remarks'=>$Description,
             ]);
 
-        return $ProductSerial;
+
+        }
+        return "Done all";
+       
 }
 
 }

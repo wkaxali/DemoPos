@@ -55,7 +55,7 @@
         }
 
         .bootstrap-select .dropdown-toggle {
-            width: 178px;
+            width: 151px;
             height: 30px !important;
 
         }
@@ -1071,6 +1071,10 @@
             background: radial-gradient(circle, rgba(230, 29, 47, 0.9528186274509804) 0%, rgba(10, 84, 157, 0.9360119047619048) 100%);
             color: #ffffff;
         }
+        .dropdown {
+    width: 151px !important;
+    height: 30px !important;
+}
 
     </style>
 </head>
@@ -1225,15 +1229,15 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="number" class="form-control item" autocomplete="OFF"
+                                                <input type="text" class="form-control item" autocomplete="OFF"
                                                     id="username" placeholder="Supplier ID">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control item" autocomplete="OFF"
+                                                <input type="text" class="form-control item" autocomplete="OFF"
                                                     id="password" placeholder="Supplier Name">
                                             </div>
                                             <div class="form-group">
-                                                <input type="number" class="form-control item" autocomplete="OFF"
+                                                <input type="email" class="form-control item" autocomplete="OFF"
                                                     id="email" placeholder="Email">
                                             </div>
                                             <div class="form-group">
@@ -1241,19 +1245,19 @@
                                                     id="phone-number" placeholder="Phone Number">
                                             </div>
                                             <div class="form-group">
-                                                <input type="number" class="form-control item" autocomplete="OFF"
+                                                <input type="text" class="form-control item" autocomplete="OFF"
                                                     id="birth-date" placeholder="Birth Date">
                                             </div>
                                             <div class="form-group">
-                                                <input type="number" class="form-control item" autocomplete="OFF"
-                                                    id="email" placeholder="Email">
+                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                    id="email" placeholder="Dummy">
                                             </div>
                                             <div class="form-group">
-                                                <input type="number" class="form-control item" autocomplete="OFF"
+                                                <input type="text" class="form-control item" autocomplete="OFF"
                                                     id="phone-number" placeholder="Phone Number">
                                             </div>
                                             <div class="form-group">
-                                                <input type="number" class="form-control item" autocomplete="OFF"
+                                                <input type="text" class="form-control item" autocomplete="OFF"
                                                     id="birth-date" placeholder="Birth Date">
                                             </div>
 
@@ -1328,7 +1332,7 @@
 
                 <label for="prod-1" style="width: 130px;">Discount</label>
                 <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="DiscountOverall" onchange="calc()">
+                    name="invo-1" id="DiscountOverall" value="00" onchange="calc()">
                 <label for="invo-1" style="width: 130px;">Gross Total</label>
                 <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="grossTotal">
@@ -1344,14 +1348,17 @@
                 <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
                 <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
+                    <label style="width: 130px;" for="">Paid From</label>
+                    <select class="selectpicker form-control" data-live-search="true" id="accounts" tabindex="null">
+                        
+    
+    
+                    </select>
+                    
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #0a549d;" onclick="insertInOrder()">Save</button>
                     <button class="btn" style="background-color: #e61d2f ;">Print</button>
                     <button class="btn" style="background-color:#0a549d;">Edit</button>
-<<<<<<< HEAD
-
-=======
->>>>>>> 7f6f6415b81b4560f65332b878507988010be853
                 </div>
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #e61d2f;">Hold</button>
@@ -1461,6 +1468,7 @@
         xhttp.send();
         calc();
         LoadAllSupliers();
+        loadAccounts();
         getInvoiceID();
 
 
@@ -1475,7 +1483,7 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText);
+               // alert(this.responseText);
                 document.getElementById("SupplierName").innerHTML =
                     this.responseText;
                 $('#SupplierName').selectpicker('refresh');
@@ -1515,6 +1523,8 @@
 
 
     }
+
+
 
     function AddSupplier() {
 
@@ -1745,7 +1755,21 @@
 
 
     }
-
+    function loadAccounts(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("accounts").innerHTML = this.response;
+            $('#accounts').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getAccounts/", true);
+    
+    xhttp.send();
+    }
     function IsItemExistInDataTable(item) {
 
 
@@ -1822,7 +1846,8 @@
         var SLB = document.getElementById("LastBalance").value;
 
         var SCB = document.getElementById("CurrentBalance").value;
-        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB];
+        var AID=$('#accounts').find(":selected").val();
+        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB,AID];
 
 
 
@@ -1839,14 +1864,20 @@
 
             }
         };
-<<<<<<< HEAD
+
+        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+
         // var MenuID=$('#Menus').find(":selected").val();
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-=======
+
         xhttp.open("GET", "./addSalesForSS/" + array, true);
->>>>>>> 7f6f6415b81b4560f65332b878507988010be853
+
         xhttp.send();
     };
+
+    function validation(){
+        
+    }
 
 </script>
 

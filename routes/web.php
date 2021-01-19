@@ -86,9 +86,10 @@ Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
-Route::get('/getAllAutos',[UpdateStocksController::class, 'getAllAutos']);
+Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
+Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']);
 
 
 // Test Functions
@@ -213,7 +214,7 @@ Route::get('/atv', function () {
     return view('attendanceView');
 });
 
-Route::get('/il', function () {
+Route::get('/l', function () {
     return view('investorLedger');
 });
 Route::get('/il', function () {
@@ -238,4 +239,8 @@ Route::get('/pm', function () {
 
 Route::get('/ivs', function () {
     return view('inventorysheet');
+});
+
+Route::get('/d', function () {
+    return view('delivery');
 });

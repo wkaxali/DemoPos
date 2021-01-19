@@ -254,7 +254,7 @@
     </style>
 </head>
 
-<body id="mainBody" onload="getOrderID()">
+<body id="mainBody" onload="loadFunction()">
 
     <header id="myHeader">
         <div class="container">
@@ -387,6 +387,13 @@
                             </table>
                         </div>
                         <div class="mainInputGroups">
+                                <div class="input-group">
+                                    <label for="">Payment Method</label>
+                                    <select style="height: 25px !important; width: 158px !important; "
+                                    class="selectpicker form-control"  data-live-search="true"  id="accounts">
+                    
+                                    </select>
+                                </div>
                             <div class="input-group">
                                 <label style="width: 150px !important;" for="">Total Amount</label>
                                 <input type="number" name="" id="mainTotal">
@@ -604,12 +611,12 @@
 
 
             alert("array for order" + orderDetails);
-
+            var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
             var totalpaid = document.getElementById("totalPaid").value;
             var totRemaining = document.getElementById("totRemaining").value;
             alert(mainTotal);
-            var Order = [mainTotal, totalpaid, totRemaining, orderDetails];
+            var Order = [mainTotal, totalpaid, totRemaining, orderDetails, AID];
 
 
             alert(Order);
@@ -653,6 +660,35 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+
+        <script>
+            function loadFunction(){
+                getOrderID();
+                loadaccounts();
+            }
+        
+        </script>
+        <script>
+function loadaccounts(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("accounts").innerHTML = this.response;
+            $('#accounts').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getAccountHeads/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
 
 </body>
 
