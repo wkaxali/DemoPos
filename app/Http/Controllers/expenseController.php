@@ -65,7 +65,7 @@ public static function getPartyNames(){
   public static function getAccounts(){
     $data=DB:: select('select * from tblaccounts');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){
@@ -81,7 +81,7 @@ public static function getPartyNames(){
   public static function getExpenseHeads(){
     $data=DB:: select('select * from tblexpenseheads');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){

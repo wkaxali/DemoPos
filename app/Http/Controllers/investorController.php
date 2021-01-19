@@ -31,7 +31,7 @@ class investorController extends Controller
       'totalProfit'=>$profit,
       'LIDProfit'=>$investorProfit,
       'LIDProfitRatio'=>$investorProfitRatio,
-      'SelfProfit'=>$selfProfitRatio,
+      'SelfProfit'=>$selfProfit,
       'SelfProfitRatio'=>$selfProfitRatio,
       'Status'=>"Pending"
       ]);

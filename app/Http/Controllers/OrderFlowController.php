@@ -20,6 +20,7 @@ class OrderFlowController extends Controller
         $totRemaining=$Array[2];
        $orderDetails =$Array[3];
        
+       
         
          
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
@@ -357,7 +358,7 @@ class OrderFlowController extends Controller
         $results=DB::select('select ProductName,EngineNumber,ChasisNumber,DilevedStatus,ProductID from vw_purchaseorderdetails where InvoiceNumber='.$OID);
         $table="";
         $i=1;
-        $option="";
+        $option='<option value=" "></option>';
   
         foreach ($results as $ro){
         $charges= TransactionFlow::getChargesOrComissions($ro->ProductID,"Transportation Charges","Cost");
@@ -408,7 +409,7 @@ class OrderFlowController extends Controller
                 
         </tr>';
         $i++;
-        $option='<option value=" "></option>';
+        $option="";
         }
         return $table;
 

@@ -31,7 +31,7 @@ public static function getEmployeeName(){
   public static function getEmployeeCNIC(){
     $data=DB:: select('select * from tblemployees');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){
@@ -47,7 +47,7 @@ public static function getEmployeeName(){
   public static function getEmployeeID(){
     $data=DB:: select('select * from tblemployees');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){
@@ -63,7 +63,7 @@ public static function getEmployeeName(){
   public static function getEmployeeContact(){
     $data=DB:: select('select * from tblemployees');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){

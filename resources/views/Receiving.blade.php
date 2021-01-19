@@ -114,10 +114,7 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
-<<<<<<< HEAD
 /* THis is receiveing Media Query */
-=======
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
         .orderNOLabel {
             width: 130px;
         }
@@ -140,15 +137,12 @@
                 width: 109px;
             }
         }
-<<<<<<< HEAD
 
 /* Receiving Media Query Ends */
-=======
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
     </style>
 </head>
 
-<body>
+<body onload="loadaccounts()">
 
     <header>
         <div class="container">
@@ -158,16 +152,18 @@
                 </div>
             </div>
             <div class="row">
-<<<<<<< HEAD
                 <div class="col-md-12">
                     <label class="orderNOLabel" for="OrderNo">Order No</label>
-=======
-                <div class="col-md-6">
-                <label class="orderNOLabel" for="OrderNo">Order No</label>
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
                     <input type="text" name="" value="" id="OrderId">
                     <button class="btn btn-info" onclick="getOrderDetails()">o</button>
+
+                    <label for="">Payment Method</label>
+                    <select style="height: 25px !important; width: 158px !important; "
+                    class="selectpicker form-control"  data-live-search="true"  id="accounts">
+                    
+                </select>
                 </div>
+                
             </div>
             <br>
             <div class="row">
@@ -262,7 +258,7 @@
 
             var products = [];
             var table = document.getElementById("autoTableBody");
-
+            
 
             //alert(sp);
             $('#autoTableBody tr').each(function (row, tr) {
@@ -287,8 +283,9 @@
             });
             //products.shift();
             alert(products);
+            var AID = $('#accounts').find(":selected").val();
             var OID = document.getElementById("OrderId").value;
-            var array2 = [products, OID];
+            var array2 = [products, OID,AID];
             var prod = JSON.stringify(array2);
 
             alert(prod);
@@ -309,6 +306,29 @@
         }
 
     </script>
+
+<script>
+function loadaccounts(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("accounts").innerHTML = this.response;
+            $('#accounts').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getAccountHeads/", true);
+    
+    xhttp.send();
+
+
+    }
+</script>
+
+
+
 </body>
 
 </html>
