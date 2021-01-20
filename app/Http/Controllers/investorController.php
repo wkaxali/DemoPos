@@ -88,9 +88,9 @@ class investorController extends Controller
 }
 
 function getInvestorData(){
-    $data=DB:: select('select * from vw_stockdetails where Category = 20');
-    return $data;
-  }
+  $data=DB:: select('select * from vw_stockdetails where Category = 20');
+  return $data;
+}
 
 
 public static function getInvestors(){
@@ -114,6 +114,7 @@ public static function getInvestors(){
     $investorDetails=DB:: select('select * from tblledgerparties where LID ='.$LID);
     return $investorDetails;
 }
+
 
 function getInvestorStock($InvestorID){
   $data=DB:: select('select * from vw_investor_product where LID='.$InvestorID);
