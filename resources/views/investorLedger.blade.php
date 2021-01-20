@@ -230,7 +230,7 @@
                     <div class="summaryLabels">
                         <label for="">Total Profit</label>
                         <input type="number" value="1133000" class="form-control"
-                            style="display: inline-block; width: 200px;" value="" id="profit"><br>
+                            style="display: inline-block; width: 200px;" value="" id="totalProfit"><br>
 
                         <label for="">Capital</label>
                         <input type="number" value="80000000" class="form-control"
@@ -319,6 +319,8 @@
 
     </script>
 
+
+
 <script>
     function profits(){
         var table = document.getElementById("mainStockTable");
@@ -370,6 +372,7 @@
             var mcell7 = row.insertCell(6);
             var mcell8 = row.insertCell(7);
             var mcell9 = row.insertCell(8);
+            var mcell10 = row.insertCell(9);
             
 
 
@@ -382,6 +385,7 @@
             mcell7.innerHTML = "";
             mcell8.innerHTML = cell6;
             mcell9.innerHTML = cell7;
+            mcell10.innerHTML = 0;
             
         });
 
@@ -409,6 +413,7 @@ function getStock(){
                     a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
                 });
                 table.draw();
+                totalProfit()
 
         }
     };
@@ -444,9 +449,19 @@ function loadFunctions(){
         xhttp.send();
         }
     </script>
+    <script>
+        function totalProfit(){
+            var table = document.getElementById("mainStockTable");
+            var sum = 0;
 
-
-
+            for(var i = 1; i < table.rows.length; i++)
+                    {
+                        sum = sum + parseInt(table.rows[i].cells[4].innerHTML);
+                    }
+                    
+                    document.getElementById("totalProfit").value = sum;
+        }
+    </script>
     <script>
         $(document).ready(function () {
             $('#stockTable').DataTable();
@@ -464,7 +479,7 @@ function getInvestorDetails(){
                 var data = this.responseText;
 
                 var a = JSON.parse(data);
-                alert(a);
+                
                 var table;
                 //document.getElementById("mainStocktBody").innerHTML="";
                
@@ -491,12 +506,15 @@ function getInvestorDetails(){
         var ProductDetails = [];
         var table = document.getElementById("mainStockTable");
 
-
-        //alert(sp);
+       var i=0;
+  
         $('#mainStockTable tr').each(function (row, tr) {
-
-            ProductDetails[row] = [
-
+            
+            var v = $(tr).find('td:eq(9)').text();
+            alert(v);
+            if(v==0){
+            ProductDetails[i] = [
+                
                 $(tr).find('td:eq(0)').text(), //Product ID
                 //$(tr).find('td:eq(1)').text(), //Product Name
                 $(tr).find('td:eq(2)').text(), //Sale Price
@@ -508,8 +526,8 @@ function getInvestorDetails(){
                 // $(tr).find('td:eq(8)').text(), // Chasis Number
                 
             ];
-
-
+                i++;
+            }
         });
         ProductDetails.shift();
         var LID = $('#investors').find(":selected").val();

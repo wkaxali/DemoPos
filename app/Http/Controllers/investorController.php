@@ -138,7 +138,7 @@ foreach ($data as $d){
     <td>'.$d->TotalCost.'</td>
     <td>'.$d->totalProfit.'</td>
     <td>'.$d->SelfProfit.'</td>
-    <td>'.$d->LIDProfitRatio.'</td>
+    <td>'.$d->LIDProfit.'</td>
     <td>'.$d->EngineNumber.'</td>
     <td>'.$d->ChasisNumber.'</td>
     <td>1</td>
