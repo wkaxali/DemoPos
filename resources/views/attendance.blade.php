@@ -128,16 +128,19 @@
             outline: 0 none;
         }
 
-<<<<<<< HEAD
         .mainRows {
             width: 910px;
             margin: 50px auto;
             padding: 10px;
             border-radius: 10px;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
 
-=======
->>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
+        }
     </style>
 </head>
 

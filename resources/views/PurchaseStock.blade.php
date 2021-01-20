@@ -55,7 +55,7 @@
         }
 
         .bootstrap-select .dropdown-toggle {
-            width: 178px;
+            width: 151px;
             height: 30px !important;
 
         }
@@ -932,7 +932,7 @@
             }
         }
 
-        input[type="text"]:focus,
+        input[type="number"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
         input[type="datetime-local"]:focus,
@@ -1054,6 +1054,35 @@
 
         }
 
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        body {
+            background: rgb(230, 29, 47);
+            background: radial-gradient(circle, rgba(230, 29, 47, 0.9528186274509804) 0%, rgba(10, 84, 157, 0.9360119047619048) 100%);
+            color: #ffffff;
+        }
+        .dropdown {
+    width: 151px !important;
+    height: 30px !important;
+}
+
+#myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
     </style>
 </head>
 
@@ -1070,11 +1099,11 @@
         <div class="row">
             <div class="col-xl-3  col-lg-6 col-md-6  okay-invo">
                 <label for="invo-1">Invoice Number</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="InvoiceID">
                 <button class="btn" style="height: 25px; margin-top: -5px;background-color: #e61d2f;"></button>
                 <label for="prod-1">Product Number</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="invo-1">
                 <button type="button" class="btn" style="height: 25px; margin-top: -5px;background-color:#0a549d;"
                     data-toggle="modal" data-target=".bd-example-modal-xl"></button>
@@ -1085,7 +1114,7 @@
 
                 <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
                     aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-dialog  modal-xl">
                         <div class="modal-content">
                             <div class="container">
                                 <div class="row">
@@ -1134,7 +1163,7 @@
                     </div>
                 </div>
                 <label style="visibility: hidden;" for="prod-hour">Product Number</label>
-                <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
+                <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
                 <br>
                 <div class="centhour">
                     <button class="btn btn-new" style="background-color: #e61d2f;">New</button>
@@ -1147,17 +1176,17 @@
             <div class="col-md-6  okay-invo-1">
                 <div class="o-inv">
                     <label for="invo-1">Supplier Id</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="SID">
                     <button class="btn " style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
                     <br>
                     <label for="prod-1">Last Balance</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="LastBalance">
                     <button class="btn " style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
                     <br>
                     <label for="prod-1">Current Balance</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CurrentBalance">
 
                 </div>
@@ -1175,11 +1204,11 @@
 
                     <br>
                     <label for="prod-1">Contact Number</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CNO">
                     <br>
                     <label for="prod-1">Category</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="SupplierCategory">
                     <br>
                 </div>
@@ -1211,15 +1240,15 @@
                                                     id="username" placeholder="Supplier ID">
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" class="form-control item" autocomplete="OFF"
+                                                <input type="text" class="form-control item" autocomplete="OFF"
                                                     id="password" placeholder="Supplier Name">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                <input type="email" class="form-control item" autocomplete="OFF"
                                                     id="email" placeholder="Email">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
+                                                <input type="number" class="form-control item" autocomplete="OFF"
                                                     id="phone-number" placeholder="Phone Number">
                                             </div>
                                             <div class="form-group">
@@ -1228,7 +1257,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control item" autocomplete="OFF"
-                                                    id="email" placeholder="Email">
+                                                    id="email" placeholder="Dummy">
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control item" autocomplete="OFF"
@@ -1285,7 +1314,7 @@
 
                                 <th>Product Name</th>
                                 <th>Company</th>
-                                <th>Sale Price</th>
+                                <th>Purchase Price</th>
                                 <th>Quantity</th>
                                 <th>Discount</th>
                                 <th>Total</th>
@@ -1305,32 +1334,33 @@
             </div>
             <div class="col-md-3 okay-invo-3">
                 <label for="invo-1" style="width: 130px;">Total</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="Total">
 
                 <label for="prod-1" style="width: 130px;">Discount</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="DiscountOverall" onchange="calc()">
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    name="invo-1" id="DiscountOverall" value="00" onchange="calc()">
                 <label for="invo-1" style="width: 130px;">Gross Total</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="grossTotal">
                 <label for="prod-1" style="width: 130px;"> Tax 17%</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="tax" onchange="calc()">
                 <label for="prod-1" style="width: 130px;">Net Total</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="NetTotal">
                 <label for="invo-1" style="width: 130px; font-weight: 500;">Amount Paid</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="AmountPaid" onchange="calcForBalance()">
                 <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
-                    <label for="">Paid From</label>
-                            <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  data-live-search="true"  id="accounts" >
-                            
-                            </select>
+                    <label style="width: 130px;" for="">Paid From</label>
+                    <select class="selectpicker form-control" data-live-search="true" id="accounts" tabindex="null">
+                        
+    
+    
+                    </select>
                     
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #0a549d;" onclick="insertInOrder()">Save</button>
@@ -1501,6 +1531,8 @@
 
     }
 
+
+
     function AddSupplier() {
 
         var SupplierName = document.getElementById("SupplierName").value;
@@ -1598,9 +1630,9 @@
                 cell3.innerHTML = CompanyName;
                 cell4.innerHTML = SalePrice;
                 cell5.innerHTML =
-                    '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
+                    '<input type="number" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
                 cell6.innerHTML =
-                    '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
+                    '<input type="number" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
                 var tot = SalePrice * 1;
                 cell7.innerHTML = tot;
                 calc();
@@ -1791,8 +1823,8 @@
 
                 $(tr).find('td:eq(0)').text(), //productID
                 $(tr).find('td:eq(3)').text(), //purchase
-                $(tr).find('td:eq(4) input[type="text"]').val(), //qty
-                $(tr).find('td:eq(5) input[type="text"]').val(), //discount
+                $(tr).find('td:eq(4) input[type="number"]').val(), //qty
+                $(tr).find('td:eq(5) input[type="number"]').val(), //discount
                 $(tr).find('td:eq(6)').text() //totamount
 
 
@@ -1839,9 +1871,20 @@
 
             }
         };
+
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+
+        xhttp.open("GET", "./addSalesForSS/" + array, true);
+
         xhttp.send();
     };
+
+    function validation(){
+        
+    }
 
 </script>
 

@@ -33,7 +33,13 @@
             font-size: 30px !important;
             color: #e61d2f;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
 
+        }
     </style>
 </head>
 
@@ -171,7 +177,7 @@
             <div class="row" style="border-top: 1px solid #333;">
                 <div class="col-md-4 p-2 text-center">
                     <span><i class="fa fa-map-marker"></i></span>
-                    <h5 style="text-transform: uppercase;">BKM, Shekhupura Road,OM MILLAT Tractors,Lhr</h5>
+                    <h5 style="text-transform: uppercase;">BKM, {{ Session::get('UserName')}}Road,OM MILLAT Tractors,Lhr</h5>
                 </div>
                 <div class="col-md-4 p-2 text-center">
                     <span><i class="fa fa-phone"></i></span>
@@ -187,12 +193,10 @@
             </div>
         </div>
     </footer>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Launch demo modal
     </button>
 
-    <!-- Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -212,7 +216,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"

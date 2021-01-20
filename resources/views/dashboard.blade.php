@@ -9542,8 +9542,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
 
                         <div class="form-submit">
-                            <input onclick="modalValidation()" name="submit" id="submit" class="submit"
-                                value="Add Customer" />
+                            <a onclick="infoPass()">Add Customer</a>
                         </div>
                     </form>
                 </div>
@@ -9602,8 +9601,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
+<<<<<<< HEAD
                                                             onclick="location.href = 'Receiving.html'">Dilivery</button><br>
                                                             <button  id="killme"
+=======
+                                                            onclick="location.href = '/d'">Dilivery</button><br>
+                                                            <button data-toggle="modal" id="killme"
+>>>>>>> cfa52e37d7c3338499782ef08ce4a3db8c6984d7
                                                                 data-target="#staticBackdrop"
                                                                 class="btn btn-mysecondary">Quotation</button><br>
 
@@ -9621,7 +9625,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
                                                             <a href="/is"><button class="btn btn-myPrimary-add">invoice services</button><br></a>
                                                             <a href="/psi"><button class="btn btn-mysecondary">Print Sale Invoice</button><br></a>
-                                                            <a href="/s"><button class="btn btn-myPrimary">Sales& comission</button><br></a>
+                                                            <a href="/sc"><button class="btn btn-myPrimary">Sales& comission</button><br></a>
                                                             <a href="/ct"> <button class="btn btn-myPrimary-add">texes</button><br></a>
                                                         </div>
                                                     </div>
@@ -9678,7 +9682,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
                                                     alt=""> </span>
                                             <div class="user-name">
-                                                <p style="color: #e61d2f;">Waqas Ali </p>
+                                                <p style="color: #e61d2f;">{{ Session::get('UserName')}}</p>
                                                 <span>Administrator</span>
                                             </div>
                                             <i class="fa fa-angle-down lnr"></i>
@@ -10142,7 +10146,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 in_view($(this))
             })
         }), bars();
+        
+    </script>
+    <script>
+   function infoPass(){
 
+    var customerName="Waqas";
+    var id="78";
+
+   
+    window.location.href = "./pm/"+customerName;
+    //redirect
+
+
+   }
     </script>
 
 </body>
