@@ -424,11 +424,11 @@
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" id="UserName1" />
+            <input type="text" placeholder="Username" id="username" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="UserPaswd1"/>
+            <input type="password" placeholder="Password" id="password"/>
           </div>
           <input type="submit" value="Login" onclick="Login()" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
@@ -451,7 +451,7 @@
           <h2 class="title">Admin</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" id="UserName" />
+            <input type="text" placeholder="Username" id="UserName2" />
           </div>
           <!-- <div class="input-field">
             <i class="fas fa-envelope"></i>
@@ -459,7 +459,7 @@
           </div> -->
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="UserPaswd" />
+            <input type="password" placeholder="Password" id="UserPaswd2" />
           </div>
           <input type="submit" class="btn" onclick="RegisAdmin()"value="Login" />
           <p class="social-text">Or Sign up with social platforms</p>
@@ -553,7 +553,8 @@ function Login(){
 
   var xhttp = new XMLHttpRequest();
 
-  
+  var UserName=  document.getElementById("username").value ;
+  var Password=  document.getElementById("password").value ;
              xhttp.onreadystatechange = function () {
 
                  if (this.readyState == 4 && this.status == 200) {
