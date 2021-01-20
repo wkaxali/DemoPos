@@ -9592,7 +9592,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     style="border: 2px solid gray; border-radius: 10px;">
 
 
-
+                                                    {{ session()->put('CID','125')}}
                                                     <div class="col-md-3">
                                                         <label class="labels" for="">Purchase</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
@@ -9601,8 +9601,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
+<<<<<<< HEAD
+                                                            onclick="location.href = 'Receiving.html'">Dilivery</button><br>
+                                                            <button  id="killme"
+=======
                                                             onclick="location.href = '/d'">Dilivery</button><br>
                                                             <button data-toggle="modal" id="killme"
+>>>>>>> cfa52e37d7c3338499782ef08ce4a3db8c6984d7
                                                                 data-target="#staticBackdrop"
                                                                 class="btn btn-mysecondary">Quotation</button><br>
 
