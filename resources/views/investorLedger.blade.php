@@ -495,7 +495,7 @@ function getInvestorDetails(){
                 getInvestorStock();
             }
             
-                //alert( this.responseText);
+                //alert( this.responsedwedText);
             
         };
         var LID = $('#investors').find(":selected").val();
