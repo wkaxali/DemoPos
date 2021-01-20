@@ -9542,7 +9542,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
 
                         <div class="form-submit">
-                            <a href="pm">Add Customer</a>
+                            <a onclick="infoPass()">Add Customer</a>
                         </div>
                     </form>
                 </div>
@@ -10141,7 +10141,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 in_view($(this))
             })
         }), bars();
+        
+    </script>
+    <script>
+   function infoPass(){
 
+    var customerName="Waqas";
+    var id="78";
+
+   
+    window.location.href = "./pm/"+customerName;
+    //redirect
+
+
+   }
     </script>
 
 </body>

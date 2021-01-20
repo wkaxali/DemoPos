@@ -125,10 +125,16 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 
 Route::get('/', function () {
-    session(['UserName' => "Waqas"]);
+    session(['UserName' => "Wa,jgigiugiugfqas"]);
       session(['ID' => '5']);
     return view('signInSignUp');
 });
+Route::get('/pm/{customerName}', function ($id) {
+    session(['UserName' => $id]);
+      session(['ID' => '5']);
+    return view('quotation');
+});
+
 Route::get('/ss', function () {
     return view('sales');
 });
@@ -235,9 +241,7 @@ Route::get('/pr', function () {
     return view('payRoll');
 });
 
-Route::get('/pm', function () {
-    return view('paymentFile');
-});
+
 
 Route::get('/ivs', function () {
     return view('inventorysheet');

@@ -171,7 +171,7 @@
             <div class="row" style="border-top: 1px solid #333;">
                 <div class="col-md-4 p-2 text-center">
                     <span><i class="fa fa-map-marker"></i></span>
-                    <h5 style="text-transform: uppercase;">BKM, Shekhupura Road,OM MILLAT Tractors,Lhr</h5>
+                    <h5 style="text-transform: uppercase;">BKM, {{ Session::get('UserName')}}Road,OM MILLAT Tractors,Lhr</h5>
                 </div>
                 <div class="col-md-4 p-2 text-center">
                     <span><i class="fa fa-phone"></i></span>
