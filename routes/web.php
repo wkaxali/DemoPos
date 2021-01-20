@@ -11,7 +11,7 @@ use App\Http\Controllers\UpdateStocksController;
 
 use App\Http\Controllers\payController;
 
-
+use App\Http\Controllers\userAccountController;
 
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
@@ -119,7 +119,7 @@ Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
 Route::get('/getCategory',[taskController::class, 'getCategory'] );
 Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
-
+Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative'] );
@@ -127,7 +127,6 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 
 Route::get('/', function () {
-<<<<<<< HEAD
     
     return view('signInSignUp');
 });
@@ -143,18 +142,6 @@ Route::get('/chksessions',function(){
    
 
 });
-=======
-    session(['UserName' => "Wa,jgigiugiugfqas"]);
-      session(['ID' => '5']);
-    return view('signInSignUp');
-});
-Route::get('/pm/{customerName}', function ($id) {
-    session(['UserName' => $id]);
-      session(['ID' => '5']);
-    return view('quotation');
-});
-
->>>>>>> cfa52e37d7c3338499782ef08ce4a3db8c6984d7
 Route::get('/ss', function () {
     return view('sales');
 });
