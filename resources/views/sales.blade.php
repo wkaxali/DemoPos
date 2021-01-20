@@ -1016,6 +1016,7 @@
             .okay-invo {
                 width: 100% !important;
             }
+
             .o-inv-2 {
                 margin-left: 0px;
             }
@@ -1043,6 +1044,7 @@
             .okay-invo-hide {
                 display: none;
             }
+
             .o-inv-2 {
                 margin-left: 0px;
             }
@@ -1076,13 +1078,30 @@
             background: radial-gradient(circle, rgba(10, 84, 157, 1) 0%, rgba(230, 29, 47, 0.9444152661064426) 100%);
             color: #ffffff;
         }
-        #myTable_length label{
+
+        #myTable_length label {
             width: auto !important;
         }
-        .dataTables_filter label{
+
+        .dataTables_filter label {
             width: auto !important;
 
         }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none !important;
+            margin: 0 !important;
+         
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+            margin: 0;
+        }
+
     </style>
 </head>
 
@@ -1228,7 +1247,7 @@
                                 <div class="modal-body">
 
                                     <div class="registration-form">
-                                    
+
                                         <form>
                                             <h3 style="color: black !important;">Add Customer</h3>
                                             <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
@@ -1358,11 +1377,11 @@
                 <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
 
-                    <label for="">Paid From</label>
-                            <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  data-live-search="true"  id="accounts" >
-                            
-                            </select>
+                <label for="">Paid From</label>
+                <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    data-live-search="true" id="accounts">
+
+                </select>
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #e61d2f;" onclick="insertInSales()">Save</button>
                     <button class="btn" style="background-color: #0a549d;">Print</button>
@@ -1529,20 +1548,21 @@
 
 
     }
-    function loadAccounts(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("accounts").innerHTML = this.response;
-            $('#accounts').selectpicker('refresh');
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getAccounts/", true);
-    
-    xhttp.send();
+
+    function loadAccounts() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("accounts").innerHTML = this.response;
+                $('#accounts').selectpicker('refresh');
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getAccounts/", true);
+
+        xhttp.send();
     }
 
     function AddCustomer() {
@@ -1851,8 +1871,8 @@
         var CLB = document.getElementById("LastBalance").value;
 
         var CCB = document.getElementById("CurrentBalance").value;
-        var AID=$('#accounts').find(":selected").val();
-        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB,AID];
+        var AID = $('#accounts').find(":selected").val();
+        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
 
         //alert(myRow2[0][1]);
         //alert(myRow2[11]);
