@@ -149,7 +149,7 @@
 
         .mainInputGroups {
             float: right;
-            margin-top: 5px;
+            margin-top: -40px;
 
         }
 
@@ -158,7 +158,7 @@
         }
 
         .mainInputGroups input {
-            width: 120px !important;
+          margin: 5px 0px !important;
         }
 
         th,
@@ -387,26 +387,26 @@
                             </table>
                         </div>
                         <div class="mainInputGroups">
-                                <div class="input-group">
-                                    <label for="">Payment Method</label>
-                                    <select style="height: 25px !important; width: 158px !important; "
+                              
+                                    <label style="width: 150px !important;" for="">Payment Method</label>
+                                    <select 
                                     class="selectpicker form-control"  data-live-search="true"  id="accounts">
                     
-                                    </select>
-                                </div>
-                            <div class="input-group">
+                                    </select><br>
+                               
+                        
                                 <label style="width: 150px !important;" for="">Total Amount</label>
-                                <input type="number" name="" id="mainTotal">
-                            </div>
+                                <input class="form-control" style="display: inline-block !important; width: 200px !important;" type="number" name="" id="mainTotal"><br>
+                         
 
-                            <div class="input-group ">
+                         
                                 <label style="width: 150px  !important;" for="">Total Paid</label>
-                                <input type="number" name="" id="totalPaid" onchange="calculatonInTable()">
-                            </div>
-                            <div class="input-group ">
+                                <input type="number" name="" class="form-control" style="display: inline-block !important; width: 200px !important;" id="totalPaid" onchange="calculatonInTable()"><br>
+                        
+                       
                                 <label style="width: 150px  !important;" for="">Total Remaining</label>
-                                <input type="number" name="" id="totRemaining">
-                            </div>
+                                <input type="number" name="" class="form-control" style="display: inline-block !important; width: 200px !important;" id="totRemaining">
+                            
 
                         </div>
                         <div class="clear"></div>

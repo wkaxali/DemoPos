@@ -596,7 +596,13 @@
 
         /* Invoice Services Media Query Starts */
         /* Invoice Services Media Query Ends */
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
 
+        }
     </style>
 </head>
 
@@ -629,8 +635,7 @@
 
 
                 </select>
-                <button type="button" class="btn btn-info" style="height: 25px; margin-top: -5px;" data-toggle="modal"
-                    data-target=".bd-example-modal-xl"></button> -->
+           
                 <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
                     style="height: 25px;" onclick="loadStock()"></button>
             </div>
@@ -742,7 +747,7 @@
                                 <label for="status">Discount</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="Discount" onkeyup="calc()">
+                                    name="name" value="0" id="Discount" onkeyup="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
@@ -954,7 +959,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h4 class="text-center my-4">Products Table</h4>
-                            <table class="table  table-bordered mb-4" id="searchProductTable">
+                            <table class="table  table-bordered mb-5" id="searchProductTable">
                                 <thead>
                                     <tr>
 
@@ -1346,7 +1351,7 @@
 
     }
 
-    $("#mainBody").on('keypress', function (event) {
+    $("body").on('keypress', function (event) {
         if (event.keyCode === 13) {
             validPlz();
         } else {}
