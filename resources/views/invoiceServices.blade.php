@@ -593,12 +593,10 @@
             }
 
         }
-<<<<<<< HEAD
-/* Invoice Services Media Query Starts */
-/* Invoice Services Media Query Ends */
-=======
 
->>>>>>> 49eb3397bbca6ec4ed4a4b345c94fc0ac937c719
+        /* Invoice Services Media Query Starts */
+        /* Invoice Services Media Query Ends */
+
     </style>
 </head>
 
@@ -631,7 +629,7 @@
 
 
                 </select>
-                <!-- <button type="button" class="btn btn-info" style="height: 25px; margin-top: -5px;" data-toggle="modal"
+                <button type="button" class="btn btn-info" style="height: 25px; margin-top: -5px;" data-toggle="modal"
                     data-target=".bd-example-modal-xl"></button> -->
                 <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
                     style="height: 25px;" onclick="loadStock()"></button>
@@ -744,7 +742,7 @@
                                 <label for="status">Discount</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="Discount" onkeyup="calc()">
+                                    name="name" value="0" id="Discount" onkeyup="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
@@ -821,18 +819,22 @@
                                         <form method="POST" class="appointment-form" id="appointment-form">
                                             <h2>Create Invoice</h2>
                                             <div class="form-group-1">
-                                                <input type="text" name="title" id="title" placeholder="Customer"
-                                                    required />
                                                 <input type="text" name="name" id="name" placeholder="Customer ID"
                                                     required />
+                                                <input type="text" name="title" id="title" placeholder="Customer"
+                                                    required />
+
                                                 <input type="number" name="tel" id="tel" placeholder="Contact"
                                                     required />
+                                                <input type="number" name="title" id="title" placeholder="ID Card"
+                                                    required />
+                                                <input type="number" name="phone_number" id="Profession"
+                                                    placeholder="Address" required />
                                                 <input type="number" name="phone_number" id="Profession"
                                                     placeholder="Profession" required />
                                                 <input type="number" name="phone_number" id="Balance"
                                                     placeholder="Balance" required />
-                                                <input type="number" name="phone_number" id="Profession"
-                                                    placeholder="Address" required />
+
                                                 <input type="number" name="phone_number" id="Profession"
                                                     placeholder="Comments" required />
 
@@ -897,7 +899,7 @@
                         <div class="input-field">
                             <label for="status">Payment Mode</label>
                             <select data-live-search="true" class=" selectpicker" id='slctAccounts'>
-                                
+
 
 
                             </select>
@@ -905,9 +907,9 @@
                         <div class="input-field">
                             <label for="status">Paid To</label>
                             <select data-live-search="true" class=" selectpicker" id="paidTo">
-                            <option value=1>Forland Modren Motors</option>
+                                <option value=1>Forland Modren Motors</option>
                                 <option value=2>FJW</option>
-                                
+
 
                             </select> </div>
                     </div>
@@ -1125,7 +1127,7 @@
             document.getElementById("EngineNumber").value = this.cells[3].innerText;
             document.getElementById("Status").value = this.cells[6].innerText;
             document.getElementById("TotalPrice").value = this.cells[4].innerText;
-            document.getElementById("Discount").value="0";
+            document.getElementById("Discount").value = "0";
 
 
             alert(this.cells[0].innerText);
@@ -1179,9 +1181,9 @@
         var CID = document.getElementById("CID").value;
 
         var paidTo = document.getElementById("paidTo").value;
-        var AID=document.getElementById("slctAccounts").value;
+        var AID = document.getElementById("slctAccounts").value;
 
-        order = [pid, totwT, discount, netTotal, amp, rmb, CID, paidTo,AID];
+        order = [pid, totwT, discount, netTotal, amp, rmb, CID, paidTo, AID];
 
 
         var array = JSON.stringify(order);
@@ -1203,26 +1205,26 @@
         alert("Generated");
     };
 
-
 </script>
 <script>
-function fetchAccounts(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("slctAccounts").innerHTML = this.response;
-            $('#slctAccounts').selectpicker('refresh');
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getAccountHeads/", true);
-    
-    xhttp.send();
+    function fetchAccounts() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("slctAccounts").innerHTML = this.response;
+                $('#slctAccounts').selectpicker('refresh');
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getAccountHeads/", true);
+
+        xhttp.send();
 
 
     }
+
 </script>
 <script>
     function validPlz() {

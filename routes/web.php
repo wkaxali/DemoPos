@@ -232,3 +232,11 @@ Route::get('/inv', function () {
 Route::get('/pr', function () {
     return view('payRoll');
 });
+
+Route::get('/pm', function () {
+    return view('paymentFile');
+});
+
+Route::get('/ivs', function () {
+    return view('inventorysheet');
+});
