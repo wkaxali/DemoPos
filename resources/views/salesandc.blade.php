@@ -209,7 +209,7 @@
 
 </head>
 
-<body>
+<body onload="loadAccounts()">
     <header>
         <div class="container-fluid">
             <div class="row my-3">
@@ -452,6 +452,11 @@
 
                                                 <label style="margin-left: 10px;" for="remarks">Remarks </label> <input
                                                 class="form-control" style="display: inline-block !important; width: 100px !important;" type="text" name="" id="remarks">
+                                                <label for="">Select Account</label>
+                                                <select style="height: 25px !important; width: 158px !important; "
+                                                        class="selectpicker form-control"  data-live-search="true"  id="accountForCost" >
+                                                    
+                                                    </select>
 
                                                 <button onclick="addInCost()" style="margin-top: -3px;" class="btn">+</button>
                                             </div>
@@ -475,6 +480,7 @@
                                                                     <th>Remarks</th>
                                                                     <th>Delete</th>
                                                                     <th>ComID</th>
+                                                                    <th>Account ID</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -493,6 +499,7 @@
                                                 <div class="col-md-3 ">
                                                 <label for="">Cost (current)</label>
                                                 <input type="text" class="form-control" name="" id="overallTotalCost">
+                                                
                                                 </div>
 
 
@@ -579,7 +586,12 @@
 
                                                 <label style="margin-left: 20px;" for="remarks">Remarks </label> <input
                                                 class="form-control" style="display: inline-block !important; width: 135px !important;" type="text" name="" id="remarksd">
-
+                                                <label for="">Select Account</label>
+                                                <select style="height: 25px !important; width: 158px !important; "
+                                                        class="selectpicker form-control"  data-live-search="true"  id="accountForProfit" >
+                                                    
+                                                    </select>
+                                                    
                                                 <button onclick="addInProfit()" style="margin-top: -3px;" class="btn">+</button>
                                             </div>
                                         </div><div class="row my-3">
@@ -601,6 +613,7 @@
                                                                     <th>Remarks</th>
                                                                     <th>Delete</th>
                                                                     <th>ComID</th>
+                                                                    <th>Account ID</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -666,6 +679,8 @@
                                             <div class="col-md-3 ">
                                                 <label for="">Profit(Current)</label>
                                                 <input type="text" class="form-control" name="" id="CurrentProfit">
+                                                
+                                                  
                                                 </div>
                                                     <button style=margin-top:20px ; onclick="addComissionP()"
                                                     class="btn ">Update Profit</button>
@@ -709,8 +724,10 @@
 
 
                                         var CH = document.getElementById("comissionHeadSelect");
+                                        var accountID = document.getElementById("accountForCost").value;
                                         var amount = document.getElementById("amount").value;
                                         var remarks = document.getElementById("remarks").value;
+                                        //here is 
 
 
                                         var table = document.getElementById("comissionTable");
@@ -720,11 +737,12 @@
                                         var cell3 = row.insertCell(2);
                                         var cell4 = row.insertCell(3);
                                         var cell5 = row.insertCell(4);
+                                        var cell6 = row.insertCell(5);
 
                                         cell2.innerHTML = amount;
                                         cell3.innerHTML = remarks;
                                         cell4.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
-
+                                        cell6.innerHTML = accountID;
                                         //  calculatonInTable();
 
 
@@ -734,7 +752,7 @@
 
                                         cell2.innerHTML = amount;
                                         cell3.innerHTML = remarks;
-                                        cell4.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+                                        
 
                                         //  calculatonInTable();
                                         calcCostTable();
@@ -749,7 +767,7 @@
 var CH = document.getElementById("comissionHeadSelectd");
 var amountd = document.getElementById("amountd").value;
 var remarksd = document.getElementById("remarksd").value;
-
+var accountID = document.getElementById("accountForProfit").value;
 
 var table = document.getElementById("profitTable");
 var row = table.insertRow(-1);
@@ -758,6 +776,7 @@ var cell2 = row.insertCell(1);
 var cell3 = row.insertCell(2);
 var cell4 = row.insertCell(3);
 var cell5 = row.insertCell(4);
+var cell6 = row.insertCell(5);
 
 cell2.innerHTML = amountd;
 cell3.innerHTML = remarksd;
@@ -769,7 +788,7 @@ cell4.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
 
 cell1.innerHTML = CH.options[CH.selectedIndex].text;
 cell5.innerHTML = CH.options[CH.selectedIndex].value;
-
+cell6.innerHTML = accountID;
 
 
 calcProfitTable();
@@ -782,7 +801,7 @@ calcProfitTable();
                                         var commissionArray = [];
                                         var table = document.getElementById("comissionTable");
                                         var OverAllDetails = [];
-
+                                        
                                         //alert(sp);
                                         $('#comissionTable tr').each(function (row, tr) {
 
@@ -994,6 +1013,27 @@ function calcCostTable(){
                                     });
 
                                 </script>
+
+<script>
+function loadAccounts(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("accountForCost").innerHTML = this.response;
+            document.getElementById("accountForProfit").innerHTML = this.response;
+            $('#accountForCost').selectpicker('refresh');
+            $('#accountForProfit').selectpicker('refresh');
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getAccountHeads/", true);
+    
+    xhttp.send();
+    }
+</script>
+
 
 </body>
 
