@@ -959,7 +959,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h4 class="text-center my-4">Products Table</h4>
-                            <table class="table  table-bordered mb-4" id="searchProductTable">
+                            <table class="table  table-bordered mb-5" id="searchProductTable">
                                 <thead>
                                     <tr>
 
