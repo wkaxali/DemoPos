@@ -33,7 +33,13 @@
             font-size: 30px !important;
             color: #e61d2f;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
 
+        }
     </style>
 </head>
 

@@ -196,6 +196,13 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
     </style>
 </head>
 
