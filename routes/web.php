@@ -217,9 +217,7 @@ Route::get('/atv', function () {
 Route::get('/l', function () {
     return view('investorLedger');
 });
-Route::get('/il', function () {
-    return view('investorLedger');
-});
+
 Route::get('/igl', function () {
     return view('investorGeneralLedger');
 });
@@ -243,4 +241,14 @@ Route::get('/ivs', function () {
 
 Route::get('/d', function () {
     return view('delivery');
+});
+Route::get('/nd', function () {
+    return view('newDashboard');
+});
+
+Route::get('/SalarySlip', function () {
+    return view('SalarySlip');
+});
+Route::get('/l', function () {
+    return view('investorLedger');
 });
