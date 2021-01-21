@@ -21,7 +21,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
         h4,
         h5,
@@ -196,6 +197,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin: 0;
             font-size: 18px;
             padding: 0;
+                font-family: 'Roboto', sans-serif;
+
         }
 
         #menu li ul {
@@ -353,10 +356,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             display: inline-block;
         }
 
-        .nav>li>a:hover,
+        /* .nav>li>a:hover,
         .nav>li>a:focus {
             background: none !important;
-        }
+        } */
 
         span.logo-clr {
             color: #fdbb30;
@@ -998,7 +1001,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--header strip end here-*/
         /*inner-block--*/
         .inner-block {
-            padding: 8em 2em 4em 2em;
+            padding: 1em 2em 4em 2em;
             background: #fafafa;
         }
 
@@ -1037,7 +1040,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-2 {
-     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1063,11 +1066,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-2:hover {
-         transition: 0.5s all;
+            transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
             -o-transition: 0.5s all;
-            
+
         }
 
         .market-update-block.clr-block-3:hover {
@@ -3898,7 +3901,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             .market-update-block {
                 padding: 1.5em 1.5em;
-              
+
             }
 
             .market-update-right i.fa.fa-file-text-o {
@@ -6016,12 +6019,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 padding: 50px 30px 70px 30px;
             }
         }
-a:hover{
-    cursor: pointer;
+ul li{
+    font-family: 'Roboto', sans-serif;
 }
+        a:hover {
+            cursor: pointer;
+        }
+
         @media only screen and (max-width: 768px) {
-           .header-main{
-               display: none !important;
+            .header-main {
+                display: none !important;
             }
         }
 
@@ -9488,6 +9495,27 @@ a:hover{
         .btn1:hover::before {
             height: 180%;
         }
+        .nav-pills{
+            float: right !important;
+            background-color: #0a549d;
+            border-radius: 15px;
+        }
+        .clearmain{
+            clear:both;
+        }
+        .nav-pills .nav-link {
+            border-radius: .25rem;
+            color: #fff;
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #fff;
+            background-color:#e61d2f;
+            border-radius: 15px;
+            padding: 10px;
+
+        }
 
     </style>
 </head>
@@ -9653,7 +9681,7 @@ a:hover{
                         <div class="profile_details">
                             <ul>
                                 <li class="dropdown profile_details_drop">
-                                    <a  class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <div class="profile_img">
                                             <span class="prfil-img"><img style="height: 50px; border-radius: 50%; "
                                                     src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
@@ -9696,52 +9724,224 @@ a:hover{
 
                 </script>
                 <div class="inner-block">
-                    <div class="market-updates">
-                        <div class="row">
+                    <ul class="nav nav-pills  mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                role="tab" aria-controls="pills-home" aria-selected="true">Today</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                role="tab" aria-controls="pills-profile" aria-selected="false">Last 7 Days</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                role="tab" aria-controls="pills-contact" aria-selected="false">This Month</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-year-tab" data-toggle="pill" href="#pills-year" role="tab"
+                                aria-controls="pills-year" aria-selected="false">This Year</a>
+                        </li>
+                    </ul>
+                <div class="clearmain"></div>
+                    
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                            aria-labelledby="pills-home-tab">
+                            <div class="market-updates">
+                                <div class="row">
 
 
-                            <div class="col-md-4 market-update-gd">
-                                <div class="market-update-block clr-block-1">
-                                    <div class="col-md-8 market-update-left">
-                                        <h3>83</h3>
-                                        <h4>Sales Today</h4>
-                                        <p>80% cash sales</p>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-1">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>83</h3>
+                                                <h4>Sales Today</h4>
+                                                <p>80% cash sales</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-file-text-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 market-update-right">
-                                        <i class="fa fa-file-text-o"> </i>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-2">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>135</h3>
+                                                <h4>Leads</h4>
+                                                <p>Team visited 230 people</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-eye"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
                                     </div>
-                                    <div class="clearfix"> </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-3">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>23</h3>
+                                                <h4>New Messages</h4>
+                                                <p>get reply</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-envelope-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4 market-update-gd">
-                                <div class="market-update-block clr-block-2">
-                                    <div class="col-md-8 market-update-left">
-                                        <h3>135</h3>
-                                        <h4>Leads</h4>
-                                        <p>Team visited 230 people</p>
-                                    </div>
-                                    <div class="col-md-4 market-update-right">
-                                        <i class="fa fa-eye"> </i>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 market-update-gd">
-                                <div class="market-update-block clr-block-3">
-                                    <div class="col-md-8 market-update-left">
-                                        <h3>23</h3>
-                                        <h4>New Messages</h4>
-                                        <p>get reply</p>
-                                    </div>
-                                    <div class="col-md-4 market-update-right">
-                                        <i class="fa fa-envelope-o"> </i>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
+                                <div class="clearfix"> </div>
                             </div>
                         </div>
-                        <div class="clearfix"> </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab">
+                            <div class="market-updates">
+                                <div class="row">
+
+
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-1">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>83</h3>
+                                                <h4>Sales Today</h4>
+                                                <p>80% cash sales</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-file-text-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-2">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>135</h3>
+                                                <h4>Leads</h4>
+                                                <p>Team visited 230 people</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-eye"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-3">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>23</h3>
+                                                <h4>New Messages</h4>
+                                                <p>get reply</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-envelope-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                            aria-labelledby="pills-contact-tab">
+                            <div class="market-updates">
+                                <div class="row">
+
+
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-1">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>83</h3>
+                                                <h4>Sales Today</h4>
+                                                <p>80% cash sales</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-file-text-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-2">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>135</h3>
+                                                <h4>Leads</h4>
+                                                <p>Team visited 230 people</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-eye"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-3">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>23</h3>
+                                                <h4>New Messages</h4>
+                                                <p>get reply</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-envelope-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-year" role="tabpanel" aria-labelledby="pills-year-tab">
+                            <div class="market-updates">
+                                <div class="row">
+
+
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-1">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>83</h3>
+                                                <h4>Sales Today</h4>
+                                                <p>80% cash sales</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-file-text-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-2">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>135</h3>
+                                                <h4>Leads</h4>
+                                                <p>Team visited 230 people</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-eye"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-3">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>23</h3>
+                                                <h4>New Messages</h4>
+                                                <p>get reply</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-envelope-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
                     </div>
+
 
                     <div class="chit-chat-layer1">
                         <div class="row">
@@ -9984,38 +10184,50 @@ a:hover{
         </div>
         <div class="sidebar-menu">
 
-            <div class="logo"> <a  class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a >
+            <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
                     <span id="logo"></span>
                 </a> </div>
             <div class="menu">
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><br><span>Dashboard</span></a>
                     </li>
-                    <li><a ><i class="fab fa-salesforce"></i><br><span>Products</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
+                    <li><a><i class="fab fa-salesforce"></i><br><span>Products</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
                         <ul>
+                            <li><a href="/">Category</a></li>
+                            <li><a href="/">Product List</a></li>
                             <li><a href="/">Add Product</a></li>
-                            <li><a href="/">View Product</a></li>
-                            <li><a href="/">Delete Product</a></li>
+                            <li><a href="/">Barcode</a></li>
+               
+                            <li><a href="/">Stock Audit</a></li>
                         </ul>
                     </li>
-                    <li><a ><i class="fas fa-address-book"></i><br><span>Customer</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
+                    <li><a><i class="fas fa-address-book"></i><br><span>Customer</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
                         <ul>
                             <li><a href="/">Add Customer</a></li>
                             <li><a href="/">View Customer</a></li>
                             <li><a href="/">Delete Customer</a></li>
                         </ul>
                     </li>
-                    <li><a ><i class="fab fa-salesforce"></i><br><span>Sales</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
+                    <li><a><i class="fab fa-salesforce"></i><br><span>Sales</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
                         <ul>
-                            <li><a href="/is">Invoice Services</a></li>
-                            <li><a href="/sc">Sales And Comission</a></li>
+                            <li><a href="/ss">Sales</a></li>
+                            <li><a href="/is">POS</a></li>
+                            <li><a href="/sc">Add Sale</a></li>
                             <li><a href="/ss">Sales</a></li>
                         </ul>
                     </li>
-                    <li id="menu-comunicacao"><a ><i class="fas fa-money-bill-alt"></i>
+                    <li><a><i class="fab fa-salesforce"></i><br><span>Expense</span><span class="fa fa-angle-right"
+                        style="float: right"></span></a>
+                <ul>
+                    <li><a href="/ss">Add Expense</a></li>
+                    <li><a href="/is">Expense List</a></li>
+                    <li><a href="/sc">Expense Category</a></li>
+                </ul>
+            </li>
+                    <li id="menu-comunicacao"><a><i class="fas fa-money-bill-alt"></i>
                             <br> <span>Purchase</span><span class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-comunicacao-sub">
                             <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
@@ -10047,21 +10259,23 @@ a:hover{
                                 class="fas fa-truck-loading"></i><br><span>Delivery</span><span
                                 class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/d">Delivery</a></li>
+
                             <li id="menu-academico-boletim"><a href="/dl">Delivery Letter</a></li>
 
 
                         </ul>
                     </li>
 
-                    <li><a ><i class="fa fa-envelope"></i><span>HR</span><span class="fa fa-angle-right"
+                    <li><a><i class="fa fa-envelope"></i><span>HR</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
                             <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
                         </ul>
                     </li>
-                    <li><a ><i class="fab fa-amazon-pay"></i><br><span>PayRoll</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
+                    <li><a><i class="fab fa-amazon-pay"></i><br><span>PayRoll</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="">View Employee Pay</a></li>
                             <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
@@ -10078,21 +10292,21 @@ a:hover{
                         </ul>
 
                     </li>
-                    <li><a ><i class="fas fa-eye"></i><br><span>Task View</span><span class="fa fa-angle-right"
+                    <li><a><i class="fas fa-eye"></i><br><span>Task View</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
                             <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
                         </ul>
                     </li>
-                    <li><a ><i class="fab fa-angellist"></i><br><span>Reporting</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
+                    <li><a><i class="fab fa-angellist"></i><br><span>Reporting</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
                             <li id="menu-academico-boletim"><a href="price.html">Account Settings</a></li>
                         </ul>
                     </li>
-                    <li><a ><i class="fa fa-cog"></i><span>Settings</span><span class="fa fa-angle-right"
+                    <li><a><i class="fa fa-cog"></i><span>Settings</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
@@ -10242,21 +10456,23 @@ a:hover{
                 in_view($(this))
             })
         }), bars();
-        
+
     </script>
     <script>
-   function infoPass(){
+        function infoPass() {
 
-    var customerName="Waqas";
-    var id="78";
-
-   
-    window.location.href = "./pm/"+customerName;
-    //redirect
+            var customerName = "Waqas";
+            var id = "78";
 
 
-   }
+            window.location.href = "./pm/" + customerName;
+            //redirect
+
+
+        }
+
     </script>
+
 
 
 </body>
