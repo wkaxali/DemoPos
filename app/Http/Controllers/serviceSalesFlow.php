@@ -66,7 +66,7 @@ class serviceSalesFlow extends Controller
        CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
        $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
        LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
-       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock Purchased",
+       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock and Service",
        $totlpaid,$dateNow,"1",$oldCustomerBalance,$currentCustomerBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$CID,$paidVia,NULL);
        $OldAccBalance=accountsController::getAccountBalance($AID);
        $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);

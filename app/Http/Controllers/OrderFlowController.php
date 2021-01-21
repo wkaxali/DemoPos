@@ -241,7 +241,7 @@ class OrderFlowController extends Controller
         'DateStamp'=>$dateNow,
         'UserID'=>$userID,
         'PattyCash'=>$pattyCash,
-        'TransactionType'=>"Credit",
+        'TransactionType'=>"Debit",
         
         'SBB'=>NULL,
         'SBA'=>NULL,

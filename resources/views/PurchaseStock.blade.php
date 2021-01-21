@@ -1875,9 +1875,9 @@
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
 
         // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+    
 
-        xhttp.open("GET", "./addSalesForSS/" + array, true);
+        
 
         xhttp.send();
     };

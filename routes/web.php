@@ -25,6 +25,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\serviceSalesFlow;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use App\Http\Controllers\LedgerPartiesController;
+use App\Http\Controllers\AISessionController;
 
 
 
@@ -93,7 +94,7 @@ Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
 Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']);
-
+Route::get('/dailySaleAmount',[AISessionController::class, 'dailySaleAmount']);
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
@@ -147,6 +148,9 @@ Route::get('/chksessions',function(){
 });
 Route::get('/ss', function () {
     return view('sales');
+});
+Route::get('/qt', function () {
+    return view('quotation');
 });
 Route::get('/db', function () {
     return view('dashboard');

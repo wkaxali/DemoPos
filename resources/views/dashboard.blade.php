@@ -9513,7 +9513,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </style>
 </head>
 
-<body>
+<body onload="loadFields()">
     <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -9542,7 +9542,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
 
                         <div class="form-submit">
-                            <a onclick="infoPass()">Add Customer</a>
+                            <a onclick="location.href = '/dl'">Add Customer</a>
                         </div>
                     </form>
                 </div>
@@ -9601,13 +9601,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
-<<<<<<< HEAD
-                                                            onclick="location.href = 'Receiving.html'">Dilivery</button><br>
-                                                            <button  id="killme"
-=======
                                                             onclick="location.href = '/d'">Dilivery</button><br>
                                                             <button data-toggle="modal" id="killme"
->>>>>>> cfa52e37d7c3338499782ef08ce4a3db8c6984d7
                                                                 data-target="#staticBackdrop"
                                                                 class="btn btn-mysecondary">Quotation</button><br>
 
@@ -9726,8 +9721,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-1">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>83</h3>
-                                        <h4>Sales Today</h4>
+                                        <h3 id="salesToday" value=""></h3>
+                                        <h4>Total Sale Today</h4>
                                         <p>80% cash sales</p>
                                     </div>
                                     <div class="col-md-4 market-update-right">
@@ -9862,7 +9857,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             {
                                                 value: 40,
                                                 color: "#0a549d"
-                                            },
+                                             },
                                         ];
                                         new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
                                             doughnutData);
@@ -10040,6 +10035,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
     <script>
+        function loadFields(){
+            dailySaleAmount();
+        }
+
+
+
+
         $(document).ready(function () {
                 $("#killme").click(function () {
                     $('.bd-example-modal-lg').modal('hide');
@@ -10083,6 +10085,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </script>
     <script>
+
+
+function dailySaleAmount(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            var data = this.responseText;
+                alert(data);
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                var saleToday = a[0].DailySale;
+
+                document.getElementById("salesToday").innerText = saleToday;
+
+                alert(saleToday);
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./dailySaleAmount/", true);
+    
+    xhttp.send();
+    }
+
+
+
         function bar_group() {
             group_ident = 1, $(".bar_group").each(function () {
                 $(this).addClass("group_ident-" + group_ident), $(this).data("gid", group_ident), group_ident++
@@ -10160,6 +10189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
    }
+
     </script>
 
 </body>
