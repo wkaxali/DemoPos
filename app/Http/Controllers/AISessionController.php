@@ -21,7 +21,7 @@ class AISessionController extends Controller
     public static function dailySaleAmount(){
 
         $date = Carbon::now()->toDateString();
-        $data=DB:: select('select * from vw_daily_stock_sales where Date ='.$date);
+        $data=DB:: select('select * from vw_daily_stock_sales where Date ="2021-1-21"');
         return $data;
       }
 
