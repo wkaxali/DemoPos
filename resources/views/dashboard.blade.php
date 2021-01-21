@@ -9999,7 +9999,7 @@ a:hover{
                             <li><a href="/">Delete Product</a></li>
                         </ul>
                     </li>
-                    <li><a ><i class="fab fa-salesforce"></i><br><span>Customer</span><span
+                    <li><a ><i class="fas fa-address-book"></i><br><span>Customer</span><span
                                 class="fa fa-angle-right" style="float: right"></span></a>
                         <ul>
                             <li><a href="/">Add Customer</a></li>
