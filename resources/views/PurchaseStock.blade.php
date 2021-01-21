@@ -1049,10 +1049,6 @@
             }
         }
 
-        body {
-            background-color: lightblue;
-
-        }
 
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
@@ -1066,11 +1062,6 @@
             -moz-appearance: textfield;
         }
 
-        body {
-            background: rgb(230, 29, 47);
-            background: radial-gradient(circle, rgba(230, 29, 47, 0.9528186274509804) 0%, rgba(10, 84, 157, 0.9360119047619048) 100%);
-            color: #ffffff;
-        }
         .dropdown {
     width: 151px !important;
     height: 30px !important;

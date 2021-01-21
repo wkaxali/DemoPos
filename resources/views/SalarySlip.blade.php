@@ -22,7 +22,6 @@
             display: inline-block !important;
             /* background-color:#0a549d !important; */
             margin: 5px 0px !important;
-
         }
 
         #mainSection label {
