@@ -1305,7 +1305,7 @@
 
                                 <th>Product Name</th>
                                 <th>Company</th>
-                                <th>Sale Price</th>
+                                <th>Purchase Price</th>
                                 <th>Quantity</th>
                                 <th>Discount</th>
                                 <th>Total</th>

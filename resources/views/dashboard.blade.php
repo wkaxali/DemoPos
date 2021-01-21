@@ -9521,7 +9521,7 @@ a:hover{
                         </div>
 
                         <div class="form-submit">
-                            <a href="pm">Add Customer</a>
+                            <a onclick="infoPass()">Add Customer</a>
                         </div>
                     </form>
                 </div>
@@ -9659,7 +9659,7 @@ a:hover{
                                                     src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
                                                     alt=""> </span>
                                             <div class="user-name">
-                                                <p style="color: #e61d2f;">Waqas Ali </p>
+                                                <p style="color: #e61d2f;">{{ Session::get('UserName')}}</p>
                                                 <span>Administrator</span>
                                             </div>
                                             <i class="fa fa-angle-down lnr"></i>
@@ -10242,7 +10242,20 @@ a:hover{
                 in_view($(this))
             })
         }), bars();
+        
+    </script>
+    <script>
+   function infoPass(){
 
+    var customerName="Waqas";
+    var id="78";
+
+   
+    window.location.href = "./pm/"+customerName;
+    //redirect
+
+
+   }
     </script>
 
 

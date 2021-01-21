@@ -118,6 +118,8 @@ Route::get('/getPartyNames',[expenseController::class, 'getPartyNames'] );
 Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
 Route::get('/getCategory',[taskController::class, 'getCategory'] );
 Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
+Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
+
 
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative'] );
@@ -125,8 +127,16 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 
 Route::get('/', function () {
+    session(['UserName' => "Wa,jgigiugiugfqas"]);
+      session(['ID' => '5']);
     return view('signInSignUp');
 });
+Route::get('/pm/{customerName}', function ($id) {
+    session(['UserName' => $id]);
+      session(['ID' => '5']);
+    return view('quotation');
+});
+
 Route::get('/ss', function () {
     return view('sales');
 });
@@ -231,9 +241,7 @@ Route::get('/pr', function () {
     return view('payRoll');
 });
 
-Route::get('/pm', function () {
-    return view('paymentFile');
-});
+
 
 Route::get('/ivs', function () {
     return view('inventorysheet');
