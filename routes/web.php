@@ -49,11 +49,9 @@ Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu']);
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu']);
 
 
-<<<<<<< HEAD
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow']);
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem']);
-=======
 Route::get('/getAllProducts',[getProducts::class, 'getAllProducts'] );
 Route::get('/getProductByCategory/{CID}',[getProducts::class, 'getProductByCategory'] );
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices'] );
@@ -83,7 +81,6 @@ Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestor
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
->>>>>>> a017343c8ec35fed1f6aea2a7f7b5b75b1981bd6
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID']);
 Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
 Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
@@ -96,21 +93,17 @@ Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
-<<<<<<< HEAD
 Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo']);
-=======
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
 Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']);
 Route::get('/dailySaleAmount',[AISessionController::class, 'dailySaleAmount']);
->>>>>>> a017343c8ec35fed1f6aea2a7f7b5b75b1981bd6
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
 Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
-<<<<<<< HEAD
 Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStock']);
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
@@ -134,7 +127,6 @@ Route::get('/getEmployee',[expenseController::class, 'getEmployee']);
 
 
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
-=======
 
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
@@ -165,7 +157,6 @@ Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative'] );
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive'] );
 
->>>>>>> a017343c8ec35fed1f6aea2a7f7b5b75b1981bd6
 
 Route::get('/', function () {
     
@@ -289,30 +280,7 @@ Route::get('/inv', function () {
 Route::get('/pr', function () {
     return view('payRoll');
 });
-<<<<<<< HEAD
 Route::get('/es', function () {
     return view('editStock');
 });
 
-=======
-
-
-
-Route::get('/ivs', function () {
-    return view('inventorysheet');
-});
-
-Route::get('/d', function () {
-    return view('delivery');
-});
-Route::get('/nd', function () {
-    return view('newDashboard');
-});
-
-Route::get('/SalarySlip', function () {
-    return view('SalarySlip');
-});
-Route::get('/l', function () {
-    return view('investorLedger');
-});
->>>>>>> a017343c8ec35fed1f6aea2a7f7b5b75b1981bd6
