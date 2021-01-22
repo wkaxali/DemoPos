@@ -260,3 +260,11 @@ Route::get('/SalarySlip', function () {
 Route::get('/l', function () {
     return view('investorLedger');
 });
+
+Route::get('/ql', function () {
+    return view('quotation');
+});
+
+Route::get('/e', function () {
+    return view('Employee');
+});

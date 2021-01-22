@@ -22,7 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <style>
         h4,
         h5,
@@ -44,9 +44,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         html,
         body {
-            font-family: 'Work Sans', sans-serif;
+            font-family: 'Nunito', sans-serif;
             font-size: 100%;
             background: #fff;
+
         }
 
         a {
@@ -176,13 +177,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .sidebar-menu {
             position: absolute;
             float: left;
-            width: 220px;
+            width: 230px;
+
             top: 0px;
             left: 0px;
             bottom: 0;
             background-color: #202121;
             color: #aaabae;
             z-index: 999;
+            height: 100%;
+
         }
 
         #menu {
@@ -195,9 +199,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         #menu li {
             position: relative;
             margin: 0;
-            font-size: 18px;
+            font-size: 10px;
+            word-spacing: 2px;
             padding: 0;
-                font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', sans-serif !important;
 
         }
 
@@ -209,18 +214,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         #menu li a {
             position: relative;
             display: block;
-            padding: 13px 20px;
+            padding: 13px auto;
             color: #FFFFFF;
             white-space: nowrap;
             z-index: 2;
-            font-size: 1.12em;
-            text-align: center;
+            font-size: 14px;
+            word-spacing: 2px;
+
+padding-right: 30px;
             font-family: 'Carrois Gothic', sans-serif;
         }
 
+        #menu li a {
+            padding: 9px 20px;
+            transition: .4s !important;
+
+        }
+
         #menu li a:hover {
-            color: #e61d2f;
+            background-color: ;
             transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+
+        }
+
+
+        #menu li a:hover .fa-angle-right {
+            transform: rotate(45deg);
+        }
+
+        #menu li a:hover span {
+
+            padding-left: 13px;
+            transition: .4s !important;
         }
 
         #menu li.active>a {
@@ -230,6 +255,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         #menu ul li {
             background-color: #202121;
+            padding: 2px 0px;
         }
 
         #menu ul {
@@ -242,8 +268,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             position: absolute;
             visibility: hidden;
             left: 100%;
-            top: 20px;
-            background-color: #2b303a;
+            top: 5px;
+
+            background-color: #202121;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
             opacity: 0;
             transition: opacity 0.1s linear;
@@ -3686,7 +3713,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
 
             .sidebar-menu {
-                width: 190px;
+                width: 216px;
             }
 
             .logo {
@@ -3728,7 +3755,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
 
             #menu li a {
-                padding: 12px 20px;
+                padding: 6px 20px;
             }
 
             canvas#line {
@@ -4529,9 +4556,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
 
             .sidebar-menu {
-                position: absolute;
+                position: fixed;
                 float: left;
                 width: 170px;
+                height: 100%;
             }
 
             .left-content {
@@ -5927,9 +5955,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: #999;
         }
 
-        ul li:last-child {
-            border-bottom: 1px solid #ebebeb;
-        }
+        ul li:last-child {}
 
         .appointment-form ul li:not(.init) {
             display: none;
@@ -6019,9 +6045,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 padding: 50px 30px 70px 30px;
             }
         }
-ul li{
-    font-family: 'Roboto', sans-serif;
-}
+
+        ul li {
+            font-family: 'Roboto', sans-serif;
+        }
+
         a:hover {
             cursor: pointer;
         }
@@ -6031,12 +6059,20 @@ ul li{
                 display: none !important;
             }
         }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
+        ::-webkit-scrollbar-track {
+            background-color: #0a549d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e61d2f;
+        }
     </style>
 
     <link href="css/font-awesome.css" rel="stylesheet">
-    <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
     <script>
         /*!
          * Chart.js
@@ -9495,14 +9531,17 @@ ul li{
         .btn1:hover::before {
             height: 180%;
         }
-        .nav-pills{
+
+        .nav-pills {
             float: right !important;
             background-color: #0a549d;
             border-radius: 15px;
         }
-        .clearmain{
-            clear:both;
+
+        .clearmain {
+            clear: both;
         }
+
         .nav-pills .nav-link {
             border-radius: .25rem;
             color: #fff;
@@ -9511,10 +9550,14 @@ ul li{
         .nav-pills .nav-link.active,
         .nav-pills .show>.nav-link {
             color: #fff;
-            background-color:#e61d2f;
+            background-color: #e61d2f;
             border-radius: 15px;
             padding: 10px;
 
+        }
+
+        i::before {
+            margin-right: 30px;
         }
 
     </style>
@@ -9742,8 +9785,8 @@ ul li{
                                 aria-controls="pills-year" aria-selected="false">This Year</a>
                         </li>
                     </ul>
-                <div class="clearmain"></div>
-                    
+                    <div class="clearmain"></div>
+
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                             aria-labelledby="pills-home-tab">
@@ -10189,55 +10232,124 @@ ul li{
                 </a> </div>
             <div class="menu">
                 <ul id="menu">
-                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><br><span>Dashboard</span></a>
+                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
                     </li>
-                    <li><a><i class="fab fa-salesforce"></i><br><span>Products</span><span class="fa fa-angle-right"
+                    <li><a><i class="fab fa-salesforce"></i><span>Products</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul>
                             <li><a href="/">Category</a></li>
-                            <li><a href="/">Product List</a></li>
-                            <li><a href="/">Add Product</a></li>
+                            <li><a href="/vs">Product Record</a></li>
+                            <li><a href="/as">Add Product</a></li>
                             <li><a href="/">Barcode</a></li>
-               
+
                             <li><a href="/">Stock Audit</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fas fa-address-book"></i><br><span>Customer</span><span class="fa fa-angle-right"
+                    <li><a><i class="fab fa-salesforce"></i><span>Customer</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/">Add Customer</a></li>
+                            <li><a href="/vs">Customer List</a></li>
+                       
+                        </ul>
+                    </li>
+                    <li><a><i class="fab fa-salesforce"></i><span>Supplier</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/">Add Supplier</a></li>
+                            <li><a href="/vs">Supplier List</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-comunicacao"><a><i class="fab fa-alipay"></i>
+                            <span>Purchase</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-comunicacao-sub">
+                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
+                            </li>
+                            <li><a href="">Daily Purchase</a></li>
+                            <li><a href="">Monthly Purchase</a></li>
+                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fab fa-salesforce"></i><span>POS</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/ss">POS</a></li>
+                            <li><a href="/sc">Add Sale</a></li>
+                            <li><a href="">Daily Sales</a></li>
+                            <li><a href="">Monthly Sales</a></li>
+                          
+                        </ul>
+                    </li>
+                    <li><a><i class="fas fa-vials"></i><span>Expense</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/ex">Add Expense</a></li>
+                            <li><a href="">Expense List</a></li>
+                            <li><a href="">Expense Head</a></li>
+                            <li><a href="">Expense Category</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fas fa-quote-right"></i><span>Quotation<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/ql">Quotation List</a></li>
+                            <li><a href="/is">Add Quotation</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fas fa-random"></i><span>Transfer<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="">Transfer Funds</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fas fa-undo-alt"></i><span>Return<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/ss">Sale</a></li>
+                            <li><a href="/is">Purchase</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-academico"><a href="/l"><i class="fas fa-user-circle"></i><span>Accounts</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/l">Investor Ledger</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
+                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a><i class="fab fa-accusoft"></i><span>HR</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
+                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- <li><a><i class="fas fa-address-book"></i><br><span>Customer</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul>
                             <li><a href="/">Add Customer</a></li>
                             <li><a href="/">View Customer</a></li>
                             <li><a href="/">Delete Customer</a></li>
                         </ul>
-                    </li>
-                    <li><a><i class="fab fa-salesforce"></i><br><span>Sales</span><span class="fa fa-angle-right"
+                    </li> -->
+
+                    <li><a><i class="fas fa-people-carry"></i><span>People</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/ss">Sales</a></li>
-                            <li><a href="/is">POS</a></li>
-                            <li><a href="/sc">Add Sale</a></li>
-                            <li><a href="/ss">Sales</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fab fa-salesforce"></i><br><span>Expense</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul>
-                    <li><a href="/ss">Add Expense</a></li>
-                    <li><a href="/is">Expense List</a></li>
-                    <li><a href="/sc">Expense Category</a></li>
-                </ul>
-            </li>
-                    <li id="menu-comunicacao"><a><i class="fas fa-money-bill-alt"></i>
-                            <br> <span>Purchase</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-comunicacao-sub">
-                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
-                            </li>
-                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
+                            <li id="menu-academico-boletim"><a href="/">Add User</a></li>
+                          
+
                         </ul>
                     </li>
 
-                    <li id="menu-academico"><a href="/stock"><i
-                                class="fab fa-stack-overflow"></i><br><span>Stock</span><span class="fa fa-angle-right"
+
+
+                    <li id="menu-academico"><a href="/stock"><i style="font-size: 20px;"
+                                class="fab fa-stack-overflow"></i><span>Stock</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
@@ -10245,72 +10357,68 @@ ul li{
                         </ul>
                     </li>
 
-                    <li id="menu-academico"><a href="/l"><i
-                                class="fas fa-user-circle"></i><br><span>Accounts</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="/i">Investor Ledger</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
-                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
 
-                        </ul>
-                    </li>
-                    <li id="menu-academico"><a href="/d"><i
-                                class="fas fa-truck-loading"></i><br><span>Delivery</span><span
+
+                    <li id="menu-academico"><a href="/d"><i class="fas fa-flag-checkered"></i><span>Reports</span><span
                                 class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="/d">Delivery</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
 
-                            <li id="menu-academico-boletim"><a href="/dl">Delivery Letter</a></li>
+                            <li id="menu-academico-boletim"><a href="/dl">Customer Report</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Best Seller</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Daily Sale</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Monthly Sale</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Daily Purchase</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">MonthlyPurchase</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">User Report</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Supplier Report</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li>
 
 
                         </ul>
                     </li>
-
-                    <li><a><i class="fa fa-envelope"></i><span>HR</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
-                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
-                        </ul>
+                    <li id="menu-academico"><a href="/d"><i class="fas fa-truck-loading"></i><span>Order Tracking</span><span
+                                class="fa fa-angle-right" style="float: right;"></span></a>
+                                <ul id="menu-academico-sub">
+                                    <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
+                                  
+                                </ul>
                     </li>
-                    <li><a><i class="fab fa-amazon-pay"></i><br><span>PayRoll</span><span class="fa fa-angle-right"
+
+
+                    <li><a><i class="fab fa-amazon-pay"></i><span>PayRoll</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="">View Employee Pay</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
                             <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
                             <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
                         </ul>
                     </li>
-                    <li><a href="/at"><img src="https://cdn.onlinewebfonts.com/svg/img_226438.png"
-                                style="height: 40px; width: 40px; color: #ffffff;background-color: #ffffff;padding: 5px;border-radius: 50%; margin-left: -10px;"
-                                alt=""><br><span>Attendance</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
+                    <li><a href="/at"><i class="fas fa-guitar"></i><span>Attendance</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="">View Attendance</a></li>
-                            <li id="menu-academico-boletim"><a href="/SalarySlip">Mark Attendance</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
+                            <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
                         </ul>
 
                     </li>
-                    <li><a><i class="fas fa-eye"></i><br><span>Task View</span><span class="fa fa-angle-right"
+                    <li><a><i class="fas fa-eye"></i><span>Task View</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
                             <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fab fa-angellist"></i><br><span>Reporting</span><span class="fa fa-angle-right"
+
+                    <li><a><i class="fas fa-cogs"></i><span>Account Settings</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
-                            <li id="menu-academico-boletim"><a href="price.html">Account Settings</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fa fa-cog"></i><span>Settings</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
-                            <li id="menu-academico-boletim"><a href="price.html">Account Settings</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
+                            <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
                         </ul>
                     </li>
                 </ul>
