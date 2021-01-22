@@ -1476,7 +1476,7 @@ xhttp.onreadystatechange = function () {
         calc();
         document.getElementById("CNO").value = a[0].Contect;
         document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
-        //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
+        document.getElementById("CustomerName").value = a[0].CustomerID;
 
 
 
