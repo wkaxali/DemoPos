@@ -169,31 +169,39 @@ public function UpdateInStock(Request $request,$CO){
   $engineNumber=$obj[6];
   $chasisNumber=$obj[7];
   
-  self:: instock($PID, $productName, $company, $salePrice, $purchasePrice, $stockIn, $engineNumber, $chasisNumber);
-
+  self :: updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $salePrice, $purchasePrice);
   return $obj;
  //return "Getting from controller".$obj[0];
 
 }
 
-  public function instock( $PID, $productName, $company, $salePrice, $purchasePrice, $stockIn, $engineNumber, $chasisNumber)
-  {
-    $update_productdefination = "UPDATE productdefination SET 
-    ProductName = $productName, 
-    Company = $company, 
-    EngineNumber = $engineNumber,
-    ChasisNumber = $chasisNumber
-    WHERE ProductSerial=".$PID;
 
-    $update_instock = "UPDATE instock SET 
-    StockIn = $stockIn, 
-    TotalSaleAmount = $salePrice, 
-    TotalCost = $purchasePrice
-    WHERE StockID=".$PID;
+  public function getInvoiceStock($InvoiceNo){
+    $results=DB::select('select * from vw_billprintinginvoice where InvoiceNumber= '.$InvoiceNo);
+   // mysql_insert_id()
+    return $results;
 
-    DB::update($update_instock);
-    //DB::update($update_productdefination);
-  }
+}
+
+public static function updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $salePrice, $purchasePrice){
+
+  DB::table('productdefination')
+  ->where('ProductSerial', $PID)
+  ->update([
+    'Company'=>$company,
+    'EngineNumber'=>$engineNumber,
+    'ChasisNumber'=>$chasisNumber,
+    'ProductName'=>$productName
+    ]);
+
+  DB::table('instock')
+  ->where('StockID', $PID)
+  ->update([
+    'StockIn'=>$stockIn,
+    'TotalSaleAmount'=>$salePrice,
+    'TotalCost'=>$purchasePrice
+    ]);
+}
 
 
 }

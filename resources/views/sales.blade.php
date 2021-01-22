@@ -1114,7 +1114,7 @@
                 <label for="invo-1">Invoice Number</label>
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="InvoiceID">
-                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
+                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;" onclick="getInvoiceCustomer()"></button>
                 <br class="hideBr"> <label for="prod-1">Product Number</label>
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="invo-1">
@@ -1461,7 +1461,39 @@
 </body>
 
 
+<script>
+    function getInvoiceCustomer(){
 
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        //alert(data);
+        var a = JSON.parse(data);
+        document.getElementById("CID").value = a[0].CustomerID;
+        document.getElementById("LastBalance").value = a[0].Balance;
+        document.getElementById("CurrentBalance").value = a[0].Balance;
+        calc();
+        document.getElementById("CNO").value = a[0].Contect;
+        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+        //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
+
+
+
+
+    } else {
+        //alert( this.responseText);
+    }
+};
+var invoiceNumber = document.getElementById("InvoiceID").value;
+
+xhttp.open("GET", "./getInvoiceCustomer/" + invoiceNumber, true);
+xhttp.send();
+
+
+}
+
+</script>
 
 <script>
     function getAllProducts() {
@@ -1850,22 +1882,15 @@
         var tot = document.getElementById("Total").value;
         var discount = document.getElementById('DiscountOverall').value;
         var gross = document.getElementById('grossTotal').value;
-
-
-
-
         var tax = document.getElementById('tax').value;
-
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('AmountPaid').value;
         var rmb = document.getElementById("RemainingBalance").value;
-
-
         var CID = document.getElementById("CID").value;
         var CLB = document.getElementById("LastBalance").value;
-
         var CCB = document.getElementById("CurrentBalance").value;
         var AID = $('#accounts').find(":selected").val();
+
         myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
 
         //alert(myRow2[0][1]);

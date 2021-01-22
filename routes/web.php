@@ -74,8 +74,8 @@ Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
-
-
+Route::get('/getInvoiceCustomer/{data}',[CustomerController::class, 'getInvoiceCustomer'] );
+Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock'] );
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct'] );
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
