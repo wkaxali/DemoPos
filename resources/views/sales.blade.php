@@ -1478,11 +1478,16 @@ xhttp.onreadystatechange = function () {
         document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
         document.getElementById("CustomerName").value = a[0].CustomerID;
 
-
-
-
-    } else {
-        //alert( this.responseText);
+        var table;  
+        
+        table = $('#ProductSaleTable').DataTable();
+        $.each(a, function (i, item) {
+            table.row.add([a[i].ProductSerial, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].Quantity
+            , a[i].Discount, a[i].NetAmount]);
+        });
+        
+        table.draw();
+        table.clear();
     }
 };
 var invoiceNumber = document.getElementById("InvoiceID").value;
@@ -1509,8 +1514,8 @@ xhttp.send();
 
                 $.each(a, function (i, item) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[
-                        i].StockIn]);
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice,
+                    a[i].StockIn]);
                 });
                 table.draw();
             }
