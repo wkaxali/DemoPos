@@ -166,8 +166,10 @@ public function UpdateInStock(Request $request,$CO){
   $salePrice=$obj[3];
   $purchasePrice=$obj[4];
   $stockIn=$obj[5];
-  $engineNumber=$obj[6];
-  $chasisNumber=$obj[7];
+  $color=$obj[6];
+  $engineNumber=$obj[7];
+  $chasisNumber=$obj[8];
+  $status=$obj[5];
   
   self :: updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $salePrice, $purchasePrice);
   return $obj;
@@ -189,6 +191,7 @@ public static function updateProducts($PID, $company, $engineNumber, $chasisNumb
   ->where('ProductSerial', $PID)
   ->update([
     'Company'=>$company,
+    'color'=>$color,
     'EngineNumber'=>$engineNumber,
     'ChasisNumber'=>$chasisNumber,
     'ProductName'=>$productName
@@ -198,6 +201,7 @@ public static function updateProducts($PID, $company, $engineNumber, $chasisNumb
   ->where('StockID', $PID)
   ->update([
     'StockIn'=>$stockIn,
+    'Status'=>$status,
     'TotalSaleAmount'=>$salePrice,
     'TotalCost'=>$purchasePrice
     ]);

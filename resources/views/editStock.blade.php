@@ -71,8 +71,10 @@
                                         <th>Unit Sale Price</th>
                                         <th>Unit Purchase Price</th>
                                         <th>Stock</th>
+                                        <th>Color</th>
                                         <th>Engine Number</th>
                                         <th>Chasis Number</th>
+                                        <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody id="stocktableBody">
@@ -101,12 +103,18 @@
                     <label for="id">StockIn</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="stockIn"><br><br>
+                    <label for="id">Color</label>
+                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
+                        name="id" id="color"><br><br>
                     <label for="id">EngineNumber</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="engineNumber"><br><br>
                     <label for="id">Chasis Number</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="chasisNumber"><br><br>
+                    <label for="id">Status</label>
+                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
+                        name="id" id="status"><br><br>
                     <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
                         <button class="btn btn-success" onclick="SetStockIdeal()">Update </button>
 
@@ -160,7 +168,7 @@ function searchRawMatirial() {
         $.each(a, function (i, item) {
 
             table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].TotalSaleAmount, a[i].TotalCost
-            , a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
+            , a[i].StockIn, a[i].color, a[i].EngineNumber, a[i].ChasisNumber, a[i].Status]);
             });   
          table.draw();          
          
@@ -179,8 +187,10 @@ $("#stocktable").on('click','tr',function(){
      document.getElementById("salePrice").value=this.cells[3].innerText;
      document.getElementById("purchasePrice").value=this.cells[4].innerText;
      document.getElementById("stockIn").value=this.cells[5].innerText;
-     document.getElementById("engineNumber").value=this.cells[6].innerText;
-     document.getElementById("chasisNumber").value=this.cells[7].innerText;
+     document.getElementById("color").value=this.cells[6].innerText;
+     document.getElementById("engineNumber").value=this.cells[7].innerText;
+     document.getElementById("chasisNumber").value=this.cells[8].innerText;
+     document.getElementById("status").value=this.cells[9].innerText;
      
 }
 );
@@ -199,12 +209,16 @@ function SetStockIdeal() {
     //alert("updated  "+purchasePrice);
     var stockIn = document.getElementById("stockIn").value;
     //alert("updated "+stockIn);
+    var stockIn = document.getElementById("color").value;
+    //alert("updated "+color);
     var engineNumber = document.getElementById("engineNumber").value;
     //alert("updated "+engineNumber);
     var chasisNumber = document.getElementById("chasisNumber").value;
     //alert("updated "+chasisNumber);
+    var chasisNumber = document.getElementById("status").value;
+    //alert("updated "+status);
        
-    var UpdateStock = [PID, productName, company, salePrice, purchasePrice, stockIn, engineNumber, chasisNumber];
+    var UpdateStock = [PID, productName, company, salePrice, purchasePrice, stockIn, color, engineNumber, chasisNumber, status];
     alert(UpdateStock);
 
     var UC = JSON.stringify(UpdateStock);
@@ -222,6 +236,7 @@ function SetStockIdeal() {
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./setStockIdeal/" + UC, true);
             xhttp.send();
+            
         }
 
 
