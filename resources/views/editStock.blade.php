@@ -209,13 +209,14 @@ function SetStockIdeal() {
     //alert("updated  "+purchasePrice);
     var stockIn = document.getElementById("stockIn").value;
     //alert("updated "+stockIn);
-    var stockIn = document.getElementById("color").value;
+    var color = document.getElementById("color").value;
     //alert("updated "+color);
     var engineNumber = document.getElementById("engineNumber").value;
-    //alert("updated "+engineNumber);
+    
+    alert("updated "+engineNumber);
     var chasisNumber = document.getElementById("chasisNumber").value;
     //alert("updated "+chasisNumber);
-    var chasisNumber = document.getElementById("status").value;
+    var status = document.getElementById("status").value;
     //alert("updated "+status);
        
     var UpdateStock = [PID, productName, company, salePrice, purchasePrice, stockIn, color, engineNumber, chasisNumber, status];

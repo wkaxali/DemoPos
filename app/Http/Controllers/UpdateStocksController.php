@@ -171,7 +171,7 @@ public function UpdateInStock(Request $request,$CO){
   $chasisNumber=$obj[8];
   $status=$obj[5];
   
-  self :: updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $salePrice, $purchasePrice);
+  self :: updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status);
   return $obj;
  //return "Getting from controller".$obj[0];
 
@@ -185,7 +185,7 @@ public function UpdateInStock(Request $request,$CO){
 
 }
 
-public static function updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $salePrice, $purchasePrice){
+public static function updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status){
 
   DB::table('productdefination')
   ->where('ProductSerial', $PID)
