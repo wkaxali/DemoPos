@@ -9716,7 +9716,7 @@ a:hover{
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-2">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>135</h3>
+                                    <h3 id="salestoday" value=""></h3>
                                         <h4>Leads</h4>
                                         <p>Team visited 230 people</p>
                                     </div>
@@ -9729,7 +9729,7 @@ a:hover{
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-3">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>23</h3>
+                                    <h3 id="salestoday" value=""></h3>
                                         <h4>New Messages</h4>
                                         <p>get reply</p>
                                     </div>
