@@ -206,6 +206,13 @@ public static function updateProducts($PID, $company, $engineNumber, $chasisNumb
     'TotalCost'=>$purchasePrice
     ]);
 }
+public static function getCurrentStock($PID){
 
+  $re = DB::table('instock')
+            ->where('ProductSerial', '=', $PID)
+             ->get();
+
+             return $re[0]->StockIn;
+}
 
 }
