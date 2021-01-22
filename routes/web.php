@@ -54,7 +54,7 @@ Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
-
+Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo'] );
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
@@ -129,7 +129,7 @@ Route::get('/stock', function () {
 Route::get('/th', function () {
     return view('transactionHistory');
 });
-Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo'] );
+
 Route::get('/vc', function () {
     return view('viewCustomers');
 });
