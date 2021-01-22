@@ -11,7 +11,8 @@ use App\Http\Controllers\UpdateStocksController;
 
 use App\Http\Controllers\payController;
 
-
+use App\Http\Controllers\TransactionFlow;
+use App\Http\Controllers\userAccountController;
 
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\serviceSalesFlow;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use App\Http\Controllers\LedgerPartiesController;
+use App\Http\Controllers\AISessionController;
 
 
 
@@ -37,16 +39,19 @@ use App\Http\Controllers\LedgerPartiesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn'] );
+//Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
 
 
-Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu'] );
-Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories'] );
-Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu'] );
-Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu'] );
+Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
+Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
+Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu']);
+Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu']);
 
 
+Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
+Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow']);
+Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem']);
 Route::get('/getAllProducts',[getProducts::class, 'getAllProducts'] );
 Route::get('/getProductByCategory/{CID}',[getProducts::class, 'getProductByCategory'] );
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices'] );
@@ -69,8 +74,8 @@ Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
-
-
+Route::get('/getInvoiceCustomer/{data}',[CustomerController::class, 'getInvoiceCustomer'] );
+Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock'] );
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct'] );
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
@@ -79,22 +84,49 @@ Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID']);
 Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
 Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
+Route::get('/transactionHistoryAccounts/{AID}',[TransactionFlow::class, 'getTransactionsForAccounts']);
+Route::get('/transactionHistoryParties/{LID}',[TransactionFlow::class, 'getTransactionsForParties']);
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
+Route::get('/viewAllStock',[OrderFlowController::class, 'viewAllStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
+Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
 Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']);
-
+Route::get('/dailySaleAmount',[AISessionController::class, 'dailySaleAmount']);
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
 Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
+Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStock']);
+
+Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
+Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
+Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
+
+Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
+Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
+Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
+Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
+Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
+Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
+Route::get('/getAttendance',[attendanceController::class, 'getAttendance']);
+Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID']);
+Route::get('/getEmployeeName',[payController::class, 'getEmployeeName']);
+Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC']);
+Route::get('/getEmployeeID',[payController::class, 'getEmployeeID']);
+Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact']);
+Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory']);
+Route::get('/getEmployee',[expenseController::class, 'getEmployee']);
+
+
+Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
 
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
@@ -119,7 +151,7 @@ Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
 Route::get('/getCategory',[taskController::class, 'getCategory'] );
 Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
-
+Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative'] );
@@ -127,23 +159,31 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 
 Route::get('/', function () {
-    session(['UserName' => "Wa,jgigiugiugfqas"]);
-      session(['ID' => '5']);
+    
     return view('signInSignUp');
 });
-Route::get('/pm/{customerName}', function ($id) {
-    session(['UserName' => $id]);
-      session(['ID' => '5']);
-    return view('quotation');
-});
 
+Route::get('/chksessions',function(){
+
+   // $request->session()->forget('name');
+   session(['key' => '58']);
+   // $request->session()->put('key', '8');
+    $value = session()->get('CID');
+
+    echo $value;
+   
+
+});
 Route::get('/ss', function () {
     return view('sales');
+});
+Route::get('/qt', function () {
+    return view('quotation');
 });
 Route::get('/db', function () {
     return view('dashboard');
 });
-Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct'] );
+Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
 Route::get('/ps', function () {
     return view('PurchaseStock');
@@ -185,7 +225,7 @@ Route::get('/stock', function () {
 Route::get('/th', function () {
     return view('transactionHistory');
 });
-Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo'] );
+
 Route::get('/vc', function () {
     return view('viewCustomers');
 });
@@ -227,9 +267,7 @@ Route::get('/atv', function () {
 Route::get('/l', function () {
     return view('investorLedger');
 });
-Route::get('/il', function () {
-    return view('investorLedger');
-});
+
 Route::get('/igl', function () {
     return view('investorGeneralLedger');
 });
@@ -242,13 +280,7 @@ Route::get('/inv', function () {
 Route::get('/pr', function () {
     return view('payRoll');
 });
-
-
-
-Route::get('/ivs', function () {
-    return view('inventorysheet');
+Route::get('/es', function () {
+    return view('editStock');
 });
 
-Route::get('/d', function () {
-    return view('delivery');
-});

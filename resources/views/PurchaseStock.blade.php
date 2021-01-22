@@ -1049,10 +1049,6 @@
             }
         }
 
-        body {
-            background-color: lightblue;
-
-        }
 
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
@@ -1066,11 +1062,6 @@
             -moz-appearance: textfield;
         }
 
-        body {
-            background: rgb(230, 29, 47);
-            background: radial-gradient(circle, rgba(230, 29, 47, 0.9528186274509804) 0%, rgba(10, 84, 157, 0.9360119047619048) 100%);
-            color: #ffffff;
-        }
         .dropdown {
     width: 151px !important;
     height: 30px !important;
@@ -1101,7 +1092,7 @@
                 <label for="invo-1">Invoice Number</label>
                 <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="InvoiceID">
-                <button class="btn" style="height: 25px; margin-top: -5px;background-color: #e61d2f;"></button>
+                <button class="btn" style="height: 25px; margin-top: -5px;background-color: #e61d2f;" onclick="getInvoiceStock()"></button>
                 <label for="prod-1">Product Number</label>
                 <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="invo-1">
@@ -1875,9 +1866,9 @@
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
 
         // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+    
 
-        xhttp.open("GET", "./addSalesForSS/" + array, true);
+        
 
         xhttp.send();
     };
@@ -1885,6 +1876,40 @@
     function validation(){
         
     }
+
+</script>
+
+<script>
+    function getInvoiceStock(){
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        //alert(data);
+        var a = JSON.parse(data);
+        document.getElementById("SID").value = a[0].SID;
+        document.getElementById("LastBalance").value = a[0].Balance;
+        document.getElementById("CurrentBalance").value = a[0].Balance;
+        calc();
+        document.getElementById("CNO").value = a[0].Contect;
+        document.getElementById("SupplierCategory").value = a[0].Category;
+        document.getElementById("SupplierName").value = a[0].SID;
+
+
+
+
+    } else {
+        //alert( this.responseText);
+    }
+};
+var invoiceNumber = document.getElementById("InvoiceID").value;
+
+xhttp.open("GET", "./getInvoiceStock/" + invoiceNumber, true);
+xhttp.send();
+
+
+}
 
 </script>
 

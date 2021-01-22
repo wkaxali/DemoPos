@@ -942,7 +942,7 @@
             }
         }
 
-        input[type="number"]:focus,
+        input[type="text"]:focus,
         input[type="password"]:focus,
         input[type="datetime"]:focus,
         input[type="datetime-local"]:focus,
@@ -950,7 +950,7 @@
         input[type="month"]:focus,
         input[type="time"]:focus,
         input[type="week"]:focus,
-        input[type="number"]:focus,
+        input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="url"]:focus,
         input[type="search"]:focus,
@@ -1016,6 +1016,7 @@
             .okay-invo {
                 width: 100% !important;
             }
+
             .o-inv-2 {
                 margin-left: 0px;
             }
@@ -1043,6 +1044,7 @@
             .okay-invo-hide {
                 display: none;
             }
+
             .o-inv-2 {
                 margin-left: 0px;
             }
@@ -1071,18 +1073,29 @@
             }
         }
 
-        body {
-            background: rgb(10, 84, 157);
-            background: radial-gradient(circle, rgba(10, 84, 157, 1) 0%, rgba(230, 29, 47, 0.9444152661064426) 100%);
-            color: #ffffff;
-        }
         #myTable_length label{
             width: auto !important;
         }
-        .dataTables_filter label{
+
+        .dataTables_filter label {
             width: auto !important;
 
         }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none !important;
+            margin: 0 !important;
+         
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+            margin: 0;
+        }
+
     </style>
 </head>
 
@@ -1099,11 +1112,11 @@
         <div class="row" id="selectFirst">
             <div class="col-xl-3  col-lg-6 col-md-6   okay-invo">
                 <label for="invo-1">Invoice Number</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="InvoiceID">
-                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
+                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;" onclick="getInvoiceCustomer()"></button>
                 <br class="hideBr"> <label for="prod-1">Product Number</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="invo-1">
                 <button type="button" class="btn" style="height: 25px; margin-top: -5px; background-color: #e61d2f;"
                     data-toggle="modal" data-target=".bd-example-modal-xl"></button>
@@ -1163,7 +1176,7 @@
                     </div>
                 </div>
                 <label style="visibility: hidden;" for="prod-hour">Product Number</label>
-                <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
+                <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
 
                 <div class="centhour">
                     <button class="btn" style="background-color: #13579a;">New</button>
@@ -1176,16 +1189,16 @@
             <div class="col-md-6  okay-invo-1">
                 <div class="o-inv">
                     <label for="invo-1">Customer Id</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CID">
                     <button class="btn" style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
                     <br>
                     <label for="prod-1">Last Balance</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="LastBalance">
                     <button class="btn" style="height: 25px; margin-top: -5px;background-color: #13579a;"></button> <br>
                     <label for="prod-1">Current Balance</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CurrentBalance">
 
                 </div>
@@ -1203,11 +1216,11 @@
 
                     <br>
                     <label for="prod-1">Contact Number</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CNO">
                     <br>
                     <label for="prod-1">Category</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                    <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                         name="invo-1" id="CustomerCategory">
                     <br>
                 </div>
@@ -1228,9 +1241,9 @@
                                 <div class="modal-body">
 
                                     <div class="registration-form">
-                                    
+
                                         <form>
-                                            <h3 style="color: black !important;">Add Customer</h3>
+                                           
                                             <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
                                                 <h2>Add Customer</h2>
 
@@ -1249,11 +1262,11 @@
                                                     id="email" placeholder="Email">
                                             </div>
                                             <div class="form-group">
-                                                <input type="number" class="form-control item" autocomplete="OFF"
+                                                <input type="text" class="form-control item" autocomplete="OFF"
                                                     id="phone-number" placeholder="Phone Number">
                                             </div>
                                             <div class="form-group">
-                                                <input type="number" class="form-control item" autocomplete="OFF"
+                                                <input type="text" class="form-control item" autocomplete="OFF"
                                                     id="birth-date" placeholder="Birth Date">
                                             </div>
                                             <div class="form-group">
@@ -1336,33 +1349,33 @@
             </div>
             <div class="col-md-3 okay-invo-3">
                 <label for="invo-1" style="width: 130px;">Total</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="Total">
 
                 <label for="prod-1" style="width: 130px;">Discount</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="DiscountOverall" onchange="calc()">
                 <label for="invo-1" style="width: 130px;">Gross Total</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="grossTotal">
                 <label for="prod-1" style="width: 130px;"> Tax 17%</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="tax" onchange="calc()">
                 <label for="prod-1" style="width: 130px;">Net Total</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="NetTotal">
                 <label for="invo-1" style="width: 130px; font-weight: 500;">Amount Paid</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="AmountPaid" onchange="calcForBalance()">
                 <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
 
-                    <label for="">Paid From</label>
-                            <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  data-live-search="true"  id="accounts" >
-                            
-                            </select>
+                <label for="">Paid From</label>
+                <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    data-live-search="true" id="accounts">
+
+                </select>
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #e61d2f;" onclick="insertInSales()">Save</button>
                     <button class="btn" style="background-color: #0a549d;">Print</button>
@@ -1448,7 +1461,39 @@
 </body>
 
 
+<script>
+    function getInvoiceCustomer(){
 
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        //alert(data);
+        var a = JSON.parse(data);
+        document.getElementById("CID").value = a[0].CustomerID;
+        document.getElementById("LastBalance").value = a[0].Balance;
+        document.getElementById("CurrentBalance").value = a[0].Balance;
+        calc();
+        document.getElementById("CNO").value = a[0].Contect;
+        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+        //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
+
+
+
+
+    } else {
+        //alert( this.responseText);
+    }
+};
+var invoiceNumber = document.getElementById("InvoiceID").value;
+
+xhttp.open("GET", "./getInvoiceCustomer/" + invoiceNumber, true);
+xhttp.send();
+
+
+}
+
+</script>
 
 <script>
     function getAllProducts() {
@@ -1529,20 +1574,21 @@
 
 
     }
-    function loadAccounts(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("accounts").innerHTML = this.response;
-            $('#accounts').selectpicker('refresh');
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getAccounts/", true);
-    
-    xhttp.send();
+
+    function loadAccounts() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("accounts").innerHTML = this.response;
+                $('#accounts').selectpicker('refresh');
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getAccounts/", true);
+
+        xhttp.send();
     }
 
     function AddCustomer() {
@@ -1642,9 +1688,9 @@
                 cell3.innerHTML = CompanyName;
                 cell4.innerHTML = SalePrice;
                 cell5.innerHTML =
-                    '<input type="number" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
+                    '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
                 cell6.innerHTML =
-                    '<input type="number" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
+                    '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
                 var tot = SalePrice * 1;
                 cell7.innerHTML = tot;
                 calc();
@@ -1821,8 +1867,8 @@
 
                 $(tr).find('td:eq(0)').text(), //productID
                 $(tr).find('td:eq(3)').text(), //salePrice
-                $(tr).find('td:eq(4) input[type="number"]').val(), //qty
-                $(tr).find('td:eq(5) input[type="number"]').val(), //discount
+                $(tr).find('td:eq(4) input[type="text"]').val(), //qty
+                $(tr).find('td:eq(5) input[type="text"]').val(), //discount
                 $(tr).find('td:eq(6)').text() //totamount
 
 
@@ -1836,23 +1882,16 @@
         var tot = document.getElementById("Total").value;
         var discount = document.getElementById('DiscountOverall').value;
         var gross = document.getElementById('grossTotal').value;
-
-
-
-
         var tax = document.getElementById('tax').value;
-
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('AmountPaid').value;
         var rmb = document.getElementById("RemainingBalance").value;
-
-
         var CID = document.getElementById("CID").value;
         var CLB = document.getElementById("LastBalance").value;
-
         var CCB = document.getElementById("CurrentBalance").value;
-        var AID=$('#accounts').find(":selected").val();
-        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB,AID];
+        var AID = $('#accounts').find(":selected").val();
+
+        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
 
         //alert(myRow2[0][1]);
         //alert(myRow2[11]);
