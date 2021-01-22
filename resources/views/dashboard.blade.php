@@ -9721,7 +9721,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-1">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>83</h3>
+                                        <h3 id="salestoday" value=""></h3>
                                         <h4>Sales Today</h4>
                                         <p>80% cash sales</p>
                                     </div>
@@ -9734,7 +9734,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-2">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>135</h3>
+                                    <h3 id="salestoday" value=""></h3>
                                         <h4>Leads</h4>
                                         <p>Team visited 230 people</p>
                                     </div>
@@ -9747,7 +9747,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-3">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>23</h3>
+                                    <h3 id="salestoday" value=""></h3>
                                         <h4>New Messages</h4>
                                         <p>get reply from whatsapp messages</p>
                                     </div>
