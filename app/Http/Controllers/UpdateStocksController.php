@@ -156,7 +156,6 @@ public static function setTotalCost($PID,$amount){
   return "Cost Updated";
 
 }
-<<<<<<< HEAD
 
 public function UpdateInStock(Request $request,$CO){
   $obj = json_decode($CO);
@@ -195,40 +194,6 @@ public function UpdateInStock(Request $request,$CO){
     DB::update($update_instock);
     //DB::update($update_productdefination);
   }
-=======
-public static function setTotalSaleAmount($PID,$amount){
-
-  DB::table('instock')
-  ->where('ProductSerial', $PID)
-  ->update(['TotalSaleAmount'=>$amount
-  
-
-  ]);
-  return "Cost Updated";
-
-}
-public static function updateStock($PID,$qty){
-
-  DB::table('instock')
-  ->where('ProductSerial', $PID)
-  ->update(['StockIn'=>$qty
-  
-
-  ]);
-  return "Stock Update";
-
-}
-public static function getCurrentStock($PID){
-
-  $re = DB::table('instock')
-            ->where('ProductSerial', '=', $PID)
-             ->get();
-
-             return $re[0]->StockIn;
-}
-
-
->>>>>>> a017343c8ec35fed1f6aea2a7f7b5b75b1981bd6
 
 
 }
