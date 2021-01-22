@@ -15,36 +15,65 @@ class expenseController extends Controller
         $ata=json_decode($CO);
         foreach ($ata as $obj){
         $date=$obj[0];
+        $LID=2;
         $amount=$obj[1];
         $expenseName=$obj[2];
         $expenseID=$obj[3];
         $paidTo=$obj[4];
-        $paidBy=$obj[5];
+        $paidVia=$obj[5];
         $remarks=$obj[6];
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
-        'TransactionCatogery'=>"Expense",
+        'TransactionCatogery'=>"Payment",
         'EID'=>$expenseID,
         'PaidTo'=>$paidTo,
-        'PaidBy'=>$paidBy,
+        'PaidVia'=>$paidVia,
         'TransactionType'=>"Credit"
         ]);
+
+        $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
+        $newBalance = $oldSelfBalance - $amount;
+        LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
+        $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
+        $newBalanceOfParty=$balanceForParty-$amount;
+        LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
+
+        $oldAccountBalance = accountsController::getAccountBalance($paidVia);
+        $newAccountBalance = $oldAccountBalance - $amount;
+        accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
+        
         }
         return $id;
 }
 
-public static function getEmployee(){
-    $data=DB:: select('select * from tblemployees');
+public static function getPartyNames(){
+    $data=DB:: select('select * from tblledgerparties');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->EID.'>'.$d->FirstName.'</option>';
+        <option value= '.$d->LID.'>'.$d->LID.') '.$d->PartyName.'</option>';
+      
+    }
+    return $option;
+  }
+
+  public static function getAccounts(){
+    $data=DB:: select('select * from tblaccounts');
+    
+    $option='<option value=" "></option>';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->AID.'>'.$d->AID.') '.$d->AccountName.'</option>';
       
     }
     return $option;
@@ -53,18 +82,19 @@ public static function getEmployee(){
   public static function getExpenseHeads(){
     $data=DB:: select('select * from tblexpenseheads');
     
-    $option='';
+    $option='<option value=" "></option>';
 
 
     foreach ($data as $d){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->ID.'>'.$d->ExpenseHead.'</option>';
+        <option value= '.$d->ID.'>'.$d->ID.') '.$d->ExpenseHead.'</option>';
       
     }
     return $option;
   }
+
 
 }
 

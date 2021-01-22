@@ -100,9 +100,9 @@
                         <tbody id="myTbody">
                             <tr>
                                 <td style="font-weight:600 ;">Name:</td>
-                                <td>Asif Jah</td>
+                                <td id='name'>Asif Jah</td>
                                 <td style="font-weight:600 ;">Father Name:</td>
-                                <td>Malik Arif Jah</td>
+                                <td  id='name'>Malik Arif Jah</td>
                             </tr>
                             <tr>
                                 <td style="font-weight:600 ;">CNIC / NTN</td>

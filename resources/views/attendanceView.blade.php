@@ -76,7 +76,13 @@
         td {
             padding: 2px !important;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
 
+        }
 
     </style>
 </head>

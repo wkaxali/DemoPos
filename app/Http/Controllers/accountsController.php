@@ -9,7 +9,7 @@ class accountsController extends Controller
     public static function getAccountHeads(){
         $data=DB:: select('select * from tblaccounts');
     
-        $option='';
+        $option='<option value=" "></option>';
     
     
         foreach ($data as $d){
@@ -20,6 +20,31 @@ class accountsController extends Controller
           
         }
         return $option;
+
+
+    }
+    public static function getAccountBalance($AID){
+
+       
+        $re = DB::table('tblaccounts')
+            ->where('AID', '=', $AID)
+             ->first()->Balance;
+
+             return $re;
+
+
+
+
+    }
+    public static function UpdateNewBalance($AID,$amount){
+
+        
+        DB::table('tblaccounts')
+        ->where('AID', $AID)
+        ->update(['Balance' =>$amount
+       
+        ]);
+        return 'update New Balance';
 
 
     }

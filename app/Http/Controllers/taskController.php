@@ -89,10 +89,42 @@ public static function employeeData(){
 
 
     return $card;
-
-
      
 }
+
+public static function getEmployees(){
+    $data=DB:: select('select * from tblemployees');
+    
+    $option='<option value=" "></option>';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->EID.'>'.$d->FirstName.' '.$d->LastName.'</option>';
+      
+    }
+    return $option;
+  }
+
+  public static function getCategory(){
+    $data=DB:: select('select * from tblemployees');
+    
+    $option='<option value=" "></option>';
+
+
+    foreach ($data as $d){
+      //print $option;
+
+        $option=$option.'
+        <option value= '.$d->EID.'>'.$d->FirstName.' '.$d->LastName.'</option>';
+      
+    }
+    return $option;
+  }
+
+
 }
 
   

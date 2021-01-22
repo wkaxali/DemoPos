@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Forland</title>
+    <title>FORLAND MODERN MOTORS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Forland Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -19,8 +19,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
+    <style>
         h4,
         h5,
         h6,
@@ -59,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .fixed {
-            position: fixed;
+            position: abso;
             top: 0;
             width: 100%;
             margin: 0 auto;
@@ -81,8 +83,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .left-content {
-
-            width: 100% !important;
+            float: right;
+            width: 86.5%;
         }
 
         .page-container.sidebar-collapsed {
@@ -192,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         #menu li {
             position: relative;
             margin: 0;
-            font-size: 12px;
+            font-size: 18px;
             padding: 0;
         }
 
@@ -214,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         #menu li a:hover {
-            color: #fdbb30;
+            color: #e61d2f;
             transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
         }
 
@@ -469,9 +471,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--- User Panel---*/
         .profile_details_left {
             float: left;
-            margin-top: 10px;
             width: 50%;
-
         }
 
         .dropdown-menu {
@@ -710,7 +710,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .header-right span.blue1 {
-            background-color: #e61d2f;
+            background-color: #68AE00;
         }
 
         i.icon_1 {
@@ -960,7 +960,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             position: absolute;
             top: 34%;
             right: 8%;
-            color: #e61d2f;
+            color: #68AE00;
             font-size: 1.6em;
         }
 
@@ -998,7 +998,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--header strip end here-*/
         /*inner-block--*/
         .inner-block {
-            padding: 1em 2em 4em 2em;
+            padding: 8em 2em 4em 2em;
             background: #fafafa;
         }
 
@@ -1029,7 +1029,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .market-update-block.clr-block-1 {
             background: #e61d2f;
             margin-right: 0.8em;
-            box-shadow: 0 2px 5px 0 #e61d2f, 0 2px 10px 0 #e61d2f;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1037,18 +1037,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-2 {
-            background: #0a549d;
-            margin-right: 0.8em;
-            box-shadow: 0 2px 5px 0 #0a549d, 0 2px 10px 0 #0a549d;
+     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
             -o-transition: 0.5s all;
+            height: 258px;
         }
 
         .market-update-block.clr-block-3 {
-            background: #e61d2f;
-            box-shadow: 0 2px 5px 0 #e61d2f, 0 2px 10px 0 #e61d2f;
+            background: #13579a;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1064,15 +1063,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-2:hover {
-            background: #0a549d;
-            transition: 0.5s all;
+         transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
             -o-transition: 0.5s all;
+            
         }
 
         .market-update-block.clr-block-3:hover {
-            background: #e61d2f;
+            background: #13579a;
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1081,7 +1080,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .market-update-right i.fa.fa-file-text-o {
             font-size: 3em;
-            color: #e61d2f;
+            color: #68AE00;
             width: 80px;
             height: 80px;
             background: #fff;
@@ -1213,13 +1212,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             width: 0%;
             height: 5px;
             border-radius: 0px;
-            background: #FF0426;
+            background: #e61d2f;
             margin-bottom: 10px;
             -webkit-transition: width 1s;
             transition: width 1s;
         }
 
-        . .b_label,
+        .b_label,
         .bar_label_min,
         .bar_label_max,
         .b_tooltip span {
@@ -1327,7 +1326,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .malorm-bottom h2 {
             font-size: 1.5em;
-            color: #e61d2f;
+            color: #68AE00;
             text-align: center;
             margin-bottom: 0.5em;
             font-family: 'Carrois Gothic', sans-serif;
@@ -1709,7 +1708,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .shoppy h3 {
             font-size: 1.2em;
-            color: #e61d2f;
+            color: #68AE00;
             font-family: 'Carrois Gothic', sans-serif;
         }
 
@@ -1729,7 +1728,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .popular-bran-left h3 {
             font-size: 1.2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 0.2em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -1776,7 +1775,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .popular-follo-left {
-            background: #e61d2f;
+            background: #68AE00;
             padding: 2.5em 1em;
         }
 
@@ -1795,7 +1794,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .popular-follo-right h5 {
             font-size: 1em;
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         .popular-bran-left p {
@@ -1833,13 +1832,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .copyrights p a:hover {
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         /*--grids start here--*/
         .cols-grids h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -1895,7 +1894,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .portlet-grid-page h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -1911,7 +1910,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .btn-main-heading h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -1927,7 +1926,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--icons --*/
         .boost-icons-head h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2115,7 +2114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .login-block input[type="submit"]:hover {
-            background: #e61d2f;
+            background: #68AE00;
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -2152,11 +2151,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .forgot a:hover {
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         .login-block h2 {
-            color: #e61d2f;
+            color: #68AE00;
             font-size: 0.875em;
             margin: 1.2em 0;
             text-align: center;
@@ -2287,7 +2286,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .login-block h5 a:hover {
-            color: #e61d2f;
+            color: #68AE00;
             text-decoration: underline;
         }
 
@@ -2356,7 +2355,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .signup-block input[type="submit"]:hover {
-            background: #e61d2f;
+            background: #68AE00;
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -2381,7 +2380,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .sign-down h4 a:hover {
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         .sign-down h5 {
@@ -2397,7 +2396,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .sign-down h5 a:hover {
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         /*--signup page end here--*/
@@ -2411,7 +2410,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .map-main-page h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2434,7 +2433,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .blank h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2549,7 +2548,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             font-size: 1em;
             color: #fff;
             margin-top: 2em;
-            background: #e61d2f;
+            background: #68AE00;
             padding: 0.5em 1em;
             display: inline-block;
         }
@@ -2620,7 +2619,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .mail-profile {
-            background: #e61d2f;
+            background: #68AE00;
             padding: 1em 1em;
         }
 
@@ -2674,7 +2673,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .compose-block a {
             font-size: 1em;
             color: #fff;
-            background: #e61d2f;
+            background: #68AE00;
             padding: 0.5em 1.5em;
             border-radius: 3px;
             display: inline-block;
@@ -2750,7 +2749,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .inbox h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2849,7 +2848,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .compose-right input[type="submit"] {
             font-size: 0.9em;
-            background-color: #e61d2f;
+            background-color: #68AE00;
             border: none;
             color: #fff;
             padding: 0.8em 1.5em;
@@ -2879,7 +2878,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .pro-head h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin: 0em 0em 1em 0.4em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2931,7 +2930,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--prices start here--*/
         .prices-head h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin: 0em 0em 1em 0.4em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -3073,7 +3072,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin: 40px auto;
             position: relative;
             text-align: center;
-            border: 8px solid #e61d2f;
+            border: 8px solid #68AE00;
             height: 475px;
             border-radius: 5px;
         }
@@ -3174,7 +3173,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .payment-sendbtns input[type="reset"] {
-            background: #e61d2f;
+            background: #68AE00;
             padding: 10px 25px;
             border: none;
             color: #FFF;
@@ -3214,7 +3213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         a.order:hover {
             color: #fff;
-            background: #e61d2f;
+            background: #68AE00;
         }
 
         .payment-sendbtns li {
@@ -3881,7 +3880,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             .fixed {
                 position: fixed;
                 top: 0;
-                width: 100% !important;
+                width: 85%;
             }
 
             .profile_details_drop a.dropdown-toggle {
@@ -3899,6 +3898,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             .market-update-block {
                 padding: 1.5em 1.5em;
+              
             }
 
             .market-update-right i.fa.fa-file-text-o {
@@ -5800,45 +5800,229 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         }
 
-        .btn-my {
-            border: 1px solid #3498db;
-            background: none;
-            padding: 10px 20px;
-            font-size: 20px;
-            font-family: "montserrat";
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -10 !important;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+        }
+
+        .appointment-form {
+            padding: 10px 60px 0px 60px;
+        }
+
+        .appointment-form input,
+        select {
+            width: 100%;
+            display: block;
+            border: none;
+            border-bottom: 2px solid #ebebeb;
+            padding: 5px 0;
+            color: #222;
+            margin-bottom: 11px;
+            font-family: 'Roboto Slab';
+        }
+
+        .appointment-form input:focus,
+        select:focus {
+            color: #222;
+            border-bottom: 2px solid #4966b1;
+        }
+
+        .appointment-form input[type=checkbox]:not(old) {
+            width: 2em;
+            margin: 0;
+            padding: 0;
+            font-size: 1em;
+            display: none;
+        }
+
+        .appointment-form input[type=checkbox]:not(old)+label {
+            display: inline-block;
+            margin-top: 7px;
+            margin-bottom: 25px;
+        }
+
+        .appointment-form input[type=checkbox]:not(old)+label>span {
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            margin-right: 15px;
+            margin-bottom: 3px;
+            border: 1px solid #ebebeb;
+            background: white;
+            background-image: -moz-linear-gradient(white, white);
+            background-image: -ms-linear-gradient(white, white);
+            background-image: -o-linear-gradient(white, white);
+            background-image: -webkit-linear-gradient(white, white);
+            background-image: linear-gradient(white, white);
+            vertical-align: bottom;
+        }
+
+        .appointment-form input[type=checkbox]:not(old):checked+label>span {
+            background-image: -moz-linear-gradient(white, white);
+            background-image: -ms-linear-gradient(white, white);
+            background-image: -o-linear-gradient(white, white);
+            background-image: -webkit-linear-gradient(white, white);
+            background-image: linear-gradient(white, white);
+        }
+
+        .appointment-form input[type=checkbox]:not(old):checked+label>span:before {
+            content: '\f26b';
+            display: block;
+            color: #222;
+            font-size: 11px;
+            line-height: 1.2;
+            text-align: center;
+            font-family: 'Material-Design-Iconic-Font';
+            font-weight: bold;
+        }
+
+        .appointment-form .label-agree-term {
+            color: #999;
+        }
+
+        .appointment-form .term-service {
+            color: #222;
+        }
+
+        .appointment-form .submit {
+            width: auto;
+            background: #4966b1;
+            color: #fff;
+            padding: 16px 17px;
+            font-size: 13px;
+            border: none;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -o-border-radius: 5px;
+            -ms-border-radius: 5px;
             cursor: pointer;
-            margin: 10px;
-            transition: 0.8s;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+            -moz-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+            -webkit-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+            -o-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
+            -ms-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
         }
 
-        .btn1 {
-            color: #3498db;
+        .appointment-form .submit:hover {
+            background: #3a518d;
         }
 
-        .btn1:hover {
+        .appointment-form ul {
+            background: 0 0;
+            z-index: 9;
+        }
+
+        .appointment-form ul li {
+            padding: 3px 0px;
+            z-index: 2;
+            color: #999;
+        }
+
+        ul li:last-child {
+            border-bottom: 1px solid #ebebeb;
+        }
+
+        .appointment-form ul li:not(.init) {
+            display: none;
+            background: #fff;
+            color: #222;
+            padding: 5px 10px;
+            border-left: 1px solid #ebebeb;
+            border-right: 1px solid #ebebeb;
+            border-top: 1px solid #ebebeb;
+        }
+
+        .appointment-form ul li:not(.init):hover,
+        ul li.selected:not(.init) {
+            background: #4966b1;
             color: #fff;
         }
 
-        .btn-my::before {
-            content: "";
+        .appointment-form li.init {
+            cursor: pointer;
+            position: relative;
+            border-bottom: 2px solid #ebebeb;
+        }
+
+        .appointment-form li.init:after {
             position: absolute;
-            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -webkit-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            font-size: 20px;
+            color: #999;
+            font-family: 'Material-Design-Iconic-Font';
+            content: '\f2f9';
+        }
+
+        .appointment-form #confirm_type {
+            margin-bottom: 30px;
+        }
+
+        .appointment-form .form-group-2 {
+            margin-top: 15px;
+            margin-bottom: 30px;
+        }
+
+        .appointment-form .form-check {
+            margin-bottom: 20px;
+        }
+
+        .appointment-form .select-list {
+            position: relative;
+            display: inline-block;
             width: 100%;
-            height: 0%;
-            background: #3498db;
-            z-index: -1;
-            transition: 0.8s;
+            margin-bottom: 55px;
         }
 
-        .btn1::before {
-            top: 0;
-            border-radius: 0 0 50% 50%;
+        .appointment-form .list-item {
+            position: absolute;
+            width: 100%;
         }
 
-        .btn1:hover::before {
-            height: 180%;
+        .appointment-form #confirm_type {
+            z-index: 99;
+        }
+
+        .appointment-form #hour_appointment {
+            z-index: 9;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .container {
+                margin: 0 auto;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                width: calc(100% - 30px);
+                max-width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .appointment-form {
+                padding: 50px 30px 70px 30px;
+            }
+        }
+a:hover{
+    cursor: pointer;
+}
+        @media only screen and (max-width: 768px) {
+           .header-main{
+               display: none !important;
+            }
         }
 
     </style>
@@ -9198,7 +9382,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </script>
 
-    <script src="js/skycons.js"></script>
+
     <style>
         .leftBtns .btn {
             color: #333333;
@@ -9207,20 +9391,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             border: 1px solid #e61d2f;
             margin: 10px 5px;
             font-weight: bold;
-            /* -webkit-box-shadow: 9px 10px 13px -9px #e61d2f;
--moz-box-shadow: 9px 10px 13px -9px #e61d2f;
-box-shadow: 9px 10px 13px -9px #e61d2f; */
+
             -webkit-box-shadow: 10px 10px 5px -10px gray;
             -moz-box-shadow: 10px 10px 5px -10px gray;
             box-shadow: 10px 10px 5px -10px gray;
         }
 
-        /* .nav-pills .nav-link.active,
-		.nav-pills .show>.nav-link {
-			color: #ffffff;
-			background: #e61d2f !important;
-			border: 1px solid #e61d2f;
-		} */
+
 
         .leftBtns .btn:hover {
             color: #ffffff;
@@ -9285,6 +9462,7 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
 
         .btn1 {
             color: #3498db;
+            border-radius: 10px;
         }
 
         .btn1:hover {
@@ -9314,7 +9492,46 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
     </style>
 </head>
 
-<body>
+<body onload="loadFields()">
+    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <form method="POST" class="appointment-form" id="appointment-form">
+                        <h2>Create Invoice</h2>
+                        <div class="form-group-1">
+                            <input type="text" name="title" id="title" placeholder="Customer" required />
+                            <input type="text" name="name" id="name" placeholder="Customer ID" required />
+                            <input type="number" name="tel" id="tel" placeholder="Contact" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Profession"
+                                required />
+                            <input type="number" name="phone_number" id="Balance" placeholder="Balance" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Address" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Comments" required />
+
+                            <div class="select-list">
+                                <select name="course_type" id="course_type">
+                                    <option slected value="">Category</option>
+                                    <option value="society">Society</option>
+                                    <option value="language">Language</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-submit">
+                            <a onclick="location.href = '/dl'">Add Customer</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <div class="page-container">
         <div class="left-content">
             <div class="mother-grid-inner">
@@ -9331,736 +9548,90 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                     </div>
                     <div class="header-right">
                         <div class="profile_details_left">
-                            <!-- <ul class="nofitications-dropdown">
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-envelope"></i><span class="badge">3</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>You have 3 new messages</h3>
-												</div>
-											</li>
-											<li><a href="#">
-											   <div class="user_img"><img src="images/p4.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											</a></li>
-											<li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p2.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor </p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											</a></li>
-											<li><a href="#">
-											   <div class="user_img"><img src="images/p3.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											</a></li>
-											<li>
-												<div class="notification_bottom">
-													<a href="#">See all messages</a>
-												</div> 
-											</li>
-										</ul>
-									</li>
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><span class="badge blue">3</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>You have 3 new notification</h3>
-												</div>
-											</li>
-											<li><a href="#">
-												<div class="user_img"><img src="images/p5.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											  <div class="clearfix"></div>	
-											 </a></li>
-											 <li class="odd"><a href="#">
-												<div class="user_img"><img src="images/p6.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li><a href="#">
-												<div class="user_img"><img src="images/p7.png" alt=""></div>
-											   <div class="notification_desc">
-												<p>Lorem ipsum dolor</p>
-												<p><span>1 hour ago</span></p>
-												</div>
-											   <div class="clearfix"></div>	
-											 </a></li>
-											 <li>
-												<div class="notification_bottom">
-													<a href="#">See all notifications</a>
-												</div> 
-											</li>
-										</ul>
-									</li>	
-									<li class="dropdown head-dpdn">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-tasks"></i><span class="badge blue1">9</span></a>
-										<ul class="dropdown-menu">
-											<li>
-												<div class="notification_header">
-													<h3>You have 8 pending task</h3>
-												</div>
-											</li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Database update</span><span class="percentage">40%</span>
-													<div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													<div class="bar yellow" style="width:40%;"></div>
-												</div>
-											</a></li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Dashboard done</span><span class="percentage">90%</span>
-												   <div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													 <div class="bar green" style="width:90%;"></div>
-												</div>
-											</a></li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Mobile App</span><span class="percentage">33%</span>
-													<div class="clearfix"></div>	
-												</div>
-											   <div class="progress progress-striped active">
-													 <div class="bar red" style="width: 33%;"></div>
-												</div>
-											</a></li>
-											<li><a href="#">
-												<div class="task-info">
-													<span class="task-desc">Issues fixed</span><span class="percentage">80%</span>
-												   <div class="clearfix"></div>	
-												</div>
-												<div class="progress progress-striped active">
-													 <div class="bar  blue" style="width: 80%;"></div>
-												</div>
-											</a></li>
-											<li>
-												<div class="notification_bottom">
-													<a href="#">See all pending tasks</a>
-												</div> 
-											</li>
-										</ul>
-									</li>	
-								</ul> -->
 
-                            <button class="btn-my btn1" data-toggle="modal"
+
+                            <button class="btn-my btn1" style="margin-left: 200px;" data-toggle="modal"
                                 data-target=".bd-example-modal-lg">Operations</button>
 
                             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
                                 aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Forland Operations</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <!-- <div class="modal-body">
-											<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-												<li class="nav-item" role="presentation">
-													<a class="nav-link active" id="pills-Sales-tab" data-toggle="pill"
-														href="#pills-Sales" role="tab" aria-controls="pills-Sales"
-														aria-selected="true">Sales</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Purchase-tab" data-toggle="pill"
-														href="#pills-Purchase" role="tab" aria-controls="pills-Purchase"
-														aria-selected="false">Purchase</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Inventory-tab" data-toggle="pill"
-														href="#pills-Inventory" role="tab"
-														aria-controls="pills-Inventory" aria-selected="false">Inventory
-														Management</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Customer-tab" data-toggle="pill"
-														href="#pills-Customer" role="tab" aria-controls="pills-Customer"
-														aria-selected="false">Customer
-														Management</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Transaction-tab" data-toggle="pill"
-														href="#pills-Transaction" role="tab"
-														aria-controls="pills-Transaction"
-														aria-selected="false">Transaction Flow
-													</a>
-												</li>
-												<li class="nav-item" style="    margin-left: 67px;" role="presentation">
-													<a class="nav-link" id="pills-Secuirty-tab" data-toggle="pill"
-														href="#pills-Secuirty" role="tab" aria-controls="pills-Secuirty"
-														aria-selected="false">Secuirty
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Expense -tab" data-toggle="pill"
-														href="#pills-Expense " role="tab" aria-controls="pills-Expense "
-														aria-selected="false">Expense
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Attendance -tab" data-toggle="pill"
-														href="#pills-Attendance " role="tab"
-														aria-controls="pills-Attendance "
-														aria-selected="false">Attendance
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Investors-tab" data-toggle="pill"
-														href="#pills-Investors" role="tab"
-														aria-controls="pills-Investors" aria-selected="false">Investors
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-Printing-tab" data-toggle="pill"
-														href="#pills-Printing" role="tab" aria-controls="pills-Printing"
-														aria-selected="false">Printing
-													</a>
-												</li>
-												<li class="nav-item" role="presentation">
-													<a class="nav-link" id="pills-taskList-tab" data-toggle="pill"
-														href="#pills-taskList" role="tab" aria-controls="pills-taskList"
-														aria-selected="false">taskList
-													</a>
-												</li>
-											</ul>
-											<div class="tab-content" id="pills-tabContent">
-												<div class="tab-pane fade show active" id="pills-Sales" role="tabpanel"
-													aria-labelledby="pills-Sales-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-
-
-												</div>
-												<div class="tab-pane fade" id="pills-Purchase" role="tabpanel"
-													aria-labelledby="pills-Purchase-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Inventory" role="tabpanel"
-													aria-labelledby="pills-Inventory-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade show " id="pills-Customer" role="tabpanel"
-													aria-labelledby="pills-Customer-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade show " id="pills-Transaction" role="tabpanel"
-													aria-labelledby="pills-Transaction-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Secuirty" role="tabpanel"
-													aria-labelledby="pills-Secuirty-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Expense" role="tabpanel"
-													aria-labelledby="pills-Expense-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade show " id="pills-Attendance" role="tabpanel"
-													aria-labelledby="pills-Attendance-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Investors" role="tabpanel"
-													aria-labelledby="pills-Investors-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade" id="pills-Printing" role="tabpanel"
-													aria-labelledby="pills-Printing-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="tab-pane fade show " id="pills-taskList" role="tabpanel"
-													aria-labelledby="pills-taskList-tab">
-													<div class="container">
-														<div class="row">
-															<div class="col-md-8 offset-md-2">
-																<div class="row">
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">View
-																				Stock</button><br>
-																		</div>
-																	</div>
-																	<div class="col-md-4">
-																		<div class="leftBtns">
-																			<button
-																				class="btn btn-myPrimary-add">Add</button><br>
-																			<button
-																				class="btn btn-mysecondary">Delete</button><br>
-																			<button class="btn btn-myPrimary">Edit
-																				Stock</button><br>
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-
-											</div>
-
-
-										</div> -->
-
                                         <div class="modal-body">
                                             <div class="container-fluid">
                                                 <div class="row p-2"
                                                     style="border: 2px solid gray; border-radius: 10px;">
 
 
-
+                                                    {{ session()->put('CID','125')}}
                                                     <div class="col-md-3">
                                                         <label class="labels" for="">Purchase</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
                                                             <button class="btn btn-myPrimary-add"
-                                                            
                                                                 onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
                                                                 onclick="location.href = '/d'">Dilivery</button><br>
-                                                                <button class="btn btn-mysecondary"
-                                                                onclick="location.href = '/dl'">Dilivery letter</button><br>
-                                                                <button class="btn btn-mysecondary"
+                                                            <button data-toggle="modal" id="killme"
+                                                                data-target="#staticBackdrop"
+                                                                class="btn btn-mysecondary">Quotation</button><br>
+
+
+                                                            <button class="btn btn-mysecondary"
+                                                                onclick="location.href = '/dl'">Dilivery
+                                                                letter</button><br>
+                                                            <button class="btn btn-mysecondary"
                                                                 onclick="location.href = '/ct'">Comissions</button><br>
                                                         </div>
-                                                        
+
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Sales</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                            <a href="/is"><button class="btn btn-myPrimary-add">invoice services</button><br></a>
-                                                            <a href="/psi"><button class="btn btn-mysecondary">Print Sale Invoice</button><br></a>
-                                                            <a href="/s"><button class="btn btn-myPrimary">Sales& comission</button><br></a>
-                                                            <a href="/ct"> <button class="btn btn-myPrimary-add">texes</button><br></a>
+                                                            <a href="/is"><button class="btn btn-myPrimary-add">invoice
+                                                                    services</button><br></a>
+                                                            <a href="/psi"><button class="btn btn-mysecondary">Print
+                                                                    Sale Invoice</button><br></a>
+                                                            <a href="/sc"><button class="btn btn-myPrimary">Sales&
+                                                                    comission</button><br></a>
+                                                            <a href="/ct"> <button
+                                                                    class="btn btn-myPrimary-add">texes</button><br></a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Stock</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                            
-                                                                <a href="/as"> <button class="btn btn-myPrimary-add">Add Stock</button><br></a> 
-                                                                <a href="/ip"><button class="btn btn-mysecondary">Increase In price</button><br></a>
-                                                                <a href="/stock"> <button class="btn btn-myPrimary">Stock</button><br></a>
-                                                                <a href="/vc"><button class="btn btn-myPrimary-add">ViewCustmer</button><br></a>
-                                                                    <a href="/sp"> <button class="btn btn-mysecondary">View Spareoarts</button><br></a>
-                                                                        <a href="/vs"> <button class="btn btn-myPrimary">View Stock</button><br></a>
+
+                                                            <a href="/as"> <button class="btn btn-myPrimary-add">Add
+                                                                    Stock</button><br></a>
+                                                            <a href="/ip"><button class="btn btn-mysecondary">Increase
+                                                                    In price</button><br></a>
+                                                            <a href="/stock"> <button
+                                                                    class="btn btn-myPrimary">Stock</button><br></a>
+                                                            <a href="/vc"><button
+                                                                    class="btn btn-myPrimary-add">ViewCustmer</button><br></a>
+                                                            <a href="/sp"> <button class="btn btn-mysecondary">View
+                                                                    Spareoarts</button><br></a>
+                                                            <a href="/vs"> <button class="btn btn-myPrimary">View
+                                                                    Stock</button><br></a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 22px;" class="labels"
                                                             for="">Ledger</label>
                                                         <div class="leftBtns">
-                                                            <button class="btn btn-myPrimary-add" 
-                                                             onclick="location.href = '/cl'">Company ledger</button><br>
-                                                             <a href="/l"> <button class="btn btn-mysecondary">ledger</button><br></a>
-                                                             <a href="/th"><button class="btn btn-myPrimary">Transaction History</button><br></a>
-                                                             <a href="/ex"><button class="btn btn-myPrimary-add">Expance</button><br></a>
-                                                           
+                                                            <button class="btn btn-myPrimary-add"
+                                                                onclick="location.href = '/cl'">Company
+                                                                ledger</button><br>
+                                                            <a href="/l"> <button
+                                                                    class="btn btn-mysecondary">ledger</button><br></a>
+                                                            <a href="/th"><button class="btn btn-myPrimary">Transaction
+                                                                    History</button><br></a>
+                                                            <a href="/ex"><button
+                                                                    class="btn btn-myPrimary-add">Expance</button><br></a>
+
                                                         </div>
                                                     </div>
 
@@ -10072,26 +9643,23 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                             </div>
 
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="clearfix"> </div>
                         </div>
                         <div class="profile_details">
                             <ul>
                                 <li class="dropdown profile_details_drop">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <a  class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <div class="profile_img">
                                             <span class="prfil-img"><img style="height: 50px; border-radius: 50%; "
                                                     src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
                                                     alt=""> </span>
                                             <div class="user-name">
-                                                <p style="color: #e61d2f;">Waqas Ali </p>
+                                                <p style="color: #e61d2f;">{{ Session::get('UserName')}}</p>
                                                 <span>Administrator</span>
                                             </div>
                                             <i class="fa fa-angle-down lnr"></i>
@@ -10100,9 +9668,9 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                         </div>
                                     </a>
                                     <!-- <ul class="dropdown-menu drp-mnu">
-										<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
-										<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
-										<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+										<li> <a ><i class="fa fa-cog"></i> Settings</a> </li>
+										<li> <a ><i class="fa fa-user"></i> Profile</a> </li>
+										<li> <a ><i class="fa fa-sign-out"></i> Logout</a> </li>
 									</ul> -->
                                 </li>
                             </ul>
@@ -10135,8 +9703,8 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-1">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>83</h3>
-                                        <h4>Sales Today</h4>
+                                        <h3 id="salesToday" value=""></h3>
+                                        <h4>Total Sale Today</h4>
                                         <p>80% cash sales</p>
                                     </div>
                                     <div class="col-md-4 market-update-right">
@@ -10163,7 +9731,7 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                     <div class="col-md-8 market-update-left">
                                         <h3>23</h3>
                                         <h4>New Messages</h4>
-                                        <p>get reply from whatsapp messages</p>
+                                        <p>get reply</p>
                                     </div>
                                     <div class="col-md-4 market-update-right">
                                         <i class="fa fa-envelope-o"> </i>
@@ -10271,7 +9839,7 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                                             {
                                                 value: 40,
                                                 color: "#0a549d"
-                                            },
+                                             },
                                         ];
                                         new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
                                             doughnutData);
@@ -10414,7 +9982,126 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
 
             </div>
         </div>
+        <div class="sidebar-menu">
 
+            <div class="logo"> <a  class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a >
+                    <span id="logo"></span>
+                </a> </div>
+            <div class="menu">
+                <ul id="menu">
+                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><br><span>Dashboard</span></a>
+                    </li>
+                    <li><a ><i class="fab fa-salesforce"></i><br><span>Products</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/">Add Product</a></li>
+                            <li><a href="/">View Product</a></li>
+                            <li><a href="/">Delete Product</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fab fa-salesforce"></i><br><span>Customer</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/">Add Customer</a></li>
+                            <li><a href="/">View Customer</a></li>
+                            <li><a href="/">Delete Customer</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fab fa-salesforce"></i><br><span>Sales</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Sales And Comission</a></li>
+                            <li><a href="/ss">Sales</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-comunicacao"><a ><i class="fas fa-money-bill-alt"></i>
+                            <br> <span>Purchase</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-comunicacao-sub">
+                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
+                            </li>
+                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="menu-academico"><a href="/stock"><i
+                                class="fab fa-stack-overflow"></i><br><span>Stock</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="menu-academico"><a href="/l"><i
+                                class="fas fa-user-circle"></i><br><span>Accounts</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/i">Investor Ledger</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
+                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
+                    <li id="menu-academico"><a href="/d"><i
+                                class="fas fa-truck-loading"></i><br><span>Delivery</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/dl">Delivery Letter</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li><a ><i class="fa fa-envelope"></i><span>HR</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
+                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fab fa-amazon-pay"></i><br><span>PayRoll</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="">View Employee Pay</a></li>
+                            <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
+                            <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/at"><img src="https://cdn.onlinewebfonts.com/svg/img_226438.png"
+                                style="height: 40px; width: 40px; color: #ffffff;background-color: #ffffff;padding: 5px;border-radius: 50%; margin-left: -10px;"
+                                alt=""><br><span>Attendance</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="">View Attendance</a></li>
+                            <li id="menu-academico-boletim"><a href="/SalarySlip">Mark Attendance</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a ><i class="fas fa-eye"></i><br><span>Task View</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
+                            <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fab fa-angellist"></i><br><span>Reporting</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
+                            <li id="menu-academico-boletim"><a href="price.html">Account Settings</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fa fa-cog"></i><span>Settings</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
+                            <li id="menu-academico-boletim"><a href="price.html">Account Settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <div class="clearfix"> </div>
     </div>
@@ -10449,44 +10136,83 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
     <script>
-        (function () {
-            "use strict";
-
-            // custom scrollbar
-
-            $("html").niceScroll({
-                styler: "fb",
-                cursorcolor: "#68ae00",
-                cursorwidth: '6',
-                cursorborderradius: '10px',
-                background: '#FFFFFF',
-                spacebarenabled: false,
-                cursorborder: '0',
-                zindex: '1000'
-            });
-
-            $(".scrollbar1").niceScroll({
-                styler: "fb",
-                cursorcolor: "#68ae00",
-                cursorwidth: '6',
-                cursorborderradius: '0',
-                autohidemode: 'false',
-                background: '#FFFFFF',
-                spacebarenabled: false,
-                cursorborder: '0'
-            });
+        function loadFields(){
+            dailySaleAmount();
+        }
 
 
 
-            $(".scrollbar1").getNiceScroll();
-            if ($('body').hasClass('scrollbar1-collapsed')) {
-                $(".scrollbar1").getNiceScroll().hide();
-            }
 
-        })(jQuery);
+        $(document).ready(function () {
+                $("#killme").click(function () {
+                    $('.bd-example-modal-lg').modal('hide');
+                })
+            })
+            (function () {
+                "use strict";
+
+                // custom scrollbar
+
+                $("html").niceScroll({
+                    styler: "fb",
+                    cursorcolor: "#68ae00",
+                    cursorwidth: '6',
+                    cursorborderradius: '10px',
+                    background: '#FFFFFF',
+                    spacebarenabled: false,
+                    cursorborder: '0',
+                    zindex: '1000'
+                });
+
+                $(".scrollbar1").niceScroll({
+                    styler: "fb",
+                    cursorcolor: "#68ae00",
+                    cursorwidth: '6',
+                    cursorborderradius: '0',
+                    autohidemode: 'false',
+                    background: '#FFFFFF',
+                    spacebarenabled: false,
+                    cursorborder: '0'
+                });
+
+
+
+                $(".scrollbar1").getNiceScroll();
+                if ($('body').hasClass('scrollbar1-collapsed')) {
+                    $(".scrollbar1").getNiceScroll().hide();
+                }
+
+            })(jQuery);
 
     </script>
     <script>
+
+
+function dailySaleAmount(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            var data = this.responseText;
+                alert(data);
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                var saleToday = a[0].DailySale;
+
+                document.getElementById("salesToday").innerText = saleToday;
+
+                alert(saleToday);
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./dailySaleAmount/", true);
+    
+    xhttp.send();
+    }
+
+
+
         function bar_group() {
             group_ident = 1, $(".bar_group").each(function () {
                 $(this).addClass("group_ident-" + group_ident), $(this).data("gid", group_ident), group_ident++
@@ -10550,8 +10276,23 @@ box-shadow: 9px 10px 13px -9px #e61d2f; */
                 in_view($(this))
             })
         }), bars();
+        
+    </script>
+    <script>
+   function infoPass(){
+
+    var customerName="Waqas";
+    var id="78";
+
+   
+    window.location.href = "./pm/"+customerName;
+    //redirect
+
+
+   }
 
     </script>
+
 
 </body>
 

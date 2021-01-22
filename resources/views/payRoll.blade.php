@@ -148,6 +148,26 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
+
     </style>
 </head>
 
@@ -268,7 +288,7 @@
                         name="" id="saleTarget">
                     <br>
                     <label for="">Total</label>
-                    <input type="text" class="form-control" value="48,000" style="display: inline-block; width: 200px;"
+                    <input type="number" class="form-control" value="48000" style="display: inline-block; width: 200px;"
                         name="" id="">
                     <span>+ 5%</span>
                     <div class="updateButtons">
@@ -280,7 +300,7 @@
                     <div class="common">
 
                         <h4 class="smallFont">Until 25 December</h4>
-                        <label for="">With 4 Sales</label> <input type="text" class="form-control"
+                        <label for="">With 4 Sales</label> <input type="number" class="form-control"
                             style="display: inline-block; width: 200px;" value="21,500" name="" id="">
                         <h4 class="smallFont leftMrg">Under Performance</h4>
                         <h4 class="smallFont" style="display: inline-block; width: 153px;">and 3 Leaves</h4>

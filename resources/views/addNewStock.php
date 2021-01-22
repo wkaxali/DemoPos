@@ -297,6 +297,26 @@
             background-color: #0a549d;
         } */
 
+        @media only screen and (max-width: 993px) {
+            .myContentInputs {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .ent-table table {
+                width: 595px !important;
+            }
+
+
+        }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
+    
+
     </style>
 
 </head>
@@ -384,7 +404,7 @@
             <div class="row">
                 <div class="col-md-2 offset-md-10 text-right">
                     <button class="btn btn-success  mt-1" style="height: 102px;width: 102px;  color: #ffffff;"
-                        onclick="AddProduct()">PlaceOrder</button>
+                        onclick="insertProducts()">PlaceOrder</button>
                 </div>
             </div>
         </div>
@@ -419,16 +439,21 @@
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);
         var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
         var e = document.getElementById("category");
         var cateValue = e.options[e.selectedIndex].value;
         var catetext = e.options[e.selectedIndex].text;
+        var catValue=e.options[e.selectedIndex].value;
+
         cell1.innerHTML = document.getElementById("productName").value;
         cell2.innerHTML = catetext;
-        cell3.innerHTML = document.getElementById("cost").value;
-        cell4.innerHTML = document.getElementById("salePrice").value;
+        cell3.innerHTML = document.getElementById("salePrice").value;
+        cell4.innerHTML = document.getElementById("cost").value;
         cell5.innerHTML = document.getElementById("description").value;
         cell6.innerHTML =
             "<button onclick='deleteRow(this)' class=\"btn btn-danger \" style=\"height: 25px;width: 25px; padding:auto;\"></button>";
+            cell7.innerHTML=catValue;
+            cell7.style.display = "none";
         
 
 
@@ -457,7 +482,7 @@
             myTrows[row] = [
 
                 $(tr).find('td:eq(0)').text(),
-                $(tr).find('td:eq(1)').text(),
+                $(tr).find('td:eq(6)').text(),
                 // $(tr).find('td:eq(2) input[type="text"]').val(),
                 // $(tr).find('td:eq(3)').find(":selected").val(),
                 $(tr).find('td:eq(2)').text(),
