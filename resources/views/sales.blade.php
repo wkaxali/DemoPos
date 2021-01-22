@@ -1016,6 +1016,7 @@
             .okay-invo {
                 width: 100% !important;
             }
+
             .o-inv-2 {
                 margin-left: 0px;
             }
@@ -1043,6 +1044,7 @@
             .okay-invo-hide {
                 display: none;
             }
+
             .o-inv-2 {
                 margin-left: 0px;
             }
@@ -1074,10 +1076,26 @@
         #myTable_length label{
             width: auto !important;
         }
-        .dataTables_filter label{
+
+        .dataTables_filter label {
             width: auto !important;
 
         }
+
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none !important;
+            margin: 0 !important;
+         
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+            margin: 0;
+        }
+
     </style>
 </head>
 
@@ -1096,7 +1114,7 @@
                 <label for="invo-1">Invoice Number</label>
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="InvoiceID">
-                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
+                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;" onclick="getInvoiceCustomer()"></button>
                 <br class="hideBr"> <label for="prod-1">Product Number</label>
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="invo-1">
@@ -1223,7 +1241,7 @@
                                 <div class="modal-body">
 
                                     <div class="registration-form">
-                                    
+
                                         <form>
                                            
                                             <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
@@ -1353,11 +1371,11 @@
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="RemainingBalance">
 
-                    <label for="">Paid From</label>
-                            <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  data-live-search="true"  id="accounts" >
-                            
-                            </select>
+                <label for="">Paid From</label>
+                <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    data-live-search="true" id="accounts">
+
+                </select>
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #e61d2f;" onclick="insertInSales()">Save</button>
                     <button class="btn" style="background-color: #0a549d;">Print</button>
@@ -1443,7 +1461,39 @@
 </body>
 
 
+<script>
+    function getInvoiceCustomer(){
 
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        //alert(data);
+        var a = JSON.parse(data);
+        document.getElementById("CID").value = a[0].CustomerID;
+        document.getElementById("LastBalance").value = a[0].Balance;
+        document.getElementById("CurrentBalance").value = a[0].Balance;
+        calc();
+        document.getElementById("CNO").value = a[0].Contect;
+        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+        //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
+
+
+
+
+    } else {
+        //alert( this.responseText);
+    }
+};
+var invoiceNumber = document.getElementById("InvoiceID").value;
+
+xhttp.open("GET", "./getInvoiceCustomer/" + invoiceNumber, true);
+xhttp.send();
+
+
+}
+
+</script>
 
 <script>
     function getAllProducts() {
@@ -1524,20 +1574,21 @@
 
 
     }
-    function loadAccounts(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("accounts").innerHTML = this.response;
-            $('#accounts').selectpicker('refresh');
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getAccounts/", true);
-    
-    xhttp.send();
+
+    function loadAccounts() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("accounts").innerHTML = this.response;
+                $('#accounts').selectpicker('refresh');
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getAccounts/", true);
+
+        xhttp.send();
     }
 
     function AddCustomer() {
@@ -1831,23 +1882,16 @@
         var tot = document.getElementById("Total").value;
         var discount = document.getElementById('DiscountOverall').value;
         var gross = document.getElementById('grossTotal').value;
-
-
-
-
         var tax = document.getElementById('tax').value;
-
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('AmountPaid').value;
         var rmb = document.getElementById("RemainingBalance").value;
-
-
         var CID = document.getElementById("CID").value;
         var CLB = document.getElementById("LastBalance").value;
-
         var CCB = document.getElementById("CurrentBalance").value;
-        var AID=$('#accounts').find(":selected").val();
-        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB,AID];
+        var AID = $('#accounts').find(":selected").val();
+
+        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
 
         //alert(myRow2[0][1]);
         //alert(myRow2[11]);

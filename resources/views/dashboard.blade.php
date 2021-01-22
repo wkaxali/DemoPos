@@ -9563,7 +9563,7 @@ padding-right: 30px;
     </style>
 </head>
 
-<body>
+<body onload="loadFields()">
     <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -9592,7 +9592,7 @@ padding-right: 30px;
                         </div>
 
                         <div class="form-submit">
-                            <a onclick="infoPass()">Add Customer</a>
+                            <a onclick="location.href = '/dl'">Add Customer</a>
                         </div>
                     </form>
                 </div>
@@ -9634,7 +9634,7 @@ padding-right: 30px;
                                                     style="border: 2px solid gray; border-radius: 10px;">
 
 
-
+                                                    {{ session()->put('CID','125')}}
                                                     <div class="col-md-3">
                                                         <label class="labels" for="">Purchase</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
@@ -10082,7 +10082,7 @@ padding-right: 30px;
                                             {
                                                 value: 40,
                                                 color: "#0a549d"
-                                            },
+                                             },
                                         ];
                                         new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
                                             doughnutData);
@@ -10458,6 +10458,13 @@ padding-right: 30px;
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
     <script>
+        function loadFields(){
+            dailySaleAmount();
+        }
+
+
+
+
         $(document).ready(function () {
                 $("#killme").click(function () {
                     $('.bd-example-modal-lg').modal('hide');
@@ -10501,6 +10508,33 @@ padding-right: 30px;
 
     </script>
     <script>
+
+
+function dailySaleAmount(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            var data = this.responseText;
+                alert(data);
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                var saleToday = a[0].DailySale;
+
+                document.getElementById("salesToday").innerText = saleToday;
+
+                alert(saleToday);
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./dailySaleAmount/", true);
+    
+    xhttp.send();
+    }
+
+
+
         function bar_group() {
             group_ident = 1, $(".bar_group").each(function () {
                 $(this).addClass("group_ident-" + group_ident), $(this).data("gid", group_ident), group_ident++

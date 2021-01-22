@@ -241,7 +241,7 @@ class OrderFlowController extends Controller
         'DateStamp'=>$dateNow,
         'UserID'=>$userID,
         'PattyCash'=>$pattyCash,
-        'TransactionType'=>"Credit",
+        'TransactionType'=>"Debit",
         
         'SBB'=>NULL,
         'SBA'=>NULL,
@@ -264,6 +264,11 @@ class OrderFlowController extends Controller
 
       function viewStock(){
         $data=DB:: select('select * from vw_stockdetails where Category = 20');
+        return $data;
+      }
+
+      function viewAllStock(){
+        $data=DB:: select('select * from vw_stockdetails');
         return $data;
       }
 
