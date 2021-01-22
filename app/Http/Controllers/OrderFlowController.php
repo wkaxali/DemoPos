@@ -212,6 +212,11 @@ class OrderFlowController extends Controller
         return $data;
       }
 
+      function viewAllStock(){
+        $data=DB:: select('select * from vw_stockdetails');
+        return $data;
+      }
+
       function viewCustomer(){
         $data=DB:: select('select * from customeinformation');
         return $data;

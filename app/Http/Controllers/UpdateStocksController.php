@@ -138,4 +138,44 @@ public static function setTotalCost($PID,$amount){
   return "Cost Updated";
 
 }
+
+public function UpdateInStock(Request $request,$CO){
+  $obj = json_decode($CO);
+
+  $PID=$obj[0];
+  $productName=$obj[1];
+  $company=$obj[2];
+  $salePrice=$obj[3];
+  $purchasePrice=$obj[4];
+  $stockIn=$obj[5];
+  $engineNumber=$obj[6];
+  $chasisNumber=$obj[7];
+  
+  self:: instock($PID, $productName, $company, $salePrice, $purchasePrice, $stockIn, $engineNumber, $chasisNumber);
+
+  return $obj;
+ //return "Getting from controller".$obj[0];
+
+}
+
+  public function instock( $PID, $productName, $company, $salePrice, $purchasePrice, $stockIn, $engineNumber, $chasisNumber)
+  {
+    $update_productdefination = "UPDATE productdefination SET 
+    ProductName = $productName, 
+    Company = $company, 
+    EngineNumber = $engineNumber,
+    ChasisNumber = $chasisNumber
+    WHERE ProductSerial=".$PID;
+
+    $update_instock = "UPDATE instock SET 
+    StockIn = $stockIn, 
+    TotalSaleAmount = $salePrice, 
+    TotalCost = $purchasePrice
+    WHERE StockID=".$PID;
+
+    DB::update($update_instock);
+    //DB::update($update_productdefination);
+  }
+
+
 }

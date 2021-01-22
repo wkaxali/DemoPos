@@ -32,56 +32,57 @@ use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn'] );
+//Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
 
 
-Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu'] );
-Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories'] );
-Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu'] );
-Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu'] );
+Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
+Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
+Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu']);
+Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu']);
 
 
-Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin'] );
-Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow'] );
-Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem'] );
+Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
+Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow']);
+Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem']);
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID']);
 Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
 Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
+Route::get('/viewAllStock',[OrderFlowController::class, 'viewAllStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
-Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo'] );
+Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo']);
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
 Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
+Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStock']);
+
+Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
+Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
+Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
+
+Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
+Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
+Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
+Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
+Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
+Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
+Route::get('/getAttendance',[attendanceController::class, 'getAttendance']);
+Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID']);
+Route::get('/getEmployeeName',[payController::class, 'getEmployeeName']);
+Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC']);
+Route::get('/getEmployeeID',[payController::class, 'getEmployeeID']);
+Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact']);
+Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory']);
+Route::get('/getEmployee',[expenseController::class, 'getEmployee']);
 
 
-Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails'] );
-Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts'] );
-Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
-
-Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow'] );
-Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor'] );
-Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense'] );
-Route::get('/addTasks/{data}',[taskController::class, 'insertTasks'] );
-Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance'] );
-Route::get('/getEmployeeData',[taskController::class, 'employeeData'] );
-Route::get('/getAttendance',[attendanceController::class, 'getAttendance'] );
-Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID'] );
-Route::get('/getEmployeeName',[payController::class, 'getEmployeeName'] );
-Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC'] );
-Route::get('/getEmployeeID',[payController::class, 'getEmployeeID'] );
-Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact'] );
-Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory'] );
-Route::get('/getEmployee',[expenseController::class, 'getEmployee'] );
-
-
-Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission'] );
+Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
 
 Route::get('/', function () {
     return view('signInSignUp');
@@ -89,7 +90,7 @@ Route::get('/', function () {
 Route::get('/db', function () {
     return view('dashboard');
 });
-Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct'] );
+Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
 
 Route::get('/as', function () {
@@ -189,3 +190,7 @@ Route::get('/inv', function () {
 Route::get('/pr', function () {
     return view('payRoll');
 });
+Route::get('/es', function () {
+    return view('editStock');
+});
+
