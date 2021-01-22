@@ -156,7 +156,17 @@ public static function setTotalCost($PID,$amount){
   return "Cost Updated";
 
 }
+public static function updateStock($PID,$stkIn){
 
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update(['StockIn'=>$stkIn
+  
+
+  ]);
+  return "Cost Updated";
+
+}
 public function UpdateInStock(Request $request,$CO){
   $obj = json_decode($CO);
 
