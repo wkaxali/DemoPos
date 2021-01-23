@@ -10419,6 +10419,7 @@ padding-right: 30px;
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
                             <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
+                            <li id="menu-academico-boletim"><a href="./logout">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
