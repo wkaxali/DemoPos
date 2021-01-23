@@ -591,6 +591,7 @@
                                             class="btn "><input class="hello" onchange="customDate()" type="date"
                                                 style="background: none !important; width:103px; border: none !important;"
                                                 name="" id="date"></button>
+                                        <input type="text" class="form-control" name="" id="dateValue">
                                     </div>
                                     <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
                                     <br>
@@ -599,13 +600,14 @@
                                     <div class="btn-group" id="myBtnGroup" role="group" aria-label="Basic example">
                                         <button type="button" id="Urgent"
                                             style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn ">Urgent</button>
+                                            class="btn " onclick="priority1()">Urgent</button>
                                         <button type="button" id="Normal"
                                             style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn ">Normal</button>
+                                            class="btn " onclick="priority2()">Normal</button>
                                         <button type="button" id="Easily"
                                             style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn">Easily</button>
+                                            class="btn" onclick="priority3()">Easily</button>
+                                        <input type="text" class="form-control" name="" id="priority">
                                     </div><br>
                                     <label for="">Category</label><br>
                                     <select style="height: 25px !important; width: 158px !important; "
@@ -640,6 +642,18 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
+
+        function priority1(){
+            document.getElementById("priority").value = "Urgent"
+        }
+        function priority2(){
+            document.getElementById("priority").value = "Normal"
+        }
+        function priority3(){
+            document.getElementById("priority").value = "Easily"
+        }
+
+
         $(document).ready(function () {
             $("#Today").click(function () {
                 $(this).css({
@@ -764,8 +778,10 @@
         function GetDates() {
             var date = new Date();
             alert(date);
+            document.getElementById("dateValue").value = date
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
+            
 
 
         }
@@ -775,14 +791,15 @@
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
             alert(tomorrow);
-
-
+            document.getElementById("dateValue").value = tomorrow;
             var mainValue = document.getElementById("changeme");
             mainValue.value = tomorrow;
+            
         }
 
         function customDate() {
             var custumDate = document.getElementById("date").value;
+            document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
 
             var mainValue = document.getElementById("changeme");
@@ -831,11 +848,11 @@
 
             var taskSubject = document.getElementById("taskSubject").value;
             var assignedTo = document.getElementById("assignTo").value;
-            var dueDate = document.getElementById("date").value;
+            var dueDate = document.getElementById("dateValue").value;
+            var priority = document.getElementById("priority").value;
             var category = document.getElementById("category").value;
             //var taskSubject = document.getElementById("taskSubject").value;
             //var priority = document.getElementById("taskSubject").value;
-
 
             var taskDetails = [];
             var OverallTask = [];
@@ -856,7 +873,7 @@
             //expenseDetails.shift();
             //
             //var taskTable = JSON.stringify(taskDetails);
-            OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category];
+            OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority];
             var taskTable = JSON.stringify(OverallTask);
             alert(taskTable);
             var xhttp = new XMLHttpRequest();

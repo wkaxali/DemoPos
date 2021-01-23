@@ -1469,16 +1469,27 @@ xhttp.onreadystatechange = function () {
         var i=0;
         //alert(a.length);
         var table = document.getElementById("ProductSaleTable");
-        var tableBody = document.getElementById("ProductSaleTableBody");
-        tableBody.innerHTML="";
+        table.innerHTML="<thead>\
+                            <tr>\
+                                <th>Product ID</th>\
+                                <th>Product Name</th>\
+                                <th>Company</th>\
+                                <th>Sale Price</th>\
+                                <th>Quantity</th>\
+                                <th>Discount</th>\
+                                <th>Total</th>\
+                                <th>Action</th>\
+                            </tr>\
+                        </thead>";
+
         for (i; i < a.length; i++) {
             var PID = a[i].ProductSerial;
             var discount = a[i].Discount;
             var quantity = a[i].Quantity;
-            var totalSaleAmount = a[i].TotalSaleAmount;
+            var salePrice = a[i].SalePrice;
             var company = a[i].Company;
             var productName = a[i].ProductName;
-            var totalAmount = a[i].TotalAmount;
+            var totalAmount = a[i].NetAmount;
 
             var row = table.insertRow(-1);
             var cell1 = row.insertCell(0);
@@ -1493,7 +1504,7 @@ xhttp.onreadystatechange = function () {
             cell1.innerHTML = PID;
             cell2.innerHTML = productName;
             cell3.innerHTML = company;
-            cell4.innerHTML = totalSaleAmount;
+            cell4.innerHTML = salePrice;
             cell5.innerHTML = quantity;
             cell6.innerHTML = discount;
             cell7.innerHTML = totalAmount;
@@ -1605,7 +1616,7 @@ xhttp.send();
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./getAccounts/", true);
+        xhttp.open("GET", "./getAccountHeads/", true);
 
         xhttp.send();
     }
@@ -1921,6 +1932,10 @@ xhttp.send();
 
 
         var xhttp = new XMLHttpRequest();
+        if(AID == ""){
+            alert("Payment Method not selected");
+        }else{
+            
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
@@ -1928,10 +1943,12 @@ xhttp.send();
 
             }
         };
-        // var MenuID=$('#Menus').find(":selected").val();
+    
         xhttp.open("GET", "./addSalesForSS/" + array, true);
+        // var MenuID=$('#Menus').find(":selected").val();
         xhttp.send();
-    };
+    }
+    }
 
 </script>
 

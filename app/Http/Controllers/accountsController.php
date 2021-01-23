@@ -9,7 +9,7 @@ class accountsController extends Controller
     public static function getAccountHeads(){
         $data=DB:: select('select * from tblaccounts');
     
-        $option='<option value=" "></option>';
+        $option='<option value=""></option>';
     
     
         foreach ($data as $d){

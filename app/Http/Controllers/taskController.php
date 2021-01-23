@@ -17,7 +17,7 @@ class taskController extends Controller
         $assignedTo=$ata[2];
         $dueDate=$ata[3];
         $category=$ata[4];
-        // $priority=$ata[5];
+        $priority=$ata[5];
         // $remarks=$ata[6];
         $st=$ata[0];
         $tid=DB::table('tbl_tasks')->insertGetId([
@@ -25,7 +25,7 @@ class taskController extends Controller
             'DueDate'=>$dueDate,
             'AssignedTo'=>$assignedTo,
             //'Status'=>$ts,
-            //'Priority'=>$ts,
+            'Priority'=>$priority,
             'CategoryID'=>$category,
             
             ]);
@@ -109,7 +109,7 @@ public static function getEmployees(){
   }
 
   public static function getCategory(){
-    $data=DB:: select('select * from tblemployees');
+    $data=DB:: select('select * from tbl_taskcategory');
     
     $option='<option value=" "></option>';
 
@@ -118,7 +118,7 @@ public static function getEmployees(){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->EID.'>'.$d->FirstName.' '.$d->LastName.'</option>';
+        <option value= '.$d->CategoryID.'>'.$d->Category.'</option>';
       
     }
     return $option;

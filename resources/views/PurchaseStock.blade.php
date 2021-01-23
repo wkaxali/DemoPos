@@ -1302,7 +1302,6 @@
                             <tr>
 
                                 <th>Product ID</th>
-
                                 <th>Product Name</th>
                                 <th>Company</th>
                                 <th>Purchase Price</th>
@@ -1764,7 +1763,7 @@
         }
     };
     //alert("ljd");
-    xhttp.open("GET", "./getAccounts/", true);
+    xhttp.open("GET", "./getAccountHeads/", true);
     
     xhttp.send();
     }
@@ -1851,10 +1850,15 @@
 
 
         var array = JSON.stringify(myRow2);
-
-
+       // alert(array);
+       
 
         var xhttp = new XMLHttpRequest();
+        
+        if(AID == ""){
+            alert("Payment Method not selected");
+        }else{
+            
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
@@ -1862,16 +1866,15 @@
 
             }
         };
-
-        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-
-        // var MenuID=$('#Menus').find(":selected").val();
     
-
-        
-
+        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+        // var MenuID=$('#Menus').find(":selected").val();
         xhttp.send();
-    };
+    }
+    // }else{
+    //         alert("Payment Method is not selected");
+    //     }
+    }
 
     function validation(){
         
@@ -1895,7 +1898,7 @@ xhttp.onreadystatechange = function () {
         document.getElementById("CNO").value = a[0].Contect;
         document.getElementById("SupplierCategory").value = a[0].Category;
         //document.getElementById("SupplierName").value =;
-        $('#SupplierName').val( a[0].SID);
+        $('#SupplierName').val( a[0].SupplierID);
         $('#SupplierName').selectpicker('refresh');
         // var e = document.getElementById("SupplierName");
         //  e.options[e.selectedIndex].value=a[0].SID;
@@ -1903,16 +1906,27 @@ xhttp.onreadystatechange = function () {
         var i=0;
         //alert(a.length);
         var table = document.getElementById("ProductSaleTable");
-        var tableBody = document.getElementById("ProductSaleTableBody");
-        tableBody.innerHTML="";
+        table.innerHTML="<thead>\
+                            <tr>\
+                                <th>Product ID</th>\
+                                <th>Product Name</th>\
+                                <th>Company</th>\
+                                <th>Purchase Price</th>\
+                                <th>Quantity</th>\
+                                <th>Discount</th>\
+                                <th>Total</th>\
+                                <th>Action</th>\
+                            </tr>\
+                        </thead>";
+
         for (i; i < a.length; i++) {
-            var PID = a[i].ProductID;
+            var PID = a[i].ProductSerial;
             var discount = a[i].Discount;
-            var quantity = a[i].Quantity;
-            var totalSaleAmount = a[i].NetTotal;
+            var quantity = a[i].OrderedQuantiy;
+            var purchasePrice = a[i].PurchasePricePerUnit;
             var company = a[i].Company;
             var productName = a[i].ProductName;
-            var totalAmount = a[i].NetTotal;
+            var totalAmount = a[i].NetAmount;
 
             var row = table.insertRow(-1);
             var cell1 = row.insertCell(0);
@@ -1927,7 +1941,7 @@ xhttp.onreadystatechange = function () {
             cell1.innerHTML = PID;
             cell2.innerHTML = productName;
             cell3.innerHTML = company;
-            cell4.innerHTML = totalSaleAmount;
+            cell4.innerHTML = purchasePrice;
             cell5.innerHTML = quantity;
             cell6.innerHTML = discount;
             cell7.innerHTML = totalAmount;
