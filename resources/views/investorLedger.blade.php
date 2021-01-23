@@ -192,24 +192,24 @@
             <div class="row">
                 <div class="col-md-12">
                    
-                    
                         <table class=" table-striped" style="width: 100%; text-align: center;" id="mainStockTable">
-                        <thead>
-    <tr>
-      <th>Product Id</th>
-      <th>Product Name</th>
-      <th>Sale Price</th>
-      <th>Purchase Price</th>
-      <th>Profit</th>
-      <th>Self Profit</th>
-      <th>Investor Profit</th>
-      <th>Engine Number</th>
-      <th>Chasis Number</th>
-      <th>Assigned</th>
-    </tr>
-    <tbody id="MainStockTableBody">
-    </tbody>
-  </thead>
+                            <thead>
+                                <tr>
+                                <th>Product Id</th>
+                                <th>Product Name</th>
+                                <th>Sale Price</th>
+                                <th>Purchase Price</th>
+                                <th>Profit</th>
+                                <th>Self Profit</th>
+                                <th>Investor Profit</th>
+                                <th>Engine Number</th>
+                                <th>Chasis Number</th>
+                                <th>Assigned</th>
+                                </tr>
+                            </thead>
+                            <tbody id="MainStockTableBody">
+                            </tbody>
+                        
                         </table>
                     
                 </div>
@@ -584,7 +584,6 @@ function getInvestorStock(){
     xhttp.send();
     }
 </script>
-
 
 
 </body>

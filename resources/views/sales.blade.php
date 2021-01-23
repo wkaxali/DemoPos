@@ -17,7 +17,6 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
 
 
     <style>
@@ -1321,12 +1320,9 @@
                 <div>
                     <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
                         id="ProductSaleTable">
-
                         <thead>
                             <tr>
-
                                 <th>Product ID</th>
-
                                 <th>Product Name</th>
                                 <th>Company</th>
                                 <th>Sale Price</th>
@@ -1334,12 +1330,9 @@
                                 <th>Discount</th>
                                 <th>Total</th>
                                 <th>Action</th>
-
-
-
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="ProductSaleTableBody">
 
                             <!-- this will be populated from database -->
                         </tbody>
@@ -1452,12 +1445,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $('#myTables').DataTable();
-        });
-
-    </script>
+    
 </body>
 
 
@@ -1470,6 +1458,7 @@ xhttp.onreadystatechange = function () {
         var data = this.responseText;
         //alert(data);
         var a = JSON.parse(data);
+        
         document.getElementById("CID").value = a[0].CustomerID;
         document.getElementById("LastBalance").value = a[0].Balance;
         document.getElementById("CurrentBalance").value = a[0].Balance;
@@ -1477,17 +1466,42 @@ xhttp.onreadystatechange = function () {
         document.getElementById("CNO").value = a[0].Contect;
         document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
         document.getElementById("CustomerName").value = a[0].CustomerID;
+        var i=0;
+        //alert(a.length);
+        var table = document.getElementById("ProductSaleTable");
+        var tableBody = document.getElementById("ProductSaleTableBody");
+        tableBody.innerHTML="";
+        for (i; i < a.length; i++) {
+            var PID = a[i].ProductSerial;
+            var discount = a[i].Discount;
+            var quantity = a[i].Quantity;
+            var totalSaleAmount = a[i].TotalSaleAmount;
+            var company = a[i].Company;
+            var productName = a[i].ProductName;
+            var totalAmount = a[i].TotalAmount;
 
-        var table;  
-        
-        table = $('#ProductSaleTable').DataTable();
-        $.each(a, function (i, item) {
-            table.row.add([a[i].ProductSerial, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].Quantity
-            , a[i].Discount, a[i].NetAmount]);
-        });
-        
-        table.draw();
-        table.clear();
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+
+            cell1.innerHTML = PID;
+            cell2.innerHTML = productName;
+            cell3.innerHTML = company;
+            cell4.innerHTML = totalSaleAmount;
+            cell5.innerHTML = quantity;
+            cell6.innerHTML = discount;
+            cell7.innerHTML = totalAmount;
+            //calc();
+            cell8.innerHTML =
+                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+    }
+
     }
 };
 var invoiceNumber = document.getElementById("InvoiceID").value;
@@ -1511,7 +1525,7 @@ xhttp.send();
                 var a = JSON.parse(data);
                 //  alert(a[0].ProductSerial);
                 table = $('#searchProductTable').DataTable();
-
+                //table = document.getElementById("searchProductTable")
                 $.each(a, function (i, item) {
 
                     table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice,
