@@ -284,3 +284,24 @@ Route::get('/es', function () {
     return view('editStock');
 });
 
+Route::get('/d', function () {
+    return view('delivery');
+});
+Route::get('/nd', function () {
+    return view('newDashboard');
+});
+
+Route::get('/SalarySlip', function () {
+    return view('SalarySlip');
+});
+Route::get('/l', function () {
+    return view('investorLedger');
+});
+
+Route::get('/ql', function () {
+    return view('quotation');
+});
+
+Route::get('/e', function () {
+    return view('Employee');
+});

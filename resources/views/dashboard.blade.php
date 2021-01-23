@@ -21,7 +21,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <style>
         h4,
         h5,
@@ -43,9 +44,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         html,
         body {
-            font-family: 'Work Sans', sans-serif;
+            font-family: 'Nunito', sans-serif;
             font-size: 100%;
             background: #fff;
+
         }
 
         a {
@@ -175,13 +177,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .sidebar-menu {
             position: absolute;
             float: left;
-            width: 220px;
+            width: 230px;
+
             top: 0px;
             left: 0px;
             bottom: 0;
             background-color: #202121;
             color: #aaabae;
             z-index: 999;
+            height: 100%;
+
         }
 
         #menu {
@@ -194,8 +199,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         #menu li {
             position: relative;
             margin: 0;
-            font-size: 18px;
+            font-size: 10px;
+            word-spacing: 2px;
             padding: 0;
+            font-family: 'Roboto', sans-serif !important;
+
         }
 
         #menu li ul {
@@ -206,18 +214,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         #menu li a {
             position: relative;
             display: block;
-            padding: 13px 20px;
+            padding: 13px auto;
             color: #FFFFFF;
             white-space: nowrap;
             z-index: 2;
-            font-size: 1.12em;
-            text-align: center;
+            font-size: 14px;
+            word-spacing: 2px;
+
+padding-right: 30px;
             font-family: 'Carrois Gothic', sans-serif;
         }
 
+        #menu li a {
+            padding: 9px 20px;
+            transition: .4s !important;
+
+        }
+
         #menu li a:hover {
-            color: #e61d2f;
+            background-color: ;
             transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+
+        }
+
+
+        #menu li a:hover .fa-angle-right {
+            transform: rotate(45deg);
+        }
+
+        #menu li a:hover span {
+
+            padding-left: 13px;
+            transition: .4s !important;
         }
 
         #menu li.active>a {
@@ -227,6 +255,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         #menu ul li {
             background-color: #202121;
+            padding: 2px 0px;
         }
 
         #menu ul {
@@ -239,8 +268,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             position: absolute;
             visibility: hidden;
             left: 100%;
-            top: 20px;
-            background-color: #2b303a;
+            top: 5px;
+
+            background-color: #202121;
             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
             opacity: 0;
             transition: opacity 0.1s linear;
@@ -353,10 +383,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             display: inline-block;
         }
 
-        .nav>li>a:hover,
+        /* .nav>li>a:hover,
         .nav>li>a:focus {
             background: none !important;
-        }
+        } */
 
         span.logo-clr {
             color: #fdbb30;
@@ -998,7 +1028,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--header strip end here-*/
         /*inner-block--*/
         .inner-block {
-            padding: 8em 2em 4em 2em;
+            padding: 1em 2em 4em 2em;
             background: #fafafa;
         }
 
@@ -1037,7 +1067,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-2 {
-     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1063,11 +1093,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-2:hover {
-         transition: 0.5s all;
+            transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
             -o-transition: 0.5s all;
-            
+
         }
 
         .market-update-block.clr-block-3:hover {
@@ -3683,7 +3713,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
 
             .sidebar-menu {
-                width: 190px;
+                width: 216px;
             }
 
             .logo {
@@ -3725,7 +3755,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
 
             #menu li a {
-                padding: 12px 20px;
+                padding: 6px 20px;
             }
 
             canvas#line {
@@ -3898,7 +3928,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             .market-update-block {
                 padding: 1.5em 1.5em;
-              
+
             }
 
             .market-update-right i.fa.fa-file-text-o {
@@ -4526,9 +4556,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
 
             .sidebar-menu {
-                position: absolute;
+                position: fixed;
                 float: left;
                 width: 170px;
+                height: 100%;
             }
 
             .left-content {
@@ -5924,9 +5955,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: #999;
         }
 
-        ul li:last-child {
-            border-bottom: 1px solid #ebebeb;
-        }
+        ul li:last-child {}
 
         .appointment-form ul li:not(.init) {
             display: none;
@@ -6016,20 +6045,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 padding: 50px 30px 70px 30px;
             }
         }
-a:hover{
-    cursor: pointer;
-}
-        @media only screen and (max-width: 768px) {
-           .header-main{
-               display: none !important;
-            }
+
+        ul li {
+            font-family: 'Roboto', sans-serif;
         }
 
+        a:hover {
+            cursor: pointer;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .header-main {
+                display: none !important;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #0a549d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e61d2f;
+        }
     </style>
 
     <link href="css/font-awesome.css" rel="stylesheet">
-    <link href='//fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Work+Sans:400,500,600' rel='stylesheet' type='text/css'>
     <script>
         /*!
          * Chart.js
@@ -9489,6 +9532,34 @@ a:hover{
             height: 180%;
         }
 
+        .nav-pills {
+            float: right !important;
+            background-color: #0a549d;
+            border-radius: 15px;
+        }
+
+        .clearmain {
+            clear: both;
+        }
+
+        .nav-pills .nav-link {
+            border-radius: .25rem;
+            color: #fff;
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .show>.nav-link {
+            color: #fff;
+            background-color: #e61d2f;
+            border-radius: 15px;
+            padding: 10px;
+
+        }
+
+        i::before {
+            margin-right: 30px;
+        }
+
     </style>
 </head>
 
@@ -9653,7 +9724,7 @@ a:hover{
                         <div class="profile_details">
                             <ul>
                                 <li class="dropdown profile_details_drop">
-                                    <a  class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <div class="profile_img">
                                             <span class="prfil-img"><img style="height: 50px; border-radius: 50%; "
                                                     src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
@@ -9696,52 +9767,224 @@ a:hover{
 
                 </script>
                 <div class="inner-block">
-                    <div class="market-updates">
-                        <div class="row">
+                    <ul class="nav nav-pills  mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                role="tab" aria-controls="pills-home" aria-selected="true">Today</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                role="tab" aria-controls="pills-profile" aria-selected="false">Last 7 Days</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                                role="tab" aria-controls="pills-contact" aria-selected="false">This Month</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-year-tab" data-toggle="pill" href="#pills-year" role="tab"
+                                aria-controls="pills-year" aria-selected="false">This Year</a>
+                        </li>
+                    </ul>
+                    <div class="clearmain"></div>
+
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                            aria-labelledby="pills-home-tab">
+                            <div class="market-updates">
+                                <div class="row">
 
 
-                            <div class="col-md-4 market-update-gd">
-                                <div class="market-update-block clr-block-1">
-                                    <div class="col-md-8 market-update-left">
-                                        <h3 id="salesToday" value=""></h3>
-                                        <h4>Total Sale Today</h4>
-                                        <p>80% cash sales</p>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-1">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>83</h3>
+                                                <h4>Sales Today</h4>
+                                                <p>80% cash sales</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-file-text-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 market-update-right">
-                                        <i class="fa fa-file-text-o"> </i>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-2">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>135</h3>
+                                                <h4>Leads</h4>
+                                                <p>Team visited 230 people</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-eye"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
                                     </div>
-                                    <div class="clearfix"> </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-3">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>23</h3>
+                                                <h4>New Messages</h4>
+                                                <p>get reply</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-envelope-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4 market-update-gd">
-                                <div class="market-update-block clr-block-2">
-                                    <div class="col-md-8 market-update-left">
-                                    <h3 id="salestoday" value=""></h3>
-                                        <h4>Leads</h4>
-                                        <p>Team visited 230 people</p>
-                                    </div>
-                                    <div class="col-md-4 market-update-right">
-                                        <i class="fa fa-eye"> </i>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 market-update-gd">
-                                <div class="market-update-block clr-block-3">
-                                    <div class="col-md-8 market-update-left">
-                                    <h3 id="salestoday" value=""></h3>
-                                        <h4>New Messages</h4>
-                                        <p>get reply</p>
-                                    </div>
-                                    <div class="col-md-4 market-update-right">
-                                        <i class="fa fa-envelope-o"> </i>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
+                                <div class="clearfix"> </div>
                             </div>
                         </div>
-                        <div class="clearfix"> </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab">
+                            <div class="market-updates">
+                                <div class="row">
+
+
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-1">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>83</h3>
+                                                <h4>Sales Today</h4>
+                                                <p>80% cash sales</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-file-text-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-2">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>135</h3>
+                                                <h4>Leads</h4>
+                                                <p>Team visited 230 people</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-eye"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-3">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>23</h3>
+                                                <h4>New Messages</h4>
+                                                <p>get reply</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-envelope-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                            aria-labelledby="pills-contact-tab">
+                            <div class="market-updates">
+                                <div class="row">
+
+
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-1">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>83</h3>
+                                                <h4>Sales Today</h4>
+                                                <p>80% cash sales</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-file-text-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-2">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>135</h3>
+                                                <h4>Leads</h4>
+                                                <p>Team visited 230 people</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-eye"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-3">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>23</h3>
+                                                <h4>New Messages</h4>
+                                                <p>get reply</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-envelope-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-year" role="tabpanel" aria-labelledby="pills-year-tab">
+                            <div class="market-updates">
+                                <div class="row">
+
+
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-1">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>83</h3>
+                                                <h4>Sales Today</h4>
+                                                <p>80% cash sales</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-file-text-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-2">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>135</h3>
+                                                <h4>Leads</h4>
+                                                <p>Team visited 230 people</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-eye"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 market-update-gd">
+                                        <div class="market-update-block clr-block-3">
+                                            <div class="col-md-8 market-update-left">
+                                                <h3>23</h3>
+                                                <h4>New Messages</h4>
+                                                <p>get reply</p>
+                                            </div>
+                                            <div class="col-md-4 market-update-right">
+                                                <i class="fa fa-envelope-o"> </i>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
                     </div>
+
 
                     <div class="chit-chat-layer1">
                         <div class="row">
@@ -9984,48 +10227,129 @@ a:hover{
         </div>
         <div class="sidebar-menu">
 
-            <div class="logo"> <a  class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a >
+            <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
                     <span id="logo"></span>
                 </a> </div>
             <div class="menu">
                 <ul id="menu">
-                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><br><span>Dashboard</span></a>
+                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
                     </li>
-                    <li><a ><i class="fab fa-salesforce"></i><br><span>Products</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
+                    <li><a><i class="fab fa-salesforce"></i><span>Products</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
                         <ul>
-                            <li><a href="/">Add Product</a></li>
-                            <li><a href="/">View Product</a></li>
-                            <li><a href="/">Delete Product</a></li>
+                            <li><a href="/">Category</a></li>
+                            <li><a href="/vs">Product Record</a></li>
+                            <li><a href="/as">Add Product</a></li>
+                            <li><a href="/">Barcode</a></li>
+
+                            <li><a href="/">Stock Audit</a></li>
                         </ul>
                     </li>
-                    <li><a ><i class="fab fa-salesforce"></i><br><span>Customer</span><span
+                    <li><a><i class="fab fa-salesforce"></i><span>Customer</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/">Add Customer</a></li>
+                            <li><a href="/vs">Customer List</a></li>
+                       
+                        </ul>
+                    </li>
+                    <li><a><i class="fab fa-salesforce"></i><span>Supplier</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/">Add Supplier</a></li>
+                            <li><a href="/vs">Supplier List</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-comunicacao"><a><i class="fab fa-alipay"></i>
+                            <span>Purchase</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-comunicacao-sub">
+                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
+                            </li>
+                            <li><a href="">Daily Purchase</a></li>
+                            <li><a href="">Monthly Purchase</a></li>
+                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fab fa-salesforce"></i><span>POS</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/ss">POS</a></li>
+                            <li><a href="/sc">Add Sale</a></li>
+                            <li><a href="">Daily Sales</a></li>
+                            <li><a href="">Monthly Sales</a></li>
+                          
+                        </ul>
+                    </li>
+                    <li><a><i class="fas fa-vials"></i><span>Expense</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/ex">Add Expense</a></li>
+                            <li><a href="">Expense List</a></li>
+                            <li><a href="">Expense Head</a></li>
+                            <li><a href="">Expense Category</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fas fa-quote-right"></i><span>Quotation<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/ql">Quotation List</a></li>
+                            <li><a href="/is">Add Quotation</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fas fa-random"></i><span>Transfer<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="">Transfer Funds</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fas fa-undo-alt"></i><span>Return<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/ss">Sale</a></li>
+                            <li><a href="/is">Purchase</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-academico"><a href="/l"><i class="fas fa-user-circle"></i><span>Accounts</span><span
                                 class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/l">Investor Ledger</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
+                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a><i class="fab fa-accusoft"></i><span>HR</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
+                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- <li><a><i class="fas fa-address-book"></i><br><span>Customer</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
                         <ul>
                             <li><a href="/">Add Customer</a></li>
                             <li><a href="/">View Customer</a></li>
                             <li><a href="/">Delete Customer</a></li>
                         </ul>
-                    </li>
-                    <li><a ><i class="fab fa-salesforce"></i><br><span>Sales</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/is">Invoice Services</a></li>
-                            <li><a href="/sc">Sales And Comission</a></li>
-                            <li><a href="/ss">Sales</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-comunicacao"><a ><i class="fas fa-money-bill-alt"></i>
-                            <br> <span>Purchase</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-comunicacao-sub">
-                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
-                            </li>
-                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                    </li> -->
+
+                    <li><a><i class="fas fa-people-carry"></i><span>People</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
+                            <li id="menu-academico-boletim"><a href="/">Add User</a></li>
+                          
+
                         </ul>
                     </li>
 
-                    <li id="menu-academico"><a href="/stock"><i
-                                class="fab fa-stack-overflow"></i><br><span>Stock</span><span class="fa fa-angle-right"
+
+
+                    <li id="menu-academico"><a href="/stock"><i style="font-size: 20px;"
+                                class="fab fa-stack-overflow"></i><span>Stock</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
@@ -10033,70 +10357,68 @@ a:hover{
                         </ul>
                     </li>
 
-                    <li id="menu-academico"><a href="/l"><i
-                                class="fas fa-user-circle"></i><br><span>Accounts</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="/i">Investor Ledger</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
-                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
 
-                        </ul>
-                    </li>
-                    <li id="menu-academico"><a href="/d"><i
-                                class="fas fa-truck-loading"></i><br><span>Delivery</span><span
+
+                    <li id="menu-academico"><a href="/d"><i class="fas fa-flag-checkered"></i><span>Reports</span><span
                                 class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="/dl">Delivery Letter</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Customer Report</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Best Seller</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Daily Sale</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Monthly Sale</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Daily Purchase</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">MonthlyPurchase</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">User Report</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Supplier Report</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li>
 
 
                         </ul>
                     </li>
+                    <li id="menu-academico"><a href="/d"><i class="fas fa-truck-loading"></i><span>Order Tracking</span><span
+                                class="fa fa-angle-right" style="float: right;"></span></a>
+                                <ul id="menu-academico-sub">
+                                    <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
+                                  
+                                </ul>
+                    </li>
 
-                    <li><a ><i class="fa fa-envelope"></i><span>HR</span><span class="fa fa-angle-right"
+
+                    <li><a><i class="fab fa-amazon-pay"></i><span>PayRoll</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
-                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
-                        </ul>
-                    </li>
-                    <li><a ><i class="fab fa-amazon-pay"></i><br><span>PayRoll</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="">View Employee Pay</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
                             <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
                             <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
                         </ul>
                     </li>
-                    <li><a href="/at"><img src="https://cdn.onlinewebfonts.com/svg/img_226438.png"
-                                style="height: 40px; width: 40px; color: #ffffff;background-color: #ffffff;padding: 5px;border-radius: 50%; margin-left: -10px;"
-                                alt=""><br><span>Attendance</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
+                    <li><a href="/at"><i class="fas fa-guitar"></i><span>Attendance</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="">View Attendance</a></li>
-                            <li id="menu-academico-boletim"><a href="/SalarySlip">Mark Attendance</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
+                            <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
                         </ul>
 
                     </li>
-                    <li><a ><i class="fas fa-eye"></i><br><span>Task View</span><span class="fa fa-angle-right"
+                    <li><a><i class="fas fa-eye"></i><span>Task View</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
                             <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
                         </ul>
                     </li>
-                    <li><a ><i class="fab fa-angellist"></i><br><span>Reporting</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
-                            <li id="menu-academico-boletim"><a href="price.html">Account Settings</a></li>
-                        </ul>
-                    </li>
-                    <li><a ><i class="fa fa-cog"></i><span>Settings</span><span class="fa fa-angle-right"
+
+                    <li><a><i class="fas fa-cogs"></i><span>Account Settings</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
-                            <li id="menu-academico-boletim"><a href="price.html">Account Settings</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
+                            <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -10276,22 +10598,23 @@ function dailySaleAmount(){
                 in_view($(this))
             })
         }), bars();
-        
+
     </script>
     <script>
-   function infoPass(){
+        function infoPass() {
 
-    var customerName="Waqas";
-    var id="78";
-
-   
-    window.location.href = "./pm/"+customerName;
-    //redirect
+            var customerName = "Waqas";
+            var id = "78";
 
 
-   }
+            window.location.href = "./pm/" + customerName;
+            //redirect
+
+
+        }
 
     </script>
+
 
 
 </body>
