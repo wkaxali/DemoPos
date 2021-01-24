@@ -236,7 +236,7 @@
             -moz-transition: all 0.3s ease;
             transition: all 0.3s ease;
             float: right;
-            width: 86%;
+            width: 89%;
         }
 
         .page-container.sidebar-collapsed .sidebar-menu {
@@ -363,13 +363,15 @@
             transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
 
         }
-        .fa-angle-right{
+
+        .fa-angle-right {
             transition: .5s;
         }
 
         #menu li a:hover .fa-angle-right {
             transform: rotate(180deg);
         }
+
         /* #menu li ul:hover> .fa-angle-right {
             transform: rotate(180deg);
         } */
@@ -1161,7 +1163,6 @@
         /*inner-block--*/
         .inner-block {
             padding: 1em 2em 4em 2em;
-            background: #fafafa;
         }
 
         .market-update-block {
@@ -3883,7 +3884,7 @@
             }
 
             .left-content {
-                width: 85%;
+                width: 89%;
             }
 
             #menu li a {
@@ -4759,7 +4760,7 @@
                 display: block;
 
             }
-            
+
             .page-container.sidebar-collapsed #menu span {
                 opacity: 1;
                 transition: all 50ms linear;
@@ -6239,12 +6240,19 @@
         }
 
         .payRow {
-            border: 1px solid #333;
+            border-right: 1px solid #333;
             padding: 10px !important;
             border-radius: 10px;
             margin-top: 10px;
 
             /* width: 1200px; */
+        }
+
+        .payRow-1 {
+            border-left: 1px solid #333;
+            padding: 10px !important;
+            border-radius: 10px;
+            margin-top: 10px;
         }
 
         .backGround {
@@ -6360,7 +6368,7 @@
 
         ::-webkit-scrollbar {
             width: 10px;
-           
+
         }
 
         ::-webkit-scrollbar-track {
@@ -6389,7 +6397,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h4>Empoyee Pay Role</h4>
+                                <h4>Employee Pay Role</h4>
                             </div>
                         </div>
                     </div>
@@ -6514,8 +6522,8 @@
                     <div class="container">
 
 
-                        <div class="row ">
-                            <div class="col-md-5 payRow  offset-md-1">
+                        <div class="row EmpRow">
+                            <div class="col-md-6 payRow ">
                                 <h4 class="redBg">Pay Details</h4>
                                 <label for="">Basic Pay</label>
                                 <input type="text" class="form-control" value="13,000"
@@ -6553,7 +6561,7 @@
                                     <button class="btn">Update</button>
                                 </div>
                             </div>
-                            <div class="col-md-5  payRow myOwnOffset">
+                            <div class="col-md-6 payRow-1 ">
                                 <h4 class="blueBg">Current Status</h4>
                                 <div class="common">
 
@@ -6581,9 +6589,11 @@
                 </a> </div>
             <div class="menu">
                 <ul id="menu">
-                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span style="font-size: 18px;">Dashboard</span></a>
+                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
+                                style="font-size: 18px;">Dashboard</span></a>
                     </li>
-                    <li ><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="collapse list-unstyled firstULs ">
                             <li><a href="/">Category</a></li>
@@ -6594,23 +6604,27 @@
                             <li><a href="/">Stock Audit</a></li>
                         </ul>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span style="font-size: 18px;">Customer</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Customer</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                        <ul class="collapse firstULs1" >
+                        <ul class="collapse firstULs1">
                             <li><a href="/">Add Customer</a></li>
                             <li><a href="/vs">Customer List</a></li>
 
                         </ul>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span style="font-size: 18px;">Supplier</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Supplier</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="collapse firstULs2">
                             <li><a href="/">Add Supplier</a></li>
                             <li><a href="/vs">Supplier List</a></li>
                         </ul>
                     </li>
-                    <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i class="fab fa-alipay"></i>
-                            <span style="font-size: 18px;">Purchase</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                    <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
+                                class="fab fa-alipay"></i>
+                            <span style="font-size: 18px;">Purchase</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
                         <ul class="collapse firstULs3">
                             <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
                             </li>
@@ -6619,7 +6633,8 @@
                             <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
                         </ul>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span style="font-size: 18px;">POS</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">POS</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="collapse firstULs4">
                             <li><a href="/ss">POS</a></li>
@@ -6629,7 +6644,8 @@
 
                         </ul>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span style="font-size: 18px;">Expense</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
+                                style="font-size: 18px;">Expense</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="collapse firstULs5">
                             <li><a href="/ex">Add Expense</a></li>
@@ -6638,28 +6654,32 @@
                             <li><a href="">Expense Category</a></li>
                         </ul>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-quote-right"></i><span style="font-size: 18px;">Quotation<span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-quote-right"></i><span
+                                style="font-size: 18px;">Quotation<span class="fa fa-angle-right"
                                     style="float: right"></span></a>
                         <ul class="collapse firstULs6">
                             <li><a href="/ql">Quotation List</a></li>
                             <li><a href="/is">Add Quotation</a></li>
                         </ul>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-random"></i><span style="font-size: 18px;">Transfer<span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-random"></i><span
+                                style="font-size: 18px;">Transfer<span class="fa fa-angle-right"
                                     style="float: right"></span></a>
                         <ul class="collapse firstULs7">
                             <li><a href="/th">Transaction History</a></li>
                             <li><a href="">Transfer Funds</a></li>
                         </ul>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-undo-alt"></i><span style="font-size: 18px;">Return<span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-undo-alt"></i><span
+                                style="font-size: 18px;">Return<span class="fa fa-angle-right"
                                     style="float: right"></span></a>
                         <ul class="collapse firstULs8">
                             <li><a href="/ss">Sale</a></li>
                             <li><a href="/is">Purchase</a></li>
                         </ul>
                     </li>
-                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs9" ><i class="fas fa-user-circle"></i><span style="font-size: 18px;">Accounts</span><span
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs9"><i
+                                class="fas fa-user-circle"></i><span style="font-size: 18px;">Accounts</span><span
                                 class="fa fa-angle-right" style="float: right"></span></a>
                         <ul class="collapse firstULs9">
                             <li id="menu-academico-boletim"><a href="/l">Investor Ledger</a></li>
@@ -6668,7 +6688,8 @@
 
                         </ul>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span style="font-size: 18px;">HR</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
+                                style="font-size: 18px;">HR</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="collapse firstULs10" id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
@@ -6676,9 +6697,10 @@
                         </ul>
                     </li>
 
-                 
 
-                    <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span style="font-size: 18px;">People</span><span class="fa fa-angle-right"
+
+                    <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
+                                style="font-size: 18px;">People</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="collapse firstULs11" id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
@@ -6690,8 +6712,9 @@
 
 
 
-                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs12" ><i style="font-size: 20px;"
-                                class="fab fa-stack-overflow"></i><span style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs12"><i
+                                style="font-size: 20px;" class="fab fa-stack-overflow"></i><span
+                                style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="collapse firstULs12" id="menu-academico-sub">
                             <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
@@ -6701,7 +6724,8 @@
 
 
 
-                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13" ><i class="fas fa-flag-checkered"></i><span style="font-size: 18px;">Reports</span><span
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
+                                class="fas fa-flag-checkered"></i><span style="font-size: 18px;">Reports</span><span
                                 class="fa fa-angle-right" style="float: right"></span></a>
                         <ul class="collapse firstULs13" id="menu-academico-sub">
                             <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
@@ -6723,7 +6747,8 @@
 
                         </ul>
                     </li>
-                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14" ><i class="fas fa-truck-loading"></i><span style="font-size: 18px;">Order
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14"><i
+                                class="fas fa-truck-loading"></i><span style="font-size: 18px;">Order
                                 Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
                         <ul class="collapse firstULs14" id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
@@ -6732,7 +6757,8 @@
                     </li>
 
 
-                    <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span style="font-size: 18px;">PayRoll</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
+                                style="font-size: 18px;">PayRoll</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="collapse firstULs15" id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
@@ -6740,7 +6766,8 @@
                             <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
                         </ul>
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs16" href="/at"><i class="fas fa-guitar"></i><span style="font-size: 18px;">Attendance</span><span
+                    <li><a data-toggle="collapse" data-target=".firstULs16" href="/at"><i
+                                class="fas fa-guitar"></i><span style="font-size: 18px;">Attendance</span><span
                                 class="fa fa-angle-right" style="float: right"></span></a>
                         <ul class="collapse firstULs16" id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
@@ -6748,7 +6775,8 @@
                         </ul>
 
                     </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs17"><i class="fas fa-eye"></i><span style="font-size: 18px;">Task View</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs17"><i class="fas fa-eye"></i><span
+                                style="font-size: 18px;">Task View</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="firstULs17 collapse" id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
@@ -6756,9 +6784,10 @@
                         </ul>
                     </li>
 
-                    <li><a data-toggle="collapse" data-target=".firstULs18"><i class="fas fa-cogs"></i><span style="font-size: 18px;">Account Settings</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".firstULs18"><i class="fas fa-cogs"></i><span
+                                style="font-size: 18px;">Account Settings</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                        <ul  class="collapse firstULs18" id="menu-academico-sub">
+                        <ul class="collapse firstULs18" id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
                             <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
                         </ul>
@@ -6766,7 +6795,7 @@
                 </ul>
             </div>
         </div>
-        <div class="clearfix"> </div>
+        <div class="clearfix"></div>
     </div>
 
 
@@ -6792,13 +6821,15 @@
             if (toggle) {
                 $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
                 $("#menu span").css({
-                    "position": "absolute"
+                    "position": "absolute",
+
                 });
             } else {
                 $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
                 setTimeout(function () {
                     $("#menu span").css({
-                        "position": "relative"
+                        "position": "relative",
+
                     });
                 }, 400);
             }
