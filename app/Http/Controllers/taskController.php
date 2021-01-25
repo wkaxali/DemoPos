@@ -18,15 +18,17 @@ class taskController extends Controller
         $dueDate=$ata[3];
         $category=$ata[4];
         $priority=$ata[5];
+        $assignedDate=$ata[6];
         // $remarks=$ata[6];
         $st=$ata[0];
         $tid=DB::table('tbl_tasks')->insertGetId([
             'Subject'=>$subject,
             'DueDate'=>$dueDate,
             'AssignedTo'=>$assignedTo,
-            //'Status'=>$ts,
+            'Status'=>'Pending',
             'Priority'=>$priority,
             'CategoryID'=>$category,
+            'AssignedDate'=>$assignedDate,
             
             ]);
         foreach ($st as $obj){
