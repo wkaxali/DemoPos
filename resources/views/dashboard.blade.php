@@ -221,7 +221,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             font-size: 14px;
             word-spacing: 2px;
 
-padding-right: 30px;
+            padding-right: 30px;
             font-family: 'Carrois Gothic', sans-serif;
         }
 
@@ -6059,6 +6059,7 @@ padding-right: 30px;
                 display: none !important;
             }
         }
+
         ::-webkit-scrollbar {
             width: 10px;
         }
@@ -6070,6 +6071,7 @@ padding-right: 30px;
         ::-webkit-scrollbar-thumb {
             background-color: #e61d2f;
         }
+
     </style>
 
     <link href="css/font-awesome.css" rel="stylesheet">
@@ -9609,7 +9611,7 @@ padding-right: 30px;
                 <div class="header-main">
                     <div class="header-left">
                         <div class="logo-name">
-                            <a href="index.html">
+                            <a href="/db">
                                 <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png"
                                     class="img-fluid" alt="">
                             </a>
@@ -10082,7 +10084,7 @@ padding-right: 30px;
                                             {
                                                 value: 40,
                                                 color: "#0a549d"
-                                             },
+                                            },
                                         ];
                                         new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
                                             doughnutData);
@@ -10250,7 +10252,7 @@ padding-right: 30px;
                         <ul>
                             <li><a href="/">Add Customer</a></li>
                             <li><a href="/vs">Customer List</a></li>
-                       
+
                         </ul>
                     </li>
                     <li><a><i class="fab fa-salesforce"></i><span>Supplier</span><span class="fa fa-angle-right"
@@ -10277,7 +10279,7 @@ padding-right: 30px;
                             <li><a href="/sc">Add Sale</a></li>
                             <li><a href="">Daily Sales</a></li>
                             <li><a href="">Monthly Sales</a></li>
-                          
+
                         </ul>
                     </li>
                     <li><a><i class="fas fa-vials"></i><span>Expense</span><span class="fa fa-angle-right"
@@ -10341,7 +10343,7 @@ padding-right: 30px;
                         <ul id="menu-academico-sub">
                             <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
                             <li id="menu-academico-boletim"><a href="/">Add User</a></li>
-                          
+
 
                         </ul>
                     </li>
@@ -10381,12 +10383,12 @@ padding-right: 30px;
 
                         </ul>
                     </li>
-                    <li id="menu-academico"><a href="/d"><i class="fas fa-truck-loading"></i><span>Order Tracking</span><span
-                                class="fa fa-angle-right" style="float: right;"></span></a>
-                                <ul id="menu-academico-sub">
-                                    <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
-                                  
-                                </ul>
+                    <li id="menu-academico"><a href="/d"><i class="fas fa-truck-loading"></i><span>Order
+                                Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
+
+                        </ul>
                     </li>
 
 
@@ -10458,7 +10460,7 @@ padding-right: 30px;
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
     <script>
-        function loadFields(){
+        function loadFields() {
             dailySaleAmount();
         }
 
@@ -10508,30 +10510,28 @@ padding-right: 30px;
 
     </script>
     <script>
+        function dailySaleAmount() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
 
+                if (this.readyState == 4 && this.status == 200) {
 
-function dailySaleAmount(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            var data = this.responseText;
-                alert(data);
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                var saleToday = a[0].DailySale;
+                    var data = this.responseText;
+                    alert(data);
+                    var a = JSON.parse(data);
+                    //  alert(a[0].ProductSerial);
+                    var saleToday = a[0].DailySale;
 
-                document.getElementById("salesToday").innerText = saleToday;
+                    document.getElementById("salesToday").innerText = saleToday;
 
-                alert(saleToday);
+                    alert(saleToday);
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./dailySaleAmount/", true);
+
+            xhttp.send();
         }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./dailySaleAmount/", true);
-    
-    xhttp.send();
-    }
 
 
 
