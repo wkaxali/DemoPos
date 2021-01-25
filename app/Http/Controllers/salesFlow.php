@@ -149,5 +149,10 @@ class salesFlow extends Controller
 
 
     }
+  public static function getAllInvoiceDetails($InvoiceNo){
+      $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+      return $results;
+
+  }
     
 }

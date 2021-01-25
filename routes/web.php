@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
-
+use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
@@ -74,7 +74,7 @@ Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
-Route::get('/getInvoiceCustomer/{data}',[CustomerController::class, 'getInvoiceCustomer'] );
+Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails'] );
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock'] );
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct'] );
@@ -152,7 +152,7 @@ Route::get('/getCategory',[taskController::class, 'getCategory'] );
 Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
-
+Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative'] );
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive'] );

@@ -1113,7 +1113,7 @@
                 <label for="invo-1">Invoice Number</label>
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="InvoiceID">
-                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;" onclick="getInvoiceCustomer()"></button>
+                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;" onclick="getAllInvoiceDetails()"></button>
                 <br class="hideBr"> <label for="prod-1">Product Number</label>
                 <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="invo-1">
@@ -1376,7 +1376,7 @@
                 </div>
                 <div class="total-buttons" id="hideme">
                     <button class="btn" style="background-color: #0a549d;">Hold</button>
-                    <button class="btn" style="background-color: #e61d2f;">Update</button>
+                    <button class="btn" style="background-color: #e61d2f;" onclick="UpdateSaleInvoice()">Update</button>
                     <button class="btn" style="background-color: #0a549d;">Delete</button>
                 </div>
 
@@ -1450,7 +1450,7 @@
 
 
 <script>
-    function getInvoiceCustomer(){
+    function getAllInvoiceDetails(){
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
@@ -1486,6 +1486,7 @@ xhttp.onreadystatechange = function () {
             var PID = a[i].ProductSerial;
             var discount = a[i].Discount;
             var quantity = a[i].Quantity;
+            //alert(quantity);
             var salePrice = a[i].SalePrice;
             var company = a[i].Company;
             var productName = a[i].ProductName;
@@ -1517,7 +1518,7 @@ xhttp.onreadystatechange = function () {
 };
 var invoiceNumber = document.getElementById("InvoiceID").value;
 
-xhttp.open("GET", "./getInvoiceCustomer/" + invoiceNumber, true);
+xhttp.open("GET", "./getAllInvoiceDetails/" + invoiceNumber, true);
 xhttp.send();
 
 
@@ -1938,7 +1939,7 @@ xhttp.send();
             
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-
+                
                 alert("Invoice =" + this.responseText + " is generated");
 
             }
@@ -1949,6 +1950,72 @@ xhttp.send();
         xhttp.send();
     }
     }
+    function UpdateSaleInvoice() {
+
+var myTrows = [];
+var table = document.getElementById("ProductSaleTable");
+var myRow2 = [];
+
+//alert(sp);
+$('#ProductSaleTable tr').each(function (row, tr) {
+
+    myTrows[row] = [
+
+        $(tr).find('td:eq(0)').text(), //productID
+        $(tr).find('td:eq(3)').text(), //salePrice
+        $(tr).find('td:eq(4) input[type="text"]').val(), //qty
+        $(tr).find('td:eq(5) input[type="text"]').val(), //discount
+        $(tr).find('td:eq(6)').text() //totamount
+
+
+    ];
+
+
+});
+myTrows.shift();
+
+//var invoiceNumber=getInvoiceID();
+var tot = document.getElementById("Total").value;
+var discount = document.getElementById('DiscountOverall').value;
+var invoiceID = document.getElementById('InvoiceID').value;
+var gross = document.getElementById('grossTotal').value;
+var tax = document.getElementById('tax').value;
+var netTotal = document.getElementById('NetTotal').value;
+var amp = document.getElementById('AmountPaid').value;
+var rmb = document.getElementById("RemainingBalance").value;
+var CID = document.getElementById("CID").value;
+var CLB = document.getElementById("LastBalance").value;
+var CCB = document.getElementById("CurrentBalance").value;
+var AID = $('#accounts').find(":selected").val();
+
+myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
+
+//alert(myRow2[0][1]);
+//alert(myRow2[11]);
+
+
+var array = JSON.stringify(myRow2);
+
+
+
+var xhttp = new XMLHttpRequest();
+if(AID == ""){
+    alert("Payment Method not selected");
+}else{
+    
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+
+        alert("Invoice =" + this.responseText + " is generated");
+
+    }
+};
+
+xhttp.open("GET", "./updateInvoice/" + array+"/"+invoiceID, true);
+// var MenuID=$('#Menus').find(":selected").val();
+xhttp.send();
+}
+}
 
 </script>
 
