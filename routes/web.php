@@ -283,4 +283,7 @@ Route::get('/pr', function () {
 Route::get('/es', function () {
     return view('editStock');
 });
+Route::get('/cr', function () {
+    return view('cr');
+});
 
