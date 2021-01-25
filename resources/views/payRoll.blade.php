@@ -1162,7 +1162,7 @@
         /*--header strip end here-*/
         /*inner-block--*/
         .inner-block {
-            padding: 1em 2em 4em 2em;
+            padding: 1em 2em 0em 2em;
         }
 
         .market-update-block {
@@ -6199,6 +6199,22 @@
                 display: none !important;
             }
         }
+        ::-webkit-scrollbar {
+            width: 10px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #0a549d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e61d2f;
+        }
+
+        .fa-bars {
+            color: #fff;
+        }
 
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
@@ -6366,22 +6382,7 @@
 
         }
 
-        ::-webkit-scrollbar {
-            width: 10px;
 
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
-
-        .fa-bars {
-            color: #fff;
-        }
 
     </style>
 </head>
