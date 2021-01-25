@@ -78,21 +78,21 @@
         .printBtns {
 
             background-color: #ffffff;
-            border: 1px solid#0a549d;
-            color: #0a549d;
+            border: 1px solid rgb(231 172 61);
+            color: rgb(231 172 61);
             transition: .7s;
         }
 
         .placeBtns {
-            background-color: #e61d2f;
+            background-color: #000000;
             color: #ffffff;
 
 
         }
 
         .printBtns:hover {
-            background-color: #0a549d;
-            border-color: #0a549d;
+            background-color: rgb(231 172 61);
+            border-color: rgb(231 172 61);
             color: #ffffff;
             transition: .7s;
         }
@@ -260,18 +260,7 @@
             }
         }
 
-        ::-webkit-scrollbar {
-            width: 10px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
+     
 
         .fa-bars {
             color: #fff;
@@ -375,7 +364,7 @@
                                         <div class="col-md-11">
                                             <div class="successButtons text-right"
                                                 style="margin-right: 7px !important;">
-                                                <button onclick="valid()" class="btn ">Add</button>
+                                                <button onclick="valid()" style="background-color:#efc55f; border:1px solid  #efc55f;" class="btn ">Add</button>
                                             </div>
                                         </div>
                                     </div>

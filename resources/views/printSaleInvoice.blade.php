@@ -10,6 +10,9 @@
 
     <title>Document</title>
     <style>
+        body{
+            background-color: #f2ec90;
+        }
         .smallFont {
             font-size: 14px;
         }

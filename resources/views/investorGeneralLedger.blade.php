@@ -168,18 +168,7 @@
 
         }
         
-        ::-webkit-scrollbar {
-            width: 10px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
+    
 
         .fa-bars {
             color: #fff;
@@ -331,8 +320,8 @@
             <div class="row">
                 <div class="col-md-4 offset-md-8">
                     <div class="footerBtns">
-                        <button class="btn">Edit</button>
-                        <button class="btn">Print</button>
+                        <button class="btn" style="background-color:rgb(231 172 61);">Edit</button>
+                        <button class="btn" style="background-color:#000000; color:#fff;">Print</button>
                     </div>
                 </div>
             </div>

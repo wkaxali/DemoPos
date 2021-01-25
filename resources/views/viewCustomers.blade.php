@@ -34,15 +34,15 @@
 
          .printBtns {
 
-             background-color: #ffffff;
-             border: 1px solid#0a549d;
-             color: #0a549d;
+             background-color: rgb(231 172 61);
+             border: 1px solid rgb(231 172 61);
+             color: #ffffff;
              transition: .7s;
          }
 
          .printBtns:hover {
-             background-color: #0a549d;
-             border-color: #0a549d;
+             background-color: rgb(231 172 61);
+             border-color: rgb(231 172 61);
              color: #ffffff;
              transition: .7s;
          }
@@ -84,18 +84,7 @@
              overflow: auto !important;
          }
          
-        ::-webkit-scrollbar {
-            width: 10px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
+     
 
         .fa-bars {
             color: #fff;

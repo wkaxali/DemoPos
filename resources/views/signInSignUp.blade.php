@@ -91,7 +91,7 @@
     .input-field i {
       text-align: center;
       line-height: 55px;
-      color: #0a549d;
+      color: #000000;
       transition: 0.5s;
       font-size: 1.1rem;
     }
@@ -143,7 +143,7 @@
 
     .btn {
       width: 150px;
-      background-color: #0a549d;
+      background-color: rgb(231 172 61);
       border: none;
       outline: none;
       height: 49px;
@@ -178,7 +178,7 @@
       top: -10%;
       right: 48%;
       transform: translateY(-50%);
-      background-image: linear-gradient(-45deg, #e61d2f 0%, #e61d2f 100%);
+      background-image: linear-gradient(-45deg, rgb(231 172 61) 0%, rgb(231 172 61) 100%);
       transition: 1.8s ease-in-out;
       border-radius: 50%;
       z-index: 6;

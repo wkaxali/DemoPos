@@ -26,7 +26,7 @@
 
         input {
 
-            color: red;
+            color: #efc55f;
             font-weight: bold;
         }
 
@@ -81,12 +81,12 @@
         }
 
         .Footerbtns .btn:nth-child(2) {
-            background-color: #0a549d;
+            background-color: rgb(231 172 61);
             color: #fff;
         }
 
         .Footerbtns .btn:nth-child(1) {
-            background-color: #e61d2f;
+            background-color: #000000;
             color: #fff;
         }
 

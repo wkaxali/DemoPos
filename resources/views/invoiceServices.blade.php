@@ -787,20 +787,20 @@
 
 
         .SecondColor {
-            background-color: #0a549d;
+            background-color: #000000;
             border-radius: 10px;
             height: 35px;
 
         }
 
         .firstColor {
-            background-color: #e61d2f;
+            background-color: rgb(231 172 61);
             border-radius: 10px;
 
         }
 
         .ThirdColor {
-            background-color: #e61d2f;
+            background-color: rgb(231 172 61);
             border-radius: 10px;
             height: 35px;
 
@@ -825,8 +825,8 @@
         }
 
         .btn-Search {
-            background-color: #e61d2f;
-            border-color: #e61d2f;
+            background-color:rgb(231 172 61);
+            border-color:rgb(231 172 61);
         }
 
         .head-right {
@@ -904,24 +904,24 @@
         }
 
         .myFooterButtons a:nth-child(1) {
-            background-color: #0a549d;
+            background-color: rgb(231 172 61);
             color: #fff;
         }
 
         .myFooterButtons a:nth-child(2) {
-            background-color: #0a549d;
+            background-color: #000000;
             color: #fff;
 
         }
 
         .myFooterButtons a:nth-child(3) {
-            background-color: #e61d2f;
+            background-color: rgb(231 172 61);
             color: #fff;
 
         }
 
         .myFooterButtons a:nth-child(4) {
-            background-color: #0a549d;
+            background-color: #000000;
             color: #fff;
 
         }
@@ -1364,19 +1364,7 @@
             width: auto !important;
 
         }
-        
-        ::-webkit-scrollbar {
-            width: 10px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
+ 
 
         .fa-bars {
             color: #fff;
@@ -1417,8 +1405,8 @@
 
                 </select>
            
-                <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
-                    style="height: 25px;" onclick="loadStock()"></button>
+                <button class="btn btn-Search"  data-toggle="modal" data-target=".bd-example-modal-lg"
+                    style="height: 25px; background-color:rgb(231 172 61)" onclick="loadStock()"></button>
             </div>
         </div>
     </div>

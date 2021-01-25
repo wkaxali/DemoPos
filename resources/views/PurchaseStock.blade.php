@@ -22,7 +22,7 @@
 
 
     <style>
-           @media (max-width: 1366px) {
+        @media (max-width: 1366px) {
             .left-content {
                 width: 83%;
             }
@@ -31,7 +31,7 @@
         .page-container.sidebar-collapsed-back .left-content {
             width: 83% !important;
         }
-      
+
 
         @-moz-document url-prefix() {
 
@@ -1100,19 +1100,6 @@
             width: 107px;
         }
 
-        ::-webkit-scrollbar {
-            width: 10px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
-
         .fa-bars {
             color: #fff;
         }
@@ -1133,6 +1120,14 @@
 
         }
 
+        .img-fluid {
+    max-width: 100% !important;
+    height: 151px!important;
+  
+}
+img{
+    width:100% !important;
+}
     </style>
 </head>
 
@@ -1155,13 +1150,13 @@
                             <label for="invo-1">Invoice Number</label>
                             <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
                                 name="invo-1" id="InvoiceID">
-                            <button class="btn" style="height: 25px; margin-top: -5px;background-color: #e61d2f;"
+                            <button class="btn" style="height: 25px; margin-top: -5px;background-color: rgb(231 172 61);"
                                 onclick="getInvoiceStock()"></button>
                             <label for="prod-1">Product Number</label>
                             <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
                                 name="invo-1" id="invo-1">
                             <button type="button" class="btn"
-                                style="height: 25px; margin-top: -5px;background-color:#0a549d;" data-toggle="modal"
+                                style="height: 25px; margin-top: -5px;background-color:#000000;" data-toggle="modal"
                                 data-target=".bd-example-modal-xl"></button>
 
                             </button>
@@ -1224,9 +1219,9 @@
                             <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
                             <br>
                             <div class="centhour">
-                                <button class="btn btn-new" style="background-color: #e61d2f;">New</button>
-                                <button class="btn btn-edit" style="background-color: #13579a;">Edit</button>
-                                <button class="btn" style="background-color: #e61d2f;">Delete</button>
+                                <button class="btn btn-new" style="background-color: rgb(231 172 61)">New</button>
+                                <button class="btn btn-edit" style="background-color: #000000;">Edit</button>
+                                <button class="btn" style="background-color: rgb(231 172 61);">Delete</button>
                             </div>
                             <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
                         </div>
@@ -1237,13 +1232,13 @@
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
                                     name="invo-1" id="SID">
                                 <button class="btn "
-                                    style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
+                                    style="height: 25px; margin-top: -5px; background-color: rgb(231 172 61);"></button>
                                 <br>
                                 <label for="prod-1">Last Balance</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
                                     name="invo-1" id="LastBalance">
                                 <button class="btn "
-                                    style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
+                                    style="height: 25px; margin-top: -5px; background-color:#000000"></button>
                                 <br>
                                 <label for="prod-1">Current Balance</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
@@ -1276,7 +1271,7 @@
 
                             </div>
                             <div class="inv-bor-btns">
-                                <button class="btn " style="background-color:#0a549d;" data-toggle="modal"
+                                <button class="btn " style="background-color:rgb(231 172 61);" data-toggle="modal"
                                     data-target="#staticBackdrop">Add</button>
 
 
@@ -1352,14 +1347,14 @@
 
                                     </div>
                                 </div>
-                                <button class="btn " style="background-color: #e61d2f;">View</button>
-                                <button class="btn " style="background-color:#0a549d;">History</button>
-                                <button class="btn " style="background-color: #e61d2f;">Info</button>
+                                <button class="btn " style="background-color: #000000;">View</button>
+                                <button class="btn " style="background-color:rgb(231 172 61);">History</button>
+                                <button class="btn " style="background-color: #000000;">Info</button>
                             </div>
                         </div>
 
                         <div class="col-md-3 okay-invo okay-invo-hide">
-                            <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid"
+                            <img src="data:image/png;base64,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" class="img-fluid"
                                 alt="">
                         </div>
 
@@ -1433,15 +1428,15 @@
                             </select>
 
                             <div class="total-buttons" id="hideme">
-                                <button class="btn" style="background-color: #0a549d;"
+                                <button class="btn" style="background-color: rgb(231 172 61);"
                                     onclick="insertInOrder()">Save</button>
-                                <button class="btn" style="background-color: #e61d2f ;">Print</button>
-                                <button class="btn" style="background-color:#0a549d;">Edit</button>
+                                <button class="btn" style="background-color: #000000;">Print</button>
+                                <button class="btn" style="background-color:rgb(231 172 61);">Edit</button>
                             </div>
                             <div class="total-buttons" id="hideme">
-                                <button class="btn" style="background-color: #e61d2f;">Hold</button>
-                                <button class="btn" style="background-color: #0a549d;">Update</button>
-                                <button class="btn" style="background-color: #e61d2f ;">Delete</button>
+                                <button class="btn" style="background-color: #000000;">Hold</button>
+                                <button class="btn" style="background-color: rgb(231 172 61);">Update</button>
+                                <button class="btn" style="background-color: #000000;">Delete</button>
                             </div>
 
 

@@ -61,9 +61,9 @@
         }
 
         .customBorder {
-            border: 1px solid #333;
+            border: 1px solid rgb(231 172 61);
             border-radius: 10px;
-            background-color: #0a549d;
+            background-color: rgb(231 172 61);
             margin: 10px 0px;
         }
 
@@ -179,7 +179,7 @@ input{
                                             class="selectpicker form-control" data-live-search="true" id="paidTo">
 
                                         </select>
-                                        <button class="btn btn-info">+</button><br>
+                                        <button class="btn " style="background-color:rgb(231 172 61);">+</button><br>
                                         <label for="">Paid by</label>
                                         <select style="height: 25px !important; width: 158px !important; "
                                             class="selectpicker form-control" data-live-search="true" id="paidBy">
@@ -258,9 +258,9 @@ input{
                         <div class="row">
                             <div class="col-md-5 offset-md-7">
                                 <div class="footerBtns">
-                                    <button class="btn">Close</button>
-                                    <button class="btn">Print</button>
-                                    <button class="btn" onclick="addExpenses()">Update</button>
+                                    <button class="btn" style="background-color:rgb(231 172 61);">Close</button>
+                                    <button class="btn" style="background-color:#000000; color:#fff;">Print</button>
+                                    <button class="btn" style="background-color:rgb(231 172 61);" onclick="addExpenses()">Update</button>
                                 </div>
                             </div>
                         </div>

@@ -67,7 +67,7 @@
         .customBorder {
             border: 1px solid #333;
             border-radius: 10px;
-            background-color: #e61d2f;
+            background-color: rgb(231 172 61);
             margin: 10px 0px;
         }
 
@@ -151,18 +151,7 @@
 
         }
 
-        ::-webkit-scrollbar {
-            width: 10px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
+  
 
         .fa-bars {
             color: #fff;
@@ -215,7 +204,7 @@
 
                             <div class="col-md-1" style="margin-left: -32px;margin-top: 2.5px; ">
                                 <button type="button"
-                                    style=" border-radius: 10px; height: 90px; background-color:#13579a; color: #ffffff;"
+                                    style=" border-radius: 10px; height: 90px; background-color:rgb(231 172 61); color: #ffffff;"
                                     class="btn " data-toggle="modal" data-target=".bd-example-modal-lg"
                                     onclick="getStock()">Assign
                                     Auto</button>
@@ -264,11 +253,11 @@
                                 <h4>SUMMARY</h4>
                             </div>
                             <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
-                                <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;"
+                                <button class="btn" style="float: right;background-color:#000000;color: #ffffff;"
                                     onclick="profits()">Calculate</button>
                             </div>
                             <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
-                                <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;"
+                                <button class="btn" style="float: right;background-color:rgb(231 172 61);color: #ffffff;"
                                     onclick="addInvestorProducts()">Add Products</button>
                             </div>
 

@@ -74,27 +74,27 @@
 
         .btn-print {
 
-            background-color: #ffffff;
+            background-color: #000000;
             border: 1px solid #0a549d;
-            color: #0a549d;
+            color: #fff;
 
             transition: .7s;
         }
 
         .btn-print:hover {
-            background-color: #0a549d;
+            background-color: #000000;
             border-color: #0a549d;
             color: #ffffff;
             transition: .7s;
         }
 
         .btn-view {
-            background-color: #e61d2f;
+            background-color: #efc55f;
             color: #ffffff;
         }
 
         .btn-update {
-            background-color: #e61d2f;
+            background-color:#efc55f;
             color: #ffffff !important;
         }
 
@@ -158,11 +158,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0a549d;
+            background-color: #000;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background-color: #f2ec90;
         }
 
         .fa-bars {
@@ -170,6 +170,9 @@
         }
 
         @media (max-width: 1440px) {}
+        .btn:hover{
+            color:#fff;
+        }
 
     </style>
 </head>
@@ -189,7 +192,7 @@
                             <div class="col-md-4">
                                 <label class="orderNOLabel" for="OrderNo">Order No</label>
                                 <input type="text" name="" value="" id="OrderId">
-                                <button class="btn" style="background-color: #e61d2f; height: 30px;"
+                                <button class="btn" style="background-color: #efc55f; height: 30px;"
                                     onclick="getOrderDetails()"></button>
 
                             </div>

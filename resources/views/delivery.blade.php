@@ -47,6 +47,9 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+        a{
+            color:rgb(231 172 61);
+        }
     </style>
 
 </head>
@@ -59,7 +62,7 @@
                 <br>
                 <input type="text" name="text" style="display: inline-block; width: 200px;" class="form-control" id="">
 
-                <button class="btn " style="height: 30px; margin-top: -5px; background-color: #e61d2f;"> </button> </div>
+                <button class="btn " style="height: 30px; margin-top: -5px; background-color: rgb(231 172 61)"> </button> </div>
         </div>
     </div>
     <div class="container">

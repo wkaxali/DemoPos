@@ -15,7 +15,7 @@
     <title>Sales And Commission</title>
 
     <style>
-               @media (max-width: 1366px) {
+        @media (max-width: 1366px) {
             .left-content {
                 width: 83%;
             }
@@ -24,7 +24,7 @@
         .page-container.sidebar-collapsed-back .left-content {
             width: 83% !important;
         }
-       
+
 
         table tr:last-child td {
             border-bottom: 1px solid #aaaaaa !important;
@@ -48,6 +48,7 @@
             /* border: 1px solid #aaaaaa; */
             /* padding: 3px; */
             /* margin-top: 80px !important; */
+            overflow-x:hidden;
         }
 
 
@@ -85,7 +86,7 @@
         }
 
         .unit {
-            background-color: #e61d2f;
+            background-color: rgb(231 172 61);
             color: #ffffff;
         }
 
@@ -219,18 +220,7 @@
             width: 95% !important;
         }
 
-        ::-webkit-scrollbar {
-            width: 10px;
 
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
 
         .fa-bars {
             color: #fff;
@@ -241,10 +231,10 @@
         }
 
         @media (max-width: 1440px) {
-.myMainRow{
-    height: 221px;
-}
-         
+            .myMainRow {
+                height: 221px;
+            }
+
         }
 
     </style>
@@ -381,7 +371,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <div  class="myMainRow">
+                                <div class="myMainRow">
 
 
 
@@ -480,7 +470,7 @@
                                                         <div class="col-md-12" style="padding: 0px !important;">
 
                                                             <h3
-                                                                style="text-align: center; color:#e61d2f; font-weight: 600;">
+                                                                style="text-align: center; color:rgb(231 172 61); font-weight: 600;">
                                                                 Additional Cost</h3>
                                                             <label style="width: 170px;" for="Comission Head">Comission
                                                                 Head</label>
@@ -562,14 +552,15 @@
 
                                                             </div>
                                                             <div class="col-md-4 offset-md-4">
-                                                                <button style=margin-top:32px ; onclick="addComissionN()"
-                                                                class="btn ">Update Cost</button>
+                                                                <button style=margin-top:32px ;
+                                                                    onclick="addComissionN()" class="btn ">Update
+                                                                    Cost</button>
 
                                                             </div>
 
 
 
-                                                        
+
 
                                                         </div>
                                                     </div>
@@ -633,7 +624,7 @@
                                                         <div class="col-md-12" style="padding: 0px !important;">
 
                                                             <h3
-                                                                style="text-align: center; color:#e61d2f; font-weight: 600;">
+                                                                style="text-align: center; color:#000000; font-weight: 600;">
                                                                 Comission & Taxes</h3>
                                                             <label style="width: 170px;" for="">Comission Head</label>
                                                             <select class="selectpicker form-control"
@@ -770,7 +761,7 @@
                             </div>
                             <div class="col-md-4">
                                 <button
-                                    style="width: 100%; margin-top: 38px; background-color: #e61d2f; color: #ffffff;"
+                                    style="width: 100%; margin-top: 38px; background-color: rgb(231 172 61); color: #ffffff;"
                                     onclick="addComissionP()" class="btn ">Update
                                     Profit</button>
                             </div>

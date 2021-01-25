@@ -6512,11 +6512,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0a549d;
+            background: #000000;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background: #efc55f;
         }
 
         .fa-bars {

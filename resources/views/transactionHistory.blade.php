@@ -25,7 +25,7 @@
 
 
         .ThirdColor {
-            background-color: blue;
+            background-color: rgb(231 172 61);
             height: 30px;
             border-radius: 10px;
         }
@@ -57,18 +57,7 @@
         .bootstrap-select{
             background: none ;
         }
-        ::-webkit-scrollbar {
-            width: 10px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
+  
 
         .fa-bars {
             color: #fff;
@@ -184,8 +173,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 text-right offset-md-8">
-                    <button class="btn btn-warning">Print</button>
-                    <button class="btn btn-danger">Close</button>
+                    <button class="btn" style="background-color:rgb(231 172 61) !important; color:#fff;" >Print</button>
+                    <button class="btn" style="background-color:#000000; color:#fff;">Close</button>
                 </div>
             </div>
         </div>
