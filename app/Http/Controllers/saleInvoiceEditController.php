@@ -100,7 +100,7 @@ class saleInvoiceEditController extends Controller
       UpdateStocksController::updateStock($row[0],$newStock);
   
         }
-        return $DSID;
+        return $InvoiceID;
         
   
       }
@@ -119,22 +119,7 @@ class saleInvoiceEditController extends Controller
     
      }
 
-     public function insertinrecipetblraw($Rpid,$Rrawid,$Runit,$Rquantity,$remarks,$REcost){
-
-       
-        
-   $result= DB::insert('insert into tblrecipetoraw (PID, RAWID, Unit, Quantity, Remarks, ECost ) values (?, ?,?,?,?,?)', [$Rpid,$Rrawid,$Runit,$Rquantity,$remarks, $REcost]);
     
-
-    if($result==1){
-
-        print('nextone');
-
-
-
-
-            }
-    }
 
 
     public function updateintblSaleInvoice($InvoiceID,$tot,$OverAllDiscount,$tax,$netTotal,$AP,$RBI){
@@ -161,7 +146,7 @@ public function updateBalnce($AP,$RBI){
     $newCumstomerBalance =$cumstomerBalance - $AP;
 
     LedgerPartiesController::UpdatePartiesBalance(2, $newBalance);
-    LedgerPartiesController::UpdatePartiesBalance(2, $newSelfBalance);
+    
     DB::table('customeinformation')
     ->where('CustomerID', $CID)
     ->update([
