@@ -16,7 +16,7 @@
 
 
 
-    <title>ATTANDANCE</title>
+    <title>ATTANDANCE View</title>
     <style>
                    @media (max-width: 1366px) {
             .left-content {

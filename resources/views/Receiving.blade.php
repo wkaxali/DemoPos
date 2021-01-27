@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
-    <title>Document</title>
+    <title>Receiving</title>
 
 
     <style>

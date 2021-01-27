@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Search Task</title>
+    <title>Employee Task View</title>
 
   
     <link rel="stylesheet" type="text/css"

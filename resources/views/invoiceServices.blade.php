@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
-    <title>Invoice</title>
+    <title>Invoice Services</title>
     <style>
                 @media (max-width: 1366px) {
             .left-content {
