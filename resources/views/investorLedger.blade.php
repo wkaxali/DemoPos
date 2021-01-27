@@ -192,6 +192,7 @@
             <div class="row">
                 <div class="col-md-12">
                    
+
                         <table class=" table-striped" style="width: 100%; text-align: center;" id="mainStockTable">
                             <thead>
                                 <tr>
@@ -488,16 +489,18 @@ function getInvestorDetails(){
                 var data = this.responseText;
 
                 var a = JSON.parse(data);
-                
+
                 var table;
                 //document.getElementById("mainStocktBody").innerHTML="";
                
                 document.getElementById("selfRatio").value = a[0].OurProfitRatio;
                 document.getElementById("investorRatio").value = a[0].InvestorProfitRatio;
+
                 document.getElementById("budget").value = a[0].InitialInvestment;
                 document.getElementById("remaining").value = a[0].Balance;
                 document.getElementById("MainStockTableBody").innerHTML="";
                 
+
                 getInvestorStock();
             }
             
@@ -583,6 +586,7 @@ function getInvestorStock(){
     
     xhttp.send();
     }
+
 </script>
 
 
