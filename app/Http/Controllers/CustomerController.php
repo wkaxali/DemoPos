@@ -111,11 +111,8 @@ class CustomerController extends Controller
 
     }
 
-    public function getInvoiceCustomer($InvoiceNo){
-        $results=DB::select('select * from vw_customersail_invoice where InvoiceNumber= '.$InvoiceNo);
-       // mysql_insert_id()
-        return $results;
+   
 
-    }
+    
 }
 

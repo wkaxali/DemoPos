@@ -57,13 +57,13 @@
                     <h5>Synchro Pharmaceuticals</h5>
                 </div>
                 <div class="col-md-4 text-right offset-md-4">
-                    <h5>Dated: January 12,2021</h5>
+                    <h5>{{ Session::get('invoiceDate')}}</h5>
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-md-4 text-center offset-md-4">
-                    <h5>Quotation for FORLAND C10</h5>
+                    <h5>Quotation for {{ Session::get('productName')}}</h5>
                 </div>
             </div>
         </div>
@@ -85,20 +85,20 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Forland C10</td>
-                                <td rowspan="2">White</td>
+                                <td>{{ Session::get('productName')}}</td>
+                                <td rowspan="2">{{ Session::get('color')}}</td>
                                 <td>Rs.</td>
-                                <td rowspan="2">01</td>
+                                <td rowspan="2">{{ Session::get('quantity')}}</td>
                                 <td>Rs.</td>
                             </tr>
                             <tr>
-                                <td>1000cc, 04- Wheeler Standard model with accessories</td>
-                                <td>=1,075,000/-</td>
+                                <td>{{ Session::get('description')}}</td>
+                                <td>={{ Session::get('price')}}/-</td>
 
-                                <td>=1,075,000/-</td>
+                                <td>={{ Session::get('total')}}/-</td>
                             </tr>
                             <tr>
-                                <td colspan="5">(Rupees One Million Seventy Five Thousands Only.)</td>
+                                <td colspan="5">({{ Session::get('amountInWords')}} Only.)</td>
                             </tr>
 
                         </tbody>

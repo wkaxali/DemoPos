@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
-
+use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
@@ -74,7 +74,7 @@ Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
-Route::get('/getInvoiceCustomer/{data}',[CustomerController::class, 'getInvoiceCustomer'] );
+Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails'] );
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock'] );
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct'] );
@@ -110,7 +110,6 @@ Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 
-Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
@@ -151,7 +150,9 @@ Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
 Route::get('/getCategory',[taskController::class, 'getCategory'] );
 Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
+
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
+Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative'] );
@@ -166,7 +167,7 @@ Route::get('/', function () {
 Route::get('/chksessions',function(){
 
    // $request->session()->forget('name');
-   session(['key' => '58']);
+   session(['key' => '88888888']);
    // $request->session()->put('key', '8');
     $value = session()->get('CID');
 
@@ -282,6 +283,9 @@ Route::get('/pr', function () {
 });
 Route::get('/es', function () {
     return view('editStock');
+});
+Route::get('/cr', function () {
+    return view('cr');
 });
 
 Route::get('/d', function () {

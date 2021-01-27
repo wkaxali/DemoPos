@@ -58,6 +58,10 @@
             margin: 5px 0px !important;
         }
 
+        .deleted {
+            cursor: pointer;
+        }
+
         #movetop {
             position: fixed;
             bottom: 40px;
@@ -352,6 +356,40 @@
                 <!-- Button trigger modal -->
 
 
+<<<<<<< HEAD
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mainAbs">
+                                    <label for="">Task</label>
+                                    <input type="text" class="form-control" name="" id="taskSubject">
+
+                                    <label for="">Assign To</label><br>
+                                    <select style="height: 25px !important; width: 158px !important; "
+                                        class="selectpicker form-control" data-live-search="true" id="assignTo">
+
+                                    </select>
+                                    <label for="">Details</label>
+                                    <table id="subTasks">
+                                        <tr>
+                                            <td id="td-1">1</td>
+                                            <td id="td-2"><input type="text" class="form-control" name="" id=""></td>
+
+                                        </tr>
+                                    </table>
+=======
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -366,6 +404,7 @@
                             <div class="modal-body">
 
                                 <div class="container">
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mainAbs">
@@ -442,6 +481,45 @@
                                             </div>
                                         </div>
                                     </div>
+<<<<<<< HEAD
+                                    <label for="">Due On</label><br>
+                                    <div class="btn-group" id="groupButtons" role="group" aria-label="Basic example">
+                                        <button onclick="GetDates()" type="button" id="Today"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn ">Today</button>
+                                        <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn ">Tomorrow</button>
+                                        <button type="button" id="Date"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn "><input class="hello" onchange="customDate()" type="date"
+                                                style="background: none !important; width:103px; border: none !important;"
+                                                name="" id="date"></button>
+                                        <input type="text" class="form-control" name="" id="dateValue">
+                                    </div>
+                                    <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
+                                    <br>
+                                    <label for="">Priority</label><br>
+
+                                    <div class="btn-group" id="myBtnGroup" role="group" aria-label="Basic example">
+                                        <button type="button" id="Urgent"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;" class="btn "
+                                            onclick="priority1()">Urgent</button>
+                                        <button type="button" id="Normal"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;" class="btn "
+                                            onclick="priority2()">Normal</button>
+                                        <button type="button" id="Easily"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;" class="btn"
+                                            onclick="priority3()">Easily</button>
+                                        <input type="text" class="form-control" name="" id="priority">
+                                    </div><br>
+                                    <label for="">Category</label><br>
+                                    <select style="height: 25px !important; width: 158px !important; "
+                                        class="selectpicker form-control" data-live-search="true" id="category">
+
+                                    </select>
+=======
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                                 </div>
                             </div>
@@ -692,10 +770,37 @@
                         "backgroundColor": "Green",
                         "color": "#fff",
 
+<<<<<<< HEAD
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+    </script>
+    <script>
+        function priority1() {
+            document.getElementById("priority").value = "Urgent"
+        }
+
+        function priority2() {
+            document.getElementById("priority").value = "Normal"
+        }
+
+        function priority3() {
+            document.getElementById("priority").value = "Easily"
+        }
+
+
+        $(document).ready(function () {
+            $("#Today").click(function () {
+                $(this).css({
+                    "backgroundColor": "Green",
+                    "color": "#fff",
+=======
                     });
                     $("#Tomorrow").css({
                         "backgroundColor": "#fff",
                         "color": "#333",
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                     });
                     $("#Date").css({
@@ -834,9 +939,46 @@
                 var mainValue = document.getElementById("changeme");
                 mainValue.value = custumDate;
 
+<<<<<<< HEAD
+    </script>
+    <script>
+        function GetDates() {
+            var dateFull = new Date();
+            y = dateFull.getFullYear();
+            m = dateFull.getMonth() + 1;
+            d = dateFull.getDate()
+            date = y + '-' + m + '-' + d;
+            document.getElementById("dateValue").value = date
+            var mainValue = document.getElementById("changeme");
+            mainValue.value = date;
+=======
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
             }
 
+<<<<<<< HEAD
+
+        }
+
+        function TomorrowDate() {
+            const today = new Date()
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            y = tomorrow.getFullYear();
+            m = tomorrow.getMonth() + 1;
+            d = tomorrow.getDate()
+            date = y + '-' + m + '-' + d;
+            document.getElementById("dateValue").value = date;
+            var mainValue = document.getElementById("changeme");
+            mainValue.value = date;
+
+        }
+
+        function customDate() {
+            var custumDate = document.getElementById("date").value;
+            document.getElementById("dateValue").value = custumDate;
+            alert(custumDate);
+=======
         </script>
 
         <script>
@@ -858,6 +1000,7 @@
 
                 }
 
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                 var cell2 = document.getElementById("td-2").innerHTML;
 
@@ -883,9 +1026,31 @@
                 //var priority = document.getElementById("taskSubject").value;
 
 
+<<<<<<< HEAD
+            var cell2 = document.getElementById("td-2").innerHTML;
+
+
+            var row = t.insertRow(-1);
+            var mcell1 = row.insertCell(0);
+            var mcell2 = row.insertCell(1);
+            var mcell3 = row.insertCell(2);
+
+            mcell1.innerHTML = totalRow;
+            mcell2.innerHTML = cell2;
+            mcell3.innerHTML = "<h1 class='deleted' onclick='deleteRow(this)' >&times;</h1>";
+        }
+
+        function deleteRow(ele) {
+
+            var item = ele.parentNode.parentNode;
+            item.remove();
+
+        }
+=======
                 var taskDetails = [];
                 var OverallTask = [];
 
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                 //alert(sp);
                 $('#subTasks tr').each(function (row, tr) {
@@ -893,10 +1058,30 @@
                     taskDetails[row] = [
 
 
+<<<<<<< HEAD
+            var dateFull = new Date();
+            y = dateFull.getFullYear();
+            m = dateFull.getMonth() + 1;
+            d = dateFull.getDate()
+            
+
+            var taskSubject = document.getElementById("taskSubject").value;
+            var assignedTo = document.getElementById("assignTo").value;
+            var dueDate = document.getElementById("dateValue").value;
+            var priority = document.getElementById("priority").value;
+            var category = document.getElementById("category").value;
+            var assignedDate = y + '-' + m + '-' + d;
+            //var taskSubject = document.getElementById("taskSubject").value;
+            //var priority = document.getElementById("taskSubject").value;
+
+            var taskDetails = [];
+            var OverallTask = [];
+=======
                         $(tr).find('td:eq(1) input[type="text"]').val(),
 
                     ];
 
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                 });
                 //expenseDetails.shift();
@@ -931,11 +1116,27 @@
         </script>
 
 
+<<<<<<< HEAD
+                ];
+
+
+            });
+            //expenseDetails.shift();
+            //
+            //var taskTable = JSON.stringify(taskDetails);
+            OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority, assignedDate];
+            var taskTable = JSON.stringify(OverallTask);
+            alert(taskTable);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+=======
 
         <script>
             function loadEmployees() {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                     if (this.readyState == 4 && this.status == 200) {
 
@@ -949,11 +1150,23 @@
                 xhttp.send();
 
 
+<<<<<<< HEAD
+    <script>
+        function loadHeads() {
+            document.getElementById("dateValue").style.display = "none";
+            document.getElementById("priority").style.display = "none";
+            loadEmployees();
+            loadCategory();
+        }
+
+    </script>
+=======
             }
 
             function loadCategory() {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                     if (this.readyState == 4 && this.status == 200) {
 
@@ -966,6 +1179,46 @@
 
                 xhttp.send();
 
+<<<<<<< HEAD
+    <script>
+        function loadEmployees() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("assignTo").innerHTML = this.response;
+                    $('#assignTo').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployees/", true);
+
+            xhttp.send();
+
+
+        }
+
+        function loadCategory() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("category").innerHTML = this.response;
+                    $('#category').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getCategory/", true);
+
+            xhttp.send();
+
+
+        }
+
+    </script>
+=======
 
             }
 
@@ -992,6 +1245,7 @@
                 }
                 toggle = !toggle;
             });
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
         </script>
 

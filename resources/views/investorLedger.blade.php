@@ -154,7 +154,98 @@
         ::-webkit-scrollbar {
             width: 10px;
 
+<<<<<<< HEAD
+    <main>
+        <div class="container">
+            <div class="row  my-2">
+                <div class="col-md-12 text-center">
+                    <h4>Investors Sales Ledger</h4>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section id="LabelSection">
+        <div class="container">
+            <div class="row borderCustom">
+                <div class="col-md-5 offset-md-1">
+                    <label for="">Name</label>
+                    <select style="height: 25px !important; width: 158px !important; "
+                    class="selectpicker form-control"  data-live-search="true"  id="investors" onchange="getInvestorDetails()">
+                    
+                </select>
+                <br>
+                    <label for="">Budget</label>
+                    <input type="text" class="form-control" style="width: 200px; display: inline-block;" value=""
+                        name="" id="budget">
+                </div>
+                <div class="col-md-5">
+                    <label for="">Self Profit</label>
+                    <input type="text" class="form-control" style="width: 200px; display: inline-block;" value=""
+                        name="" id="selfRatio">
+                    <br>
+                    <label for="">Investor Profit</label>
+                    <input type="text" class="form-control" style="width: 200px; display: inline-block;" value=""
+                        name="" id="investorRatio">
+
+                </div>
+                
+                <div class="col-md-1" style="margin-left: -32px;margin-top: 2.5px; ">
+                    <button type="button"
+                        style=" border-radius: 10px; height: 90px; background-color:#13579a; color: #ffffff;"
+                        class="btn " data-toggle="modal" data-target=".bd-example-modal-lg" onclick="getStock()">Assign
+                        Auto</button>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+
+    <section class="my-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                   
+
+                        <table class=" table-striped" style="width: 100%; text-align: center;" id="mainStockTable">
+                            <thead>
+                                <tr>
+                                <th>Product Id</th>
+                                <th>Product Name</th>
+                                <th>Sale Price</th>
+                                <th>Purchase Price</th>
+                                <th>Profit</th>
+                                <th>Self Profit</th>
+                                <th>Investor Profit</th>
+                                <th>Engine Number</th>
+                                <th>Chasis Number</th>
+                                <th>Assigned</th>
+                                </tr>
+                            </thead>
+                            <tbody id="MainStockTableBody">
+                            </tbody>
+                        
+                        </table>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 customBorder">
+                    <h4>SUMMARY</h4>
+                </div>
+                <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
+                    <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;" onclick="profits()">Calculate</button>
+                </div>
+                <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
+                    <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;" onclick="addInvestorProducts()">Add Products</button>
+                </div>
+=======
         }
+>>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
         ::-webkit-scrollbar-track {
             background-color: #0a549d;
@@ -763,6 +854,25 @@
                     getInvestorStock();
                 }
 
+<<<<<<< HEAD
+=======
+                var a = JSON.parse(data);
+
+                var table;
+                //document.getElementById("mainStocktBody").innerHTML="";
+               
+                document.getElementById("selfRatio").value = a[0].OurProfitRatio;
+                document.getElementById("investorRatio").value = a[0].InvestorProfitRatio;
+
+                document.getElementById("budget").value = a[0].InitialInvestment;
+                document.getElementById("remaining").value = a[0].Balance;
+                document.getElementById("MainStockTableBody").innerHTML="";
+                
+
+                getInvestorStock();
+            }
+            
+>>>>>>> c0ab80999857bacf8b8fac20b73a58b8788cb81f
                 //alert( this.responsedwedText);
 
             };
@@ -846,6 +956,7 @@
 
             xhttp.send();
         }
+<<<<<<< HEAD
 
     </script>
     <script>
@@ -871,7 +982,16 @@
         });
 
     </script>
+=======
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getInvestorStock/" +LID, true);
+    
+    xhttp.send();
+    }
 
+</script>
+>>>>>>> c0ab80999857bacf8b8fac20b73a58b8788cb81f
 
 
 </body>
