@@ -6,7 +6,7 @@
 <head>
     <base href="">
     <meta charset="utf-8" />
-    <title>Bermij |</title>
+    <title>Sales</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -16,13 +16,9 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
 
-<<<<<<< HEAD
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-=======
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
 
     <style>
@@ -1120,43 +1116,9 @@
 
         }
 
-<<<<<<< HEAD
-<body id="kt_bodys" onload="getAllProducts()">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>Sales</h1>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row" id="selectFirst">
-            <div class="col-xl-3  col-lg-6 col-md-6   okay-invo">
-                <label for="invo-1">Invoice Number</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="InvoiceID">
-                <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;" onclick="getAllInvoiceDetails()"></button>
-                <br class="hideBr"> <label for="prod-1">Product Number</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="invo-1">
-                <button type="button" class="btn" style="height: 25px; margin-top: -5px; background-color: #e61d2f;"
-                    data-toggle="modal" data-target=".bd-example-modal-xl"></button>
-
-                </button>
-
-
-
-                <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
-                    aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog  modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-=======
         ::-webkit-scrollbar-track {
             background-color: #0a549d;
         }
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
         ::-webkit-scrollbar-thumb {
             background-color: #e61d2f;
@@ -1478,29 +1440,6 @@
 
                                             </div>
 
-<<<<<<< HEAD
-    </div>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 myGoggle" style="overflow-x: auto; overflow-y: auto;">
-                <div>
-                    <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
-                        id="ProductSaleTable">
-                        <thead>
-                            <tr>
-                                <th>Product ID</th>
-                                <th>Product Name</th>
-                                <th>Company</th>
-                                <th>Sale Price</th>
-                                <th>Quantity</th>
-                                <th>Discount</th>
-                                <th>Total</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ProductSaleTableBody">
-=======
                                         </div>
 
                                     </div>
@@ -1520,7 +1459,6 @@
 
 
                     </div>
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                 </div>
                 <br>
@@ -1531,51 +1469,8 @@
                                 <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
                                     id="ProductSaleTable">
 
-<<<<<<< HEAD
-            </div>
-            <div class="col-md-3 okay-invo-3">
-                <label for="invo-1" style="width: 130px;">Total</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="Total">
-
-                <label for="prod-1" style="width: 130px;">Discount</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="DiscountOverall" onchange="calc()">
-                <label for="invo-1" style="width: 130px;">Gross Total</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="grossTotal">
-                <label for="prod-1" style="width: 130px;"> Tax 17%</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="tax" onchange="calc()">
-                <label for="prod-1" style="width: 130px;">Net Total</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="NetTotal">
-                <label for="invo-1" style="width: 130px; font-weight: 500;">Amount Paid</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="AmountPaid" onchange="calcForBalance()">
-                <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
-                <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="RemainingBalance">
-
-                <label for="">Paid From</label>
-                <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
-                    data-live-search="true" id="accounts">
-
-                </select>
-                <div class="total-buttons" id="hideme">
-                    <button class="btn" style="background-color: #e61d2f;" onclick="insertInSales()">Save</button>
-                    <button class="btn" style="background-color: #0a549d;">Print</button>
-                    <button class="btn" style="background-color: #e61d2f;">Edit</button>
-                </div>
-                <div class="total-buttons" id="hideme">
-                    <button class="btn" style="background-color: #0a549d;">Hold</button>
-                    <button class="btn" style="background-color: #e61d2f;" onclick="UpdateSaleInvoice()">Update</button>
-                    <button class="btn" style="background-color: #0a549d;">Delete</button>
-                </div>
-=======
                                     <thead>
                                         <tr>
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                                             <th>Product ID</th>
 
@@ -1923,9 +1818,6 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
 
-<<<<<<< HEAD
-    
-=======
     <script>
         $(document).ready(function () {
             $('#myTables').DataTable();
@@ -1955,83 +1847,10 @@
         });
 
     </script>
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 </body>
 
 
 <script>
-<<<<<<< HEAD
-    function getAllInvoiceDetails(){
-
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        var data = this.responseText;
-        //alert(data);
-        var a = JSON.parse(data);
-        
-        document.getElementById("CID").value = a[0].CustomerID;
-        document.getElementById("LastBalance").value = a[0].Balance;
-        document.getElementById("CurrentBalance").value = a[0].Balance;
-        calc();
-        document.getElementById("CNO").value = a[0].Contect;
-        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
-        document.getElementById("CustomerName").value = a[0].CustomerID;
-        var i=0;
-        //alert(a.length);
-        var table = document.getElementById("ProductSaleTable");
-        table.innerHTML="<thead>\
-                            <tr>\
-                                <th>Product ID</th>\
-                                <th>Product Name</th>\
-                                <th>Company</th>\
-                                <th>Sale Price</th>\
-                                <th>Quantity</th>\
-                                <th>Discount</th>\
-                                <th>Total</th>\
-                                <th>Action</th>\
-                            </tr>\
-                        </thead>";
-
-        for (i; i < a.length; i++) {
-            var PID = a[i].ProductSerial;
-            var discount = a[i].Discount;
-            var quantity = a[i].Quantity;
-            //alert(quantity);
-            var salePrice = a[i].SalePrice;
-            var company = a[i].Company;
-            var productName = a[i].ProductName;
-            var totalAmount = a[i].NetAmount;
-
-            var row = table.insertRow(-1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4);
-            var cell6 = row.insertCell(5);
-            var cell7 = row.insertCell(6);
-            var cell8 = row.insertCell(7);
-
-            cell1.innerHTML = PID;
-            cell2.innerHTML = productName;
-            cell3.innerHTML = company;
-            cell4.innerHTML = salePrice;
-            cell5.innerHTML = quantity;
-            cell6.innerHTML = discount;
-            cell7.innerHTML = totalAmount;
-            //calc();
-            cell8.innerHTML =
-                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
-    }
-
-    }
-};
-var invoiceNumber = document.getElementById("InvoiceID").value;
-
-xhttp.open("GET", "./getAllInvoiceDetails/" + invoiceNumber, true);
-xhttp.send();
-=======
     function getInvoiceCustomer() {
 
         var xhttp = new XMLHttpRequest();
@@ -2059,7 +1878,6 @@ xhttp.send();
 
         xhttp.open("GET", "./getInvoiceCustomer/" + invoiceNumber, true);
         xhttp.send();
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
 
     }
