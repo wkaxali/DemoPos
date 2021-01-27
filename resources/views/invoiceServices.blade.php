@@ -596,7 +596,13 @@
 
         /* Invoice Services Media Query Starts */
         /* Invoice Services Media Query Ends */
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
 
+        }
     </style>
 </head>
 
@@ -629,8 +635,7 @@
 
 
                 </select>
-                <button type="button" class="btn btn-info" style="height: 25px; margin-top: -5px;" data-toggle="modal"
-                    data-target=".bd-example-modal-xl"></button> -->
+           
                 <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
                     style="height: 25px;" onclick="loadStock()"></button>
             </div>
@@ -671,6 +676,13 @@
                             </div>
 
                             <div class="input-field">
+                                <label for="status">Color</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="color">
+                            </div>
+
+                            <div class="input-field">
                                 <label for="status">Chassis Number </label>
                                 <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
@@ -687,6 +699,13 @@
                                 <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="Status">
+                            </div>
+
+                            <div class="input-field">
+                                <label for="status">Description</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="description">
                             </div>
 
                             <div class="input-field">
@@ -742,7 +761,7 @@
                                 <label for="status">Discount</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="Discount" onkeyup="calc()">
+                                    name="name" value="0" id="Discount" onkeyup="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
@@ -804,7 +823,13 @@
                                margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
                         </div>
                         <div class="input-field">
-                            <label for="status">Customer ID</label>
+                            <label for="status">Client's Father Name</label>
+                            <input type="text" autocomplete="OFF" class="form-control"
+                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                name="name" id="fatherName">
+                        </div>
+                        <div class="input-field">
+                            <label for="status">Customer CNIC</label>
                             <input type="text" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                 name="name" id="CID">
@@ -867,16 +892,10 @@
                                 name="name" id="Address">
                         </div>
                         <div class="input-field">
-                            <label for="status">contact</label>
+                            <label for="status">Contact</label>
                             <input type="text" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                 name="name" id="contact">
-                        </div>
-                        <div class="input-field">
-                            <label for="status">Manager</label>
-                            <input type="text" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="Manager">
                         </div>
 
                     </div>
@@ -954,20 +973,22 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h4 class="text-center my-4">Products Table</h4>
-                            <table class="table  table-bordered mb-4" id="searchProductTable">
+                            <table class="table  table-bordered mb-5" id="searchProductTable">
                                 <thead>
                                     <tr>
 
                                         <th>Product Id</th>
 
                                         <th>Product Name</th>
-                                        <th>Engine #</th>
+                                        <th>Color</th>
+                                        <th>Engine Number</th>
 
-                                        <th>Chasis #</th>
+                                        <th>Chasis Number</th>
 
                                         <th>Purchse Price</th>
                                         <th>Cost with Additional charges</th>
                                         <th>Status</th>
+                                        <th>Description</th>
 
 
 
@@ -1096,8 +1117,8 @@
                 table.clear();
                 $.each(a, function (i, item) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].EngineNumber, a[i].ChasisNumber,
-                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i].EngineNumber,
+                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock, a[i].Remarks
                     ]);
                 });
                 table.draw();
@@ -1122,11 +1143,13 @@
             document.getElementById("PID").value = this.cells[0]
                 .innerText; // get current row 1st TD value
             document.getElementById("ProductName").value = this.cells[1].innerText;
-            document.getElementById("ChasisNumber").value = this.cells[2].innerText;
+            document.getElementById("color").value = this.cells[2].innerText;
+            document.getElementById("ChasisNumber").value = this.cells[3].innerText;
 
-            document.getElementById("EngineNumber").value = this.cells[3].innerText;
-            document.getElementById("Status").value = this.cells[6].innerText;
-            document.getElementById("TotalPrice").value = this.cells[4].innerText;
+            document.getElementById("EngineNumber").value = this.cells[4].innerText;
+            document.getElementById("Status").value = this.cells[7].innerText;
+            document.getElementById("description").value = this.cells[8].innerText;
+            document.getElementById("TotalPrice").value = this.cells[5].innerText;
             document.getElementById("Discount").value = "0";
 
 
@@ -1166,25 +1189,30 @@
 
 
         var pid = document.getElementById("PID").value;
-
-
         var totwT = document.getElementById("TotalPrice").value;
         var discount = document.getElementById('Discount').value;
-
-
-
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('amountPaid').value;
         var rmb = document.getElementById("amountRemaining").value;
-
-
         var CID = document.getElementById("CID").value;
-
         var paidTo = document.getElementById("paidTo").value;
         var AID = document.getElementById("slctAccounts").value;
 
-        order = [pid, totwT, discount, netTotal, amp, rmb, CID, paidTo, AID];
+        var customerName = document.getElementById("CustomerName").value;
+        var CNIC = document.getElementById("CID").value;
+        var address = document.getElementById('Address').value;
+        var contact = document.getElementById('contact').value;
+        var fatherName = document.getElementById('fatherName').value;
 
+        var engineNo = document.getElementById("EngineNumber").value;
+        var chassisNo = document.getElementById('ChasisNumber').value;
+        var color = document.getElementById('color').value;
+        var description = document.getElementById('description').value;
+        var productName = document.getElementById('ProductName').value;
+       
+        order = [pid, totwT, discount, netTotal, amp, rmb,
+                CID, paidTo, AID, customerName, CNIC, address, 
+                contact, fatherName, engineNo, chassisNo, color, description, productName];
 
         var array = JSON.stringify(order);
 
@@ -1244,9 +1272,10 @@
         var CID = document.getElementById("CID").value;
         var Address = document.getElementById("Address").value;
         var contact = document.getElementById("contact").value;
-        var Manager = document.getElementById("Manager").value;
+        var fatherName = document.getElementById("fatherName").value;
         var amountPaid = document.getElementById("amountPaid").value;
         var amountRemaining = document.getElementById("amountRemaining").value;
+        
 
         if (PID == "") {
             // alert("Product Id Field Must Be Valid");
@@ -1323,9 +1352,9 @@
             document.getElementById("contact").value = "";
 
 
-        } else if (Manager == "") {
+        } else if (fatherName == "") {
             // alert("Manager Name Must Be Mentioned");
-            document.getElementById("Manager").focus();
+            document.getElementById("fatherName").focus();
 
 
         } else if (amountPaid == "") {
@@ -1346,7 +1375,7 @@
 
     }
 
-    $("#mainBody").on('keypress', function (event) {
+    $("body").on('keypress', function (event) {
         if (event.keyCode === 13) {
             validPlz();
         } else {}

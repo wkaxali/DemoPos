@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Forland</title>
+    <title>FORLAND MODERN MOTORS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Forland Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -19,6 +19,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
     <style>
         h4,
         h5,
@@ -58,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .fixed {
-            position: fixed;
+            position: abso;
             top: 0;
             width: 100%;
             margin: 0 auto;
@@ -80,8 +83,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .left-content {
-
-            width: 100% !important;
+            float: right;
+            width: 86.5%;
         }
 
         .page-container.sidebar-collapsed {
@@ -191,7 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         #menu li {
             position: relative;
             margin: 0;
-            font-size: 12px;
+            font-size: 18px;
             padding: 0;
         }
 
@@ -213,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         #menu li a:hover {
-            color: #fdbb30;
+            color: #e61d2f;
             transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
         }
 
@@ -468,9 +471,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--- User Panel---*/
         .profile_details_left {
             float: left;
-            margin-top: 10px;
             width: 50%;
-
         }
 
         .dropdown-menu {
@@ -709,7 +710,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .header-right span.blue1 {
-            background-color: #e61d2f;
+            background-color: #68AE00;
         }
 
         i.icon_1 {
@@ -959,7 +960,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             position: absolute;
             top: 34%;
             right: 8%;
-            color: #e61d2f;
+            color: #68AE00;
             font-size: 1.6em;
         }
 
@@ -997,7 +998,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--header strip end here-*/
         /*inner-block--*/
         .inner-block {
-            padding: 1em 2em 4em 2em;
+            padding: 8em 2em 4em 2em;
             background: #fafafa;
         }
 
@@ -1028,7 +1029,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .market-update-block.clr-block-1 {
             background: #e61d2f;
             margin-right: 0.8em;
-            box-shadow: 0 2px 5px 0 #e61d2f, 0 2px 10px 0 #e61d2f;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1036,18 +1037,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-2 {
-            background: #0a549d;
-            margin-right: 0.8em;
-            box-shadow: 0 2px 5px 0 #0a549d, 0 2px 10px 0 #0a549d;
+     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
             -o-transition: 0.5s all;
+            height: 258px;
         }
 
         .market-update-block.clr-block-3 {
-            background: #e61d2f;
-            box-shadow: 0 2px 5px 0 #e61d2f, 0 2px 10px 0 #e61d2f;
+            background: #13579a;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1063,15 +1063,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-2:hover {
-            background: #0a549d;
-            transition: 0.5s all;
+         transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
             -o-transition: 0.5s all;
+            
         }
 
         .market-update-block.clr-block-3:hover {
-            background: #e61d2f;
+            background: #13579a;
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1080,7 +1080,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .market-update-right i.fa.fa-file-text-o {
             font-size: 3em;
-            color: #e61d2f;
+            color: #68AE00;
             width: 80px;
             height: 80px;
             background: #fff;
@@ -1212,13 +1212,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             width: 0%;
             height: 5px;
             border-radius: 0px;
-            background: #FF0426;
+            background: #e61d2f;
             margin-bottom: 10px;
             -webkit-transition: width 1s;
             transition: width 1s;
         }
 
-        . .b_label,
+        .b_label,
         .bar_label_min,
         .bar_label_max,
         .b_tooltip span {
@@ -1326,7 +1326,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .malorm-bottom h2 {
             font-size: 1.5em;
-            color: #e61d2f;
+            color: #68AE00;
             text-align: center;
             margin-bottom: 0.5em;
             font-family: 'Carrois Gothic', sans-serif;
@@ -1708,7 +1708,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .shoppy h3 {
             font-size: 1.2em;
-            color: #e61d2f;
+            color: #68AE00;
             font-family: 'Carrois Gothic', sans-serif;
         }
 
@@ -1728,7 +1728,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .popular-bran-left h3 {
             font-size: 1.2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 0.2em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -1775,7 +1775,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .popular-follo-left {
-            background: #e61d2f;
+            background: #68AE00;
             padding: 2.5em 1em;
         }
 
@@ -1794,7 +1794,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .popular-follo-right h5 {
             font-size: 1em;
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         .popular-bran-left p {
@@ -1832,13 +1832,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .copyrights p a:hover {
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         /*--grids start here--*/
         .cols-grids h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -1894,7 +1894,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .portlet-grid-page h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -1910,7 +1910,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .btn-main-heading h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -1926,7 +1926,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--icons --*/
         .boost-icons-head h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2114,7 +2114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .login-block input[type="submit"]:hover {
-            background: #e61d2f;
+            background: #68AE00;
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -2151,11 +2151,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .forgot a:hover {
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         .login-block h2 {
-            color: #e61d2f;
+            color: #68AE00;
             font-size: 0.875em;
             margin: 1.2em 0;
             text-align: center;
@@ -2286,7 +2286,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .login-block h5 a:hover {
-            color: #e61d2f;
+            color: #68AE00;
             text-decoration: underline;
         }
 
@@ -2355,7 +2355,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .signup-block input[type="submit"]:hover {
-            background: #e61d2f;
+            background: #68AE00;
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -2380,7 +2380,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .sign-down h4 a:hover {
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         .sign-down h5 {
@@ -2396,7 +2396,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .sign-down h5 a:hover {
-            color: #e61d2f;
+            color: #68AE00;
         }
 
         /*--signup page end here--*/
@@ -2410,7 +2410,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .map-main-page h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2433,7 +2433,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .blank h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2548,7 +2548,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             font-size: 1em;
             color: #fff;
             margin-top: 2em;
-            background: #e61d2f;
+            background: #68AE00;
             padding: 0.5em 1em;
             display: inline-block;
         }
@@ -2619,7 +2619,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .mail-profile {
-            background: #e61d2f;
+            background: #68AE00;
             padding: 1em 1em;
         }
 
@@ -2673,7 +2673,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .compose-block a {
             font-size: 1em;
             color: #fff;
-            background: #e61d2f;
+            background: #68AE00;
             padding: 0.5em 1.5em;
             border-radius: 3px;
             display: inline-block;
@@ -2749,7 +2749,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .inbox h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin-bottom: 1em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2848,7 +2848,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .compose-right input[type="submit"] {
             font-size: 0.9em;
-            background-color: #e61d2f;
+            background-color: #68AE00;
             border: none;
             color: #fff;
             padding: 0.8em 1.5em;
@@ -2878,7 +2878,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .pro-head h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin: 0em 0em 1em 0.4em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -2930,7 +2930,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--prices start here--*/
         .prices-head h2 {
             font-size: 2em;
-            color: #e61d2f;
+            color: #68AE00;
             margin: 0em 0em 1em 0.4em;
             font-family: 'Carrois Gothic', sans-serif;
         }
@@ -3072,7 +3072,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin: 40px auto;
             position: relative;
             text-align: center;
-            border: 8px solid #e61d2f;
+            border: 8px solid #68AE00;
             height: 475px;
             border-radius: 5px;
         }
@@ -3173,7 +3173,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .payment-sendbtns input[type="reset"] {
-            background: #e61d2f;
+            background: #68AE00;
             padding: 10px 25px;
             border: none;
             color: #FFF;
@@ -3213,7 +3213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         a.order:hover {
             color: #fff;
-            background: #e61d2f;
+            background: #68AE00;
         }
 
         .payment-sendbtns li {
@@ -3880,7 +3880,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             .fixed {
                 position: fixed;
                 top: 0;
-                width: 100% !important;
+                width: 85%;
             }
 
             .profile_details_drop a.dropdown-toggle {
@@ -3898,6 +3898,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             .market-update-block {
                 padding: 1.5em 1.5em;
+              
             }
 
             .market-update-right i.fa.fa-file-text-o {
@@ -5799,25 +5800,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         }
 
-        .btn-my {
-            border: 1px solid #3498db;
-            background: none;
-            padding: 10px 20px;
-            font-size: 20px;
-            font-family: "montserrat";
-            cursor: pointer;
-            margin: 10px;
-            transition: 0.8s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn1 {
-            color: #3498db;
-        }
-
-        .btn1:hover {
-            color: #fff;
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -10 !important;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
         }
 
         .appointment-form {
@@ -6026,25 +6016,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 padding: 50px 30px 70px 30px;
             }
         }
-
-        .btn-my::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 0%;
-            background: #3498db;
-            z-index: -1;
-            transition: 0.8s;
-        }
-
-        .btn1::before {
-            top: 0;
-            border-radius: 0 0 50% 50%;
-        }
-
-        .btn1:hover::before {
-            height: 180%;
+a:hover{
+    cursor: pointer;
+}
+        @media only screen and (max-width: 768px) {
+           .header-main{
+               display: none !important;
+            }
         }
 
     </style>
@@ -9404,7 +9382,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </script>
 
-    <script src="js/skycons.js"></script>
+
     <style>
         .leftBtns .btn {
             color: #333333;
@@ -9484,6 +9462,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .btn1 {
             color: #3498db;
+            border-radius: 10px;
         }
 
         .btn1:hover {
@@ -9513,7 +9492,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </style>
 </head>
 
-<body>
+<body onload="loadFields()">
     <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -9542,7 +9521,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
 
                         <div class="form-submit">
-                            <a href="pm">Add Customer</a>
+                            <a onclick="location.href = '/dl'">Add Customer</a>
                         </div>
                     </form>
                 </div>
@@ -9571,82 +9550,88 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="profile_details_left">
 
 
-                            <button class="btn-my btn1" data-toggle="modal"
+                            <button class="btn-my btn1" style="margin-left: 200px;" data-toggle="modal"
                                 data-target=".bd-example-modal-lg">Operations</button>
 
                             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
                                 aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Forland Operations</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-
-
                                         <div class="modal-body">
                                             <div class="container-fluid">
                                                 <div class="row p-2"
                                                     style="border: 2px solid gray; border-radius: 10px;">
 
 
-
+                                                    {{ session()->put('CID','125')}}
                                                     <div class="col-md-3">
                                                         <label class="labels" for="">Purchase</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
                                                             <button class="btn btn-myPrimary-add"
-                                                            
                                                                 onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
-                                                            onclick="location.href = '/d'">Dilivery</button><br>
+                                                                onclick="location.href = '/d'">Dilivery</button><br>
                                                             <button data-toggle="modal" id="killme"
                                                                 data-target="#staticBackdrop"
                                                                 class="btn btn-mysecondary">Quotation</button><br>
 
-                                                               
-                                                                <button class="btn btn-mysecondary"
-                                                                onclick="location.href = '/dl'">Dilivery letter</button><br>
-                                                                <button class="btn btn-mysecondary"
+
+                                                            <button class="btn btn-mysecondary"
+                                                                onclick="location.href = '/dl'">Dilivery
+                                                                letter</button><br>
+                                                            <button class="btn btn-mysecondary"
                                                                 onclick="location.href = '/ct'">Comissions</button><br>
                                                         </div>
-                                                        
+
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Sales</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                            <a href="/is"><button class="btn btn-myPrimary-add">invoice services</button><br></a>
-                                                            <a href="/psi"><button class="btn btn-mysecondary">Print Sale Invoice</button><br></a>
-                                                            <a href="/sc"><button class="btn btn-myPrimary">Sales& comission</button><br></a>
-                                                            <a href="/ct"> <button class="btn btn-myPrimary-add">texes</button><br></a>
+                                                            <a href="/is"><button class="btn btn-myPrimary-add">invoice
+                                                                    services</button><br></a>
+                                                            <a href="/psi"><button class="btn btn-mysecondary">Print
+                                                                    Sale Invoice</button><br></a>
+                                                            <a href="/sc"><button class="btn btn-myPrimary">Sales&
+                                                                    comission</button><br></a>
+                                                            <a href="/ct"> <button
+                                                                    class="btn btn-myPrimary-add">texes</button><br></a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Stock</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                            
-                                                                <a href="/as"> <button class="btn btn-myPrimary-add">Add Stock</button><br></a> 
-                                                                <a href="/ip"><button class="btn btn-mysecondary">Increase In price</button><br></a>
-                                                                <a href="/stock"> <button class="btn btn-myPrimary">Stock</button><br></a>
-                                                                <a href="/vc"><button class="btn btn-myPrimary-add">ViewCustmer</button><br></a>
-                                                                    <a href="/sp"> <button class="btn btn-mysecondary">View Spareoarts</button><br></a>
-                                                                        <a href="/vs"> <button class="btn btn-myPrimary">View Stock</button><br></a>
+
+                                                            <a href="/as"> <button class="btn btn-myPrimary-add">Add
+                                                                    Stock</button><br></a>
+                                                            <a href="/ip"><button class="btn btn-mysecondary">Increase
+                                                                    In price</button><br></a>
+                                                            <a href="/stock"> <button
+                                                                    class="btn btn-myPrimary">Stock</button><br></a>
+                                                            <a href="/vc"><button
+                                                                    class="btn btn-myPrimary-add">ViewCustmer</button><br></a>
+                                                            <a href="/sp"> <button class="btn btn-mysecondary">View
+                                                                    Spareoarts</button><br></a>
+                                                            <a href="/vs"> <button class="btn btn-myPrimary">View
+                                                                    Stock</button><br></a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label style="margin-left: 22px;" class="labels"
                                                             for="">Ledger</label>
                                                         <div class="leftBtns">
-                                                            <button class="btn btn-myPrimary-add" 
-                                                             onclick="location.href = '/cl'">Company ledger</button><br>
-                                                             <a href="/l"> <button class="btn btn-mysecondary">ledger</button><br></a>
-                                                             <a href="/th"><button class="btn btn-myPrimary">Transaction History</button><br></a>
-                                                             <a href="/ex"><button class="btn btn-myPrimary-add">Expance</button><br></a>
-                                                           
+                                                            <button class="btn btn-myPrimary-add"
+                                                                onclick="location.href = '/cl'">Company
+                                                                ledger</button><br>
+                                                            <a href="/l"> <button
+                                                                    class="btn btn-mysecondary">ledger</button><br></a>
+                                                            <a href="/th"><button class="btn btn-myPrimary">Transaction
+                                                                    History</button><br></a>
+                                                            <a href="/ex"><button
+                                                                    class="btn btn-myPrimary-add">Expance</button><br></a>
+
                                                         </div>
                                                     </div>
 
@@ -9658,20 +9643,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </div>
 
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
+
 
                             <div class="clearfix"> </div>
                         </div>
                         <div class="profile_details">
                             <ul>
                                 <li class="dropdown profile_details_drop">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <a  class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <div class="profile_img">
                                             <span class="prfil-img"><img style="height: 50px; border-radius: 50%; "
                                                     src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
@@ -9686,9 +9668,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                     </a>
                                     <!-- <ul class="dropdown-menu drp-mnu">
-										<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li>
-										<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li>
-										<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+										<li> <a ><i class="fa fa-cog"></i> Settings</a> </li>
+										<li> <a ><i class="fa fa-user"></i> Profile</a> </li>
+										<li> <a ><i class="fa fa-sign-out"></i> Logout</a> </li>
 									</ul> -->
                                 </li>
                             </ul>
@@ -9721,8 +9703,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-1">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>83</h3>
-                                        <h4>Sales Today</h4>
+                                        <h3 id="salesToday" value=""></h3>
+                                        <h4>Total Sale Today</h4>
                                         <p>80% cash sales</p>
                                     </div>
                                     <div class="col-md-4 market-update-right">
@@ -9734,7 +9716,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-2">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>135</h3>
+                                    <h3 id="salestoday" value=""></h3>
                                         <h4>Leads</h4>
                                         <p>Team visited 230 people</p>
                                     </div>
@@ -9747,9 +9729,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="col-md-4 market-update-gd">
                                 <div class="market-update-block clr-block-3">
                                     <div class="col-md-8 market-update-left">
-                                        <h3>23</h3>
+                                    <h3 id="salestoday" value=""></h3>
                                         <h4>New Messages</h4>
-                                        <p>get reply from whatsapp messages</p>
+                                        <p>get reply</p>
                                     </div>
                                     <div class="col-md-4 market-update-right">
                                         <i class="fa fa-envelope-o"> </i>
@@ -9857,7 +9839,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             {
                                                 value: 40,
                                                 color: "#0a549d"
-                                            },
+                                             },
                                         ];
                                         new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
                                             doughnutData);
@@ -10000,7 +9982,126 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </div>
         </div>
+        <div class="sidebar-menu">
 
+            <div class="logo"> <a  class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a >
+                    <span id="logo"></span>
+                </a> </div>
+            <div class="menu">
+                <ul id="menu">
+                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><br><span>Dashboard</span></a>
+                    </li>
+                    <li><a ><i class="fab fa-salesforce"></i><br><span>Products</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/">Add Product</a></li>
+                            <li><a href="/">View Product</a></li>
+                            <li><a href="/">Delete Product</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fab fa-salesforce"></i><br><span>Customer</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/">Add Customer</a></li>
+                            <li><a href="/">View Customer</a></li>
+                            <li><a href="/">Delete Customer</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fab fa-salesforce"></i><br><span>Sales</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Sales And Comission</a></li>
+                            <li><a href="/ss">Sales</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-comunicacao"><a ><i class="fas fa-money-bill-alt"></i>
+                            <br> <span>Purchase</span><span class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-comunicacao-sub">
+                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
+                            </li>
+                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="menu-academico"><a href="/stock"><i
+                                class="fab fa-stack-overflow"></i><br><span>Stock</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="menu-academico"><a href="/l"><i
+                                class="fas fa-user-circle"></i><br><span>Accounts</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/i">Investor Ledger</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
+                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
+                    <li id="menu-academico"><a href="/d"><i
+                                class="fas fa-truck-loading"></i><br><span>Delivery</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/dl">Delivery Letter</a></li>
+
+
+                        </ul>
+                    </li>
+
+                    <li><a ><i class="fa fa-envelope"></i><span>HR</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
+                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fab fa-amazon-pay"></i><br><span>PayRoll</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="">View Employee Pay</a></li>
+                            <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
+                            <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/at"><img src="https://cdn.onlinewebfonts.com/svg/img_226438.png"
+                                style="height: 40px; width: 40px; color: #ffffff;background-color: #ffffff;padding: 5px;border-radius: 50%; margin-left: -10px;"
+                                alt=""><br><span>Attendance</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="">View Attendance</a></li>
+                            <li id="menu-academico-boletim"><a href="/SalarySlip">Mark Attendance</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a ><i class="fas fa-eye"></i><br><span>Task View</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
+                            <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fab fa-angellist"></i><br><span>Reporting</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
+                            <li id="menu-academico-boletim"><a href="price.html">Account Settings</a></li>
+                        </ul>
+                    </li>
+                    <li><a ><i class="fa fa-cog"></i><span>Settings</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="product.html">Add User</a></li>
+                            <li id="menu-academico-boletim"><a href="price.html">Account Settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
         <div class="clearfix"> </div>
     </div>
@@ -10035,6 +10136,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
     <script>
+        function loadFields(){
+            dailySaleAmount();
+        }
+
+
+
+
         $(document).ready(function () {
                 $("#killme").click(function () {
                     $('.bd-example-modal-lg').modal('hide');
@@ -10078,6 +10186,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </script>
     <script>
+
+
+function dailySaleAmount(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            var data = this.responseText;
+                alert(data);
+                var a = JSON.parse(data);
+                //  alert(a[0].ProductSerial);
+                var saleToday = a[0].DailySale;
+
+                document.getElementById("salesToday").innerText = saleToday;
+
+                alert(saleToday);
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./dailySaleAmount/", true);
+    
+    xhttp.send();
+    }
+
+
+
         function bar_group() {
             group_ident = 1, $(".bar_group").each(function () {
                 $(this).addClass("group_ident-" + group_ident), $(this).data("gid", group_ident), group_ident++
@@ -10141,8 +10276,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 in_view($(this))
             })
         }), bars();
+        
+    </script>
+    <script>
+   function infoPass(){
+
+    var customerName="Waqas";
+    var id="78";
+
+   
+    window.location.href = "./pm/"+customerName;
+    //redirect
+
+
+   }
 
     </script>
+
 
 </body>
 

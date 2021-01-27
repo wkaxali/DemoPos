@@ -91,7 +91,7 @@
     .input-field i {
       text-align: center;
       line-height: 55px;
-      color: #0a549d;
+      color: #28a745;
       transition: 0.5s;
       font-size: 1.1rem;
     }
@@ -137,13 +137,13 @@
     }
 
     .social-icon:hover {
-      color: #0a549d;
-      border-color: #0a549d;
+      color: #28a745;
+      border-color: #28a745;
     }
 
     .btn {
       width: 150px;
-      background-color: #0a549d;
+      background-color: #28a745;
       border: none;
       outline: none;
       height: 49px;
@@ -157,7 +157,7 @@
     }
 
     .btn:hover {
-      background-color: #0a549d;
+      background-color: #28a745;
     }
 
     .panels-container {
@@ -178,7 +178,7 @@
       top: -10%;
       right: 48%;
       transform: translateY(-50%);
-      background-image: linear-gradient(-45deg, #e61d2f 0%, #e61d2f 100%);
+      background-image: linear-gradient(-45deg, #f9bd29 0%, #f9bd29 100%);
       transition: 1.8s ease-in-out;
       border-radius: 50%;
       z-index: 6;
@@ -413,7 +413,7 @@
     }
   </style>
 
-  <title>Forland</title>
+  <title>Khyber Pass</title>
 </head>
 
 <body>
@@ -424,13 +424,13 @@
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" id="username" />
+            <input type="text" placeholder="Username" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="password"/>
+            <input type="password" placeholder="Password" />
           </div>
-          <input type="submit" value="Login" onclick="Login()" class="btn solid" />
+          <input type="submit" value="Login" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -448,20 +448,20 @@
           </div>
         </form>
         <form action="#" class="sign-up-form">
-          <h2 class="title">Admin</h2>
+          <h2 class="title">Sign up</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" id="UserName2" />
+            <input type="text" placeholder="Username" />
           </div>
-          <!-- <div class="input-field">
+          <div class="input-field">
             <i class="fas fa-envelope"></i>
             <input type="email" placeholder="Email" />
-          </div> -->
+          </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="UserPaswd2" />
+            <input type="password" placeholder="Password" />
           </div>
-          <input type="submit" class="btn" onclick="RegisAdmin()"value="Login" />
+          <input type="submit" class="btn" value="Sign up" />
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -490,10 +490,10 @@
             ex ratione. Aliquid!
           </p>
           <button class="btn transparent" id="sign-up-btn">
-            Admin
+            Sign up
           </button>
         </div>
-        <img src="img/unnamed.png" class="image" alt="" />
+        <img src="https://i.dlpng.com/static/png/6953688_preview.png" class="image" alt="" />
       </div>
       <div class="panel right-panel">
         <div class="content">
@@ -506,7 +506,7 @@
             Sign in
           </button>
         </div>
-        <img src="img/unnamed (1).png" class="image" alt="" />
+        <img src="https://pngimg.com/uploads/kebab/kebab_PNG46.png" class="image" alt="" />
       </div>
     </div>
   </div>
@@ -523,58 +523,6 @@
     sign_in_btn.addEventListener("click", () => {
       container.classList.remove("sign-up-mode");
     });
-  </script>
-  <script>
-
- function RegisAdmin(){
-
-var Username=document.getElementById("UserName").value;
-alert("working"+Username);
-var UserPassword=document.getElementById("UserPaswd").value;
-alert("working"+UserPassword);
-
-var Insert=[Username,UserPassword]
-
-var xhttp = new XMLHttpRequest();
- 	 xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      alert( this.responseText);
-    }
-  };
-  var EC=JSON.stringify(Insert);
-  xhttp.open("GET", "./getsignin/"+EC, true);
-  xhttp.send();
-
- }
-
-
-
-function Login(){
-
-  var xhttp = new XMLHttpRequest();
-
-  var UserName=  document.getElementById("username").value ;
-  var Password=  document.getElementById("password").value ;
-             xhttp.onreadystatechange = function () {
-
-                 if (this.readyState == 4 && this.status == 200) {
-
-                  alert(this.responseText);
-                 }
-             };
-             //alert("ljd");
-             xhttp.open("GET", "./login/"+UserName+"/"+Password, true);
-
-             xhttp.send();
-
-
-
-}
-
-
-
-
-
   </script>
 </body>
 

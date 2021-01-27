@@ -1049,10 +1049,6 @@
             }
         }
 
-        body {
-            background-color: lightblue;
-
-        }
 
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
@@ -1066,16 +1062,18 @@
             -moz-appearance: textfield;
         }
 
-        body {
-            background: rgb(230, 29, 47);
-            background: radial-gradient(circle, rgba(230, 29, 47, 0.9528186274509804) 0%, rgba(10, 84, 157, 0.9360119047619048) 100%);
-            color: #ffffff;
-        }
         .dropdown {
     width: 151px !important;
     height: 30px !important;
 }
 
+#myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
     </style>
 </head>
 
@@ -1094,7 +1092,7 @@
                 <label for="invo-1">Invoice Number</label>
                 <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="InvoiceID">
-                <button class="btn" style="height: 25px; margin-top: -5px;background-color: #e61d2f;"></button>
+                <button class="btn" style="height: 25px; margin-top: -5px;background-color: #e61d2f;" onclick="getInvoiceStock()"></button>
                 <label for="prod-1">Product Number</label>
                 <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                     name="invo-1" id="invo-1">
@@ -1304,7 +1302,6 @@
                             <tr>
 
                                 <th>Product ID</th>
-
                                 <th>Product Name</th>
                                 <th>Company</th>
                                 <th>Purchase Price</th>
@@ -1317,7 +1314,7 @@
 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="ProductSaleTableBody">
 
                             <!-- this will be populated from database -->
                         </tbody>
@@ -1766,7 +1763,7 @@
         }
     };
     //alert("ljd");
-    xhttp.open("GET", "./getAccounts/", true);
+    xhttp.open("GET", "./getAccountHeads/", true);
     
     xhttp.send();
     }
@@ -1853,10 +1850,15 @@
 
 
         var array = JSON.stringify(myRow2);
-
-
+       // alert(array);
+       
 
         var xhttp = new XMLHttpRequest();
+        
+        if(AID == ""){
+            alert("Payment Method not selected");
+        }else{
+            
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
@@ -1864,20 +1866,133 @@
 
             }
         };
-
+    
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-
         // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-
-        xhttp.open("GET", "./addSalesForSS/" + array, true);
-
         xhttp.send();
-    };
+    }
+    // }else{
+    //         alert("Payment Method is not selected");
+    //     }
+    }
 
     function validation(){
         
     }
+
+</script>
+
+<script>
+    function getInvoiceStock(){
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        //alert(data);
+        var a = JSON.parse(data);
+        document.getElementById("SID").value = a[0].SID;
+        document.getElementById("LastBalance").value = a[0].Balance;
+        document.getElementById("CurrentBalance").value = a[0].Balance;
+        calc();
+        document.getElementById("CNO").value = a[0].Contect;
+        document.getElementById("SupplierCategory").value = a[0].Category;
+        //document.getElementById("SupplierName").value =;
+        $('#SupplierName').val( a[0].SupplierID);
+        $('#SupplierName').selectpicker('refresh');
+        // var e = document.getElementById("SupplierName");
+        //  e.options[e.selectedIndex].value=a[0].SID;
+
+        var i=0;
+        //alert(a.length);
+        var table = document.getElementById("ProductSaleTable");
+        table.innerHTML="<thead>\
+                            <tr>\
+                                <th>Product ID</th>\
+                                <th>Product Name</th>\
+                                <th>Company</th>\
+                                <th>Purchase Price</th>\
+                                <th>Quantity</th>\
+                                <th>Discount</th>\
+                                <th>Total</th>\
+                                <th>Action</th>\
+                            </tr>\
+                        </thead>";
+
+        for (i; i < a.length; i++) {
+            var PID = a[i].ProductSerial;
+            var discount = a[i].Discount;
+            var quantity = a[i].OrderedQuantiy;
+            var purchasePrice = a[i].PurchasePricePerUnit;
+            var company = a[i].Company;
+            var productName = a[i].ProductName;
+            var totalAmount = a[i].NetAmount;
+
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+
+            cell1.innerHTML = PID;
+            cell2.innerHTML = productName;
+            cell3.innerHTML = company;
+            cell4.innerHTML = purchasePrice;
+            cell5.innerHTML = quantity;
+            cell6.innerHTML = discount;
+            cell7.innerHTML = totalAmount;
+            //calc();
+            cell8.innerHTML =
+                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+    }
+
+
+
+
+    } else {
+        //alert( this.responseText);
+    }
+};
+var invoiceNumber = document.getElementById("InvoiceID").value;
+
+xhttp.open("GET", "./getInvoiceStock/" + invoiceNumber, true);
+xhttp.send();
+}
+</script>
+
+<script>
+function getInvoiceSupplier(){
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        //alert(data);
+        var a = JSON.parse(data);
+        
+        document.getElementById("CID").value = a[0].CustomerID;
+        document.getElementById("LastBalance").value = a[0].Balance;
+        document.getElementById("CurrentBalance").value = a[0].Balance;
+        calc();
+        document.getElementById("CNO").value = a[0].Contect;
+        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+        document.getElementById("CustomerName").value = a[0].CustomerID;
+        
+
+    }
+};
+var invoiceNumber = document.getElementById("InvoiceID").value;
+
+xhttp.open("GET", "./getInvoiceSupplier/" + invoiceNumber, true);
+xhttp.send();
+
+
+}
+
 
 </script>
 

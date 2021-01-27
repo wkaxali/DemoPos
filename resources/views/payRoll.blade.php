@@ -160,6 +160,13 @@
         input[type=number] {
             -moz-appearance: textfield;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
 
     </style>
 </head>
@@ -254,13 +261,8 @@
                 <div class="col-md-5 payRow  offset-md-1">
                     <h4 class="redBg">Pay Details</h4>
                     <label for="">Basic Pay</label>
-<<<<<<< HEAD
                     <input type="text" class="form-control" value="13,000" style="display: inline-block; width: 200px;"
                         name="" id="basicPay">
-=======
-                    <input type="number" class="form-control" value="13,000" style="display: inline-block; width: 200px;"
-                        name="" id="">
->>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
                     <br>
                     <label for="">Allows Rent/+</label>
                     <input type="text" class="form-control" value="50,000" style="display: inline-block; width: 200px;"
@@ -278,21 +280,12 @@
                     </select>
                     <br>
                     <label for="">Allowed Holidays</label>
-<<<<<<< HEAD
                     <input type="text" class="form-control" value="5" style="display: inline-block; width: 200px;"
                         name="" id="allowedHolidays">
                     <br>
                     <label for="">Target Sales</label>
                     <input type="text" class="form-control" value="10" style="display: inline-block; width: 200px;"
                         name="" id="saleTarget">
-=======
-                    <input type="number" class="form-control" value="5" style="display: inline-block; width: 200px;"
-                        name="" id="">
-                    <br>
-                    <label for="">Target Sales</label>
-                    <input type="number" class="form-control" value="10" style="display: inline-block; width: 200px;"
-                        name="" id="">
->>>>>>> 41627f9324c39fa0710fe4c529722e7a1b33fb02
                     <br>
                     <label for="">Total</label>
                     <input type="number" class="form-control" value="48000" style="display: inline-block; width: 200px;"

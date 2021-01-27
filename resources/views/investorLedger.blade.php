@@ -129,11 +129,18 @@
         input[type=number] {
             -moz-appearance: textfield;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
 
+        }
     </style>
 </head>
 
 <body onload="loadFunctions()">
+
     <main>
         <div class="container">
             <div class="row  my-2">
@@ -167,11 +174,13 @@
                         name="" id="investorRatio">
 
                 </div>
+                
                 <div class="col-md-1" style="margin-left: -32px;margin-top: 2.5px; ">
                     <button type="button"
                         style=" border-radius: 10px; height: 90px; background-color:#13579a; color: #ffffff;"
                         class="btn " data-toggle="modal" data-target=".bd-example-modal-lg" onclick="getStock()">Assign
                         Auto</button>
+
                 </div>
             </div>
         </div>
@@ -183,24 +192,25 @@
             <div class="row">
                 <div class="col-md-12">
                    
-                    
+
                         <table class=" table-striped" style="width: 100%; text-align: center;" id="mainStockTable">
-                        <thead>
-    <tr>
-      <th>Product Id</th>
-      <th>Product Name</th>
-      <th>Sale Price</th>
-      <th>Purchase Price</th>
-      <th>Profit</th>
-      <th>Self Profit</th>
-      <th>Investor Profit</th>
-      <th>Engine Number</th>
-      <th>Chasis Number</th>
-      <th>Assigned</th>
-    </tr>
-    <tbody id="MainStockTableBody">
-    </tbody>
-  </thead>
+                            <thead>
+                                <tr>
+                                <th>Product Id</th>
+                                <th>Product Name</th>
+                                <th>Sale Price</th>
+                                <th>Purchase Price</th>
+                                <th>Profit</th>
+                                <th>Self Profit</th>
+                                <th>Investor Profit</th>
+                                <th>Engine Number</th>
+                                <th>Chasis Number</th>
+                                <th>Assigned</th>
+                                </tr>
+                            </thead>
+                            <tbody id="MainStockTableBody">
+                            </tbody>
+                        
                         </table>
                     
                 </div>
@@ -230,15 +240,15 @@
                     <div class="summaryLabels">
                         <label for="">Total Profit</label>
                         <input type="number" value="1133000" class="form-control"
-                            style="display: inline-block; width: 200px;" value="" id="profit"><br>
+                            style="display: inline-block; width: 200px;" value="" id="totalProfit"><br>
 
                         <label for="">Capital</label>
                         <input type="number" value="80000000" class="form-control"
-                            style="display: inline-block; width: 200px;" name="" id=""><br>
+                            style="display: inline-block; width: 200px;" name="" id="capital"><br>
 
                         <label for="">Net Total</label>
                         <input type="number" value="9133000" class="form-control"
-                            style="display: inline-block; width: 200px;" name="" id=""><br>
+                            style="display: inline-block; width: 200px;" name="" id="netTotal"><br>
 
 
 
@@ -248,11 +258,11 @@
                 <div class="col-md-5 summary-2 offset-md-2">
                     <label for="">Amount Received By</label>
                     <input type="number" value="6500000" class="form-control"
-                        style="display: inline-block; width: 200px;" name="" id=""><br>
+                        style="display: inline-block; width: 200px;" name="" id="RecievedMoney"><br>
 
                     <label for="">Remaining</label>
                     <input type="number" value="3511200" class="form-control"
-                        style="display: inline-block; width: 200px;" name="" id=""><br>
+                        style="display: inline-block; width: 200px;" name="" id="remaining"><br>
                 </div>
             </div>
 
@@ -319,27 +329,41 @@
 
     </script>
 
+
+
 <script>
     function profits(){
         var table = document.getElementById("mainStockTable");
+        var capital = document.getElementById("budget").value;
         var totalSail = 0;
         var totalPurchase = 0;
         var profit = 0;
         var investorRatio = document.getElementById("selfRatio").value;
         var selfRatio = document.getElementById("investorRatio").value;
-    
+        var totalProfit = 0;
+                
         for(var i = 1; i < table.rows.length; i++)
                 {
-                    totalSail = parseInt(table.rows[i].cells[2].innerHTML); 
-                    totalPurchase = parseInt(table.rows[i].cells[3].innerHTML);
+                    totalSail = parseFloat(table.rows[i].cells[2].innerHTML); 
+                    totalPurchase = parseFloat(table.rows[i].cells[3].innerHTML);
+
                    profit = totalSail - totalPurchase;
                    table.rows[i].cells[4].innerHTML=profit;
                    table.rows[i].cells[5].innerHTML=profit*selfRatio/100;
                    table.rows[i].cells[6].innerHTML=profit*investorRatio/100;
 
                 }  
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                totalProfit = parseFloat(totalProfit) + parseFloat(table.rows[i].cells[6].innerHTML);
+            }
+            alert(totalProfit);
+            document.getElementById("totalProfit").value = totalProfit;
+            document.getElementById("capital").value = capital;
+            document.getElementById("netTotal").value=parseFloat(totalProfit)+parseFloat(capital);
+            var MoneyTook=parseFloat(document.getElementById("netTotal").value) -parseFloat(document.getElementById("remaining").value);
+            document.getElementById("RecievedMoney").value=MoneyTook;
                
-                //document.getElementById("profit").value = profit;
     }
     
         $("#stockTable").on('click', 'tr', function () {
@@ -370,6 +394,7 @@
             var mcell7 = row.insertCell(6);
             var mcell8 = row.insertCell(7);
             var mcell9 = row.insertCell(8);
+            var mcell10 = row.insertCell(9);
             
 
 
@@ -382,6 +407,7 @@
             mcell7.innerHTML = "";
             mcell8.innerHTML = cell6;
             mcell9.innerHTML = cell7;
+            mcell10.innerHTML = 0;
             
         });
 
@@ -409,6 +435,7 @@ function getStock(){
                     a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
                 });
                 table.draw();
+                //Profit()
 
         }
     };
@@ -444,9 +471,7 @@ function loadFunctions(){
         xhttp.send();
         }
     </script>
-
-
-
+   
     <script>
         $(document).ready(function () {
             $('#stockTable').DataTable();
@@ -464,17 +489,22 @@ function getInvestorDetails(){
                 var data = this.responseText;
 
                 var a = JSON.parse(data);
-                alert(a);
+
                 var table;
                 //document.getElementById("mainStocktBody").innerHTML="";
                
                 document.getElementById("selfRatio").value = a[0].OurProfitRatio;
                 document.getElementById("investorRatio").value = a[0].InvestorProfitRatio;
-                document.getElementById("budget").value = a[0].Balance;
+
+                document.getElementById("budget").value = a[0].InitialInvestment;
+                document.getElementById("remaining").value = a[0].Balance;
+                document.getElementById("MainStockTableBody").innerHTML="";
+                
+
                 getInvestorStock();
             }
             
-                //alert( this.responseText);
+                //alert( this.responsedwedText);
             
         };
         var LID = $('#investors').find(":selected").val();
@@ -491,12 +521,15 @@ function getInvestorDetails(){
         var ProductDetails = [];
         var table = document.getElementById("mainStockTable");
 
-
-        //alert(sp);
+       var i=0;
+  
         $('#mainStockTable tr').each(function (row, tr) {
-
-            ProductDetails[row] = [
-
+            
+            var v = $(tr).find('td:eq(9)').text();
+            alert(v);
+            if(v==0){
+            ProductDetails[i] = [
+                
                 $(tr).find('td:eq(0)').text(), //Product ID
                 //$(tr).find('td:eq(1)').text(), //Product Name
                 $(tr).find('td:eq(2)').text(), //Sale Price
@@ -508,8 +541,8 @@ function getInvestorDetails(){
                 // $(tr).find('td:eq(8)').text(), // Chasis Number
                 
             ];
-
-
+                i++;
+            }
         });
         ProductDetails.shift();
         var LID = $('#investors').find(":selected").val();
@@ -553,9 +586,8 @@ function getInvestorStock(){
     
     xhttp.send();
     }
-    </script>
-</script>
 
+</script>
 
 
 </body>

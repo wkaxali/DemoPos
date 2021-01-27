@@ -103,7 +103,7 @@ class UpdateStocksController extends Controller
 
 }
   public function getAllAvailableProducts(){
-    $results=DB::select('select * from  vw_stockdetails where StatusInStock="Available"');
+    $results=DB::select('select * from  vw_stockdetails where Category=20');
     
         
     return $results;
@@ -156,27 +156,65 @@ public static function setTotalCost($PID,$amount){
   return "Cost Updated";
 
 }
-public static function setTotalSaleAmount($PID,$amount){
+public static function updateStock($PID,$stkIn){
 
   DB::table('instock')
   ->where('ProductSerial', $PID)
-  ->update(['TotalSaleAmount'=>$amount
+  ->update(['StockIn'=>$stkIn
   
 
   ]);
   return "Cost Updated";
 
 }
-public static function updateStock($PID,$qty){
+public function UpdateInStock(Request $request,$CO){
+  $obj = json_decode($CO);
+
+  $PID=$obj[0];
+  $productName=$obj[1];
+  $company=$obj[2];
+  $salePrice=$obj[3];
+  $purchasePrice=$obj[4];
+  $stockIn=$obj[5];
+  $color=$obj[6];
+  $engineNumber=$obj[7];
+  $chasisNumber=$obj[8];
+  $status=$obj[5];
+  
+  self :: updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status);
+  return $obj;
+ //return "Getting from controller".$obj[0];
+
+}
+
+
+  public function getInvoiceStock($InvoiceNo){
+    $results=DB::select('select * from vw_suppliersale_invoice where InvoiceNumber= '.$InvoiceNo);
+   // mysql_insert_id()
+    return $results;
+
+}
+
+public static function updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status){
+
+  DB::table('productdefination')
+  ->where('ProductSerial', $PID)
+  ->update([
+    'Company'=>$company,
+    'color'=>$color,
+    'EngineNumber'=>$engineNumber,
+    'ChasisNumber'=>$chasisNumber,
+    'ProductName'=>$productName
+    ]);
 
   DB::table('instock')
-  ->where('ProductSerial', $PID)
-  ->update(['StockIn'=>$qty
-  
-
-  ]);
-  return "Stock Update";
-
+  ->where('StockID', $PID)
+  ->update([
+    'StockIn'=>$stockIn,
+    'Status'=>$status,
+    'TotalSaleAmount'=>$salePrice,
+    'TotalCost'=>$purchasePrice
+    ]);
 }
 public static function getCurrentStock($PID){
 
@@ -186,8 +224,5 @@ public static function getCurrentStock($PID){
 
              return $re[0]->StockIn;
 }
-
-
-
 
 }

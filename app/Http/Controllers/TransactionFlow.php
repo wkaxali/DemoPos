@@ -56,7 +56,16 @@ class TransactionFlow extends Controller
 
     }
 
+    public static function getTransactionsForAccounts($AID){
+        $data=DB:: select('select * from tbltransactionflow where PaidVia='.$AID);
+        return $data;
 
+    }
+    public static function getTransactionsForParties($LID){
+        $data=DB:: select('select * from tbltransactionflow where PaidTo='.$LID);
+        return $data;
+
+    }
     public static function addInTransactionFlowForSales($LID,$invoiceNumber,$dateNow,$AP,$userID,$pattyCash,$CLB,$CCB){
 
         // [TransactionID]

@@ -66,7 +66,7 @@ class serviceSalesFlow extends Controller
        CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
        $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
        LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
-       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock Purchased",
+       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock and Service",
        $totlpaid,$dateNow,"1",$oldCustomerBalance,$currentCustomerBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$CID,$paidVia,NULL);
        $OldAccBalance=accountsController::getAccountBalance($AID);
        $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
@@ -150,8 +150,84 @@ class serviceSalesFlow extends Controller
       $IID=DB::table('tblsaleinvoice')->max("InvoiceNumber");
      return $IID+1;
      
-
-
     }
     
+
+    public function UpdateRecipe(Request $request,$RecipeTable,$MenuID,$Ecost,$salePrice){
+        
+      print($MenuID);
+
+      self::deleteintblrecipetoraw($MenuID);
+   $obj = json_decode($RecipeTable);
+   foreach ($obj as $row){
+      
+          $RMID=$row[0];
+          $RMName=$row[1];
+          $qty=$row[2];
+          $unit=$row[3];
+          $unitCost=$row[4];
+          $TotalCostOfThisItem=$row[5];
+
+      // print("RMID".$RMID);
+      // print("    Name".$RMName);
+      // print("    Qty".$qty);
+      // print("   unt".$unit);
+      // print("   unit cost".$unitCost);
+      // print("   Cost Total cost".$unitCost);
+      
+
+    self::insertinrecipetblraw($MenuID,$RMID,$unit,$qty," ",$TotalCostOfThisItem);
+
+
+   }
+   self::updateIntblMenuproductsForSaleAndPurchase($MenuID,$Ecost,$salePrice);
+   return 0;
+
+     
+   }
+
+
+
+   public function deleteintblrecipetoraw($MenuID){
+
+  
+  
+      $Deleted = DB:: delete("delete from tblrecipetoraw where PID=".$MenuID); 
+       
+       print($Deleted);
+  
+  
+  
+   }
+
+   public function insertinrecipetblraw($Rpid,$Rrawid,$Runit,$Rquantity,$remarks,$REcost){
+
+     
+      
+ $result= DB::insert('insert into tblrecipetoraw (PID, RAWID, Unit, Quantity, Remarks, ECost ) values (?, ?,?,?,?,?)', [$Rpid,$Rrawid,$Runit,$Rquantity,$remarks, $REcost]);
+  
+
+  if($result==1){
+
+      print('nextone');
+
+
+
+
+          }
+  }
+
+
+  public function updateIntblMenuproductsForSaleAndPurchase($PID,$ERCost,$SalePrice){
+
+      
+  
+  
+      $qr="UPDATE   tblmenuproducts SET   SalePrice='".$SalePrice."', RecipeCost ='".$ERCost."' WHERE  PID =".$PID;
+      $affected = DB::update($qr);
+  print("Number of Rows Affacted".$affected);
+  
+  } 
+
+
 }
