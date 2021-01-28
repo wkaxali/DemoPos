@@ -184,8 +184,21 @@ Route::get('/ss', function () {
 Route::get('/qt', function () {
     return view('quotation');
 });
+Route::get('/qt', function () {
+    return view('quotation');
+});
+Route::get('/logout', function () {
+    session(['userName' =>null]);
+
+    return view('signInSignUp');
+});
 Route::get('/db', function () {
+    $UN = session()->get('userName');
+    if($UN!=NULL){
     return view('dashboard');
+    }else{
+        return "Invalid Username Or Password";
+    }
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 

@@ -421,7 +421,8 @@
     <div class="forms-container">
       <div class="signin-signup">
         <form action="#" class="sign-in-form">
-          <h2 class="title">Sign in</h2>
+          <h2 class="title">User Login</h2>
+        
           <div class="input-field">
             <i class="fas fa-user"></i>
             <input type="text" placeholder="Username" id="username" />
@@ -430,7 +431,7 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" id="password"/>
           </div>
-          <input type="submit" value="Login" onclick="Login()" class="btn solid" />
+          <input type="submit" value="Login" onclick="UserLogin()" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -449,9 +450,10 @@
         </form>
         <form action="#" class="sign-up-form">
           <h2 class="title">Admin</h2>
+          
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" id="UserName2" />
+            <input type="text" placeholder="Username" id="adminUser" />
           </div>
           <!-- <div class="input-field">
             <i class="fas fa-envelope"></i>
@@ -459,9 +461,9 @@
           </div> -->
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="UserPaswd2" />
+            <input type="password" placeholder="Password" id="adminPass" />
           </div>
-          <input type="submit" class="btn" onclick="RegisAdmin()"value="Login" />
+          <input type="submit" class="btn" onclick="AdminLogin()"value="Login" />
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -484,11 +486,8 @@
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3>New here ?</h3>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
-            ex ratione. Aliquid!
-          </p>
+          <h3>Welcome to Dashboard</h3>
+         <p>Click here to go for admin site</p>
           <button class="btn transparent" id="sign-up-btn">
             Admin
           </button>
@@ -497,13 +496,12 @@
       </div>
       <div class="panel right-panel">
         <div class="content">
-          <h3>One of us ?</h3>
+          <h3>Welcome to Dashboard</h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
-            laboriosam ad deleniti.
+           Click to go for user login
           </p>
           <button class="btn transparent" id="sign-in-btn">
-            Sign in
+           User Login
           </button>
         </div>
         <img src="img/unnamed (1).png" class="image" alt="" />
@@ -549,17 +547,23 @@ var xhttp = new XMLHttpRequest();
 
 
 
-function Login(){
+function AdminLogin(){
 
   var xhttp = new XMLHttpRequest();
 
-  var UserName=  document.getElementById("username").value ;
-  var Password=  document.getElementById("password").value ;
+  var UserName=  document.getElementById("adminUser").value ;
+  var Password=  document.getElementById("adminPass").value ;
              xhttp.onreadystatechange = function () {
 
                  if (this.readyState == 4 && this.status == 200) {
 
-                  alert(this.responseText);
+                  //alert(this.responseText);
+                  if(this.responseText!="Invalid Username"){
+                  window.location.href = "./db";
+                  }
+                  else{
+                    alert("Invalid user");
+                  }
                  }
              };
              //alert("ljd");
