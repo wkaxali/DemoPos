@@ -325,3 +325,6 @@ Route::get('/prc', function () {
 Route::get('/fgp', function () {
     return view('ForlandGatePass');
 });
+Route::get('/pc', function () {
+    return view('passageCertificate');
+});
