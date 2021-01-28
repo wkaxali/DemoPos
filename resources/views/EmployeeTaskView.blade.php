@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Search Task</title>
+    <title>Employee Task View</title>
 
   
     <link rel="stylesheet" type="text/css"
@@ -57,7 +57,9 @@
 
             width: 100px;
         }
-
+.leftCardBody div{
+    background-color: rgb(231 172 61) !important;
+}
         .rightCardBody button {
 
             width: 100px;
@@ -371,7 +373,7 @@
         }
 
         *::-webkit-scrollbar-thumb {
-            background: #aaa;
+            background: rgb(231 172 61);
         }
 
         *::-webkit-scrollbar-thumb:hover {
@@ -465,7 +467,7 @@
             color: #fff;
             width: 40px;
             height: 40px;
-            background-color: #0abf53 !important;
+            background-color:rgb(231 172 61) !important;
             border-radius: 50px;
             -webkit-border-radius: 50px;
             -o-border-radius: 50px;
@@ -479,13 +481,23 @@
         }
 
         .leftCardBody button {
-
+background-color: rgb(231 172 61) !important;
             width: 100px;
+            border-color:rgb(231 172 61) !important;
         }
 
         .rightCardBody button {
 
             width: 100px;
+        }
+        .mainDots div:nth-child(1){
+           background-color: rgb(231 172 61) !important;
+        }
+        .mainDots div:nth-child(2){
+           background-color: #000000 !important;
+        }
+        .mainDots div:nth-child(3){
+           background-color: rgb(231 172 61) !important;
         }
 
         .mainCardBody {
@@ -569,9 +581,9 @@
             background: none !important;
             border-radius: 10px;
             width: 20rem;
-            -webkit-box-shadow: 10px 10px 31px 0px #4360b5;
-            -moz-box-shadow: 10px 10px 31px 0px#e61d2f;
-            box-shadow: 10px 10px 31px 0px #4360b5;
+            -webkit-box-shadow: 10px 10px 31px 0px rgb(231 172 61);
+            -moz-box-shadow: 10px 10px 31px 0px #000;
+            box-shadow: 10px 10px 31px 0px rgb(231 172 61);
             transition: .7s;
 
         }
@@ -582,8 +594,8 @@
         }
 
         .card {
-            border-left: 10px solid #4360b5;
-            border-top: 10px solid #e61d2f;
+            border-left: 10px solid #000000;
+            border-top: 10px solid rgb(231 172 61);
             border-radius: 10px !important;
         }
 
@@ -690,11 +702,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0a549d;
+            background-color: #000000;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background-color: rgb(231 172 61);
         }
 
         .fa-bars {

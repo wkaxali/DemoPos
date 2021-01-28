@@ -16,7 +16,7 @@
 
 
 
-    <title>ATTANDANCE</title>
+    <title>ATTANDANCE View</title>
     <style>
                    @media (max-width: 1366px) {
             .left-content {
@@ -185,7 +185,7 @@
 
 
                     </select>
-                    <button style="height: 25px; margin-top: -5px;" class="btn btn-info"></button>
+                    <button style="height: 25px; margin-top: -5px; background-color:#efc55f;" class="btn "></button>
 
                 </div>
 
@@ -226,8 +226,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 customButtons offset-md-6">
-                    <button style="background-color: #e61d2f;color: #ffffff;" class="btn ">Update</button>
-                    <button style="background-color: #0a549d;color: #ffffff;" class="btn ">Print</button>
+                    <button style="background-color: #efc55f;color: #ffffff;" class="btn ">Update</button>
+                    <button style="background-color: #000000;color: #ffffff;" class="btn ">Print</button>
                 </div>
             </div>
         </div>

@@ -70,7 +70,7 @@
             color: #fff;
             width: 40px;
             height: 40px;
-            background-color: #0abf53 !important;
+            background-color: rgb(231 172 61) !important;
             border-radius: 50px;
             -webkit-border-radius: 50px;
             -o-border-radius: 50px;
@@ -187,8 +187,8 @@
         }
 
         .card {
-            border-left: 10px solid #4360b5;
-            border-top: 10px solid #e61d2f;
+            border-left: 10px solid #000000;
+            border-top: 10px solid rgb(231 172 61);
             border-radius: 10px !important;
         }
 
@@ -232,14 +232,14 @@
         }
 
         .btn-secondary-1 {
-            background-color: #e61d2f;
+            background-color: rgb(231 172 61);
             outline: none !important;
             color: #ffffff;
 
         }
 
         .btn-secondary-1:hover {
-            background-color: #e61d2f;
+            background-color: rgb(231 172 61);
             outline: none !important;
             color: #ffffff;
 
@@ -248,16 +248,16 @@
         }
 
         .btn-dark-1 {
-            background-color: #0a549d;
-            border-color: #2e4ead;
+            background-color: #000000;
+            border-color: rgb(231 172 61);
             outline: none !important;
             color: #ffffff;
 
         }
 
         .btn-dark-1:hover {
-            background-color: #0a549d;
-            border-color: #2e4ead;
+            background-color: rgb(231 172 61);
+            border-color: #000000;
             color: #ffffff;
 
             outline: none !important;

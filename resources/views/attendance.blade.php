@@ -104,8 +104,8 @@
             position: relative;
             float: right;
             margin-right: 50px !important;
-            background-color: #0a549d;
-            color: #ffffff;
+            background-color: #efc55f;
+            color: #000000;
         }
 
         .circleContent {
@@ -162,11 +162,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0a549d;
+            background: #000000;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background: #efc55f;
         }
 
         .fa-bars {
@@ -216,9 +216,9 @@
                                     name="" id="">
                                 <br>
                                 <div class="loginButtons">
-                                    <button class="btn" style="background-color: #e61d2f; color: #ffffff;">View
+                                    <button class="btn" style="background-color: #efc55f; color: #ffffff;">View
                                         Previous</button>
-                                    <button class="btn" style="background-color:  #0a549d; color: #ffffff;"
+                                    <button class="btn" style="background-color:  #000000; color: #ffffff;"
                                         onclick="markAttendance()">Mark Attandance</button>
                                 </div>
                             </div>

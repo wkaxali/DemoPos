@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!-- <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}"> -->
 
+    <title>Add New Stock</title>
 
 
     <style>
@@ -6512,11 +6513,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0a549d;
+            background: #000000;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background: #efc55f;
         }
 
         .fa-bars {

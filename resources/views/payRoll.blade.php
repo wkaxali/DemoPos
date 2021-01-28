@@ -100,7 +100,7 @@
         }
 
         .redBg {
-            background-color: #e61d2f;
+            background-color:rgb(231 172 61);
             color: #ffffff;
             padding: 4px;
             border-radius: 10px;
@@ -129,7 +129,7 @@
         }
 
         .blueBg {
-            background-color: #0a549d;
+            background-color: #000000;
             color: #ffffff;
             text-align: center;
             padding: 4px;
