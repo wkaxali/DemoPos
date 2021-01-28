@@ -6,7 +6,7 @@
 <head>
     <base href="">
     <meta charset="utf-8" />
-    <title>Bermij |</title>
+    <title>Sales</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -1847,6 +1847,12 @@
         });
 
     </script>
+<<<<<<< HEAD
+</body>
+
+
+<script>
+=======
 
 
 
@@ -1922,6 +1928,7 @@ var invoiceNumber = document.getElementById("InvoiceID").value;
 xhttp.open("GET", "./getAllInvoiceDetails/" + invoiceNumber, true);
 xhttp.send();
 }
+>>>>>>> 59b42a639f6698f1fe53253ed045de62ae453dd9
     function getInvoiceCustomer() {
 
         var xhttp = new XMLHttpRequest();

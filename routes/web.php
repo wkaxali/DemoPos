@@ -311,3 +311,20 @@ Route::get('/ql', function () {
 Route::get('/e', function () {
     return view('Employee');
 });
+
+
+Route::get('/vd', function () {
+    return view('vehicleDetail');
+});
+
+Route::get('/prc', function () {
+    return view('paymentReceipt');
+});
+
+
+Route::get('/fgp', function () {
+    return view('ForlandGatePass');
+});
+Route::get('/pc', function () {
+    return view('passageCertificate');
+});
