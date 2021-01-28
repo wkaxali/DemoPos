@@ -193,12 +193,12 @@ Route::get('/logout', function () {
     return view('signInSignUp');
 });
 Route::get('/db', function () {
-    $UN = session()->get('userName');
-    if($UN!=NULL){
+    // $UN = session()->get('userName');
+    // if($UN!=NULL){
     return view('dashboard');
-    }else{
-        return "Invalid Username Or Password";
-    }
+    // }else{
+    //     return "Invalid Username Or Password";
+    // }
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
