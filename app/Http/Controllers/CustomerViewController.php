@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
 
-class CustomerViewcotroller extends Controller
+class CustomerViewController extends Controller
 {
     public function customerinfo(Request $request, $CO){
 
@@ -40,4 +40,20 @@ class CustomerViewcotroller extends Controller
 
         }
     }
+
+    public static function getCustomerNames(){
+        $data=DB:: select('select * from customeinformation');
+        
+        $option='<option value=" "></option>';
+    
+    
+        foreach ($data as $d){
+          //print $option;
+    
+            $option=$option.'
+            <option value= '.$d->CustomerID.'>'.$d->CustomerName.'</option>';
+          
+        }
+        return $option;
+      }
 }

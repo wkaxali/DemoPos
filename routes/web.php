@@ -6,7 +6,7 @@ use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
-
+use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\UpdateStocksController;
 
 use App\Http\Controllers\payController;
@@ -59,8 +59,10 @@ Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierPart
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check'] );
+Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer'] );
 
 Route::get('/getAllCustomers/',[CustomerController::class, 'getAllCustomers'] );
+Route::get('/getCustomerNames/',[CustomerViewController::class, 'getCustomerNames'] );
 //Route::get('/getAllSupliers/',[CustomerController::class, 'getAllCustomers'] );
 Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail'] );
 
