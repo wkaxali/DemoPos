@@ -36,6 +36,7 @@ class salesFlow extends Controller
       $color=$Array[16];
       $description=$Array[17];
       $productName=$Array[18];
+      $city=$Array[18];
       
        //return $TransactionMode;
          
@@ -131,6 +132,11 @@ class salesFlow extends Controller
         session(['productName' => $productName]);
         session(['price' => $tot]);
         session(['quantity' => '1']);
+        session(['city' => $city]);
+        session(['referenceNumber' => 'FMM-GDP-000'.$invoiceNumber]);
+        session(['amountPaid' => $productName]);
+        session(['balance' => $tot]);
+        session(['receivedBy' => $tot]);
 
         $numberToWords = new NumberToWords();
         $numberTransformer = $numberToWords->getNumberTransformer('en');

@@ -72,7 +72,7 @@ Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
 
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
-
+Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads'] );
 
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
@@ -187,6 +187,7 @@ Route::get('/qt', function () {
 Route::get('/qt', function () {
     return view('quotation');
 });
+//61bd06c
 Route::get('/logout', function () {
     session(['userName' =>null]);
 
@@ -339,6 +340,9 @@ Route::get('/prc', function () {
 Route::get('/fgp', function () {
     return view('ForlandGatePass');
 });
-Route::get('/pc', function () {
-    return view('passageCertificate');
+Route::get('/slip', function () {
+    return view('SalarySlip');
+});
+Route::get('/sheet', function () {
+    return view('inventorysheet');
 });
