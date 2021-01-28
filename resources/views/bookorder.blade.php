@@ -315,7 +315,7 @@
                                         <div class="col-md-12">
                                             <label for="Model">Model</label>
                                             <select style="height: 25px !important; width: 158px !important; "
-                                            class="selectpicker form-control" data-live-search="true" id="autos">
+                                            class="selectpicker form-control" data-live-search="true" id="category">
 
                                         </select>
                                         </div>
@@ -979,8 +979,8 @@
 
                 if (this.readyState == 4 && this.status == 200) {
 
-                    document.getElementById("autos").innerHTML = this.response;
-                    $('#autos').selectpicker('refresh');
+                    document.getElementById("category").innerHTML = this.response;
+                    $('#category').selectpicker('refresh');
                 }
             };
             //alert("ljd");

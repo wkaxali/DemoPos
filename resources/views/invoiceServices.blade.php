@@ -2123,7 +2123,7 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i].EngineNumber,
-                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock, a[i].Remarks
+                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock, a[i].description
                     ]);
                 });
                 table.draw();

@@ -1847,12 +1847,6 @@
         });
 
     </script>
-<<<<<<< HEAD
-</body>
-
-
-<script>
-=======
 
 
 
@@ -1928,7 +1922,6 @@ var invoiceNumber = document.getElementById("InvoiceID").value;
 xhttp.open("GET", "./getAllInvoiceDetails/" + invoiceNumber, true);
 xhttp.send();
 }
->>>>>>> 59b42a639f6698f1fe53253ed045de62ae453dd9
     function getInvoiceCustomer() {
 
         var xhttp = new XMLHttpRequest();
