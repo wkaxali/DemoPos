@@ -91,7 +91,7 @@
     .input-field i {
       text-align: center;
       line-height: 55px;
-      color: #000000;
+      color: #0a549d;
       transition: 0.5s;
       font-size: 1.1rem;
     }
@@ -143,7 +143,7 @@
 
     .btn {
       width: 150px;
-      background-color: rgb(231 172 61);
+      background-color: #0a549d;
       border: none;
       outline: none;
       height: 49px;
@@ -178,6 +178,7 @@
       top: -10%;
       right: 48%;
       transform: translateY(-50%);
+      /* background-image: linear-gradient(-45deg, #e61d2f 0%, #e61d2f 100%); */
       background-image: linear-gradient(-45deg, rgb(231 172 61) 0%, rgb(231 172 61) 100%);
       transition: 1.8s ease-in-out;
       border-radius: 50%;
@@ -413,7 +414,7 @@
     }
   </style>
 
-  <title>Top Notch</title>
+  <title>Forland</title>
 </head>
 
 <body>
@@ -421,8 +422,7 @@
     <div class="forms-container">
       <div class="signin-signup">
         <form action="#" class="sign-in-form">
-          <h2 class="title">User Login</h2>
-        
+          <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
             <input type="text" placeholder="Username" id="username" />
@@ -431,7 +431,7 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" id="password"/>
           </div>
-          <input type="submit" value="Login" onclick="UserLogin()" class="btn solid" />
+          <input type="submit" value="Login" onclick="Login()" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -450,10 +450,9 @@
         </form>
         <form action="#" class="sign-up-form">
           <h2 class="title">Admin</h2>
-          
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username" id="adminUser" />
+            <input type="text" placeholder="Username" id="UserName2" />
           </div>
           <!-- <div class="input-field">
             <i class="fas fa-envelope"></i>
@@ -461,9 +460,9 @@
           </div> -->
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password" id="adminPass" />
+            <input type="password" placeholder="Password" id="UserPaswd2" />
           </div>
-          <input type="submit" class="btn" onclick="AdminLogin()"value="Login" />
+          <input type="submit" class="btn" onclick="RegisAdmin()"value="Login" />
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -486,8 +485,11 @@
     <div class="panels-container">
       <div class="panel left-panel">
         <div class="content">
-          <h3>Welcome to Dashboard</h3>
-         <p>Click here to go for admin site</p>
+          <h3>New here ?</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
+            ex ratione. Aliquid!
+          </p>
           <button class="btn transparent" id="sign-up-btn">
             Admin
           </button>
@@ -496,12 +498,13 @@
       </div>
       <div class="panel right-panel">
         <div class="content">
-          <h3>Welcome to Dashboard</h3>
+          <h3>One of us ?</h3>
           <p>
-           Click to go for user login
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+            laboriosam ad deleniti.
           </p>
           <button class="btn transparent" id="sign-in-btn">
-           User Login
+            Sign in
           </button>
         </div>
         <img src="img/unnamed (1).png" class="image" alt="" />
@@ -542,28 +545,21 @@ var xhttp = new XMLHttpRequest();
   var EC=JSON.stringify(Insert);
   xhttp.open("GET", "./getsignin/"+EC, true);
   xhttp.send();
-
  }
 
 
 
-function AdminLogin(){
+function Login(){
 
   var xhttp = new XMLHttpRequest();
 
-  var UserName=  document.getElementById("adminUser").value ;
-  var Password=  document.getElementById("adminPass").value ;
+  var UserName=  document.getElementById("username").value ;
+  var Password=  document.getElementById("password").value ;
              xhttp.onreadystatechange = function () {
 
                  if (this.readyState == 4 && this.status == 200) {
 
-                  //alert(this.responseText);
-                  if(this.responseText!="Invalid Username"){
-                  window.location.href = "./db";
-                  }
-                  else{
-                    alert("Invalid user");
-                  }
+                  alert(this.responseText);
                  }
              };
              //alert("ljd");
