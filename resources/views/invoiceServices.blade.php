@@ -2206,7 +2206,7 @@
         var paidTo = document.getElementById("paidTo").value;
         var AID = document.getElementById("slctAccounts").value;
 
-        var customerName = document.getElementById("CustomerName").value;
+        var customerName = $('#CustomerName').find(":selected").text();
         var CNIC = document.getElementById("CID").value;
         var address = document.getElementById('Address').value;
         var contact = document.getElementById('contact').value;
@@ -2224,22 +2224,26 @@
 
         var array = JSON.stringify(order);
 
-        alert(array);
-
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
 
-                alert("Invoice =" + this.responseText + " is generated");
+        if(AID==""){
+            alert('Payment Method not Selected');
+        }
+        else{
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert("Invoice =" + this.responseText + " is generated");
+                    window.open("/psi");
 
 
-            }
-        };
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addSales/" + array, true);
-        xhttp.send();
-        alert("Generated");
-    };
+                }
+            };
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addSales/" + array, true);
+            xhttp.send();
+        }
+    }
 
 </script>
 <script>

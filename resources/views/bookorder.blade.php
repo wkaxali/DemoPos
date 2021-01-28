@@ -314,18 +314,10 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label for="Model">Model</label>
-                                            <select class="selectpicker form-control" data-live-search="true"
-                                                id="category" tabindex="null">
-                                                <option value=1>Forland C13</option>
-                                                <option value=2>Forland Trucks</option>
-                                                <option value=3>Land Trucks</option>
-                                                <option value=4>Continantal Trucks</option>
-                                                <option value=4>Continantal Trucks</option>
-                                                <option value=4>Continantal Trucks</option>
-                                                <option value=4>Continantal Trucks</option>
+                                            <select style="height: 25px !important; width: 158px !important; "
+                                            class="selectpicker form-control" data-live-search="true" id="autos">
 
-
-                                            </select>
+                                        </select>
                                         </div>
                                     </div><br>
                                     <div class="row">
@@ -933,6 +925,7 @@
         function loadFunction() {
             getOrderID();
             loadaccounts();
+            loadAutos();
         }
 
     </script>
@@ -978,6 +971,23 @@
             }
             toggle = !toggle;
         });
+
+
+        function loadAutos() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("autos").innerHTML = this.response;
+                    $('#autos').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadAutos/", true);
+
+            xhttp.send();
+        }
 
     </script>
 </body>

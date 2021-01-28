@@ -102,6 +102,7 @@ Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
 Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']);
 Route::get('/dailySaleAmount',[AISessionController::class, 'dailySaleAmount']);
+Route::get('/loadAutos',[getProducts::class, 'getAutosNames']);
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
