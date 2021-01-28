@@ -255,7 +255,7 @@
                                     <td>{{ Session::get('color')}}</td>
                                     <td>{{ Session::get('engineNo')}}</td>
                                     <td>{{ Session::get('chassisNo')}}</td>
-                                    <td>{{ Session::get('Amount')}}</td>
+                                    <td>{{ Session::get('totalCost')}}</td>
 
                                 </tr>
 
@@ -275,7 +275,7 @@
                             <tr>
                                 <td>Total In Words</td>
                                 <td>Value Exclusive Of Sales Tax</td>
-                                <td>PKR {{ Session::get('total')}}</td>
+                                <td>PKR {{ Session::get('totalCost')}}</td>
 
                             </tr>
                             <tr>

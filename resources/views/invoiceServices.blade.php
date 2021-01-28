@@ -1710,6 +1710,16 @@
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                 name="name" id="amountRemaining">
                         </div>
+
+                        <div class="input-field">
+                            <label for="status">Received By</label>
+                            <select data-live-search="true" class=" selectpicker" id='employees'>
+
+
+
+                            </select>
+                        </div>
+                        
                         <div class="input-field">
                             <label for="status">Payment Mode</label>
                             <select data-live-search="true" class=" selectpicker" id='slctAccounts'>
@@ -2214,6 +2224,7 @@
         var AID = document.getElementById("slctAccounts").value;
 
         var customerName = $('#CustomerName').find(":selected").text();
+        var receivedBy = $('#employees').find(":selected").text();
         var CNIC = document.getElementById("CID").value;
         var address = document.getElementById('Address').value;
         var contact = document.getElementById('contact').value;
@@ -2225,10 +2236,15 @@
         var description = document.getElementById('description').value;
         var productName = document.getElementById('ProductName').value;
         var city = document.getElementById('city').value;
+        var totalCost = document.getElementById('TotalCost').value;
 
         order = [pid, totwT, discount, netTotal, amp, rmb,
                 CID, paidTo, AID, customerName, CNIC, address, 
-                contact, fatherName, engineNo, chassisNo, color, description, productName, city];
+                contact, fatherName, engineNo, chassisNo, color,
+                description, productName, city, receivedBy,
+                totalCost
+            
+            ];
 
         var array = JSON.stringify(order);
 
@@ -2244,6 +2260,7 @@
                     alert("Invoice =" + this.responseText + " is generated");
                     window.open("/psi");
                     window.open("/fgp");
+                    window.open("/prc");
 
 
 
@@ -2273,6 +2290,7 @@
 
         xhttp.send();
         loadAllCustomers();
+        loadEmployees();
 
 
     }
@@ -2526,6 +2544,23 @@
         }
         toggle = !toggle;
     });
+
+
+    function loadEmployees() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("employees").innerHTML = this.response;
+                    $('#employees').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployeeName/", true);
+
+            xhttp.send();
+        }
 
 </script>
 

@@ -177,7 +177,7 @@
                             <td>{{ Session::get('productName')}}</td>
                             <td>{{ Session::get('engineNo')}}</td>
                             <td>{{ Session::get('chassisNo')}}</td>
-                            <td>{{ Session::get('color')}}</td>
+                            <td>{{ Session::get('city')}}</td>
                         </tr>
                     </tbody>
                 </table>
