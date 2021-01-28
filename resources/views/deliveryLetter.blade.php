@@ -20,7 +20,7 @@
         }
 
         #mainMarginRow {
-            margin: 15px 0px !important;
+            margin: 5px 0px !important;
         }
 
         ul li {
@@ -61,10 +61,27 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+        .borderMain {
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        .mainBorder {
+            border: 3px double #333;
+            border-radius: 10px;
+            margin: 10px;
+        }
     </style>
 </head>
 
 <body>
+<div class="borderMain">
+        <div class="borderMain">
+            <div class="borderMain">
+                <div class="borderMain">
+                    <div class="mainBorder">
+
+
     <header>
         <div class="container">
             <div class="row">
@@ -100,9 +117,9 @@
                         <tbody id="myTbody">
                             <tr>
                                 <td style="font-weight:600 ;">Name:</td>
-                                <td id='name'>Asif Jah</td>
+                                <td id='name'>Muhammaad Zareen</td>
                                 <td style="font-weight:600 ;">Father Name:</td>
-                                <td  id='name'>Malik Arif Jah</td>
+                                <td  id='name'>Muhammaad Hanif</td>
                             </tr>
                             <tr>
                                 <td style="font-weight:600 ;">CNIC / NTN</td>
@@ -248,6 +265,11 @@
 
         </div>
     </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 
 
 
