@@ -482,18 +482,10 @@
                                                             <h3
                                                                 style="text-align: center; color:#e61d2f; font-weight: 600;">
                                                                 Additional Cost</h3>
-                                                            <label style="width: 170px;" for="Comission Head">Comission
-                                                                Head</label>
-                                                            <select class="selectpicker form-control"
-                                                                data-live-search="true" id="comissionHeadSelect"
-                                                                tabindex="null">
-                                                                <option value=1>Bank Person</option>
-                                                                <option value=2>sales per comissiions</option>
-                                                                <option value=3>Third party per comission</option>
-                                                                <option value=4>Promotion charges</option>
-                                                                <option value=5>PRA % </option>
-                                                                <option value=6>Nothing</option>
-                                                            </select>
+                                                            <label style="width: 170px;" for="Comission Head">Comission Head</label>
+                                                                <select style="height: 25px !important; width: 158px !important; "
+                                                                class="selectpicker form-control" data-live-search="true" id="costComissionHeads">
+                                                                </select>
                                                             <label style="width: 170px;" for="">Select Account</label>
                                                             <select
                                                                 style="height: 25px !important; width: 158px !important; "
@@ -636,15 +628,10 @@
                                                                 style="text-align: center; color:#e61d2f; font-weight: 600;">
                                                                 Comission & Taxes</h3>
                                                             <label style="width: 170px;" for="">Comission Head</label>
-                                                            <select class="selectpicker form-control"
-                                                                data-live-search="true" id="comissionHeadSelectd"
-                                                                tabindex="null">
-                                                                <option value=1>Bank Person</option>
-                                                                <option value=2>sales per comissiions</option>
-                                                                <option value=3>Third party per comission</option>
-                                                                <option value=4>Promotion charges</option>
-                                                                <option value=5>PRA % </option>
-                                                                <option value=6>Nothing</option>
+                                                            
+                                                            <select style="height: 25px !important; width: 158px !important; "
+                                                            class="selectpicker form-control" data-live-search="true" id="comissionHeads">
+
                                                             </select>
 
                                                             <br>
@@ -1345,6 +1332,7 @@
             xhttp.open("GET", "./getAccountHeads/", true);
 
             xhttp.send();
+            loadComissionHeads();
         }
 
     </script>
@@ -1369,6 +1357,26 @@
             }
             toggle = !toggle;
         });
+
+
+        function loadComissionHeads() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("costComissionHeads").innerHTML = this.response;
+                    $('#costComissionHeads').selectpicker('refresh');
+
+                    document.getElementById("comissionHeads").innerHTML = this.response;
+                    $('#comissionHeads').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadComissionHeads/", true);
+
+            xhttp.send();
+        }
 
     </script>
 

@@ -1618,9 +1618,16 @@
                         </div>
                         <div class="input-field">
                             <label for="status">Customer CNIC</label>
-                            <input type="text" autocomplete="OFF" class="form-control"
+                            <input type="number" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                 name="name" id="CID">
+
+                        </div>
+                        <div class="input-field">
+                            <label for="status">Movement City/Area</label>
+                            <input type="text" autocomplete="OFF" class="form-control"
+                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                name="name" id="city">
 
                         </div>
                         <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
@@ -2217,10 +2224,11 @@
         var color = document.getElementById('color').value;
         var description = document.getElementById('description').value;
         var productName = document.getElementById('ProductName').value;
-       
+        var city = document.getElementById('city').value;
+
         order = [pid, totwT, discount, netTotal, amp, rmb,
                 CID, paidTo, AID, customerName, CNIC, address, 
-                contact, fatherName, engineNo, chassisNo, color, description, productName];
+                contact, fatherName, engineNo, chassisNo, color, description, productName, city];
 
         var array = JSON.stringify(order);
 
@@ -2235,6 +2243,8 @@
 
                     alert("Invoice =" + this.responseText + " is generated");
                     window.open("/psi");
+                    window.open("/fgp");
+
 
 
                 }
