@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
-    <title>Document</title>
+    <title>Receiving</title>
 
 
     <style>
@@ -217,6 +217,7 @@
                                             <tr>
                                                 <th>SR</th>
                                                 <th>Name</th>
+                                                <th>Color</th>
                                                 <th>Chasis No</th>
                                                 <th>Engine No</th>
                                                 <th>Tranport Charges</th>
@@ -546,13 +547,11 @@
                 products[row] = [
 
                     $(tr).find('td:eq(1)').text(), //PID
-
-                    $(tr).find('td:eq(3) input[type="text"]').val(), //chasisNumber
-
-
-                    $(tr).find('td:eq(4) input[type="text"]').val(), //EngineNumber
-                    $(tr).find('td:eq(5) input[type="text"]').val(), //Transport charges
-                    $(tr).find('td:eq(6)').find(":selected").val() //Status
+                    $(tr).find('td:eq(3) input[type="text"]').val(), //color
+                    $(tr).find('td:eq(4) input[type="text"]').val(), //chasisNumber
+                    $(tr).find('td:eq(5) input[type="text"]').val(), //EngineNumber
+                    $(tr).find('td:eq(6) input[type="text"]').val(), //Transport charges
+                    $(tr).find('td:eq(7)').find(":selected").val() //Status
 
 
 
@@ -562,14 +561,19 @@
 
             });
             //products.shift();
-            alert(products);
+            
             var AID = $('#accounts').find(":selected").val();
             var OID = document.getElementById("OrderId").value;
             var array2 = [products, OID, AID];
             var prod = JSON.stringify(array2);
 
-            alert(prod);
+            var accVal = document.getElementById("accounts").value;
+            
             var xhttp = new XMLHttpRequest();
+            if (accVal == ""){
+                alert('Payment Method not Selected');
+            }
+            else{
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
@@ -582,7 +586,7 @@
             xhttp.open("GET", "./ruautos/" + prod, true);
             xhttp.send();
 
-
+        }
         }
 
     </script>

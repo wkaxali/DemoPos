@@ -1652,8 +1652,8 @@
                                                     placeholder="Comments" required />
 
                                                 <div class="select-list">
-                                                    <select name="course_type" id="addCategory">
-                                                        <option slected value="">Category</option>
+                                                    <select name="course_type" id="course_type">
+                                                        <option selected value="">Category</option>
                                                         <option value="Society">Society</option>
                                                         <option value="Language">Language</option>
                                                     </select>
@@ -1661,8 +1661,8 @@
                                             </div>
 
                                             <div class="form-submit">
-                                                <input onclick="addCustomer()" name="submit" id="submit"
-                                                    class="submit" value="Add Customer" />
+                                                <button onclick="addCustomer()" name="submit" id="submit"
+                                                    class="submit" value="">Add Customer</button>
                                             </div>
                                         </form>
                                     </div>
@@ -2453,7 +2453,7 @@
     //alert("It is working"+CustomerComments);
     var cnic = document.getElementById("addCNIC").value;
     //alert("It is working"+CustomerComments);
-    var category = document.getElementById("addCategory").value;
+    var category = $('#course_type').find(":selected").val();
     //alert("It is working"+CustomerComments);
     var newCustomer = [customerName, fatherName, contact, profession, balance, address,
     comments, cnic, category

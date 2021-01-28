@@ -313,7 +313,7 @@
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label for="Model">Model :</label>
+                                            <label for="Model">Model</label>
                                             <select class="selectpicker form-control" data-live-search="true"
                                                 id="category" tabindex="null">
                                                 <option value=1>Forland C13</option>
@@ -330,7 +330,7 @@
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label for="">Invoice Price :</label>
+                                            <label for="">Invoice Price</label>
                                             <input type="number" onchange="product()" class="form-control"
                                                 style="width: 200px !important; display: inline-block !important;"
                                                 name="" id="invoice">
@@ -339,7 +339,16 @@
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label for="">Qty :</label>
+                                            <label for="">Description</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 200px !important; display: inline-block !important;"
+                                                name="" id="description">
+
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="">Qty</label>
                                             <input type="number" onchange="product()" class="form-control"
                                                 style="width: 200px !important; display: inline-block !important;"
                                                 name="" id="qty">
@@ -684,6 +693,7 @@
             var OrderID = document.getElementById("OrderId").value;
             var category = document.getElementById("category");
             var invoicePrice = document.getElementById("invoice").value;
+            var description = document.getElementById("description").value;
             var qty = document.getElementById("qty").value;
             var tot = document.getElementById("total").value;
             var amontPaid = document.getElementById("amount").value;
@@ -695,6 +705,8 @@
                 document.getElementById('qty').focus();
             } else if (amontPaid == "") {
                 document.getElementById('amount').focus();
+            } else if (description == "") {
+                document.getElementById('description').focus();
             } else {
                 document.getElementById('invoice').focus();
 
@@ -706,6 +718,8 @@
                 document.getElementById("invoice").value = "";
 
                 document.getElementById("qty").value = "";
+
+                document.getElementById("description").value = "";
 
                 document.getElementById("total").value = "";
 
@@ -725,6 +739,7 @@
             var OrderID = document.getElementById("OrderId").value;
             var category = document.getElementById("category");
             var invoicePrice = document.getElementById("invoice").value;
+            var description = document.getElementById("description").value;
             var qty = document.getElementById("qty").value;
             var tot = document.getElementById("total").value;
             var amontPaid = document.getElementById("amount").value;
@@ -740,6 +755,7 @@
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
+            var cell9 = row.insertCell(8);
 
 
 
@@ -751,6 +767,8 @@
             cell6.innerHTML = amontPaid;
             cell7.innerHTML = remaining;
             cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+            cell9.innerHTML = description;
+            cell9.style.display = "none"
             calculatonInTable();
 
 
@@ -851,7 +869,8 @@
                     $(tr).find('td:eq(4)').text(), //totamount
                     $(tr).find('td:eq(5)').text(), //Paid
                     $(tr).find('td:eq(6)').text(), //remAmount
-                    $(tr).find('td:eq(1)').text() //productName
+                    $(tr).find('td:eq(1)').text(), //productName
+                    $(tr).find('td:eq(8)').text(), //description
 
 
 
@@ -861,25 +880,20 @@
             });
             orderDetails.shift();
 
-
-            alert("array for order" + orderDetails);
             var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
             var totalpaid = document.getElementById("totalPaid").value;
             var totRemaining = document.getElementById("totRemaining").value;
-            alert(mainTotal);
             var Order = [mainTotal, totalpaid, totRemaining, orderDetails, AID];
-
-
-            alert(Order);
-
-
 
             var OrderArray = JSON.stringify(Order);
 
-            alert(OrderArray);
-
             var xhttp = new XMLHttpRequest();
+
+            if(AID==""){
+                alert('Payment Method not Selected');
+            }
+            else{
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
@@ -891,6 +905,7 @@
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./placeOrder/" + OrderArray, true);
             xhttp.send();
+            }
         }
 
         function getOrderID() {
