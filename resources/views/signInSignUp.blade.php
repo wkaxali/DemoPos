@@ -178,7 +178,8 @@
       top: -10%;
       right: 48%;
       transform: translateY(-50%);
-      background-image: linear-gradient(-45deg, rgb(231 172 61) 0%, rgb(231 172 61) 100%);
+      /* background-image: linear-gradient(-45deg, rgb(231 172 61) 0%, rgb(231 172 61) 100%); */
+      background-image: linear-gradient(-45deg, #e61d2f 0%, #e61d2f 100%);
       transition: 1.8s ease-in-out;
       border-radius: 50%;
       z-index: 6;

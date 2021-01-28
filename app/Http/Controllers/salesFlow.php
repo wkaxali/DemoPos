@@ -134,6 +134,9 @@ class salesFlow extends Controller
         session(['quantity' => '1']);
         session(['city' => $city]);
         session(['referenceNumber' => 'FMM-GDP-000'.$invoiceNumber]);
+        session(['amountPaid' => $productName]);
+        session(['balance' => $tot]);
+        session(['receivedBy' => $tot]);
 
         $numberToWords = new NumberToWords();
         $numberTransformer = $numberToWords->getNumberTransformer('en');
