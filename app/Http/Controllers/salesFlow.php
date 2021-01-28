@@ -36,7 +36,9 @@ class salesFlow extends Controller
       $color=$Array[16];
       $description=$Array[17];
       $productName=$Array[18];
-      $city=$Array[18];
+      $city=$Array[19];
+      $receivedBy=$Array[20];
+      $totalCost=$Array[21];
       
        //return $TransactionMode;
          
@@ -122,7 +124,7 @@ class salesFlow extends Controller
         session(['address' => $address]);
         session(['engineNo' => $engineNo]);
         session(['chassisNo' => $chassisNo]);
-        session(['Amount' => $tot]);
+        session(['Amount' => $AmountAfterDiscount]);
         session(['total' => $amp]);
         session(['invoiceDate' => $dateNow]);
         session(['invoiceNo' => $fatherName]);
@@ -134,10 +136,13 @@ class salesFlow extends Controller
         session(['quantity' => '1']);
         session(['city' => $city]);
         session(['referenceNumber' => 'FMM-GDP-000'.$invoiceNumber]);
-        session(['amountPaid' => $productName]);
-        session(['balance' => $tot]);
-        session(['receivedBy' => $tot]);
-
+        session(['amountPaid' => $amp]);
+        session(['balance' => $rmb]);
+        session(['totalCost' => $totalCost]);
+        session(['receivedBy' => $receivedBy]);
+        session(['receiptNumber' => 'FMM-10-20-00'.$invoiceNumber]);
+        session(['tax' => $AmountAfterDiscount]);
+        
         $numberToWords = new NumberToWords();
         $numberTransformer = $numberToWords->getNumberTransformer('en');
         $a= $numberTransformer->toWords($amp);

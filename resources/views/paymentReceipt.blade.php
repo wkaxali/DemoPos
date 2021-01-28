@@ -74,7 +74,7 @@
                                 <th>Total Amount:</th>
                                 <th>{{ Session::get('Amount')}}/=</th>
                                 <th>Amount Paid</th>
-                                <th>{{ Session::get('paid')}}/=</th>
+                                <th>{{ Session::get('amountPaid')}}/=</th>
                                 <th>Balance</th>
                                 <th>{{ Session::get('balance')}}/=</th>
                             </tr>
@@ -170,7 +170,7 @@
                                 <th>Total Amount:</th>
                                 <th>{{ Session::get('Amount')}}/=</th>
                                 <th>Amount Paid</th>
-                                <th>{{ Session::get('paid')}}/=</th>
+                                <th>{{ Session::get('amountPaid')}}/=</th>
                                 <th>Balance</th>
                                 <th>{{ Session::get('balance')}}/=</th>
                             </tr>
