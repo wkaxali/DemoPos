@@ -28,6 +28,7 @@ class serviceSalesFlow extends Controller
 
          $CCB=$Array[10];
          $AID=$Array[11];
+         $customerName=$Array[12];
        //  return $CLB;
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
@@ -73,8 +74,31 @@ class serviceSalesFlow extends Controller
        
        accountsController::UpdateNewBalance($AID,$newAccountBalance);
        
-
-
+       session(['invoiceDate' => $dateNow]);
+       session(['invoiceNo' => $invoiceNumber]);
+       session(['customerID' => $CID]);
+       session(['customerName' => $customerName]);
+       session(['city' => $city]);
+       session(['province' => $fatherName]);
+       session(['contact' => $chassisNo]);
+       session(['model' => $productName]);
+       session(['vehRegNo' => $engineNo]);
+       session(['distanceTraveled' => $chassisNo]);
+       session(['itemNo' => $address]);
+       session(['description' => $description]);
+       session(['quantity' => $CNIC]);
+       session(['CNIC' => $CNIC]);
+       session(['unitPrice' => $AmountAfterDiscount]);
+       session(['tax' => '0']);
+       session(['total' => $amp]);
+       session(['subTotal' => $tot]);
+       session(['taxable' => $invoiceNumber]);
+       session(['taxRate' => $tot]);
+       session(['taxAmount' => $tax]);
+       session(['S&H' => $amp]);
+       session(['others' => $rmb]);
+       session(['endTotal' => $totalCost]);
+       
      
        
         //insert into order details

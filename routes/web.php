@@ -344,3 +344,6 @@ Route::get('/slip', function () {
 Route::get('/sheet', function () {
     return view('inventorysheet');
 });
+Route::get('/vd', function () {
+    return view('vehicleDetail');
+});
