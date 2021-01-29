@@ -137,6 +137,11 @@ class CustomerController extends Controller
             ]);
         return $CID." ID customer added";
     }
+    public function getInvoiceCustomer($InvoiceNo){
+        $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+        return $results;
+
+    }
 
     
 }
