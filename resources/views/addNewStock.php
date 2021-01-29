@@ -6551,13 +6551,14 @@
                                 </select>
                             </div>
                             <div class="inputField-1">
-                                <label for="cost">Cost</label>
-                                <input type="text" class="form-control" id="cost">
-                            </div>
-                            <div class="inputField-1">
                                 <label for="prodName">Product Name</label>
                                 <input type="text" id="productName" class="form-control">
                             </div>
+                            <div class="inputField-1">
+                                <label for="cost">Cost</label>
+                                <input type="text" class="form-control" id="cost">
+                            </div>
+                           
                             <div class="inputField-1">
                                 <label for="prodName">Sale Price</label>
                                 <input type="text" class="form-control" id="salePrice">

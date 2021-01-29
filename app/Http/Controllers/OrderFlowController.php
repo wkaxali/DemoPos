@@ -439,6 +439,7 @@ class OrderFlowController extends Controller
  
          $Array=json_decode($data);
          $mainTotal=$Array[1];
+         $netTotal=$Array[5];
          $totlpaid= $Array[6];
          $totRemaining=$Array[7];
         $orderDetails =$Array[0];
@@ -461,7 +462,7 @@ class OrderFlowController extends Controller
          'Discount'=>'0',
          'DateStamp'=>$dateNow,
          'VAT'=>'0',
-         'NetTotal'=>$mainTotal,
+         'NetTotal'=>$netTotal,
          'AmountPaid'=>$totlpaid,
          'Balance'=>$totRemaining,
          'BillStatus'=>"Pending",

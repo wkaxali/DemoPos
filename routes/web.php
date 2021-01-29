@@ -69,7 +69,7 @@ Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDet
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail'] );
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
-
+//getInvoiceCustomer/{data}
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads'] );
@@ -184,9 +184,7 @@ Route::get('/ss', function () {
 Route::get('/qt', function () {
     return view('quotation');
 });
-Route::get('/qt', function () {
-    return view('quotation');
-});
+
 //61bd06c
 Route::get('/logout', function () {
     session(['userName' =>null]);
