@@ -221,8 +221,9 @@
                                                 <th>Chasis No</th>
                                                 <th>Engine No</th>
                                                 <th>Tranport Charges</th>
+                                                
                                                 <th>Status</th>
-                                                <th>Increased Tax</th>
+                                               
 
                                             </tr>
                                         </thead>

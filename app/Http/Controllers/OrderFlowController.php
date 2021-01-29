@@ -418,8 +418,8 @@ class OrderFlowController extends Controller
             <td><input type="text" '.$EN.'></td>
             <td><input type="text"'.$tc.'></td>
             <td> 
-                    '.$option.'
-
+                    '.$option.'</td>
+                 
 
                 
         </tr>';
