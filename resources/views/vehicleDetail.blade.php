@@ -66,11 +66,11 @@
             <div class="col-md-5 offset-md-3 text-right">
                 <h2>INVOICE</h2>
                 <label for="">Date</label>
-                <input type="text" name="" id=""><br>
+                <input type="text" name="" id="" value="{{ Session::get('invoiceDate')}}"><br>
                 <label for="">INVOICE #</label>
-                <input type="text" value="INV-FMM-00002" name="" id=""><br>
+                <input type="text" value="{{ Session::get('invoiceDetails')}}" name="" id=""><br>
                 <label for="">CUSTOMER ID #</label>
-                <input type="text" value="10002" name="" id="">
+                <input type="text" value="{{ Session::get('customerID')}}" name="" id="">
 
             </div>
         </div>
@@ -89,21 +89,21 @@
             <div class="row">
                 <div class="col-md-5">
                     <label for="">Customer Name</label>
-                    <input type="text" value="M.Mursleen" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('customerName')}}" name="" id=""><br>
                     <label for="">City</label>
-                    <input type="text" value="Kasur" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('city')}}" name="" id=""><br>
                     <label for="">Province</label>
-                    <input type="text" value="Punjab" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('province')}}" name="" id=""><br>
                     <label for="">Contact</label>
-                    <input type="text" value="0306-4364268" name="" id="">
+                    <input type="text" value="{{ Session::get('contact')}}" name="" id="">
                 </div>
                 <div class="col-md-5 offset-md-2">
                     <label for="">Vehicle Name</label>
-                    <input type="text" value="C-19" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('model')}}" name="" id=""><br>
                     <label for="">Vehicle Registration#</label>
-                    <input type="text" value="" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('vehicalRegNo')}}" name="" id=""><br>
                     <label for="">Kilometer Driven:</label>
-                    <input type="text" value="1,912" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('distanceTraveled')}}" name="" id=""><br>
 
                 </div>
             </div><br>
@@ -122,103 +122,13 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td></td>
-                                <td>Engine Oil-6 Ltr</td>
-                                <td>1</td>
-                                <td>3,550.50</td>
-                                <td>0</td>
-                                <td>3,550.00</td>
-
-
-                            </tr>
-                            <tr>
-                                <td>1375-10500-1 LVS</td>
-                                <td>Fuel Filter-C19</td>
-                                <td>1</td>
-                                <td>385.00</td>
-                                <td>0</td>
-                                <td>385.00</td>
-
-
-                            </tr>
-                            <tr>
-                                <td>D0110210001A1-07 LVS</td>
-                                <td>Fuel Filter-C19, C311</td>
-                                <td>1</td>
-                                <td>520.00</td>
-                                <td>0</td>
-                                <td>520.00</td>
-
-
-                            </tr>
-                            <tr>
-                                <td>K1317LVS</td>
-                                <td>Air Filter Cartridge</td>
-                                <td>1</td>
-                                <td>650.50</td>
-                                <td>0</td>
-                                <td>650.00</td>
-
-
-                            </tr>
-                            <tr>
-                                <td>LL480-09300LVS</td>
-                                <td>Oil FIlter-C19</td>
-                                <td>1</td>
-                                <td>490.00</td>
-                                <td>0</td>
-                                <td>490.00</td>
-
-
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>-</td>
-                                <td>0</td>
-                                <td>-</td>
-
-
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>-</td>
-                                <td>0</td>
-                                <td>-</td>
-
-
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>-</td>
-                                <td>0</td>
-                                <td>-</td>
-
-
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>-</td>
-                                <td>0</td>
-                                <td>-</td>
-
-
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>-</td>
-                                <td>0</td>
-                                <td>-</td>
-
+                                
+                                <td>{{ Session::get('itemNo')}}</td>
+                                <td>{{ Session::get('Description')}}</td>
+                                <td>{{ Session::get('quantity')}}</td>
+                                <td>{{ Session::get('UnitPrice')}}</td>
+                                <td>{{ Session::get('tax')}}</td>
+                                <td>{{ Session::get('total')}}</td>
 
                             </tr>
                         </tbody>
@@ -243,21 +153,21 @@
                 </div>
                 <div class="col-md-5 offset-md-2">
                     <label for="">SUBTOTAL</label>
-                    <input type="text" value="5,595.00" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('subTotal')}}" name="" id=""><br>
                     <label for="">TAXABLE</label>
-                    <input type="text" value="-" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('taxable')}}" name="" id=""><br>
                     <label for="">TAX RATE</label>
-                    <input type="text" value="0.00%" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('taxRate')}}" name="" id=""><br>
                     <label for="">TAX</label>
-                    <input type="text" value="-" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('taxAmount')}}" name="" id=""><br>
                     <label for="">S & H</label>
-                    <input type="text" value="-" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('S&H')}}" name="" id=""><br>
                     <label for="">OTHERS</label>
-                    <input type="text" value="-" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('others')}}" name="" id=""><br>
                     <hr>
                     <hr>
                     <label for="">TOTAL</label>
-                    <input type="text" value="5,59.00" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('endTotal')}}" name="" id=""><br>
                 </div>
             </div>
             <div class="row">
@@ -268,7 +178,7 @@
                     <p class="paras">If you have any questions about this invoice, please contact Mohsin Jabbar , 0321-3888893 #, mohsinjabbar560@gmail.com
                         
                     </p>
-                    <h6>Expertise. Convenience.Reliability</h6>
+                    <h5>Expertise. Convenience. Reliability</h5>
                 </div>
                 <div class="col-md-3">
                     <h5>Service Manager</h5>

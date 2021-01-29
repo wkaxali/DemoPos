@@ -157,7 +157,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <!-- <section>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -178,7 +178,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
  
     <footer>
         <div class="container">

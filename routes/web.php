@@ -69,11 +69,11 @@ Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDet
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail'] );
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
-
+//getInvoiceCustomer/{data}
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads'] );
-
+Route::get('/getInvoiceCustomer/{data}',[CustomerController::class, 'getInvoiceCustomer'] );
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails'] );
@@ -184,9 +184,7 @@ Route::get('/ss', function () {
 Route::get('/qt', function () {
     return view('quotation');
 });
-Route::get('/qt', function () {
-    return view('quotation');
-});
+
 //61bd06c
 Route::get('/logout', function () {
     session(['userName' =>null]);
@@ -345,4 +343,7 @@ Route::get('/slip', function () {
 });
 Route::get('/sheet', function () {
     return view('inventorysheet');
+});
+Route::get('/vd', function () {
+    return view('vehicleDetail');
 });

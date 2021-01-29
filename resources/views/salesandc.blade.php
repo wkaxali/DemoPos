@@ -276,8 +276,7 @@
                             <div class="col-md-3">
                                 <div class="sales-1" style="margin-left: 110px; ">
                                     <button class="btn unit" data-toggle="modal" data-target="#myModal"
-                                        onclick="getStock()">Sold
-                                        Unit</button>
+                                        onclick="getStock()">Sold Unit</button>
                                 </div>
                             </div>
                             <div class="col-md-5">

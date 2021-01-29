@@ -1937,13 +1937,58 @@ xhttp.send();
                 document.getElementById("CNO").value = a[0].Contect;
                 document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
                 //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
+                $('#CustomerName').val( a[0].CustomerID);
+        $('#CustomerName').selectpicker('refresh');
+
+                var i=0;
+        //alert(a.length);
+        var table = document.getElementById("ProductSaleTable");
+        table.innerHTML="<thead>\
+                            <tr>\
+                                <th>Product ID</th>\
+                                <th>Product Name</th>\
+                                <th>Company</th>\
+                                <th>Sale Price</th>\
+                                <th>Quantity</th>\
+                                <th>Discount</th>\
+                                <th>Total</th>\
+                                <th>Action</th>\
+                            </tr>\
+                        </thead>";
+
+        for (i; i < a.length; i++) {
+            var PID = a[i].ProductSerial;
+            var discount = a[i].Discount;
+            var quantity = a[i].Quantity;
+            var PerUnitSalePrice = a[i].PerUnitSalePrice;
+            var company = a[i].Company;
+            var productName = a[i].ProductName;
+            var totalAmount = a[i].NetAmount;
+
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+
+            cell1.innerHTML = PID;
+            cell2.innerHTML = productName;
+            cell3.innerHTML = company;
+            cell4.innerHTML = PerUnitSalePrice;
+            cell5.innerHTML = quantity;
+            cell6.innerHTML = discount;
+            cell7.innerHTML = totalAmount;
+            //calc();
+            cell8.innerHTML =
+                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
 
 
-
-
-            } else {
-                //alert( this.responseText);
-            }
+        }
+    }
         };
         var invoiceNumber = document.getElementById("InvoiceID").value;
 
@@ -2326,10 +2371,12 @@ xhttp.send();
             myTrows[row] = [
 
                 $(tr).find('td:eq(0)').text(), //productID
+                
                 $(tr).find('td:eq(3)').text(), //salePrice
                 $(tr).find('td:eq(4) input[type="text"]').val(), //qty
                 $(tr).find('td:eq(5) input[type="text"]').val(), //discount
                 $(tr).find('td:eq(6)').text() //totamount
+                
 
 
             ];
@@ -2405,6 +2452,8 @@ myTrows.shift();
 
 //var invoiceNumber=getInvoiceID();
 var tot = document.getElementById("Total").value;
+var customerName = $('#CustomerName').find(":selected").text();
+var contact = document.getElementById('CNO').value;
 var discount = document.getElementById('DiscountOverall').value;
 var invoiceID = document.getElementById('InvoiceID').value;
 var gross = document.getElementById('grossTotal').value;
@@ -2417,7 +2466,7 @@ var CLB = document.getElementById("LastBalance").value;
 var CCB = document.getElementById("CurrentBalance").value;
 var AID = $('#accounts').find(":selected").val();
 
-myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
+myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID, customerName, contact];
 
 //alert(myRow2[0][1]);
 //alert(myRow2[11]);
@@ -2436,6 +2485,7 @@ xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
 
         alert("Invoice =" + this.responseText + " is generated");
+        window.open("/vd");
 
     }
 };
