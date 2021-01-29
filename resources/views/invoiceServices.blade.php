@@ -1515,10 +1515,10 @@
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="TotalCost"><br>
-                                <label for="status">17 % Tax on Price</label>
+                                <!-- <label for="status">17 % Tax on Price</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="tax">
+                                    name="name" id="tax"> -->
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
