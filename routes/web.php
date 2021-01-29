@@ -73,7 +73,7 @@ Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads'] );
-
+Route::get('/getInvoiceCustomer/{data}',[CustomerController::class, 'getInvoiceCustomer'] );
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails'] );
