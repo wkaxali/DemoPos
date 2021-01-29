@@ -753,17 +753,20 @@
         .appointment-form #hour_appointment {
             z-index: 9;
         }
-
+    
+        }
         @media screen and (max-width: 1024px) {
             .container {
                 margin: 0 auto;
+
             }
         }
-
+        .container{  max-height: 260px;}
         @media screen and (max-width: 768px) {
             .container {
                 width: calc(100% - 30px);
                 max-width: 100%;
+              
             }
         }
 
@@ -1435,7 +1438,9 @@
             </div>
         </div>
     </header>
+    
     <section>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -1475,12 +1480,24 @@
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="EngineNumber">
                             </div>
-                            <div class="input-field">
-                                <label for="status">Status</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
+                            <div class="input-field"></label>
+                             
+                                <label for="status">Status</label>   <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="Status">
                             </div>
+                           
+                        </div>
+
+                        <div style="display: flex;" class="myOwnROw">
+ <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                            
 
                             <div class="input-field">
                                 <label for="status">Description</label>
@@ -1557,18 +1574,8 @@
                                     name="name" id="NetTotal">
                             </div>
                         </div>
-                        <div class="myOwnROw">
-
-
-
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <div class="image-Head px-1 ">
-                                        <h5>Forland</h5>
-                                        <p>
-                                            Customer is always captured after sales
-                                        </p>
-                                    </div>
+                        </div>
+                        </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="head-right">
@@ -1583,6 +1590,8 @@
             </div>
         </div>
     </section>
+    <br>
+
     <section>
         <div class="container">
             <div class="row">
@@ -1594,6 +1603,7 @@
             </div>
         </div>
     </section>
+  
     <section>
         <div class="container">
             <div class="row">
@@ -1741,6 +1751,8 @@
             </div>
         </div>
     </section>
+    <br>
+    <br>
     <section>
         <div class="container">
             <div class="row">
