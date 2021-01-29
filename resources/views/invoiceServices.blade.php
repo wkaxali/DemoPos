@@ -1490,17 +1490,17 @@
                             </div>
 
                             <div class="input-field">
-                            <label for="status">Purchase Price</label>
+                            <label for="status">Invoice Price</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="TotalPrice"><br>
-                                <label for="status">Total Cost</label>
+                                <!-- <label for="status">Total Cost</label> -->
                                 <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    style="display: none !important; height: 30px !important; width: 183px;"
                                     name="name" id="TotalCost"><br>
-                                <label for="status">17 % Tax on Price</label>
+                                <!-- <label for="status">17 % Tax on Price</label> -->
                                 <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    style="display: none !important; height: 30px !important; width: 183px;"
                                     name="name" id="tax">
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -1548,7 +1548,7 @@
                                 <label for="status">Discount</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" value="0" id="Discount" onkeyup="calc()">
+                                    name="name" value="0" id="Discount" onchange="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
@@ -2177,6 +2177,7 @@
 
 
             alert(this.cells[0].innerText);
+            calc();
         });
         calc();
     });
@@ -2185,7 +2186,8 @@
     
         var tot = document.getElementById("TotalPrice").value;
         var dis = document.getElementById("Discount").value;
-        var tax = Number(tot)*0.17;
+        //var tax = Number(tot)*0.17;
+        var tax=0;
 
         var netTot = Number(tot) + Number(tax) - Number(dis);
 
