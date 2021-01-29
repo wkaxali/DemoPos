@@ -68,7 +68,7 @@
                 <label for="">Date</label>
                 <input type="text" name="" id="" value="{{ Session::get('invoiceDate')}}"><br>
                 <label for="">INVOICE #</label>
-                <input type="text" value="{{ Session::get('invoiceNo')}}" name="" id=""><br>
+                <input type="text" value="{{ Session::get('invoiceDetails')}}" name="" id=""><br>
                 <label for="">CUSTOMER ID #</label>
                 <input type="text" value="{{ Session::get('customerID')}}" name="" id="">
 

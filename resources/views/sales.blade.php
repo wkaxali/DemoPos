@@ -2485,6 +2485,7 @@ xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
 
         alert("Invoice =" + this.responseText + " is generated");
+        window.open("/vd");
 
     }
 };
