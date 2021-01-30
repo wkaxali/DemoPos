@@ -479,8 +479,7 @@
                                                         <div class="col-md-12" style="padding: 0px !important;">
 
                                                             <h3
-                                                                style="text-align: center; color:#e61d2f; font-weight: 600;">
-                                                                Additional Cost</h3>
+                                                                style="text-align: center; color:#e61d2f; font-weight: 600;">Additional Cost</h3>
                                                             <label style="width: 170px;" for="Comission Head">Comission Head</label>
                                                                 <select style="height: 25px !important; width: 158px !important; "
                                                                 class="selectpicker form-control" data-live-search="true" id="costComissionHeads">
@@ -1016,7 +1015,7 @@
 
 
 
-            var CH = document.getElementById("comissionHeadSelect");
+            var CH = document.getElementById("costComissionHeads");
             var accountID = document.getElementById("accountForCost").value;
             var amount = document.getElementById("amount").value;
             var remarks = document.getElementById("remarks").value;
@@ -1040,7 +1039,7 @@
 
 
 
-            cell1.innerHTML = CH.options[CH.selectedIndex].text;
+            cell1.innerHTML = CH.options[CH.selectedIndex].value;
             cell5.innerHTML = CH.options[CH.selectedIndex].value;
 
             cell2.innerHTML = amount;
@@ -1058,7 +1057,7 @@
 
 
 
-            var CH = document.getElementById("comissionHeadSelectd");
+            var CH = document.getElementById("comissionHeads");
             var amountd = document.getElementById("amountd").value;
             var remarksd = document.getElementById("remarksd").value;
             var accountID = document.getElementById("accountForProfit").value;
@@ -1080,7 +1079,7 @@
 
 
 
-            cell1.innerHTML = CH.options[CH.selectedIndex].text;
+            cell1.innerHTML = CH.options[CH.selectedIndex].value;
             cell5.innerHTML = CH.options[CH.selectedIndex].value;
             cell6.innerHTML = accountID;
 

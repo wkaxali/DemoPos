@@ -1395,7 +1395,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
                 <label for="">Category</label>
                 <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
                     <option value=1>Auto</option>
@@ -1405,9 +1405,9 @@
 
 
                 </select>
-            </div>
-            <div class="col-md-5 offset-md-3">
-                <label for="">Modal / Services</label>
+            </div> -->
+            <div class="col-md-12 offset-md-10">
+                <!-- <label for="">Modal / Services</label>
                 <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
                     <option value=1>Forland C13</option>
                     <option value=2>Forland C12</option>
@@ -1415,7 +1415,7 @@
 
 
 
-                </select>
+                </select> -->
            
                 <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
                     style="height: 25px;" onclick="loadStock()"></button>
@@ -1790,8 +1790,9 @@
 
                                         <th>Chasis Number</th>
 
-                                        <th>Purchse Price</th>
-                                        <th>Cost with Additional charges</th>
+                                        <!-- <th>Purchse Price</th> -->
+                                        <th>Invoice Price</th>
+                                        <!-- <th>Cost with Additional charges</th> -->
                                         <th>Status</th>
                                         <th>Description</th>
 
@@ -1827,6 +1828,20 @@
             <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                         style="font-size: 18px;">Dashboard</span></a>
             </li>
+            <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                                <ul>
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
             <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                         style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
@@ -2140,7 +2155,7 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i].EngineNumber,
-                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock, a[i].description
+                        a[i].PerUnitSalePrice, a[i].StatusInStock, a[i].description
                     ]);
                 });
                 table.draw();
@@ -2169,10 +2184,10 @@
             document.getElementById("ChasisNumber").value = this.cells[3].innerText;
 
             document.getElementById("EngineNumber").value = this.cells[4].innerText;
-            document.getElementById("Status").value = this.cells[7].innerText;
-            document.getElementById("description").value = this.cells[8].innerText;
+            document.getElementById("Status").value = this.cells[6].innerText;
+            document.getElementById("description").value = this.cells[7].innerText;
             document.getElementById("TotalPrice").value = this.cells[5].innerText;
-            document.getElementById("TotalCost").value = this.cells[6].innerText;
+            //document.getElementById("TotalCost").value = this.cells[5].innerText;
             document.getElementById("Discount").value = "0";
 
 

@@ -322,6 +322,15 @@
                                     </div><br>
                                     <div class="row">
                                         <div class="col-md-12">
+                                            <label for="">Booking Price</label>
+                                            <input type="number" onchange="product()" class="form-control"
+                                                style="width: 200px !important; display: inline-block !important;"
+                                                name="" id="bookingPrice">
+
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-12">
                                             <label for="">Invoice Price</label>
                                             <input type="number" onchange="product()" class="form-control"
                                                 style="width: 200px !important; display: inline-block !important;"
@@ -470,6 +479,20 @@
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
+                    </li>
+                    <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                                <ul>
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
                     </li>
                     <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
@@ -684,6 +707,7 @@
         function valid() {
             var OrderID = document.getElementById("OrderId").value;
             var category = document.getElementById("category");
+            var bookingPrice = document.getElementById("bookingPrice").value;
             var invoicePrice = document.getElementById("invoice").value;
             var description = document.getElementById("description").value;
             var qty = document.getElementById("qty").value;
@@ -699,7 +723,10 @@
                 document.getElementById('amount').focus();
             } else if (description == "") {
                 document.getElementById('description').focus();
-            } else {
+            }  else if (bookingPrice == "") {
+                document.getElementById('bookingPrice').focus();
+            }
+             else {
                 document.getElementById('invoice').focus();
 
                 add();
@@ -708,6 +735,7 @@
                 document.getElementById("category");
 
                 document.getElementById("invoice").value = "";
+                document.getElementById("bookingPrice").value = "";
 
                 document.getElementById("qty").value = "";
 
@@ -731,6 +759,7 @@
             var OrderID = document.getElementById("OrderId").value;
             var category = document.getElementById("category");
             var invoicePrice = document.getElementById("invoice").value;
+            var bookingPrice = document.getElementById("bookingPrice").value;
             var description = document.getElementById("description").value;
             var qty = document.getElementById("qty").value;
             var tot = document.getElementById("total").value;
@@ -748,19 +777,22 @@
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
             var cell9 = row.insertCell(8);
+            var cell10 = row.insertCell(9);
+
 
 
 
             cell1.innerHTML = OrderID;
             cell2.innerHTML = category.options[category.selectedIndex].text;
-            cell3.innerHTML = invoicePrice;
+            cell3.innerHTML = bookingPrice;
             cell4.innerHTML = qty;
             cell5.innerHTML = tot;
             cell6.innerHTML = amontPaid;
             cell7.innerHTML = remaining;
             cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
             cell9.innerHTML = description;
-            cell9.style.display = "none"
+            cell9.style.display = "none";
+            cell10.innerHTML=invoicePrice;
             calculatonInTable();
 
 
@@ -797,10 +829,10 @@
 
 
         function product() {
-            var invoice = document.getElementById("invoice").value;
+            var bookingPrice = document.getElementById("bookingPrice").value;
             var qty = document.getElementById("qty").value;
 
-            var product = invoice * qty;
+            var product = bookingPrice * qty;
             document.getElementById("total").value = product;
             // document.getElementById("mainTotal").value = product;
 
@@ -863,6 +895,7 @@
                     $(tr).find('td:eq(6)').text(), //remAmount
                     $(tr).find('td:eq(1)').text(), //productName
                     $(tr).find('td:eq(8)').text(), //description
+                    $(tr).find('td:eq(9)').text()//invoice price
 
 
 
@@ -871,7 +904,7 @@
 
             });
             orderDetails.shift();
-
+            alert(orderDetails);
             var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
             var totalpaid = document.getElementById("totalPaid").value;

@@ -95,7 +95,7 @@
                     <label for="id">Company</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="company"><br><br>
-                    <label for="id">Sale Price</label>
+                    <label for="id">Invoice Price</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="salePrice"><br><br>
                     <label for="id">Purchase Price</label>

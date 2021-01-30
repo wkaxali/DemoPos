@@ -80,7 +80,7 @@ class OrderFlowController extends Controller
       return $IID+1;
   }
 
-    function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice,$OrderID,$description){
+    function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice,$OrderID,$description,$INP){
 
            
         $ProductSerial=DB::table('productdefination')->insertGetId(['ProductName'=> $Pname, 
@@ -101,7 +101,7 @@ class OrderFlowController extends Controller
             'StockIn'=>'1',
             'PerUnitPurchasePrice'=> $UnitPurchasePrice,
              
-            'PerUnitSalePrice'=>$UnitPurchasePrice,
+            'PerUnitSalePrice'=>$INP,
             'ExpairyDate'=>NULL,
             'TotalCost'=>$UnitPurchasePrice,
             'TotalSaleAmount'=>$UnitPurchasePrice,
@@ -132,11 +132,12 @@ class OrderFlowController extends Controller
         $remAmount=$row[5];
         $Pname=$row[6];
         $description=$row[7];
+        $invoicePrice=$row[8];
         for($i=0;$i<$qty;$i++){
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID,$description);
+       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID,$description,$invoicePrice);
        print ($productSerial);
       
   
