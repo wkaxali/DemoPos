@@ -11,72 +11,98 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
+.mainButtons button{
+width: 150px;
+}
+    </style>
     <title>Title</title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h3>Page Name</h3>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3">
-                <label for="">From</label>
-                <input type="date" name="" id="">
-            </div>
-            <div class="col-md-3">
-                <label for="">To</label>
-                <input type="date" name="" id="">
-            </div>
-            <div class="col-md-3">
-                <label for="">Total Stock In</label>
-                <input type="date" name="" id="">
-            </div>
-            <div class="col-md-3">
-                <label for="">Total Stock Out</label>
-                <input type="date" name="" id="">
+    <header id="mainHeader">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3>Page Name</h3>
+                </div>
             </div>
         </div>
 
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <table id="myTable" class="table table-hover table-bordered table-striped">
-                    <thead>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="">From</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="col-md-3">
+                    <label for="">To</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="col-md-3">
+                    <label for="">Total Stock In</label>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="col-md-3">
+                    <label for="">Total Stock Out</label>
+                    <input type="date" name="" id="">
+                </div>
+            </div>
 
-                        <tr>
-                            <th>Id</th>
-                            <th>Product Name</th>
-                            <th>Category</th>
-                            <th>Total Stock</th>
-                            <th>Sold Stock</th>
-                            <th>Remaining</th>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <table id="myTable" class="table table-hover table-bordered table-striped">
+                        <thead>
 
-                        </tr>
-                    </thead>
-                    <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <th>Product Name</th>
+                                <th>Category</th>
+                                <th>Total Stock</th>
+                                <th>Sold Stock</th>
+                                <th>Remaining</th>
 
-                    </tbody>
-                </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-<footer>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4 text-right offset-md-8">
-                <button style="background-color: #e61d2f;color: #fff;" class="btn">Close</button>
-                <button style="background-color: #0a549d; color: #fff;" class="btn">Print</button>
-                
+    </header>
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 mainButtons text-right offset-md-8">
+                    <button style="background-color: #e61d2f;color: #fff;" class="btn">Close</button>
+                    <button onclick="personalDiv()" style="background-color: #0a549d; color: #fff;"
+                        class="btn">Print</button>
+
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 
 
@@ -101,6 +127,11 @@
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+
+        function personalDiv(){
+     
+            window.print();
+        }
 
     </script>
 </body>
