@@ -64,6 +64,7 @@ class quotationController extends Controller
             $numberToWords = new NumberToWords();
             $numberTransformer = $numberToWords->getNumberTransformer('en');
             $a= $numberTransformer->toWords($totalPrice);
+            //there will query that will store information to database
 
             session(['amountInWords' => $a]);
             session(['customerName' => $customerName]);

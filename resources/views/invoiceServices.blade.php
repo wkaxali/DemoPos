@@ -1563,12 +1563,14 @@
 
                             <div class="row">
                                 <div class="col-md-5">
-                                    <div class="image-Head px-1 ">
-                                        <h5>Forland</h5>
-                                        <p>
-                                            Customer is always captured after sales
-                                        </p>
-                                    </div>
+                                <div class="input-field">
+                                <label for="status">Invoice Number</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" value="0" id="InvoiceID" >
+                                    <input type="button" value="Print Invoice Request"  onclick="getInvoiceRequest()"></input>
+                            
+                            </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="head-right">
@@ -2165,7 +2167,24 @@
         xhttp.open("GET", "./getAvailableProducts/", true);
         xhttp.send();
     }
+   function  getInvoiceRequest(){
+       alert();
+    id =document.getElementById("InvoiceID").value ;
+    var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
 
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Printed");
+                window.open("./sir");
+                
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getSaleInvReq/"+id, true);
+        xhttp.send();
+
+
+   }
 
     $(document).ready(function () {
 

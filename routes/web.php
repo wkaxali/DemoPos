@@ -26,7 +26,7 @@ use App\Http\Controllers\serviceSalesFlow;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
-
+use App\Http\Controllers\saleRequestController;
 
 
 /*
@@ -70,6 +70,8 @@ Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyD
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
 //getInvoiceCustomer/{data}
+
+Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleRequest'] );
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads'] );
