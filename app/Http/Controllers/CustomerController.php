@@ -111,11 +111,33 @@ class CustomerController extends Controller
 
     }
 
-    public function getInvoiceCustomer($InvoiceNo){
-        $results=DB::select('select * from vw_customersail_invoice where InvoiceNumber= '.$InvoiceNo);
-       // mysql_insert_id()
-        return $results;
-
+    public function addCustomer(Request $request, $CO){
+        
+        $obj=json_decode($CO);
+        $customerName=$obj[0];
+        $fatherName=$obj[1];
+        $contact=$obj[2];
+        $profession=$obj[3];
+        $balance=$obj[4];
+        $address=$obj[5];
+        $comments=$obj[6];
+        $cnic=$obj[7];
+        $category=$obj[8];
+        $CID=DB::table('customeinformation')->insertGetId([
+            'CustomerName'=>$customerName,
+            'FatherName'=>$fatherName,
+            'Contect'=>$contact,
+            'Ocupation'=>$profession,
+            'Balance'=>$balance,
+            'Address'=>$address,
+            'Comments'=>$comments,
+            'CNIC'=>$cnic,
+            'CustomerCatogery'=>$category,
+            
+            ]);
+        return $CID." ID customer added";
     }
+
+    
 }
 

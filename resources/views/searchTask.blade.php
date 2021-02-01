@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
 
-    <title>Investor General Ledger</title>
+    <title>Search Task</title>
     <style>
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;

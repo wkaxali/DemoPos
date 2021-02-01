@@ -1457,6 +1457,13 @@
                             </div>
 
                             <div class="input-field">
+                                <label for="status">Color</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="color">
+                            </div>
+
+                            <div class="input-field">
                                 <label for="status">Chassis Number </label>
                                 <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
@@ -1476,12 +1483,25 @@
                             </div>
 
                             <div class="input-field">
-                                <label for="status">Price + tax</label>
+                                <label for="status">Description</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="description">
+                            </div>
+
+                            <div class="input-field">
+                            <label for="status">Purchase Price</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="TotalPrice">
-                                <a style="font-size: 14px;" href="increaseInPrice.html" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">View Details</a>
+                                    name="name" id="TotalPrice"><br>
+                                <label for="status">Total Cost</label>
+                                <input type="number" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="TotalCost"><br>
+                                <label for="status">17 % Tax on Price</label>
+                                <input type="number" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="tax">
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1582,15 +1602,22 @@
 
 
                         <div class="input-field">
-                            <label for="status">Client Name</label>
-                            <input type="text" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="CustomerName">
+                        <label for="issue-3">Customer Name</label>
+                                <select class="selectpicker" data-live-search="true" tabindex="null" id="CustomerName"
+                                    onchange="getCurrentCustomerInfo()">
+                                    <!-- from database -->
+                                </select>
                             <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
                                margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
                         </div>
                         <div class="input-field">
-                            <label for="status">Customer ID</label>
+                            <label for="status">Client's Father Name</label>
+                            <input type="text" autocomplete="OFF" class="form-control"
+                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                name="name" id="fatherName">
+                        </div>
+                        <div class="input-field">
+                            <label for="status">Customer CNIC</label>
                             <input type="text" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                 name="name" id="CID">
@@ -1605,36 +1632,36 @@
                                         <form method="POST" class="appointment-form" id="appointment-form">
                                             <h2>Create Invoice</h2>
                                             <div class="form-group-1">
-                                                <input type="text" name="name" id="name" placeholder="Customer ID"
+                                                <input type="text" name="name" id="addCustomerName" placeholder="Customer Name"
                                                     required />
-                                                <input type="text" name="title" id="title" placeholder="Customer"
+                                                <input type="text" name="title" id="addFatherName" placeholder="Father Name"
                                                     required />
 
-                                                <input type="number" name="tel" id="tel" placeholder="Contact"
+                                                <input type="number" name="tel" id="addContact" placeholder="Contact"
                                                     required />
-                                                <input type="number" name="title" id="title" placeholder="ID Card"
+                                                <input type="number" name="title" id="addCNIC" placeholder="ID Card"
                                                     required />
-                                                <input type="number" name="phone_number" id="Profession"
+                                                <input type="text" name="phone_number" id="addAddress"
                                                     placeholder="Address" required />
-                                                <input type="number" name="phone_number" id="Profession"
+                                                <input type="text" name="phone_number" id="addProfession"
                                                     placeholder="Profession" required />
-                                                <input type="number" name="phone_number" id="Balance"
+                                                <input type="number" name="phone_number" id="addBalance"
                                                     placeholder="Balance" required />
 
-                                                <input type="number" name="phone_number" id="Profession"
+                                                <input type="text" name="phone_number" id="addComments"
                                                     placeholder="Comments" required />
 
                                                 <div class="select-list">
-                                                    <select name="course_type" id="course_type">
+                                                    <select name="course_type" id="addCategory">
                                                         <option slected value="">Category</option>
-                                                        <option value="society">Society</option>
-                                                        <option value="language">Language</option>
+                                                        <option value="Society">Society</option>
+                                                        <option value="Language">Language</option>
                                                     </select>
                                                 </div>
                                             </div>
 
                                             <div class="form-submit">
-                                                <input onclick="modalValidation()" name="submit" id="submit"
+                                                <input onclick="addCustomer()" name="submit" id="submit"
                                                     class="submit" value="Add Customer" />
                                             </div>
                                         </form>
@@ -1653,16 +1680,10 @@
                                 name="name" id="Address">
                         </div>
                         <div class="input-field">
-                            <label for="status">contact</label>
+                            <label for="status">Contact</label>
                             <input type="text" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                 name="name" id="contact">
-                        </div>
-                        <div class="input-field">
-                            <label for="status">Manager</label>
-                            <input type="text" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="Manager">
                         </div>
 
                     </div>
@@ -1747,13 +1768,15 @@
                                         <th>Product Id</th>
 
                                         <th>Product Name</th>
-                                        <th>Engine #</th>
+                                        <th>Color</th>
+                                        <th>Engine Number</th>
 
-                                        <th>Chasis #</th>
+                                        <th>Chasis Number</th>
 
                                         <th>Purchse Price</th>
                                         <th>Cost with Additional charges</th>
                                         <th>Status</th>
+                                        <th>Description</th>
 
 
 
@@ -2099,8 +2122,8 @@
                 table.clear();
                 $.each(a, function (i, item) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].EngineNumber, a[i].ChasisNumber,
-                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i].EngineNumber,
+                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock, a[i].Remarks
                     ]);
                 });
                 table.draw();
@@ -2125,11 +2148,14 @@
             document.getElementById("PID").value = this.cells[0]
                 .innerText; // get current row 1st TD value
             document.getElementById("ProductName").value = this.cells[1].innerText;
-            document.getElementById("ChasisNumber").value = this.cells[2].innerText;
+            document.getElementById("color").value = this.cells[2].innerText;
+            document.getElementById("ChasisNumber").value = this.cells[3].innerText;
 
-            document.getElementById("EngineNumber").value = this.cells[3].innerText;
-            document.getElementById("Status").value = this.cells[6].innerText;
-            document.getElementById("TotalPrice").value = this.cells[4].innerText;
+            document.getElementById("EngineNumber").value = this.cells[4].innerText;
+            document.getElementById("Status").value = this.cells[7].innerText;
+            document.getElementById("description").value = this.cells[8].innerText;
+            document.getElementById("TotalPrice").value = this.cells[5].innerText;
+            document.getElementById("TotalCost").value = this.cells[6].innerText;
             document.getElementById("Discount").value = "0";
 
 
@@ -2139,14 +2165,16 @@
     });
 
     function calc() {
-
+    
         var tot = document.getElementById("TotalPrice").value;
         var dis = document.getElementById("Discount").value;
+        var tax = Number(tot)*0.17;
 
-        var netTot = Number(tot) - Number(dis);
+        var netTot = Number(tot) + Number(tax) - Number(dis);
 
         document.getElementById("NetTotal").value = netTot;
         document.getElementById("amountPaid").value = netTot;
+        document.getElementById("tax").value = tax;
 
         calcRemainingAmount();
 
@@ -2169,25 +2197,30 @@
 
 
         var pid = document.getElementById("PID").value;
-
-
         var totwT = document.getElementById("TotalPrice").value;
         var discount = document.getElementById('Discount').value;
-
-
-
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('amountPaid').value;
         var rmb = document.getElementById("amountRemaining").value;
-
-
         var CID = document.getElementById("CID").value;
-
         var paidTo = document.getElementById("paidTo").value;
         var AID = document.getElementById("slctAccounts").value;
 
-        order = [pid, totwT, discount, netTotal, amp, rmb, CID, paidTo, AID];
+        var customerName = document.getElementById("CustomerName").value;
+        var CNIC = document.getElementById("CID").value;
+        var address = document.getElementById('Address').value;
+        var contact = document.getElementById('contact').value;
+        var fatherName = document.getElementById('fatherName').value;
 
+        var engineNo = document.getElementById("EngineNumber").value;
+        var chassisNo = document.getElementById('ChasisNumber').value;
+        var color = document.getElementById('color').value;
+        var description = document.getElementById('description').value;
+        var productName = document.getElementById('ProductName').value;
+       
+        order = [pid, totwT, discount, netTotal, amp, rmb,
+                CID, paidTo, AID, customerName, CNIC, address, 
+                contact, fatherName, engineNo, chassisNo, color, description, productName];
 
         var array = JSON.stringify(order);
 
@@ -2210,6 +2243,7 @@
 
 </script>
 <script>
+    
     function fetchAccounts() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -2224,6 +2258,7 @@
         xhttp.open("GET", "./getAccountHeads/", true);
 
         xhttp.send();
+        loadAllCustomers();
 
 
     }
@@ -2247,9 +2282,10 @@
         var CID = document.getElementById("CID").value;
         var Address = document.getElementById("Address").value;
         var contact = document.getElementById("contact").value;
-        var Manager = document.getElementById("Manager").value;
+        var fatherName = document.getElementById("fatherName").value;
         var amountPaid = document.getElementById("amountPaid").value;
         var amountRemaining = document.getElementById("amountRemaining").value;
+        
 
         if (PID == "") {
             // alert("Product Id Field Must Be Valid");
@@ -2326,9 +2362,9 @@
             document.getElementById("contact").value = "";
 
 
-        } else if (Manager == "") {
+        } else if (fatherName == "") {
             // alert("Manager Name Must Be Mentioned");
-            document.getElementById("Manager").focus();
+            document.getElementById("fatherName").focus();
 
 
         } else if (amountPaid == "") {
@@ -2355,20 +2391,84 @@
         } else {}
     })
 
+    function loadAllCustomers() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("CustomerName").innerHTML =
+                this.responseText;
+            $('#CustomerName').selectpicker('refresh');
+
+        }
+    };
+
+    xhttp.open("GET", "./getCustomerNames", true);
+    xhttp.send();
+    }
+
+    function getCurrentCustomerInfo() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var data = this.responseText;
+            var a = JSON.parse(data);
+            //document.getElementById("CID").value = a[0].CustomerID;
+            document.getElementById("fatherName").value = a[0].FatherName;
+            document.getElementById("CID").value = a[0].CNIC;
+            document.getElementById("contact").value = a[0].Contect;
+            document.getElementById("Address").value = a[0].Address;
 
 
+
+
+        } else {
+            //alert( this.responseText);
+        }
+    }
+    var CustomerID = $('#CustomerName').find(":selected").val();
+
+    xhttp.open("GET", "./getCustomersInfo/" + CustomerID, true);
+    xhttp.send();
+
+
+    }
 
     function addCustomer() {
 
+    var customerName = document.getElementById("addCustomerName").value;
+    //	alert("It is working"+CustomerName);
+    var fatherName = document.getElementById("addFatherName").value;
+    //	alert("It is working"+password);
+    var contact = document.getElementById("addContact").value;
+    //alert("It is working"+CustomerContact);
+    var profession = document.getElementById("addProfession").value;
+    //alert("It is working"+CustomerProfession);
+    var balance = document.getElementById("addBalance").value;
+    //alert("It is working"+CustomerBalance);
+    var address = document.getElementById("addAddress").value;
+    //alert("It is working"+CustomerAddress);
+    var comments = document.getElementById("addComments").value;
+    //alert("It is working"+CustomerComments);
+    var cnic = document.getElementById("addCNIC").value;
+    //alert("It is working"+CustomerComments);
+    var category = document.getElementById("addCategory").value;
+    //alert("It is working"+CustomerComments);
+    var newCustomer = [customerName, fatherName, contact, profession, balance, address,
+    comments, cnic, category
+    ];
 
-
-        alert("Customer Added");
-
-
-
-
-
-
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+        }
+    };
+    var EC = JSON.stringify(newCustomer);
+    alert(EC);
+    xhttp.open("GET", "./insertCustomer/" + EC, true);
+    xhttp.send();
 
 
     }
@@ -2386,7 +2486,7 @@
         } else if (isNaN(Balance)) {
             alert("Balance Field Should Be  Numeric");
         } else {
-            addCustomer();
+            alert('Okay');
         }
     }
 

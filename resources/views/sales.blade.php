@@ -6,7 +6,7 @@
 <head>
     <base href="">
     <meta charset="utf-8" />
-    <title>Bermij |</title>
+    <title>Sales</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -1847,10 +1847,88 @@
         });
 
     </script>
+<<<<<<< HEAD
 </body>
 
 
 <script>
+=======
+
+
+
+<script>
+    function getAllInvoiceDetails(){
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        //alert(data);
+        var a = JSON.parse(data);
+        
+        document.getElementById("CID").value = a[0].CustomerID;
+        document.getElementById("LastBalance").value = a[0].Balance;
+        document.getElementById("CurrentBalance").value = a[0].Balance;
+        calc();
+        document.getElementById("CNO").value = a[0].Contect;
+        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+        document.getElementById("CustomerName").value = a[0].CustomerID;
+        var i=0;
+        //alert(a.length);
+        var table = document.getElementById("ProductSaleTable");
+        table.innerHTML="<thead>\
+                            <tr>\
+                                <th>Product ID</th>\
+                                <th>Product Name</th>\
+                                <th>Company</th>\
+                                <th>Sale Price</th>\
+                                <th>Quantity</th>\
+                                <th>Discount</th>\
+                                <th>Total</th>\
+                                <th>Action</th>\
+                            </tr>\
+                        </thead>";
+
+        for (i; i < a.length; i++) {
+            var PID = a[i].ProductSerial;
+            var discount = a[i].Discount;
+            var quantity = a[i].Quantity;
+            //alert(quantity);
+            var salePrice = a[i].SalePrice;
+            var company = a[i].Company;
+            var productName = a[i].ProductName;
+            var totalAmount = a[i].NetAmount;
+
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+
+            cell1.innerHTML = PID;
+            cell2.innerHTML = productName;
+            cell3.innerHTML = company;
+            cell4.innerHTML = salePrice;
+            cell5.innerHTML = quantity;
+            cell6.innerHTML = discount;
+            cell7.innerHTML = totalAmount;
+            //calc();
+            cell8.innerHTML =
+                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+    }
+
+    }
+}
+var invoiceNumber = document.getElementById("InvoiceID").value;
+
+xhttp.open("GET", "./getAllInvoiceDetails/" + invoiceNumber, true);
+xhttp.send();
+}
+>>>>>>> 59b42a639f6698f1fe53253ed045de62ae453dd9
     function getInvoiceCustomer() {
 
         var xhttp = new XMLHttpRequest();
@@ -1895,11 +1973,11 @@
                 var a = JSON.parse(data);
                 //  alert(a[0].ProductSerial);
                 table = $('#searchProductTable').DataTable();
-
+                //table = document.getElementById("searchProductTable")
                 $.each(a, function (i, item) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[
-                        i].StockIn]);
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice,
+                    a[i].StockIn]);
                 });
                 table.draw();
             }
@@ -1975,7 +2053,7 @@
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./getAccounts/", true);
+        xhttp.open("GET", "./getAccountHeads/", true);
 
         xhttp.send();
     }
@@ -2291,18 +2369,90 @@
 
 
         var xhttp = new XMLHttpRequest();
+        if(AID == ""){
+            alert("Payment Method not selected");
+        }else{
+            
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-
+                
                 alert("Invoice =" + this.responseText + " is generated");
 
             }
         };
-        // var MenuID=$('#Menus').find(":selected").val();
+    
         xhttp.open("GET", "./addSalesForSS/" + array, true);
+        // var MenuID=$('#Menus').find(":selected").val();
         xhttp.send();
-    };
+    }
+    }
+    function UpdateSaleInvoice() {
+
+var myTrows = [];
+var table = document.getElementById("ProductSaleTable");
+var myRow2 = [];
+
+//alert(sp);
+$('#ProductSaleTable tr').each(function (row, tr) {
+
+    myTrows[row] = [
+
+        $(tr).find('td:eq(0)').text(), //productID
+        $(tr).find('td:eq(3)').text(), //salePrice
+        $(tr).find('td:eq(4) input[type="text"]').val(), //qty
+        $(tr).find('td:eq(5) input[type="text"]').val(), //discount
+        $(tr).find('td:eq(6)').text() //totamount
+
+
+    ];
+
+
+});
+myTrows.shift();
+
+//var invoiceNumber=getInvoiceID();
+var tot = document.getElementById("Total").value;
+var discount = document.getElementById('DiscountOverall').value;
+var invoiceID = document.getElementById('InvoiceID').value;
+var gross = document.getElementById('grossTotal').value;
+var tax = document.getElementById('tax').value;
+var netTotal = document.getElementById('NetTotal').value;
+var amp = document.getElementById('AmountPaid').value;
+var rmb = document.getElementById("RemainingBalance").value;
+var CID = document.getElementById("CID").value;
+var CLB = document.getElementById("LastBalance").value;
+var CCB = document.getElementById("CurrentBalance").value;
+var AID = $('#accounts').find(":selected").val();
+
+myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
+
+//alert(myRow2[0][1]);
+//alert(myRow2[11]);
+
+
+var array = JSON.stringify(myRow2);
+
+
+
+var xhttp = new XMLHttpRequest();
+if(AID == ""){
+    alert("Payment Method not selected");
+}else{
+    
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+
+        alert("Invoice =" + this.responseText + " is generated");
+
+    }
+};
+
+xhttp.open("GET", "./updateInvoice/" + array+"/"+invoiceID, true);
+// var MenuID=$('#Menus').find(":selected").val();
+xhttp.send();
+}
+}
 
 </script>
-
+</body>
 </html>
