@@ -141,6 +141,21 @@ class CustomerController extends Controller
         $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
         $product = collect([1,2,3,4]);
         session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
         
         return $results;
 
