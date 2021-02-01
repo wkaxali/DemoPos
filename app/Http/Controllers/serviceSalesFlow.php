@@ -109,6 +109,33 @@ class serviceSalesFlow extends Controller
        session(['S&H' => '-']);
        session(['others' => '-']);
        session(['endTotal' => $netTotal]);
+
+       table('tbl_print_docs')->insertGetId([
+       'invoiceDate' => $dateNow,
+       'invoiceNo' => $invoiceNumber,
+       'customerID' => $CID,
+       'customerName' => $customerName,
+       'city' => '',
+       'province' => '',
+       'contact' => $contact,
+       'model' => '',
+       'vehRegNo' => '',
+       'distanceTraveled' => '',
+       'itemNo' => $PID,
+       'description' => $productName,
+       'quantity' => $qty,
+       'CNIC' => '',
+       'unitPrice' => $unitPrice,
+       'tax' => '0',
+       'total' => '',
+       'subTotal' => $tot,
+       'taxable' => '-',
+       'taxRate' => '17%',
+       'taxAmount' => $tax,
+       'S&H' => '-',
+       'others' => '-',
+       'endTotal' => $netTotal
+      ]);
       }
        
      
