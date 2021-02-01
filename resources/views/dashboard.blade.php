@@ -3709,7 +3709,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         /*--meadia quiries start here--*/
         @media (max-width:1440px) {
             .page-container.sidebar-collapsed-back .sidebar-menu {
-                width: 190px;
+                width: 230px;
             }
 
             .sidebar-menu {

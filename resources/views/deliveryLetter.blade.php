@@ -18,9 +18,20 @@
             border: 1px solid #333;
 
         }
+        .borderMain {
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        .mainBorder {
+            border: 3px double #333;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
 
         #mainMarginRow {
-            margin: 15px 0px !important;
+            margin: 5px 0px !important;
         }
 
         ul li {
@@ -65,6 +76,12 @@
 </head>
 
 <body>
+<div class="borderMain">
+        <div class="borderMain">
+            <div class="borderMain">
+                <div class="borderMain">
+                    <div class="mainBorder">
+
     <header>
         <div class="container">
             <div class="row">
@@ -172,7 +189,7 @@
                                 <td>YES</td>
                                 <td>YES</td>
                                 <td>2</td>
-                                <td>YEs</td>
+                                <td>YES</td>
 
                             </tr>
                         </tbody>
@@ -248,7 +265,11 @@
 
         </div>
     </footer>
-
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 
 
 </body>

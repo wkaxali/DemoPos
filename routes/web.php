@@ -305,3 +305,14 @@ Route::get('/ql', function () {
 Route::get('/e', function () {
     return view('Employee');
 });
+Route::get('/fg', function () {
+    return view('ForlandGatePass');
+});
+
+Route::get('/vd', function () {
+    return view('vehicleDetail');
+});
+
+Route::get('/prc', function () {
+    return view('paymentReceipt');
+});

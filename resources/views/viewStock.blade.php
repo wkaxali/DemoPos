@@ -41,19 +41,10 @@
 
 
 
-        table {
-            border-spacing: 0;
-            border-collapse: collapse;
-            border-style: hidden;
-
-            width: 100%;
-            max-width: 100%;
-        }
-
         th,
         td {
             border: 1px solid #aaaaaa;
-            padding: 5px;
+            padding: 2px !important;
         }
 
         .receivingTable {
