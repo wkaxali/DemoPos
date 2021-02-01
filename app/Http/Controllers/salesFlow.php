@@ -142,7 +142,7 @@ class salesFlow extends Controller
         session(['receivedBy' => $receivedBy]);
         session(['receiptNumber' => 'FMM-10-20-00'.$invoiceNumber]);
         session(['tax' => $AmountAfterDiscount]);
-
+        session(['contact' => $contact]);
         $numberToWords = new NumberToWords();
         $numberTransformer = $numberToWords->getNumberTransformer('en');
         $a= $numberTransformer->toWords($amp);

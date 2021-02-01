@@ -37,10 +37,10 @@
                 <label for="">To,</label>
                 <h5>{{ Session::get('customerName')}}</h5>
                 <h5>Foton Auto Park (PVT) Ltd.</h5>
-                <h5>Subject: Invoice Request Forland {{ Session::get('model')}}</h5>
+                <h5>Subject: Invoice Request {{ Session::get('productName')}}</h5>
             </div>
             <div class="col-md-4 offset-md-3">
-                <h5>Date:{{ Session::get('date')}}</h5>
+                <h5>Date: {{ Session::get('invoiceDate')}}</h5>
             </div>
         </div>
     </div>
@@ -76,15 +76,15 @@
                         </tr>
                         <tr>
                             <th>Vehicle</th>
-                            <th>{{ Session::get('model')}}</th>
+                            <th>{{ Session::get('productName')}}</th>
                         </tr>
                         <tr>
                             <th>Chassis No</th>
-                            <th>{{ Session::get('chassisNumber')}}</th>
+                            <th>{{ Session::get('chassisNo')}}</th>
                         </tr>
                         <tr>
                             <th>Engine No</th>
-                            <th>{{ Session::get('engineNumber')}}</th>
+                            <th>{{ Session::get('engineNo')}}</th>
                         </tr>
                         <tr>
                             <th>Color</th>
@@ -92,7 +92,7 @@
                         </tr>
                         <tr>
                             <th>Amount</th>
-                            <th>PKR {{ Session::get('amount')}}/-</th>
+                            <th>PKR {{ Session::get('price')}}/-</th>
                         </tr>
                         <tr>
                             <th>Payment: Cheque Details</th>
