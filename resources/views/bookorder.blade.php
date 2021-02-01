@@ -277,6 +277,9 @@
             color: #fff;
         }
 
+        .inner-block {
+    padding: 0em !important;
+}
     </style>
 </head>
 
@@ -287,7 +290,7 @@
                 <header id="myHeader">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12 my-2 mb-2 text-center">
+                            <div class="col-md-12  text-center">
                                 <h3>Book Order</h3>
                             </div>
                         </div>
