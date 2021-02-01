@@ -346,3 +346,6 @@ Route::get('/sheet', function () {
 Route::get('/vd', function () {
     return view('vehicleDetail');
 });
+Route::get('/sir', function () {
+    return view('solutions');
+});

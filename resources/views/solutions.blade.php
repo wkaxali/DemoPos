@@ -35,12 +35,12 @@
         <div class="row">
             <div class="col-md-5">
                 <label for="">To,</label>
-                <h5>Mr. Ahsan Tahir</h5>
+                <h5>{{ Session::get('customerName')}}</h5>
                 <h5>Foton Auto Park (PVT) Ltd.</h5>
-                <h5>Subject: Invoice Request Forland C-10</h5>
+                <h5>Subject: Invoice Request Forland {{ Session::get('model')}}</h5>
             </div>
             <div class="col-md-4 offset-md-3">
-                <h5>Date:November,11,2020</h5>
+                <h5>Date:{{ Session::get('date')}}</h5>
             </div>
         </div>
     </div>
@@ -52,19 +52,19 @@
                     <thead>
                         <tr>
                             <th>Customer Name</th>
-                            <th>Forward Solutions</th>
+                            <th>{{ Session::get('customerName')}}</th>
                         </tr>
                         <tr>
                             <th>Address</th>
-                            <th>Plot No 19-B AbdulSattar Edhi Road Near QazalBash Chock Lahore.</th>
+                            <th>{{ Session::get('address')}}.</th>
                         </tr>
                         <tr>
                             <th>Contact Details</th>
-                            <th>0300-0801210</th>
+                            <th>{{ Session::get('contact')}}</th>
                         </tr>
                         <tr>
                             <th>NTN / CNIC #</th>
-                            <th>4229775-3</th>
+                            <th>{{ Session::get('CNIC')}}</th>
                         </tr>
                         <tr>
                             <th>Salesperson</th>
@@ -76,23 +76,23 @@
                         </tr>
                         <tr>
                             <th>Vehicle</th>
-                            <th>FORLAND C-10</th>
+                            <th>{{ Session::get('model')}}</th>
                         </tr>
                         <tr>
                             <th>Chassis No</th>
-                            <th>NFJV3JV11LL002040</th>
+                            <th>{{ Session::get('chassisNumber')}}</th>
                         </tr>
                         <tr>
                             <th>Engine No</th>
-                            <th>L04603266</th>
+                            <th>{{ Session::get('engineNumber')}}</th>
                         </tr>
                         <tr>
                             <th>Color</th>
-                            <th>White</th>
+                            <th>{{ Session::get('color')}}</th>
                         </tr>
                         <tr>
                             <th>Amount</th>
-                            <th>PKR 1,075,000/-</th>
+                            <th>PKR {{ Session::get('amount')}}/-</th>
                         </tr>
                         <tr>
                             <th>Payment: Cheque Details</th>
