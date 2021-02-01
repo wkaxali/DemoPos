@@ -69,11 +69,11 @@ Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDet
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail'] );
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
-
+//getInvoiceCustomer/{data}
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
-
-
+Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads'] );
+Route::get('/getInvoiceCustomer/{data}',[CustomerController::class, 'getInvoiceCustomer'] );
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails'] );
@@ -102,6 +102,7 @@ Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
 Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']);
 Route::get('/dailySaleAmount',[AISessionController::class, 'dailySaleAmount']);
+Route::get('/loadAutos',[getProducts::class, 'getAutosNames']);
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
@@ -183,8 +184,20 @@ Route::get('/ss', function () {
 Route::get('/qt', function () {
     return view('quotation');
 });
+
+//61bd06c
+Route::get('/logout', function () {
+    session(['userName' =>null]);
+
+    return view('signInSignUp');
+});
 Route::get('/db', function () {
+    // $UN = session()->get('userName');
+    // if($UN!=NULL){
     return view('dashboard');
+    // }else{
+    //     return "Invalid Username Or Password";
+    // }
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
@@ -318,4 +331,21 @@ Route::get('/vd', function () {
 
 Route::get('/prc', function () {
     return view('paymentReceipt');
+<<<<<<< HEAD
+=======
+});
+
+
+Route::get('/fgp', function () {
+    return view('ForlandGatePass');
+});
+Route::get('/slip', function () {
+    return view('SalarySlip');
+});
+Route::get('/sheet', function () {
+    return view('inventorysheet');
+});
+Route::get('/vd', function () {
+    return view('vehicleDetail');
+>>>>>>> 272055f6376872ab10d9a0d5765100b6fd0c5715
 });

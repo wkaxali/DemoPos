@@ -53,18 +53,18 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <label style="width: 170px; !important" for="">Reference Number:</label>
-                                    <input type="text" style="border: none !important;" value="FMM-GPD-00017" name=""
+                                    <input type="text" style="border: none !important;" value="{{ Session::get('referenceNumber')}}" name=""
                                         id="">
                                     <label style="width: 170px; !important" for="">Customer Name</label>
-                                    <input type="text" style="border: none !important;" value="Muhammad Zareen" name=""
+                                    <input type="text" style="border: none !important;" value="{{ Session::get('customerName')}}" name=""
                                         id="">
                                 </div>
                                 <div class="col-md-4 offset-md-4">
-                                    <label style="width: 170px; !important" for="">Reference Number:</label>
-                                    <input type="text" style="border: none !important;" value="22-jan-21" name=""
+                                    <label style="width: 170px; !important" for="">Date:</label>
+                                    <input type="text" style="border: none !important;" value="{{ Session::get('invoiceDate')}}" name=""
                                         id=""><br>
                                     <label style="width: 170px; !important" for="">CNIC/NTN</label>
-                                    <input type="text" style="border: none !important;" value="35301-9664061-9" name=""
+                                    <input type="text" style="border: none !important;" value="{{ Session::get('CNIC')}}" name=""
                                         id="">
                                 </div>
                             </div>
@@ -78,16 +78,14 @@
                                             <th>Engine Number</th>
                                             <th>Chassis Number</th>
                                             <th>Color</th>
-
-
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <td>01</td>
-                                                <td>Forland C10</td>
-                                                <td>L04603245</td>
-                                                <td>NFJV3JV15LL002123</td>
-                                                <td>White</td>
+                                                <td>{{ Session::get('productName')}}</td>
+                                                <td>{{ Session::get('engineNo')}}</td>
+                                                <td>{{ Session::get('chassisNo')}}</td>
+                                                <td>{{ Session::get('color')}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -149,15 +147,15 @@
         <div class="row">
             <div class="col-md-4">
                 <label style="width: 170px; !important" for="">Reference Number:</label>
-                <input type="text" style="border: none !important;" value="FMM-GPD-00017" name="" id="">
+                <input type="text" style="border: none !important;" value="{{ Session::get('referenceNumber')}}" name="" id="">
                 <label style="width: 170px; !important" for="">Customer Name</label>
-                <input type="text" style="border: none !important;" value="Muhammad Zareen" name="" id="">
+                <input type="text" style="border: none !important;" value="{{ Session::get('customerName')}}" name="" id="">
             </div>
             <div class="col-md-4 offset-md-4">
-                <label style="width: 170px; !important" for="">Reference Number:</label>
-                <input type="text" style="border: none !important;" value="22-jan-21" name="" id=""><br>
+                <label style="width: 170px; !important" for="">Date:</label>
+                <input type="text" style="border: none !important;" value="{{ Session::get('invoiceDate')}}" name="" id=""><br>
                 <label style="width: 170px; !important" for="">CNIC/NTN</label>
-                <input type="text" style="border: none !important;" value="35301-9664061-9" name="" id="">
+                <input type="text" style="border: none !important;" value="{{ Session::get('CNIC')}}" name="" id="">
             </div>
         </div>
         <br>
@@ -176,10 +174,10 @@
                     <tbody>
                         <tr>
                             <td>01</td>
-                            <td>Forland C10</td>
-                            <td>L04603245</td>
-                            <td>NFJV3JV15LL002123</td>
-                            <td>White</td>
+                            <td>{{ Session::get('productName')}}</td>
+                            <td>{{ Session::get('engineNo')}}</td>
+                            <td>{{ Session::get('chassisNo')}}</td>
+                            <td>{{ Session::get('city')}}</td>
                         </tr>
                     </tbody>
                 </table>

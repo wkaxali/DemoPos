@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Carbon\Carbon;
 use NumberToWords\NumberToWords;
+//https://github.com/kwn/number-to-words
 use Illuminate\Http\Request;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UpdateStocksController;
@@ -36,10 +37,13 @@ class salesFlow extends Controller
       $color=$Array[16];
       $description=$Array[17];
       $productName=$Array[18];
+      $city=$Array[19];
+      $receivedBy=$Array[20];
+      $totalCost=$Array[21];
       
        //return $TransactionMode;
          
-         $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
+      $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
          //return $dateNow;
         
@@ -121,21 +125,55 @@ class salesFlow extends Controller
         session(['address' => $address]);
         session(['engineNo' => $engineNo]);
         session(['chassisNo' => $chassisNo]);
-        session(['Amount' => $tot]);
+        session(['Amount' => $AmountAfterDiscount]);
         session(['total' => $amp]);
         session(['invoiceDate' => $dateNow]);
-        session(['invoiceNo' => $fatherName]);
         session(['description' => $description]);
         session(['color' => $color]);
         session(['invoiceNo' => $invoiceNumber]);
         session(['productName' => $productName]);
         session(['price' => $tot]);
         session(['quantity' => '1']);
+        session(['city' => $city]);
+        session(['referenceNumber' => 'FMM-GDP-000'.$invoiceNumber]);
+        session(['amountPaid' => $amp]);
+        session(['balance' => $rmb]);
+        session(['totalCost' => $totalCost]);
+        session(['receivedBy' => $receivedBy]);
+        session(['receiptNumber' => 'FMM-10-20-00'.$invoiceNumber]);
+        session(['tax' => $AmountAfterDiscount]);
 
         $numberToWords = new NumberToWords();
         $numberTransformer = $numberToWords->getNumberTransformer('en');
         $a= $numberTransformer->toWords($amp);
         session(['amountInWords' => $a]);
+
+        DB::table('tbl_print_docs')->insertGetId([
+          'customerName' => $customerName,
+          'fatherName' => $fatherName,
+          'CNIC' => $CNIC,
+          'address' => $address,
+          'engineNo' => $engineNo,
+          'chassisNo' => $chassisNo,
+          'Amount' => $AmountAfterDiscount,
+          'total' => $amp,
+          'invoiceDate' => $dateNow,
+          'description' => $description,
+          'color' => $color,
+          'invoiceNo' => $invoiceNumber,
+          'productName' => $productName,
+          'price' => $tot,
+          'quantity' => '1',
+          'city' => $city,
+          'referenceNumber' => 'FMM-GDP-000'.$invoiceNumber,
+          'amountPaid' => $amp,
+          'balance' => $rmb,
+          'totalCost' => $totalCost,
+          'receivedBy' => $receivedBy,
+          'receiptNumber' => 'FMM-10-20-00'.$invoiceNumber,
+          'tax' => $AmountAfterDiscount
+         ]);
+      
         return $a;
     }
     public function insertInDetailedOrder($row,$InvoiceID,$date){

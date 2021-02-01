@@ -1395,7 +1395,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
                 <label for="">Category</label>
                 <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
                     <option value=1>Auto</option>
@@ -1405,9 +1405,9 @@
 
 
                 </select>
-            </div>
-            <div class="col-md-5 offset-md-3">
-                <label for="">Modal / Services</label>
+            </div> -->
+            <div class="col-md-12 offset-md-10">
+                <!-- <label for="">Modal / Services</label>
                 <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
                     <option value=1>Forland C13</option>
                     <option value=2>Forland C12</option>
@@ -1415,7 +1415,7 @@
 
 
 
-                </select>
+                </select> -->
            
                 <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
                     style="height: 25px;" onclick="loadStock()"></button>
@@ -1490,17 +1490,17 @@
                             </div>
 
                             <div class="input-field">
-                            <label for="status">Purchase Price</label>
+                            <label for="status">Invoice Price</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="TotalPrice"><br>
-                                <label for="status">Total Cost</label>
+                                <!-- <label for="status">Total Cost</label> -->
                                 <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    style="display: none !important; height: 30px !important; width: 183px;"
                                     name="name" id="TotalCost"><br>
-                                <label for="status">17 % Tax on Price</label>
+                                <!-- <label for="status">17 % Tax on Price</label> -->
                                 <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    style="display: none !important; height: 30px !important; width: 183px;"
                                     name="name" id="tax">
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
@@ -1548,7 +1548,7 @@
                                 <label for="status">Discount</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" value="0" id="Discount" onkeyup="calc()">
+                                    name="name" value="0" id="Discount" onchange="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
@@ -1618,9 +1618,16 @@
                         </div>
                         <div class="input-field">
                             <label for="status">Customer CNIC</label>
-                            <input type="text" autocomplete="OFF" class="form-control"
+                            <input type="number" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                 name="name" id="CID">
+
+                        </div>
+                        <div class="input-field">
+                            <label for="status">Movement City/Area</label>
+                            <input type="text" autocomplete="OFF" class="form-control"
+                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                name="name" id="city">
 
                         </div>
                         <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
@@ -1652,8 +1659,8 @@
                                                     placeholder="Comments" required />
 
                                                 <div class="select-list">
-                                                    <select name="course_type" id="addCategory">
-                                                        <option slected value="">Category</option>
+                                                    <select name="course_type" id="course_type">
+                                                        <option selected value="">Category</option>
                                                         <option value="Society">Society</option>
                                                         <option value="Language">Language</option>
                                                     </select>
@@ -1661,8 +1668,8 @@
                                             </div>
 
                                             <div class="form-submit">
-                                                <input onclick="addCustomer()" name="submit" id="submit"
-                                                    class="submit" value="Add Customer" />
+                                                <button onclick="addCustomer()" name="submit" id="submit"
+                                                    class="submit" value="">Add Customer</button>
                                             </div>
                                         </form>
                                     </div>
@@ -1703,6 +1710,16 @@
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                 name="name" id="amountRemaining">
                         </div>
+
+                        <div class="input-field">
+                            <label for="status">Received By</label>
+                            <select data-live-search="true" class=" selectpicker" id='employees'>
+
+
+
+                            </select>
+                        </div>
+                        
                         <div class="input-field">
                             <label for="status">Payment Mode</label>
                             <select data-live-search="true" class=" selectpicker" id='slctAccounts'>
@@ -1773,8 +1790,9 @@
 
                                         <th>Chasis Number</th>
 
-                                        <th>Purchse Price</th>
-                                        <th>Cost with Additional charges</th>
+                                        <!-- <th>Purchse Price</th> -->
+                                        <th>Invoice Price</th>
+                                        <!-- <th>Cost with Additional charges</th> -->
                                         <th>Status</th>
                                         <th>Description</th>
 
@@ -1810,6 +1828,20 @@
             <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                         style="font-size: 18px;">Dashboard</span></a>
             </li>
+            <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                                <ul>
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
             <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                         style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
@@ -2123,7 +2155,7 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i].EngineNumber,
-                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock, a[i].Remarks
+                        a[i].PerUnitSalePrice, a[i].StatusInStock, a[i].description
                     ]);
                 });
                 table.draw();
@@ -2152,14 +2184,15 @@
             document.getElementById("ChasisNumber").value = this.cells[3].innerText;
 
             document.getElementById("EngineNumber").value = this.cells[4].innerText;
-            document.getElementById("Status").value = this.cells[7].innerText;
-            document.getElementById("description").value = this.cells[8].innerText;
+            document.getElementById("Status").value = this.cells[6].innerText;
+            document.getElementById("description").value = this.cells[7].innerText;
             document.getElementById("TotalPrice").value = this.cells[5].innerText;
-            document.getElementById("TotalCost").value = this.cells[6].innerText;
+            //document.getElementById("TotalCost").value = this.cells[5].innerText;
             document.getElementById("Discount").value = "0";
 
 
             alert(this.cells[0].innerText);
+            calc();
         });
         calc();
     });
@@ -2168,7 +2201,8 @@
     
         var tot = document.getElementById("TotalPrice").value;
         var dis = document.getElementById("Discount").value;
-        var tax = Number(tot)*0.17;
+        //var tax = Number(tot)*0.17;
+        var tax=0;
 
         var netTot = Number(tot) + Number(tax) - Number(dis);
 
@@ -2206,7 +2240,8 @@
         var paidTo = document.getElementById("paidTo").value;
         var AID = document.getElementById("slctAccounts").value;
 
-        var customerName = document.getElementById("CustomerName").value;
+        var customerName = $('#CustomerName').find(":selected").text();
+        var receivedBy = $('#employees').find(":selected").text();
         var CNIC = document.getElementById("CID").value;
         var address = document.getElementById('Address').value;
         var contact = document.getElementById('contact').value;
@@ -2217,29 +2252,42 @@
         var color = document.getElementById('color').value;
         var description = document.getElementById('description').value;
         var productName = document.getElementById('ProductName').value;
-       
+        var city = document.getElementById('city').value;
+        var totalCost = document.getElementById('TotalCost').value;
+
         order = [pid, totwT, discount, netTotal, amp, rmb,
                 CID, paidTo, AID, customerName, CNIC, address, 
-                contact, fatherName, engineNo, chassisNo, color, description, productName];
+                contact, fatherName, engineNo, chassisNo, color,
+                description, productName, city, receivedBy,
+                totalCost
+            
+            ];
 
         var array = JSON.stringify(order);
 
-        alert(array);
-
         var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
 
-                alert("Invoice =" + this.responseText + " is generated");
+        if(AID==""){
+            alert('Payment Method not Selected');
+        }
+        else{
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert("Invoice =" + this.responseText + " is generated");
+                    window.open("/psi");
+                    window.open("/fgp");
+                    window.open("/prc");
 
 
-            }
-        };
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addSales/" + array, true);
-        xhttp.send();
-        alert("Generated");
-    };
+
+                }
+            };
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addSales/" + array, true);
+            xhttp.send();
+        }
+    }
 
 </script>
 <script>
@@ -2259,6 +2307,7 @@
 
         xhttp.send();
         loadAllCustomers();
+        loadEmployees();
 
 
     }
@@ -2453,7 +2502,7 @@
     //alert("It is working"+CustomerComments);
     var cnic = document.getElementById("addCNIC").value;
     //alert("It is working"+CustomerComments);
-    var category = document.getElementById("addCategory").value;
+    var category = $('#course_type').find(":selected").val();
     //alert("It is working"+CustomerComments);
     var newCustomer = [customerName, fatherName, contact, profession, balance, address,
     comments, cnic, category
@@ -2512,6 +2561,23 @@
         }
         toggle = !toggle;
     });
+
+
+    function loadEmployees() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("employees").innerHTML = this.response;
+                    $('#employees').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployeeName/", true);
+
+            xhttp.send();
+        }
 
 </script>
 

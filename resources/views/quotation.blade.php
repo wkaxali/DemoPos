@@ -54,7 +54,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <h5>Synchro Pharmaceuticals</h5>
+                    <h5>{{ Session::get('customerName')}}</h5>
                 </div>
                 <div class="col-md-4 text-right offset-md-4">
                     <h5>{{ Session::get('invoiceDate')}}</h5>

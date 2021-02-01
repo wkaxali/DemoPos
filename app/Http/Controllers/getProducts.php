@@ -32,5 +32,22 @@ class getProducts extends Controller
         return $results;
 
     }
+
+
+    public static function getAutosNames(){
+        $data=DB:: select('select * from tbl_auto_models');
+        
+        $option='<option value=" "></option>';
+    
+    
+        foreach ($data as $d){
+          //print $option;
+    
+            $option=$option.'
+            <option value= '.$d->ModelID.'>'.$d->Company.' '.$d->ModelName.'</option>';
+          
+        }
+        return $option;
+      }
     
 }

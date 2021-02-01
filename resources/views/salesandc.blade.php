@@ -276,8 +276,7 @@
                             <div class="col-md-3">
                                 <div class="sales-1" style="margin-left: 110px; ">
                                     <button class="btn unit" data-toggle="modal" data-target="#myModal"
-                                        onclick="getStock()">Sold
-                                        Unit</button>
+                                        onclick="getStock()">Sold Unit</button>
                                 </div>
                             </div>
                             <div class="col-md-5">
@@ -480,20 +479,11 @@
                                                         <div class="col-md-12" style="padding: 0px !important;">
 
                                                             <h3
-                                                                style="text-align: center; color:#e61d2f; font-weight: 600;">
-                                                                Additional Cost</h3>
-                                                            <label style="width: 170px;" for="Comission Head">Comission
-                                                                Head</label>
-                                                            <select class="selectpicker form-control"
-                                                                data-live-search="true" id="comissionHeadSelect"
-                                                                tabindex="null">
-                                                                <option value=1>Bank Person</option>
-                                                                <option value=2>sales per comissiions</option>
-                                                                <option value=3>Third party per comission</option>
-                                                                <option value=4>Promotion charges</option>
-                                                                <option value=5>PRA % </option>
-                                                                <option value=6>Nothing</option>
-                                                            </select>
+                                                                style="text-align: center; color:#e61d2f; font-weight: 600;">Additional Cost</h3>
+                                                            <label style="width: 170px;" for="Comission Head">Comission Head</label>
+                                                                <select style="height: 25px !important; width: 158px !important; "
+                                                                class="selectpicker form-control" data-live-search="true" id="costComissionHeads">
+                                                                </select>
                                                             <label style="width: 170px;" for="">Select Account</label>
                                                             <select
                                                                 style="height: 25px !important; width: 158px !important; "
@@ -636,15 +626,10 @@
                                                                 style="text-align: center; color:#e61d2f; font-weight: 600;">
                                                                 Comission & Taxes</h3>
                                                             <label style="width: 170px;" for="">Comission Head</label>
-                                                            <select class="selectpicker form-control"
-                                                                data-live-search="true" id="comissionHeadSelectd"
-                                                                tabindex="null">
-                                                                <option value=1>Bank Person</option>
-                                                                <option value=2>sales per comissiions</option>
-                                                                <option value=3>Third party per comission</option>
-                                                                <option value=4>Promotion charges</option>
-                                                                <option value=5>PRA % </option>
-                                                                <option value=6>Nothing</option>
+                                                            
+                                                            <select style="height: 25px !important; width: 158px !important; "
+                                                            class="selectpicker form-control" data-live-search="true" id="comissionHeads">
+
                                                             </select>
 
                                                             <br>
@@ -1030,7 +1015,7 @@
 
 
 
-            var CH = document.getElementById("comissionHeadSelect");
+            var CH = document.getElementById("costComissionHeads");
             var accountID = document.getElementById("accountForCost").value;
             var amount = document.getElementById("amount").value;
             var remarks = document.getElementById("remarks").value;
@@ -1054,7 +1039,7 @@
 
 
 
-            cell1.innerHTML = CH.options[CH.selectedIndex].text;
+            cell1.innerHTML = CH.options[CH.selectedIndex].value;
             cell5.innerHTML = CH.options[CH.selectedIndex].value;
 
             cell2.innerHTML = amount;
@@ -1072,7 +1057,7 @@
 
 
 
-            var CH = document.getElementById("comissionHeadSelectd");
+            var CH = document.getElementById("comissionHeads");
             var amountd = document.getElementById("amountd").value;
             var remarksd = document.getElementById("remarksd").value;
             var accountID = document.getElementById("accountForProfit").value;
@@ -1094,7 +1079,7 @@
 
 
 
-            cell1.innerHTML = CH.options[CH.selectedIndex].text;
+            cell1.innerHTML = CH.options[CH.selectedIndex].value;
             cell5.innerHTML = CH.options[CH.selectedIndex].value;
             cell6.innerHTML = accountID;
 
@@ -1345,6 +1330,7 @@
             xhttp.open("GET", "./getAccountHeads/", true);
 
             xhttp.send();
+            loadComissionHeads();
         }
 
     </script>
@@ -1369,6 +1355,26 @@
             }
             toggle = !toggle;
         });
+
+
+        function loadComissionHeads() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("costComissionHeads").innerHTML = this.response;
+                    $('#costComissionHeads').selectpicker('refresh');
+
+                    document.getElementById("comissionHeads").innerHTML = this.response;
+                    $('#comissionHeads').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadComissionHeads/", true);
+
+            xhttp.send();
+        }
 
     </script>
 

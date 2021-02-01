@@ -1230,105 +1230,6 @@
                             </div>
                             <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
                         </div>
-<<<<<<< HEAD
-                    </div>
-                    <button class="btn " style="background-color: #e61d2f;">View</button>
-                    <button class="btn " style="background-color:#0a549d;">History</button>
-                    <button class="btn " style="background-color: #e61d2f;">Info</button>
-                </div>
-            </div>
-
-            <div class="col-md-3 okay-invo okay-invo-hide">
-                <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid" alt="">
-            </div>
-
-
-
-        </div>
-
-    </div>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 myGoggle" style="overflow-x: auto; overflow-y: auto;">
-                <div>
-                    <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
-                        id="ProductSaleTable">
-
-                        <thead>
-                            <tr>
-
-                                <th>Product ID</th>
-                                <th>Product Name</th>
-                                <th>Company</th>
-                                <th>Purchase Price</th>
-                                <th>Quantity</th>
-                                <th>Discount</th>
-                                <th>Total</th>
-                                <th>Action</th>
-
-
-
-                            </tr>
-                        </thead>
-                        <tbody id="ProductSaleTableBody">
-
-                            <!-- this will be populated from database -->
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-            <div class="col-md-3 okay-invo-3">
-                <label for="invo-1" style="width: 130px;">Total</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="Total">
-
-                <label for="prod-1" style="width: 130px;">Discount</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="DiscountOverall" value="00" onchange="calc()">
-                <label for="invo-1" style="width: 130px;">Gross Total</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="grossTotal">
-                <label for="prod-1" style="width: 130px;"> Tax 17%</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="tax" onchange="calc()">
-                <label for="prod-1" style="width: 130px;">Net Total</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="NetTotal">
-                <label for="invo-1" style="width: 130px; font-weight: 500;">Amount Paid</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="AmountPaid" onchange="calcForBalance()">
-                <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="RemainingBalance">
-                    <label style="width: 130px;" for="">Paid From</label>
-                    <select class="selectpicker form-control" data-live-search="true" id="accounts" tabindex="null">
-                        
-    
-    
-                    </select>
-                    
-                <div class="total-buttons" id="hideme">
-                    <button class="btn" style="background-color: #0a549d;" onclick="insertInOrder()">Save</button>
-                    <button class="btn" style="background-color: #e61d2f ;">Print</button>
-                    <button class="btn" style="background-color:#0a549d;">Edit</button>
-                </div>
-                <div class="total-buttons" id="hideme">
-                    <button class="btn" style="background-color: #e61d2f;">Hold</button>
-                    <button class="btn" style="background-color: #0a549d;">Update</button>
-                    <button class="btn" style="background-color: #e61d2f ;">Delete</button>
-                </div>
-
-
-
-
-            </div>
-        </div>
-    </div>
-
-=======
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                         <div class="col-md-6  okay-invo-1">
                             <div class="o-inv">
@@ -1572,6 +1473,20 @@
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
+                    </li>
+                    <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul>
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
                     </li>
                     <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
@@ -2141,7 +2056,6 @@
 
 
     }
-<<<<<<< HEAD
     function loadAccounts(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -2156,23 +2070,6 @@
     xhttp.open("GET", "./getAccountHeads/", true);
     
     xhttp.send();
-=======
-
-    function loadAccounts() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-
-            if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("accounts").innerHTML = this.response;
-                $('#accounts').selectpicker('refresh');
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getAccounts/", true);
-
-        xhttp.send();
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
     }
 
     function IsItemExistInDataTable(item) {
@@ -2277,13 +2174,6 @@
     
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
         // var MenuID=$('#Menus').find(":selected").val();
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
         xhttp.send();
     }
     // }else{
@@ -2298,7 +2188,6 @@
 </script>
 
 <script>
-<<<<<<< HEAD
     function getInvoiceStock(){
 
 var xhttp = new XMLHttpRequest();
@@ -2365,23 +2254,6 @@ xhttp.onreadystatechange = function () {
             cell8.innerHTML =
                 "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
     }
-=======
-    function getInvoiceStock() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                //alert(data);
-                var a = JSON.parse(data);
-                document.getElementById("SID").value = a[0].SID;
-                document.getElementById("LastBalance").value = a[0].Balance;
-                document.getElementById("CurrentBalance").value = a[0].Balance;
-                calc();
-                document.getElementById("CNO").value = a[0].Contect;
-                document.getElementById("SupplierCategory").value = a[0].Category;
-                document.getElementById("SupplierName").value = a[0].SID;
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
 
 
@@ -2392,7 +2264,6 @@ xhttp.onreadystatechange = function () {
         };
         var invoiceNumber = document.getElementById("InvoiceID").value;
 
-<<<<<<< HEAD
 xhttp.open("GET", "./getInvoiceStock/" + invoiceNumber, true);
 xhttp.send();
 }
@@ -2423,10 +2294,6 @@ var invoiceNumber = document.getElementById("InvoiceID").value;
 
 xhttp.open("GET", "./getInvoiceSupplier/" + invoiceNumber, true);
 xhttp.send();
-=======
-        xhttp.open("GET", "./getInvoiceStock/" + invoiceNumber, true);
-        xhttp.send();
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
 
     }

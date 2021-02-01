@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
-    <title>Document</title>
+    <title>Receiving</title>
 
 
     <style>
@@ -217,10 +217,13 @@
                                             <tr>
                                                 <th>SR</th>
                                                 <th>Name</th>
+                                                <th>Color</th>
                                                 <th>Chasis No</th>
                                                 <th>Engine No</th>
                                                 <th>Tranport Charges</th>
+                                                
                                                 <th>Status</th>
+                                               
 
                                             </tr>
                                         </thead>
@@ -258,6 +261,20 @@
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
+                    </li>
+                    <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                                <ul>
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
                     </li>
                     <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
@@ -546,13 +563,11 @@
                 products[row] = [
 
                     $(tr).find('td:eq(1)').text(), //PID
-
-                    $(tr).find('td:eq(3) input[type="text"]').val(), //chasisNumber
-
-
-                    $(tr).find('td:eq(4) input[type="text"]').val(), //EngineNumber
-                    $(tr).find('td:eq(5) input[type="text"]').val(), //Transport charges
-                    $(tr).find('td:eq(6)').find(":selected").val() //Status
+                    $(tr).find('td:eq(3) input[type="text"]').val(), //color
+                    $(tr).find('td:eq(4) input[type="text"]').val(), //chasisNumber
+                    $(tr).find('td:eq(5) input[type="text"]').val(), //EngineNumber
+                    $(tr).find('td:eq(6) input[type="text"]').val(), //Transport charges
+                    $(tr).find('td:eq(7)').find(":selected").val() //Status
 
 
 
@@ -562,14 +577,19 @@
 
             });
             //products.shift();
-            alert(products);
+            
             var AID = $('#accounts').find(":selected").val();
             var OID = document.getElementById("OrderId").value;
             var array2 = [products, OID, AID];
             var prod = JSON.stringify(array2);
 
-            alert(prod);
+            var accVal = document.getElementById("accounts").value;
+            
             var xhttp = new XMLHttpRequest();
+            if (accVal == ""){
+                alert('Payment Method not Selected');
+            }
+            else{
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
@@ -582,7 +602,7 @@
             xhttp.open("GET", "./ruautos/" + prod, true);
             xhttp.send();
 
-
+        }
         }
 
     </script>

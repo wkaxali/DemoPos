@@ -28,6 +28,7 @@ class serviceSalesFlow extends Controller
 
          $CCB=$Array[10];
          $AID=$Array[11];
+         
        //  return $CLB;
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
@@ -72,16 +73,77 @@ class serviceSalesFlow extends Controller
        $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
        
        accountsController::UpdateNewBalance($AID,$newAccountBalance);
+
+       $invoiceDetails=self::getAllInvoiceDetails($invoiceNumber);
        
+       
+         foreach($invoiceDetails as $product){
+         $qty=$product->Quantity;
+         $contact=$product->ProductSerial;
+         $customerName=$product->ProductSerial;
+         $PID=$product->ProductSerial;
+         $productName=$product->ProductName;
+         $unitPrice=$product->PerUnitSalePrice;
+         
+       session(['invoiceDate' => $dateNow]);
+       session(['invoiceNo' => $invoiceNumber]);
+       session(['customerID' => $CID]);
+       session(['customerName' => $customerName]);
+       session(['city' => '']);
+       session(['province' => '']);
+       session(['contact' => $contact]);
+       session(['model' => '']);
+       session(['vehRegNo' => '']);
+       session(['distanceTraveled' => '']);
+       session(['itemNo' => $PID]);
+       session(['description' => $productName]);
+       session(['quantity' => $qty]);
+       session(['CNIC' => '']);
+       session(['unitPrice' => $unitPrice]);
+       session(['tax' => '0']);
+       session(['total' => '']);
+       session(['subTotal' => $tot]);
+       session(['taxable' => '-']);
+       session(['taxRate' => '17%']);
+       session(['taxAmount' => $tax]);
+       session(['S&H' => '-']);
+       session(['others' => '-']);
+       session(['endTotal' => $netTotal]);
 
-
+       table('tbl_print_docs')->insertGetId([
+       'invoiceDate' => $dateNow,
+       'invoiceNo' => $invoiceNumber,
+       'customerID' => $CID,
+       'customerName' => $customerName,
+       'city' => '',
+       'province' => '',
+       'contact' => $contact,
+       'model' => '',
+       'vehRegNo' => '',
+       'distanceTraveled' => '',
+       'itemNo' => $PID,
+       'description' => $productName,
+       'quantity' => $qty,
+       'CNIC' => '',
+       'unitPrice' => $unitPrice,
+       'tax' => '0',
+       'total' => '',
+       'subTotal' => $tot,
+       'taxable' => '-',
+       'taxRate' => '17%',
+       'taxAmount' => $tax,
+       'S&H' => '-',
+       'others' => '-',
+       'endTotal' => $netTotal
+      ]);
+      }
+       
      
-       
+    }
         //insert into order details
         //inster in transaction Flow
         //update customer balance
-        //frf
-    }
+        //frf())
     public function insertInDetailedOrder($OrderDetails,$InvoiceID,$date){
       foreach ($OrderDetails as $row){
 
@@ -199,6 +261,12 @@ class serviceSalesFlow extends Controller
   
   
    }
+   public function getAllInvoiceDetails($InvoiceNo){
+    $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+   
+    return $results;
+
+}
 
    public function insertinrecipetblraw($Rpid,$Rrawid,$Runit,$Rquantity,$remarks,$REcost){
 
