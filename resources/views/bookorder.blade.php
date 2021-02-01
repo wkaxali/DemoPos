@@ -24,7 +24,7 @@
         }
 
         .dropdown.bootstrap-select.form-control {
-            width: 200px !important;
+            width: 135px !important;
             display: inline-block !important;
             /* background-color:#0a549d !important; */
 
@@ -287,7 +287,7 @@
                 <header id="myHeader">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-12 my-2 mb-5 text-center">
+                            <div class="col-md-12 my-2 mb-2 text-center">
                                 <h3>Book Order</h3>
                             </div>
                         </div>
@@ -299,99 +299,88 @@
                 <section class="mainSection">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="myBookingBorder">
 
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-2">
                                             <label for="">Order No</label>
                                             <input type="text" class="form-control"
-                                                style="width: 200px !important; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
+                                                style="width: 135px !important; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
                                                 name="" id="OrderId" readonly="true">
                                         </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-2">
                                             <label for="Model">Model</label>
                                             <select style="height: 25px !important; width: 158px !important; "
-                                            class="selectpicker form-control" data-live-search="true" id="category">
+                                                class="selectpicker form-control" data-live-search="true" id="category">
 
-                                        </select>
+                                            </select>
                                         </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-2">
                                             <label for="">Booking Price</label>
                                             <input type="number" onchange="product()" class="form-control"
-                                                style="width: 200px !important; display: inline-block !important;"
+                                                style="width: 135px !important; display: inline-block !important;"
                                                 name="" id="bookingPrice">
 
                                         </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-2">
                                             <label for="">Invoice Price</label>
                                             <input type="number" onchange="product()" class="form-control"
-                                                style="width: 200px !important; display: inline-block !important;"
+                                                style="width: 135px !important; display: inline-block !important;"
                                                 name="" id="invoice">
 
                                         </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-2">
                                             <label for="">Description</label>
                                             <input type="text" class="form-control"
-                                                style="width: 200px !important; display: inline-block !important;"
+                                                style="width: 135px !important; display: inline-block !important;"
                                                 name="" id="description">
 
                                         </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-md-12">
+                                        <div class="col-md-2">
                                             <label for="">Qty</label>
                                             <input type="number" onchange="product()" class="form-control"
-                                                style="width: 200px !important; display: inline-block !important;"
+                                                style="width: 135px !important; display: inline-block !important;"
                                                 name="" id="qty">
                                         </div>
-                                    </div><br>
+                                    </div>
+
+
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="">Total</label>
+
+
+
+                                        <div class="col-md-5">
+                                            <label style="width: 50px !important;" for="">Total</label>
                                             <input type="text" class="form-control"
                                                 style="width: 200px !important; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
                                                 name="" id="total" readonly="true">
                                         </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="">Amount Paid</label>
-                                            <input type="number" title="Press Enter To Submit" onkeyup="subtract()"
-                                                class="form-control"
-                                                style="width: 200px !important; display: inline-block !important;"
-                                                name="" id="amount">
-                                        </div>
-                                    </div><br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="">Remaining For This Order</label>
+                                        <div class="col-md-5">
+                                            <label style="width: 100px !important;" for="">Remaining</label>
                                             <input type="text" class="form-control"
                                                 style="width: 200px !important; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
                                                 name="" id="remaining" readonly="true">
                                         </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-11">
+                                        <div class="col-md-2">
                                             <div class="successButtons text-right"
-                                                style="margin-right: 7px !important;">
+                                                style=" margin-right:15px;">
                                                 <button onclick="valid()" class="btn ">Add</button>
                                             </div>
                                         </div>
                                     </div>
+
+
+
                                 </div>
                             </div>
-                            <div class="col-md-6">
+
+
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
                                 <div class="bookingRightTable">
 
                                     <div class="tableContent  text-center">
@@ -436,20 +425,20 @@
 
                                         <label style="width: 150px !important;" for="">Total Amount</label>
                                         <input class="form-control"
-                                            style="display: inline-block !important; width: 200px !important;"
+                                            style="display: inline-block !important; width: 135px !important;"
                                             type="number" name="" id="mainTotal"><br>
 
 
 
                                         <label style="width: 150px  !important;" for="">Total Paid</label>
                                         <input type="number" name="" class="form-control"
-                                            style="display: inline-block !important; width: 200px !important;"
+                                            style="display: inline-block !important; width: 135px !important;"
                                             id="totalPaid" onchange="calculatonInTable()"><br>
 
 
                                         <label style="width: 150px  !important;" for="">Total Remaining</label>
                                         <input type="number" name="" class="form-control"
-                                            style="display: inline-block !important; width: 200px !important;"
+                                            style="display: inline-block !important; width: 135px !important;"
                                             id="totRemaining">
 
 
@@ -480,9 +469,10 @@
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
-                    <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".helloURL"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                                <ul>
+                        <ul class="collapse list-unstyled helloURL ">
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
@@ -723,10 +713,9 @@
                 document.getElementById('amount').focus();
             } else if (description == "") {
                 document.getElementById('description').focus();
-            }  else if (bookingPrice == "") {
+            } else if (bookingPrice == "") {
                 document.getElementById('bookingPrice').focus();
-            }
-             else {
+            } else {
                 document.getElementById('invoice').focus();
 
                 add();
@@ -792,7 +781,7 @@
             cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
             cell9.innerHTML = description;
             cell9.style.display = "none";
-            cell10.innerHTML=invoicePrice;
+            cell10.innerHTML = invoicePrice;
             calculatonInTable();
 
 
@@ -895,7 +884,7 @@
                     $(tr).find('td:eq(6)').text(), //remAmount
                     $(tr).find('td:eq(1)').text(), //productName
                     $(tr).find('td:eq(8)').text(), //description
-                    $(tr).find('td:eq(9)').text()//invoice price
+                    $(tr).find('td:eq(9)').text() //invoice price
 
 
 
@@ -915,21 +904,20 @@
 
             var xhttp = new XMLHttpRequest();
 
-            if(AID==""){
+            if (AID == "") {
                 alert('Payment Method not Selected');
-            }
-            else{
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
+            } else {
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Invoice =" + this.responseText + " is generated");
-                    getOrderID();
+                        alert("Invoice =" + this.responseText + " is generated");
+                        getOrderID();
 
-                }
-            };
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./placeOrder/" + OrderArray, true);
-            xhttp.send();
+                    }
+                };
+                // var MenuID=$('#Menus').find(":selected").val();
+                xhttp.open("GET", "./placeOrder/" + OrderArray, true);
+                xhttp.send();
             }
         }
 

@@ -331,8 +331,6 @@ Route::get('/vd', function () {
 
 Route::get('/prc', function () {
     return view('paymentReceipt');
-<<<<<<< HEAD
-=======
 });
 
 
@@ -347,5 +345,4 @@ Route::get('/sheet', function () {
 });
 Route::get('/vd', function () {
     return view('vehicleDetail');
->>>>>>> 272055f6376872ab10d9a0d5765100b6fd0c5715
 });
