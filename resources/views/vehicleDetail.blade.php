@@ -22,7 +22,16 @@
             background-color: #000000;
             color: aliceblue;
         }
+        .borderMain {
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
 
+        .mainBorder {
+            border: 3px double #333;
+            border-radius: 10px;
+            margin: 10px;
+        }
         th,
         td {
             border: 1px solid #333;
@@ -53,6 +62,12 @@
 </head>
 
 <body>
+    
+<div class="borderMain">
+        <div class="borderMain">
+            <div class="borderMain">
+                <div class="borderMain">
+                    <div class="mainBorder">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
@@ -186,6 +201,14 @@
             </div>
         </div>
     </section>
+<<<<<<< HEAD
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+=======
+>>>>>>> fda102c2573d30c8d8b09133ba0f55c246f8810f
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>

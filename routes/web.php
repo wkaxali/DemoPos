@@ -325,7 +325,6 @@ Route::get('/e', function () {
     return view('Employee');
 });
 
-
 Route::get('/vd', function () {
     return view('vehicleDetail');
 });
