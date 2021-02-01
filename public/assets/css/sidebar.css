@@ -6196,3 +6196,6 @@ a:hover {
 .fa-bars {
     color: #fff;
 }
+body{
+    overflow-x: hidden !important;
+}

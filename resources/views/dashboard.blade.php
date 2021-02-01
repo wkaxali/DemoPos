@@ -5841,6 +5841,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             background-color: #000;
         }
 
+
         .appointment-form {
             padding: 10px 60px 0px 60px;
         }
@@ -5920,29 +5921,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: #222;
         }
 
-        .appointment-form .submit {
-            width: auto;
-            background: #4966b1;
-            color: #fff;
-            padding: 16px 17px;
-            font-size: 13px;
-            border: none;
-            border-radius: 5px;
-            -moz-border-radius: 5px;
-            -webkit-border-radius: 5px;
-            -o-border-radius: 5px;
-            -ms-border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
-            -moz-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
-            -webkit-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
-            -o-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
-            -ms-box-shadow: 0px 1px 15px 0px rgba(73, 102, 177, 0.7);
-        }
-
-        .appointment-form .submit:hover {
-            background: #3a518d;
-        }
+   
 
         .appointment-form ul {
             background: 0 0;
@@ -9505,6 +9484,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             overflow: hidden;
         }
 
+        #staticBackdrop {
+            position: absolute !important;
+        }
+
         .btn1 {
             color: #3498db;
             border-radius: 10px;
@@ -9533,11 +9516,137 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .btn1:hover::before {
             height: 180%;
         }
+        
+        @keyframes btn-anim4 {
+            0% {
+                bottom: -100%;
+            }
+
+            50%,
+            100% {
+                bottom: 100%;
+            }
+        }
 
         .nav-pills {
             float: right !important;
             background-color: #0a549d;
             border-radius: 15px;
+        }
+        
+        input{
+            outline:none;
+        }
+        .login-box {
+            text-align:center;
+        }
+        .login-box  a {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            color: #d01818;
+            font-size: 20px;
+            text-decoration: none;
+            text-transform: uppercase;
+            overflow: hidden;
+            transition: .5s;
+            /* margin-top: 40px; */
+            font-weight: 700;
+            letter-spacing: 4px
+        }
+
+        .login-box a:hover {
+            background: #d01818;
+            color: #fff !important;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #d01818,
+                0 0 25px#d01818,
+                0 0 50px #d01818,
+                0 0 100px #d01818;
+        }
+
+        .login-box a span {
+            position: absolute;
+            display: block;
+        }
+
+        .login-box a span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d01818);
+            animation: btn-anim1 1s linear infinite;
+        }
+
+        @keyframes btn-anim1 {
+            0% {
+                left: -100%;
+            }
+
+            50%,
+            100% {
+                left: 100%;
+            }
+        }
+
+        .login-box a span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #d01818);
+            animation: btn-anim2 1s linear infinite;
+            animation-delay: .25s
+        }
+
+        @keyframes btn-anim2 {
+            0% {
+                top: -100%;
+            }
+
+            50%,
+            100% {
+                top: 100%;
+            }
+        }
+
+        .login-box a span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #d01818);
+            animation: btn-anim3 1s linear infinite;
+            animation-delay: .5s
+        }
+
+        @keyframes btn-anim3 {
+            0% {
+                right: -100%;
+            }
+
+            50%,
+            100% {
+                right: 100%;
+            }
+        }
+
+        .login-box a span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #d01818);
+            animation: btn-anim4 1s linear infinite;
+            animation-delay: .75s
+        }
+        input:focus~label,
+      input:valid~label {
+            top: -25px;
+            left: 0;
+            color: #f1c40f;
+            font-size: 12px;
         }
 
         .clearmain {
@@ -9566,49 +9675,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body onload="loadFields()">
-    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
 
-                <div class="modal-body">
-                    <form method="POST" class="appointment-form" id="appointment-form">
-                        <h2>Create Invoice</h2>
-                        <div class="form-group-1">
-                            <input type="text" name="title" id="title" placeholder="Customer" required />
-                            <input type="text" name="name" id="name" placeholder="Customer ID" required />
-                            <input type="number" name="tel" id="tel" placeholder="Contact" required />
-                            <input type="number" name="phone_number" id="Profession" placeholder="Profession"
-                                required />
-                            <input type="number" name="phone_number" id="Balance" placeholder="Balance" required />
-                            <input type="number" name="phone_number" id="Profession" placeholder="Address" required />
-                            <input type="number" name="phone_number" id="Profession" placeholder="Comments" required />
-
-                            <div class="select-list">
-                                <select name="course_type" id="course_type">
-                                    <option slected value="">Category</option>
-                                    <option value="society">Society</option>
-                                    <option value="language">Language</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-submit">
-                            <a onclick="location.href = '/dl'">Add Customer</a>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
     <div class="page-container">
         <div class="left-content">
             <div class="mother-grid-inner">
                 <div class="header-main">
+                    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    <form method="POST" class="appointment-form" id="appointment-form">
+                                        <h2></h2>
+                                        <div class="form-group-1">
+                                            <input type="text" name="title" id="title" placeholder="Customer Name"
+                                                required />
+                                            <input type="text" name="name" id="name" placeholder="Client's Father Name"
+                                                required />
+                                            <input type="text" name="tel" id="tel" placeholder="Customer CNIC"
+                                                required />
+                                            <input type="text" name="phone_number" id="Profession"
+                                                placeholder="Movement City / Area" required />
+                                            <input type="text" name="phone_number" id="Balance" placeholder="Address"
+                                                required />
+                                            <input type="text" name="phone_number" id="Profession"
+                                                placeholder="Contact" required />
+                                            <input type="text" name="phone_number" id="Profession"
+                                                placeholder="Description" required />
+                                            <input type="text" name="phone_number" id="Profession" placeholder="Color"
+                                                required />
+                                            <input type="text" name="phone_number" id="Profession"
+                                                placeholder="Unit Price" required />
+                                            <input type="text" name="phone_number" id="Profession" placeholder="Qty"
+                                                required />
+                                            <input type="text" name="phone_number" id="Profession"
+                                                placeholder="Total Price" required />
+
+
+                                        </div>
+
+                                        <div class="login-box">
+                                            <a onclick="location.href = '/dl'">
+                                            <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                            Add Customer</a>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <div class="header-left">
                         <div class="logo-name">
                             <a href="/db">
@@ -10238,7 +10361,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </li>
                     <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                                <ul>
+                        <ul>
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
