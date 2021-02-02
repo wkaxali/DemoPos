@@ -28,6 +28,7 @@ class serviceSalesFlow extends Controller
 
          $CCB=$Array[10];
          $AID=$Array[11];
+         
        //  return $CLB;
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
@@ -66,22 +67,56 @@ class serviceSalesFlow extends Controller
        CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
        $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
        LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
-       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock Purchased",
+       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock and Service",
        $totlpaid,$dateNow,"1",$oldCustomerBalance,$currentCustomerBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$CID,$paidVia,NULL);
        $OldAccBalance=accountsController::getAccountBalance($AID);
        $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
        
        accountsController::UpdateNewBalance($AID,$newAccountBalance);
+
+       $invoiceDetails=self::getAllInvoiceDetails($invoiceNumber);
        
-
-
+       
+         foreach($invoiceDetails as $product){
+         $qty=$product->Quantity;
+         $contact=$product->ProductSerial;
+         $customerName=$product->ProductSerial;
+         $PID=$product->ProductSerial;
+         $productName=$product->ProductName;
+         $unitPrice=$product->PerUnitSalePrice;
+         
+       session(['invoiceDate' => $dateNow]);
+       session(['invoiceNo' => $invoiceNumber]);
+       session(['customerID' => $CID]);
+       session(['customerName' => $customerName]);
+       session(['city' => '']);
+       session(['province' => '']);
+       session(['contact' => $contact]);
+       session(['model' => '']);
+       session(['vehRegNo' => '']);
+       session(['distanceTraveled' => '']);
+       session(['itemNo' => $PID]);
+       session(['description' => $productName]);
+       session(['quantity' => $qty]);
+       session(['CNIC' => '']);
+       session(['unitPrice' => $unitPrice]);
+       session(['tax' => '0']);
+       session(['total' => '']);
+       session(['subTotal' => $tot]);
+       session(['taxable' => '-']);
+       session(['taxRate' => '17%']);
+       session(['taxAmount' => $tax]);
+       session(['S&H' => '-']);
+       session(['others' => '-']);
+       session(['endTotal' => $netTotal]);
+      }
+       
      
-       
+    }
         //insert into order details
         //inster in transaction Flow
         //update customer balance
-        //frf
-    }
+        //frf())
     public function insertInDetailedOrder($OrderDetails,$InvoiceID,$date){
       foreach ($OrderDetails as $row){
 
@@ -150,8 +185,90 @@ class serviceSalesFlow extends Controller
       $IID=DB::table('tblsaleinvoice')->max("InvoiceNumber");
      return $IID+1;
      
-
-
     }
     
+
+    public function UpdateRecipe(Request $request,$RecipeTable,$MenuID,$Ecost,$salePrice){
+        
+      print($MenuID);
+
+      self::deleteintblrecipetoraw($MenuID);
+   $obj = json_decode($RecipeTable);
+   foreach ($obj as $row){
+      
+          $RMID=$row[0];
+          $RMName=$row[1];
+          $qty=$row[2];
+          $unit=$row[3];
+          $unitCost=$row[4];
+          $TotalCostOfThisItem=$row[5];
+
+      // print("RMID".$RMID);
+      // print("    Name".$RMName);
+      // print("    Qty".$qty);
+      // print("   unt".$unit);
+      // print("   unit cost".$unitCost);
+      // print("   Cost Total cost".$unitCost);
+      
+
+    self::insertinrecipetblraw($MenuID,$RMID,$unit,$qty," ",$TotalCostOfThisItem);
+
+
+   }
+   self::updateIntblMenuproductsForSaleAndPurchase($MenuID,$Ecost,$salePrice);
+   return 0;
+
+     
+   }
+
+
+
+   public function deleteintblrecipetoraw($MenuID){
+
+  
+  
+      $Deleted = DB:: delete("delete from tblrecipetoraw where PID=".$MenuID); 
+       
+       print($Deleted);
+  
+  
+  
+   }
+   public function getAllInvoiceDetails($InvoiceNo){
+    $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+   
+    return $results;
+
+}
+
+   public function insertinrecipetblraw($Rpid,$Rrawid,$Runit,$Rquantity,$remarks,$REcost){
+
+     
+      
+ $result= DB::insert('insert into tblrecipetoraw (PID, RAWID, Unit, Quantity, Remarks, ECost ) values (?, ?,?,?,?,?)', [$Rpid,$Rrawid,$Runit,$Rquantity,$remarks, $REcost]);
+  
+
+  if($result==1){
+
+      print('nextone');
+
+
+
+
+          }
+  }
+
+
+  public function updateIntblMenuproductsForSaleAndPurchase($PID,$ERCost,$SalePrice){
+
+      
+  
+  
+      $qr="UPDATE   tblmenuproducts SET   SalePrice='".$SalePrice."', RecipeCost ='".$ERCost."' WHERE  PID =".$PID;
+      $affected = DB::update($qr);
+  print("Number of Rows Affacted".$affected);
+  
+  } 
+
+
 }

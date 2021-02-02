@@ -14,9 +14,16 @@
         td {
             border: 1px solid #333;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
 
     </style>
-    <title>Title</title>
+    <title>Inventory Sheet</title>
 </head>
 
 <body>

@@ -80,7 +80,7 @@ class OrderFlowController extends Controller
       return $IID+1;
   }
 
-    function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice,$OrderID){
+    function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice,$OrderID,$description){
 
            
         $ProductSerial=DB::table('productdefination')->insertGetId(['ProductName'=> $Pname, 
@@ -91,9 +91,10 @@ class OrderFlowController extends Controller
         ]);
         DB::table('productdefination')
             ->where('ProductSerial', $ProductSerial)
-            ->update(['ProductID' =>$ProductSerial,
-            'Barcode' =>'*'.$ProductSerial.'*'
-         
+            ->update([
+              'ProductID' =>$ProductSerial,
+              'description' =>$description,
+              'Barcode' =>'*'.$ProductSerial.'*'
             ]);
           
             $SID=DB::table('instock')->insertGetId(['ProductSerial'=> $ProductSerial, 
@@ -130,11 +131,12 @@ class OrderFlowController extends Controller
         $AmountPaid=$row[4];
         $remAmount=$row[5];
         $Pname=$row[6];
+        $description=$row[7];
         for($i=0;$i<$qty;$i++){
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID);
+       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID,$description);
        print ($productSerial);
       
   
@@ -241,7 +243,7 @@ class OrderFlowController extends Controller
         'DateStamp'=>$dateNow,
         'UserID'=>$userID,
         'PattyCash'=>$pattyCash,
-        'TransactionType'=>"Credit",
+        'TransactionType'=>"Debit",
         
         'SBB'=>NULL,
         'SBA'=>NULL,
@@ -258,12 +260,17 @@ class OrderFlowController extends Controller
       }
 
       function spareParts(){
-        $data=DB:: select('select * from vw_stockdetails where Category = 20');
+        $data=DB:: select('select * from vw_stockdetails where Category = 21');
         return $data;
       }
 
       function viewStock(){
         $data=DB:: select('select * from vw_stockdetails where Category = 20');
+        return $data;
+      }
+
+      function viewAllStock(){
+        $data=DB:: select('select * from vw_stockdetails');
         return $data;
       }
 
@@ -356,7 +363,7 @@ class OrderFlowController extends Controller
     
     //// 
       function getOrderItem($OID){
-        $results=DB::select('select ProductName,EngineNumber,ChasisNumber,DilevedStatus,ProductID from vw_purchaseorderdetails where InvoiceNumber='.$OID);
+        $results=DB::select('select * from vw_purchaseorderdetails where InvoiceNumber='.$OID);
         $table="";
         $i=1;
         $option='<option value=" "></option>';
@@ -393,6 +400,12 @@ class OrderFlowController extends Controller
               else{
                 $EN=' value='.$ro->EngineNumber.' readonly ="true"';
               }
+            if($ro->Color==""){
+              $color=' value='.$ro->Color;
+              }
+              else{
+                $color=' value='.$ro->Color.' readonly ="true"';
+              }
           //print $option;
 
             $table=$table.'
@@ -400,6 +413,7 @@ class OrderFlowController extends Controller
             <td>'.$i.'</td>
             <td style="display:none">'.$ro->ProductID.'</td>
             <td>'.$ro->ProductName.'</td>
+            <td><input type="text" '.$color.'></td>
             <td><input type="text" '.$CHN.'></td>
             <td><input type="text" '.$EN.'></td>
             <td><input type="text"'.$tc.'></td>
@@ -425,6 +439,7 @@ class OrderFlowController extends Controller
  
          $Array=json_decode($data);
          $mainTotal=$Array[1];
+         $netTotal=$Array[5];
          $totlpaid= $Array[6];
          $totRemaining=$Array[7];
         $orderDetails =$Array[0];
@@ -447,7 +462,7 @@ class OrderFlowController extends Controller
          'Discount'=>'0',
          'DateStamp'=>$dateNow,
          'VAT'=>'0',
-         'NetTotal'=>$mainTotal,
+         'NetTotal'=>$netTotal,
          'AmountPaid'=>$totlpaid,
          'Balance'=>$totRemaining,
          'BillStatus'=>"Pending",

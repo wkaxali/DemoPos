@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Carbon\Carbon;
+use NumberToWords\NumberToWords;
 use Illuminate\Http\Request;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UpdateStocksController;
@@ -15,17 +16,30 @@ class salesFlow extends Controller
 {
     public function SalesFlow(Request $request,$data){
      // order = [pid,totwT,discount,netTotal,amp,rmb,CID];
-        $Array=json_decode($data);
-        $pid=$Array[0];
-        $tot=$Array[1];
-        $OverAllDiscount= $Array[2];
-        $AmountAfterDiscount=$Array[3];
-       $amp =$Array[4];
-        $rmb=$Array[5];
-       $CID=$Array[6];
-       $TransactionMode=$Array[7];
-       $AID=$Array[8];
-       
+      $Array=json_decode($data);
+      $pid=$Array[0];
+      $tot=$Array[1];
+      $OverAllDiscount= $Array[2];
+      $AmountAfterDiscount=$Array[3];
+      $amp =$Array[4];
+      $rmb=$Array[5];
+      $CID=$Array[6];
+      $TransactionMode=$Array[7];
+      $AID=$Array[8];
+      $customerName =$Array[9];
+      $CNIC=$Array[10];
+      $address=$Array[11];
+      $contact=$Array[12];
+      $fatherName=$Array[13];
+      $engineNo=$Array[14];
+      $chassisNo=$Array[15];
+      $color=$Array[16];
+      $description=$Array[17];
+      $productName=$Array[18];
+      $city=$Array[19];
+      $receivedBy=$Array[20];
+      $totalCost=$Array[21];
+      
        //return $TransactionMode;
          
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
@@ -104,7 +118,36 @@ class salesFlow extends Controller
 
         UpdateStocksController::UpdateStockStatus($pid,"Sold");
 
-       return $invoiceNumber;
+        session(['customerName' => $customerName]);
+        session(['fatherName' => $fatherName]);
+        session(['CNIC' => $CNIC]);
+        session(['address' => $address]);
+        session(['engineNo' => $engineNo]);
+        session(['chassisNo' => $chassisNo]);
+        session(['Amount' => $AmountAfterDiscount]);
+        session(['total' => $amp]);
+        session(['invoiceDate' => $dateNow]);
+        session(['invoiceNo' => $fatherName]);
+        session(['description' => $description]);
+        session(['color' => $color]);
+        session(['invoiceNo' => $invoiceNumber]);
+        session(['productName' => $productName]);
+        session(['price' => $tot]);
+        session(['quantity' => '1']);
+        session(['city' => $city]);
+        session(['referenceNumber' => 'FMM-GDP-000'.$invoiceNumber]);
+        session(['amountPaid' => $amp]);
+        session(['balance' => $rmb]);
+        session(['totalCost' => $totalCost]);
+        session(['receivedBy' => $receivedBy]);
+        session(['receiptNumber' => 'FMM-10-20-00'.$invoiceNumber]);
+        session(['tax' => $AmountAfterDiscount]);
+        
+        $numberToWords = new NumberToWords();
+        $numberTransformer = $numberToWords->getNumberTransformer('en');
+        $a= $numberTransformer->toWords($amp);
+        session(['amountInWords' => $a]);
+        return $a;
     }
     public function insertInDetailedOrder($row,$InvoiceID,$date){
      
@@ -149,5 +192,10 @@ class salesFlow extends Controller
 
 
     }
+  public static function getAllInvoiceDetails($InvoiceNo){
+      $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+      return $results;
+
+  }
     
 }

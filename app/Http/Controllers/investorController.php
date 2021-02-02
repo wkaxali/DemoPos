@@ -88,9 +88,9 @@ class investorController extends Controller
 }
 
 function getInvestorData(){
-    $data=DB:: select('select * from vw_stockdetails where Category = 20');
-    return $data;
-  }
+  $data=DB:: select('select * from vw_stockdetails where Category = 20');
+  return $data;
+}
 
 
 public static function getInvestors(){
@@ -113,6 +113,45 @@ public static function getInvestors(){
   
     $investorDetails=DB:: select('select * from tblledgerparties where LID ='.$LID);
     return $investorDetails;
+}
+
+
+function getInvestorStock($InvestorID){
+  $data=DB:: select('select * from vw_investor_product where LID='.$InvestorID);
+
+   $table='';
+ 
+  
+  
+
+
+foreach ($data as $d){
+  //print $option;
+
+
+
+    $table=$table.'
+
+    <tr>
+    <td>'.$d->ProductID.'</td>
+    <td>'.$d->ProductName.'</td>
+    <td>'.$d->TotalSaleAmount.'</td>
+    <td>'.$d->TotalCost.'</td>
+    <td>'.$d->totalProfit.'</td>
+    <td>'.$d->SelfProfit.'</td>
+
+    <td>'.$d->LIDProfit.'</td>
+
+    <td>'.$d->EngineNumber.'</td>
+    <td>'.$d->ChasisNumber.'</td>
+    <td>1</td>
+    </tr>';
+
+}
+return $table;
+
+
+
 }
 
 }

@@ -73,6 +73,13 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
+        #myTable_length label{
+            width: auto !important;
+        }
+        .dataTables_filter label{
+            width: auto !important;
+
+        }
     </style>
 </head>
 
@@ -111,7 +118,9 @@
                         </div>
                         <div class="col-md-8">
                             <div class="customerName">
-                                MOHSIN BILAL S/O TARIQ HUSSAIN
+                                {{ Session::get('customerName')}}
+                                S/O
+                                {{ Session::get('fatherName')}}
                             </div>
                         </div>
                     </div>
@@ -125,7 +134,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="customerName">
-                                MUHALLA BAFFA MEERA NEAR HAWAI PULL, BAFFA TOWN , TEHSIL/DISTRICT MANSEHRA
+                            {{ Session::get('address')}}
                             </div>
                         </div>
                     </div>
@@ -140,7 +149,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="customerName-1 text-left">
-                                135039761483-3
+                            {{ Session::get('CNIC')}}
                             </div>
                         </div>
                     </div>
@@ -148,6 +157,7 @@
                         <div class="col-md-4">
                             <div class="spec">
                                 <h6>STRN :</h6>
+                                
                             </div>
 
                         </div>
@@ -178,7 +188,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="customerName-1">
-                                200810055
+                            {{ Session::get('invoiceNo')}}
                             </div>
                         </div>
                     </div>
@@ -188,7 +198,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="customerName-1">
-                                25-AUG-20
+                            {{ Session::get('invoiceDate')}}
                             </div>
                         </div>
                     </div>
@@ -207,7 +217,7 @@
             <div class="row" style="margin: 0 !important;">
                 <div class="col-md-2">
                     <div class="spec">
-                        <h6>Dealer Name :</h6>
+                        <h6>FORLAND MODERN MOTORS</h6>
                     </div>
 
                 </div>
@@ -241,11 +251,11 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Forland C311</td>
-                                    <td>Blue</td>
-                                    <td>J021060</td>
-                                    <td>NFJVCJD50JL000992</td>
-                                    <td>PKR 1,965,812</td>
+                                    <td>{{ Session::get('description')}}</td>
+                                    <td>{{ Session::get('color')}}</td>
+                                    <td>{{ Session::get('engineNo')}}</td>
+                                    <td>{{ Session::get('chassisNo')}}</td>
+                                    <td>{{ Session::get('totalCost')}}</td>
 
                                 </tr>
 
@@ -265,18 +275,13 @@
                             <tr>
                                 <td>Total In Words</td>
                                 <td>Value Exclusive Of Sales Tax</td>
-                                <td>PKR 1,965,812</td>
+                                <td>PKR {{ Session::get('totalCost')}}</td>
 
                             </tr>
                             <tr>
-                                <td rowspan="2">Rupees Two Million Three Hundred Thousand Only</td>
+                                <td rowspan="2">{{ Session::get('amountInWords')}} only</td>
                                 <td rowspan="2">17% GST Total</td>
-                                <td>PKR 334,188</td>
-
-                            </tr>
-                            <tr>
-
-                                <td>PKR 334,188</td>
+                                <td>{{ Session::get('tax')}}</td>
 
                             </tr>
                         </thead>
