@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
 
-    <title>Payment</title>
+    <title>Quotation</title>
     <style>
         th,
         td {
@@ -54,7 +54,7 @@
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <h5>Synchro Pharmaceuticals</h5>
+                    <h5>{{ Session::get('customerName')}}</h5>
                 </div>
                 <div class="col-md-4 text-right offset-md-4">
                     <h5>{{ Session::get('invoiceDate')}}</h5>
@@ -151,7 +151,7 @@
                             <tr>
                                 <td>7</td>
                                 <td>Model</td>
-                                <td>Forland C20(2021)</td>
+                                <td>{{ Session::get('productName')}}(2021)</td>
                             </tr>
 
                         </tbody>

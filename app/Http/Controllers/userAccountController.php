@@ -11,14 +11,16 @@ class userAccountController extends Controller
 
     $re = DB::table('userinfo')
     ->where([['UserName', '=', $userName ],['Password', '=', $passcode ]])
-->get();
+        ->get();
      //->first()->UserName;
     if($re=="[]"){
+        session(['userName' =>null]);
         return "Invalid Username";
-    }
+    }else{
     
     session(['userName' => $re[0]->UserName]);
      return $re;
+    }
 
 
 

@@ -23,7 +23,7 @@
         }
 
     </style>
-    <title>Title</title>
+    <title>Inventory Sheet</title>
 </head>
 
 <body>

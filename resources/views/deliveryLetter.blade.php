@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <title>Delivery Letter</title>
+
     <style>
         .referenceTable tr td:nth-child(2) {
             display: block;
@@ -18,9 +20,20 @@
             border: 1px solid #333;
 
         }
+        .borderMain {
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        .mainBorder {
+            border: 3px double #333;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
 
         #mainMarginRow {
-            margin: 15px 0px !important;
+            margin: 5px 0px !important;
         }
 
         ul li {
@@ -65,6 +78,12 @@
 </head>
 
 <body>
+<div class="borderMain">
+        <div class="borderMain">
+            <div class="borderMain">
+                <div class="borderMain">
+                    <div class="mainBorder">
+
     <header>
         <div class="container">
             <div class="row">
@@ -172,7 +191,7 @@
                                 <td>YES</td>
                                 <td>YES</td>
                                 <td>2</td>
-                                <td>YEs</td>
+                                <td>YES</td>
 
                             </tr>
                         </tbody>
@@ -248,7 +267,11 @@
 
         </div>
     </footer>
-
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 
 
 </body>

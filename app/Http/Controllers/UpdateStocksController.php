@@ -16,12 +16,13 @@ class UpdateStocksController extends Controller
          $InvoiceNumber=$Array[1];
          $AID=$Array[2];
     foreach($Array[0] as $oneProduct){
-      if($oneProduct[4]==1){
+      if($oneProduct[5]==1){
          $PID=$oneProduct[0];
-         $chasisNumber= $oneProduct[1];
-         $EngineNumber=$oneProduct[2];
-        $TransportCharges =$oneProduct[3];
-         $status=$oneProduct[4];
+         $color=$oneProduct[1];
+         $chasisNumber= $oneProduct[2];
+         $EngineNumber=$oneProduct[3];
+        $TransportCharges =$oneProduct[4];
+         $status=$oneProduct[5];
          $dateNow= Carbon::now()->toDateTimeString();
         
    
@@ -50,26 +51,23 @@ class UpdateStocksController extends Controller
 
 
 
-          DB::table('productdefination')
+            DB::table('productdefination')
             ->where('ProductSerial', $PID)
             ->update(['EngineNumber' =>$EngineNumber,
-            'ChasisNumber' =>$chasisNumber
-            
-         
+            'ChasisNumber' =>$chasisNumber,
+            'color' =>$color
             ]);
+
             DB::table('instock')
             ->where('ProductSerial', $PID)
             ->update(['Remarks'=>"Delivered on ".$dateNow,
             'TotalCost' =>$CurrentPrice,
             'Status'=>'Available'
-            
-         
             ]);
+
             DB::table('tblpurchaseoorderdetaile')
             ->where('ProductSerial', $PID)
             ->update(['DilevedStatus'=>"Received"
-            
-         
             ]);
 
 
@@ -81,7 +79,7 @@ class UpdateStocksController extends Controller
          //->format('Y-m-d h:iA');
         // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
  
-        return "Updated";
+        return ".";
        
 
 
@@ -103,7 +101,7 @@ class UpdateStocksController extends Controller
 
 }
   public function getAllAvailableProducts(){
-    $results=DB::select('select * from  vw_stockdetails where Category=20');
+    $results=DB::select('select * from  vw_stockdetails where Status = "Available"');
     
         
     return $results;
@@ -211,9 +209,9 @@ public static function updateProducts($PID, $company, $engineNumber, $chasisNumb
   ->where('StockID', $PID)
   ->update([
     'StockIn'=>$stockIn,
-    'Status'=>$status,
-    'TotalSaleAmount'=>$salePrice,
-    'TotalCost'=>$purchasePrice
+    // 'Status'=>$status,
+    'PerUnitSalePrice'=>$salePrice,
+    'PerUnitPurchasePrice'=>$purchasePrice
     ]);
 }
 public static function getCurrentStock($PID){

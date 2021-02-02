@@ -6,9 +6,9 @@ use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
-
+use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\UpdateStocksController;
-
+use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
 
 use App\Http\Controllers\TransactionFlow;
@@ -26,7 +26,7 @@ use App\Http\Controllers\serviceSalesFlow;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
-
+use App\Http\Controllers\saleRequestController;
 
 
 /*
@@ -59,19 +59,23 @@ Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierPart
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check'] );
+Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer'] );
 
 Route::get('/getAllCustomers/',[CustomerController::class, 'getAllCustomers'] );
+Route::get('/getCustomerNames/',[CustomerViewController::class, 'getCustomerNames'] );
 //Route::get('/getAllSupliers/',[CustomerController::class, 'getAllCustomers'] );
 Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail'] );
 
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail'] );
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
+//getInvoiceCustomer/{data}
 
+Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleRequest'] );
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
-
-
+Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads'] );
+Route::get('/getInvoiceCustomer/{data}',[CustomerController::class, 'getInvoiceCustomer'] );
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct'] );
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails'] );
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails'] );
@@ -100,6 +104,7 @@ Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
 Route::get('/getInvestors',[investorController::class, 'getInvestors']);
 Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']);
 Route::get('/dailySaleAmount',[AISessionController::class, 'dailySaleAmount']);
+Route::get('/loadAutos',[getProducts::class, 'getAutosNames']);
 
 // Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
@@ -150,6 +155,7 @@ Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
 Route::get('/getCategory',[taskController::class, 'getCategory'] );
 Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
+Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
 
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
@@ -181,8 +187,20 @@ Route::get('/ss', function () {
 Route::get('/qt', function () {
     return view('quotation');
 });
+
+//61bd06c
+Route::get('/logout', function () {
+    session(['userName' =>null]);
+
+    return view('signInSignUp');
+});
 Route::get('/db', function () {
+    // $UN = session()->get('userName');
+    // if($UN!=NULL){
     return view('dashboard');
+    // }else{
+    //     return "Invalid Username Or Password";
+    // }
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
@@ -288,3 +306,49 @@ Route::get('/cr', function () {
     return view('cr');
 });
 
+Route::get('/d', function () {
+    return view('delivery');
+});
+Route::get('/nd', function () {
+    return view('newDashboard');
+});
+
+Route::get('/SalarySlip', function () {
+    return view('SalarySlip');
+});
+Route::get('/l', function () {
+    return view('investorLedger');
+});
+
+Route::get('/ql', function () {
+    return view('quotation');
+});
+
+Route::get('/e', function () {
+    return view('Employee');
+});
+
+Route::get('/vd', function () {
+    return view('vehicleDetail');
+});
+
+Route::get('/prc', function () {
+    return view('paymentReceipt');
+});
+
+
+Route::get('/fgp', function () {
+    return view('ForlandGatePass');
+});
+Route::get('/slip', function () {
+    return view('SalarySlip');
+});
+Route::get('/sheet', function () {
+    return view('inventorysheet');
+});
+Route::get('/vd', function () {
+    return view('vehicleDetail');
+});
+Route::get('/sir', function () {
+    return view('solutions');
+});

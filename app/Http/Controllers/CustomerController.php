@@ -111,7 +111,55 @@ class CustomerController extends Controller
 
     }
 
-   
+    public function addCustomer(Request $request, $CO){
+        
+        $obj=json_decode($CO);
+        $customerName=$obj[0];
+        $fatherName=$obj[1];
+        $contact=$obj[2];
+        $profession=$obj[3];
+        $balance=$obj[4];
+        $address=$obj[5];
+        $comments=$obj[6];
+        $cnic=$obj[7];
+        $category=$obj[8];
+        $CID=DB::table('customeinformation')->insertGetId([
+            'CustomerName'=>$customerName,
+            'FatherName'=>$fatherName,
+            'Contect'=>$contact,
+            'Ocupation'=>$profession,
+            'Balance'=>$balance,
+            'Address'=>$address,
+            'Comments'=>$comments,
+            'CNIC'=>$cnic,
+            'CustomerCatogery'=>$category,
+            
+            ]);
+        return $CID." ID customer added";
+    }
+    public function getInvoiceCustomer($InvoiceNo){
+        $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+        $product = collect([1,2,3,4]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        session(['invoiceDetails'=>$product]);
+        
+        return $results;
+
+    }
 
     
 }
