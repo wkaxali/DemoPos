@@ -10,12 +10,14 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <title>Sales And Commission</title>
 
     <style>
-               @media (max-width: 1366px) {
+        @media (max-width: 1366px) {
             .left-content {
                 width: 83%;
             }
@@ -24,7 +26,7 @@
         .page-container.sidebar-collapsed-back .left-content {
             width: 83% !important;
         }
-       
+
 
         table tr:last-child td {
             border-bottom: 1px solid #aaaaaa !important;
@@ -80,6 +82,7 @@
             width: 244px !important;
             display: inline-block !important;
             /* background-color:#0a549d !important; */
+            margin: 3px 0px;
 
 
         }
@@ -87,6 +90,8 @@
         .unit {
             background-color: #e61d2f;
             color: #ffffff;
+            width: 125px;
+            margin-top: 28px;
         }
 
         .myMainRow {
@@ -115,7 +120,7 @@
         .modal-content {
             height: 800px;
             text-align: center;
-            width: 800px;
+            width: 1059px;
         }
 
 
@@ -241,10 +246,10 @@
         }
 
         @media (max-width: 1440px) {
-.myMainRow{
-    height: 221px;
-}
-         
+            .myMainRow {
+                height: 157px;
+            }
+
         }
 
     </style>
@@ -257,37 +262,12 @@
             <div class="inner-block">
                 <header>
                     <div class="container-fluid">
-                        <div class="row my-3">
-                            <div class="col-md-12 text-center">
-                                <h4 style="font-weight: 700;">Comission & Taxes</h4>
+                        <div class="row">
+                            <div class="col-md-12 mb-2 text-center">
+                                <h2 style="font-weight: 700;">Comission & Taxes</h2>
                             </div>
                         </div>
-                        <div class="row my-3" style="padding-left: 130px;">
-                            <div class="col-md-4">
-                                <label style="display: inline-block; width: 100px !important;" for="">Status</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="category"
-                                    tabindex="null">
-                                    <option value=1>Sold</option>
-                                    <option value=2>In Stock</option>
-                                    <option value=3>Pending</option>
-                                    <option value=4>Delivered</option>
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="sales-1" style="margin-left: 110px; ">
-                                    <button class="btn unit" data-toggle="modal" data-target="#myModal"
-                                        onclick="getStock()">Sold Unit</button>
-                                </div>
-                            </div>
-                            <div class="col-md-5">
-                                <div class="sales-1" style="margin-left:80px ;">
-                                    <label for="">Profit / Loss</label>
-                                    <input type="text" class="form-control"
-                                        style="display: inline-block !important; width: 200px !important;" name=""
-                                        id="PLinDB">
-                                </div>
-                            </div>
-                        </div>
+
 
                     </div>
 
@@ -380,84 +360,98 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12">
-                                <div  class="myMainRow">
+                                <div class="myMainRow">
 
 
 
                                     <div class="container-fluid" id="mainGetLabels">
-                                        <div class="row">
-                                            <div class="col-md-4">
+                                        <div class="row" style="width: 1257px;">
+                                            <div class="col-md-2">
                                                 <label for="status">Model</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                    style="display: inline-block !important; height: 30px !important; width: 125px;"
                                                     name="name" id="productName" value="Cash">
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <label for="status">Product Id</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                    style="display: inline-block !important; height: 30px !important; width: 125px;"
                                                     name="name" id="PID" value="Cash">
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <label for="status">Chassis Number </label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                    style="display: inline-block !important; height: 30px !important; width: 125px;"
                                                     name="name" id="chassisNumber" value="137000">
 
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <label for="status">Engine Number</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                    style="display: inline-block !important; height: 30px !important; width: 125px;"
                                                     name="name" id="engineNumber" value="10000">
 
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <label for="status">Status</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                    style="display: inline-block !important; height: 30px !important; width: 125px;"
                                                     name="name" id="status" value="0">
 
                                             </div>
-                                            <div class="col-md-4">
+                                        </div>
+                                        <br>
+                                        <div class="row" style="width: 1257px;">
+
+
+                                            <div class="col-md-2">
 
                                                 <label for="status">Purchase Price</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                    style="display: inline-block !important; height: 30px !important; width: 125px;"
                                                     name="name" id="PurchasePrice" value="">
                                             </div>
-                                            <div class="col-md-4">
+
+                                            <div class="col-md-2">
                                                 <label for="status">Invoice Price</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                    style="display: inline-block !important; height: 30px !important; width: 125px;"
                                                     name="name" id="SalePrice" value="0">
 
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
 
                                                 <label for="status">Total Cost+ tax</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                    style="display: inline-block !important; height: 30px !important; width: 125px;"
                                                     name="name" id="totalCost" value="">
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
 
-                                                <label for="status">Sale Price + Comission</label>
+                                                <label for="status">Gross Sale Price</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                    style="display: inline-block !important; height: 30px !important; width: 125px;"
                                                     name="name" id="SPC" value="">
                                             </div>
+
+                                            <div class="col-md-2">
+                                                <div class="sales-1">
+                                                    <button class="btn unit" data-toggle="modal" data-target="#myModal"
+                                                        onclick="getStock()">Sold Unit</button>
+                                                </div>
+                                            </div>
+
                                         </div>
-
-
                                     </div>
+
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
+
 
                 </section>
 
@@ -479,11 +473,15 @@
                                                         <div class="col-md-12" style="padding: 0px !important;">
 
                                                             <h3
-                                                                style="text-align: center; color:#e61d2f; font-weight: 600;">Additional Cost</h3>
-                                                            <label style="width: 170px;" for="Comission Head">Comission Head</label>
-                                                                <select style="height: 25px !important; width: 158px !important; "
-                                                                class="selectpicker form-control" data-live-search="true" id="costComissionHeads">
-                                                                </select>
+                                                                style="text-align: center; color:#e61d2f; font-weight: 600;">
+                                                                Additional Cost</h3>
+                                                            <label style="width: 170px;" for="Comission Head">Comission
+                                                                Head</label>
+                                                            <select
+                                                                style="height: 25px !important; width: 158px !important; "
+                                                                class="selectpicker form-control"
+                                                                data-live-search="true" id="costComissionHeads">
+                                                            </select>
                                                             <label style="width: 170px;" for="">Select Account</label>
                                                             <select
                                                                 style="height: 25px !important; width: 158px !important; "
@@ -552,14 +550,15 @@
 
                                                             </div>
                                                             <div class="col-md-4 offset-md-4">
-                                                                <button style=margin-top:32px ; onclick="addComissionN()"
-                                                                class="btn ">Update Cost</button>
+                                                                <button style=margin-top:32px ;
+                                                                    onclick="addComissionN()" class="btn ">Update
+                                                                    Cost</button>
 
                                                             </div>
 
 
 
-                                                        
+
 
                                                         </div>
                                                     </div>
@@ -626,9 +625,11 @@
                                                                 style="text-align: center; color:#e61d2f; font-weight: 600;">
                                                                 Comission & Taxes</h3>
                                                             <label style="width: 170px;" for="">Comission Head</label>
-                                                            
-                                                            <select style="height: 25px !important; width: 158px !important; "
-                                                            class="selectpicker form-control" data-live-search="true" id="comissionHeads">
+
+                                                            <select
+                                                                style="height: 25px !important; width: 158px !important; "
+                                                                class="selectpicker form-control"
+                                                                data-live-search="true" id="comissionHeads">
 
                                                             </select>
 
@@ -777,9 +778,10 @@
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
-                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
+                                style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                        <ul class="collapse list-unstyled new" >
+                        <ul class="collapse list-unstyled new">
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>

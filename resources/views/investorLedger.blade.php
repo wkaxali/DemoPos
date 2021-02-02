@@ -18,14 +18,15 @@
 
     <title>Investors Ledger</title>
     <style>
-          @media (max-width: 1366px){
-.left-content {
-    width: 83%;
-}
-}
-   .page-container.sidebar-collapsed-back .left-content {
-       width: 83% !important;
-   }
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 83%;
+            }
+        }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
 
 
         .dropdown.bootstrap-select.form-control {
@@ -365,9 +366,10 @@
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
-                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
+                                style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                        <ul class="collapse list-unstyled new" >
+                        <ul class="collapse list-unstyled new">
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>

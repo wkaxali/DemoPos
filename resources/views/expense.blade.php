@@ -19,14 +19,15 @@
 
     <title>Payments</title>
     <style>
-        @media (max-width: 1366px){
-.left-content {
-    width: 83%;
-}
-}
-   .page-container.sidebar-collapsed-back .left-content {
-       width: 83% !important;
-   }
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 83%;
+            }
+        }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
 
 
         .footerBtns {
@@ -116,7 +117,7 @@
             width: auto !important;
 
         }
-        
+
         ::-webkit-scrollbar {
             width: 10px;
 
@@ -133,9 +134,11 @@
         .fa-bars {
             color: #fff;
         }
-input{
-    margin: 4px 0px;
-}
+
+        input {
+            margin: 4px 0px;
+        }
+
     </style>
 </head>
 
@@ -195,13 +198,13 @@ input{
                                         <!-- <button class="btn">+</button> -->
                                         <br>
                                         <label style="width: 106px !important;" for="">Date</label>
-                                        <input type="date" style="width: 199px; display: inline-block !important;" class="form-control" name="" id="date"><br>
+                                        <input type="date" style="width: 199px; display: inline-block !important;"
+                                            class="form-control" name="" id="date"><br>
                                         <label style="width: 106px !important;" for="">Remarks</label>
-                                            <input type="text" class="form-control"
-                                                style="display: inline-block; width: 199px;" value="" name=""
-                                                id="remarks">
+                                        <input type="text" class="form-control"
+                                            style="display: inline-block; width: 199px;" value="" name="" id="remarks">
                                         <div class="expenseButtons">
-                                         
+
                                             <br>
                                             <button class="btn" onclick="add(), calculatonInTable()">Add</button>
                                         </div>
@@ -247,7 +250,8 @@ input{
                             <div class="col-md-6 offset-md-6">
                                 <div class="mainTableEnd">
                                     <label style="width: 106px;" for="">Total Expense</label>
-                                    <input type="text" class="form-control" style="display: inline-block; width: 199px;"  onclick="calculatonInTable()" value="" name="" id="mainTotal">
+                                    <input type="text" class="form-control" style="display: inline-block; width: 199px;"
+                                        onclick="calculatonInTable()" value="" name="" id="mainTotal">
                                 </div>
                             </div>
                         </div>
@@ -278,9 +282,10 @@ input{
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
-                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
+                                style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                        <ul class="collapse list-unstyled new" >
+                        <ul class="collapse list-unstyled new">
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
