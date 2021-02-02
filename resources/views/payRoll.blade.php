@@ -690,7 +690,10 @@
                     document.getElementById("allowedHolidays").value = a[0].AllowedHolidays;
                     document.getElementById("allownces").value = a[0].Alownces;
                     document.getElementById("saleTarget").value = a[0].SaleTarget;
-
+                    $('#name').find(":selected").val() = a[0].EID;
+                    $('#contact').find(":selected").val() = a[0].EID;
+                    $('#cnic').find(":selected").val() = a[0].EID;
+                    //alert();
 
 
                     //     // alert(a[0].FirstName);

@@ -9708,9 +9708,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="text" name="phone_number" id="color" placeholder="Color"
                                                 required />
                                             <input type="text" name="phone_number" id="unitPrice"
-                                                placeholder="Unit Price" required />
+                                                onchange="calculation()" placeholder="Unit Price" required />
                                             <input type="text" name="phone_number" id="quantity" placeholder="Quantity"
-                                                required />
+                                                onchange="calculation()" required />
                                             <input type="text" name="phone_number" id="totalPrice"
                                                 placeholder="Total Price" required />
 
@@ -10657,14 +10657,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 if (this.readyState == 4 && this.status == 200) {
 
                     var data = this.responseText;
-                    alert(data);
                     var a = JSON.parse(data);
                     //  alert(a[0].ProductSerial);
                     var saleToday = a[0].DailySale;
 
                     document.getElementById("salesToday").innerText = saleToday;
 
-                    alert(saleToday);
+                    //alert(saleToday);
                 }
             };
             //alert("ljd");
@@ -10751,6 +10750,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             //redirect
 
 
+        }
+
+        function calculation(){
+            var price = document.getElementById("unitPrice").value;
+            var quantity = document.getElementById("quantity").value;    
+            
+            var total = price*quantity;
+            document.getElementById("totalPrice").value = total;
         }
 
         function createQuotation(){

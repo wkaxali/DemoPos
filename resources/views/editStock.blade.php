@@ -69,13 +69,13 @@
                                         <th>Product Id</th>
                                         <th>Product Name</th>
                                         <th>Company</th>
-                                        <th>Unit Sale Price</th>
+                                        <th>Invoice Price</th>
                                         <th>Unit Purchase Price</th>
                                         <th>Stock</th>
                                         <th>Color</th>
                                         <th>Engine Number</th>
                                         <th>Chasis Number</th>
-                                        <th>Status</th>
+                                        <!-- <th>Status</th> -->
                                 </tr>
                             </thead>
                             <tbody id="stocktableBody">
@@ -113,8 +113,8 @@
                     <label for="id">Chasis Number</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="chasisNumber"><br><br>
-                    <label for="id">Status</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
+                    <!-- <label for="id">Status</label> -->
+                    <input type="text" class="form-control" style="display: none; width: 200px !important;"
                         name="id" id="status"><br><br>
                     <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
                         <button class="btn btn-success" onclick="SetStockIdeal()">Update </button>
@@ -168,7 +168,7 @@ function searchRawMatirial() {
         
         $.each(a, function (i, item) {
 
-            table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].TotalSaleAmount, a[i].TotalCost
+            table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].SalePrice, a[i].TotalCost
             , a[i].StockIn, a[i].color, a[i].EngineNumber, a[i].ChasisNumber, a[i].Status]);
             });   
          table.draw();          

@@ -354,21 +354,29 @@
 
 
 
-                                        <div class="col-md-5">
+                                        <div class="col-md-3">
                                             <label style="width: 50px !important;" for="">Total</label>
                                             <input type="text" class="form-control"
                                                 style="width: 200px !important; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
                                                 name="" id="total" readonly="true">
                                         </div>
-                                        <div class="col-md-5">
-                                            <label style="width: 100px !important;" for="">Remaining</label>
+                                        
+                                        <div class="col-md-3">
+                                            <label style="width: 100px !important;" for="">Amount Paid</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 200px !important; display: inline-block !important;"
+                                                name="" id="amount" onchange="subtract()">
+                                        </div>
+                                        
+                                        <div class="col-md-3">
+                                            <label style="width: 50px !important;" for="">Remaining</label>
                                             <input type="text" class="form-control"
                                                 style="width: 200px !important; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
                                                 name="" id="remaining" readonly="true">
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                             <div class="successButtons text-right"
-                                                style=" margin-right:15px;">
+                                                style=" margin-right:15px;margin-top:35px;">
                                                 <button onclick="valid()" class="btn ">Add</button>
                                             </div>
                                         </div>
@@ -783,8 +791,9 @@
             cell7.innerHTML = remaining;
             cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
             cell9.innerHTML = description;
-            cell9.style.display = "none";
             cell10.innerHTML = invoicePrice;
+            cell9.style.display = "none";
+            cell10.style.display = "none";
             calculatonInTable();
 
 

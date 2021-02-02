@@ -71,7 +71,7 @@ class quotationController extends Controller
             session(['fatherName' => $fatherName]);
             session(['CNIC' => $CNIC]);
             session(['address' => $address]);
-            session(['Amount' => $unitPrice]);
+            session(['price' => $unitPrice]);
             session(['total' => $totalPrice]);
             session(['invoiceDate' => $date]);
             session(['description' => $description]);

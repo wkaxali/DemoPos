@@ -151,7 +151,7 @@
                             <tr>
                                 <td>7</td>
                                 <td>Model</td>
-                                <td>Forland C20(2021)</td>
+                                <td>{{ Session::get('productName')}}(2021)</td>
                             </tr>
 
                         </tbody>

@@ -14,7 +14,7 @@ class saleRequestController extends Controller
          ->first();
         // $product = collect([1,2,3,4]);
         // session(['invoiceDetails'=>$product]);
-        session(['customerName' => $re->CustomerID]);
+        session(['customerName' => $re->CustomerName]);
         session(['CNIC' => $re->TotalAmount]);
         
         // session(['fatherName' => $fatherName]);
