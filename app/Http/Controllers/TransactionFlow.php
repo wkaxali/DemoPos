@@ -15,13 +15,7 @@ class TransactionFlow extends Controller
 
          // InvoiceNo bigint(20) 
         // TransactionCatogery varchar(50) 
-        // Amount double 
-        // LID int(8) 
-        // TransactionType varchar(50) 
-        // DateStamp datetime 
-        // ModifiedOn datetime 
-        // UserID varchar(50) 
-        // PattyCash double 
+        // Amount,jjjjjjjjjjj8
         // SBB varchar(50) 
         // SBA varchar(50) 
         // CBB varchar(50) 
