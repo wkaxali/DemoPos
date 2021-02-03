@@ -1474,16 +1474,10 @@
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
-<<<<<<< HEAD
                     <li><a data-toggle="collapse" data-target=".firstULs0"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
                         <ul class="collapse list-unstyled firstULs0 ">
-=======
-                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse list-unstyled new" >
->>>>>>> a679445dc474bbbafd08c73f2b37ce8f08097a16
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
