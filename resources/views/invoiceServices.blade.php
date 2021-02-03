@@ -1660,13 +1660,6 @@
                                                 <input type="text" name="phone_number" id="addComments"
                                                     placeholder="Comments" required />
 
-                                                <div class="select-list">
-                                                    <select name="course_type" id="course_type">
-                                                        <option selected value="">Category</option>
-                                                        <option value="Society">Society</option>
-                                                        <option value="Language">Language</option>
-                                                    </select>
-                                                </div>
                                             </div>
 
                                             <div class="form-submit">
@@ -2526,10 +2519,9 @@ function printDocs(){
     //alert("It is working"+CustomerComments);
     var cnic = document.getElementById("addCNIC").value;
     //alert("It is working"+CustomerComments);
-    var category = $('#course_type').find(":selected").val();
-    //alert("It is working"+CustomerComments);
+    
     var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-    comments, cnic, category
+    comments, cnic
     ];
 
     var xhttp = new XMLHttpRequest();
