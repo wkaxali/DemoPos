@@ -15,21 +15,21 @@ class saleRequestController extends Controller
         // $product = collect([1,2,3,4]);
         // session(['invoiceDetails'=>$product]);
         session(['customerName' => $re->CustomerName]);
-        session(['CNIC' => $re->TotalAmount]);
-        
+        session(['CNIC' => $re->CNIC]);
+        session(['address' => $re->Address]);
         // session(['fatherName' => $fatherName]);
         // session(['CNIC' => $CNIC]);
         // session(['address' => $address]);
-        // session(['engineNo' => $engineNo]);
-        // session(['chassisNo' => $chassisNo]);
+        session(['engineNo' => $re->EngineNumber]);
+        session(['chassisNo' => $re->ChasisNumber]);
         // session(['Amount' => $AmountAfterDiscount]);
         // session(['total' => $amp]);
         // session(['invoiceDate' => $dateNow]);
         // session(['description' => $description]);
-        // session(['color' => $color]);
+        session(['color' => $re->color]);
         // session(['invoiceNo' => $invoiceNumber]);
-        // session(['productName' => $productName]);
-        // session(['price' => $tot]);
+        session(['productName' => $re->ProductName]);
+        session(['price' => $re->PerUnitSalePrice]);
         // session(['quantity' => '1']);
         // session(['city' => $city]);
         // session(['referenceNumber' => 'FMM-GDP-000'.$invoiceNumber]);
@@ -39,7 +39,7 @@ class saleRequestController extends Controller
         // session(['receivedBy' => $receivedBy]);
         // session(['receiptNumber' => 'FMM-10-20-00'.$invoiceNumber]);
         // session(['tax' => $AmountAfterDiscount]);
-        // session(['contact' => $contact]);
+        session(['contact' => $re->Contect]);
         
         //return $results;
 
