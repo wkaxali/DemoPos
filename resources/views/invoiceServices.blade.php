@@ -1622,7 +1622,7 @@
                             <label for="status">Customer CNIC</label>
                             <input type="number" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="CID">
+                                name="name" id="CNIC">
 
                         </div>
                         <div class="input-field">
@@ -1660,13 +1660,6 @@
                                                 <input type="text" name="phone_number" id="addComments"
                                                     placeholder="Comments" required />
 
-                                                <div class="select-list">
-                                                    <select name="course_type" id="course_type">
-                                                        <option selected value="">Category</option>
-                                                        <option value="Society">Society</option>
-                                                        <option value="Language">Language</option>
-                                                    </select>
-                                                </div>
                                             </div>
 
                                             <div class="form-submit">
@@ -1759,7 +1752,7 @@
             <div class="row ">
                 <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
                     <a class="btn" href="viewCustomers.html">view Customers</a>
-                    <a class="btn" href="deliveryLetter.html">Print Docs</a>
+                    <a class="btn" onclick="printDocs()">Print Docs</a>
                     <a class="btn" onclick="validPlz()">Generate Sale</a>
                     <a class="btn" href="#">Close Form</a>
 
@@ -1844,9 +1837,8 @@
                             <li><a href="/cl">Company Ledger</a></li>
 
                         </ul>
-                    </li>
-            <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-                        style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
+                        <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+                        style="font-size: 18px;">Proucts</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse list-unstyled firstULs ">
                     <li><a href="/">Category</a></li>
@@ -2256,13 +2248,14 @@
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('amountPaid').value;
         var rmb = document.getElementById("amountRemaining").value;
-        var CID = document.getElementById("CID").value;
+        var CID = $('#CustomerName').find(":selected").val();
         var paidTo = document.getElementById("paidTo").value;
         var AID = document.getElementById("slctAccounts").value;
 
         var customerName = $('#CustomerName').find(":selected").text();
+
         var receivedBy = $('#employees').find(":selected").text();
-        var CNIC = document.getElementById("CID").value;
+        var CNIC = document.getElementById("CNIC").value;
         var address = document.getElementById('Address').value;
         var contact = document.getElementById('contact').value;
         var fatherName = document.getElementById('fatherName').value;
@@ -2295,9 +2288,7 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert("Invoice =" + this.responseText + " is generated");
-                    window.open("/psi");
-                    window.open("/fgp");
-                    window.open("/prc");
+                    
 
 
 
@@ -2310,7 +2301,14 @@
     }
 
 </script>
+
 <script>
+
+function printDocs(){
+    window.open("/psi");
+    window.open("/fgp");
+    window.open("/prc");
+}
     
     function fetchAccounts() {
         var xhttp = new XMLHttpRequest();
@@ -2348,7 +2346,7 @@
         var NetTotal = document.getElementById("NetTotal").value;
 
         var CustomerName = document.getElementById("CustomerName").value;
-        var CID = document.getElementById("CID").value;
+        var CNIC = document.getElementById("CNIC").value;
         var Address = document.getElementById("Address").value;
         var contact = document.getElementById("contact").value;
         var fatherName = document.getElementById("fatherName").value;
@@ -2410,9 +2408,9 @@
             document.getElementById("CustomerName").focus();
 
 
-        } else if (CID == "") {
+        } else if (CNIC == "") {
             // alert("Customer ID Field Must Be Valid");
-            document.getElementById("CID").focus();
+            document.getElementById("CNIC").focus();
 
 
         } else if (Address == "") {
@@ -2485,7 +2483,7 @@
             var a = JSON.parse(data);
             //document.getElementById("CID").value = a[0].CustomerID;
             document.getElementById("fatherName").value = a[0].FatherName;
-            document.getElementById("CID").value = a[0].CNIC;
+            document.getElementById("CNIC").value = a[0].CNIC;
             document.getElementById("contact").value = a[0].Contect;
             document.getElementById("Address").value = a[0].Address;
 
@@ -2522,10 +2520,9 @@
     //alert("It is working"+CustomerComments);
     var cnic = document.getElementById("addCNIC").value;
     //alert("It is working"+CustomerComments);
-    var category = $('#course_type').find(":selected").val();
-    //alert("It is working"+CustomerComments);
+    
     var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-    comments, cnic, category
+    comments, cnic
     ];
 
     var xhttp = new XMLHttpRequest();

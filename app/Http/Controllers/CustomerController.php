@@ -122,7 +122,7 @@ class CustomerController extends Controller
         $address=$obj[5];
         $comments=$obj[6];
         $cnic=$obj[7];
-        $category=$obj[8];
+        
         $CID=DB::table('customeinformation')->insertGetId([
             'CustomerName'=>$customerName,
             'FatherName'=>$fatherName,
@@ -132,7 +132,7 @@ class CustomerController extends Controller
             'Address'=>$address,
             'Comments'=>$comments,
             'CNIC'=>$cnic,
-            'CustomerCatogery'=>$category,
+            
             
             ]);
         return $CID." ID customer added";

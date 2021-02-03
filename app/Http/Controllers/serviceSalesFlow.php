@@ -106,7 +106,7 @@ class serviceSalesFlow extends Controller
        session(['others' => '-']);
        session(['endTotal' => $netTotal]);
 
-       table('tbl_print_docs')->insertGetId([
+       DB::table('tbl_print_docs')->insertGetId([
        'invoiceDate' => $dateNow,
        'invoiceNo' => $invoiceNumber,
        'customerID' => $CID,
@@ -121,13 +121,13 @@ class serviceSalesFlow extends Controller
        'description' => $productName,
        'quantity' => $qty,
        'CNIC' => '',
-       'unitPrice' => $unitPrice,
+       'price' => $unitPrice,
        'tax' => '0',
-       'total' => '',
+       'total' => $tot,
        'subTotal' => $tot,
        'taxable' => '-',
        'taxRate' => '17%',
-       'taxAmount' => $tax,
+       
        'S&H' => '-',
        'others' => '-',
        'endTotal' => $netTotal

@@ -212,7 +212,7 @@ Route::get('/as', function () {
 });
 
 Route::get('/bo', function () {
-    return view('bookOrder');
+    return view('bookorder');
 });
 
 Route::get('/cl', function () {
@@ -351,4 +351,26 @@ Route::get('/vd', function () {
 });
 Route::get('/sir', function () {
     return view('solutions');
+});
+Route::get('/ql', function () {
+    return view('quotationList');
+});
+
+Route::get('/ac', function () {
+    return view('addcategory');
+});
+Route::get('/gb', function () {
+    return view('generateBarcode');
+});
+
+Route::get('/adc', function () {
+    return view('addcustomer');
+});
+
+Route::get('/ads', function () {
+    return view('addsuplier');
+});
+
+Route::get('/dp', function () {
+    return view('dailypurchase');
 });

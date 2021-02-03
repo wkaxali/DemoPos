@@ -4,110 +4,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Spare Parts</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
-                width: 83%;
+                width: 81%;
             }
         }
 
-        .page-container.sidebar-collapsed-back .left-content {
-            width: 83% !important;
+        .left-content {
+            float: right;
+            width: 81%;
         }
 
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
             /* background-color:#0a549d !important; */
+            margin: 3px 0px;
 
 
         }
 
-        .receivingMain {
-            /* border: 1px solid #aaaaaa; */
-            border-radius: 10px;
-            height: 550px;
-            /* overflow: auto; */
+
+        .page-container.sidebar-collapsed-back .left-content {
+            transition: all 100ms linear;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            float: right;
+            width: 81%;
+        }
+
+        .Update {
+            background-color: #e61d2f;
+            color: #ffffff;
+        }
+
+        .endButtons {
+            margin-top: 166px;
+        }
+
+        .endButtons button {
+            width: 100px;
         }
 
 
 
-        table {
-            border-spacing: 0;
-            border-collapse: collapse;
-            border-style: hidden;
 
-            width: 100%;
-            max-width: 100%;
+
+
+        img {
+            border-radius: 10%;
+            height: 150px;
+            width: 150px;
         }
 
-        th,
-        td {
-            border: 1px solid #aaaaaa;
-            padding: 5px;
+        .mainImg {
+            margin-top: 10px;
+        }
+
+        label {
+            width: 200px;
+        }
+
+        .input-groups {
+            margin: 20px 0px;
+
+        }
+
+        .endButtons .update {
+            background-color: #e61d2f;
+            color: #ffffff;
+        }
+
+        .endButtons .save {
+            background-color: #0a549d;
+            color: #ffffff;
+        }
+
+        .mainInputs {
+            margin: 0 auto !important;
         }
 
     </style>
+    <title>Add Supplier</title>
 </head>
 
-<body onload="getSpareParts()">
+<body>
     <div class="page-container">
-
         <div class="left-content">
             <div class="inner-block">
 
-                <header>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 mt-3 text-center">
-                                <h3>Auto Spare Parts</h3>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h3>Add Supplier</h3>
+
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mainInputs">
+                                <div class="input-groups">
+                                    <label for="">Supplier ID</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="">
+                                </div>
+                                <div class="input-groups">
+                                    <label for="">Supplier Name</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="">
+                                </div>
+                                <div class="input-groups">
+                                    <label for="">Address</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="">
+                                </div>
+                                <div class="input-groups">
+                                    <label for="">CNIC</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="">
+                                </div>
+                                <div class="input-groups">
+                                    <label for="">Status</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="">
+                                </div>
+                                <div class="input-groups">
+                                    <label for="">Category</label>
+                                    <select class="selectpicker form-control" data-live-search="true" id="accounts">
+
+                                    </select>
+                                </div>
+                                <div class="input-groups">
+                                    <label for="">Balance</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="">
+                                </div>
                             </div>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="receivingMain">
-
-
-                                    <div class="receivingTable">
-                                        <table id="myTable" class=" table-striped"
-                                            style="width: 100%; text-align: center;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product Id</th>
-                                                    <th>Product Name</th>
-                                                    <th>Company</th>
-                                                    <th>Unit Sale Price</th>
-                                                    <th>Unit Purchase Price</th>
-                                                    <th>Stock</th>
-                                                    <th>Engine Number</th>
-                                                    <th>Chasis Number</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-
-                                        </table>
-
-                                    </div>
+                        <div class="col-md-6">
+                            <div class="mainImg text-center">
+                                <div class="centerImg">
+                                    <img src="https://scontent.flhe3-1.fna.fbcdn.net/v/t1.0-0/p206x206/70200548_545063982708579_5871539444061831168_o.jpg?_nc_cat=105&ccb=2&_nc_sid=da31f3&_nc_eui2=AeE_MjUK7AzlckHsL2MhUPsk8zBFb5t2DM_zMEVvm3YMz8X_aqbbMzYr8uFgghjeSwLd-MOjBkBnEHXSYLXDRR2k&_nc_ohc=o1_1vrV8TU4AX8GSplI&_nc_ht=scontent.flhe3-1.fna&tp=6&oh=76f9151a04bb19e4750fc37eac0f65ac&oe=602E9AF8"
+                                        alt="">
+                                </div>
+                                <div class="headings mt-2">
+                                    <label class="btn btn-default" style="text-decoration: underline; color: #0a549d;">
+                                        Upload Image <input type="file" hidden>
+                                    </label> </div>
+                                <div class="endButtons">
+                                    <button class="btn save">Save</button>
+                                    <button class="btn Update">Update</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </header>
+                </div>
+
 
             </div>
         </div>
+
         <div class="sidebar-menu">
 
             <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
@@ -118,9 +194,10 @@
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
-                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
+                                style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                        <ul class="collapse list-unstyled new" >
+                        <ul class="collapse list-unstyled new">
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
@@ -335,6 +412,7 @@
                 </ul>
             </div>
         </div>
+
         <div class="clearfix"></div>
     </div>
 
@@ -342,54 +420,18 @@
 
 
 
-
-
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
+    </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function getSpareParts() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    var data = this.responseText;
-                    //alert(data);
-                    var table;
-                    var a = JSON.parse(data);
-                    //  alert(a[0].ProductSerial);
-                    table = $('#myTable').DataTable();
-
-                    $.each(a, function (i, item) {
-
-                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
-                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StatusInStock, a[i]
-                            .EngineNumber, a[i].ChasisNumber
-                        ]);
-                    });
-                    table.draw();
-
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./spareParts/", true);
-
-            xhttp.send();
-        }
-
-    </script>
-    <script>
+        $(document).ready(function () {
+            $('#myTables').DataTable();
+        });
         var toggle = true;
 
         $(".sidebar-icon").click(function () {
@@ -412,13 +454,6 @@
         });
 
     </script>
-    <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
-        });
-
-    </script>
-
 </body>
 
 </html>

@@ -202,9 +202,9 @@
             <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                         style="font-size: 18px;">Dashboard</span></a>
             </li>
-            <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
+            <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                                <ul>
+                        <ul class="collapse list-unstyled new" >
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
@@ -215,8 +215,7 @@
                             <li><a href="/cl">Company Ledger</a></li>
 
                         </ul>
-                    </li>
-            <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+                    </li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                         style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse list-unstyled firstULs ">
