@@ -212,7 +212,7 @@ Route::get('/as', function () {
 });
 
 Route::get('/bo', function () {
-    return view('bookOrder');
+    return view('bookorder');
 });
 
 Route::get('/cl', function () {
