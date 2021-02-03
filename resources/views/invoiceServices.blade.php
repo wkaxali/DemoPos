@@ -1759,7 +1759,7 @@
             <div class="row ">
                 <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
                     <a class="btn" href="viewCustomers.html">view Customers</a>
-                    <a class="btn" href="deliveryLetter.html">Print Docs</a>
+                    <a class="btn" onclick="printDocs()">Print Docs</a>
                     <a class="btn" onclick="validPlz()">Generate Sale</a>
                     <a class="btn" href="#">Close Form</a>
 
@@ -2294,9 +2294,7 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert("Invoice =" + this.responseText + " is generated");
-                    window.open("/psi");
-                    window.open("/fgp");
-                    window.open("/prc");
+                    
 
 
 
@@ -2309,7 +2307,14 @@
     }
 
 </script>
+
 <script>
+
+function printDocs(){
+    window.open("/psi");
+    window.open("/fgp");
+    window.open("/prc");
+}
     
     function fetchAccounts() {
         var xhttp = new XMLHttpRequest();
