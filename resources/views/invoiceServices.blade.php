@@ -1660,13 +1660,6 @@
                                                 <input type="text" name="phone_number" id="addComments"
                                                     placeholder="Comments" required />
 
-                                                <div class="select-list">
-                                                    <select name="course_type" id="course_type">
-                                                        <option selected value="">Category</option>
-                                                        <option value="Society">Society</option>
-                                                        <option value="Language">Language</option>
-                                                    </select>
-                                                </div>
                                             </div>
 
                                             <div class="form-submit">
@@ -1759,7 +1752,7 @@
             <div class="row ">
                 <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
                     <a class="btn" href="viewCustomers.html">view Customers</a>
-                    <a class="btn" href="deliveryLetter.html">Print Docs</a>
+                    <a class="btn" onclick="printDocs()">Print Docs</a>
                     <a class="btn" onclick="validPlz()">Generate Sale</a>
                     <a class="btn" href="#">Close Form</a>
 
@@ -2294,9 +2287,7 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert("Invoice =" + this.responseText + " is generated");
-                    window.open("/psi");
-                    window.open("/fgp");
-                    window.open("/prc");
+                    
 
 
 
@@ -2309,7 +2300,14 @@
     }
 
 </script>
+
 <script>
+
+function printDocs(){
+    window.open("/psi");
+    window.open("/fgp");
+    window.open("/prc");
+}
     
     function fetchAccounts() {
         var xhttp = new XMLHttpRequest();
@@ -2521,10 +2519,9 @@
     //alert("It is working"+CustomerComments);
     var cnic = document.getElementById("addCNIC").value;
     //alert("It is working"+CustomerComments);
-    var category = $('#course_type').find(":selected").val();
-    //alert("It is working"+CustomerComments);
+    
     var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-    comments, cnic, category
+    comments, cnic
     ];
 
     var xhttp = new XMLHttpRequest();
