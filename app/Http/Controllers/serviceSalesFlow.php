@@ -102,10 +102,6 @@ class serviceSalesFlow extends Controller
        session(['unitPrice' => $unitPrice]);
        session(['tax' => '0']);
        session(['total' => '']);
-       session(['subTotal' => $tot]);
-       session(['taxable' => '-']);
-       session(['taxRate' => '17%']);
-       session(['taxAmount' => $tax]);
        session(['S&H' => '-']);
        session(['others' => '-']);
        session(['endTotal' => $netTotal]);
