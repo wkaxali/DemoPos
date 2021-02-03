@@ -77,16 +77,17 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h3>Add Category</h3>
+                            <h2>Add Category</h2>
                         </div>
                     </div>
+                    <br><br><br>
                     <div class="row">
-                        <div class="col-md-6 mainCat">
+                        <div class="col-md-4 offset-md-2 mainCat">
                             <label for="">Product Categories</label>
                             <input type="text" class="form-control"
                                 style="display: inline-block !important; width: 200px;" name="" id="">
                         </div>
-                        <div class="col-md-6 text-right">
+                        <div class="col-md-4 text-right">
                             <button class="btn new">Add New</button>
                         </div>
                     </div><br><br>

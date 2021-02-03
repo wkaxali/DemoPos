@@ -148,7 +148,9 @@
         td {
             text-align: center;
         }
-
+.btn:hover{
+    color:#fff;
+}
     </style>
     <title>Generate Barcode</title>
 </head>
@@ -165,23 +167,23 @@
                             <h3>Daily Purchase</h3>
                         </div>
                     </div>
-                    <br>
+                    <br><br>
                     <div class="myflex">
                         <div class="inputs">
                             <label for="">From</label>
                             <input class="form-control"
-                                style="display: inline-block !important; width: 200px !important;" type="datetime-local"
+                                style="display: inline-block !important; width: 200px !important;" type="date"
                                 name="" id="">
                         </div>
 
                         <div class="inputs">
                             <label for="">To</label>
                             <input class="form-control"
-                                style="display: inline-block !important; width: 200px !important;" type="datetime-local"
+                                style="display: inline-block !important; width: 200px !important;" type="date"
                                 name="" id="">
                         </div>
                         <div class="inputs">
-                            <button class="btn okay">Ok</button>
+                            <button class="btn okay">Search</button>
                         </div>
                     </div>
                     <br>
