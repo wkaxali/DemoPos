@@ -148,7 +148,9 @@
         td {
             text-align: center;
         }
-
+.btn:hover{
+    color:#fff;
+}
     </style>
     <title>Generate Barcode</title>
 </head>
@@ -165,7 +167,7 @@
                             <h3>Daily Purchase</h3>
                         </div>
                     </div>
-                    <br>
+                    <br><br>
                     <div class="myflex">
                         <div class="inputs">
                             <label for="">From</label>
