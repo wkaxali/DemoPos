@@ -1844,9 +1844,8 @@
                             <li><a href="/cl">Company Ledger</a></li>
 
                         </ul>
-                    </li>
-            <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-                        style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
+                        <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+                        style="font-size: 18px;">Proucts</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse list-unstyled firstULs ">
                     <li><a href="/">Category</a></li>

@@ -356,7 +356,6 @@
                 <!-- Button trigger modal -->
 
 
-<<<<<<< HEAD
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -389,22 +388,6 @@
 
                                         </tr>
                                     </table>
-=======
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-
-                                <div class="container">
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mainAbs">
@@ -481,7 +464,6 @@
                                             </div>
                                         </div>
                                     </div>
-<<<<<<< HEAD
                                     <label for="">Due On</label><br>
                                     <div class="btn-group" id="groupButtons" role="group" aria-label="Basic example">
                                         <button onclick="GetDates()" type="button" id="Today"
@@ -518,8 +500,6 @@
                                         class="selectpicker form-control" data-live-search="true" id="category">
 
                                     </select>
-=======
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                                 </div>
                             </div>
@@ -785,37 +765,10 @@
                         "backgroundColor": "Green",
                         "color": "#fff",
 
-<<<<<<< HEAD
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-    </script>
-    <script>
-        function priority1() {
-            document.getElementById("priority").value = "Urgent"
-        }
-
-        function priority2() {
-            document.getElementById("priority").value = "Normal"
-        }
-
-        function priority3() {
-            document.getElementById("priority").value = "Easily"
-        }
-
-
-        $(document).ready(function () {
-            $("#Today").click(function () {
-                $(this).css({
-                    "backgroundColor": "Green",
-                    "color": "#fff",
-=======
                     });
                     $("#Tomorrow").css({
                         "backgroundColor": "#fff",
                         "color": "#333",
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                     });
                     $("#Date").css({
@@ -927,36 +880,21 @@
 
         </script>
         <script>
-            function GetDates() {
-                var date = new Date();
-                alert(date);
-                var mainValue = document.getElementById("changeme");
-                mainValue.value = date;
 
-
-            }
-
-            function TomorrowDate() {
-                const today = new Date()
-                const tomorrow = new Date(today);
-                tomorrow.setDate(tomorrow.getDate() + 1);
-                alert(tomorrow);
-
-
-                var mainValue = document.getElementById("changeme");
-                mainValue.value = tomorrow;
-            }
-
-            function customDate() {
-                var custumDate = document.getElementById("date").value;
-                alert(custumDate);
-
-                var mainValue = document.getElementById("changeme");
-                mainValue.value = custumDate;
-
-<<<<<<< HEAD
     </script>
     <script>
+        <script>
+        function priority1() {
+            document.getElementById("priority").value = "Urgent"
+        }
+
+        function priority2() {
+            document.getElementById("priority").value = "Normal"
+        }
+
+        function priority3() {
+            document.getElementById("priority").value = "Easily"
+        }
         function GetDates() {
             var dateFull = new Date();
             y = dateFull.getFullYear();
@@ -966,12 +904,9 @@
             document.getElementById("dateValue").value = date
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
-=======
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
             }
 
-<<<<<<< HEAD
 
         }
 
@@ -993,7 +928,7 @@
             var custumDate = document.getElementById("date").value;
             document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
-=======
+        }
         </script>
 
         <script>
@@ -1015,7 +950,6 @@
 
                 }
 
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                 var cell2 = document.getElementById("td-2").innerHTML;
 
@@ -1041,7 +975,6 @@
                 //var priority = document.getElementById("taskSubject").value;
 
 
-<<<<<<< HEAD
             var cell2 = document.getElementById("td-2").innerHTML;
 
 
@@ -1061,11 +994,6 @@
             item.remove();
 
         }
-=======
-                var taskDetails = [];
-                var OverallTask = [];
-
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                 //alert(sp);
                 $('#subTasks tr').each(function (row, tr) {
@@ -1073,7 +1001,6 @@
                     taskDetails[row] = [
 
 
-<<<<<<< HEAD
             var dateFull = new Date();
             y = dateFull.getFullYear();
             m = dateFull.getMonth() + 1;
@@ -1091,12 +1018,6 @@
 
             var taskDetails = [];
             var OverallTask = [];
-=======
-                        $(tr).find('td:eq(1) input[type="text"]').val(),
-
-                    ];
-
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                 });
                 //expenseDetails.shift();
