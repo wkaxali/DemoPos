@@ -169,6 +169,10 @@ Route::get('/', function () {
     
     return view('signInSignUp');
 });
+Route::get('/sh', function () {
+    
+    return view('StockHistory');
+});
 
 Route::get('/chksessions',function(){
 
