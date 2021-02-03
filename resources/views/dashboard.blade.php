@@ -10368,6 +10368,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
                             <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a data-toggle="modal" id="killme" data-target="#staticBackdrop">Quotation</a></li>
                             <li><a href="/as">Add Stock</a></li>
                             <li><a href="/th">Transaction History</a></li>
                             <li><a href="/l">Investor Sale Ledger</a></li>

@@ -1622,7 +1622,7 @@
                             <label for="status">Customer CNIC</label>
                             <input type="number" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="CID">
+                                name="name" id="CNIC">
 
                         </div>
                         <div class="input-field">
@@ -2248,13 +2248,14 @@
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('amountPaid').value;
         var rmb = document.getElementById("amountRemaining").value;
-        var CID = document.getElementById("CID").value;
+        var CID = $('#CustomerName').find(":selected").val();
         var paidTo = document.getElementById("paidTo").value;
         var AID = document.getElementById("slctAccounts").value;
 
         var customerName = $('#CustomerName').find(":selected").text();
+
         var receivedBy = $('#employees').find(":selected").text();
-        var CNIC = document.getElementById("CID").value;
+        var CNIC = document.getElementById("CNIC").value;
         var address = document.getElementById('Address').value;
         var contact = document.getElementById('contact').value;
         var fatherName = document.getElementById('fatherName').value;
@@ -2345,7 +2346,7 @@ function printDocs(){
         var NetTotal = document.getElementById("NetTotal").value;
 
         var CustomerName = document.getElementById("CustomerName").value;
-        var CID = document.getElementById("CID").value;
+        var CNIC = document.getElementById("CNIC").value;
         var Address = document.getElementById("Address").value;
         var contact = document.getElementById("contact").value;
         var fatherName = document.getElementById("fatherName").value;
@@ -2407,9 +2408,9 @@ function printDocs(){
             document.getElementById("CustomerName").focus();
 
 
-        } else if (CID == "") {
+        } else if (CNIC == "") {
             // alert("Customer ID Field Must Be Valid");
-            document.getElementById("CID").focus();
+            document.getElementById("CNIC").focus();
 
 
         } else if (Address == "") {
@@ -2482,7 +2483,7 @@ function printDocs(){
             var a = JSON.parse(data);
             //document.getElementById("CID").value = a[0].CustomerID;
             document.getElementById("fatherName").value = a[0].FatherName;
-            document.getElementById("CID").value = a[0].CNIC;
+            document.getElementById("CNIC").value = a[0].CNIC;
             document.getElementById("contact").value = a[0].Contect;
             document.getElementById("Address").value = a[0].Address;
 
