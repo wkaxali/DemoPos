@@ -349,6 +349,30 @@ Route::get('/sheet', function () {
 Route::get('/vd', function () {
     return view('vehicleDetail');
 });
+<<<<<<< HEAD
 Route::get('/sir', function () {
     return view('solutions');
+=======
+Route::get('/ql', function () {
+    return view('quotationList');
+});
+
+Route::get('/ac', function () {
+    return view('addcategory');
+});
+Route::get('/gb', function () {
+    return view('generateBarcode');
+});
+
+Route::get('/adc', function () {
+    return view('addcustomer');
+});
+
+Route::get('/ads', function () {
+    return view('addsuplier');
+});
+
+Route::get('/dp', function () {
+    return view('dailypurchase');
+>>>>>>> a679445dc474bbbafd08c73f2b37ce8f08097a16
 });
