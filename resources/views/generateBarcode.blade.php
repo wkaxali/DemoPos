@@ -51,8 +51,13 @@
         .print {
             width: 77px;
         }
-        .row{
-            margin:15px 0px;
+
+        .row {
+            margin: 15px 0px;
+        }
+
+        .btn:hover {
+            color: #ffffff;
         }
 
     </style>
@@ -117,8 +122,10 @@
                                 class="form-control" name="" id="">
 
                         </div>
-                        <div class="col-md-5 offset-md-1">
-                            <button class="btn update">Update</button>
+                        <div class="col-md-3 offset-md-3">
+                            <button class="btn update" style="margin-left: -10px;">Update</button>
+                            <button class="btn print">Print</button>
+
                         </div>
                     </div>
                     <div class="row">
@@ -129,7 +136,6 @@
 
                         </div>
                         <div class="col-md-5 offset-md-1">
-                            <button class="btn print">Print</button>
                         </div>
                     </div>
                 </div>
