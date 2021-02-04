@@ -25,7 +25,7 @@ class expenseController extends Controller
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
-        'TransactionCatogery'=>"Payment",
+        'TransactionCatogery'=>"Expense",
         'EID'=>$expenseID,
         
         'PaidVia'=>$paidVia,
@@ -93,6 +93,12 @@ public static function getPartyNames(){
       
     }
     return $option;
+  }
+
+
+  function viewExpense(){
+    $data=DB:: select('select * from vw_expensetransactionflow');
+    return $data;
   }
 
 

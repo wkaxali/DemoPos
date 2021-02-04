@@ -9924,8 +9924,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="col-md-4 market-update-gd">
                                         <div class="market-update-block clr-block-1">
                                             <div class="col-md-8 market-update-left">
-                                                <h3>{{ Session::get('dailySale')}}</h3>
-                                                <h4>Todays Sales Amount</h4>
+                                                <h3 id="saleAmount" value=""></h3>
+                                                <h4>Todays Sale Amount</h4>
                                                 <p>80% cash sales</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
@@ -10633,17 +10633,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function dailySaleAmount() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = this.responseText;
+                var a = JSON.parse(data);
+                document.getElementById("saleAmount").innerHTML  = a[0].DailySale;
 
-                if (this.readyState == 4 && this.status == 200) {
-
-        
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./dailySaleAmount/", true);
-
-            xhttp.send();
+            } 
         }
+
+    xhttp.open("GET", "./dailySaleAmount/", true);
+    xhttp.send();
+
+
+    }
 
 
 

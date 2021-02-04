@@ -147,7 +147,7 @@
                         </div>
                         <div class="col-md-4 offset-md-2">
                             
-                            <input style="height: 25px !important; width: 158px !important; display:none" id="expense" value=4 >
+                            <input style="height: 25px !important; width: 158px !important; display:none" id="expense" value=1 >
                             
                             </input>
                             <!-- <button class="btn">+</button> -->
@@ -342,7 +342,7 @@ document.getElementById("mainTotal").value=tot;
         var expTable = JSON.stringify(expenseDetails);
         alert(expTable);
         var xhttp = new XMLHttpRequest();
-
+        
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
