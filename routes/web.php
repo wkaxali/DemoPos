@@ -378,3 +378,7 @@ Route::get('/ads', function () {
 Route::get('/dp', function () {
     return view('dailypurchase');
 });
+
+Route::get('/pay', function () {
+    return view('payments');
+});
