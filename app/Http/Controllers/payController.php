@@ -14,24 +14,24 @@ class payController extends Controller
   public static function insertPayment(Request $request, $CO){
 
     $ata=json_decode($CO);
-    foreach ($ata as $obj){
-    $date=$obj[0];
-    $LID=2;
-    $amount=$obj[1];
-    $expenseName=$obj[2];
-    $expenseID=$obj[3];
-    $paidVia=$obj[4];
-    $remarks=$obj[5];
-    
-    $id=DB::table('tbltransactionflow')->insertGetId([
-    'DateStamp'=>$date,
-    'Amount'=>$amount,
-    'TransactionCatogery'=>"Payment",
-    'EID'=>$expenseID,
-    
-    'PaidVia'=>$paidVia,
-    'TransactionType'=>"Credit"
-    ]);
+        foreach ($ata as $obj){
+        $date=$obj[0];
+        $LID=2;
+        $amount=$obj[1];
+        $expenseName=$obj[2];
+        $expenseID=$obj[3];
+        $paidTo=$obj[4];
+        $paidVia=$obj[5];
+        $remarks=$obj[6];
+        $id=DB::table('tbltransactionflow')->insertGetId([
+        'DateStamp'=>$date,
+        'Amount'=>$amount,
+        'TransactionCatogery'=>"Payment",
+        'EID'=>$expenseID,
+        'PaidTo'=>$paidTo,
+        'PaidVia'=>$paidVia,
+        'TransactionType'=>"Credit"
+        ]);
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance - $amount;

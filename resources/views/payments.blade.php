@@ -346,7 +346,7 @@ document.getElementById("mainTotal").value=tot;
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
-                alert("Expense number " + this.responseText + " is added");
+                alert("Payment " + this.responseText + " is added");
                 
 
             }
