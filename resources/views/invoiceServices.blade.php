@@ -1398,7 +1398,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
                 <label for="">Category</label>
                 <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
                     <option value=1>Auto</option>
@@ -1408,9 +1408,9 @@
 
 
                 </select>
-            </div>
-            <div class="col-md-5 offset-md-3">
-                <label for="">Modal / Services</label>
+            </div> -->
+            <div class="col-md-12 offset-md-10">
+                <!-- <label for="">Modal / Services</label>
                 <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
                     <option value=1>Forland C13</option>
                     <option value=2>Forland C12</option>
@@ -1418,7 +1418,7 @@
 
 
 
-                </select>
+                </select> -->
            
                 <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
                     style="height: 25px;" onclick="loadStock()"></button>
@@ -1507,18 +1507,18 @@
                             </div>
 
                             <div class="input-field">
-                            <label for="status">Purchase Price</label>
+                            <label for="status">Invoice Price</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="TotalPrice"><br>
-                                <label for="status">Total Cost</label>
+                                <!-- <label for="status">Total Cost</label> -->
                                 <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    style="display: none !important; height: 30px !important; width: 183px;"
                                     name="name" id="TotalCost"><br>
-                                <!-- <label for="status">17 % Tax on Price</label>
+                                <!-- <label for="status">17 % Tax on Price</label> -->
                                 <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="tax"> -->
+                                    style="display: none !important; height: 30px !important; width: 183px;"
+                                    name="name" id="tax">
 
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1565,7 +1565,7 @@
                                 <label for="status">Discount</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" value="0" id="Discount" onkeyup="calc()">
+                                    name="name" value="0" id="Discount" onchange="calc()">
                             </div>
                             <div class="input-field">
                                 <label for="status">Net Total</label>
@@ -1574,8 +1574,20 @@
                                     name="name" id="NetTotal">
                             </div>
                         </div>
-                        </div>
-                        </div>
+                        <div class="myOwnROw">
+
+
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                <div class="input-field">
+                                <label for="status">Invoice Number</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" value="0" id="InvoiceID" >
+                                    <input type="button" value="Print Invoice Request"  onclick="getInvoiceRequest()"></input>
+                            
+                            </div>
                                 </div>
                                 <div class="col-md-7">
                                     <div class="head-right">
@@ -1630,7 +1642,7 @@
                             <label for="status">Customer CNIC</label>
                             <input type="number" autocomplete="OFF" class="form-control"
                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="CID">
+                                name="name" id="CNIC">
 
                         </div>
                         <div class="input-field">
@@ -1668,13 +1680,6 @@
                                                 <input type="text" name="phone_number" id="addComments"
                                                     placeholder="Comments" required />
 
-                                                <div class="select-list">
-                                                    <select name="course_type" id="course_type">
-                                                        <option selected value="">Category</option>
-                                                        <option value="Society">Society</option>
-                                                        <option value="Language">Language</option>
-                                                    </select>
-                                                </div>
                                             </div>
 
                                             <div class="form-submit">
@@ -1769,7 +1774,7 @@
             <div class="row ">
                 <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
                     <a class="btn" href="viewCustomers.html">view Customers</a>
-                    <a class="btn" href="deliveryLetter.html">Print Docs</a>
+                    <a class="btn" onclick="printDocs()">Print Docs</a>
                     <a class="btn" onclick="validPlz()">Generate Sale</a>
                     <a class="btn" href="#">Close Form</a>
 
@@ -1802,8 +1807,9 @@
 
                                         <th>Chasis Number</th>
 
-                                        <th>Purchse Price</th>
-                                        <th>Cost with Additional charges</th>
+                                        <!-- <th>Purchse Price</th> -->
+                                        <th>Invoice Price</th>
+                                        <!-- <th>Cost with Additional charges</th> -->
                                         <th>Status</th>
                                         <th>Description</th>
 
@@ -1839,8 +1845,22 @@
             <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                         style="font-size: 18px;">Dashboard</span></a>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-                        style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
+            <li><a data-toggle="collapse" data-target=".firstULs0"><i class="fab fa-salesforce"></i><span
+                        style="font-size: 18px;">Operations</span><span class="fa fa-angle-right"
+                        style="float: right"></span></a>
+                <ul class="collapse list-unstyled firstULs0 ">
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                        <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+                        style="font-size: 18px;">Proucts</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse list-unstyled firstULs ">
                     <li><a href="/">Category</a></li>
@@ -2152,7 +2172,7 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i].EngineNumber,
-                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock, a[i].description
+                        a[i].PerUnitSalePrice, a[i].StatusInStock, a[i].description
                     ]);
                 });
                 table.draw();
@@ -2162,7 +2182,24 @@
         xhttp.open("GET", "./getAvailableProducts/", true);
         xhttp.send();
     }
+   function  getInvoiceRequest(){
 
+    id =document.getElementById("InvoiceID").value ;
+    var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Printed");
+                window.open("./sir");
+                
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getSaleInvReq/"+id, true);
+        xhttp.send();
+
+
+   }
 
     $(document).ready(function () {
 
@@ -2181,14 +2218,15 @@
             document.getElementById("ChasisNumber").value = this.cells[3].innerText;
 
             document.getElementById("EngineNumber").value = this.cells[4].innerText;
-            document.getElementById("Status").value = this.cells[7].innerText;
-            document.getElementById("description").value = this.cells[8].innerText;
+            document.getElementById("Status").value = this.cells[6].innerText;
+            document.getElementById("description").value = this.cells[7].innerText;
             document.getElementById("TotalPrice").value = this.cells[5].innerText;
-            document.getElementById("TotalCost").value = this.cells[6].innerText;
+            //document.getElementById("TotalCost").value = this.cells[5].innerText;
             document.getElementById("Discount").value = "0";
 
 
             alert(this.cells[0].innerText);
+            calc();
         });
         calc();
     });
@@ -2197,7 +2235,8 @@
     
         var tot = document.getElementById("TotalPrice").value;
         var dis = document.getElementById("Discount").value;
-        var tax = Number(tot)*0.17;
+        //var tax = Number(tot)*0.17;
+        var tax=0;
 
         var netTot = Number(tot) + Number(tax) - Number(dis);
 
@@ -2231,13 +2270,14 @@
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('amountPaid').value;
         var rmb = document.getElementById("amountRemaining").value;
-        var CID = document.getElementById("CID").value;
+        var CID = $('#CustomerName').find(":selected").val();
         var paidTo = document.getElementById("paidTo").value;
         var AID = document.getElementById("slctAccounts").value;
 
         var customerName = $('#CustomerName').find(":selected").text();
+
         var receivedBy = $('#employees').find(":selected").text();
-        var CNIC = document.getElementById("CID").value;
+        var CNIC = document.getElementById("CNIC").value;
         var address = document.getElementById('Address').value;
         var contact = document.getElementById('contact').value;
         var fatherName = document.getElementById('fatherName').value;
@@ -2270,9 +2310,7 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert("Invoice =" + this.responseText + " is generated");
-                    window.open("/psi");
-                    window.open("/fgp");
-                    window.open("/prc");
+                    
 
 
 
@@ -2285,7 +2323,14 @@
     }
 
 </script>
+
 <script>
+
+function printDocs(){
+    window.open("/psi");
+    window.open("/fgp");
+    window.open("/prc");
+}
     
     function fetchAccounts() {
         var xhttp = new XMLHttpRequest();
@@ -2323,7 +2368,7 @@
         var NetTotal = document.getElementById("NetTotal").value;
 
         var CustomerName = document.getElementById("CustomerName").value;
-        var CID = document.getElementById("CID").value;
+        var CNIC = document.getElementById("CNIC").value;
         var Address = document.getElementById("Address").value;
         var contact = document.getElementById("contact").value;
         var fatherName = document.getElementById("fatherName").value;
@@ -2385,9 +2430,9 @@
             document.getElementById("CustomerName").focus();
 
 
-        } else if (CID == "") {
+        } else if (CNIC == "") {
             // alert("Customer ID Field Must Be Valid");
-            document.getElementById("CID").focus();
+            document.getElementById("CNIC").focus();
 
 
         } else if (Address == "") {
@@ -2460,7 +2505,7 @@
             var a = JSON.parse(data);
             //document.getElementById("CID").value = a[0].CustomerID;
             document.getElementById("fatherName").value = a[0].FatherName;
-            document.getElementById("CID").value = a[0].CNIC;
+            document.getElementById("CNIC").value = a[0].CNIC;
             document.getElementById("contact").value = a[0].Contect;
             document.getElementById("Address").value = a[0].Address;
 
@@ -2497,10 +2542,9 @@
     //alert("It is working"+CustomerComments);
     var cnic = document.getElementById("addCNIC").value;
     //alert("It is working"+CustomerComments);
-    var category = $('#course_type').find(":selected").val();
-    //alert("It is working"+CustomerComments);
+    
     var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-    comments, cnic, category
+    comments, cnic
     ];
 
     var xhttp = new XMLHttpRequest();

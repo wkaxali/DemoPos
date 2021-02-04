@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Spare Parts</title>
+    <title>View Sales</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -41,35 +41,34 @@
 
 
 
-        table {
-            border-spacing: 0;
-            border-collapse: collapse;
-            border-style: hidden;
-
-            width: 100%;
-            max-width: 100%;
-        }
-
         th,
         td {
             border: 1px solid #aaaaaa;
-            padding: 5px;
+            padding: 2px !important;
+        }
+
+        .receivingTable {
+            border: 1px solid #333;
+            padding: 10px;
+            border-radius: 10px;
+            overflow: auto !important;
         }
 
     </style>
 </head>
 
-<body onload="getSpareParts()">
+<body onload="getStock()">
     <div class="page-container">
 
         <div class="left-content">
             <div class="inner-block">
 
+
                 <header>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 mt-3 text-center">
-                                <h3>Auto Spare Parts</h3>
+                                <h3>View Sales</h3>
                             </div>
                         </div>
                         <br>
@@ -79,18 +78,22 @@
 
 
                                     <div class="receivingTable">
-                                        <table id="myTable" class=" table-striped"
+                                        <table id="stockTable" class=" table-striped"
                                             style="width: 100%; text-align: center;">
                                             <thead>
                                                 <tr>
-                                                    <th>Product Id</th>
-                                                    <th>Product Name</th>
-                                                    <th>Company</th>
-                                                    <th>Unit Sale Price</th>
-                                                    <th>Unit Purchase Price</th>
-                                                    <th>Stock</th>
-                                                    <th>Engine Number</th>
-                                                    <th>Chasis Number</th>
+                                                    <th>ExpenseHead</th>
+                                                    <th>Transaction ID</th>
+                                                    <th>Transaction Catogery</th>
+                                                    <th>Price</th>
+                                                    <th>Transaction Type</th>
+                                                    <th>Date</th>
+                                                    <th>Paid To</th>
+                                                    <th>Paid By</th>
+                                                    <th>Paid Via</th>
+                                                    <th>Date</th>
+                                                    <th>Remarks</th>
+                                                  
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -105,7 +108,6 @@
                         </div>
                     </div>
                 </header>
-
             </div>
         </div>
         <div class="sidebar-menu">
@@ -348,6 +350,7 @@
 
 
 
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -358,7 +361,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function getSpareParts() {
+        function getStock() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -369,13 +372,13 @@
                     var table;
                     var a = JSON.parse(data);
                     //  alert(a[0].ProductSerial);
-                    table = $('#myTable').DataTable();
+                    table = $('#stockTable').DataTable();
 
                     $.each(a, function (i, item) {
-
-                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
-                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StatusInStock, a[i]
-                            .EngineNumber, a[i].ChasisNumber
+                      
+                        table.row.add([a[i].ExpenseHead, a[i].TransactionID, a[i].TransactionCatogery, a[i]
+                            .Amount, a[i].TransactionType, a[i].DateStamp, a[i].PaidTo, a[i]
+                            .PaidBy, a[i].PaidVia, a[i].DateStamp, a[i].Remarks
                         ]);
                     });
                     table.draw();
@@ -383,12 +386,20 @@
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./spareParts/", true);
+            xhttp.open("GET", "./viewExpense/", true);
 
             xhttp.send();
         }
 
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#stockTable').DataTable();
+        });
+
+    </script>
+
     <script>
         var toggle = true;
 
@@ -409,12 +420,6 @@
                 }, 400);
             }
             toggle = !toggle;
-        });
-
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
         });
 
     </script>

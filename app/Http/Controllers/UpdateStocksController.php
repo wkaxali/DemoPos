@@ -209,9 +209,9 @@ public static function updateProducts($PID, $company, $engineNumber, $chasisNumb
   ->where('StockID', $PID)
   ->update([
     'StockIn'=>$stockIn,
-    'Status'=>$status,
-    'TotalSaleAmount'=>$salePrice,
-    'TotalCost'=>$purchasePrice
+    // 'Status'=>$status,
+    'PerUnitSalePrice'=>$salePrice,
+    'PerUnitPurchasePrice'=>$purchasePrice
     ]);
 }
 public static function getCurrentStock($PID){
