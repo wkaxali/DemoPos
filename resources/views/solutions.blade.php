@@ -35,6 +35,7 @@
         <div class="row">
             <div class="col-md-5">
                 <label for="">To,</label>
+               
                 <h5>{{ Session::get('customerName')}}</h5>
                 <h5>Foton Auto Park (PVT) Ltd.</h5>
                 <h5>Subject: Invoice Request {{ Session::get('productName')}}</h5>

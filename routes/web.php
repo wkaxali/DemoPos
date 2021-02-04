@@ -248,6 +248,9 @@ Route::get('/stock', function () {
 Route::get('/th', function () {
     return view('transactionHistory');
 });
+Route::get('/loop', function () {
+    return view('forLoopCheck');
+});
 
 Route::get('/vc', function () {
     return view('viewCustomers');
