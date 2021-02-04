@@ -2161,7 +2161,7 @@
         xhttp.send();
     }
    function  getInvoiceRequest(){
-       alert();
+
     id =document.getElementById("InvoiceID").value ;
     var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
