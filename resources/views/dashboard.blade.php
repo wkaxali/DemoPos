@@ -9924,8 +9924,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="col-md-4 market-update-gd">
                                         <div class="market-update-block clr-block-1">
                                             <div class="col-md-8 market-update-left">
-                                                <h3>83</h3>
-                                                <h4>Sales Today</h4>
+                                                <h3>{{ Session::get('dailySale')}}</h3>
+                                                <h4>Todays Sales Amount</h4>
                                                 <p>80% cash sales</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
@@ -10193,28 +10193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <canvas id="doughnut" height="300" width="470"
                                         style="width: 470px; height: 300px;"></canvas>
-                                    <script>
-                                        var doughnutData = [{
-                                                value: 30,
-                                                color: "#e61d2f"
-                                            },
-                                            {
-                                                value: 50,
-                                                color: "#0a549d"
-                                            },
-                                            {
-                                                value: 100,
-                                                color: "#e61d2f"
-                                            },
-                                            {
-                                                value: 40,
-                                                color: "#0a549d"
-                                            },
-                                        ];
-                                        new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
-                                            doughnutData);
-
-                                    </script>
+                                    
                                 </div>
                             </div>
 
@@ -10790,6 +10769,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
     </script>
+
+<script>
+    var doughnutData = [{
+            value: 30,
+            color: "#e61d2f"
+        },
+        {
+            value: 50,
+            color: "#0a549d"
+        },
+        {
+            value: 100,
+            color: "#e61d2f"
+        },
+        {
+            value: 40,
+            color: "#0a549d"
+        },
+    ];
+    new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
+        doughnutData);
+
+</script>
 
 
 

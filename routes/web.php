@@ -92,6 +92,7 @@ Route::get('/transactionHistoryAccounts/{AID}',[TransactionFlow::class, 'getTran
 Route::get('/transactionHistoryParties/{LID}',[TransactionFlow::class, 'getTransactionsForParties']);
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
+Route::get('/viewSales',[salesFlow::class, 'viewSales']);
 Route::get('/viewAllStock',[OrderFlowController::class, 'viewAllStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
@@ -382,4 +383,8 @@ Route::get('/dp', function () {
 
 Route::get('/pay', function () {
     return view('payments');
+});
+
+Route::get('/sales', function () {
+    return view('viewSales');
 });
