@@ -1757,7 +1757,7 @@
             <div class="row ">
                 <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
                     <a class="btn" href="viewCustomers.html">view Customers</a>
-                    <a class="btn" href="deliveryLetter.html">Print Docs</a>
+                    <a class="btn" href="dl">Print Docs</a>
                     <a class="btn" onclick="validPlz()">Generate Sale</a>
                     <a class="btn" href="#">Close Form</a>
 
@@ -1841,18 +1841,21 @@
                             <li><a href="/cl">Company Ledger</a></li>
 
                         </ul>
-                    </li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-                        style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse list-unstyled firstULs ">
-                    <li><a href="/">Category</a></li>
+    </li>
+             
+            <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+                style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
+                style="float: right"></span></a>
+        <ul class="collapse firstULs">
+            <li><a href="/">Category</a></li>
                     <li><a href="/vs">Product Record</a></li>
                     <li><a href="/as">Add Product</a></li>
                     <li><a href="/">Barcode</a></li>
 
                     <li><a href="/">Stock Audit</a></li>
-                </ul>
-            </li>
+
+        </ul>
+    </li>
             <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
                         style="font-size: 18px;">Customer</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>

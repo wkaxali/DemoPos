@@ -8,7 +8,10 @@
 
     <title>Forland Modern Motors</title>
     <style>
-
+@page {
+    size: auto;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
         :root {
             --blue: #007bff;
             --indigo: #6610f2;
@@ -11752,7 +11755,7 @@
 
         </div>
     </section>
-    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br>
     <footer class="my-3">
         <div class="container-fluid">
             <div class="row">

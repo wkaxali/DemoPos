@@ -136,7 +136,72 @@
                             </tr>
                         </thead>
                         <tbody>
+                        <tr>
+                                
+                                <td>{{ Session::get('itemNo')}}</td>
+                                <td>{{ Session::get('Description')}}</td>
+                                <td>{{ Session::get('quantity')}}</td>
+                                <td>{{ Session::get('UnitPrice')}}</td>
+                                <td>{{ Session::get('tax')}}</td>
+                                <td>{{ Session::get('total')}}</td>
+
+                            </tr>
                             <tr>
+                                
+                                <td>{{ Session::get('itemNo')}}</td>
+                                <td>{{ Session::get('Description')}}</td>
+                                <td>{{ Session::get('quantity')}}</td>
+                                <td>{{ Session::get('UnitPrice')}}</td>
+                                <td>{{ Session::get('tax')}}</td>
+                                <td>{{ Session::get('total')}}</td>
+
+                            </tr>
+                            <tr>
+                                
+                                <td>{{ Session::get('itemNo')}}</td>
+                                <td>{{ Session::get('Description')}}</td>
+                                <td>{{ Session::get('quantity')}}</td>
+                                <td>{{ Session::get('UnitPrice')}}</td>
+                                <td>{{ Session::get('tax')}}</td>
+                                <td>{{ Session::get('total')}}</td>
+
+                            </tr> <tr>
+                                
+                                <td>{{ Session::get('itemNo')}}</td>
+                                <td>{{ Session::get('Description')}}</td>
+                                <td>{{ Session::get('quantity')}}</td>
+                                <td>{{ Session::get('UnitPrice')}}</td>
+                                <td>{{ Session::get('tax')}}</td>
+                                <td>{{ Session::get('total')}}</td>
+
+                            </tr> <tr>
+                                
+                                <td>{{ Session::get('itemNo')}}</td>
+                                <td>{{ Session::get('Description')}}</td>
+                                <td>{{ Session::get('quantity')}}</td>
+                                <td>{{ Session::get('UnitPrice')}}</td>
+                                <td>{{ Session::get('tax')}}</td>
+                                <td>{{ Session::get('total')}}</td>
+
+                            </tr> <tr>
+                                
+                                <td>{{ Session::get('itemNo')}}</td>
+                                <td>{{ Session::get('Description')}}</td>
+                                <td>{{ Session::get('quantity')}}</td>
+                                <td>{{ Session::get('UnitPrice')}}</td>
+                                <td>{{ Session::get('tax')}}</td>
+                                <td>{{ Session::get('total')}}</td>
+
+                            </tr> <tr>
+                                
+                                <td>{{ Session::get('itemNo')}}</td>
+                                <td>{{ Session::get('Description')}}</td>
+                                <td>{{ Session::get('quantity')}}</td>
+                                <td>{{ Session::get('UnitPrice')}}</td>
+                                <td>{{ Session::get('tax')}}</td>
+                                <td>{{ Session::get('total')}}</td>
+
+                            </tr> <tr>
                                 
                                 <td>{{ Session::get('itemNo')}}</td>
                                 <td>{{ Session::get('Description')}}</td>
@@ -201,14 +266,11 @@
             </div>
         </div>
     </section>
-<<<<<<< HEAD
                     </div>
                 </div>
             </div>
         </div>
 </div>
-=======
->>>>>>> fda102c2573d30c8d8b09133ba0f55c246f8810f
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>

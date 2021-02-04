@@ -139,6 +139,41 @@
             margin: 4px 0px;
         }
 
+        @media print {
+            .left-content{
+                width: 100% !important;
+            }
+            .sidebar-menu{
+                display: none;
+            }
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #mainComapnyLedger{
+                visibility: visible !important;
+                margin: 10px 0px;
+            }
+            #DNone{
+                display: none !important;
+            }
+            table{
+                width: 900px !important;
+            }
+          
+       
+        }
+
     </style>
 </head>
 
@@ -167,7 +202,7 @@
                         </div>
                     </div>
                 </section>
-                <section>
+                <section id="DNone">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -217,17 +252,20 @@
                         </div>
                     </div>
                 </section>
-                <section>
+                <section id="ExSection">
                     <div class="container">
                         <div class="row mt-2">
                             <div class="col-md-12">
-                                <h4>Today's Expense</h4>
+                                <h4 id="mainComapnyLedger">Today's Expense</h4>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="expenseTable">
-                                    <table id="expenseTable" class="table-bordered table-striped table-hover"
+                                    <main id="mainHeader">
+
+                                
+                                    <table id="expenseTable" class="table table-bordered myExpe table-striped table-hover"
                                         style="width: 100%;">
                                         <thead>
                                             <tr>
@@ -243,6 +281,7 @@
                                         <tbody>
                                         </tbody>
                                     </table>
+                                </main>
                                 </div>
                             </div>
                         </div>
@@ -263,7 +302,7 @@
                             <div class="col-md-5 offset-md-7">
                                 <div class="footerBtns">
                                     <button class="btn">Close</button>
-                                    <button class="btn">Print</button>
+                                    <button onclick="window.print()" class="btn print">Print</button>
                                     <button class="btn" onclick="addExpenses()">Update</button>
                                 </div>
                             </div>

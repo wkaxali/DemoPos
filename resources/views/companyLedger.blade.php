@@ -130,6 +130,32 @@
             width: auto !important;
 
         }
+        @media print {
+            .left-content{
+                width: 100% !important;
+            }
+            .sidebar-menu{
+                display: none;
+            }
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #mainComapnyLedger{
+                visibility: visible !important;
+            }
+            table {page-break-before: always;}
+        }
 
     </style>
 </head>
@@ -142,16 +168,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h3>Company Ledger</h3>
+                                <h3 id="mainComapnyLedger">Company Ledger</h3>
                             </div>
                         </div>
                         <br>
+                      
+
+                 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="receivingMain">
 
 
                                     <div class="receivingTable" id="companyLedgerTable">
+                                        <main id="mainHeader">
                                         <table id="companyLedgerData" class=" table-striped"
                                             style="width: 100%; text-align: center;">
                                             <thead>
@@ -173,6 +203,7 @@
                                 </div>
                             </div>
                         </div>
+                    </main>
                         <br>
                         <div class="row">
                             <div class="col-md-4">

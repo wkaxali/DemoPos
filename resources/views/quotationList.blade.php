@@ -32,7 +32,9 @@
                 top: 0;
             }
         }
-
+.btn:hover{
+    color:#fff;
+}
     </style>
     <title>Quotation List</title>
 </head>
