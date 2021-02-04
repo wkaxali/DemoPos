@@ -11,6 +11,43 @@ use DB;
 class payController extends Controller
 {
 
+  public static function insertPayment(Request $request, $CO){
+
+    $ata=json_decode($CO);
+    foreach ($ata as $obj){
+    $date=$obj[0];
+    $LID=2;
+    $amount=$obj[1];
+    $expenseName=$obj[2];
+    $expenseID=$obj[3];
+    $paidVia=$obj[4];
+    $remarks=$obj[5];
+    
+    $id=DB::table('tbltransactionflow')->insertGetId([
+    'DateStamp'=>$date,
+    'Amount'=>$amount,
+    'TransactionCatogery'=>"Payment",
+    'EID'=>$expenseID,
+    
+    'PaidVia'=>$paidVia,
+    'TransactionType'=>"Credit"
+    ]);
+
+    $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
+    $newBalance = $oldSelfBalance - $amount;
+    LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
+    $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
+    $newBalanceOfParty=$balanceForParty-$amount;
+    LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
+
+    $oldAccountBalance = accountsController::getAccountBalance($paidVia);
+    $newAccountBalance = $oldAccountBalance - $amount;
+    accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
+    
+    }
+    return $id;
+}
+
 public static function getEmployeeName(){
     $data=DB:: select('select * from tblemployees');
     

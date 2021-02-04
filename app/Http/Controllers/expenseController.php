@@ -80,7 +80,7 @@ public static function getPartyNames(){
   }
 
   public static function getExpenseHeads(){
-    $data=DB:: select('select * from tblexpenseheads');
+    $data=DB:: select('select * from tblexpenseheads where ExpenseHead <> "Payment"');
     
     $option='<option value=" "></option>';
 
