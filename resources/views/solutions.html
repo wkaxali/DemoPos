@@ -45,7 +45,7 @@
     <br><br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="testTable">
                 <table style="width: 100%; text-align: center;">
                     <thead>
                         <tr>
@@ -148,6 +148,7 @@
         };
 
         $('#cmd').click(function () {
+            document.getElementById("testTable").removeAttribute("class");
             doc.fromHTML($('#content').html(), {
                 
                 'elementHandlers': specialElementHandlers
