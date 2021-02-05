@@ -427,7 +427,7 @@
     </style>
 </head>
 
-<body>
+<body onload="loadHeads()">
 
     <div class="wrapper">
         <div class="top_navbar">
@@ -764,6 +764,7 @@
             m = dateFull.getMonth() + 1;
             d = dateFull.getDate()
             date = y + '-' + m + '-' + d;
+            alert('date');
             document.getElementById("dateValue").value = date
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
@@ -771,7 +772,7 @@
             }
 
 
-        }
+        
 
         function TomorrowDate() {
             const today = new Date()
@@ -781,6 +782,7 @@
             m = tomorrow.getMonth() + 1;
             d = tomorrow.getDate()
             date = y + '-' + m + '-' + d;
+            alert(date);
             document.getElementById("dateValue").value = date;
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
@@ -791,6 +793,7 @@
             var custumDate = document.getElementById("date").value;
             document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
+            
         }
 
     </script>
@@ -825,14 +828,16 @@
             mcell2.innerHTML = cell2;
         }
 
-    </script>
-
-
-    <script>
+        function loadHeads() {
+            document.getElementById("dateValue").style.display = "none";
+            document.getElementById("priority").style.display = "none";
+            loadEmployees();
+            loadCategory();
+        }
         function addTasks() {
 
             var taskSubject = document.getElementById("taskSubject").value;
-            var assignedTo = document.getElementById("assignedTo").value;
+            var assignedTo = document.getElementById("assignTo").value;
             var dueDate = document.getElementById("date").value;
             var category = document.getElementById("category").value;
             //var taskSubject = document.getElementById("taskSubject").value;
@@ -864,6 +869,42 @@
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./addTasks/" + taskTable, true);
             xhttp.send();
+        }
+
+        function loadEmployees() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("assignTo").innerHTML = this.response;
+                    $('#assignTo').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployees/", true);
+
+            xhttp.send();
+
+
+        }
+
+        function loadCategory() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("category").innerHTML = this.response;
+                    $('#category').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getCategory/", true);
+
+            xhttp.send();
+
+
         }
 
     </script>
