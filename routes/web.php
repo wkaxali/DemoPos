@@ -92,6 +92,8 @@ Route::get('/transactionHistoryAccounts/{AID}',[TransactionFlow::class, 'getTran
 Route::get('/transactionHistoryParties/{LID}',[TransactionFlow::class, 'getTransactionsForParties']);
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
+Route::get('/viewSales',[salesFlow::class, 'viewSales']);
+Route::get('/viewExpense',[expenseController::class, 'viewExpense']);
 Route::get('/viewAllStock',[OrderFlowController::class, 'viewAllStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
@@ -117,6 +119,7 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
+Route::get('/addPayment/{data}',[payController::class, 'insertPayment']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
@@ -380,4 +383,16 @@ Route::get('/ads', function () {
 
 Route::get('/dp', function () {
     return view('dailypurchase');
+});
+
+Route::get('/pay', function () {
+    return view('payments');
+});
+
+Route::get('/sales', function () {
+    return view('viewSales');
+});
+
+Route::get('/exv', function () {
+    return view('viewExpenses');
 });

@@ -9675,6 +9675,82 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body onload="loadFields()">
+<<<<<<< HEAD
+=======
+    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <form method="POST" class="appointment-form" id="appointment-form">
+                        <h2>Create Invoice</h2>
+                        <div class="form-group-1">
+
+                           
+                        <input type="text" name="title" id="title" placeholder="Customer" required />
+                            <input type="text" name="name" id="name" placeholder="Customer ID" required />
+                            <input type="number" name="tel" id="tel" placeholder="Contact" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Profession"
+                                required />
+                            <input type="number" name="phone_number" id="Balance" placeholder="Balance" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Address" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Comments" required />
+
+ 
+
+
+
+                        <label for="">Coustomer ID</label>
+                        <select style="width: 100px;" data-live-search="true" 
+                        class="selectpicker form-control"  id="Spare Tyre" >
+                <option value=1>Ahmad</option>
+                <option value=2>Ali</option>
+                <option value=2>usama</option>
+               
+                </select>
+                <label for="">Product Name </label>
+                <select style="width: 100px;" data-live-search="true" 
+                class="selectpicker form-control"  id="Spare Tyre" >
+        <option value=1>Ahmad</option>
+        <option value=2>Ali</option>
+        <option value=2>Ali</option>
+        </select>
+                        <label for="">Tool Kit</label>
+                            <select  style="width: 80px;" data-live-search="true" 
+                                class="selectpicker form-control"  id="Tool Kit" >
+                        <option value=1>YES</option>
+                        <option value=2>NO</option>
+                        </select>
+                        
+                        <label for="">Spare Tyre</label>
+                        <select style="width: 80px;" data-live-search="true" 
+                        class="selectpicker form-control"  id="Spare Tyre" >
+                <option value=1>YES</option>
+                <option value=2>NO</option>
+                </select>
+                <label for="">Original Keys</label>
+                <select style="width: 80px;"  data-live-search="true" 
+                class="selectpicker form-control"  id="originalkeys" >
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=2>3</option>
+        <option value=2>4</option>
+        </select>
+        <label for="">Warranty Book</label>
+        <select  style="width: 80px;" data-live-search="true" 
+        class="selectpicker form-control"  id="originalkeys" >
+<option value=1>YES</option>
+<option value=2>NO</option>
+                                                   <div class="select-list">
+                                <select name="course_type" id="course_type">
+                                    <option slected value="">Category</option>
+                                    <option value="society">Society</option>
+                                    <option value="language">Language</option>
+                                </select>
+                            </div>
+                        </div>
+>>>>>>> 20af109c4e78c18998861dca9def4eea1b5ec374
 
     <div class="page-container">
         <div class="left-content">
@@ -9924,8 +10000,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="col-md-4 market-update-gd">
                                         <div class="market-update-block clr-block-1">
                                             <div class="col-md-8 market-update-left">
-                                                <h3>83</h3>
-                                                <h4>Sales Today</h4>
+                                                <h3 id="saleAmount" value=""></h3>
+                                                <h4>Todays Sale Amount</h4>
                                                 <p>80% cash sales</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
@@ -9975,7 +10051,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>83</h3>
                                                 <h4>Sales Today</h4>
-                                                <p>80% cash sales</p>
+                                                <p>{{ Session::get('dailySale')}}</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-file-text-o"> </i>
@@ -10193,28 +10269,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <canvas id="doughnut" height="300" width="470"
                                         style="width: 470px; height: 300px;"></canvas>
-                                    <script>
-                                        var doughnutData = [{
-                                                value: 30,
-                                                color: "#e61d2f"
-                                            },
-                                            {
-                                                value: 50,
-                                                color: "#0a549d"
-                                            },
-                                            {
-                                                value: 100,
-                                                color: "#e61d2f"
-                                            },
-                                            {
-                                                value: 40,
-                                                color: "#0a549d"
-                                            },
-                                        ];
-                                        new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
-                                            doughnutData);
-
-                                    </script>
+                                    
                                 </div>
                             </div>
 
@@ -10654,24 +10709,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function dailySaleAmount() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = this.responseText;
+                var a = JSON.parse(data);
+                document.getElementById("saleAmount").innerHTML  = a[0].DailySale;
 
-                if (this.readyState == 4 && this.status == 200) {
-
-                    var data = this.responseText;
-                    var a = JSON.parse(data);
-                    //  alert(a[0].ProductSerial);
-                    var saleToday = a[0].DailySale;
-
-                    document.getElementById("salesToday").innerText = saleToday;
-
-                    //alert(saleToday);
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./dailySaleAmount/", true);
-
-            xhttp.send();
+            } 
         }
+
+    xhttp.open("GET", "./dailySaleAmount/", true);
+    xhttp.send();
+
+
+    }
 
 
 
@@ -10797,6 +10847,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
     </script>
+
+<script>
+    var doughnutData = [{
+            value: 30,
+            color: "#e61d2f"
+        },
+        {
+            value: 50,
+            color: "#0a549d"
+        },
+        {
+            value: 100,
+            color: "#e61d2f"
+        },
+        {
+            value: 40,
+            color: "#0a549d"
+        },
+    ];
+    new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
+        doughnutData);
+
+</script>
 
 
 

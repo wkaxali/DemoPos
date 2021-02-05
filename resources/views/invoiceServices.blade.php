@@ -753,17 +753,20 @@
         .appointment-form #hour_appointment {
             z-index: 9;
         }
-
+    
+        }
         @media screen and (max-width: 1024px) {
             .container {
                 margin: 0 auto;
+
             }
         }
-
+        .container{  max-height: 260px;}
         @media screen and (max-width: 768px) {
             .container {
                 width: calc(100% - 30px);
                 max-width: 100%;
+              
             }
         }
 
@@ -1435,7 +1438,9 @@
             </div>
         </div>
     </header>
+    
     <section>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -1475,12 +1480,24 @@
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="EngineNumber">
                             </div>
-                            <div class="input-field">
-                                <label for="status">Status</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
+                            <div class="input-field"></label>
+                             
+                                <label for="status">Status</label>   <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="Status">
                             </div>
+                           
+                        </div>
+
+                        <div style="display: flex;" class="myOwnROw">
+ <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                            
 
                             <div class="input-field">
                                 <label for="status">Description</label>
@@ -1585,6 +1602,8 @@
             </div>
         </div>
     </section>
+    <br>
+
     <section>
         <div class="container">
             <div class="row">
@@ -1596,6 +1615,7 @@
             </div>
         </div>
     </section>
+  
     <section>
         <div class="container">
             <div class="row">
@@ -1736,6 +1756,8 @@
             </div>
         </div>
     </section>
+    <br>
+    <br>
     <section>
         <div class="container">
             <div class="row">
@@ -2161,7 +2183,7 @@
         xhttp.send();
     }
    function  getInvoiceRequest(){
-       alert();
+
     id =document.getElementById("InvoiceID").value ;
     var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
