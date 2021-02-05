@@ -131,7 +131,7 @@
         .myflex {
             display: flex;
 
-            justify-content: space-evenly;
+            justify-content: center;
         }
 
         .myflex-2 {
@@ -153,9 +153,9 @@
             color: #fff;
         }
 
-        .myflex-2  a {
+        .myflex-2 a {
             text-decoration: underline !important;
-         
+
         }
 
     </style>
@@ -174,7 +174,14 @@
                             <h3>Employer Tasks View</h3>
                         </div>
                     </div>
-                    <br><br>
+              
+                    <div class="row my-4">
+                        <div class="col-md-8 offset-md-2">
+                            <label style="width:200px;"  for="">Employee Name</label>
+                            <h5 style="display: inline-block; font-weight: 700;">Usama Ali</h5>
+                        </div>
+                    </div>
+           
                     <div class="myflex">
                         <div class="inputs">
                             <label for="">From</label>
@@ -184,7 +191,7 @@
                         </div>
 
                         <div class="inputs">
-                            <label for="">To</label>
+                            <label style="margin-left: 50px;" for="">To</label>
                             <input class="form-control"
                                 style="display: inline-block !important; width: 200px !important;" type="date" name=""
                                 id="">
@@ -200,10 +207,9 @@
                             <thead>
                                 <tr>
                                     <th>Employee Id</th>
-                                    <th>Employee Task</th>
+                                    <th>Employee Name</th>
                                     <th>Company</th>
-                                    <th>Task 1</th>
-                                    <th>Task 2</th>
+                                    <th>Task</th>
                                     <th>Status</th>
                                     <th>Action</th>
 
@@ -215,10 +221,9 @@
                                     <td>#123</td>
                                     <td>Usama Ali</td>
                                     <td>Forland</td>
-                                    <td>Build a resume</td>
-                                    <td>Generate Invoice</td>
-                                    <td>Available</td>
-                                    <td>Done</td>
+                                    <td>Generate Invoices</td>
+                                    <td>Completed</td>
+                                    <td><a href="#">Details</a></td>
 
 
                                 </tr>
@@ -505,7 +510,6 @@
             toggle = !toggle;
         });
 
- 
     </script>
 </body>
 
