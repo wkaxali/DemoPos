@@ -303,9 +303,15 @@
     <script>
         setTimeout(() => {
             window.print();
+            window.close();
         }, 1000);
 
     </script>
+    <!-- <script>
+        function automatic(){
+
+        }
+    </script> -->
 
 
 </body>

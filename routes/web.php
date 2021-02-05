@@ -378,3 +378,6 @@ Route::get('/ads', function () {
 Route::get('/dp', function () {
     return view('dailypurchase');
 });
+Route::get('/ds', function () {
+    return view('dailysales');
+});
