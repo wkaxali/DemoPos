@@ -8,7 +8,7 @@ use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\UpdateStocksController;
-
+use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
 
 use App\Http\Controllers\TransactionFlow;
@@ -26,7 +26,7 @@ use App\Http\Controllers\serviceSalesFlow;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
-
+use App\Http\Controllers\saleRequestController;
 
 
 /*
@@ -70,6 +70,8 @@ Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyD
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
 //getInvoiceCustomer/{data}
+
+Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleRequest'] );
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads'] );
@@ -153,6 +155,7 @@ Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
 Route::get('/getCategory',[taskController::class, 'getCategory'] );
 Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
+Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
 
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
@@ -165,6 +168,10 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 Route::get('/', function () {
     
     return view('signInSignUp');
+});
+Route::get('/sh', function () {
+    
+    return view('StockHistory');
 });
 
 Route::get('/chksessions',function(){
@@ -209,7 +216,7 @@ Route::get('/as', function () {
 });
 
 Route::get('/bo', function () {
-    return view('bookOrder');
+    return view('bookorder');
 });
 
 Route::get('/cl', function () {
@@ -345,6 +352,9 @@ Route::get('/sheet', function () {
 });
 Route::get('/vd', function () {
     return view('vehicleDetail');
+});
+Route::get('/sir', function () {
+    return view('solutions');
 });
 Route::get('/ql', function () {
     return view('quotationList');

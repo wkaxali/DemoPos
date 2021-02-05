@@ -9689,39 +9689,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <form method="POST" class="appointment-form" id="appointment-form">
                                         <h2></h2>
                                         <div class="form-group-1">
-                                            <input type="text" name="title" id="title" placeholder="Customer Name"
+                                            <input type="text" name="title" id="customerName" placeholder="Customer Name"
                                                 required />
-                                            <input type="text" name="name" id="name" placeholder="Client's Father Name"
+                                            <input type="text" name="name" id="fatherName" placeholder="Client's Father Name"
                                                 required />
-                                            <input type="text" name="tel" id="tel" placeholder="Customer CNIC"
+                                            <input type="text" name="tel" id="CNIC" placeholder="Customer CNIC"
                                                 required />
-                                            <input type="text" name="phone_number" id="Profession"
+                                            <input type="text" name="phone_number" id="city"
                                                 placeholder="Movement City / Area" required />
-                                            <input type="text" name="phone_number" id="Balance" placeholder="Address"
+                                            <input type="text" name="address" id="address" placeholder="Address"
                                                 required />
-                                            <input type="text" name="phone_number" id="Profession"
+                                            <input type="text" name="phone_number" id="contact"
                                                 placeholder="Contact" required />
-                                            <input type="text" name="phone_number" id="Profession"
+                                            <input type="text" name="model" id="model"
+                                                placeholder="model" required />
+                                            <input type="text" name="phone_number" id="description"
                                                 placeholder="Description" required />
-                                            <input type="text" name="phone_number" id="Profession" placeholder="Color"
+                                            <input type="text" name="phone_number" id="color" placeholder="Color"
                                                 required />
-                                            <input type="text" name="phone_number" id="Profession"
-                                                placeholder="Unit Price" required />
-                                            <input type="text" name="phone_number" id="Profession" placeholder="Qty"
-                                                required />
-                                            <input type="text" name="phone_number" id="Profession"
+                                            <input type="text" name="phone_number" id="unitPrice"
+                                                onchange="calculation()" placeholder="Unit Price" required />
+                                            <input type="text" name="phone_number" id="quantity" placeholder="Quantity"
+                                                onchange="calculation()" required />
+                                            <input type="text" name="phone_number" id="totalPrice"
                                                 placeholder="Total Price" required />
 
 
                                         </div>
 
                                         <div class="login-box">
-                                            <a onclick="location.href = '/dl'">
+                                            <a onclick="createQuotation()">
                                             <span></span>
                                     <span></span>
                                     <span></span>
                                     <span></span>
-                                            Add Customer</a>
+                                            Create Quotation</a>
                                         </div>
                                     </form>
                                 </div>
@@ -10366,6 +10368,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
                             <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a data-toggle="modal" id="killme" data-target="#staticBackdrop">Quotation</a></li>
                             <li><a href="/as">Add Stock</a></li>
                             <li><a href="/th">Transaction History</a></li>
                             <li><a href="/l">Investor Sale Ledger</a></li>
@@ -10655,14 +10658,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 if (this.readyState == 4 && this.status == 200) {
 
                     var data = this.responseText;
-                    alert(data);
                     var a = JSON.parse(data);
                     //  alert(a[0].ProductSerial);
                     var saleToday = a[0].DailySale;
 
                     document.getElementById("salesToday").innerText = saleToday;
 
-                    alert(saleToday);
+                    //alert(saleToday);
                 }
             };
             //alert("ljd");
@@ -10749,6 +10751,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             //redirect
 
 
+        }
+
+        function calculation(){
+            var price = document.getElementById("unitPrice").value;
+            var quantity = document.getElementById("quantity").value;    
+            
+            var total = price*quantity;
+            document.getElementById("totalPrice").value = total;
+        }
+
+        function createQuotation(){
+            var customerName = document.getElementById("customerName").value;
+            var fatherName = document.getElementById("fatherName").value;
+            var CNIC = document.getElementById("CNIC").value;
+            var city = document.getElementById("city").value;
+            var address = document.getElementById("address").value;
+            var contact = document.getElementById("contact").value;
+            var description = document.getElementById("description").value;
+            var color = document.getElementById("color").value;
+            var unitPrice = document.getElementById("unitPrice").value;
+            var quantity = document.getElementById("quantity").value;
+            var totalPrice = document.getElementById("totalPrice").value;
+            var model = document.getElementById("model").value;
+
+            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model];
+
+            var quotationData = JSON.stringify(data);
+
+            var xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        alert("Quotation =" + this.responseText + " is generated");
+                        
+                        window.open("/qt");
+
+                    }
+                };
+                // var MenuID=$('#Menus').find(":selected").val();
+                xhttp.open("GET", "./createQuotation/" + quotationData, true);
+                xhttp.send();
+            
         }
 
     </script>
