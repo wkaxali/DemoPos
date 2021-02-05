@@ -2411,7 +2411,13 @@
 
             //var invoiceNumber=getInvoiceID();
             var tot = document.getElementById("Total").value;
-            var discount = document.getElementById('DiscountOverall').value;
+            var discount = document.getElementById('DiscountOverall').value; if (discount == "") {
+                
+                discount=0;
+                document.getElementById('DiscountOverall').value=0;
+
+            }
+
             var gross = document.getElementById('grossTotal').value;
             var tax = document.getElementById('tax').value;
             var netTotal = document.getElementById('NetTotal').value;
@@ -2441,6 +2447,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated");
+                        window.open("./vd");
 
                     }
                 };
@@ -2480,6 +2487,12 @@
             var customerName = $('#CustomerName').find(":selected").text();
             var contact = document.getElementById('CNO').value;
             var discount = document.getElementById('DiscountOverall').value;
+            if (discount == "") {
+                
+                discount=0;
+                document.getElementById('DiscountOverall').value=0;
+
+            }
             var invoiceID = document.getElementById('InvoiceID').value;
             var gross = document.getElementById('grossTotal').value;
             var tax = document.getElementById('tax').value;
@@ -2503,8 +2516,10 @@
 
 
             var xhttp = new XMLHttpRequest();
+            
             if (AID == "") {
                 alert("Payment Method not selected");
+                
             } else {
 
                 xhttp.onreadystatechange = function () {
