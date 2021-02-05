@@ -22,7 +22,7 @@
 
         tr th {
             height: 50px;
-            font-size: 25px;
+            font-size: 20px;
         }
 
         tr th:nth-child(1) {
@@ -40,7 +40,7 @@
         }
 
         @media print {
-            input {
+            textarea {
                 border: none !important;
                 outline: none !important;
             }
@@ -68,11 +68,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-5 offset-md-1">
-                <label for="">To,</label>
+                <label style="font-weight: 700; font-size: 20px; width: 100px;" for="">To,</label>
                 <input type="text" value="{{ Session::get('customerName')}}" class="form-control"
-                    style="display: inline-block !important; width: 200px !important;" name="" id="">
-                <h5>Foton Auto JW Park (PVT) Limited.</h5>
-                <label for="">Subject</label>
+                    style="display: inline-block !important; width: 200px !important;" name="" id=""><br>
+                <label style="font-weight: 700; font-size: 20px; width: auto !important;" for="">Foton JW Auto Park
+                    (PVT) Limited.</label>
+                <br>
+                <label style="font-weight: 700; font-size: 20px; width: 100px;" for="">Subject</label>
                 <input type="text" value="{{ Session::get('productName')}}" class="form-control"
                     style="display: inline-block !important; width: 200px !important;" name="" id="">
 
@@ -150,9 +152,7 @@
                 </table>
                 <p style="font-size: 18px; margin-top: 5px;">Note:</p>
                 <div class="mainDivs">
-                    <input type="text" name="" id=""><br>
-                    <input type="text" name="" id=""><br>
-                    <input type="text" name="" id="">
+                    <textarea name="" id="" cols="113" rows="3"></textarea>
                 </div>
             </div>
         </div>

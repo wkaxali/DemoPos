@@ -8,10 +8,13 @@
 
     <title>Forland Modern Motors</title>
     <style>
-@page {
-    size: auto;   /* auto is the initial value */
-    margin: 0;  /* this affects the margin in the printer settings */
-}
+        @page {
+            size: auto;
+            /* auto is the initial value */
+            margin: 0;
+            /* this affects the margin in the printer settings */
+        }
+
         :root {
             --blue: #007bff;
             --indigo: #6610f2;
@@ -11533,19 +11536,28 @@
 
         }
 
+        body {
+            padding: 0px 25px;
+            margin-top: 60px;
+        }
+        .myTables tr td{
+            height: 471px;
+        }
+
     </style>
 </head>
 
 <body>
+    <br><br>
     <header>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-5">
-                    <h5 class="mainName">FOTON JW AUTO PARK (PVT.) LIMITED</h5>
-                    <h5 class="primeFont">NTN: <span class="smallFont">7410990-3</span> </h5>
-                    <h5>STRN: <span class="smallFont">3277876133969</span> </h5>
+                <div class="col-md-9">
+                    <h1>FORLAND MODERN MOTORS</h1>
+                    <h5 class="primeFont">NTN: <span class="smallFont">82588676-6</span> </h5>
+                    <h5>STRN: <span class="smallFont">3277876204764</span> </h5>
 
-                    <h6 class="compCopy">Company's Copy</h6>
+                    <h6 style="font-weight: 700;" class="compCopy">Customer's Copy</h6>
                 </div>
                 <!-- <div class="col-md-4 offset-md-3 text-right ">
                     <img src="img/dC6u20tK.png" class="img-fluid" alt="">
@@ -11557,7 +11569,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 style="font-size: 25px; color: red; font-weight: 900;">SALES INVOICE</h3>
+                    <h3 style="font-size: 30px; color: red; font-weight: 900;">SALES INVOICE</h3>
                 </div>
             </div>
             <div class="row">
@@ -11572,7 +11584,7 @@
                         <div class="col-md-8">
                             <div class="customerName">
                                 {{ Session::get('customerName')}}
-                                S/O
+                              &nbsp;
                                 {{ Session::get('fatherName')}}
                             </div>
                         </div>
@@ -11587,7 +11599,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="customerName">
-                                {{ Session::get('address')}}
+                                {{ Session::get('address')}} &nbsp;
                             </div>
                         </div>
                     </div>
@@ -11602,20 +11614,22 @@
                         </div>
                         <div class="col-md-8">
                             <div class="customerName-1 text-left">
-                                {{ Session::get('CNIC')}}
+                                {{ Session::get('CNIC')}} &nbsp;
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                   
+                    <div class="row mt-3">
                         <div class="col-md-4">
                             <div class="spec">
-                                <h6>STRN :</h6>
+                                <h6>Contact :</h6>
 
                             </div>
 
                         </div>
                         <div class="col-md-8">
                             <div class="customerName-1">
+                                
                                 <div class="my" style="visibility: hidden;">
                                     visibility hidden
                                 </div>
@@ -11631,7 +11645,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="customerName-1">
-                                202010218
+                               &nbsp;
                             </div>
                         </div>
                     </div>
@@ -11641,7 +11655,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="customerName-1">
-                                {{ Session::get('invoiceNo')}}
+                                {{ Session::get('invoiceNo')}} &nbsp;
                             </div>
                         </div>
                     </div>
@@ -11651,35 +11665,14 @@
                         </div>
                         <div class="col-md-6">
                             <div class="customerName-1">
-                                {{ Session::get('invoiceDate')}}
+                                {{ Session::get('invoiceDate')}} &nbsp;
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h6>Dealer Code :</h6>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="customerName-1">
-                                1177204
-                            </div>
-                        </div>
-                    </div>
+               
                 </div>
             </div>
-            <div class="row" style="margin: 0 !important;">
-                <div class="col-md-2">
-                    <div class="spec">
-                        <h6>FORLAND MODERN MOTORS</h6>
-                    </div>
-
-                </div>
-                <div class="col-md-8">
-                    <div class="customerName-1 text-left">
-                        FORLAND MODERN MOTORS
-                    </div>
-                </div>
-            </div>
+        
         </div>
     </section>
     <br>
@@ -11691,7 +11684,7 @@
 
 
 
-                        <table style="width: 100%;  text-align: center;">
+                        <table class="myTables" style="width: 100%;  text-align: center;">
                             <thead>
                                 <tr>
                                     <th>Description</th>
@@ -11705,8 +11698,8 @@
                             <tbody>
                                 <tr>
                                     <td>{{ Session::get('description')}}</td>
-                                    <td>{{ Session::get('color')}}</td>
-                                    <td>{{ Session::get('engineNo')}}</td>
+                                    <td style="width: 144px;">{{ Session::get('color')}}</td>
+                                    <td style="width: 290px;">{{ Session::get('engineNo')}}</td>
                                     <td>{{ Session::get('chassisNo')}}</td>
                                     <td>{{ Session::get('totalCost')}}</td>
 
@@ -11726,15 +11719,15 @@
                     <table class="fwTable text-center" style="width: 100%;">
                         <thead>
                             <tr>
-                                <td>Total In Words</td>
-                                <td>Value Exclusive Of Sales Tax</td>
-                                <td>PKR {{ Session::get('totalCost')}}</td>
+                                <td style="font-weight: 800; border-bottom: none !important;padding-right: 15px;">Total In Words</td>
+                                <td style="font-weight: 800; border-bottom: none !important; width: 290px;">Total &nbsp;</td>
+                                <td style="padding-left: 102px; border-bottom: none !important; font-weight: 800;" >PKR {{ Session::get('totalCost')}}</td>
 
                             </tr>
-                            <tr>
-                                <td rowspan="2">{{ Session::get('amountInWords')}} only</td>
-                                <td rowspan="2">17% GST Total</td>
-                                <td>{{ Session::get('tax')}}</td>
+                            <tr style="height: 50px;">
+                                <td  style="border-top: none !important;" rowspan="2">{{ Session::get('amountInWords')}}</td>
+                                <td  style="font-weight: 800;border-top: none !important;" rowspan="2"></td>
+                                <td style="border-top: none !important;">  {{ Session::get('tax')}} &nbsp;</td>
 
                             </tr>
                         </thead>
@@ -11744,6 +11737,7 @@
         </div>
 
     </section>
+    <br><br><br><br><br><br>
     <section class="mt-5">
         <div class="container-fluid">
             <div class="row">
@@ -11755,14 +11749,14 @@
 
         </div>
     </section>
-    <br><br>
+    <br><br><br><br>
     <footer class="my-3">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="footerMain">
-                        <h4>Address: Foton JW-AUTO Park (PVT.) Ltd 19.5 Km Raiwind Road Lahore Pakistan. <br>
-                            Telephone: (042)111-145-263 Ext.925 </h4>
+                        <h4>8-Km, Sheikhupura Road, Opposite Millat Tractors Limited, Lahore, Tel: 0300-0600061
+                         <br>   Email Address: forlandmodernmotors@yahoo.com</h4>
                     </div>
                 </div>
             </div>
