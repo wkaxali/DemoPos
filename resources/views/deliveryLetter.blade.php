@@ -304,7 +304,7 @@
         setTimeout(() => {
             window.print();
             window.close();
-        }, 1000);
+        }, 0);
 
     </script>
     <!-- <script>

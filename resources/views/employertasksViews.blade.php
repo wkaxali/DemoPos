@@ -153,13 +153,13 @@
             color: #fff;
         }
 
-      .myflex-2  a {
+        .myflex-2  a {
             text-decoration: underline !important;
          
         }
 
     </style>
-    <title>Generate Barcode</title>
+    <title>Employer Tasks View</title>
 </head>
 
 <body>
@@ -171,7 +171,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h3>Daily Sales</h3>
+                            <h3>Employer Tasks View</h3>
                         </div>
                     </div>
                     <br><br>
@@ -199,14 +199,13 @@
                         <table id="myTables">
                             <thead>
                                 <tr>
-                                    <th>Product ID</th>
-                                    <th>Product Name</th>
+                                    <th>Employee Id</th>
+                                    <th>Employee Task</th>
                                     <th>Company</th>
-                                    <th>Price</th>
-                                    <th>Stock</th>
-                                    <th>GatePass</th>
-                                    <th>Invoice Reques</th>
-                                    <th>Delivery Letter</th>
+                                    <th>Task 1</th>
+                                    <th>Task 2</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
 
 
                                 </tr>
@@ -214,13 +213,12 @@
                             <tbody>
                                 <tr>
                                     <td>#123</td>
-                                    <td>Forland C-10</td>
+                                    <td>Usama Ali</td>
                                     <td>Forland</td>
-                                    <td>12,300</td>
-                                    <td>12,000</td>
-                                    <td><a href="/fgp">GatePass</a></td>
-                                    <td><a href="/is">Invoice Request</a></td>
-                                    <td><a href="" onclick="mfun()">Delivery Letter</a></td>
+                                    <td>Build a resume</td>
+                                    <td>Generate Invoice</td>
+                                    <td>Available</td>
+                                    <td>Done</td>
 
 
                                 </tr>
@@ -507,13 +505,7 @@
             toggle = !toggle;
         });
 
-        function mfun() {
- var news = window.open("/dl");
-
  
-
-        }
-
     </script>
 </body>
 

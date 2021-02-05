@@ -381,3 +381,7 @@ Route::get('/dp', function () {
 Route::get('/ds', function () {
     return view('dailysales');
 });
+
+Route::get('/etvs', function () {
+    return view('employertasksViews');
+});
