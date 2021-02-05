@@ -83,13 +83,14 @@
                                             <thead>
                                                 <tr>
                                                     <th>Product Id</th>
-                                                    <th>Product Name</th>
                                                     <th>Company</th>
-                                                    <th>Unit Sale Price</th>
+                                                    <th>Product Name</th>
+                                                    <th>Invoice Price</th>
                                                     <th>Unit Purchase Price</th>
                                                     <th>Stock</th>
                                                     <th>Engine Number</th>
                                                     <th>Chasis Number</th>
+                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -372,9 +373,9 @@
 
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
+                        table.row.add([a[i].ProductID,  a[i].Company, a[i].ProductName, a[i]
                             .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StockIn, a[i]
-                            .EngineNumber, a[i].ChasisNumber
+                            .EngineNumber, a[i].ChasisNumber, a[i].Status
                         ]);
                     });
                     table.draw();
