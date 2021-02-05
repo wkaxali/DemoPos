@@ -623,8 +623,8 @@
 
                 profit = totalSail - totalPurchase;
                 table.rows[i].cells[4].innerHTML = profit;
-                table.rows[i].cells[5].innerHTML = profit * selfRatio / 100;
-                table.rows[i].cells[6].innerHTML = profit * investorRatio / 100;
+                table.rows[i].cells[6].innerHTML = profit * selfRatio / 100;
+                table.rows[i].cells[5].innerHTML = profit * investorRatio / 100;
 
             }
             for (var i = 1; i < table.rows.length; i++) {
