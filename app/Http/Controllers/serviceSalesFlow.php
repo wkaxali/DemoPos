@@ -124,6 +124,7 @@ class serviceSalesFlow extends Controller
          session(['netTotal' => $netTotal]);
          session(['InvBalance' => $InvoiceBalance]);
          session(['amountPaid' => $AmountPaid]);
+         session(['overallDiscount' => $Discount]);
 
       }
   
