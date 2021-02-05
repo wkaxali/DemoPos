@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>View Sales</title>
+    <title>View Expenses</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -68,7 +68,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 mt-3 text-center">
-                                <h3>View Sales</h3>
+                                <h3>View Expenses</h3>
                             </div>
                         </div>
                         <br>
@@ -82,16 +82,15 @@
                                             style="width: 100%; text-align: center;">
                                             <thead>
                                                 <tr>
-                                                    <th>ExpenseHead</th>
                                                     <th>Transaction ID</th>
+                                                    <th>ExpenseHead</th>
                                                     <th>Transaction Catogery</th>
                                                     <th>Price</th>
                                                     <th>Transaction Type</th>
                                                     <th>Date</th>
                                                     <th>Paid To</th>
-                                                    <th>Paid By</th>
                                                     <th>Paid Via</th>
-                                                    <th>Date</th>
+                                                    <th>Account Number</th>
                                                     <th>Remarks</th>
                                                   
                                                 </tr>
@@ -376,9 +375,8 @@
 
                     $.each(a, function (i, item) {
                       
-                        table.row.add([a[i].ExpenseHead, a[i].TransactionID, a[i].TransactionCatogery, a[i]
-                            .Amount, a[i].TransactionType, a[i].DateStamp, a[i].PaidTo, a[i]
-                            .PaidBy, a[i].PaidVia, a[i].DateStamp, a[i].Remarks
+                        table.row.add([a[i].TransactionID, a[i].ExpenseHead, a[i].TransactionCatogery, a[i]
+                            .Amount, a[i].TransactionType, a[i].DateStamp, a[i].FirstName, a[i].AccountName, a[i].AccountNumber, a[i].Remarks
                         ]);
                     });
                     table.draw();

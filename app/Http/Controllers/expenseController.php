@@ -32,6 +32,16 @@ class expenseController extends Controller
         'TransactionType'=>"Credit"
         ]);
 
+        DB::table('tblexpanseflow')->insertGetId([
+          
+          'ExpanseID'=>$expenseID,
+          'ExpanseHeadID'=>$amount,
+          'Remarks'=>"$remarks",
+          'DateStamp'=>$date,
+          
+          'Amount'=>$amount,
+          ]);
+
         $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
         $newBalance = $oldSelfBalance - $amount;
         LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
