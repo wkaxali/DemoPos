@@ -820,11 +820,11 @@
         </script>
         <script>
             $(document).ready(function () {
-                $("#Urgent").click(function () {
-                    $(this).css({
-                        "backgroundColor": "#e61d2f",
-                        "color": "#fff",
-
+                    $("#Urgent").click(function () {
+                        $(this).css({
+                            "backgroundColor": "#e61d2f",
+                            "color": "#fff",
+                        });        
                     });
                     $("#Normal").css({
                         "backgroundColor": "#fff",
@@ -835,12 +835,11 @@
                         "backgroundColor": "#fff",
                         "color": "#333",
                     });
-
-                });
-                $("#Normal").click(function () {
+                    $("#Normal").click(function () {
                     $(this).css({
                         "backgroundColor": "#e61d2f",
                         "color": "#fff",
+                    });
                     });
                     $("#Easily").css({
                         "backgroundColor": "#fff",
@@ -852,14 +851,12 @@
                         "color": "#333",
 
                     });
+                    $("#Easily").click(function () {
+                        $(this).css({
+                            "backgroundColor": "#e61d2f",
+                            "color": "#fff",
 
-                });
-                $("#Easily").click(function () {
-                    $(this).css({
-                        "backgroundColor": "#e61d2f",
-                        "color": "#fff",
-
-
+                        });        
 
                     });
                     $("#Urgent").css({
@@ -875,14 +872,12 @@
 
                     });
 
-                });
-            });
+                })
+            
 
         </script>
-        <script>
-
-    </script>
-    <script>
+        
+  
         <script>
         function priority1() {
             document.getElementById("priority").value = "Urgent"
@@ -1052,7 +1047,6 @@
         </script>
 
 
-<<<<<<< HEAD
                 ];
 
 
@@ -1066,13 +1060,11 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-=======
 
         <script>
             function loadEmployees() {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                     if (this.readyState == 4 && this.status == 200) {
 
@@ -1086,7 +1078,6 @@
                 xhttp.send();
 
 
-<<<<<<< HEAD
     <script>
         function loadHeads() {
             document.getElementById("dateValue").style.display = "none";
@@ -1096,13 +1087,11 @@
         }
 
     </script>
-=======
             }
 
             function loadCategory() {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
                     if (this.readyState == 4 && this.status == 200) {
 
@@ -1114,8 +1103,7 @@
                 xhttp.open("GET", "./getCategory/", true);
 
                 xhttp.send();
-
-<<<<<<< HEAD
+            }
     <script>
         function loadEmployees() {
             var xhttp = new XMLHttpRequest();
@@ -1154,14 +1142,8 @@
         }
 
     </script>
-=======
 
-            }
-
-        </script>
-
-        <script>
-            var toggle = true;
+            
 
             $(".sidebar-icon").click(function () {
                 if (toggle) {
@@ -1181,7 +1163,6 @@
                 }
                 toggle = !toggle;
             });
->>>>>>> 2158f2f6f329d02214b835345e9a60bb12507815
 
         </script>
 
