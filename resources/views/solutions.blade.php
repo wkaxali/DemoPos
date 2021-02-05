@@ -16,6 +16,10 @@
             padding: 3px 0px;
         }
 
+
+
+     
+   
     </style>
     <title>Forland Modern Motors</title>
 </head>
@@ -23,12 +27,18 @@
 <body>
     <hr>
     <br><br><br>
-    <main id="content">
-       
-    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
 
     <br><br><br>
-    <div  class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-5">
                 <label for="">To,</label>
@@ -103,13 +113,15 @@
                 <h5>1- 04<sup>RD</sup> Unit Out of 55 Units </h5>
             </div>
         </div>
+    <br><br><br><br>
         <div class="row">
             <div class="col-md-4 offset-md-8">
-                <input type="text" style="border-top: none; border-left: none; border-right: none;" name="" id="">
+
+                <input type="text" style="border-top: none; border-left: none; border-right: none; width: 300px;" name="" id="">
             </div>
         </div>
     </div>
-    <br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <hr>
     <footer>
         <div class="container text-center">
@@ -128,36 +140,16 @@
             </div>
         </div>
     </footer>
-</main>
+    </main>
 
-    <br><br>
-    <button id="cmd" >click</button>
 
-    <div id="editor"></div>
 
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
-    <script>
-        var doc = new jsPDF();
-        var specialElementHandlers = {
-        
-        };
 
-        $('#cmd').click(function () {
-            document.getElementById("testTable").removeAttribute("class");
-            doc.fromHTML($('#content').html(), {
-                
-                'elementHandlers': specialElementHandlers
-            });
-            doc.save('sample-file.pdf');
-        });
-
-
-    </script>
 </body>
 
 </html>
