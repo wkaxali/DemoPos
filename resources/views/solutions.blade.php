@@ -16,21 +16,48 @@
             padding: 3px 0px;
         }
 
+        label {
+            width: 55px;
+        }
 
+        tr th {
+            height: 50px;
+            font-size: 25px;
+        }
 
-     
-   
+        tr th:nth-child(1) {
+            padding-left: 5px;
+        }
+
+        tr th:nth-child(2) {
+            width: 600px;
+            text-align: center;
+        }
+
+        .mainDivs input {
+
+            margin: 4px 0px;
+        }
+
+        @media print {
+            input {
+                border: none !important;
+                outline: none !important;
+            }
+        }
+
     </style>
     <title>Forland Modern Motors</title>
 </head>
 
 <body>
+    <br><br>
     <hr>
     <br><br><br>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 text-center">
-                <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" alt="">
+                <img src="{{asset('assets/img/wtf.jpeg')}}" alt="">
             </div>
         </div>
     </div>
@@ -40,14 +67,21 @@
     <br><br><br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-5 offset-md-1">
                 <label for="">To,</label>
-                <h5>{{ Session::get('customerName')}}</h5>
-                <h5>Foton Auto Park (PVT) Ltd.</h5>
-                <h5>Subject: Invoice Request {{ Session::get('productName')}}</h5>
+                <input type="text" value="{{ Session::get('customerName')}}" class="form-control"
+                    style="display: inline-block !important; width: 200px !important;" name="" id="">
+                <h5>Foton Auto JW Park (PVT) Limited.</h5>
+                <label for="">Subject</label>
+                <input type="text" value="{{ Session::get('productName')}}" class="form-control"
+                    style="display: inline-block !important; width: 200px !important;" name="" id="">
+
+
             </div>
-            <div class="col-md-4 offset-md-3">
-                <h5>Date: {{ Session::get('invoiceDate')}}</h5>
+            <div class="col-md-4 offset-md-2">
+                <label for="">Date: </label>
+                <input type="date" name="" value="{{ Session::get('invoiceDate')}}" class="form-control"
+                    style="display: inline-block; width: 200px;" id="">
             </div>
         </div>
     </div>
@@ -55,12 +89,13 @@
     <br><br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12" id="testTable">
-                <table style="width: 100%; text-align: center;">
+            <div class="col-md-10 offset-md-1" id="testTable">
+                <table style="width: 100%;">
                     <thead>
                         <tr>
                             <th>Customer Name</th>
                             <th>{{ Session::get('customerName')}}</th>
+
                         </tr>
                         <tr>
                             <th>Address</th>
@@ -76,11 +111,13 @@
                         </tr>
                         <tr>
                             <th>Salesperson</th>
-                            <th>Forland Modern Motors</th>
+                            <!-- <th>Forland Modern Motors</th> -->
+                            <th></th>
                         </tr>
                         <tr>
                             <th>Dealer</th>
-                            <th>Forland Modern Motors</th>
+                            <!-- <th>Forland Modern Motors</th> -->
+                            <th></th>
                         </tr>
                         <tr>
                             <th>Vehicle</th>
@@ -100,46 +137,37 @@
                         </tr>
                         <tr>
                             <th>Amount</th>
-                            <th>PKR {{ Session::get('price')}}/-</th>
+                            <th></th>
+                            <!-- <th>PKR {{ Session::get('price')}}/-</th> -->
                         </tr>
                         <tr>
-                            <th>Payment: Cheque Details</th>
-                            <th>Payment Details Attached</th>
+                            <th>Payment Details</th>
+                            <!-- <th>Payment Details Attached</th> -->
+                            <th></th>
                         </tr>
                     </thead>
 
                 </table>
-                <p>Note:</p>
-                <h5>1- 04<sup>RD</sup> Unit Out of 55 Units </h5>
+                <p style="font-size: 18px; margin-top: 5px;">Note:</p>
+                <div class="mainDivs">
+                    <input type="text" name="" id=""><br>
+                    <input type="text" name="" id=""><br>
+                    <input type="text" name="" id="">
+                </div>
             </div>
         </div>
-    <br><br><br><br>
-        <div class="row">
-            <div class="col-md-4 offset-md-8">
+        <br><br><br><br>
+        <div class="row mt-5">
 
-                <input type="text" style="border-top: none; border-left: none; border-right: none; width: 300px;" name="" id="">
+
+            <div class="col-md-10 offset-md-1 text-right">
+                <label style="border-top: 1px solid #333; width:230px; text-align: center; !important" for="">Stamp &
+                    Sign</label>
+
             </div>
         </div>
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     <hr>
-    <footer>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-4">
-                    <i class="fas fa-map-marker"></i>
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-phone"></i>
-
-                </div>
-                <div class="col-md-4">
-                    <i class="fas fa-envelope"></i>
-
-                </div>
-            </div>
-        </div>
-    </footer>
     </main>
 
 
