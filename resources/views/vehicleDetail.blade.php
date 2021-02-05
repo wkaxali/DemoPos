@@ -169,7 +169,7 @@
                             Other Comments or Special Instructions
                         </div>
                         <div class="card-body">
-                            <h6>First Free Inspection + Free Oil Change + Filter</h6>
+                            <h6></h6>
                         </div>
                     </div>
                 </div>
@@ -178,7 +178,8 @@
                     <input type="text" value="{{ Session::get('total')}}" name="" id=""><br>
                     <label for="">TAX</label>
                     <input type="text" value="{{ Session::get('tax')}}" name="" id=""><br>
-                    
+                    <label for="">Discount</label>
+                    <input type="text" value="{{ Session::get('overallDiscount')}}" name="" id=""><br>
                     
                   
                     <label for="">TOTAL</label>
