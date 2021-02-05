@@ -127,7 +127,7 @@ class salesFlow extends Controller
         UpdateStocksController::UpdateStockStatus($pid,"Sold");
 
       
-        return $a;
+        return $invoiceNumber;
     }
     public function insertInDetailedOrder($row,$InvoiceID,$date){
      
