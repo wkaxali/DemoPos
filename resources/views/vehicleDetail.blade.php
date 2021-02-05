@@ -81,9 +81,9 @@
             <div class="col-md-5 offset-md-3 text-right">
                 <h2>INVOICE</h2>
                 <label for="">Date</label>
-                <input type="text" name="" id="" value="{{ Session::get('invoiceDate')}}"><br>
+                <input type="text" name="" id="" value="{{ Session::get('ivd')}}"><br>
                 <label for="">INVOICE #</label>
-                <input type="text" value="{{ Session::get('invoiceDetails')}}" name="" id=""><br>
+                <input type="text" value="{{ Session::get('iu')}}" name="" id=""><br>
                 <label for="">CUSTOMER ID #</label>
                 <input type="text" value="{{ Session::get('customerID')}}" name="" id="">
 
@@ -131,21 +131,28 @@
                                 <th>DESCRIPTION</th>
                                 <th>QTY</th>
                                 <th>UNIT PRICE</th>
-                                <th>TAX</th>
                                 <th>TOTAL</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                
-                                <td>{{ Session::get('itemNo')}}</td>
-                                <td>{{ Session::get('Description')}}</td>
-                                <td>{{ Session::get('quantity')}}</td>
+                            @foreach(Session::get('ProductNames') as $p)
+                            <td>{{$p[0]}}</td>
+                         
+                            <td>{{$p[1]}}</td>
+
+                            <td>{{$p[2]}}</td>
+                            <td>{{$p[3]}}</td>
+                            <!-- <td>{{$p[4]}}</td> -->
+                            <td>{{$p[5]}}</td>
+                                <!-- <td>{{ Session::get('quantity')}}</td>
                                 <td>{{ Session::get('UnitPrice')}}</td>
                                 <td>{{ Session::get('tax')}}</td>
-                                <td>{{ Session::get('total')}}</td>
+                                <td>{{ Session::get('total')}}</td> -->
+                                <!-- PID,$productName,$qty,$unitPrice,$tax,$Pt) -->
 
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -168,21 +175,19 @@
                 </div>
                 <div class="col-md-5 offset-md-2">
                     <label for="">SUBTOTAL</label>
-                    <input type="text" value="{{ Session::get('subTotal')}}" name="" id=""><br>
-                    <label for="">TAXABLE</label>
-                    <input type="text" value="{{ Session::get('taxable')}}" name="" id=""><br>
-                    <label for="">TAX RATE</label>
-                    <input type="text" value="{{ Session::get('taxRate')}}" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('total')}}" name="" id=""><br>
                     <label for="">TAX</label>
-                    <input type="text" value="{{ Session::get('taxAmount')}}" name="" id=""><br>
-                    <label for="">S & H</label>
-                    <input type="text" value="{{ Session::get('S&H')}}" name="" id=""><br>
-                    <label for="">OTHERS</label>
-                    <input type="text" value="{{ Session::get('others')}}" name="" id=""><br>
-                    <hr>
-                    <hr>
+                    <input type="text" value="{{ Session::get('tax')}}" name="" id=""><br>
+                    
+                    
+                  
                     <label for="">TOTAL</label>
-                    <input type="text" value="{{ Session::get('endTotal')}}" name="" id=""><br>
+                    <input type="text" value="{{ Session::get('netTotal')}}" name="" id=""><br>
+                    <hr>
+                    <label for="">Amount Paid</label>
+                    <input type="text" value="{{ Session::get('amountPaid')}}" name="" id=""><br>
+                    <label for="">Remaining</label>
+                    <input type="text" value="{{ Session::get('InvBalance')}}" name="" id=""><br>
                 </div>
             </div>
             <div class="row">
