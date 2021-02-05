@@ -838,7 +838,7 @@
 
             var taskSubject = document.getElementById("taskSubject").value;
             var assignedTo = document.getElementById("assignTo").value;
-            var dueDate = document.getElementById("date").value;
+            var dueDate = document.getElementById("dateValue").value;
             var category = document.getElementById("category").value;
             //var taskSubject = document.getElementById("taskSubject").value;
             var priority = document.getElementById("priority").value;
