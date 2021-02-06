@@ -11540,7 +11540,8 @@
             padding: 0px 25px;
             margin-top: 60px;
         }
-        .myTables tr td{
+
+        .myTables tr td {
             height: 471px;
         }
 
@@ -11584,7 +11585,7 @@
                         <div class="col-md-8">
                             <div class="customerName">
                                 {{ Session::get('customerName')}}
-                              &nbsp;
+                                &nbsp;
                                 {{ Session::get('fatherName')}}
                             </div>
                         </div>
@@ -11618,7 +11619,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="row mt-3">
                         <div class="col-md-4">
                             <div class="spec">
@@ -11629,7 +11630,7 @@
                         </div>
                         <div class="col-md-8">
                             <div class="customerName-1">
-                                
+
                                 <div class="my" style="visibility: hidden;">
                                     visibility hidden
                                 </div>
@@ -11645,7 +11646,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="customerName-1">
-                               &nbsp;
+                                &nbsp;
                             </div>
                         </div>
                     </div>
@@ -11669,10 +11670,10 @@
                             </div>
                         </div>
                     </div>
-               
+
                 </div>
             </div>
-        
+
         </div>
     </section>
     <br>
@@ -11719,15 +11720,19 @@
                     <table class="fwTable text-center" style="width: 100%;">
                         <thead>
                             <tr>
-                                <td style="font-weight: 800; border-bottom: none !important;padding-right: 15px;">Total In Words</td>
-                                <td style="font-weight: 800; border-bottom: none !important; width: 290px;">Total &nbsp;</td>
-                                <td style="padding-left: 102px; border-bottom: none !important; font-weight: 800;" >PKR {{ Session::get('totalCost')}}</td>
+                                <td style="font-weight: 800; border-bottom: none !important;padding-right: 15px;">Total
+                                    In Words</td>
+                                <td style="font-weight: 800; border-bottom: none !important; width: 290px;">Total &nbsp;
+                                </td>
+                                <td style="padding-left: 102px; border-bottom: none !important; font-weight: 800;">PKR
+                                    {{ Session::get('totalCost')}}</td>
 
                             </tr>
                             <tr style="height: 50px;">
-                                <td  style="border-top: none !important;" rowspan="2">{{ Session::get('amountInWords')}}</td>
-                                <td  style="font-weight: 800;border-top: none !important;" rowspan="2"></td>
-                                <td style="border-top: none !important;">  {{ Session::get('tax')}} &nbsp;</td>
+                                <td style="border-top: none !important;" rowspan="2">{{ Session::get('amountInWords')}}
+                                </td>
+                                <td style="font-weight: 800;border-top: none !important;" rowspan="2"></td>
+                                <td style="border-top: none !important;"> {{ Session::get('tax')}} &nbsp;</td>
 
                             </tr>
                         </thead>
@@ -11756,7 +11761,7 @@
                 <div class="col-md-12 text-center">
                     <div class="footerMain">
                         <h4>8-Km, Sheikhupura Road, Opposite Millat Tractors Limited, Lahore, Tel: 0300-0600061
-                         <br>   Email Address: forlandmodernmotors@yahoo.com</h4>
+                            <br> Email Address: forlandmodernmotors@yahoo.com</h4>
                     </div>
                 </div>
             </div>
