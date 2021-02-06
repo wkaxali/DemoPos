@@ -27,6 +27,7 @@ use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
 use App\Http\Controllers\saleRequestController;
+//use PDF;
 
 
 /*
@@ -395,4 +396,15 @@ Route::get('/sales', function () {
 
 Route::get('/exv', function () {
     return view('viewExpenses');
+});
+
+
+Route::get('/pdfvs', function () {
+    ini_set('max_execution_time', 60);
+    $data=TransactionFlow::getTransactionsForAccounts(1);
+    view()->share('viewExpenses',$data);
+    $pdf = PDF::loadView('viewExpenses', $data);
+
+    // download PDF file with download method
+    return $pdf->download('pdf_file.pdf');
 });
