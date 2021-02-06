@@ -11545,6 +11545,25 @@
             height: 471px;
         }
 
+        @media only screen and (max-width: 768px) {
+
+            .RecordTable,
+            .ji {
+                overflow: auto !important;
+
+
+
+            }
+
+            .RecordTable table {
+                width: 250% !important;
+            }
+
+            .ji .fwTable {
+                width: 250% !important;
+            }
+        }
+
     </style>
 </head>
 
@@ -11717,26 +11736,32 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <table class="fwTable text-center" style="width: 100%;">
-                        <thead>
-                            <tr>
-                                <td style="font-weight: 800; border-bottom: none !important;padding-right: 15px;">Total
-                                    In Words</td>
-                                <td style="font-weight: 800; border-bottom: none !important; width: 290px;">Total &nbsp;
-                                </td>
-                                <td style="padding-left: 102px; border-bottom: none !important; font-weight: 800;">PKR
-                                    {{ Session::get('totalCost')}}</td>
+                    <div class="ji">
+                        <table class="fwTable text-center" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <td style="font-weight: 800; border-bottom: none !important;padding-right: 15px;">
+                                        Total
+                                        In Words</td>
+                                    <td style="font-weight: 800; border-bottom: none !important; width: 290px;">Total
+                                        &nbsp;
+                                    </td>
+                                    <td style="padding-left: 102px; border-bottom: none !important; font-weight: 800;">
+                                        PKR
+                                        {{ Session::get('totalCost')}}</td>
 
-                            </tr>
-                            <tr style="height: 50px;">
-                                <td style="border-top: none !important;" rowspan="2">{{ Session::get('amountInWords')}}
-                                </td>
-                                <td style="font-weight: 800;border-top: none !important;" rowspan="2"></td>
-                                <td style="border-top: none !important;"> {{ Session::get('tax')}} &nbsp;</td>
+                                </tr>
+                                <tr style="height: 50px;">
+                                    <td style="border-top: none !important;" rowspan="2">
+                                        {{ Session::get('amountInWords')}}
+                                    </td>
+                                    <td style="font-weight: 800;border-top: none !important;" rowspan="2"></td>
+                                    <td style="border-top: none !important;"> {{ Session::get('tax')}} &nbsp;</td>
 
-                            </tr>
-                        </thead>
-                    </table>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

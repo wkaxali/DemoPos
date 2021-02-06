@@ -45,6 +45,14 @@
                 outline: none !important;
             }
         }
+        @media only screen and (max-width: 768px) {
+        .maing table{
+            width: 800px !important;
+        }
+
+        
+        }
+        
 
     </style>
     <title>Forland Modern Motors</title>
@@ -92,6 +100,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-10 offset-md-1" id="testTable">
+            <div class="maing">
                 <table style="width: 100%;">
                     <thead>
                         <tr>
@@ -150,6 +159,7 @@
                     </thead>
 
                 </table>
+            </div>
                 <p style="font-size: 18px; margin-top: 5px;">Note:</p>
                 <div class="mainDivs">
                     <textarea name="" id="" cols="113" rows="3"></textarea>
