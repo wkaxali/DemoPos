@@ -2154,11 +2154,10 @@
         xhttp.open("GET", "./getAvailableProducts/", true);
         xhttp.send();
     }
+   function  getInvoiceRequest(){
 
-    function getInvoiceRequest() {
-        alert();
-        id = document.getElementById("InvoiceID").value;
-        var xhttp = new XMLHttpRequest();
+    id =document.getElementById("InvoiceID").value ;
+    var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
             if (this.readyState == 4 && this.status == 200) {

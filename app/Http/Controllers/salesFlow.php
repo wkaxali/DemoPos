@@ -15,6 +15,11 @@ use DB;
 
 class salesFlow extends Controller
 {
+    function viewSales(){
+      $data=DB:: select('select * from vw_customersale_invoice');
+      return $data;
+    }
+
     public function SalesFlow(Request $request,$data){
      // order = [pid,totwT,discount,netTotal,amp,rmb,CID];
       $Array=json_decode($data);
@@ -40,10 +45,12 @@ class salesFlow extends Controller
       $city=$Array[19];
       $receivedBy=$Array[20];
       $totalCost=$Array[21];
-      
+
        //return $TransactionMode;
          
       $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
+
+      
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
          //return $dateNow;
         
@@ -119,38 +126,8 @@ class salesFlow extends Controller
 
         UpdateStocksController::UpdateStockStatus($pid,"Sold");
 
-        session(['customerName' => $customerName]);
-        session(['fatherName' => $fatherName]);
-        session(['CNIC' => $CNIC]);
-        session(['address' => $address]);
-        session(['engineNo' => $engineNo]);
-        session(['chassisNo' => $chassisNo]);
-        session(['Amount' => $AmountAfterDiscount]);
-        session(['total' => $amp]);
-        session(['invoiceDate' => $dateNow]);
-        session(['description' => $description]);
-        session(['color' => $color]);
-        session(['invoiceNo' => $invoiceNumber]);
-        session(['productName' => $productName]);
-        session(['price' => $tot]);
-        session(['quantity' => '1']);
-        session(['city' => $city]);
-        session(['referenceNumber' => 'FMM-GDP-000'.$invoiceNumber]);
-        session(['amountPaid' => $amp]);
-        session(['balance' => $rmb]);
-        session(['totalCost' => $totalCost]);
-        session(['receivedBy' => $receivedBy]);
-        session(['receiptNumber' => 'FMM-10-20-00'.$invoiceNumber]);
-        session(['tax' => $AmountAfterDiscount]);
-        session(['contact' => $contact]);
-        $numberToWords = new NumberToWords();
-        $numberTransformer = $numberToWords->getNumberTransformer('en');
-        $a= $numberTransformer->toWords($amp);
-        session(['amountInWords' => $a]);
-
-         
       
-        return $a;
+        return $invoiceNumber;
     }
     public function insertInDetailedOrder($row,$InvoiceID,$date){
      

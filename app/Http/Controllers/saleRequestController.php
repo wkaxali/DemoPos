@@ -3,46 +3,76 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use DB;
+
+use Carbon\Carbon;
+
+use NumberToWords\NumberToWords;
+//https://github.com/kwn/number-to-words
 
 class saleRequestController extends Controller
 {
+    public function saveQuoations($dateNow, $invoiceNumber, $city, $receivedBy){    
+        DB::table('tbl_print_docs')->insertGetId([
+            'invoiceDate' => $dateNow,
+            'invoiceNo' => $invoiceNumber,
+            'city' => $city,
+            'receivedBy' => $receivedBy,
+           ]);
+        }
+
+
     public function getInvoiceSaleRequest($InvoiceNo){
-        
+        $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
         $re = DB::table('vw_customersale_invoice')
         ->where('InvoiceNumber', '=', $InvoiceNo)
          ->first();
-        // $product = collect([1,2,3,4]);
-        // session(['invoiceDetails'=>$product]);
+
+        session(['invoiceNo' => $InvoiceNo]);
+        session(['customerID' => $re->CustomerID]);
+        session(['itemNo' => $re->ProductSerial]);
+        session(['quantity' => $re->Quantity]);
+        session(['unitPrice' => $re->PerUnitSalePrice]);
+        session(['productName' => $re->ProductName]);
+        session(['price' => $re->PerUnitSalePrice]);
+        session(['contact' => $re->Contect]);
         session(['customerName' => $re->CustomerName]);
         session(['CNIC' => $re->CNIC]);
         session(['address' => $re->Address]);
-        // session(['fatherName' => $fatherName]);
-        // session(['CNIC' => $CNIC]);
-        // session(['address' => $address]);
         session(['engineNo' => $re->EngineNumber]);
         session(['chassisNo' => $re->ChasisNumber]);
-        // session(['Amount' => $AmountAfterDiscount]);
-        // session(['total' => $amp]);
-        // session(['invoiceDate' => $dateNow]);
-        // session(['description' => $description]);
         session(['color' => $re->color]);
-        // session(['invoiceNo' => $invoiceNumber]);
-        session(['productName' => $re->ProductName]);
-        session(['price' => $re->PerUnitSalePrice]);
-        // session(['quantity' => '1']);
-        // session(['city' => $city]);
-        // session(['referenceNumber' => 'FMM-GDP-000'.$invoiceNumber]);
-        // session(['amountPaid' => $amp]);
-        // session(['balance' => $rmb]);
-        // session(['totalCost' => $totalCost]);
-        // session(['receivedBy' => $receivedBy]);
-        // session(['receiptNumber' => 'FMM-10-20-00'.$invoiceNumber]);
-        // session(['tax' => $AmountAfterDiscount]);
-        session(['contact' => $re->Contect]);
+        session(['fatherName' => $re->FatherName]);
+        session(['total' => $re->AmountPaid]);
+        session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
+        session(['amountPaid' => $re->AmountPaid]);
+        session(['description' => $re->ProductName]);
+        
+        session(['balance' => $re->Balance]);
+        session(['totalCost' => $re->TotalCost]);
+        session(['tax' => $re->VAT]);
+        session(['endTotal' => $re->NetTotal]);
+        $numberToWords = new NumberToWords();
+        $numberTransformer = $numberToWords->getNumberTransformer('en');
+        $a= $numberTransformer->toWords($re->AmountPaid);
+        session(['amountInWords' => $a]);
+
+        session(['receiptNumber' => 'FMM-'.$dateNow.'-'.$InvoiceNo]);
+        session(['invoiceDate' => $dateNow]);
+        //session(['vehRegNo' => '']);
+        //session(['distanceTraveled' => '']);
+        session(['Amount' =>'']);
+        session(['receivedBy' => '']);
+        session(['tax' => '0']);
+        session(['total' => '']);
+        session(['S&H' => '-']);
+        session(['others' => '-']);
+        session(['city' => '']);
+        session(['province' => '']);
+        
         
         //return $results;
 
     }
-
 }
