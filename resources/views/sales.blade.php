@@ -1229,6 +1229,14 @@
 
         }
 
+        /* .dt-button  */
+
+        .buttons-print {
+            padding: 10px 25px;
+            background-color: #0a549d;
+            color: #ffffff;
+        }
+
     </style>
 </head>
 
@@ -1844,7 +1852,19 @@
         });
 
     </script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+
     <script>
+        $(document).ready(function () {
+            $('#searchProductTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'print'
+                ]
+            });
+        });
         var toggle = true;
 
         $(".sidebar-icon").click(function () {
@@ -2411,10 +2431,11 @@
 
             //var invoiceNumber=getInvoiceID();
             var tot = document.getElementById("Total").value;
-            var discount = document.getElementById('DiscountOverall').value; if (discount == "") {
-                
-                discount=0;
-                document.getElementById('DiscountOverall').value=0;
+            var discount = document.getElementById('DiscountOverall').value;
+            if (discount == "") {
+
+                discount = 0;
+                document.getElementById('DiscountOverall').value = 0;
 
             }
 
@@ -2488,9 +2509,9 @@
             var contact = document.getElementById('CNO').value;
             var discount = document.getElementById('DiscountOverall').value;
             if (discount == "") {
-                
-                discount=0;
-                document.getElementById('DiscountOverall').value=0;
+
+                discount = 0;
+                document.getElementById('DiscountOverall').value = 0;
 
             }
             var invoiceID = document.getElementById('InvoiceID').value;
@@ -2505,7 +2526,8 @@
             var AID = $('#accounts').find(":selected").val();
 
             myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID, customerName,
-            contact];
+                contact
+            ];
 
             //alert(myRow2[0][1]);
             //alert(myRow2[11]);
@@ -2516,10 +2538,10 @@
 
 
             var xhttp = new XMLHttpRequest();
-            
+
             if (AID == "") {
                 alert("Payment Method not selected");
-                
+
             } else {
 
                 xhttp.onreadystatechange = function () {
