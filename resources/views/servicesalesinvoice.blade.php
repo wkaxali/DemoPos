@@ -11484,17 +11484,20 @@
         }
 
         .customerName-1 {
-            text-align: center;
+            /* text-align: center; */
         }
 
         table th,
         td {
+            border-right: 1px solid #333;
+        }
+
+        table {
             border: 1px solid #333;
         }
 
         .RecordTable {
-            border: 1px solid #333;
-            height: 500px !important;
+            height:auto ;
         }
 
         .footerMain {
@@ -11541,9 +11544,7 @@
             margin-top: 60px;
         }
 
-        .myTables tr td {
-            height: 471px;
-        }
+
 
         @media only screen and (max-width: 768px) {
 
@@ -11564,6 +11565,24 @@
             }
         }
 
+        table {
+            height: 495px;
+        }
+        tr{
+            vertical-align: baseline !important;
+        }
+        .myTables{
+            max-height: auto !important;
+        }
+     .myTables   th,td{
+    width: 20%  !important;
+}
+.fwTable th:nth-child(1){
+    width: 60% !important;
+}
+.fwTable td:nth-child(1){
+    width: 30.2% !important;
+}
     </style>
 </head>
 
@@ -11648,11 +11667,9 @@
 
                         </div>
                         <div class="col-md-8">
-                            <div class="customerName-1">
+                            <div class="customerName-1 text-left">
+                                {{ Session::get('contact')}}
 
-                                <div class="my" style="visibility: hidden;">
-                                    visibility hidden
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -11675,7 +11692,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="customerName-1">
-                                {{ Session::get('invoiceNo')}} &nbsp;
+                                {{ Session::get('iu')}} &nbsp;
                             </div>
                         </div>
                     </div>
@@ -11685,7 +11702,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="customerName-1">
-                                {{ Session::get('invoiceDate')}} &nbsp;
+                                {{ Session::get('ivd')}} &nbsp;
                             </div>
                         </div>
                     </div>
@@ -11707,24 +11724,34 @@
                         <table class="myTables" style="width: 100%;  text-align: center;">
                             <thead>
                                 <tr>
-                                    <th>Description</th>
-                                    <th>Color</th>
-                                    <th>Engine No</th>
-                                    <th>Chassis No</th>
-                                    <th>Amount</th>
+                                    <th>ITEM#</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>QTY</th>
+                                    <th>UNIT PRICE</th>
+                                    <th>TOTAL</th>
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{ Session::get('description')}}</td>
-                                    <td style="width: 144px;">{{ Session::get('color')}}</td>
-                                    <td style="width: 290px;">{{ Session::get('engineNo')}}</td>
-                                    <td>{{ Session::get('chassisNo')}}</td>
-                                    <td>{{ Session::get('totalCost')}}</td>
+                                    @foreach(Session::get('ProductNames') as $p)
+                                    <td>{{$p[0]}}</td>
+
+                                    <td>{{$p[1]}}</td>
+
+                                    <td>{{$p[2]}}</td>
+                                    <td>{{$p[3]}}</td>
+                                    <!-- <td>{{$p[4]}}</td> -->
+                                    <td>{{$p[5]}}</td>
+                                    <!-- <td>{{ Session::get('quantity')}}</td>
+                                        <td>{{ Session::get('UnitPrice')}}</td>
+                                        <td>{{ Session::get('tax')}}</td>
+                                        <td>{{ Session::get('total')}}</td> -->
+                                    <!-- PID,$productName,$qty,$unitPrice,$tax,$Pt) -->
 
                                 </tr>
-
+                                @endforeach
+          
                             </tbody>
                         </table>
                     </div>
@@ -11740,23 +11767,23 @@
                         <table class="fwTable text-center" style="width: 100%;">
                             <thead>
                                 <tr>
-                                    <td style="font-weight: 800; border-bottom: none !important;padding-right: 15px;">
+                                    <td
+                                        style="font-weight: 800; border-bottom: none !important;border-left: 1px solid #333 !important;">
                                         Total
                                         In Words</td>
-                                    <td style="font-weight: 800; border-bottom: none !important; width: 290px;">Total
-                                        &nbsp;
-                                    </td>
-                                    <td style="padding-left: 102px; border-bottom: none !important; font-weight: 800;">
-                                        PKR
+
+                                    <td style=" border-bottom: none !important; font-weight: 800;">
+                                        Total
                                         {{ Session::get('totalCost')}}</td>
 
                                 </tr>
                                 <tr style="height: 50px;">
-                                    <td style="border-top: none !important;" rowspan="2">
+                                    <td
+                                        style="border-top: none !important ;border-left: 1px solid #333 !important; border-bottom: 1px solid #333; ">
                                         {{ Session::get('amountInWords')}}
                                     </td>
-                                    <td style="font-weight: 800;border-top: none !important;" rowspan="2"></td>
-                                    <td style="border-top: none !important;"> {{ Session::get('tax')}} &nbsp;</td>
+                                    <td style="border-top: none !important; border-bottom: 1px solid #333;">
+                                        {{ Session::get('netTotal')}}-/Pkr &nbsp;</td>
 
                                 </tr>
                             </thead>
