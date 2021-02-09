@@ -754,20 +754,17 @@
         .appointment-form #hour_appointment {
             z-index: 9;
         }
-    
-        }
+
         @media screen and (max-width: 1024px) {
             .container {
                 margin: 0 auto;
-
             }
         }
-        .container{  max-height: 260px;}
+
         @media screen and (max-width: 768px) {
             .container {
                 width: calc(100% - 30px);
                 max-width: 100%;
-              
             }
         }
 
@@ -1411,32 +1408,6 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-            </div>
-        </div>
-    </header>
-    
-    <section>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="myMainRow">
-
-
-                        <div class="myOwnRow-left">
-                            <div class="input-field">
-                                <label for="status">Product ID</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="PID">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Model</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="ProductName">
-=======
                 <header>
                     <div class="container">
                         <div class="row">
@@ -1446,7 +1417,6 @@
                                         <h6> <strong>Date :</strong> 27/11/2020</h6>
                                     </div>
                                 </div>
->>>>>>> 5d0fdeca0fb8257d6ca59f2a3638e5a281076947
                             </div>
                         </div>
                     </div>
@@ -1479,38 +1449,6 @@
                                                 name="name" id="color">
                                         </div>
 
-<<<<<<< HEAD
-                            <div class="input-field">
-                                <label for="status">Chassis Number </label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="ChasisNumber">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Engine Number</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="EngineNumber">
-                            </div>
-                            <div class="input-field"></label>
-                             
-                                <label for="status">Status</label>   <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="Status">
-                            </div>
-                           
-                        </div>
-
-                        <div style="display: flex;" class="myOwnROw">
- <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-
-                            <div class="row">
-                                <div class="col-md-12">
-                            
-=======
                                         <div class="input-field">
                                             <label for="status">Chassis Number </label>
                                             <input type="text" autocomplete="OFF" class="form-control"
@@ -1529,7 +1467,6 @@
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="Status">
                                         </div>
->>>>>>> 5d0fdeca0fb8257d6ca59f2a3638e5a281076947
 
                                         <div class="input-field">
                                             <label for="status">Description</label>
@@ -1647,41 +1584,6 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <br>
-
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="SecondColor my-4">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-  
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="head-left">
-
-
-                        <div class="input-field">
-                        <label for="issue-3">Customer Name</label>
-                                <select class="selectpicker" data-live-search="true" tabindex="null" id="CustomerName"
-                                    onchange="getCurrentCustomerInfo()">
-                                    <!-- from database -->
-                                </select>
-                            <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
-=======
                 </section>
                 <section>
                     <div class="container">
@@ -1697,7 +1599,6 @@
                                             <!-- from database -->
                                         </select>
                                         <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
->>>>>>> 5d0fdeca0fb8257d6ca59f2a3638e5a281076947
                                margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
                                     </div>
                                     <div class="input-field">
@@ -1824,26 +1725,12 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                </div>
-            </div>
-        </div>
-    </section>
-    <br>
-    <br>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="ThirdColor my-4">
-=======
                 </section>
                 <section>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="ThirdColor my-4">
->>>>>>> 5d0fdeca0fb8257d6ca59f2a3638e5a281076947
 
                                 </div>
                             </div>

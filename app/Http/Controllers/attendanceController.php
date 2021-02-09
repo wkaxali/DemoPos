@@ -51,7 +51,7 @@ class attendanceController extends Controller
 
 
 public static function getAttendance(){
-    $data=DB:: select('select * from vw_emoloyeeattendance');
+    $data=DB:: select('select * from vw_emoloyeeattendance order by Date DESC');
     return $data;
   }
 
