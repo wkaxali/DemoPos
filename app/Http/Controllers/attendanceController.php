@@ -14,22 +14,38 @@ class attendanceController extends Controller
 
         $EID=json_decode($CO);
        //->format('Y-m-d h:iA');
-        $date = Carbon::now()->toDateString();
-        $time = Carbon::now()->toTimeString();
-        $reportingTime = Carbon::create(0000, 00, 00, 15, 15, 00)->toTimeString();
-        $p='15-15-15';
-        $status = '';
-        if ($time > $p) {
-            $status = 'Late';
+       $date=Carbon::now();
+        $dateToday = Carbon::now()->toDateString();
+        $timeToday = Carbon::now();
+
+        
+       $reportingTime =Carbon::parse( DB::table('tblemployeepay')
+                    ->where('EID', '=', $EID)
+                     ->first()->ReportingTime);
+        
+            // return $reportingTime;
+      
+        $status = 'LATE';
+        print("Today Time ".$timeToday."\n");
+        print("Reporting Time ".$reportingTime."\n");
+       $minLate= $timeToday->diffInMinutes($reportingTime);
+       print("Late in Minutes".$minLate."\n");
+       $hm= $timeToday->diffForHumans($reportingTime);
+        if ($minLate<=15) {
+            $status = 'On Time';//$today->eq($last)
+            $rm="On Time";
+           // return "Wow On time";
           } else {
-            $status = 'In Time';
+            $status = 'Late';
+            $rm="You are ".$hm." the Reporting Time";
           }
         $tid=DB::table('tbl_employeeattendance')->insertGetId([
             'EID'=>$EID,
             'Date'=>$date,
-            'TimeIn'=>$time,
+            'TimeIn'=>$timeToday,
             'ReportingTime'=>$reportingTime,
-            'Status'=>$status
+            'Status'=>$status,
+            'Remarks'=>$rm
             ]);       
 }
 

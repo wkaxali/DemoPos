@@ -492,8 +492,8 @@
 
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].FirstName, a[i].LastName, a[i].EID, a[i].Date, a[i].TimeIn, a[i]
-                            .TimeOut, a[i].Status, '+'
+                        table.row.add([a[i].EID,a[i].FirstName, a[i].LastName,  a[i].Date, a[i].TimeIn, a[i]
+                            .TimeOut, a[i].Status, a[i].Remarks
                         ]);
                     });
                     table.draw();

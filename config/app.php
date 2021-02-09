@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Karachi',
 
     /*
     |--------------------------------------------------------------------------
@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
 
-        /*
+        /*fzone
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
