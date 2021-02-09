@@ -44,6 +44,7 @@ class quotationController extends Controller
             session(['CNIC' => $CNIC]);
             session(['address' => $address]);
             session(['price' => $unitPrice]);
+            session(['contact' => $contact]);
             session(['total' => $totalPrice]);
             session(['invoiceDate' => $date]);
             session(['description' => $description]);
@@ -51,9 +52,48 @@ class quotationController extends Controller
             session(['productName' => $model]);
             session(['quantity' => $quantity]);
             session(['city' => $city]);
-            
+
+            DB::table('tbl_quotations')->insertGetId([
+                'CustomerName'=>$customerName,
+                'FatherName'=>$fatherName,
+                'CNIC'=>$CNIC,
+                'City'=>$city,
+                'Contact'=>$contact,
+                'Address'=>$address,
+                'Discription'=>$description,
+                'Color'=>$color,
+                'UnitPrice'=>$unitPrice,
+                'Quantity'=>$quantity,
+                'TotalPrice'=>$totalPrice,
+                'Model'=>$model,
+                'Date'=>$date
+                ]);
+
+            DB::table('customeinformation')->insertGetId([
+                'CustomerName'=>$customerName,
+                'FatherName'=>$fatherName,
+                'Contect'=>$contact,
+                'Balance'=>0,
+                'Address'=>$address,
+                'CNIC'=>$CNIC,
+                ]);
+
             return 'for '.$description.' ';
         
-            
             }
+
+
+        public function  viewQuotations(){
+            $data=DB:: select('select * from tbl_quotations');
+            return $data;
+            }
+
+
+        public function  getQuotation($QID){
+            $data=DB:: select('select * from tbl_quotations where QID ='.$QID);
+            return $data;
+            }
+            
+            
+        
 }

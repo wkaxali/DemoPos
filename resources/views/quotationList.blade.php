@@ -39,7 +39,7 @@
     <title>Quotation List</title>
 </head>
 
-<body>
+<body onload="getQuotations()">
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -53,20 +53,24 @@
         </div><br><br>
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <table class="table table-bordered table-hover" id="myTables">
+                <table class="table table-bordered table-hover" id="quotationsTable">
                     <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                            <th></th>
-                        </tr>
+                        <th>QID</th>
+                        <th>CustomerName</th>
+                        <th>FatherName</th>
+                        <th>CNIC</th>
+                        <th>City</th>
+                        <th>Address</th>
+                        <th>Contact</th>
+                        <th>Discription</th>
+                        <th>Color</th>
+                        <th>UnitPrice</th>
+                        <th>Quantity</th>
+                        <th>TotalPrice</th>
+                        <th>Model</th>
+                        <th>Date</th>
                     </thead>
-                    <tbody>
-
-                    </tbody>
+                    
                 </table>
 
             </div>
@@ -345,6 +349,41 @@
             }
             toggle = !toggle;
         });
+
+
+        function getQuotations() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var data = this.responseText;
+                    //alert(data);
+                    var table;
+                    var a = JSON.parse(data);
+                    //  alert(a[0].ProductSerial);
+                    table = $('#quotationsTable').DataTable();
+
+                    $.each(a, function (i, item) {
+
+                        table.row.add([a[i].QID,  a[i].CustomerName, a[i].FatherName, a[i]
+                            .CNIC, a[i].City, a[i].Address, a[i]
+                            .Contact, a[i].Discription, a[i].Color , a[i]
+                            .UnitPrice, a[i].Quantity, a[i].TotalPrice, a[i]
+                            .Model, a[i].Date
+                        ]);
+                    });
+                    table.draw();
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./viewQuotations/", true);
+
+            xhttp.send();
+        }
+
+
     </script>
 </body>
 
