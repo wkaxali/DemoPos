@@ -60,6 +60,9 @@
             border-width: 3px;
             margin: 3px 0px;
         }
+        .tableDiv{
+            height: 500px;
+        }
 
     </style>
     <title>Forland Modern Motors</title>
@@ -130,6 +133,8 @@
             </div><br><br><br>
             <div class="row">
                 <div class="col-md-12">
+                <div class="tableDiv">
+             
                     <table style="width: 100%;">
                         <thead>
                             <tr>
@@ -142,127 +147,27 @@
                         </thead>
                         <tbody>
                         <tr>
-                                
-                                <td>{{ Session::get('itemNo')}}</td>
-                                <td>{{ Session::get('Description')}}</td>
-                                <td>{{ Session::get('quantity')}}</td>
+                            @foreach(Session::get('ProductNames') as $p)
+                            <td>{{$p[0]}}</td>
+
+                            <td>{{$p[1]}}</td>
+
+                            <td>{{$p[2]}}</td>
+                            <td>{{$p[3]}}</td>
+                            <!-- <td>{{$p[4]}}</td> -->
+                            <td>{{$p[5]}}</td>
+                                <!-- <td>{{ Session::get('quantity')}}</td>
                                 <td>{{ Session::get('UnitPrice')}}</td>
                                 <td>{{ Session::get('tax')}}</td>
-                                <!-- <td>{{ Session::get('total')}}</td> -->
+                                <td>{{ Session::get('total')}}</td> -->
+                                <!-- PID,$productName,$qty,$unitPrice,$tax,$Pt) -->
 
-                         </tr>
-                         <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-
-                     
-                        </tr>
+                            </tr>
+                            @endforeach
                
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
