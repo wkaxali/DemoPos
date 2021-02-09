@@ -769,8 +769,13 @@
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
 
+                var mainValue = document.getElementById("changeme");
+                mainValue.value = tomorrow;
             }
 
+            function customDate() {
+                var custumDate = document.getElementById("date").value;
+                alert(custumDate);
 
         
 
@@ -787,7 +792,7 @@
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
 
-        }
+            }
 
         function customDate() {
             var custumDate = document.getElementById("date").value;

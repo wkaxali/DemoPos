@@ -187,6 +187,39 @@
             color: #fff;
         }
 
+        @media print {
+            .left-content {
+                width: 100% !important;
+            }
+
+            .sidebar-menu {
+                display: none;
+            }
+
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            #mainComapnyLedger {
+                visibility: visible !important;
+            }
+
+            table {
+                page-break-before: always;
+            }
+        }
+
     </style>
 </head>
 
@@ -256,7 +289,7 @@
                     <div class="container">
                         <div class="row borderCustom">
                             <div class="col-md-12 text-center">
-                                <h6>Details</h6>
+                                <h3 id="mainComapnyLedger">Details</h3>
                             </div>
                         </div>
                     </div>
@@ -267,24 +300,26 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="mainTable">
-                                    <table class="table-striped table-bordered table-hover" id="myTable">
-                                        <thead>
-                                            <tr>
-                                                <th>Date</th>
-                                                <th>Amount</th>
-                                                <th>Transaction ID</th>
-                                                <th>Type</th>
-                                                <th>Balance</th>
-                                                <th>Current</th>
-                                                <th>Mode</th>
-                                                <th>Account</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
+                                    <main id="mainHeader">
+                                        <table class="table-striped table-bordered table-hover" id="myTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Amount</th>
+                                                    <th>Transaction ID</th>
+                                                    <th>Type</th>
+                                                    <th>Balance</th>
+                                                    <th>Current</th>
+                                                    <th>Mode</th>
+                                                    <th>Account</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                                        </tbody>
+                                            </tbody>
 
-                                    </table>
+                                        </table>
+                                    </main>
                                 </div>
                             </div>
                         </div>
@@ -341,7 +376,7 @@
                             <div class="col-md-4 offset-md-8">
                                 <div class="footerBtns">
                                     <button class="btn">Edit</button>
-                                    <button class="btn">Print</button>
+                                    <button onclick="window.print()" class="btn">Print</button>
                                 </div>
                             </div>
                         </div>

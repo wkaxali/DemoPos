@@ -98,6 +98,22 @@
             width: auto !important;
 
         }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
 
     </style>
 </head>
@@ -107,6 +123,8 @@
 
 <div class="left-content">
     <div class="inner-block">
+<main id="mainHeader">
+
 
     <main>
         <div class="container">
@@ -117,6 +135,7 @@
             </div>
         </div>
     </main>
+    <br>
     <header>
         <div class="container">
             <div class="row">
@@ -138,6 +157,7 @@
 
                 </div>
             </div>
+            <br>
             <div class="row customClassBorder my-3">
                 <div class="col-md-5 offset-md-1">
                     <h4>Mohsin Jabbar</h4>
@@ -183,6 +203,7 @@
             </div>
         </div>
     </header>
+    <br>
     <section id="TblSection">
         <div class="container">
             <div class="row">
@@ -212,16 +233,18 @@
             </div>
         </div>
     </section>
+</main>
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 customButtons offset-md-6">
                     <button style="background-color: #e61d2f;color: #ffffff;" class="btn ">Update</button>
-                    <button style="background-color: #0a549d;color: #ffffff;" class="btn ">Print</button>
+                    <button onclick="window.print()" style="background-color: #0a549d;color: #ffffff;" class="btn ">Print</button>
                 </div>
             </div>
         </div>
     </footer>
+
     </div>
 </div>
 <div class="sidebar-menu">

@@ -131,7 +131,7 @@
         .myflex {
             display: flex;
 
-            justify-content: space-evenly;
+            justify-content: center;
         }
 
         .myflex-2 {
@@ -153,8 +153,13 @@
             color: #fff;
         }
 
+        .myflex-2 a {
+            text-decoration: underline !important;
+
+        }
+
     </style>
-    <title>Generate Barcode</title>
+    <title>Employer Tasks View</title>
 </head>
 
 <body>
@@ -166,10 +171,17 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h3>Daily Purchase</h3>
+                            <h3>Employer Tasks View</h3>
                         </div>
                     </div>
-                    <br><br>
+              
+                    <div class="row my-4">
+                        <div class="col-md-8 offset-md-2">
+                            <label style="width:200px;"  for="">Employee Name</label>
+                            <h5 style="display: inline-block; font-weight: 700;">Usama Ali</h5>
+                        </div>
+                    </div>
+           
                     <div class="myflex">
                         <div class="inputs">
                             <label for="">From</label>
@@ -179,7 +191,7 @@
                         </div>
 
                         <div class="inputs">
-                            <label for="">To</label>
+                            <label style="margin-left: 50px;" for="">To</label>
                             <input class="form-control"
                                 style="display: inline-block !important; width: 200px !important;" type="date" name=""
                                 id="">
@@ -194,29 +206,25 @@
                         <table id="myTables">
                             <thead>
                                 <tr>
-                                    <th>Dummy</th>
-                                    <th>Dummy</th>
-                                    <th>Dummy</th>
-                                    <th>Dummy</th>
-                                    <th>Dummy</th>
-                                    <th>Dummy</th>
-                                    <th>Dummy</th>
-                                    <th>Dummy</th>
-                                    <th>Dummy</th>
+                                    <th>Employee Id</th>
+                                    <th>Employee Name</th>
+                                    <th>Company</th>
+                                    <th>Task</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+
 
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
+                                    <td>#123</td>
+                                    <td>Usama Ali</td>
+                                    <td>Forland</td>
+                                    <td>Generate Invoices</td>
+                                    <td>Completed</td>
+                                    <td><a href="#">Details</a></td>
+
 
                                 </tr>
                             </tbody>
