@@ -776,7 +776,7 @@
             function customDate() {
                 var custumDate = document.getElementById("date").value;
                 alert(custumDate);
-
+            }
         
 
         function TomorrowDate() {
@@ -854,9 +854,10 @@
             //alert(sp);
             $('#subTasks tr').each(function (row, tr) {
                 taskDetails[row] = [
-                    $(tr).find('td:eq(1)').text(), //Amount
+                $(tr).find('td:eq(1) input[type="text"]').val(), //Amount
                 ];
             });
+           
             
             OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority];
             var taskTable = JSON.stringify(OverallTask);

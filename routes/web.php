@@ -169,10 +169,10 @@ Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController:
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
 
 
-Route::get('/', function () {
-    
+Route::get('/', function () {   
     return view('signInSignUp');
 });
+
 Route::get('/sh', function () {
     
     return view('StockHistory');
