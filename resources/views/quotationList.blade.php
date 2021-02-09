@@ -69,6 +69,7 @@
                         <th>TotalPrice</th>
                         <th>Model</th>
                         <th>Date</th>
+                        <th>Action</th>
                     </thead>
                     
                 </table>
@@ -370,7 +371,7 @@
                             .CNIC, a[i].City, a[i].Address, a[i]
                             .Contact, a[i].Discription, a[i].Color , a[i]
                             .UnitPrice, a[i].Quantity, a[i].TotalPrice, a[i]
-                            .Model, a[i].Date
+                            .Model, a[i].Date, '<button class="btn print" onclick="printQuotation('+a[i].QID+')" >Print</button>'
                         ]);
                     });
                     table.draw();
@@ -382,6 +383,24 @@
 
             xhttp.send();
         }
+
+
+        function printQuotation(QID){
+            alert(QID);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                window.open('/qt');
+
+                }
+            }
+
+            xhttp.open("GET", "./getQuotation/" + QID, true);
+            xhttp.send();
+
+        }
+
 
 
     </script>

@@ -90,8 +90,30 @@ class quotationController extends Controller
 
 
         public function  getQuotation($QID){
-            $data=DB:: select('select * from tbl_quotations where QID ='.$QID);
-            return $data;
+
+            $data = DB::table('tbl_quotations')
+            ->where('QID', '=', $QID)
+                ->first();
+
+            $numberToWords = new NumberToWords();
+            $numberTransformer = $numberToWords->getNumberTransformer('en');
+            $a= $numberTransformer->toWords($data->TotalPrice);
+            
+            session(['amountInWords' => $a]);
+            session(['customerName' => $data->CustomerName]);
+            session(['fatherName' => $data->FatherName]);
+            session(['CNIC' => $data->CNIC]);
+            session(['address' => $data->Address]);
+            session(['price' => $data->UnitPrice]);
+            session(['contact' => $data->Contact]);
+            session(['total' => $data->TotalPrice]);
+            session(['invoiceDate' => $data->Date]);
+            session(['description' => $data->Discription]);
+            session(['color' => $data->Color]);
+            session(['productName' => $data->Model]);
+            session(['quantity' => $data->Quantity]);
+            session(['city' => $data->City]);
+
             }
             
             
