@@ -415,5 +415,5 @@ Route::get('/ssi', function () {
     return view('printSaleInvoice');
 });
 Route::get('/sbp', function () {
-    return view('solution');
+    return view('printServiceSalesInvoice');
 });
