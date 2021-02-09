@@ -56,6 +56,13 @@
             padding: 0;
             box-sizing: border-box;
         }
+        input{
+            border-width: 3px;
+            margin: 3px 0px;
+        }
+        .tableDiv{
+            height: 500px;
+        }
 
     </style>
     <title>Forland Modern Motors</title>
@@ -63,25 +70,26 @@
 
 <body>
     
-<div class="borderMain">
+<div class="borderMain" style="margin-top: 22px;">
         <div class="borderMain">
             <div class="borderMain">
                 <div class="borderMain">
                     <div class="mainBorder">
+                        <br>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4">
-                <h4>Forland Modern Motors</h4>
-                <p>8-Km Sheikupura Road Opposite Millat Tractors Ltd.
+            <div class="col-md-5">
+                <h2>Forland Modern Motors</h2>
+                <p style="margin-top: 10px;">8-Km Sheikupura Road Opposite Millat Tractors Ltd.
                     Lahore.</p>
                 <p>Sales Tax No. 3277876204764</p>
                 <p>NTN # 8258676</p>
                 <p>Email: forlandmodernmotors@yahoo.com</p>
             </div>
-            <div class="col-md-5 offset-md-3 text-right">
+            <div class="col-md-5 offset-md-2 text-right">
                 <h2>INVOICE</h2>
-                <label for="">Date</label>
-                <input type="text" name="" id="" value="{{ Session::get('ivd')}}"><br>
+                <label style="margin-top: 10px;" for="">Date</label>
+                <input style="margin-top: 10px;" type="text" name="" id="" value="{{ Session::get('ivd')}}"><br>
                 <label for="">INVOICE #</label>
                 <input type="text" value="{{ Session::get('iu')}}" name="" id=""><br>
                 <label for="">CUSTOMER ID #</label>
@@ -90,6 +98,7 @@
             </div>
         </div>
     </div>
+    <br><br><br>
     <section>
         <div class="container-fluid">
             <div class="row">
@@ -121,9 +130,11 @@
                     <input type="text" value="{{ Session::get('distanceTraveled')}}" name="" id=""><br>
 
                 </div>
-            </div><br>
+            </div><br><br><br>
             <div class="row">
                 <div class="col-md-12">
+                <div class="tableDiv">
+             
                     <table style="width: 100%;">
                         <thead>
                             <tr>
@@ -135,10 +146,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                        <tr>
                             @foreach(Session::get('ProductNames') as $p)
                             <td>{{$p[0]}}</td>
-                         
+
                             <td>{{$p[1]}}</td>
 
                             <td>{{$p[2]}}</td>
@@ -153,13 +164,15 @@
 
                             </tr>
                             @endforeach
+               
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <br>
+    <br><br><br><br><br>
     <section>
         <div class="container-fluid">
             <div class="row">
@@ -191,22 +204,27 @@
                     <input type="text" value="{{ Session::get('InvBalance')}}" name="" id=""><br>
                 </div>
             </div>
+            <br><br><br>
             <div class="row">
                 <div class="col-md-3">
-                    <h5>Stamp & Signature</h5>
+                    <h5 style="border-top:1px solid #333; display: inline-block;">Stamp & Signature</h5>
                 </div>
                 <div class="col-md-6 text-center">
-                    <p class="paras">If you have any questions about this invoice, please contact Mohsin Jabbar , 0321-3888893 #, mohsinjabbar560@gmail.com
-                        
-                    </p>
+                  
                     <h5>Expertise. Convenience. Reliability</h5>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 text-right">
                     <h5>Service Manager</h5>
                 </div>
             </div>
+            <br>
         </div>
     </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>

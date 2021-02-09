@@ -280,6 +280,23 @@
         .inner-block {
     padding: 0em !important;
 }
+@media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100% !important;
+            }
+        }
     </style>
 </head>
 
@@ -390,6 +407,9 @@
 
                         </div>
                         <br>
+                        <main id="mainHeader">
+
+                      
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="bookingRightTable">
@@ -454,11 +474,12 @@
 
 
                                     </div>
+                                </main>
                                     <div class="clear"></div>
 
 
                                     <div class="footerBtn">
-                                        <a href="#" class="printBtns btn">Print Order</a>
+                                        <a href="#" onclick="window.print()" class="printBtns btn">Print Order</a>
                                         <button class="placeBtns btn" onclick="placeOrder()">Place Order</button>
                                     </div>
                                 </div>

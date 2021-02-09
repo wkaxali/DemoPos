@@ -4,18 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Gate Pass</title>
+    <!-- CSS -->
+
+    <title>Forland Modern Motors</title>
     <style>
-        /*!
- * Bootstrap v4.6.0 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+        @page {
+            size: auto;
+            /* auto is the initial value */
+            margin: 0;
+            /* this affects the margin in the printer settings */
+        }
+
         :root {
             --blue: #007bff;
             --indigo: #6610f2;
@@ -43,7 +42,7 @@
             --breakpoint-md: 768px;
             --breakpoint-lg: 992px;
             --breakpoint-xl: 1200px;
-            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
         }
 
@@ -75,7 +74,7 @@
 
         body {
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             font-size: 1rem;
             font-weight: 400;
             line-height: 1.5;
@@ -254,8 +253,9 @@
             border-radius: 0
         }
 
-        button:focus:not(:focus-visible) {
-            outline: 0
+        button:focus {
+            outline: 1px dotted;
+            outline: 5px auto -webkit-focus-ring-color
         }
 
         button,
@@ -2551,11 +2551,6 @@
             border-radius: .25rem
         }
 
-        .form-row>.col>.valid-tooltip,
-        .form-row>[class*=col-]>.valid-tooltip {
-            left: 5px
-        }
-
         .is-valid~.valid-feedback,
         .is-valid~.valid-tooltip,
         .was-validated :valid~.valid-feedback,
@@ -2589,7 +2584,7 @@
         .was-validated .custom-select:valid {
             border-color: #28a745;
             padding-right: calc(.75em + 2.3125rem);
-            background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right .75rem center/8px 10px no-repeat, #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") center right 1.75rem/calc(.75em + .375rem) calc(.75em + .375rem) no-repeat
+            background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(.75em + .375rem) calc(.75em + .375rem)
         }
 
         .custom-select.is-valid:focus,
@@ -2671,11 +2666,6 @@
             border-radius: .25rem
         }
 
-        .form-row>.col>.invalid-tooltip,
-        .form-row>[class*=col-]>.invalid-tooltip {
-            left: 5px
-        }
-
         .is-invalid~.invalid-feedback,
         .is-invalid~.invalid-tooltip,
         .was-validated :invalid~.invalid-feedback,
@@ -2709,7 +2699,7 @@
         .was-validated .custom-select:invalid {
             border-color: #dc3545;
             padding-right: calc(.75em + 2.3125rem);
-            background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right .75rem center/8px 10px no-repeat, #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e") center right 1.75rem/calc(.75em + .375rem) calc(.75em + .375rem) no-repeat
+            background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(.75em + .375rem) calc(.75em + .375rem)
         }
 
         .custom-select.is-invalid:focus,
@@ -3822,7 +3812,7 @@
         .dropdown-item:hover {
             color: #16181b;
             text-decoration: none;
-            background-color: #e9ecef
+            background-color: #f8f9fa
         }
 
         .dropdown-item.active,
@@ -3834,7 +3824,7 @@
 
         .dropdown-item.disabled,
         .dropdown-item:disabled {
-            color: #adb5bd;
+            color: #6c757d;
             pointer-events: none;
             background-color: transparent
         }
@@ -4037,6 +4027,12 @@
             z-index: 4
         }
 
+        .input-group>.custom-select:not(:last-child),
+        .input-group>.form-control:not(:last-child) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0
+        }
+
         .input-group>.custom-select:not(:first-child),
         .input-group>.form-control:not(:first-child) {
             border-top-left-radius: 0;
@@ -4050,24 +4046,15 @@
             align-items: center
         }
 
-        .input-group>.custom-file:not(:first-child) .custom-file-label,
-        .input-group>.custom-file:not(:last-child) .custom-file-label {
+        .input-group>.custom-file:not(:last-child) .custom-file-label,
+        .input-group>.custom-file:not(:last-child) .custom-file-label::after {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0
+        }
+
+        .input-group>.custom-file:not(:first-child) .custom-file-label {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0
-        }
-
-        .input-group:not(.has-validation)>.custom-file:not(:last-child) .custom-file-label::after,
-        .input-group:not(.has-validation)>.custom-select:not(:last-child),
-        .input-group:not(.has-validation)>.form-control:not(:last-child) {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0
-        }
-
-        .input-group.has-validation>.custom-file:nth-last-child(n+3) .custom-file-label::after,
-        .input-group.has-validation>.custom-select:nth-last-child(n+3),
-        .input-group.has-validation>.form-control:nth-last-child(n+3) {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0
         }
 
         .input-group-append,
@@ -4168,12 +4155,10 @@
             padding-right: 1.75rem
         }
 
-        .input-group.has-validation>.input-group-append:nth-last-child(n+3)>.btn,
-        .input-group.has-validation>.input-group-append:nth-last-child(n+3)>.input-group-text,
-        .input-group:not(.has-validation)>.input-group-append:not(:last-child)>.btn,
-        .input-group:not(.has-validation)>.input-group-append:not(:last-child)>.input-group-text,
         .input-group>.input-group-append:last-child>.btn:not(:last-child):not(.dropdown-toggle),
         .input-group>.input-group-append:last-child>.input-group-text:not(:last-child),
+        .input-group>.input-group-append:not(:last-child)>.btn,
+        .input-group>.input-group-append:not(:last-child)>.input-group-text,
         .input-group>.input-group-prepend>.btn,
         .input-group>.input-group-prepend>.input-group-text {
             border-top-right-radius: 0;
@@ -4272,7 +4257,7 @@
             width: 1rem;
             height: 1rem;
             content: "";
-            background: 50%/50% 50% no-repeat
+            background: no-repeat 50%/50% 50%
         }
 
         .custom-checkbox .custom-control-label::before {
@@ -4361,7 +4346,7 @@
             line-height: 1.5;
             color: #495057;
             vertical-align: middle;
-            background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right .75rem center/8px 10px no-repeat;
+            background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px;
             border: 1px solid #ced4da;
             border-radius: .25rem;
             -webkit-appearance: none;
@@ -4431,7 +4416,6 @@
             width: 100%;
             height: calc(1.5em + .75rem + 2px);
             margin: 0;
-            overflow: hidden;
             opacity: 0
         }
 
@@ -4461,7 +4445,6 @@
             z-index: 1;
             height: calc(1.5em + .75rem + 2px);
             padding: .375rem .75rem;
-            overflow: hidden;
             font-weight: 400;
             line-height: 1.5;
             color: #495057;
@@ -4695,8 +4678,11 @@
             border-bottom: 1px solid #dee2e6
         }
 
+        .nav-tabs .nav-item {
+            margin-bottom: -1px
+        }
+
         .nav-tabs .nav-link {
-            margin-bottom: -1px;
             border: 1px solid transparent;
             border-top-left-radius: .25rem;
             border-top-right-radius: .25rem
@@ -4859,12 +4845,8 @@
             height: 1.5em;
             vertical-align: middle;
             content: "";
-            background: 50%/100% 100% no-repeat
-        }
-
-        .navbar-nav-scroll {
-            max-height: 75vh;
-            overflow-y: auto
+            background: no-repeat center center;
+            background-size: 100% 100%
         }
 
         @media (max-width:575.98px) {
@@ -4910,10 +4892,6 @@
             .navbar-expand-sm>.container-xl {
                 -ms-flex-wrap: nowrap;
                 flex-wrap: nowrap
-            }
-
-            .navbar-expand-sm .navbar-nav-scroll {
-                overflow: visible
             }
 
             .navbar-expand-sm .navbar-collapse {
@@ -4973,10 +4951,6 @@
                 flex-wrap: nowrap
             }
 
-            .navbar-expand-md .navbar-nav-scroll {
-                overflow: visible
-            }
-
             .navbar-expand-md .navbar-collapse {
                 display: -ms-flexbox !important;
                 display: flex !important;
@@ -5032,10 +5006,6 @@
             .navbar-expand-lg>.container-xl {
                 -ms-flex-wrap: nowrap;
                 flex-wrap: nowrap
-            }
-
-            .navbar-expand-lg .navbar-nav-scroll {
-                overflow: visible
             }
 
             .navbar-expand-lg .navbar-collapse {
@@ -5095,10 +5065,6 @@
                 flex-wrap: nowrap
             }
 
-            .navbar-expand-xl .navbar-nav-scroll {
-                overflow: visible
-            }
-
             .navbar-expand-xl .navbar-collapse {
                 display: -ms-flexbox !important;
                 display: flex !important;
@@ -5150,10 +5116,6 @@
         .navbar-expand>.container-xl {
             -ms-flex-wrap: nowrap;
             flex-wrap: nowrap
-        }
-
-        .navbar-expand .navbar-nav-scroll {
-            overflow: visible
         }
 
         .navbar-expand .navbar-collapse {
@@ -5536,12 +5498,17 @@
             border-radius: .25rem
         }
 
+        .breadcrumb-item {
+            display: -ms-flexbox;
+            display: flex
+        }
+
         .breadcrumb-item+.breadcrumb-item {
             padding-left: .5rem
         }
 
         .breadcrumb-item+.breadcrumb-item::before {
-            float: left;
+            display: inline-block;
             padding-right: .5rem;
             color: #6c757d;
             content: "/"
@@ -6043,8 +6010,8 @@
         }
 
         .progress-bar-animated {
-            -webkit-animation: 1s linear infinite progress-bar-stripes;
-            animation: 1s linear infinite progress-bar-stripes
+            -webkit-animation: progress-bar-stripes 1s linear infinite;
+            animation: progress-bar-stripes 1s linear infinite
         }
 
         @media (prefers-reduced-motion:reduce) {
@@ -6760,7 +6727,7 @@
             z-index: 1070;
             display: block;
             margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             font-style: normal;
             font-weight: 400;
             line-height: 1.5;
@@ -6885,7 +6852,7 @@
             z-index: 1060;
             display: block;
             max-width: 276px;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             font-style: normal;
             font-weight: 400;
             line-height: 1.5;
@@ -7194,7 +7161,7 @@
             display: inline-block;
             width: 20px;
             height: 20px;
-            background: 50%/100% 100% no-repeat
+            background: no-repeat 50%/100% 100%
         }
 
         .carousel-control-prev-icon {
@@ -7283,8 +7250,8 @@
             border: .25em solid currentColor;
             border-right-color: transparent;
             border-radius: 50%;
-            -webkit-animation: .75s linear infinite spinner-border;
-            animation: .75s linear infinite spinner-border
+            -webkit-animation: spinner-border .75s linear infinite;
+            animation: spinner-border .75s linear infinite
         }
 
         .spinner-border-sm {
@@ -7327,22 +7294,13 @@
             background-color: currentColor;
             border-radius: 50%;
             opacity: 0;
-            -webkit-animation: .75s linear infinite spinner-grow;
-            animation: .75s linear infinite spinner-grow
+            -webkit-animation: spinner-grow .75s linear infinite;
+            animation: spinner-grow .75s linear infinite
         }
 
         .spinner-grow-sm {
             width: 1rem;
             height: 1rem
-        }
-
-        @media (prefers-reduced-motion:reduce) {
-
-            .spinner-border,
-            .spinner-grow {
-                -webkit-animation-duration: 1.5s;
-                animation-duration: 1.5s
-            }
         }
 
         .align-baseline {
@@ -8801,6 +8759,7 @@
         .user-select-all {
             -webkit-user-select: all !important;
             -moz-user-select: all !important;
+            -ms-user-select: all !important;
             user-select: all !important
         }
 
@@ -11501,286 +11460,339 @@
         }
 
         /*# sourceMappingURL=bootstrap.min.css.map */
-        @page {
-            size: auto;
-            /* auto is the initial value */
-            margin: 0;
-            /* this affects the margin in the printer settings */
+        .smallFont {
+            font-size: 14px;
         }
 
-        th,
+        .compCopy {
+            border-bottom: 1px solid #333;
+            display: inline-block;
+        }
+
+        .customerName {
+            border: 1px solid #333;
+            padding: 3px;
+            margin: 3px;
+        }
+
+        .customerName-1 {
+            border-bottom: 1px solid #333;
+        }
+
+        .myRightForland .row {
+            margin: 15px 0px;
+        }
+
+        .customerName-1 {
+            text-align: center;
+        }
+
+        table th,
         td {
             border: 1px solid #333;
         }
 
-        table {
-            width: 100%;
-            text-align: center;
-        }
-
-        .borderMain {
+        .RecordTable {
             border: 1px solid #333;
-            border-radius: 10px;
+            height: 500px !important;
         }
 
-        .mainBorder {
-            border: 3px double #333;
-            border-radius: 10px;
-            margin: 10px;
+        .footerMain {
+            background-color: red;
+            color: #fff;
+        }
+
+        .mainName {
+            font-size: 23px;
+            font-weight: 600;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
+
+        #myTable_length label {
+            width: auto !important;
+        }
+
+        .dataTables_filter label {
+            width: auto !important;
+
         }
 
         body {
-            padding: 0px 55px;
-            margin-top: 15px;
+            padding: 0px 25px;
+            margin-top: 60px;
         }
 
-        p {
-            font-size: 10px;
+        .myTables tr td {
+            height: 471px;
         }
 
-        .myFlex {
-            display: flex;
-        }
+        @media only screen and (max-width: 768px) {
 
-        @media print {
-            label {
-                width: 70px;
+            .RecordTable,
+            .ji {
+                overflow: auto !important;
+
+
+
             }
-    
 
+            .RecordTable table {
+                width: 250% !important;
+            }
 
+            .ji .fwTable {
+                width: 250% !important;
+            }
         }
 
     </style>
 </head>
 
 <body>
-<br>
-    <div class="borderMain mt-3">
-        <div class="borderMain">
-            <div class="borderMain">
-                <div class="borderMain">
-                    <div class="mainBorder">
+    <br><br>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                    <h1>FORLAND MODERN MOTORS</h1>
+                    <h5 class="primeFont">NTN: <span class="smallFont">82588676-6</span> </h5>
+                    <h5>STRN: <span class="smallFont">3277876204764</span> </h5>
 
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-12 mb-5 text-center">
-                                    <h2>FORLAND MODERN MOTORS <br> Gate Pass</h2>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label style="width: 170px; !important" for="">Reference Number:</label>
-                                    <input type="text" style="border: none !important;"
-                                        value="{{ Session::get('referenceNumber')}}" name="" id="">
-                                    <label style="width: 170px; !important; text-align:right; margin-left:40px;" for="">Customer Name</label>
-                                    <input type="text" style="border: none !important;"
-                                        value="{{ Session::get('customerName')}}" name="" id="">
-                                </div>
-                                <div class="col-md-4 offset-md-4">
-                                    <div class="leftmg">
-                                        <label style="width: 170px; !important" for="">Date:</label>
-                                        <input type="text" style="border: none !important;"
-                                            value="{{ Session::get('invoiceDate')}}" name="" id="">
-                                        <label style="width: 170px; !important;text-align:right;" for="">CNIC/NTN</label>
-                                        <input type="text" style="border: none !important;"
-                                            value="{{ Session::get('CNIC')}}" name="" id="">
-                                    </div>
-                                </div>
-                            </div>
-<br>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <table>
-                                        <thead>
-                                            <th>Sr.#</th>
-                                            <th>Product Description</th>
-                                            <th>Engine Number</th>
-                                            <th>Chassis Number</th>
-                                            <th>Color</th>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>01</td>
-                                                <td>{{ Session::get('productName')}}</td>
-                                                <td>{{ Session::get('engineNo')}}</td>
-                                                <td>{{ Session::get('chassisNo')}}</td>
-                                                <td>{{ Session::get('color')}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <br><br><br>
-
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="container-fluid" style="visibility: hidden;">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>Note:</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ul>
-                                        <li>Documents of above mentioned vehicle are submitted for registration in
-                                            Excise and Taxation
-                                            Department.</li>
-                                  
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-              
-                        <section>
-                            <div class="container-fluid">
-                                <div class="row mt-5">
-
-
-                                    <div class="col-md-5 offset-md-7 text-right">
-                                        <label style="border-top: 1px solid #333; width:180px; text-align: center; !important" for="">Stamp &
-                                            Sign</label>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <br>
-                        <footer>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-8 offset-md-2">
-                                        <p style="font-size: 14px;" class="text-center">8-Km, Sheikhupura Road, Opposite Millat Tractors Limited,
-                                            Lahore, Tel: 0300-0600061 <br>
-                                            Email Address: forlandmodernmotors@yahoo.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
-                    </div>
+                    <h6 style="font-weight: 700;" class="compCopy">Customer's Copy</h6>
                 </div>
+                <!-- <div class="col-md-4 offset-md-3 text-right ">
+                    <img src="img/dC6u20tK.png" class="img-fluid" alt="">
+                </div> -->
             </div>
         </div>
-    </div>
+    </header>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3 style="font-size: 30px; color: red; font-weight: 900;">SERVICE SALES INVOICE</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="spec">
+                                <h6>Customer Name :</h6>
+                            </div>
 
-    <hr style="margin-top: 40px;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="customerName">
+                                {{ Session::get('customerName')}}
+                                &nbsp;
+                                {{ Session::get('fatherName')}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="spec">
+                                <h6>Address :</h6>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="customerName">
+                                {{ Session::get('address')}} &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="spec">
+                                <h6>
+                                    CNIC / NTN
+                                </h6>
+                            </div>
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="customerName-1 text-left">
+                                {{ Session::get('CNIC')}} &nbsp;
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <div class="spec">
+                                <h6>Contact :</h6>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="customerName-1">
+
+                                <div class="my" style="visibility: hidden;">
+                                    visibility hidden
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 myRightForland">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Booking No :</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="customerName-1">
+                                &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Invoice No :</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="customerName-1">
+                                {{ Session::get('invoiceNo')}} &nbsp;
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h6>Invoice Date :</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="customerName-1">
+                                {{ Session::get('invoiceDate')}} &nbsp;
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
     <br>
-    <div class="borderMain">
-        <div class="borderMain">
-            <div class="borderMain">
-                <div class="borderMain">
-                    <div class="mainBorder">
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="RecordTable">
 
 
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-12 mb-5 text-center">
-                                    <h2>FORLAND MODERN MOTORS <br> Passage Certificate</h2>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <label style="width: 170px; !important" for="">Reference Number:</label>
-                                    <input type="text" style="border: none !important; "
-                                        value="{{ Session::get('referenceNumber')}}" name="" id="">
-                                    <label style="width: 170px; !important;  text-align:right; margin-left:40px;" for="">Customer Name</label>
-                                    <input type="text" style="border: none !important;"
-                                        value="{{ Session::get('customerName')}}" name="" id="">
-                                </div>
-                                <div class="col-md-4 offset-md-5">
-                                <div class="myDiv">
-                                    <label style="width: 170px; !important" for="">Date:</label>
-                                    <input type="text" style="border: none !important;"
-                                        value="{{ Session::get('invoiceDate')}}" name="" id="">
-                                    <label style="width: 170px; !important;text-align:right;" for="">CNIC/NTN</label>
-                                    <input type="text" style="border: none !important;"
-                                        value="{{ Session::get('CNIC')}}" name="" id="">
-                                </div>
-                                </div>
-                            </div>
 
-                            <br>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <table>
-                                        <thead>
-                                            <th>Sr.#</th>
-                                            <th>Product Description</th>
-                                            <th>Engine Number</th>
-                                            <th>Chassis Number</th>
-                                            <th>City / Area</th>
+                        <table class="myTables" style="width: 100%;  text-align: center;">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Color</th>
+                                    <th>Engine No</th>
+                                    <th>Chassis No</th>
+                                    <th>Amount</th>
 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{{ Session::get('description')}}</td>
+                                    <td style="width: 144px;">{{ Session::get('color')}}</td>
+                                    <td style="width: 290px;">{{ Session::get('engineNo')}}</td>
+                                    <td>{{ Session::get('chassisNo')}}</td>
+                                    <td>{{ Session::get('totalCost')}}</td>
 
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>01</td>
-                                                <td>{{ Session::get('productName')}}</td>
-                                                <td>{{ Session::get('engineNo')}}</td>
-                                                <td>{{ Session::get('chassisNo')}}</td>
-                                                <td>{{ Session::get('city')}}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <br>
+                                </tr>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>Note:</h5>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ul>
-                                        <li>Documents of above mentioned vehicle are submitted for registration in
-                                            Excise and Taxation
-                                            Department.</li>
-                                        <li>This certificate allows vehicle to move on above mentioned location without
-                                            any disturbance of
-                                            government and non-government officer</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <section>
-                            <div class="container-fluid">
-                                <div class="row mt-5">
-
-                                    <div class="col-md-5 offset-md-7 text-right">
-                                        <label style="border-top: 1px solid #333; width: 180px; text-align: center; !important" for="">Stamp &
-                                            Sign</label>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-
-                        <footer>
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-8 offset-md-2">
-                                        <p style="font-size: 14px;" class="text-center">8-Km, Sheikhupura Road, Opposite Millat Tractors Limited,
-                                            Lahore, Tel:
-                                            0300-0600061 <br>
-                                            Email Address: forlandmodernmotors@yahoo.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ji">
+                        <table class="fwTable text-center" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <td style="font-weight: 800; border-bottom: none !important;padding-right: 15px;">
+                                        Total
+                                        In Words</td>
+                                    <td style="font-weight: 800; border-bottom: none !important; width: 290px;">Total
+                                        &nbsp;
+                                    </td>
+                                    <td style="padding-left: 102px; border-bottom: none !important; font-weight: 800;">
+                                        PKR
+                                        {{ Session::get('totalCost')}}</td>
+
+                                </tr>
+                                <tr style="height: 50px;">
+                                    <td style="border-top: none !important;" rowspan="2">
+                                        {{ Session::get('amountInWords')}}
+                                    </td>
+                                    <td style="font-weight: 800;border-top: none !important;" rowspan="2"></td>
+                                    <td style="border-top: none !important;"> {{ Session::get('tax')}} &nbsp;</td>
+
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <br><br><br><br><br><br>
+    <section class="mt-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 offset-md-8 text-right">
+                    <h4 style="border-top: 1px solid #333; display: inline-block; border-width: 2px;">Finance Department
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <br><br><br><br>
+    <footer class="my-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="footerMain">
+                        <h4>8-Km, Sheikhupura Road, Opposite Millat Tractors Limited, Lahore, Tel: 0300-0600061
+                            <br> Email Address: forlandmodernmotors@yahoo.com</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
 
 
@@ -11792,12 +11804,13 @@
 
 
 
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

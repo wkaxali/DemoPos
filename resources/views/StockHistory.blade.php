@@ -33,6 +33,13 @@
             width: 150px;
         }
 
+        @page {
+            size: auto;
+            /* auto is the initial value */
+            margin: 0;
+            /* this affects the margin in the printer settings */
+        }
+
     </style>
     <title>Title</title>
 </head>
@@ -42,7 +49,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3>Page Name</h3>
+                    <h3>Stock History</h3>
                 </div>
             </div>
         </div>
