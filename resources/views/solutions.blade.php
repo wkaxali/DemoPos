@@ -61,11 +61,11 @@
 <body>
     <br><br>
     <hr>
-    <br><br><br>
+    <br>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 text-center">
-                <img src="{{asset('assets/img/wtf.jpeg')}}" alt="">
+            <img src="{{asset('assets/img/rayan.jpg')}}" style="width: 600px;" title="Forland" alt="Forland">
             </div>
         </div>
     </div>

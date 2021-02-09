@@ -36,12 +36,17 @@
         .downBorder {
             border-bottom: 1px solid #333;
         }
+        .helloworld {
+            margin: 0px 20px 0px 20px;
+        }
 
     </style>
     <title>Title</title>
 </head>
 
 <body> <br><br><br><br><br>
+<div class="helloworld">
+
     <div class="borderMain">
         <div class="borderMain">
             <div class="borderMain">
@@ -247,6 +252,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>

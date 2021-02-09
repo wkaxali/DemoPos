@@ -335,9 +335,7 @@ Route::get('/e', function () {
     return view('Employee');
 });
 
-Route::get('/vd', function () {
-    return view('vehicleDetail');
-});
+
 
 Route::get('/prc', function () {
     return view('paymentReceipt');
@@ -392,4 +390,11 @@ Route::get('/sales', function () {
 
 Route::get('/exv', function () {
     return view('viewExpenses');
+});
+Route::get('/vd', function () {
+    return view('vehicleDetail');
+});
+
+Route::get('/ssi', function () {
+    return view('servicesalesinvoice');
 });

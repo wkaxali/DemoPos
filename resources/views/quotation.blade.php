@@ -480,7 +480,8 @@
         }
 
         tbody tr td:nth-child(1) {
-            width: 200px;
+            width: 50px;
+            text-align: center;
         }
 
         a {
@@ -506,11 +507,11 @@
 
 <body>
 
-    <main>
+    <main style="margin-top: 5px;">
         <div class="container">
             <div class="row my-2">
                 <div class="col-md-12 text-center">
-                    <img src="https://jwforland.com/image/catalog/logo.png" title="Forland" alt="Forland">
+                    <img src="{{asset('assets/img/rayan.jpg')}}" style="width: 600px;" title="Forland" alt="Forland">
                 </div>
             </div>
             <div class="row">
@@ -572,7 +573,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 text-center">
+                <div class="col-md-12 ">
                     <table style="width: 100%;">
 
                         <tbody>
@@ -622,7 +623,7 @@
         </div>
     </section>
     <br><br>
-    <section>
+    <section style="margin-top:50px;">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 text-right offset-md-8">
@@ -633,7 +634,7 @@
     </section>
 
 
-    <footer style="margin-top: 100px;">
+    <footer style="margin-top: 600px;">
         <div class="container">
             <div class="row" style="border-top: 1px solid #333;">
                 <div class="col-md-4 p-2 text-center">
