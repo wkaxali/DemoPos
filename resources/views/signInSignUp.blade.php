@@ -91,7 +91,7 @@
     .input-field i {
       text-align: center;
       line-height: 55px;
-      color: #0a549d;
+      color: #13579a;
       transition: 0.5s;
       font-size: 1.1rem;
     }
@@ -143,7 +143,7 @@
 
     .btn {
       width: 150px;
-      background-color: #0a549d;
+      background-color: #13579a;
       border: none;
       outline: none;
       height: 49px;
