@@ -414,11 +414,11 @@
     }
   </style>
 
-  <title>Top Notch</title>
+  <title>Forland</title>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
     <div class="forms-container">
       <div class="signin-signup">
         <form action="#" class="sign-in-form">

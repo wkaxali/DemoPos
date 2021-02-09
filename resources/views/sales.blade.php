@@ -2538,7 +2538,9 @@
 
 
             var xhttp = new XMLHttpRequest();
+            
 
+            
             if (AID == "") {
                 alert("Payment Method not selected");
 
