@@ -52,18 +52,18 @@
             </div>
         </div><br><br>
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-8">
                 <table class="table table-bordered table-hover" id="quotationsTable">
                     <thead>
                         <th>QID</th>
                         <th>CustomerName</th>
-                        <th>FatherName</th>
+                        
                         <th>CNIC</th>
                         <th>City</th>
                         <th>Address</th>
                         <th>Contact</th>
-                        <th>Discription</th>
-                        <th>Color</th>
+                        
+                        
                         <th>UnitPrice</th>
                         <th>Quantity</th>
                         <th>TotalPrice</th>
@@ -71,7 +71,9 @@
                         <th>Date</th>
                         <th>Action</th>
                     </thead>
-                    
+                    <tbody>
+
+                    </tbody>
                 </table>
 
             </div>
@@ -367,9 +369,9 @@
 
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].QID,  a[i].CustomerName, a[i].FatherName, a[i]
+                        table.row.add([a[i].QID,  a[i].CustomerName, a[i]
                             .CNIC, a[i].City, a[i].Address, a[i]
-                            .Contact, a[i].Discription, a[i].Color , a[i]
+                            .Contact, a[i]
                             .UnitPrice, a[i].Quantity, a[i].TotalPrice, a[i]
                             .Model, a[i].Date, '<button class="btn print" onclick="printQuotation('+a[i].QID+')" >Print</button>'
                         ]);
