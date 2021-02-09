@@ -372,7 +372,7 @@
                             .EngineNumber, a[i].ChasisNumber
                         ]);
                     });
-                    table.draw();
+                    table.columns.adjust().draw();
 
                 }
             };
