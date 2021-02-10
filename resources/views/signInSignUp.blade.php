@@ -91,7 +91,7 @@
     .input-field i {
       text-align: center;
       line-height: 55px;
-      color: #000000;
+      color: #13579a;
       transition: 0.5s;
       font-size: 1.1rem;
     }
@@ -143,7 +143,7 @@
 
     .btn {
       width: 150px;
-      background-color: rgb(231 172 61);
+      background-color: #13579a;
       border: none;
       outline: none;
       height: 49px;
@@ -414,11 +414,11 @@
     }
   </style>
 
-  <title>Top Notch</title>
+  <title>Forland</title>
 </head>
 
 <body>
-  <div class="container">
+<div class="container">
     <div class="forms-container">
       <div class="signin-signup">
         <form action="#" class="sign-in-form">

@@ -98,6 +98,22 @@
             width: auto !important;
 
         }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
 
     </style>
 </head>
@@ -107,6 +123,8 @@
 
 <div class="left-content">
     <div class="inner-block">
+<main id="mainHeader">
+
 
     <main>
         <div class="container">
@@ -117,6 +135,7 @@
             </div>
         </div>
     </main>
+    <br>
     <header>
         <div class="container">
             <div class="row">
@@ -138,6 +157,7 @@
 
                 </div>
             </div>
+            <br>
             <div class="row customClassBorder my-3">
                 <div class="col-md-5 offset-md-1">
                     <h4>Mohsin Jabbar</h4>
@@ -183,6 +203,7 @@
             </div>
         </div>
     </header>
+    <br>
     <section id="TblSection">
         <div class="container">
             <div class="row">
@@ -190,14 +211,16 @@
                     <table class="table-bordered" id="attendanceTable">
                         <thead>
                             <tr>
+                            <th>Employee ID</th>
                                 <th>First Name</th>
                                 <th>Last Name</th>
-                                <th>Employee ID</th>
+                                
                                 <th>Date</th>
+                                <th>Reporting Time</th>
                                 <th>Time In</th>
-                                <th>Time Out</th>
+                                
                                 <th>Status</th>
-                                <th>Edit</th>
+                                <th>Remarks</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -212,16 +235,18 @@
             </div>
         </div>
     </section>
+</main>
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 customButtons offset-md-6">
                     <button style="background-color: #e61d2f;color: #ffffff;" class="btn ">Update</button>
-                    <button style="background-color: #0a549d;color: #ffffff;" class="btn ">Print</button>
+                    <button onclick="window.print()" style="background-color: #0a549d;color: #ffffff;" class="btn ">Print</button>
                 </div>
             </div>
         </div>
     </footer>
+
     </div>
 </div>
 <div class="sidebar-menu">
@@ -489,30 +514,57 @@
                     var a = JSON.parse(data);
                     //  alert(a[0].ProductSerial);
                     table = $('#attendanceTable').DataTable();
-
+                   
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].FirstName, a[i].LastName, a[i].EID, a[i].Date, a[i].TimeIn, a[i]
-                            .TimeOut, a[i].Status, '+'
+                        table.row.add([a[i].EID,a[i].FirstName, a[i].LastName,  a[i].Date, a[i]
+                            .ReportingTime, a[i].TimeIn, a[i].Status, a[i].Remarks
                         ]);
+                        
                     });
-                    table.draw();
+                    //$('#attendanceTable').DataTable({ "order": []});
+                    table.columns.adjust().draw();
+                    setColors();
+                
 
                 }
             };
             //alert("ljd");
+         
             xhttp.open("GET", "./getAttendance/", true);
 
             xhttp.send();
 
 
         }
+        function setColors(){
+            $('#attendanceTable tbody tr').each(function (row, tr) {
+               
+             var status=  $(tr).find('td:eq(6)').html();
+            // alert(status);
+             if(status=="Late")
+             {
+                 
+                $(tr).css('background', '#f8aeae');   
+                
+                 
+                              } 
+                              else{
+                                $(tr).css('background', '#dcf9b1');   
+                              }                
+                
+            });
+
+
+        }
+
 
     </script>
 
     <script>
+   
         $(document).ready(function () {
-            $('#attendanceTable').DataTable();
+            $('#attendanceTable').DataTable( {"order": []});
         });
 
     </script>

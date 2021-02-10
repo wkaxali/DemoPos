@@ -73,10 +73,36 @@
         .fa-bars {
             color: #fff;
         }
+        @media print {
+            .left-content{
+                width: 100% !important;
+            }
+            .sidebar-menu{
+                display: none;
+            }
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #mainComapnyLedger{
+                visibility: visible !important;
+            }
+            table {page-break-before: always;}
+        }
     </style>
 </head>
 
-<body onload="loadFunctions()">
+<body onload="loadFunctions()" id="allData">
 <div class="page-container">
 <div class="left-content">
             <div class="inner-block">
@@ -121,11 +147,15 @@
             </div>
         </div>
     </section>
+
+
+  
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="transactionTable">
+                        <main id="mainHeader">
                         <table class="table table-bordered table-striped" id="myTable">
                             <thead>
                                 <tr>
@@ -141,6 +171,7 @@
                             </tbody>
 
                         </table>
+                        </main>
                     </div>
                 </div>
             </div>
@@ -184,7 +215,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 text-right offset-md-8">
-                    <button class="btn btn-warning">Print</button>
+                    <button onclick="newFun()" class="btn btn-warning">Print</button>
                     <button class="btn btn-danger">Close</button>
                 </div>
             </div>
@@ -617,6 +648,52 @@
             }
             toggle = !toggle;
         });
+
+        function PrintElem()
+{
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+
+    // mywindow.document.write('<html><head><title>' + document.title  + '</title>');
+    // mywindow.document.write('</head><body >');
+    // mywindow.document.write('<h1>' + document.title  + '</h1>');
+    var a=document.getElementById("allData").innerHTML;
+    
+    mywindow.document.write();
+    // mywindow.document.write('</body></html>');
+
+    mywindow.document.close(); // necessary for IE >= 10
+    mywindow.focus(); // necessary for IE >= 10*/
+
+    mywindow.print();
+    mywindow.close();
+
+    return true;
+}
+
+
+function newFun() {
+var table = $('#myTable').DataTable();
+var htmlTable = '<table > ';
+var data = table.rows().data();
+data.each(function (value, index) {
+   
+     htmlTable = htmlTable + '<tr><td >  '+value[0]+' </td>  <td >  '+value[1]+' </td> <td >  '+value[2]+' </td> <td >  '+value[4]+' </td> </tr>';
+ });
+ document.getElementById("accounts").Text;
+ newWin = window.open();
+ newWin.document.write(
+'<html><head><title>Transaction History!</title><style>table,th,td{border:1px solid #333}</style></head><body>'
+);
+ newWin.document.write(document.getElementById("accounts").value);
+ newWin.document.write(htmlTable);
+
+newWin.print();
+// newWin.close();
+};
+
+
+
+
 
     </script>
 
