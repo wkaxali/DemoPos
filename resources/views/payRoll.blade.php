@@ -646,6 +646,7 @@
             var id = $('#id').find(":selected").val();
             //alert(id);
             $("#name").val(id);
+
             $('#contact').val(id);
             $('#cnic').val(id);
             xhttp.onreadystatechange = function () {
@@ -661,11 +662,13 @@
                     document.getElementById("allowedHolidays").value = a[0].AllowedHolidays;
                     document.getElementById("allownces").value = a[0].Alownces;
                     document.getElementById("saleTarget").value = a[0].SaleTarget;
-                   alert(a[0].ContactNo);
+                   
                     $('#contact').val(a[0].EID);
                     $("#contact").selectpicker('refresh');
                     $('#cnic').val(a[0].EID) ;
                     $("#cnic").selectpicker('refresh');
+                    $('#name').val(a[0].EID) ;
+                    $("#name").selectpicker('refresh');
                     //alert();
                    
 
