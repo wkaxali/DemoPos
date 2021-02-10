@@ -209,7 +209,8 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12" id="attendanceTableDiv">
-                                    <table class="table-bordered" id="attendanceTable">
+                                    <table class="table table-striped" style="width: 100%; text-align: center;"
+                                        id="attendanceTable">
                                         <thead>
                                             <tr>
                                                 <th>First Name</th>
@@ -223,7 +224,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
+                                            <!-- <tr>
+                                                <td>First Name</t>
+                                                <td>Last Name</th>
+                                                <td>Employee ID</th>
+                                                <td>Date</th>
+                                                <td>Time In</th>
+                                                <td>Time Out</th>
+                                                <td>Status</th>
+                                                <td>Edit</th>
+                                            </tr> -->
 
                                         </tbody>
 
@@ -603,15 +613,20 @@
     <script>
         function printWindow() {
             var divToPrint = document.getElementById("attendanceTable");
-            win.document.write('<html><head><title>Print it!</title><link rel="stylesheet" type="text/css" href="styles.css"></head><body>');
             divToPrint.style.textAlign = "center";
             divToPrint.style.border = "1px solid #333";
             newWin = window.open("");
+            newWin.document.write(
+                '<html><head><title>Print it!</title><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css"></head><body>'
+                );
             newWin.document.write(divToPrint.outerHTML);
+            newWin.document.write('</body></html>');
+
             newWin.print();
             newWin.close();
         }
 
+  
     </script>
 
 </body>

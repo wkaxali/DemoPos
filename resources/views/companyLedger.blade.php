@@ -182,7 +182,7 @@
 
                                     <div class="receivingTable" id="companyLedgerTable">
                                         <main id="mainHeader">
-                                        <table id="companyLedgerData" class=" table-striped"
+                                        <table id="companyLedgerData" class="table table-striped"
                                             style="width: 100%; text-align: center;">
                                             <thead>
                                                 <tr>
@@ -227,7 +227,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="Footerbtns">
-                                    <a class="btn">Print</a>
+                                    <a class="btn" onclick="printWindow()" >Print</a>
                                     <a class="btn" href="#">Export To Pdf</a>
 
                                 </div>
@@ -606,8 +606,21 @@
 
     </script>
 
-</body>
+<script>
+        function printWindow() {
+            var divToPrint = document.getElementById("companyLedgerData");
+            divToPrint.style.textAlign = "center";
+            divToPrint.style.border = "1px solid #333";
+            newWin = window.open("");
+            newWin.document.write('<html><head><title>Print it!</title><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"></head><body>');
 
+            newWin.document.write(divToPrint.outerHTML);
+            newWin.document.write('</body></html>');
+            newWin.print();
+            newWin.close();
+        }
+
+    </script>
 
 </body>
 
