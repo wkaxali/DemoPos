@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- jsPDF library -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
+
+
     <style>
+
         th,
         td {
             border: 1px solid #333;
@@ -159,6 +169,9 @@
                     </thead>
 
                 </table>
+                <p>Note:</p>
+                <h5 id="leftUnits">1- 04<sup>RD</sup> Unit Out of 55 Units </h5>
+                <button onclick="printPDF()">Download</button>
             </div>
                 <p style="font-size: 18px; margin-top: 5px;">Note:</p>
                 <div class="mainDivs">
@@ -183,11 +196,42 @@
 
 
 
-
+<!-- jQuery library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
 </body>
+<script>
+function printPDF(){
+var doc = new jsPDF();
+	
+    doc.text(20, 20, 'This is the default font.');
+    
+    doc.setFont("courier");
+    doc.setFontType("normal");
+    doc.text(65, 30, 'This is courier normal.');
+    
+    doc.setFont("times");
+    doc.setFontType("italic");
+    doc.text(20, 40, 'This is times italic.');
+    
+    doc.setFont("helvetica");
+    doc.setFontType("bold");
+    doc.text(20, 50, 'This is helvetica bold.');
+    
+    doc.setFont("courier");
+    doc.setFontType("bolditalic");
+    doc.text(20, 60, 'This is courier bolditalic.');
+    var source=$('body')[0];
+   
+var elem = document.getElementById("andy");
+var res = doc.autoTableHtmlToJson(elem);
+doc.autoTable(res.columns, res.data);
+
+    // Save the PDF
+    doc.save('document.pdf');
+}
+</script>
 
 </html>
