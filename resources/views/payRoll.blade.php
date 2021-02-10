@@ -265,7 +265,7 @@
                                     <div class="col-md-5 offset-md-2" id="divName">
                                         <label for="">Name</label>
                                         <select style="height: 25px !important; width: 158px !important; "
-                                            class="selectpicker form-control" data-live-search="true" id="name">
+                                            class="selectpicker form-control" data-live-search="true" id="name" onchange="getByName()">
 
                                         </select>
                                     </div>
@@ -359,10 +359,10 @@
                                 <br>
                                 <label for="">Total</label>
                                 <input type="number" class="form-control" value="48000"
-                                    style="display: inline-block; width: 200px;" name="" id="">
+                                    style="display: inline-block; width: 200px;" name="" id="total">
                                 <span>+ 5%</span>
                                 <div class="updateButtons">
-                                    <button class="btn">Update</button>
+                                    <button class="btn" onclick="payCalculation()">Update</button>
                                 </div>
                             </div>
                             <div class="col-md-6 payRow-1 ">
@@ -711,6 +711,7 @@
                     $('#cnic').val(a[0].EID) ;
                     $("#cnic").selectpicker('refresh');
                     //alert();
+                   
 
 
                     //     // alert(a[0].FirstName);
@@ -878,6 +879,13 @@
 
 
         }
+       function payCalculation(){
+       var bp= document.getElementById("basicPay").value;  
+       var alounsec=document.getElementById("allownces").value;  
+       tot=Number(alounsec)+Number(bp);
+       document.getElementById("total").value=tot;
+
+       }
 
     </script>
 
