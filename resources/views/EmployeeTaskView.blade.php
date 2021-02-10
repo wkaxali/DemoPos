@@ -822,7 +822,7 @@
                                             <select style="height: 25px !important; width: 158px !important; "
                                                 class="selectpicker form-control" data-live-search="true" id="category">
 
-                                            </select>
+                                            </select> 
                                         </div>
                                     </div>
                                     <br>
