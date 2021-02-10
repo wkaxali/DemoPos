@@ -183,39 +183,15 @@
                         </div>
                     </div>
                 </section>
-                <!-- <section>
+  
+ 
+    <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
-                    <label style="width: 185px;" for="">Total Amount</label>
-                    <input type="number" value="" name="" id="totalAmount">
+                <div class="col-md-4 text-right offset-md-8">
+                    <button onclick="newFun()" class="btn btn-warning">Print</button>
+                    <button class="btn btn-danger">Close</button>
                 </div>
-                <div class="col-md-4">
-                    <label style="width: 185px;" for="">Amount Paid</label>
-                    <input type="number" value="" name="" id="totalPaid">
-                </div>
-                <div class="col-md-4">
-
-                    <label style="width: 185px;" for="">Remaining</label>
-                    <input type="number" value="" name="" id="remaining">
-                    <h4 style="font-size: 16px; font-weight: 600;">Has To Be Paid By MM Motors To JWW </h4>
-
-
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-                <footer>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="newFun()" class="btn btn-warning">Print</button>
-                                <button class="btn btn-danger">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
         <div class="sidebar-menu">

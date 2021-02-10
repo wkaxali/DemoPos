@@ -764,7 +764,7 @@
             m = dateFull.getMonth() + 1;
             d = dateFull.getDate()
             date = y + '-' + m + '-' + d;
-            alert('date');
+            alert(date);
             document.getElementById("dateValue").value = date
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
@@ -776,7 +776,7 @@
             function customDate() {
                 var custumDate = document.getElementById("date").value;
                 alert(custumDate);
-
+            }
         
 
         function TomorrowDate() {
@@ -812,6 +812,14 @@
 
     </script>
     <script>
+
+        function RemoveThisRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            //alert(i);
+            document.getElementById("subTasks").deleteRow(i);
+        }
+
+
         function getRowId() {
             var t = document.getElementById("subTasks");
             var x = document.getElementById("subTasks").rows.length;
@@ -828,9 +836,11 @@
             var row = t.insertRow(-1);
             var mcell1 = row.insertCell(0);
             var mcell2 = row.insertCell(1);
+            var mcell3 = row.insertCell(2);
 
             mcell1.innerHTML = totalRow;
             mcell2.innerHTML = cell2;
+            mcell3.innerHTML = "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>";
         }
 
         function loadHeads() {
@@ -854,9 +864,10 @@
             //alert(sp);
             $('#subTasks tr').each(function (row, tr) {
                 taskDetails[row] = [
-                    $(tr).find('td:eq(1)').text(), //Amount
+                $(tr).find('td:eq(1) input[type="text"]').val(), //Amount
                 ];
             });
+           
             
             OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority];
             var taskTable = JSON.stringify(OverallTask);
