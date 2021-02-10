@@ -197,6 +197,7 @@ Route::get('/ss', function () {
     return view('sales');
 });
 Route::get('/qt', function () {
+    
     return view('quotation');
 });
 
