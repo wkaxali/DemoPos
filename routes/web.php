@@ -133,7 +133,7 @@ Route::get('/getEmployeeID',[payController::class, 'getEmployeeID']);
 Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact']);
 Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory']);
 Route::get('/getEmployee',[expenseController::class, 'getEmployee']);
-
+Route::get('/updatePay/{data}',[payController::class, 'updatePay']);
 
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
 
