@@ -501,6 +501,14 @@
             width: auto !important;
 
         }
+        @media only screen and (max-width: 768px) {
+            img {
+                width: 300px !important;
+            }
+            footer{
+                margin-top: 200px !important;
+            }
+        }
 
     </style>
 </head>
