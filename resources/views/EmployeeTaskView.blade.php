@@ -706,7 +706,266 @@
 
         <div class="left-content">
             <div class="inner-block">
+            <button type="button" class="btn btn-primary" data-toggle="modal"
+data-target="#exampleModalCenter">Large modal</button>
 
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog mydialog modal-dialog-centered" role="document">
+<div class="modal-content myshadow">
+<div class="myshadow">
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h4>Tasks View</h4>
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-12">
+<input type="text" placeholder="Task" class="form-control" name="" id="">
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-8 ">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true" id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true" id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true" id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true" id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true" id="category">
+
+</select>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12">
+<label for="">Last Comment</label>
+<textarea name="" placeholder="Last Comment" class="form-control"
+style="height: 100%; width: 100%; resize: none;" id=""></textarea>
+
+</div>
+
+</div>
+<br><br>
+<div class="row">
+
+<div class="col-md-12">
+<div class="rightButtons">
+<button class="btn">Update</button>
+<button class="btn">Ok</button>
+<button class="btn">History</button>
+</div>
+</div>
+</div>
+<br>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog mydialog" role="document">
+<div class="modal-content myshadow">
+
+<div class="modal-body">
+<div class="myshadow">
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h4>Tasks View</h4>
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-12">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="">
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-8 ">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true"
+id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true"
+id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true"
+id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true"
+id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-8">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true"
+id="category">
+
+</select>
+</div>
+</div>
+<br>
+<div class="row">
+<div class="col-md-12">
+<label for="">Last Comment</label>
+<textarea name="" placeholder="Last Comment" class="form-control"
+style="height: 100%; width: 100%; resize: none;" id=""></textarea>
+
+</div>
+
+</div>
+<br>
+<div class="row">
+<div class="col-md-8">
+<label for="">Remarks</label>
+<input type="text" class="form-control" name="" id="">
+</div> <div class="col-md-4">
+<label for="">&nbsp;</label>
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true"
+id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<label for="">Due On</label><br>
+<div class="btn-group" id="groupButtons" role="group"
+aria-label="Basic example">
+<button onclick="GetDates()" type="button" id="Today"
+style="background-color: #ffffff; border: 1px solid #aaa;"
+class="btn ">Today</button>
+<button onclick="TomorrowDate()" type="button" id="Tomorrow"
+style="background-color: #ffffff; border: 1px solid #aaa;"
+class="btn ">Tomorrow</button>
+<button type="button" id="Date"
+style="background-color: #ffffff; border: 1px solid #aaa;"
+class="btn "><input class="hello" onchange="customDate()"
+type="date"
+style="background: none !important; width:103px; border: none !important;"
+name="" id="date"></button>
+</div>
+</div>
+</div>
+
+<br>
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
 
                 <div class="main_container">
                     <div class="container">
