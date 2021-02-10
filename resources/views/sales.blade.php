@@ -2251,7 +2251,7 @@
 
                     //$("#searchModal").modal('hide');
                     //calculation than enter price
-                    alert("Item added");
+                    //alert("Item added");
 
 
                     cell8.innerHTML =

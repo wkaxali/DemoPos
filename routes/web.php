@@ -288,6 +288,12 @@ Route::get('/ev', function () {
 Route::get('/etv', function () {
     return view('EmployeeTaskView');
 });
+Route::get('/emptv', function () {
+    return view('employertasksViews');
+});
+Route::get('/e', function () {
+    return view('Employee');
+});
 Route::get('/at', function () {
     return view('attendance');
 });
