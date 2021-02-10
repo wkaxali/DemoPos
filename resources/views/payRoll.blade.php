@@ -652,7 +652,7 @@
 
                 if (this.readyState == 4 && this.status == 200) {
 
-                    // alert(this.response);
+                   //  alert(this.response);
                     var a = JSON.parse(this.response);
                 
                     document.getElementById("date").value = a[0].JoiningDate;

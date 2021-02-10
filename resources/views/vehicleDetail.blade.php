@@ -61,7 +61,10 @@
             margin: 3px 0px;
         }
         .tableDiv{
-            height: 500px;
+            height: 324px;
+        }
+        .tableDiv table{
+            text-align:center;
         }
 
     </style>

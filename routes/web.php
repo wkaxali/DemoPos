@@ -417,6 +417,9 @@ Route::get('/vd', function () {
     return view('vehicleDetail');
 });
 
+Route::get('/ssi2', function () {
+    return view('printSaleInvoice');
+});
 Route::get('/ssi', function () {
     return view('servicesalesinvoice');
 });
