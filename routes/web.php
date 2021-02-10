@@ -426,3 +426,7 @@ Route::get('/ssi2', function () {
 Route::get('/ssi', function () {
     return view('servicesalesinvoice');
 });
+
+Route::get('/ed', function () {
+    return view('EmpDashboard');
+});

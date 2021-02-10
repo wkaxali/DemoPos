@@ -6034,9 +6034,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         @media only screen and (max-width: 768px) {
-            /* .header-main {
+            .header-main {
                 display: none !important;
-            } */
+            }
         }
 
         ::-webkit-scrollbar {
@@ -6050,7 +6050,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         ::-webkit-scrollbar-thumb {
             background-color: #e61d2f;
         }
-        
 
     </style>
 

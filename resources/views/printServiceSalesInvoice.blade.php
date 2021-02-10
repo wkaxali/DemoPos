@@ -11583,6 +11583,16 @@
 .fwTable td:nth-child(1){
     width: 30.2% !important;
 }
+@-moz-document url-prefix() {
+    .RecordTable{
+        height: 400px;
+        border: 1px solid #333;
+    }
+    table{
+        height: auto ;
+    }
+}
+
     </style>
 </head>
 
