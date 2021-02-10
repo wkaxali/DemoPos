@@ -206,46 +206,6 @@
                         </div>
                     </div>
                 </main>
-                <section class="PaySection">
-                    <div class="container">
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="row EmpRow">
-                                    <div class="col-md-6 offset-md-1">
-                                        <br>
-                                        <label for="">Employee ID</label>
-                                        <input type="text" class="noBorder"
-                                            style="background: none;display: inline-block !important;border: none !important; outline: none !important; pointer-events: none;font-weight: 700;font-size: 20px;"
-                                            value="215" name="" id="">
-                                        <label for="">Employee Name</label>
-                                        <input type="text" class="noBorder"
-                                            style=" background: none; display: inline-block !important;border: none !important; outline: none !important; pointer-events: none;font-weight: 700;font-size: 20px;"
-                                            value="Mian Abdullah" name="" id="">
-
-                                        <label for="">Department Name</label>
-                                        <input type="text" class="noBorder"
-                                            style="background: none;display: inline-block !important;border: none !important; outline: none !important; pointer-events: none;font-weight: 700;font-size: 20px;"
-                                            value="Forland Modern Motors" name="" id="">
-
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <img src="https://scontent.flhe3-1.fna.fbcdn.net/v/t1.0-0/p206x206/70200548_545063982708579_5871539444061831168_o.jpg?_nc_cat=105&ccb=2&_nc_sid=da31f3&_nc_eui2=AeE_MjUK7AzlckHsL2MhUPsk8zBFb5t2DM_zMEVvm3YMz8X_aqbbMzYr8uFgghjeSwLd-MOjBkBnEHXSYLXDRR2k&_nc_ohc=o1_1vrV8TU4AX8GSplI&_nc_ht=scontent.flhe3-1.fna&tp=6&oh=76f9151a04bb19e4750fc37eac0f65ac&oe=602E9AF8"
-                                            style="height: 150px; width: 150px;border-radius: 25%; float: right;"
-                                            alt="">
-                                        <div class="clear"></div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-
-                    </div>
-                </section>
 
                 <section class="PaySection">
                     <div class="container">
@@ -684,21 +644,17 @@
         function getByID() {
             var xhttp = new XMLHttpRequest();
             var id = $('#id').find(":selected").val();
-            alert(id);
+            //alert(id);
+            $("#name").val(id);
+            $('#contact').val(id);
+            $('#cnic').val(id);
             xhttp.onreadystatechange = function () {
 
-                //  var id=document.getElementById("id").value;
-
-                //alert(id);
                 if (this.readyState == 4 && this.status == 200) {
 
                    //  alert(this.response);
                     var a = JSON.parse(this.response);
-                    //$('#name').find(":selected").value="1";
-                    $("#name").val(a[0].EID);
-                    $("#name").selectpicker('refresh');
-
-                    //document.getElementById("name").selectedIndex = 2;
+                
                     document.getElementById("date").value = a[0].JoiningDate;
                     document.getElementById("address").value = a[0].HomeAddress;
                     document.getElementById("basicPay").value = a[0].BasicPay;

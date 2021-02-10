@@ -712,16 +712,26 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4">
+                                
+                            <label for="">Employee ID</label><br>
                                 <select style="height: 25px !important; width: 158px !important; "
-                                    class="selectpicker form-control" data-live-search="true" id="category">
+                                    class="selectpicker form-control" data-live-search="true"
+                                    id="employee" onchange="searchEmployeeData()">
 
-                                </select></div>
+                                </select>
+                            </div>
                                 <div class="col-md-4 ">
+                                <label for="">Task Status</label><br>
                                     <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category">
-        
-                                    </select></div>
+                                        class="selectpicker form-control" data-live-search="true"
+                                        id="status" onchange="searchTaskWithStatus()">
+                                            <option value=" "></option>
+                                            <option value="Pending">Pending</option>
+                                            <option value="Completed">Completed</option>
+                                    </select>
+                                </div>
                                     <div class="col-md-3 ">
+                                    <label for="">Date</label><br>
                                        <input type="date" name="" class="form-control" id=""></div>
                                        <div class="col-md-1">
                                            <button class="btn btn-primary">Search</button>
@@ -745,7 +755,7 @@
 
 
 
-            <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -952,11 +962,11 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-            <!-- </div>
+                     <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
             </div>
         </div>
-    </div> -->
+    </div>
             <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
                 <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
@@ -1360,9 +1370,52 @@
             xhttp.open("GET", "./getEmployeeData/", true);
 
             xhttp.send();
+            loadEmployees();
+            
+        }
+
+        function searchEmployeeData() {
+            var employeeID = document.getElementById("employee").value;
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = "";
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./searchEmployeeData/" + employeeID, true);
+
+            xhttp.send();
+        }
+
+        function searchTaskWithStatus() {
+            var employeeID = document.getElementById("employee").value;
+            var status = document.getElementById("status").value;
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = "";
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status, true);
+           
+            xhttp.send();
         }
 
     </script>
+
     <script>
         function sendData() {
             let msg = document.getElementById("getValuesmsg").value;
@@ -1429,6 +1482,24 @@
 
             var mainValue = document.getElementById("changeme");
             mainValue.value = custumDate;
+
+
+        }
+
+        function loadEmployees() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("employee").innerHTML = this.response;
+                    $('#employee').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployees/", true);
+
+            xhttp.send();
 
 
         }

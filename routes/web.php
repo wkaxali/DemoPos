@@ -148,6 +148,9 @@ Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
+Route::get('/searchEmployeeData/{EID}',[taskController::class, 'searchEmployeeData']);
+Route::get('/searchTaskWithStatus/{EID}/{status}',[taskController::class, 'searchTaskWithStatus']);
+
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance']);
 Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID']);
 Route::get('/getEmployeeName',[payController::class, 'getEmployeeName']);
@@ -287,6 +290,12 @@ Route::get('/ev', function () {
 });
 Route::get('/etv', function () {
     return view('EmployeeTaskView');
+});
+Route::get('/emptv', function () {
+    return view('employertasksViews');
+});
+Route::get('/e', function () {
+    return view('Employee');
 });
 Route::get('/at', function () {
     return view('attendance');
