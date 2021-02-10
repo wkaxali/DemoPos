@@ -684,7 +684,7 @@
         function getByID() {
             var xhttp = new XMLHttpRequest();
             var id = $('#id').find(":selected").val();
-            //alert(id);
+            alert(id);
             xhttp.onreadystatechange = function () {
 
                 //  var id=document.getElementById("id").value;
@@ -692,10 +692,11 @@
                 //alert(id);
                 if (this.readyState == 4 && this.status == 200) {
 
-                    // alert(this.response);
+                   //  alert(this.response);
                     var a = JSON.parse(this.response);
                     //$('#name').find(":selected").value="1";
                     $("#name").val(a[0].EID);
+                    $("#name").selectpicker('refresh');
 
                     //document.getElementById("name").selectedIndex = 2;
                     document.getElementById("date").value = a[0].JoiningDate;
@@ -704,9 +705,11 @@
                     document.getElementById("allowedHolidays").value = a[0].AllowedHolidays;
                     document.getElementById("allownces").value = a[0].Alownces;
                     document.getElementById("saleTarget").value = a[0].SaleTarget;
-                    $('#name').find(":selected").val() = a[0].EID;
-                    $('#contact').find(":selected").val() = a[0].EID;
-                    $('#cnic').find(":selected").val() = a[0].EID;
+                   alert(a[0].ContactNo);
+                    $('#contact').val(a[0].EID);
+                    $("#contact").selectpicker('refresh');
+                    $('#cnic').val(a[0].EID) ;
+                    $("#cnic").selectpicker('refresh');
                     //alert();
 
 

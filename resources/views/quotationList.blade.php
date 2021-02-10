@@ -376,7 +376,7 @@
                             .Model, a[i].Date, '<button class="btn print" onclick="printQuotation('+a[i].QID+')" >Print</button>'
                         ]);
                     });
-                    table.draw();
+                    table.columns.adjust().draw();
 
                 }
             };
