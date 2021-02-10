@@ -407,6 +407,7 @@ Route::get('/exv', function () {
 });
 
 
+
 Route::get('/pdfvs', function () {
     ini_set('max_execution_time', 60);
     $data=TransactionFlow::getTransactionsForAccounts(1);
@@ -426,3 +427,4 @@ Route::get('/ssi2', function () {
 Route::get('/ssi', function () {
     return view('servicesalesinvoice');
 });
+
