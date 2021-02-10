@@ -215,7 +215,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 text-right offset-md-8">
-                    <button onclick="PrintElem()" class="btn btn-warning">Print</button>
+                    <button onclick="newFun()" class="btn btn-warning">Print</button>
                     <button class="btn btn-danger">Close</button>
                 </div>
             </div>
@@ -669,6 +669,32 @@
 
     return true;
 }
+
+
+function newFun() {
+var table = $('#myTable').DataTable();
+var htmlTable = '<table > ';
+var data = table.rows().data();
+data.each(function (value, index) {
+   
+     htmlTable = htmlTable + '<tr><td >  '+value[0]+' </td>  <td >  '+value[1]+' </td> <td >  '+value[2]+' </td> <td >  '+value[4]+' </td> </tr>';
+ });
+ document.getElementById("accounts").Text;
+ newWin = window.open();
+ newWin.document.write(
+'<html><head><title>Transaction History!</title><style>table,th,td{border:1px solid #333}</style></head><body>'
+);
+ newWin.document.write(document.getElementById("accounts").value);
+ newWin.document.write(htmlTable);
+
+newWin.print();
+// newWin.close();
+};
+
+
+
+
+
     </script>
 
 </body>
