@@ -20,7 +20,7 @@
 
     <title>Invoice</title>
     <style>
-                @media (max-width: 1366px) {
+        @media (max-width: 1366px) {
             .left-content {
                 width: 83%;
             }
@@ -29,6 +29,7 @@
         .page-container.sidebar-collapsed-back .left-content {
             width: 83% !important;
         }
+
         @media (max-width:320px) {
             .page-container {
                 min-width: 303px;
@@ -783,6 +784,7 @@
         a:hover {
             cursor: pointer;
         }
+
         #SmallFontlabel label {
             width: 200px;
         }
@@ -1358,22 +1360,23 @@
 
         }
 
-        /* Invoice Services Media Query Starts */
-        /* Invoice Services Media Query Ends */
-        #myTable_length label{
+
+        #myTable_length label {
             width: auto !important;
         }
-        .dataTables_filter label{
+
+        .dataTables_filter label {
             width: auto !important;
 
         }
-        
+
         ::-webkit-scrollbar {
             width: 10px;
 
         }
 
         ::-webkit-scrollbar-track {
+
             background-color: #0a549d;
         }
 
@@ -1384,57 +1387,31 @@
         .fa-bars {
             color: #fff;
         }
+
     </style>
 </head>
 
 <body style="font-family: 'Roboto', sans-serif;" onload="fetchAccounts()">
-<div class="page-container">
-<div class="left-content">
-<div class="inner-block">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center mt-1">
-                <h4>Create Invoice</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <label for="">Category</label>
-                <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                    <option value=1>Auto</option>
-                    <option value=2>Service</option>
-                    <option value=3>Parts</option>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="inner-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center mt-1">
+                            <h4>Create Invoice</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-12 offset-md-10">
 
 
-
-                </select>
-            </div>
-            <div class="col-md-5 offset-md-3">
-                <label for="">Modal / Services</label>
-                <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                    <option value=1>Forland C13</option>
-                    <option value=2>Forland C12</option>
-                    <option value=3>Forland C12</option>
-
-
-
-                </select>
-           
-                <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
-                    style="height: 25px;" onclick="loadStock()"></button>
-            </div>
-        </div>
-    </div>
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <div class="firstColor my-4">
-                        <div class="date text-right">
-                            <h6> <strong>Date :</strong> 27/11/2020</h6>
+                            <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
+                                style="height: 25px;" onclick="loadStock()"></button>
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
             </div>
         </div>
     </header>
@@ -1459,15 +1436,50 @@
                                 <input type="text" autocomplete="OFF" class="form-control"
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="ProductName">
+=======
+                <header>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <div class="firstColor my-4">
+                                    <div class="date text-right">
+                                        <h6> <strong>Date :</strong> 27/11/2020</h6>
+                                    </div>
+                                </div>
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
                             </div>
+                        </div>
+                    </div>
+                </header>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="myMainRow">
 
-                            <div class="input-field">
-                                <label for="status">Color</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="color">
-                            </div>
 
+                                    <div class="myOwnRow-left">
+                                        <div class="input-field">
+                                            <label for="status">Product ID</label>
+                                            <input type="text" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="PID">
+                                        </div>
+                                        <div class="input-field">
+                                            <label for="status">Model</label>
+                                            <input type="text" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="ProductName">
+                                        </div>
+
+                                        <div class="input-field">
+                                            <label for="status">Color</label>
+                                            <input type="text" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="color">
+                                        </div>
+
+<<<<<<< HEAD
                             <div class="input-field">
                                 <label for="status">Chassis Number </label>
                                 <input type="text" autocomplete="OFF" class="form-control"
@@ -1498,14 +1510,35 @@
                             <div class="row">
                                 <div class="col-md-12">
                             
+=======
+                                        <div class="input-field">
+                                            <label for="status">Chassis Number </label>
+                                            <input type="text" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="ChasisNumber">
+                                        </div>
+                                        <div class="input-field">
+                                            <label for="status">Engine Number</label>
+                                            <input type="text" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="EngineNumber">
+                                        </div>
+                                        <div class="input-field">
+                                            <label for="status">Status</label>
+                                            <input type="text" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="Status">
+                                        </div>
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
 
-                            <div class="input-field">
-                                <label for="status">Description</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="description">
-                            </div>
+                                        <div class="input-field">
+                                            <label for="status">Description</label>
+                                            <input type="text" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="description">
+                                        </div>
 
+<<<<<<< HEAD
                             <div class="input-field">
                             <label for="status">Purchase Price</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
@@ -1542,25 +1575,104 @@
                                                     <input type="text" name=""
                                                         style="display: inline-block; width: 200px;"
                                                         class="form-control" id="">
-                                                </div>
+=======
+                                        <div class="input-field">
+                                            <label for="status">Invoice Price</label>
+                                            <input type="number" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="TotalPrice"><br>
+                                            <!-- <label for="status">Total Cost</label> -->
+                                            <input type="number" autocomplete="OFF" class="form-control"
+                                                style="display: none !important; height: 30px !important; width: 183px;"
+                                                name="name" id="TotalCost"><br>
+                                            <!-- <label for="status">17 % Tax on Price</label> -->
+                                            <input type="number" autocomplete="OFF" class="form-control"
+                                                style="display: none !important; height: 30px !important; width: 183px;"
+                                                name="name" id="tax">
+
+                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Purchase
+                                                                Price Details
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body" id="SmallFontlabel">
+                                                            <div class="input-field">
+                                                                <label for="">Invoice Price</label>
+                                                                <input type="text" name=""
+                                                                    style="display: inline-block; width: 200px;"
+                                                                    class="form-control" id="">
+                                                            </div>
+                                                            <div class="input-field">
+                                                                <label for="">Price With Additional Tax</label>
+                                                                <input type="text" name=""
+                                                                    style="display: inline-block; width: 200px;"
+                                                                    class="form-control" id="">
+                                                            </div>
 
 
-                                                <div class="input-field">
-                                                    <label for="">Increase In Price</label>
-                                                    <input type="text" name=""
-                                                        style="display: inline-block; width: 200px;"
-                                                        class="form-control" id="">
+                                                            <div class="input-field">
+                                                                <label for="">Increase In Price</label>
+                                                                <input type="text" name=""
+                                                                    style="display: inline-block; width: 200px;"
+                                                                    class="form-control" id="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save
+                                                                changes</button>
+                                                        </div>
+                                                    </div>
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
                                                 </div>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                        <div class="input-field">
+                                            <label for="status">Discount</label>
+                                            <input type="number" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" value="0" id="Discount" onchange="calc()">
+                                        </div>
+                                        <div class="input-field">
+                                            <label for="status">Net Total</label>
+                                            <input type="text" readonly class="form-control"
+                                                style=" pointer-events: none; display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="NetTotal">
+                                        </div>
+                                    </div>
+                                    <div class="myOwnROw">
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="input-field">
+                                                    <label for="status">Invoice Number</label>
+                                                    <input type="text" autocomplete="OFF" class="form-control"
+                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                        name="name" value="0" id="InvoiceID">
+                                                    <input type="button" value="Print Invoice Request"
+                                                        onclick="getInvoiceRequest()"></input>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="head-right">
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div class="input-field">
                                 <label for="status">Discount</label>
                                 <input type="number" autocomplete="OFF" class="form-control"
@@ -1581,10 +1693,23 @@
                                     <div class="head-right">
 
                                     </div>
+=======
+
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="SecondColor my-4">
+
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
                                 </div>
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
 
             </div>
@@ -1618,135 +1743,150 @@
                                     <!-- from database -->
                                 </select>
                             <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
+=======
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="head-left">
+
+
+                                    <div class="input-field">
+                                        <label for="issue-3">Customer Name</label>
+                                        <select class="selectpicker" data-live-search="true" tabindex="null"
+                                            id="CustomerName" onchange="getCurrentCustomerInfo()">
+                                            <!-- from database -->
+                                        </select>
+                                        <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
                                margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
-                        </div>
-                        <div class="input-field">
-                            <label for="status">Client's Father Name</label>
-                            <input type="text" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="fatherName">
-                        </div>
-                        <div class="input-field">
-                            <label for="status">Customer CNIC</label>
-                            <input type="number" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="CID">
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="status">Client's Father Name</label>
+                                        <input type="text" autocomplete="OFF" class="form-control"
+                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                            name="name" id="fatherName">
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="status">Customer CNIC</label>
+                                        <input type="number" autocomplete="OFF" class="form-control"
+                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                            name="name" id="CNIC">
 
-                        </div>
-                        <div class="input-field">
-                            <label for="status">Movement City/Area</label>
-                            <input type="text" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="city">
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="status">Movement City/Area</label>
+                                        <input type="text" autocomplete="OFF" class="form-control"
+                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                            name="name" id="city">
 
-                        </div>
-                        <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
+                                    </div>
+                                    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
 
-                                    <div class="modal-body">
-                                        <form method="POST" class="appointment-form" id="appointment-form">
-                                            <h2>Create Invoice</h2>
-                                            <div class="form-group-1">
-                                                <input type="text" name="name" id="addCustomerName" placeholder="Customer Name"
-                                                    required />
-                                                <input type="text" name="title" id="addFatherName" placeholder="Father Name"
-                                                    required />
+                                                <div class="modal-body">
+                                                    <form method="POST" class="appointment-form" id="appointment-form">
+                                                        <h2>Create Invoice</h2>
+                                                        <div class="form-group-1">
+                                                            <input type="text" name="name" id="addCustomerName"
+                                                                placeholder="Customer Name" required />
+                                                            <input type="text" name="title" id="addFatherName"
+                                                                placeholder="Father Name" required />
 
-                                                <input type="number" name="tel" id="addContact" placeholder="Contact"
-                                                    required />
-                                                <input type="number" name="title" id="addCNIC" placeholder="ID Card"
-                                                    required />
-                                                <input type="text" name="phone_number" id="addAddress"
-                                                    placeholder="Address" required />
-                                                <input type="text" name="phone_number" id="addProfession"
-                                                    placeholder="Profession" required />
-                                                <input type="number" name="phone_number" id="addBalance"
-                                                    placeholder="Balance" required />
+                                                            <input type="number" name="tel" id="addContact"
+                                                                placeholder="Contact" required />
+                                                            <input type="number" name="title" id="addCNIC"
+                                                                placeholder="ID Card" required />
+                                                            <input type="text" name="phone_number" id="addAddress"
+                                                                placeholder="Address" required />
+                                                            <input type="text" name="phone_number" id="addProfession"
+                                                                placeholder="Profession" required />
+                                                            <input type="number" name="phone_number" id="addBalance"
+                                                                placeholder="Balance" required />
 
-                                                <input type="text" name="phone_number" id="addComments"
-                                                    placeholder="Comments" required />
+                                                            <input type="text" name="phone_number" id="addComments"
+                                                                placeholder="Comments" required />
 
-                                                <div class="select-list">
-                                                    <select name="course_type" id="course_type">
-                                                        <option selected value="">Category</option>
-                                                        <option value="Society">Society</option>
-                                                        <option value="Language">Language</option>
-                                                    </select>
+                                                        </div>
+
+                                                        <div class="form-submit">
+                                                            <button onclick="addCustomer()" name="submit" id="submit"
+                                                                class="submit" value="">Add Customer</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-org-1"
+                                                        data-dismiss="modal">Close</button>
                                                 </div>
                                             </div>
 
-                                            <div class="form-submit">
-                                                <button onclick="addCustomer()" name="submit" id="submit"
-                                                    class="submit" value="">Add Customer</button>
-                                            </div>
-                                        </form>
+                                        </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
+                                    <div class="input-field">
+                                        <label for="status">Address</label>
+                                        <input type="text" autocomplete="OFF" class="form-control"
+                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                            name="name" id="Address">
                                     </div>
-                                </div>
+                                    <div class="input-field">
+                                        <label for="status">Contact</label>
+                                        <input type="text" autocomplete="OFF" class="form-control"
+                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                            name="name" id="contact">
+                                    </div>
 
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="LastInput">
+
+                                    <div class="input-field">
+                                        <label for="status">Amount Paid</label>
+                                        <input type="number" autocomplete="OFF" class="form-control"
+                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                            name="name" id="amountPaid" onkeyup="calcRemainingAmount()">
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="status">Remaining</label>
+                                        <input type="number" autocomplete="OFF" class="form-control"
+                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                            name="name" id="amountRemaining">
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="status">Received By</label>
+                                        <select data-live-search="true" class=" selectpicker" id='employees'>
+
+
+
+                                        </select>
+                                    </div>
+
+                                    <div class="input-field">
+                                        <label for="status">Payment Mode</label>
+                                        <select data-live-search="true" class=" selectpicker" id='slctAccounts'>
+
+
+
+                                        </select>
+                                    </div>
+                                    <div class="input-field">
+                                        <label for="status">Paid To</label>
+                                        <select data-live-search="true" class=" selectpicker" id="paidTo">
+                                            <option value=1>Forland Modren Motors</option>
+                                            <option value=2>FJW</option>
+
+
+                                        </select> </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="input-field">
-                            <label for="status">Address</label>
-                            <input type="text" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="Address">
-                        </div>
-                        <div class="input-field">
-                            <label for="status">Contact</label>
-                            <input type="text" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="contact">
-                        </div>
-
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="LastInput">
-
-                        <div class="input-field">
-                            <label for="status">Amount Paid</label>
-                            <input type="number" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="amountPaid" onkeyup="calcRemainingAmount()">
-                        </div>
-                        <div class="input-field">
-                            <label for="status">Remaining</label>
-                            <input type="number" autocomplete="OFF" class="form-control"
-                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                name="name" id="amountRemaining">
-                        </div>
-
-                        <div class="input-field">
-                            <label for="status">Received By</label>
-                            <select data-live-search="true" class=" selectpicker" id='employees'>
-
-
-
-                            </select>
-                        </div>
-                        
-                        <div class="input-field">
-                            <label for="status">Payment Mode</label>
-                            <select data-live-search="true" class=" selectpicker" id='slctAccounts'>
-
-
-
-                            </select>
-                        </div>
-                        <div class="input-field">
-                            <label for="status">Paid To</label>
-                            <select data-live-search="true" class=" selectpicker" id="paidTo">
-                                <option value=1>Forland Modren Motors</option>
-                                <option value=2>FJW</option>
-
-
-                            </select> </div>
-                    </div>
+<<<<<<< HEAD
                 </div>
             </div>
         </div>
@@ -1758,291 +1898,317 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="ThirdColor my-4">
+=======
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="ThirdColor my-4">
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
 
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <footer class="text-center mt-2">
-        <div class="container">
-            <div class="row ">
-                <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
-                    <a class="btn" href="viewCustomers.html">view Customers</a>
-                    <a class="btn" href="deliveryLetter.html">Print Docs</a>
-                    <a class="btn" onclick="validPlz()">Generate Sale</a>
-                    <a class="btn" href="#">Close Form</a>
+                </section>
+                <footer class="text-center mt-2">
+                    <div class="container">
+                        <div class="row ">
+                            <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
+                                <a class="btn" href="viewCustomers.html">view Customers</a>
+                                <a class="btn" onclick="printDocs()">Print Docs</a>
+                                <a class="btn" onclick="validPlz()">Generate Sale</a>
+                                <a class="btn" href="#">Close Form</a>
 
 
 
 
-                </div>
+                            </div>
 
-            </div>
-        </div>
+                        </div>
+                    </div>
 
-    </footer>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-lg" style="margin-left:100px;">
-            <div class="modal-content" style="width: 1300px;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h4 class="text-center my-4">Products Table</h4>
-                            <table class="table  table-bordered mb-5" id="searchProductTable">
-                                <thead>
-                                    <tr>
+                </footer>
+                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                    aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" style="margin-left:100px;">
+                        <div class="modal-content" style="width: 1300px;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="text-center my-4">Products Table</h4>
+                                        <table class="table  table-bordered mb-5" id="searchProductTable">
+                                            <thead>
+                                                <tr>
 
-                                        <th>Product Id</th>
+                                                    <th>Product Id</th>
 
-                                        <th>Product Name</th>
-                                        <th>Color</th>
-                                        <th>Engine Number</th>
+                                                    <th>Product Name</th>
+                                                    <th>Color</th>
+                                                    <th>Engine Number</th>
 
-                                        <th>Chasis Number</th>
+                                                    <th>Chasis Number</th>
 
-                                        <th>Purchse Price</th>
-                                        <th>Cost with Additional charges</th>
-                                        <th>Status</th>
-                                        <th>Description</th>
-
-
+                                                    <!-- <th>Purchse Price</th> -->
+                                                    <th>Invoice Price</th>
+                                                    <!-- <th>Cost with Additional charges</th> -->
+                                                    <th>Status</th>
+                                                    <th>Description</th>
 
 
 
 
 
 
-                                    </tr>
-                                </thead>
-                                <tbody>
 
 
-                                </tbody>
-                            </table>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
-<div class="sidebar-menu">
+        <div class="sidebar-menu">
 
-    <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
-            <span id="logo"></span>
-        </a> </div>
-    <div class="menu">
-        <ul id="menu">
-            <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
-                        style="font-size: 18px;">Dashboard</span></a>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-                        style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse list-unstyled firstULs ">
-                    <li><a href="/">Category</a></li>
-                    <li><a href="/vs">Product Record</a></li>
-                    <li><a href="/as">Add Product</a></li>
-                    <li><a href="/">Barcode</a></li>
-
-                    <li><a href="/">Stock Audit</a></li>
-                </ul>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
-                        style="font-size: 18px;">Customer</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs1">
-                    <li><a href="/">Add Customer</a></li>
-                    <li><a href="/vs">Customer List</a></li>
-
-                </ul>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
-                        style="font-size: 18px;">Supplier</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs2">
-                    <li><a href="/">Add Supplier</a></li>
-                    <li><a href="/vs">Supplier List</a></li>
-                </ul>
-            </li>
-            <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
-                        class="fab fa-alipay"></i>
-                    <span style="font-size: 18px;">Purchase</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs3">
-                    <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
+            <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
+                    <span id="logo"></span>
+                </a> </div>
+            <div class="menu">
+                <ul id="menu">
+                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
+                                style="font-size: 18px;">Dashboard</span></a>
                     </li>
-                    <li><a href="">Daily Purchase</a></li>
-                    <li><a href="">Monthly Purchase</a></li>
-                    <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                    <li><a data-toggle="collapse" data-target=".firstULs0"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse list-unstyled firstULs0 ">
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs">
+                            <li><a href="/">Category</a></li>
+                            <li><a href="/vs">Product Record</a></li>
+                            <li><a href="/as">Add Product</a></li>
+                            <li><a href="/">Barcode</a></li>
+
+                            <li><a href="/">Stock Audit</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Customer</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs1">
+                            <li><a href="/">Add Customer</a></li>
+                            <li><a href="/vs">Customer List</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Supplier</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs2">
+                            <li><a href="/">Add Supplier</a></li>
+                            <li><a href="/vs">Supplier List</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
+                                class="fab fa-alipay"></i>
+                            <span style="font-size: 18px;">Purchase</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs3">
+                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
+                            </li>
+                            <li><a href="">Daily Purchase</a></li>
+                            <li><a href="">Monthly Purchase</a></li>
+                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">POS</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs4">
+                            <li><a href="/ss">POS</a></li>
+                            <li><a href="/sc">Add Sale</a></li>
+                            <li><a href="">Daily Sales</a></li>
+                            <li><a href="">Monthly Sales</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
+                                style="font-size: 18px;">Expense</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs5">
+                            <li><a href="/ex">Add Expense</a></li>
+                            <li><a href="">Expense List</a></li>
+                            <li><a href="">Expense Head</a></li>
+                            <li><a href="">Expense Category</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-quote-right"></i><span
+                                style="font-size: 18px;">Quotation<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul class="collapse firstULs6">
+                            <li><a href="/ql">Quotation List</a></li>
+                            <li><a href="/is">Add Quotation</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-random"></i><span
+                                style="font-size: 18px;">Transfer<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul class="collapse firstULs7">
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="">Transfer Funds</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-undo-alt"></i><span
+                                style="font-size: 18px;">Return<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul class="collapse firstULs8">
+                            <li><a href="/ss">Sale</a></li>
+                            <li><a href="/is">Purchase</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs9"><i
+                                class="fas fa-user-circle"></i><span style="font-size: 18px;">Accounts</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul class="collapse firstULs9">
+                            <li id="menu-academico-boletim"><a href="/l">Investor Ledger</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
+                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
+                                style="font-size: 18px;">HR</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs10" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
+                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
+                        </ul>
+                    </li>
+
+
+
+                    <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
+                                style="font-size: 18px;">People</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs11" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
+                            <li id="menu-academico-boletim"><a href="/">Add User</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs12"><i
+                                style="font-size: 20px;" class="fab fa-stack-overflow"></i><span
+                                style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs12" id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
+                        </ul>
+                    </li>
+
+
+
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
+                                class="fas fa-flag-checkered"></i><span style="font-size: 18px;">Reports</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul class="collapse firstULs13" id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Customer Report</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Best Seller</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Daily Sale</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Monthly Sale</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Daily Purchase</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">MonthlyPurchase</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">User Report</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Supplier Report</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14"><i
+                                class="fas fa-truck-loading"></i><span style="font-size: 18px;">Order
+                                Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
+                        <ul class="collapse firstULs14" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
+                                style="font-size: 18px;">PayRoll</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs15" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
+                            <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
+                            <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs16" href="/at"><i
+                                class="fas fa-guitar"></i><span style="font-size: 18px;">Attendance</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul class="collapse firstULs16" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
+                            <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs17"><i class="fas fa-eye"></i><span
+                                style="font-size: 18px;">Task View</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="firstULs17 collapse" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
+                            <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a data-toggle="collapse" data-target=".firstULs18"><i class="fas fa-cogs"></i><span
+                                style="font-size: 18px;">Account Settings</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs18" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
+                            <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
-                        style="font-size: 18px;">POS</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs4">
-                    <li><a href="/ss">POS</a></li>
-                    <li><a href="/sc">Add Sale</a></li>
-                    <li><a href="">Daily Sales</a></li>
-                    <li><a href="">Monthly Sales</a></li>
-
-                </ul>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
-                        style="font-size: 18px;">Expense</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs5">
-                    <li><a href="/ex">Add Expense</a></li>
-                    <li><a href="">Expense List</a></li>
-                    <li><a href="">Expense Head</a></li>
-                    <li><a href="">Expense Category</a></li>
-                </ul>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-quote-right"></i><span
-                        style="font-size: 18px;">Quotation<span class="fa fa-angle-right"
-                            style="float: right"></span></a>
-                <ul class="collapse firstULs6">
-                    <li><a href="/ql">Quotation List</a></li>
-                    <li><a href="/is">Add Quotation</a></li>
-                </ul>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-random"></i><span
-                        style="font-size: 18px;">Transfer<span class="fa fa-angle-right"
-                            style="float: right"></span></a>
-                <ul class="collapse firstULs7">
-                    <li><a href="/th">Transaction History</a></li>
-                    <li><a href="">Transfer Funds</a></li>
-                </ul>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-undo-alt"></i><span
-                        style="font-size: 18px;">Return<span class="fa fa-angle-right"
-                            style="float: right"></span></a>
-                <ul class="collapse firstULs8">
-                    <li><a href="/ss">Sale</a></li>
-                    <li><a href="/is">Purchase</a></li>
-                </ul>
-            </li>
-            <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs9"><i
-                        class="fas fa-user-circle"></i><span style="font-size: 18px;">Accounts</span><span
-                        class="fa fa-angle-right" style="float: right"></span></a>
-                <ul class="collapse firstULs9">
-                    <li id="menu-academico-boletim"><a href="/l">Investor Ledger</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
-                    <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
-
-                </ul>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
-                        style="font-size: 18px;">HR</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs10" id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
-                    <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
-                </ul>
-            </li>
-
-
-
-            <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
-                        style="font-size: 18px;">People</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs11" id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
-                    <li id="menu-academico-boletim"><a href="/">Add User</a></li>
-
-
-                </ul>
-            </li>
-
-
-
-            <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs12"><i
-                        style="font-size: 20px;" class="fab fa-stack-overflow"></i><span
-                        style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs12" id="menu-academico-sub">
-                    <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
-                    <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
-                </ul>
-            </li>
-
-
-
-            <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
-                        class="fas fa-flag-checkered"></i><span style="font-size: 18px;">Reports</span><span
-                        class="fa fa-angle-right" style="float: right"></span></a>
-                <ul class="collapse firstULs13" id="menu-academico-sub">
-                    <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
-
-                    <li id="menu-academico-boletim"><a href="/dl">Customer Report</a></li>
-                    <li id="menu-academico-boletim"><a href="/d">Best Seller</a></li>
-
-                    <li id="menu-academico-boletim"><a href="/dl">Daily Sale</a></li>
-                    <li id="menu-academico-boletim"><a href="/d">Monthly Sale</a></li>
-
-                    <li id="menu-academico-boletim"><a href="/dl">Daily Purchase</a></li>
-                    <li id="menu-academico-boletim"><a href="/d">MonthlyPurchase</a></li>
-
-                    <li id="menu-academico-boletim"><a href="/dl">User Report</a></li>
-                    <li id="menu-academico-boletim"><a href="/d">Supplier Report</a></li>
-
-                    <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li>
-
-
-                </ul>
-            </li>
-            <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14"><i
-                        class="fas fa-truck-loading"></i><span style="font-size: 18px;">Order
-                        Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
-                <ul class="collapse firstULs14" id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
-
-                </ul>
-            </li>
-
-
-            <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
-                        style="font-size: 18px;">PayRoll</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs15" id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
-                    <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
-                    <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
-                </ul>
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs16" href="/at"><i
-                        class="fas fa-guitar"></i><span style="font-size: 18px;">Attendance</span><span
-                        class="fa fa-angle-right" style="float: right"></span></a>
-                <ul class="collapse firstULs16" id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
-                    <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
-                </ul>
-
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs17"><i class="fas fa-eye"></i><span
-                        style="font-size: 18px;">Task View</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="firstULs17 collapse" id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
-                    <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
-                </ul>
-            </li>
-
-            <li><a data-toggle="collapse" data-target=".firstULs18"><i class="fas fa-cogs"></i><span
-                        style="font-size: 18px;">Account Settings</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs18" id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
-                    <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
-                </ul>
-            </li>
-        </ul>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 
 
 
@@ -2151,8 +2317,9 @@
                 table.clear();
                 $.each(a, function (i, item) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i].EngineNumber,
-                        a[i].ActualPurchsePrice, a[i].TotalCost, a[i].StatusInStock, a[i].description
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i]
+                        .EngineNumber,
+                        a[i].PerUnitSalePrice, a[i].StatusInStock, a[i].description
                     ]);
                 });
                 table.draw();
@@ -2162,7 +2329,24 @@
         xhttp.open("GET", "./getAvailableProducts/", true);
         xhttp.send();
     }
+   function  getInvoiceRequest(){
 
+    id =document.getElementById("InvoiceID").value ;
+    var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Printed");
+                window.open("./sir");
+
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getSaleInvReq/" + id, true);
+        xhttp.send();
+
+
+    }
 
     $(document).ready(function () {
 
@@ -2181,23 +2365,25 @@
             document.getElementById("ChasisNumber").value = this.cells[3].innerText;
 
             document.getElementById("EngineNumber").value = this.cells[4].innerText;
-            document.getElementById("Status").value = this.cells[7].innerText;
-            document.getElementById("description").value = this.cells[8].innerText;
+            document.getElementById("Status").value = this.cells[6].innerText;
+            document.getElementById("description").value = this.cells[7].innerText;
             document.getElementById("TotalPrice").value = this.cells[5].innerText;
-            document.getElementById("TotalCost").value = this.cells[6].innerText;
+            //document.getElementById("TotalCost").value = this.cells[5].innerText;
             document.getElementById("Discount").value = "0";
 
 
             alert(this.cells[0].innerText);
+            calc();
         });
         calc();
     });
 
     function calc() {
-    
+
         var tot = document.getElementById("TotalPrice").value;
         var dis = document.getElementById("Discount").value;
-        var tax = Number(tot)*0.17;
+        //var tax = Number(tot)*0.17;
+        var tax = 0;
 
         var netTot = Number(tot) + Number(tax) - Number(dis);
 
@@ -2231,13 +2417,14 @@
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('amountPaid').value;
         var rmb = document.getElementById("amountRemaining").value;
-        var CID = document.getElementById("CID").value;
+        var CID = $('#CustomerName').find(":selected").val();
         var paidTo = document.getElementById("paidTo").value;
         var AID = document.getElementById("slctAccounts").value;
 
         var customerName = $('#CustomerName').find(":selected").text();
+
         var receivedBy = $('#employees').find(":selected").text();
-        var CNIC = document.getElementById("CID").value;
+        var CNIC = document.getElementById("CNIC").value;
         var address = document.getElementById('Address').value;
         var contact = document.getElementById('contact').value;
         var fatherName = document.getElementById('fatherName').value;
@@ -2251,28 +2438,25 @@
         var totalCost = document.getElementById('TotalCost').value;
 
         order = [pid, totwT, discount, netTotal, amp, rmb,
-                CID, paidTo, AID, customerName, CNIC, address, 
-                contact, fatherName, engineNo, chassisNo, color,
-                description, productName, city, receivedBy,
-                totalCost
-            
-            ];
+            CID, paidTo, AID, customerName, CNIC, address,
+            contact, fatherName, engineNo, chassisNo, color,
+            description, productName, city, receivedBy,
+            totalCost
+
+        ];
 
         var array = JSON.stringify(order);
 
         var xhttp = new XMLHttpRequest();
 
-        if(AID==""){
+        if (AID == "") {
             alert('Payment Method not Selected');
-        }
-        else{
+        } else {
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert("Invoice =" + this.responseText + " is generated");
-                    window.open("/psi");
-                    window.open("/fgp");
-                    window.open("/prc");
+
 
 
 
@@ -2285,8 +2469,14 @@
     }
 
 </script>
+
 <script>
-    
+    function printDocs() {
+        window.open("/psi");
+        window.open("/fgp");
+        window.open("/prc");
+    }
+
     function fetchAccounts() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -2323,13 +2513,13 @@
         var NetTotal = document.getElementById("NetTotal").value;
 
         var CustomerName = document.getElementById("CustomerName").value;
-        var CID = document.getElementById("CID").value;
+        var CNIC = document.getElementById("CNIC").value;
         var Address = document.getElementById("Address").value;
         var contact = document.getElementById("contact").value;
         var fatherName = document.getElementById("fatherName").value;
         var amountPaid = document.getElementById("amountPaid").value;
         var amountRemaining = document.getElementById("amountRemaining").value;
-        
+
 
         if (PID == "") {
             // alert("Product Id Field Must Be Valid");
@@ -2385,9 +2575,9 @@
             document.getElementById("CustomerName").focus();
 
 
-        } else if (CID == "") {
+        } else if (CNIC == "") {
             // alert("Customer ID Field Must Be Valid");
-            document.getElementById("CID").focus();
+            document.getElementById("CNIC").focus();
 
 
         } else if (Address == "") {
@@ -2437,82 +2627,81 @@
 
     function loadAllCustomers() {
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("CustomerName").innerHTML =
-                this.responseText;
-            $('#CustomerName').selectpicker('refresh');
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("CustomerName").innerHTML =
+                    this.responseText;
+                $('#CustomerName').selectpicker('refresh');
 
-        }
-    };
+            }
+        };
 
-    xhttp.open("GET", "./getCustomerNames", true);
-    xhttp.send();
+        xhttp.open("GET", "./getCustomerNames", true);
+        xhttp.send();
     }
 
     function getCurrentCustomerInfo() {
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var data = this.responseText;
-            var a = JSON.parse(data);
-            //document.getElementById("CID").value = a[0].CustomerID;
-            document.getElementById("fatherName").value = a[0].FatherName;
-            document.getElementById("CID").value = a[0].CNIC;
-            document.getElementById("contact").value = a[0].Contect;
-            document.getElementById("Address").value = a[0].Address;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = this.responseText;
+                var a = JSON.parse(data);
+                //document.getElementById("CID").value = a[0].CustomerID;
+                document.getElementById("fatherName").value = a[0].FatherName;
+                document.getElementById("CNIC").value = a[0].CNIC;
+                document.getElementById("contact").value = a[0].Contect;
+                document.getElementById("Address").value = a[0].Address;
 
 
 
 
-        } else {
-            //alert( this.responseText);
+            } else {
+                //alert( this.responseText);
+            }
         }
-    }
-    var CustomerID = $('#CustomerName').find(":selected").val();
+        var CustomerID = $('#CustomerName').find(":selected").val();
 
-    xhttp.open("GET", "./getCustomersInfo/" + CustomerID, true);
-    xhttp.send();
+        xhttp.open("GET", "./getCustomersInfo/" + CustomerID, true);
+        xhttp.send();
 
 
     }
 
     function addCustomer() {
 
-    var customerName = document.getElementById("addCustomerName").value;
-    //	alert("It is working"+CustomerName);
-    var fatherName = document.getElementById("addFatherName").value;
-    //	alert("It is working"+password);
-    var contact = document.getElementById("addContact").value;
-    //alert("It is working"+CustomerContact);
-    var profession = document.getElementById("addProfession").value;
-    //alert("It is working"+CustomerProfession);
-    var balance = document.getElementById("addBalance").value;
-    //alert("It is working"+CustomerBalance);
-    var address = document.getElementById("addAddress").value;
-    //alert("It is working"+CustomerAddress);
-    var comments = document.getElementById("addComments").value;
-    //alert("It is working"+CustomerComments);
-    var cnic = document.getElementById("addCNIC").value;
-    //alert("It is working"+CustomerComments);
-    var category = $('#course_type').find(":selected").val();
-    //alert("It is working"+CustomerComments);
-    var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-    comments, cnic, category
-    ];
+        var customerName = document.getElementById("addCustomerName").value;
+        //	alert("It is working"+CustomerName);
+        var fatherName = document.getElementById("addFatherName").value;
+        //	alert("It is working"+password);
+        var contact = document.getElementById("addContact").value;
+        //alert("It is working"+CustomerContact);
+        var profession = document.getElementById("addProfession").value;
+        //alert("It is working"+CustomerProfession);
+        var balance = document.getElementById("addBalance").value;
+        //alert("It is working"+CustomerBalance);
+        var address = document.getElementById("addAddress").value;
+        //alert("It is working"+CustomerAddress);
+        var comments = document.getElementById("addComments").value;
+        //alert("It is working"+CustomerComments);
+        var cnic = document.getElementById("addCNIC").value;
+        //alert("It is working"+CustomerComments);
 
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            alert(this.responseText);
-        }
-    };
-    var EC = JSON.stringify(newCustomer);
-    alert(EC);
-    xhttp.open("GET", "./insertCustomer/" + EC, true);
-    xhttp.send();
+        var newCustomer = [customerName, fatherName, contact, profession, balance, address,
+            comments, cnic
+        ];
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+            }
+        };
+        var EC = JSON.stringify(newCustomer);
+        alert(EC);
+        xhttp.open("GET", "./insertCustomer/" + EC, true);
+        xhttp.send();
 
 
     }
@@ -2559,20 +2748,20 @@
 
 
     function loadEmployees() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
 
-                if (this.readyState == 4 && this.status == 200) {
+            if (this.readyState == 4 && this.status == 200) {
 
-                    document.getElementById("employees").innerHTML = this.response;
-                    $('#employees').selectpicker('refresh');
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./getEmployeeName/", true);
+                document.getElementById("employees").innerHTML = this.response;
+                $('#employees').selectpicker('refresh');
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getEmployeeName/", true);
 
-            xhttp.send();
-        }
+        xhttp.send();
+    }
 
 </script>
 

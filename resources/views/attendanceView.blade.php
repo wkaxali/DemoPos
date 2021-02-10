@@ -98,15 +98,33 @@
             width: auto !important;
 
         }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+        }
 
     </style>
 </head>
 
-<body onload="getAttendance()">
+<body onload="loadFunctions()">
 <div class="page-container">
 
 <div class="left-content">
     <div class="inner-block">
+<main id="mainHeader">
+
 
     <main>
         <div class="container">
@@ -117,37 +135,29 @@
             </div>
         </div>
     </main>
+    <br>
     <header>
         <div class="container">
             <div class="row">
                 <div class="col-md-5 offset-md-1">
                     <label for="">Employee ID</label>
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
-                        data-live-search="true" id="category" tabindex="null">
-                        <option value=1>1242</option>
-                        <option value=2>1279</option>
-                        <option value=3>1342</option>
-                        <option value=4>9754</option>
+                        <select style="height: 25px !important; width: 158px !important; "
+                            class="selectpicker form-control" data-live-search="true" id="employeeID">
 
-
-                    </select>
+                        </select>
 
                 </div>
 
                 <div class="col-md-5 ">
-                    <label for="">Name</label>
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
-                        data-live-search="true" id="category" tabindex="null">
-                        <option value=1>1242</option>
-                        <option value=2>1279</option>
-                        <option value=3>1342</option>
-                        <option value=4>9754</option>
+                    <label for="">Employee Name</label>
+                        <select style="height: 25px !important; width: 158px !important; "
+                            class="selectpicker form-control" data-live-search="true" id="employeeName">
 
-
-                    </select>
+                        </select>
 
                 </div>
             </div>
+            <br>
             <div class="row customClassBorder my-3">
                 <div class="col-md-5 offset-md-1">
                     <h4>Mohsin Jabbar</h4>
@@ -193,6 +203,7 @@
             </div>
         </div>
     </header>
+    <br>
     <section id="TblSection">
         <div class="container">
             <div class="row">
@@ -222,16 +233,18 @@
             </div>
         </div>
     </section>
+</main>
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 customButtons offset-md-6">
                     <button style="background-color: #e61d2f;color: #ffffff;" class="btn ">Update</button>
-                    <button style="background-color: #0a549d;color: #ffffff;" class="btn ">Print</button>
+                    <button onclick="window.print()" style="background-color: #0a549d;color: #ffffff;" class="btn ">Print</button>
                 </div>
             </div>
         </div>
     </footer>
+
     </div>
 </div>
 <div class="sidebar-menu">
@@ -243,6 +256,21 @@
         <ul id="menu">
             <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                         style="font-size: 18px;">Dashboard</span></a>
+            </li>
+            <li><a data-toggle="collapse" data-target=".firstULs0"><i class="fab fa-salesforce"></i><span
+                        style="font-size: 18px;">Operations</span><span class="fa fa-angle-right"
+                        style="float: right"></span></a>
+                <ul class="collapse list-unstyled firstULs0 ">
+                    <li><a href="/bo">Book Order</a></li>
+                    <li><a href="/rec">Receiving</a></li>
+                    <li><a href="/is">Invoice Services</a></li>
+                    <li><a href="/sc">Commissions and Taxes</a></li>
+                    <li><a href="/as">Add Stock</a></li>
+                    <li><a href="/th">Transaction History</a></li>
+                    <li><a href="/l">Investor Sale Ledger</a></li>
+                    <li><a href="/cl">Company Ledger</a></li>
+
+                </ul>
             </li>
             <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                         style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
@@ -463,6 +491,15 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
+
+
+        function loadFunctions(){
+            getAttendance();
+            loadEmployeeID();
+            loadEmployeeName();
+        }
+
+
         function getAttendance() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -523,6 +560,44 @@
                 }
                 toggle = !toggle;
             });
+
+
+        function loadEmployeeName() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("employeeName").innerHTML = this.response;
+                $('#employeeName').selectpicker('refresh');
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getEmployeeName/", true);
+
+        xhttp.send();
+
+
+        }
+
+
+        function loadEmployeeID() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("employeeID").innerHTML = this.response;
+                    $('#employeeID').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployeeID/", true);
+
+            xhttp.send();
+
+
+        }
     
         </script>
 </body>

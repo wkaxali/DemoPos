@@ -16,14 +16,15 @@
 
     <title>Investor General Ledger</title>
     <style>
-        @media (max-width: 1366px){
-.left-content {
-    width: 83%;
-}
-}
-   .page-container.sidebar-collapsed-back .left-content {
-       width: 83% !important;
-   }
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 83%;
+            }
+        }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
 
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
@@ -82,7 +83,7 @@
 
         .borderCustom-1 input {
             margin: 3px 0px;
-         
+
         }
 
         #myTable th,
@@ -160,14 +161,15 @@
             -moz-appearance: textfield;
         }
 
-        #myTable_length label{
+        #myTable_length label {
             width: auto !important;
         }
-        .dataTables_filter label{
+
+        .dataTables_filter label {
             width: auto !important;
 
         }
-        
+
         ::-webkit-scrollbar {
             width: 10px;
 
@@ -184,164 +186,206 @@
         .fa-bars {
             color: #fff;
         }
+
+        @media print {
+            .left-content {
+                width: 100% !important;
+            }
+
+            .sidebar-menu {
+                display: none;
+            }
+
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            #mainComapnyLedger {
+                visibility: visible !important;
+            }
+
+            table {
+                page-break-before: always;
+            }
+        }
+
     </style>
 </head>
 
 <body onload="getInvestorData()">
-<div class="page-container">
+    <div class="page-container">
 
-<div class="left-content">
-    <div class="inner-block">
-
-
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h4>Investors General Ledger</h4>
-                </div>
-            </div>
-        </div>
-    </main>
-    <section id="mainSection">
-        <div class="container">
-            <div class="row borderCustom-1">
-                <div class="col-md-5 offset-md-1">
-                    <label for="">Name</label>
-                    <select class="selectpicker form-control" data-live-search="true" id="category" tabindex="null">
-                        <option value=0></option>
-                        <option value=1>Farhan</option>
-                        <option value=2>Malik</option>
-                        <option value=3>Ali</option>
-                        <option value=4>Rizwan</option>
+        <div class="left-content">
+            <div class="inner-block">
 
 
-                    </select>
-                </div>
-                <div class="col-md-5 offset-md-1">
-                    <label for="">Contact No</label>
-                    <input type="number" class="form-control"
-                        style="width: 200px; display: inline-block;height: 25px !important;" name="" id="">
-
-                    <button style="height: 25px; margin-top: -5px;" class="btn"></button>
-                </div>
-                <div class="col-md-5 offset-md-1">
-                    <label for="">Budget</label>
-                    <input type="number" class="form-control"
-                        style="width: 200px; display: inline-block;height: 25px !important;" value="80,000" name=""
-                        id=""><br>
-
-                </div>
-                <div class="col-md-5 offset-md-1">
-                    <label for="">Profit</label>
-                    <input type="number" class="form-control"
-                        style="width: 200px; display: inline-block;height: 25px !important;" value="81,000" name=""
-                        id="">
-                </div>
-                <div class="col-md-6 offset-md-1 ">
-                    <label for="">Amount</label>
-                    <input type="number" class="form-control"
-                        style="width: 200px; display: inline-block;height: 25px !important;" name="" id="">
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="row borderCustom">
-                <div class="col-md-12 text-center">
-                    <h6>Details</h6>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mainTable">
-                        <table class="table-striped table-bordered table-hover" id="myTable">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Amount</th>
-                                    <th>Transaction ID</th>
-                                    <th>Type</th>
-                                    <th>Balance</th>
-                                    <th>Current</th>
-                                    <th>Mode</th>
-                                    <th>Account</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                
-                            </tbody>
-
-                        </table>
+                <main>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h4>Investors General Ledger</h4>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <section id="Summary">
-        <div class="container">
-            <div class="row borderCustom-1">
-                <div class="col-md-4">
-                    <div class="summaryLabels">
-                        <label for="">Total Profit</label>
-                        <input type="number" value="11,33,000" class="form-control"
-                            style="width: 180px; display: inline-block;height: 25px !important;" name="" id=""><br>
-
-                        <label for="">Capital</label>
-                        <input type="text" value="80,000,000" class="form-control"
-                            style="width: 180px; display: inline-block;height: 25px !important;" name="" id=""><br>
-
-                        <label for="">Net Total</label>
-                        <input type="number" value="91,33,000" class="form-control"
-                            style="width: 180px; display: inline-block;height: 25px !important;" name="" id=""><br>
+                </main>
+                <section id="mainSection">
+                    <div class="container">
+                        <div class="row borderCustom-1">
+                            <div class="col-md-5 offset-md-1">
+                                <label for="">Name</label>
+                                <select class="selectpicker form-control" data-live-search="true" id="category"
+                                    tabindex="null">
+                                    <option value=0></option>
+                                    <option value=1>Farhan</option>
+                                    <option value=2>Malik</option>
+                                    <option value=3>Ali</option>
+                                    <option value=4>Rizwan</option>
 
 
+                                </select>
+                            </div>
+                            <div class="col-md-5 offset-md-1">
+                                <label for="">Contact No</label>
+                                <input type="number" class="form-control"
+                                    style="width: 200px; display: inline-block;height: 25px !important;" name="" id="">
+
+                                <button style="height: 25px; margin-top: -5px;" class="btn"></button>
+                            </div>
+                            <div class="col-md-5 offset-md-1">
+                                <label for="">Budget</label>
+                                <input type="number" class="form-control"
+                                    style="width: 200px; display: inline-block;height: 25px !important;" value="80,000"
+                                    name="" id=""><br>
+
+                            </div>
+                            <div class="col-md-5 offset-md-1">
+                                <label for="">Profit</label>
+                                <input type="number" class="form-control"
+                                    style="width: 200px; display: inline-block;height: 25px !important;" value="81,000"
+                                    name="" id="">
+                            </div>
+                            <div class="col-md-6 offset-md-1 ">
+                                <label for="">Amount</label>
+                                <input type="number" class="form-control"
+                                    style="width: 200px; display: inline-block;height: 25px !important;" name="" id="">
+
+                            </div>
+                        </div>
 
                     </div>
-
-                </div>
-                <div class="col-md-5 summary-2 offset-md-1">
-                    <label for="">Amount Received By</label>
-                    <input type="text" value="65,000,00" class="form-control"
-                        style="width: 180px; display: inline-block;height: 25px !important;" name="" id=""><br>
-
-                    <label for="">Remaining</label>
-                    <input type="number" value="35,11,200" class="form-control"
-                        style="width: 180px; display: inline-block;height: 25px !important;" name="" id=""><br>
-                </div>
-            </div>
-
-        </div>
-
-
-
-    </section>
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 offset-md-8">
-                    <div class="footerBtns">
-                        <button class="btn">Edit</button>
-                        <button class="btn">Print</button>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="row borderCustom">
+                            <div class="col-md-12 text-center">
+                                <h3 id="mainComapnyLedger">Details</h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
+
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mainTable">
+                                    <main id="mainHeader">
+                                        <table class="table-striped table-bordered table-hover" id="myTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Amount</th>
+                                                    <th>Transaction ID</th>
+                                                    <th>Type</th>
+                                                    <th>Balance</th>
+                                                    <th>Current</th>
+                                                    <th>Mode</th>
+                                                    <th>Account</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+
+                                        </table>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+                <section id="Summary">
+                    <div class="container">
+                        <div class="row borderCustom-1">
+                            <div class="col-md-4">
+                                <div class="summaryLabels">
+                                    <label for="">Total Profit</label>
+                                    <input type="number" value="11,33,000" class="form-control"
+                                        style="width: 180px; display: inline-block;height: 25px !important;" name=""
+                                        id=""><br>
+
+                                    <label for="">Capital</label>
+                                    <input type="text" value="80,000,000" class="form-control"
+                                        style="width: 180px; display: inline-block;height: 25px !important;" name=""
+                                        id=""><br>
+
+                                    <label for="">Net Total</label>
+                                    <input type="number" value="91,33,000" class="form-control"
+                                        style="width: 180px; display: inline-block;height: 25px !important;" name=""
+                                        id=""><br>
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-5 summary-2 offset-md-1">
+                                <label for="">Amount Received By</label>
+                                <input type="text" value="65,000,00" class="form-control"
+                                    style="width: 180px; display: inline-block;height: 25px !important;" name=""
+                                    id=""><br>
+
+                                <label for="">Remaining</label>
+                                <input type="number" value="35,11,200" class="form-control"
+                                    style="width: 180px; display: inline-block;height: 25px !important;" name=""
+                                    id=""><br>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </section>
+
+                <footer>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 offset-md-8">
+                                <div class="footerBtns">
+                                    <button class="btn">Edit</button>
+                                    <button onclick="window.print()" class="btn">Print</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
             </div>
         </div>
-    </footer>
-    
-    </div>
-</div>
-    <div class="sidebar-menu">
+        <div class="sidebar-menu">
 
             <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
                     <span id="logo"></span>
@@ -350,6 +394,21 @@
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
+                                style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse list-unstyled new">
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
                     </li>
                     <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
@@ -555,7 +614,7 @@
             </div>
         </div>
         <div class="clearfix"></div>
-</div>
+    </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -568,35 +627,38 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
 
-<script>
-function getInvestorData(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            var data = this.responseText;
-                //alert(data);
-                var table;
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                table = $('#myTable').DataTable();
+    <script>
+        function getInvestorData() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
 
-                $.each(a, function (i, item) {
+                if (this.readyState == 4 && this.status == 200) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice
-                    , a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber]);
-                });
-                table.draw();
+                    var data = this.responseText;
+                    //alert(data);
+                    var table;
+                    var a = JSON.parse(data);
+                    //  alert(a[0].ProductSerial);
+                    table = $('#myTable').DataTable();
 
+                    $.each(a, function (i, item) {
+
+                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
+                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StockIn, a[i]
+                            .EngineNumber, a[i].ChasisNumber
+                        ]);
+                    });
+                    table.draw();
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getInvestorData/", true);
+
+            xhttp.send();
         }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getInvestorData/", true);
-    
-    xhttp.send();
-    }
-</script>
+
+    </script>
 
 
 
@@ -606,7 +668,7 @@ function getInvestorData(){
         });
 
     </script>
-     <script>
+    <script>
         var toggle = true;
 
         $(".sidebar-icon").click(function () {

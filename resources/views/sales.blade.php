@@ -22,7 +22,7 @@
 
 
     <style>
-           @media (max-width: 1366px) {
+        @media (max-width: 1366px) {
             .left-content {
                 width: 83%;
             }
@@ -31,7 +31,7 @@
         .page-container.sidebar-collapsed-back .left-content {
             width: 83% !important;
         }
-      
+
         @-moz-document url-prefix() {
 
             input {
@@ -1128,7 +1128,7 @@
             color: #fff;
         }
 
-     
+
 
         .dropdown {
             width: 130px;
@@ -1173,18 +1173,20 @@
         .okay-invo-2 .dropdown {
             width: 0px !important;
         }
+
         @media (max-width: 1366px) {
             .okay-invo input {
-            width: 107px ;
-        }
+                width: 107px;
+            }
 
-        .o-inv input {
-            width: 107px ;
-        }
+            .o-inv input {
+                width: 107px;
+            }
 
-        .o-inv-2 input {
-            width: 107px ;
-        }
+            .o-inv-2 input {
+                width: 107px;
+            }
+
             .o-inv-2 {
                 float: none;
             }
@@ -1213,17 +1215,28 @@
             #paidme {
                 width: 79px !important;
             }
+
             .bootstrap-select .dropdown-toggle {
-            width: 107px;
-            height: 33px !important;
+                width: 107px;
+                height: 33px !important;
 
-            color: #ffffff !important;
-        }
-        .o-inv-2 input{
-            width: 107px !important;
-        }
+                color: #ffffff !important;
+            }
+
+            .o-inv-2 input {
+                width: 107px !important;
+            }
 
         }
+
+        /* .dt-button  */
+
+        .buttons-print {
+            padding: 10px 25px;
+            background-color: #0a549d;
+            color: #ffffff;
+        }
+
     </style>
 </head>
 
@@ -1569,6 +1582,21 @@
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs0"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse list-unstyled firstULs0 ">
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
                     <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
@@ -1824,7 +1852,19 @@
         });
 
     </script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
+
     <script>
+        $(document).ready(function () {
+            $('#searchProductTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'print'
+                ]
+            });
+        });
         var toggle = true;
 
         $(".sidebar-icon").click(function () {
@@ -1850,27 +1890,27 @@
 
 
 
-<script>
-    function getAllInvoiceDetails(){
+    <script>
+        function getAllInvoiceDetails() {
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        var data = this.responseText;
-        //alert(data);
-        var a = JSON.parse(data);
-        
-        document.getElementById("CID").value = a[0].CustomerID;
-        document.getElementById("LastBalance").value = a[0].Balance;
-        document.getElementById("CurrentBalance").value = a[0].Balance;
-        calc();
-        document.getElementById("CNO").value = a[0].Contect;
-        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
-        document.getElementById("CustomerName").value = a[0].CustomerID;
-        var i=0;
-        //alert(a.length);
-        var table = document.getElementById("ProductSaleTable");
-        table.innerHTML="<thead>\
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    //alert(data);
+                    var a = JSON.parse(data);
+
+                    document.getElementById("CID").value = a[0].CustomerID;
+                    document.getElementById("LastBalance").value = a[0].Balance;
+                    document.getElementById("CurrentBalance").value = a[0].Balance;
+                    calc();
+                    document.getElementById("CNO").value = a[0].Contect;
+                    document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+                    document.getElementById("CustomerName").value = a[0].CustomerID;
+                    var i = 0;
+                    //alert(a.length);
+                    var table = document.getElementById("ProductSaleTable");
+                    table.innerHTML = "<thead>\
                             <tr>\
                                 <th>Product ID</th>\
                                 <th>Product Name</th>\
@@ -1883,67 +1923,68 @@ xhttp.onreadystatechange = function () {
                             </tr>\
                         </thead>";
 
-        for (i; i < a.length; i++) {
-            var PID = a[i].ProductSerial;
-            var discount = a[i].Discount;
-            var quantity = a[i].Quantity;
-            //alert(quantity);
-            var salePrice = a[i].SalePrice;
-            var company = a[i].Company;
-            var productName = a[i].ProductName;
-            var totalAmount = a[i].NetAmount;
+                    for (i; i < a.length; i++) {
+                        var PID = a[i].ProductSerial;
+                        var discount = a[i].Discount;
+                        var quantity = a[i].Quantity;
+                        //alert(quantity);
+                        var salePrice = a[i].SalePrice;
+                        var company = a[i].Company;
+                        var productName = a[i].ProductName;
+                        var totalAmount = a[i].NetAmount;
 
-            var row = table.insertRow(-1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4);
-            var cell6 = row.insertCell(5);
-            var cell7 = row.insertCell(6);
-            var cell8 = row.insertCell(7);
+                        var row = table.insertRow(-1);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3);
+                        var cell5 = row.insertCell(4);
+                        var cell6 = row.insertCell(5);
+                        var cell7 = row.insertCell(6);
+                        var cell8 = row.insertCell(7);
 
-            cell1.innerHTML = PID;
-            cell2.innerHTML = productName;
-            cell3.innerHTML = company;
-            cell4.innerHTML = salePrice;
-            cell5.innerHTML = quantity;
-            cell6.innerHTML = discount;
-            cell7.innerHTML = totalAmount;
-            //calc();
-            cell8.innerHTML =
-                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
-    }
+                        cell1.innerHTML = PID;
+                        cell2.innerHTML = productName;
+                        cell3.innerHTML = company;
+                        cell4.innerHTML = salePrice;
+                        cell5.innerHTML = quantity;
+                        cell6.innerHTML = discount;
+                        cell7.innerHTML = totalAmount;
+                        //calc();
+                        cell8.innerHTML =
+                            "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+                    }
 
-    }
-}
-var invoiceNumber = document.getElementById("InvoiceID").value;
+                }
+            }
+            var invoiceNumber = document.getElementById("InvoiceID").value;
 
-xhttp.open("GET", "./getAllInvoiceDetails/" + invoiceNumber, true);
-xhttp.send();
-}
-    function getInvoiceCustomer() {
+            xhttp.open("GET", "./getAllInvoiceDetails/" + invoiceNumber, true);
+            xhttp.send();
+        }
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                //alert(data);
-                var a = JSON.parse(data);
-                document.getElementById("CID").value = a[0].CustomerID;
-                document.getElementById("LastBalance").value = a[0].Balance;
-                document.getElementById("CurrentBalance").value = a[0].Balance;
-                calc();
-                document.getElementById("CNO").value = a[0].Contect;
-                document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
-                //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
-                $('#CustomerName').val( a[0].CustomerID);
-        $('#CustomerName').selectpicker('refresh');
+        function getInvoiceCustomer() {
 
-                var i=0;
-        //alert(a.length);
-        var table = document.getElementById("ProductSaleTable");
-        table.innerHTML="<thead>\
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    //alert(data);
+                    var a = JSON.parse(data);
+                    document.getElementById("CID").value = a[0].CustomerID;
+                    document.getElementById("LastBalance").value = a[0].Balance;
+                    document.getElementById("CurrentBalance").value = a[0].Balance;
+                    calc();
+                    document.getElementById("CNO").value = a[0].Contect;
+                    document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+                    //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
+                    $('#CustomerName').val(a[0].CustomerID);
+                    $('#CustomerName').selectpicker('refresh');
+
+                    var i = 0;
+                    //alert(a.length);
+                    var table = document.getElementById("ProductSaleTable");
+                    table.innerHTML = "<thead>\
                             <tr>\
                                 <th>Product ID</th>\
                                 <th>Product Name</th>\
@@ -1956,546 +1997,569 @@ xhttp.send();
                             </tr>\
                         </thead>";
 
-        for (i; i < a.length; i++) {
-            var PID = a[i].ProductSerial;
-            var discount = a[i].Discount;
-            var quantity = a[i].Quantity;
-            var PerUnitSalePrice = a[i].PerUnitSalePrice;
-            var company = a[i].Company;
-            var productName = a[i].ProductName;
-            var totalAmount = a[i].NetAmount;
+                    for (i; i < a.length; i++) {
+                        var PID = a[i].ProductSerial;
+                        var discount = a[i].Discount;
+                        var quantity = a[i].Quantity;
+                        var PerUnitSalePrice = a[i].PerUnitSalePrice;
+                        var company = a[i].Company;
+                        var productName = a[i].ProductName;
+                        var totalAmount = a[i].NetAmount;
 
-            var row = table.insertRow(-1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4);
-            var cell6 = row.insertCell(5);
-            var cell7 = row.insertCell(6);
-            var cell8 = row.insertCell(7);
+                        var row = table.insertRow(-1);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3);
+                        var cell5 = row.insertCell(4);
+                        var cell6 = row.insertCell(5);
+                        var cell7 = row.insertCell(6);
+                        var cell8 = row.insertCell(7);
 
-            cell1.innerHTML = PID;
-            cell2.innerHTML = productName;
-            cell3.innerHTML = company;
-            cell4.innerHTML = PerUnitSalePrice;
-            cell5.innerHTML = quantity;
-            cell6.innerHTML = discount;
-            cell7.innerHTML = totalAmount;
-            //calc();
-            cell8.innerHTML =
-                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+                        cell1.innerHTML = PID;
+                        cell2.innerHTML = productName;
+                        cell3.innerHTML = company;
+                        cell4.innerHTML = PerUnitSalePrice;
+                        cell5.innerHTML = quantity;
+                        cell6.innerHTML = discount;
+                        cell7.innerHTML = totalAmount;
+                        //calc();
+                        cell8.innerHTML =
+                            "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+
+
+                    }
+                }
+            };
+            var invoiceNumber = document.getElementById("InvoiceID").value;
+
+            xhttp.open("GET", "./getInvoiceCustomer/" + invoiceNumber, true);
+            xhttp.send();
 
 
         }
-    }
+
+    </script>
+
+    <script>
+        function getAllProducts() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    //alert(data);
+                    var table;
+                    var a = JSON.parse(data);
+                    //  alert(a[0].ProductSerial);
+                    table = $('#searchProductTable').DataTable();
+                    //table = document.getElementById("searchProductTable")
+                    $.each(a, function (i, item) {
+
+                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
+                            .PerUnitSalePrice,
+                            a[i].StockIn
+                        ]);
+                    });
+                    table.draw();
+                }
+            };
+
+            xhttp.open("GET", "./getAllProducts/", true);
+            xhttp.send();
+            calc();
+            loadAllCustomers();
+            loadAccounts();
+            getInvoiceID();
+
+
         };
-        var invoiceNumber = document.getElementById("InvoiceID").value;
-
-        xhttp.open("GET", "./getInvoiceCustomer/" + invoiceNumber, true);
-        xhttp.send();
 
 
-    }
 
-</script>
+        function loadAllCustomers() {
 
-<script>
-    function getAllProducts() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                //alert(data);
-                var table;
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                table = $('#searchProductTable').DataTable();
-                //table = document.getElementById("searchProductTable")
-                $.each(a, function (i, item) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice,
-                    a[i].StockIn]);
-                });
-                table.draw();
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("CustomerName").innerHTML =
+                        this.responseText;
+                    $('#CustomerName').selectpicker('refresh');
+
+                }
+            };
+
+            xhttp.open("GET", "./getAllCustomers", true);
+            xhttp.send();
+        };
+
+        function getCurrentCustomerInfo() {
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    var a = JSON.parse(data);
+                    document.getElementById("CID").value = a[0].CustomerID;
+                    document.getElementById("LastBalance").value = a[0].Balance;
+                    document.getElementById("CurrentBalance").value = a[0].Balance;
+                    calc();
+                    document.getElementById("CNO").value = a[0].Contect;
+                    document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+
+
+
+
+                } else {
+                    //alert( this.responseText);
+                }
+            };
+            var CustomerID = $('#CustomerName').find(":selected").val();
+
+            xhttp.open("GET", "./getCustomersInfo/" + CustomerID, true);
+            xhttp.send();
+
+
+        }
+
+        function loadAccounts() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("accounts").innerHTML = this.response;
+                    $('#accounts').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getAccountHeads/", true);
+
+            xhttp.send();
+        }
+
+        function AddCustomer() {
+
+            var CustomerName = document.getElementById("CustomerName").value;
+            //	alert("It is working"+CustomerName);
+
+            var password = document.getElementById("password").value;
+            //	alert("It is working"+password);
+
+            var CustomerContact = document.getElementById("Contact").value;
+            //alert("It is working"+CustomerContact);
+
+
+            var CustomerProfession = document.getElementById("Profession").value;
+            //alert("It is working"+CustomerProfession);
+
+
+            var CustomerBalance = 0;
+            //alert("It is working"+CustomerBalance);
+
+            var CustomerAddress = document.getElementById("Address").value;
+            //alert("It is working"+CustomerAddress);
+
+            var CustomerComments = document.getElementById("Comments").value;
+            //alert("It is working"+CustomerComments);
+
+            var Customer = [CustomerName, password, CustomerContact, CustomerProfession, CustomerBalance,
+                CustomerAddress,
+                CustomerComments
+            ];
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //  alert( this.responseText);
+                }
+            };
+            var EC = JSON.stringify(Customer);
+            xhttp.open("GET", "./addCustomer/" + EC, true);
+            xhttp.send();
+
+
+        };
+
+
+        function getInvoiceID() {
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("InvoiceID").value = this.response;
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getInvoiceID", true);
+
+            xhttp.send();
+
+
+        }
+
+
+
+        $(document).ready(function () {
+
+            // code to read selected table row cell data (values).
+            $("#searchProductTable").on('click', 'tr', function () {
+                // get the current row
+
+
+
+                var table = document.getElementById("ProductSaleTable");
+
+                var PID = this.cells[0].innerText; // get current row 1st TD value
+                var PNAME = this.cells[1].innerText; // get current row 2nd TD
+                //var qty=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+                var CompanyName = this.cells[2].innerText; // get current row 3rd TD
+                var SalePrice = this.cells[3].innerText; // get current row 3rd TD
+                var qty = 1;
+                if (IsItemExistInDataTable(PID)) {
+
+
+                    var row = table.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+                    var cell6 = row.insertCell(5);
+                    var cell7 = row.insertCell(6);
+                    var cell8 = row.insertCell(7);
+
+
+                    cell1.innerHTML = PID;
+                    cell2.innerHTML = PNAME;
+                    cell3.innerHTML = CompanyName;
+                    cell4.innerHTML = SalePrice;
+                    cell5.innerHTML =
+                        '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
+                    cell6.innerHTML =
+                        '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
+                    var tot = SalePrice * 1;
+                    cell7.innerHTML = tot;
+                    calc();
+
+
+
+
+
+
+                    //$("#searchModal").modal('hide');
+                    //calculation than enter price
+                    alert("Item added");
+
+
+                    cell8.innerHTML =
+                        "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>";
+
+                } else {
+                    alert("Quantity Increased");
+                }
+            });
+        });
+
+
+
+        function taxCalculation() {
+
+
+
+
+
+            var taxRate = 17.00;
+            var grosstotal = document.getElementById('grossTotal').value;
+            //alert(taxRate/100);
+            var tax = Number(grosstotal) * (taxRate / 100);
+            //	alert(tax);
+            return tax;
+        }
+
+        function calc() {
+
+            var table = document.getElementById('ProductSaleTable');
+            var rows = table.rows;
+            var total = 0;
+            var cell;
+
+            // Assume first row is headers, adjust as required
+            // Assume last row is footer, addjust as required
+            for (var i = 1, iLen = rows.length; i < iLen; i++) {
+                cell = rows[i].cells[6];
+                total += Number(cell.textContent || cell.innerText);
             }
+            document.getElementById('Total').value = total.toFixed(2);
+            var discount = document.getElementById('DiscountOverall').value;
+
+
+            var gross = 0;
+            gross = (Number(total) - Number(discount));
+            document.getElementById('grossTotal').value = gross.toFixed(2);
+            var net = 0;
+            var tax = 0;
+            var tax = taxCalculation();
+
+            document.getElementById('tax').value = tax.toFixed(2);
+            net = gross + Number(tax);
+            //alert(net);
+            document.getElementById('NetTotal').value = net.toFixed(2);
+            document.getElementById('AmountPaid').value = net.toFixed(2);
+
+            calcForBalance();
+        }
+
+
+        function RemoveThisRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            //alert(i);
+            document.getElementById("ProductSaleTable").deleteRow(i);
+            calc();
+        }
+
+
+
+
+
+
+
+        function calculationTrigerOnQtyValueChange(x) {
+
+            var theRow = x.parentElement.parentElement;
+            //	alert(theRow);
+            var rx = x.parentElement.parentElement.rowIndex;
+            //alert(rx);
+
+            var salePrice = theRow.cells[3].innerText;
+            //alert(salePrice);
+            var qty = theRow.cells[4].children[0].value;
+            var dis = theRow.cells[5].children[0].value;
+            //  alert(dis);
+            //  alert(qty);
+            var tot = (salePrice * qty) - dis;
+
+
+            theRow.cells[6].innerText = tot;
+            calc();
+            calcForBalance();
+
+
+
+            // value of per unit price is got in 
+
         };
 
-        xhttp.open("GET", "./getAllProducts/", true);
-        xhttp.send();
-        calc();
-        loadAllCustomers();
-        loadAccounts();
-        getInvoiceID();
+        function calcForBalance() {
+            document.getElementById("CurrentBalance").value = document.getElementById('LastBalance').value;
 
-
-    };
-
-
-
-    function loadAllCustomers() {
-
-
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("CustomerName").innerHTML =
-                    this.responseText;
-                $('#CustomerName').selectpicker('refresh');
-
-            }
-        };
-
-        xhttp.open("GET", "./getAllCustomers", true);
-        xhttp.send();
-    };
-
-    function getCurrentCustomerInfo() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                var a = JSON.parse(data);
-                document.getElementById("CID").value = a[0].CustomerID;
-                document.getElementById("LastBalance").value = a[0].Balance;
-                document.getElementById("CurrentBalance").value = a[0].Balance;
-                calc();
-                document.getElementById("CNO").value = a[0].Contect;
-                document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+            var Ap = document.getElementById('AmountPaid').value;
+            var tot = document.getElementById('NetTotal').value
+            var RBForInvoice = 0;
+            RBForInvoice = (Number(tot) - Number(Ap)).toFixed(2);
+            document.getElementById('RemainingBalance').value = RBForInvoice;
+            var CustomerLastBalance = document.getElementById('LastBalance').value;
+            var newBalance = Number(CustomerLastBalance) + Number(RBForInvoice);
+            document.getElementById("CurrentBalance").value = newBalance;
 
 
 
 
-            } else {
-                //alert( this.responseText);
-            }
-        };
-        var CustomerID = $('#CustomerName').find(":selected").val();
 
-        xhttp.open("GET", "./getCustomersInfo/" + CustomerID, true);
-        xhttp.send();
+        }
 
-
-    }
-
-    function loadAccounts() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-
-            if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("accounts").innerHTML = this.response;
-                $('#accounts').selectpicker('refresh');
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getAccountHeads/", true);
-
-        xhttp.send();
-    }
-
-    function AddCustomer() {
-
-        var CustomerName = document.getElementById("CustomerName").value;
-        //	alert("It is working"+CustomerName);
-
-        var password = document.getElementById("password").value;
-        //	alert("It is working"+password);
-
-        var CustomerContact = document.getElementById("Contact").value;
-        //alert("It is working"+CustomerContact);
-
-
-        var CustomerProfession = document.getElementById("Profession").value;
-        //alert("It is working"+CustomerProfession);
-
-
-        var CustomerBalance = 0;
-        //alert("It is working"+CustomerBalance);
-
-        var CustomerAddress = document.getElementById("Address").value;
-        //alert("It is working"+CustomerAddress);
-
-        var CustomerComments = document.getElementById("Comments").value;
-        //alert("It is working"+CustomerComments);
-
-        var Customer = [CustomerName, password, CustomerContact, CustomerProfession, CustomerBalance, CustomerAddress,
-            CustomerComments
-        ];
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                //  alert( this.responseText);
-            }
-        };
-        var EC = JSON.stringify(Customer);
-        xhttp.open("GET", "./addCustomer/" + EC, true);
-        xhttp.send();
-
-
-    };
-
-
-    function getInvoiceID() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("InvoiceID").value = this.response;
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getInvoiceID", true);
-
-        xhttp.send();
-
-
-    }
-
-
-
-    $(document).ready(function () {
-
-        // code to read selected table row cell data (values).
-        $("#searchProductTable").on('click', 'tr', function () {
-            // get the current row
+        function IsItemExistInDataTable(item) {
 
 
 
             var table = document.getElementById("ProductSaleTable");
-
-            var PID = this.cells[0].innerText; // get current row 1st TD value
-            var PNAME = this.cells[1].innerText; // get current row 2nd TD
-            //var qty=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
-            var CompanyName = this.cells[2].innerText; // get current row 3rd TD
-            var SalePrice = this.cells[3].innerText; // get current row 3rd TD
-            var qty = 1;
-            if (IsItemExistInDataTable(PID)) {
+            for (var i = 0, row; row = table.rows[i]; i++) {
 
 
-                var row = table.insertRow(-1);
-                var cell1 = row.insertCell(0);
-                var cell2 = row.insertCell(1);
-                var cell3 = row.insertCell(2);
-                var cell4 = row.insertCell(3);
-                var cell5 = row.insertCell(4);
-                var cell6 = row.insertCell(5);
-                var cell7 = row.insertCell(6);
-                var cell8 = row.insertCell(7);
+                if (item == row.cells[0].innerHTML) {
 
 
-                cell1.innerHTML = PID;
-                cell2.innerHTML = PNAME;
-                cell3.innerHTML = CompanyName;
-                cell4.innerHTML = SalePrice;
-                cell5.innerHTML =
-                    '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
-                cell6.innerHTML =
-                    '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
-                var tot = SalePrice * 1;
-                cell7.innerHTML = tot;
-                calc();
+                    var qty = row.cells[4].children[0].value;
+                    qty++;
+                    row.cells[4].children[0].value = qty;
+                    calculationTrigerOnQtyValueChange(row.cells[4].children[0]);
+
+
+
+
+                    return false;
+                }
+
+            }
+
+            return true;
+        };
 
 
 
 
 
 
-                //$("#searchModal").modal('hide');
-                //calculation than enter price
-                alert("Item added");
+
+        function insertInSales() {
+
+            var myTrows = [];
+            var table = document.getElementById("ProductSaleTable");
+            var myRow2 = [];
+
+            //alert(sp);
+            $('#ProductSaleTable tr').each(function (row, tr) {
+
+                myTrows[row] = [
+
+                    $(tr).find('td:eq(0)').text(), //productID
+
+                    $(tr).find('td:eq(3)').text(), //salePrice
+                    $(tr).find('td:eq(4) input[type="text"]').val(), //qty
+                    $(tr).find('td:eq(5) input[type="text"]').val(), //discount
+                    $(tr).find('td:eq(6)').text() //totamount
 
 
-                cell8.innerHTML =
-                    "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>";
 
+                ];
+
+
+            });
+            myTrows.shift();
+
+            //var invoiceNumber=getInvoiceID();
+            var tot = document.getElementById("Total").value;
+            var discount = document.getElementById('DiscountOverall').value;
+            if (discount == "") {
+
+                discount = 0;
+                document.getElementById('DiscountOverall').value = 0;
+
+            }
+
+            var gross = document.getElementById('grossTotal').value;
+            var tax = document.getElementById('tax').value;
+            var netTotal = document.getElementById('NetTotal').value;
+            var amp = document.getElementById('AmountPaid').value;
+            var rmb = document.getElementById("RemainingBalance").value;
+            var CID = document.getElementById("CID").value;
+            var CLB = document.getElementById("LastBalance").value;
+            var CCB = document.getElementById("CurrentBalance").value;
+            var AID = $('#accounts').find(":selected").val();
+
+            myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
+
+            //alert(myRow2[0][1]);
+            //alert(myRow2[11]);
+
+
+            var array = JSON.stringify(myRow2);
+
+
+
+            var xhttp = new XMLHttpRequest();
+            if (AID == "") {
+                alert("Payment Method not selected");
             } else {
-                alert("Quantity Increased");
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        alert("Invoice =" + this.responseText + " is generated");
+                        window.open("./vd");
+
+                    }
+                };
+
+                xhttp.open("GET", "./addSalesForSS/" + array, true);
+                // var MenuID=$('#Menus').find(":selected").val();
+                xhttp.send();
             }
-        });
-    });
-
-
-
-    function taxCalculation() {
-
-
-
-
-
-        var taxRate = 17.00;
-        var grosstotal = document.getElementById('grossTotal').value;
-        //alert(taxRate/100);
-        var tax = Number(grosstotal) * (taxRate / 100);
-        //	alert(tax);
-        return tax;
-    }
-
-    function calc() {
-
-        var table = document.getElementById('ProductSaleTable');
-        var rows = table.rows;
-        var total = 0;
-        var cell;
-
-        // Assume first row is headers, adjust as required
-        // Assume last row is footer, addjust as required
-        for (var i = 1, iLen = rows.length; i < iLen; i++) {
-            cell = rows[i].cells[6];
-            total += Number(cell.textContent || cell.innerText);
-        }
-        document.getElementById('Total').value = total.toFixed(2);
-        var discount = document.getElementById('DiscountOverall').value;
-
-
-        var gross = 0;
-        gross = (Number(total) - Number(discount));
-        document.getElementById('grossTotal').value = gross.toFixed(2);
-        var net = 0;
-        var tax = 0;
-        var tax = taxCalculation();
-
-        document.getElementById('tax').value = tax.toFixed(2);
-        net = gross + Number(tax);
-        //alert(net);
-        document.getElementById('NetTotal').value = net.toFixed(2);
-        document.getElementById('AmountPaid').value = net.toFixed(2);
-
-        calcForBalance();
-    }
-
-
-    function RemoveThisRow(r) {
-        var i = r.parentNode.parentNode.rowIndex;
-        //alert(i);
-        document.getElementById("ProductSaleTable").deleteRow(i);
-        calc();
-    }
-
-
-
-
-
-
-
-    function calculationTrigerOnQtyValueChange(x) {
-
-        var theRow = x.parentElement.parentElement;
-        //	alert(theRow);
-        var rx = x.parentElement.parentElement.rowIndex;
-        //alert(rx);
-
-        var salePrice = theRow.cells[3].innerText;
-        //alert(salePrice);
-        var qty = theRow.cells[4].children[0].value;
-        var dis = theRow.cells[5].children[0].value;
-        //  alert(dis);
-        //  alert(qty);
-        var tot = (salePrice * qty) - dis;
-
-
-        theRow.cells[6].innerText = tot;
-        calc();
-        calcForBalance();
-
-
-
-        // value of per unit price is got in 
-
-    };
-
-    function calcForBalance() {
-        document.getElementById("CurrentBalance").value = document.getElementById('LastBalance').value;
-
-        var Ap = document.getElementById('AmountPaid').value;
-        var tot = document.getElementById('NetTotal').value
-        var RBForInvoice = 0;
-        RBForInvoice = (Number(tot) - Number(Ap)).toFixed(2);
-        document.getElementById('RemainingBalance').value = RBForInvoice;
-        var CustomerLastBalance = document.getElementById('LastBalance').value;
-        var newBalance = Number(CustomerLastBalance) + Number(RBForInvoice);
-        document.getElementById("CurrentBalance").value = newBalance;
-
-
-
-
-
-    }
-
-    function IsItemExistInDataTable(item) {
-
-
-
-        var table = document.getElementById("ProductSaleTable");
-        for (var i = 0, row; row = table.rows[i]; i++) {
-
-
-            if (item == row.cells[0].innerHTML) {
-
-
-                var qty = row.cells[4].children[0].value;
-                qty++;
-                row.cells[4].children[0].value = qty;
-                calculationTrigerOnQtyValueChange(row.cells[4].children[0]);
-
-
-
-
-                return false;
-            }
-
         }
 
-        return true;
-    };
+        function UpdateSaleInvoice() {
+
+            var myTrows = [];
+            var table = document.getElementById("ProductSaleTable");
+            var myRow2 = [];
+
+            //alert(sp);
+            $('#ProductSaleTable tr').each(function (row, tr) {
+
+                myTrows[row] = [
+
+                    $(tr).find('td:eq(0)').text(), //productID
+                    $(tr).find('td:eq(3)').text(), //salePrice
+                    $(tr).find('td:eq(4) input[type="text"]').val(), //qty
+                    $(tr).find('td:eq(5) input[type="text"]').val(), //discount
+                    $(tr).find('td:eq(6)').text() //totamount
 
 
+                ];
 
 
+            });
+            myTrows.shift();
 
+            //var invoiceNumber=getInvoiceID();
+            var tot = document.getElementById("Total").value;
+            var customerName = $('#CustomerName').find(":selected").text();
+            var contact = document.getElementById('CNO').value;
+            var discount = document.getElementById('DiscountOverall').value;
+            if (discount == "") {
 
+                discount = 0;
+                document.getElementById('DiscountOverall').value = 0;
 
-    function insertInSales() {
+            }
+            var invoiceID = document.getElementById('InvoiceID').value;
+            var gross = document.getElementById('grossTotal').value;
+            var tax = document.getElementById('tax').value;
+            var netTotal = document.getElementById('NetTotal').value;
+            var amp = document.getElementById('AmountPaid').value;
+            var rmb = document.getElementById("RemainingBalance").value;
+            var CID = document.getElementById("CID").value;
+            var CLB = document.getElementById("LastBalance").value;
+            var CCB = document.getElementById("CurrentBalance").value;
+            var AID = $('#accounts').find(":selected").val();
 
-        var myTrows = [];
-        var table = document.getElementById("ProductSaleTable");
-        var myRow2 = [];
-
-        //alert(sp);
-        $('#ProductSaleTable tr').each(function (row, tr) {
-
-            myTrows[row] = [
-
-                $(tr).find('td:eq(0)').text(), //productID
-                
-                $(tr).find('td:eq(3)').text(), //salePrice
-                $(tr).find('td:eq(4) input[type="text"]').val(), //qty
-                $(tr).find('td:eq(5) input[type="text"]').val(), //discount
-                $(tr).find('td:eq(6)').text() //totamount
-                
-
-
+            myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID, customerName,
+                contact
             ];
 
-
-        });
-        myTrows.shift();
-
-        //var invoiceNumber=getInvoiceID();
-        var tot = document.getElementById("Total").value;
-        var discount = document.getElementById('DiscountOverall').value;
-        var gross = document.getElementById('grossTotal').value;
-        var tax = document.getElementById('tax').value;
-        var netTotal = document.getElementById('NetTotal').value;
-        var amp = document.getElementById('AmountPaid').value;
-        var rmb = document.getElementById("RemainingBalance").value;
-        var CID = document.getElementById("CID").value;
-        var CLB = document.getElementById("LastBalance").value;
-        var CCB = document.getElementById("CurrentBalance").value;
-        var AID = $('#accounts').find(":selected").val();
-
-        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
-
-        //alert(myRow2[0][1]);
-        //alert(myRow2[11]);
+            //alert(myRow2[0][1]);
+            //alert(myRow2[11]);
 
 
-        var array = JSON.stringify(myRow2);
+            var array = JSON.stringify(myRow2);
 
 
 
-        var xhttp = new XMLHttpRequest();
-        if(AID == ""){
-            alert("Payment Method not selected");
-        }else{
-            
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                
-                alert("Invoice =" + this.responseText + " is generated");
+            var xhttp = new XMLHttpRequest();
 
+            if (AID == "") {
+                alert("Payment Method not selected");
+
+            } else {
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        alert("Invoice =" + this.responseText + " is generated");
+                        window.open("/vd");
+
+                    }
+                };
+
+                xhttp.open("GET", "./updateInvoice/" + array + "/" + invoiceID, true);
+                // var MenuID=$('#Menus').find(":selected").val();
+                xhttp.send();
             }
-        };
-    
-        xhttp.open("GET", "./addSalesForSS/" + array, true);
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.send();
-    }
-    }
-    function UpdateSaleInvoice() {
+        }
 
-var myTrows = [];
-var table = document.getElementById("ProductSaleTable");
-var myRow2 = [];
-
-//alert(sp);
-$('#ProductSaleTable tr').each(function (row, tr) {
-
-    myTrows[row] = [
-
-        $(tr).find('td:eq(0)').text(), //productID
-        $(tr).find('td:eq(3)').text(), //salePrice
-        $(tr).find('td:eq(4) input[type="text"]').val(), //qty
-        $(tr).find('td:eq(5) input[type="text"]').val(), //discount
-        $(tr).find('td:eq(6)').text() //totamount
-
-
-    ];
-
-
-});
-myTrows.shift();
-
-//var invoiceNumber=getInvoiceID();
-var tot = document.getElementById("Total").value;
-var customerName = $('#CustomerName').find(":selected").text();
-var contact = document.getElementById('CNO').value;
-var discount = document.getElementById('DiscountOverall').value;
-var invoiceID = document.getElementById('InvoiceID').value;
-var gross = document.getElementById('grossTotal').value;
-var tax = document.getElementById('tax').value;
-var netTotal = document.getElementById('NetTotal').value;
-var amp = document.getElementById('AmountPaid').value;
-var rmb = document.getElementById("RemainingBalance").value;
-var CID = document.getElementById("CID").value;
-var CLB = document.getElementById("LastBalance").value;
-var CCB = document.getElementById("CurrentBalance").value;
-var AID = $('#accounts').find(":selected").val();
-
-myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID, customerName, contact];
-
-//alert(myRow2[0][1]);
-//alert(myRow2[11]);
-
-
-var array = JSON.stringify(myRow2);
-
-
-
-var xhttp = new XMLHttpRequest();
-if(AID == ""){
-    alert("Payment Method not selected");
-}else{
-    
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-
-        alert("Invoice =" + this.responseText + " is generated");
-        window.open("/vd");
-
-    }
-};
-
-xhttp.open("GET", "./updateInvoice/" + array+"/"+invoiceID, true);
-// var MenuID=$('#Menus').find(":selected").val();
-xhttp.send();
-}
-}
-
-</script>
+    </script>
 </body>
+
 </html>

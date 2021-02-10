@@ -4,110 +4,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Spare Parts</title>
     <style>
-        @media (max-width: 1366px) {
-            .left-content {
-                width: 83%;
+        .registration-form {
+            padding: 0px 0;
+            /* background-color: #fff; */
+
+        }
+
+        .registration-form form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px 70px;
+            border-radius: 30px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+        }
+
+
+
+        .registration-form .item {
+            border-radius: 20px;
+            margin-bottom: 15px;
+            padding: 10px 20px;
+            margin: 0px auto 15px auto;
+        }
+
+        .form-control {
+            width: 250px !important;
+        }
+
+
+        .registration-form .create-account {
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #0a549d;
+            border: none;
+            color: white;
+            margin-top: 20px;
+            /* width: 100px; */
+        }
+
+        .registration-form .form-group {
+            padding: 0;
+            margin: 0;
+        }
+
+
+
+
+        @media (max-width: 576px) {
+            .registration-form form {
+                padding: 50px 20px;
+            }
+
+            .registration-form .form-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 30px;
+                line-height: 70px;
             }
         }
 
-        .page-container.sidebar-collapsed-back .left-content {
-            width: 83% !important;
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 84%;
+            }
         }
 
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
             /* background-color:#0a549d !important; */
+            margin: 3px 0px;
 
 
         }
 
-        .receivingMain {
-            /* border: 1px solid #aaaaaa; */
-            border-radius: 10px;
-            height: 550px;
-            /* overflow: auto; */
+
+
+
+        .page-container.sidebar-collapsed-back .left-content {
+            transition: all 100ms linear;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            float: right;
+            width: 84%;
         }
 
+        .update {
+            background-color: #e61d2f;
+            color: #ffffff;
+        }
 
+        .print {
+            width: 77px;
+        }
 
-        table {
-            border-spacing: 0;
-            border-collapse: collapse;
-            border-style: hidden;
+        .inner-block {
+            padding: 3em 2em 0em 2em;
+        }
 
-            width: 100%;
-            max-width: 100%;
+        @media only screen and (max-width: 1440px) {
+            .inner-block {
+                padding: 1em 2em 0em 2em;
+            }
+        }
+
+        .okay {
+            background-color: #0a549d;
+            color: #fff;
+        }
+
+        .myflex {
+            display: flex;
+
+            justify-content: space-evenly;
+        }
+
+        .myflex-2 {
+            display: flex;
+
+            justify-content: space-around;
+        }
+
+        .myflex label {
+            width: 80px;
         }
 
         th,
         td {
-            border: 1px solid #aaaaaa;
-            padding: 5px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            color: #fff;
+        }
+
+      .myflex-2  a {
+            text-decoration: underline !important;
+         
         }
 
     </style>
+    <title>Generate Barcode</title>
 </head>
 
-<body onload="getSpareParts()">
+<body>
     <div class="page-container">
-
         <div class="left-content">
             <div class="inner-block">
 
-                <header>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 mt-3 text-center">
-                                <h3>Auto Spare Parts</h3>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="receivingMain">
 
-
-                                    <div class="receivingTable">
-                                        <table id="myTable" class=" table-striped"
-                                            style="width: 100%; text-align: center;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product Id</th>
-                                                    <th>Product Name</th>
-                                                    <th>Company</th>
-                                                    <th>Unit Sale Price</th>
-                                                    <th>Unit Purchase Price</th>
-                                                    <th>Stock</th>
-                                                    <th>Engine Number</th>
-                                                    <th>Chasis Number</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h3>Daily Sales</h3>
                         </div>
                     </div>
-                </header>
+                    <br><br>
+                    <div class="myflex">
+                        <div class="inputs">
+                            <label for="">From</label>
+                            <input class="form-control"
+                                style="display: inline-block !important; width: 200px !important;" type="date" name=""
+                                id="">
+                        </div>
 
+                        <div class="inputs">
+                            <label for="">To</label>
+                            <input class="form-control"
+                                style="display: inline-block !important; width: 200px !important;" type="date" name=""
+                                id="">
+                        </div>
+                        <div class="inputs">
+                            <button class="btn okay">Search</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="myflex-2">
+
+                        <table id="myTables">
+                            <thead>
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Product Name</th>
+                                    <th>Company</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>GatePass</th>
+                                    <th>Invoice Reques</th>
+                                    <th>Delivery Letter</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#123</td>
+                                    <td>Forland C-10</td>
+                                    <td>Forland</td>
+                                    <td>12,300</td>
+                                    <td>12,000</td>
+                                    <td><a href="/fgp">GatePass</a></td>
+                                    <td><a href="/is">Invoice Request</a></td>
+                                    <td><a href="" onclick="mfun()">Delivery Letter</a></td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
+
+
         </div>
+
+
         <div class="sidebar-menu">
 
             <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
@@ -118,9 +244,10 @@
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
-                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
+                                style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                        <ul class="collapse list-unstyled new" >
+                        <ul class="collapse list-unstyled new">
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
@@ -335,6 +462,11 @@
                 </ul>
             </div>
         </div>
+
+
+
+
+
         <div class="clearfix"></div>
     </div>
 
@@ -342,54 +474,18 @@
 
 
 
-
-
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
+    </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function getSpareParts() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    var data = this.responseText;
-                    //alert(data);
-                    var table;
-                    var a = JSON.parse(data);
-                    //  alert(a[0].ProductSerial);
-                    table = $('#myTable').DataTable();
-
-                    $.each(a, function (i, item) {
-
-                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
-                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StatusInStock, a[i]
-                            .EngineNumber, a[i].ChasisNumber
-                        ]);
-                    });
-                    table.draw();
-
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./spareParts/", true);
-
-            xhttp.send();
-        }
-
-    </script>
-    <script>
+        $(document).ready(function () {
+            $('#myTables').DataTable();
+        });
         var toggle = true;
 
         $(".sidebar-icon").click(function () {
@@ -411,14 +507,14 @@
             toggle = !toggle;
         });
 
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
-        });
+        function mfun() {
+ var news = window.open("/dl");
+
+ 
+
+        }
 
     </script>
-
 </body>
 
 </html>

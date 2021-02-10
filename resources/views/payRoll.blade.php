@@ -396,6 +396,20 @@
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
+                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse list-unstyled new" >
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
                     <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
@@ -690,7 +704,10 @@
                     document.getElementById("allowedHolidays").value = a[0].AllowedHolidays;
                     document.getElementById("allownces").value = a[0].Alownces;
                     document.getElementById("saleTarget").value = a[0].SaleTarget;
-
+                    $('#name').find(":selected").val() = a[0].EID;
+                    $('#contact').find(":selected").val() = a[0].EID;
+                    $('#cnic').find(":selected").val() = a[0].EID;
+                    //alert();
 
 
                     //     // alert(a[0].FirstName);

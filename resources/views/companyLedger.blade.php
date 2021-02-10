@@ -130,6 +130,32 @@
             width: auto !important;
 
         }
+        @media print {
+            .left-content{
+                width: 100% !important;
+            }
+            .sidebar-menu{
+                display: none;
+            }
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #mainComapnyLedger{
+                visibility: visible !important;
+            }
+            table {page-break-before: always;}
+        }
 
     </style>
 </head>
@@ -142,16 +168,20 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h3>Company Ledger</h3>
+                                <h3 id="mainComapnyLedger">Company Ledger</h3>
                             </div>
                         </div>
                         <br>
+                      
+
+                 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="receivingMain">
 
 
                                     <div class="receivingTable" id="companyLedgerTable">
+                                        <main id="mainHeader">
                                         <table id="companyLedgerData" class=" table-striped"
                                             style="width: 100%; text-align: center;">
                                             <thead>
@@ -173,6 +203,7 @@
                                 </div>
                             </div>
                         </div>
+                    </main>
                         <br>
                         <div class="row">
                             <div class="col-md-4">
@@ -217,6 +248,20 @@
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
+                    </li>
+                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse list-unstyled new" >
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
                     </li>
                     <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Products</span><span class="fa fa-angle-right"

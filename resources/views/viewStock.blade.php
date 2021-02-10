@@ -41,19 +41,10 @@
 
 
 
-        table {
-            border-spacing: 0;
-            border-collapse: collapse;
-            border-style: hidden;
-
-            width: 100%;
-            max-width: 100%;
-        }
-
         th,
         td {
             border: 1px solid #aaaaaa;
-            padding: 5px;
+            padding: 2px !important;
         }
 
         .receivingTable {
@@ -92,13 +83,14 @@
                                             <thead>
                                                 <tr>
                                                     <th>Product Id</th>
-                                                    <th>Product Name</th>
                                                     <th>Company</th>
-                                                    <th>Unit Sale Price</th>
+                                                    <th>Product Name</th>
+                                                    <th>Invoice Price</th>
                                                     <th>Unit Purchase Price</th>
                                                     <th>Stock</th>
                                                     <th>Engine Number</th>
                                                     <th>Chasis Number</th>
+                                                    <th>Status</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -124,6 +116,20 @@
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
+                    </li>
+                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse list-unstyled new" >
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
                     </li>
                     <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
@@ -367,9 +373,9 @@
 
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
+                        table.row.add([a[i].ProductID,  a[i].Company, a[i].ProductName, a[i]
                             .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StockIn, a[i]
-                            .EngineNumber, a[i].ChasisNumber
+                            .EngineNumber, a[i].ChasisNumber, a[i].Status
                         ]);
                     });
                     table.columns.adjust().draw();

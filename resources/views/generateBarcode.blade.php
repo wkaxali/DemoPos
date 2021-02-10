@@ -4,110 +4,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Spare Parts</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
-                width: 83%;
+                width: 84%;
             }
-        }
-
-        .page-container.sidebar-collapsed-back .left-content {
-            width: 83% !important;
         }
 
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
             /* background-color:#0a549d !important; */
+            margin: 3px 0px;
 
 
         }
 
-        .receivingMain {
-            /* border: 1px solid #aaaaaa; */
-            border-radius: 10px;
-            height: 550px;
-            /* overflow: auto; */
+        label {
+            width: 150px;
         }
 
-
-
-        table {
-            border-spacing: 0;
-            border-collapse: collapse;
-            border-style: hidden;
-
-            width: 100%;
-            max-width: 100%;
+        .page-container.sidebar-collapsed-back .left-content {
+            transition: all 100ms linear;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            float: right;
+            width: 84%;
         }
 
-        th,
-        td {
-            border: 1px solid #aaaaaa;
-            padding: 5px;
+        .update {
+            background-color: #e61d2f;
+            color: #ffffff;
+        }
+
+        .print {
+            width: 77px;
+        }
+
+        .row {
+            margin: 15px 0px;
+        }
+
+        .btn:hover {
+            color: #ffffff;
         }
 
     </style>
+    <title>Generate Barcode</title>
 </head>
 
-<body onload="getSpareParts()">
+<body>
     <div class="page-container">
-
         <div class="left-content">
             <div class="inner-block">
 
-                <header>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 mt-3 text-center">
-                                <h3>Auto Spare Parts</h3>
-                            </div>
+                <div class="container-fluid">
+
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h1>Generate Barcode</h1>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="receivingMain">
-
-
-                                    <div class="receivingTable">
-                                        <table id="myTable" class=" table-striped"
-                                            style="width: 100%; text-align: center;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product Id</th>
-                                                    <th>Product Name</th>
-                                                    <th>Company</th>
-                                                    <th>Unit Sale Price</th>
-                                                    <th>Unit Purchase Price</th>
-                                                    <th>Stock</th>
-                                                    <th>Engine Number</th>
-                                                    <th>Chasis Number</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
+                    </div><br><br>
+                    <div class="row">
+                        <div class="col-md-5 offset-md-1">
+                            <label for="">Product</label>
+                            <select style="height: 25px !important; width: 158px !important; "
+                                class="selectpicker form-control" data-live-search="true" id="costComissionHeads">
+                            </select>
+                        </div>
+                        <div class="col-md-5 offset-md-1">
+                            <label for="">Product Id</label>
+                            <input type="text" style="width: 200px !important; display: inline-block !important;"
+                                class="form-control" name="" id="">
                         </div>
                     </div>
-                </header>
+                    <div class="row">
+                        <div class="col-md-5 offset-md-1">
+                            <label for="">Company</label>
+                            <input type="text" style="width: 200px !important; display: inline-block !important;"
+                                class="form-control" name="" id="">
+
+                        </div>
+                        <div class="col-md-5 offset-md-1">
+                            <label for="">Sale Price</label>
+                            <input type="text" style="width: 200px !important; display: inline-block !important;"
+                                class="form-control" name="" id="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 offset-md-1">
+                            <label for="">Category</label>
+                            <input type="text" style="width: 200px !important; display: inline-block !important;"
+                                class="form-control" name="" id="">
+
+                        </div>
+                        <div class="col-md-5 offset-md-1">
+                            <label for="">Stock Available</label>
+                            <input type="text" style="width: 200px !important; display: inline-block !important;"
+                                class="form-control" name="" id="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 offset-md-1">
+                            <label for="">Barcode</label>
+                            <input type="text" style="width: 200px !important; display: inline-block !important;"
+                                class="form-control" name="" id="">
+
+                        </div>
+                        <div class="col-md-3 offset-md-3">
+                            <button class="btn update" style="margin-left: -10px;">Update</button>
+                            <button class="btn print">Print</button>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 offset-md-1">
+                            <label for="">Print Quotation</label>
+                            <input type="text" style="width: 200px !important; display: inline-block !important;"
+                                class="form-control" name="" id="">
+
+                        </div>
+                        <div class="col-md-5 offset-md-1">
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </div>
+
         <div class="sidebar-menu">
 
             <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
@@ -118,9 +154,10 @@
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
                     </li>
-                    <li><a  data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                    <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
+                                style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
                                 style="float: right"></span></a>
-                        <ul class="collapse list-unstyled new" >
+                        <ul class="collapse list-unstyled new">
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
                             <li><a href="/is">Invoice Services</a></li>
@@ -335,6 +372,7 @@
                 </ul>
             </div>
         </div>
+
         <div class="clearfix"></div>
     </div>
 
@@ -342,54 +380,18 @@
 
 
 
-
-
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
+    </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function getSpareParts() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    var data = this.responseText;
-                    //alert(data);
-                    var table;
-                    var a = JSON.parse(data);
-                    //  alert(a[0].ProductSerial);
-                    table = $('#myTable').DataTable();
-
-                    $.each(a, function (i, item) {
-
-                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
-                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StatusInStock, a[i]
-                            .EngineNumber, a[i].ChasisNumber
-                        ]);
-                    });
-                    table.draw();
-
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./spareParts/", true);
-
-            xhttp.send();
-        }
-
-    </script>
-    <script>
+        $(document).ready(function () {
+            $('#myTables').DataTable();
+        });
         var toggle = true;
 
         $(".sidebar-icon").click(function () {
@@ -412,13 +414,6 @@
         });
 
     </script>
-    <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable();
-        });
-
-    </script>
-
 </body>
 
 </html>

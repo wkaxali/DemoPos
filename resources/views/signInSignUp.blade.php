@@ -91,7 +91,11 @@
     .input-field i {
       text-align: center;
       line-height: 55px;
+<<<<<<< HEAD
       color: #0a549d;
+=======
+      color: #13579a;
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
       transition: 0.5s;
       font-size: 1.1rem;
     }
@@ -143,7 +147,11 @@
 
     .btn {
       width: 150px;
+<<<<<<< HEAD
       background-color: #0a549d;
+=======
+      background-color: #13579a;
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
       border: none;
       outline: none;
       height: 49px;

@@ -76,42 +76,58 @@ class serviceSalesFlow extends Controller
 
        $invoiceDetails=self::getAllInvoiceDetails($invoiceNumber);
        
-       
+       //session(['invoiceDetails' => $invoiceDetails]);
+       $ProductDetailsArray=array();
+       $oneProductInInvoice=array();
          foreach($invoiceDetails as $product){
          $qty=$product->Quantity;
+        
          $contact=$product->ProductSerial;
-         $customerName=$product->ProductSerial;
+         $customerName=$product->CustomerName;
          $PID=$product->ProductSerial;
          $productName=$product->ProductName;
-         $unitPrice=$product->PerUnitSalePrice;
+         $IN=$product->InvoiceNumber;
+         $tax=$product->VAT;
+        $Pt =$product->NetAmount;
          
-       session(['invoiceDate' => $dateNow]);
-       session(['invoiceNo' => $invoiceNumber]);
-       session(['customerID' => $CID]);
-       session(['customerName' => $customerName]);
-       session(['city' => '']);
-       session(['province' => '']);
-       session(['contact' => $contact]);
-       session(['model' => '']);
-       session(['vehRegNo' => '']);
-       session(['distanceTraveled' => '']);
-       session(['itemNo' => $PID]);
-       session(['description' => $productName]);
-       session(['quantity' => $qty]);
-       session(['CNIC' => '']);
-       session(['unitPrice' => $unitPrice]);
-       session(['tax' => '0']);
-       session(['total' => '']);
-       session(['subTotal' => $tot]);
-       session(['taxable' => '-']);
-       session(['taxRate' => '17%']);
-       session(['taxAmount' => $tax]);
-       session(['S&H' => '-']);
-       session(['others' => '-']);
-       session(['endTotal' => $netTotal]);
+         $unitPrice=$product->PerUnitSalePrice;
+         $CNIC=$product->CNIC;
+         $productName=$product->ProductName;
+         $contact=$product->Contect;
+         $TotalAmount=$product->TotalAmount;
+         $tax=$product->VAT;
+         $Discount=$product->Discount;
+         $NetTotal=$product->NetTotal;
+         $AmountPaid=$product->AmountPaid;
+         $Balance=$product->Balance;
+         $dat=$product->DateStamp;
+         $BillStatus=$product->BillStatus;
+         $AmountPaid=$product->AmountPaid;
+         $InvoiceBalance=$product->Balance;
+
+         
+         array_push($oneProductInInvoice,$PID,$productName,$qty,$unitPrice,$tax,$Pt);
+         array_push($ProductDetailsArray,$oneProductInInvoice);
+         $oneProductInInvoice=array();
+
+         session(['ProductNames' => $ProductDetailsArray]);
+         session(['ivd' => $dat]);
+         session(['iu' => $IN]);
+         session(['customerID' => $CID]);
+         session(['customerName' => $customerName]);
+         session(['contact' => $contact]);
+         session(['model' => $productName]);
+
+         session(['CNIC' => $CNIC]);
+         session(['tax' => $tax]);
+         session(['total' => $TotalAmount]);
+         session(['netTotal' => $netTotal]);
+         session(['InvBalance' => $InvoiceBalance]);
+         session(['amountPaid' => $AmountPaid]);
+         session(['overallDiscount' => $Discount]);
+
       }
-       
-     
+  
     }
         //insert into order details
         //inster in transaction Flow

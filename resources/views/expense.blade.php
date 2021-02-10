@@ -17,16 +17,17 @@
 
 
 
-    <title>Payments</title>
+    <title>Expenses</title>
     <style>
-        @media (max-width: 1366px){
-.left-content {
-    width: 83%;
-}
-}
-   .page-container.sidebar-collapsed-back .left-content {
-       width: 83% !important;
-   }
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 83%;
+            }
+        }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
 
 
         .footerBtns {
@@ -116,7 +117,7 @@
             width: auto !important;
 
         }
-        
+
         ::-webkit-scrollbar {
             width: 10px;
 
@@ -133,9 +134,46 @@
         .fa-bars {
             color: #fff;
         }
-input{
-    margin: 4px 0px;
-}
+
+        input {
+            margin: 4px 0px;
+        }
+
+        @media print {
+            .left-content{
+                width: 100% !important;
+            }
+            .sidebar-menu{
+                display: none;
+            }
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #mainComapnyLedger{
+                visibility: visible !important;
+                margin: 10px 0px;
+            }
+            #DNone{
+                display: none !important;
+            }
+            table{
+                width: 900px !important;
+            }
+          
+       
+        }
+
     </style>
 </head>
 
@@ -148,7 +186,7 @@ input{
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h4>Payments</h4>
+                                <h4>Expenses</h4>
                             </div>
                         </div>
                     </div>
@@ -159,12 +197,12 @@ input{
 
                         <div class="row customBorder">
                             <div class="col-md-4">
-                                <h4>Add Payments</h4>
+                                <h4>Add Expenses</h4>
                             </div>
                         </div>
                     </div>
                 </section>
-                <section>
+                <section id="DNone">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -174,12 +212,7 @@ input{
                                         <input type="text" class="form-control"
                                             style="display: inline-block; width: 192px;" value="" name=""
                                             onclick="calculatonInTable()" id="amount"><br>
-                                        <label for="">Paid To</label>
-                                        <select style="height: 25px !important; width: 158px !important; "
-                                            class="selectpicker form-control" data-live-search="true" id="paidTo">
-
-                                        </select>
-                                        <button class="btn btn-info">+</button><br>
+                            
                                         <label for="">Paid by</label>
                                         <select style="height: 25px !important; width: 158px !important; "
                                             class="selectpicker form-control" data-live-search="true" id="paidBy">
@@ -195,13 +228,13 @@ input{
                                         <!-- <button class="btn">+</button> -->
                                         <br>
                                         <label style="width: 106px !important;" for="">Date</label>
-                                        <input type="date" style="width: 199px; display: inline-block !important;" class="form-control" name="" id="date"><br>
+                                        <input type="date" style="width: 199px; display: inline-block !important;"
+                                            class="form-control" name="" id="date"><br>
                                         <label style="width: 106px !important;" for="">Remarks</label>
-                                            <input type="text" class="form-control"
-                                                style="display: inline-block; width: 199px;" value="" name=""
-                                                id="remarks">
+                                        <input type="text" class="form-control"
+                                            style="display: inline-block; width: 199px;" value="" name="" id="remarks">
                                         <div class="expenseButtons">
-                                         
+
                                             <br>
                                             <button class="btn" onclick="add(), calculatonInTable()">Add</button>
                                         </div>
@@ -214,24 +247,26 @@ input{
                         </div>
                     </div>
                 </section>
-                <section>
+                <section id="ExSection">
                     <div class="container">
                         <div class="row mt-2">
                             <div class="col-md-12">
-                                <h4>Today's Expense</h4>
+                                <h4 id="mainComapnyLedger">Today's Expense</h4>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="expenseTable">
-                                    <table id="expenseTable" class="table-bordered table-striped table-hover"
+                                    <main id="mainHeader">
+
+                                
+                                    <table id="expenseTable" class="table table-bordered myExpe table-striped table-hover"
                                         style="width: 100%;">
                                         <thead>
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Amount</th>
                                                 <th>Expense ID</th>
-                                                <th>Paid To</th>
                                                 <th>Paid By</th>
                                                 <th>Remarks</th>
                                                 <th>Action</th>
@@ -240,6 +275,7 @@ input{
                                         <tbody>
                                         </tbody>
                                     </table>
+                                </main>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +283,8 @@ input{
                             <div class="col-md-6 offset-md-6">
                                 <div class="mainTableEnd">
                                     <label style="width: 106px;" for="">Total Expense</label>
-                                    <input type="text" class="form-control" style="display: inline-block; width: 199px;"  onclick="calculatonInTable()" value="" name="" id="mainTotal">
+                                    <input type="text" class="form-control" style="display: inline-block; width: 199px;"
+                                        onclick="calculatonInTable()" value="" name="" id="mainTotal">
                                 </div>
                             </div>
                         </div>
@@ -259,7 +296,7 @@ input{
                             <div class="col-md-5 offset-md-7">
                                 <div class="footerBtns">
                                     <button class="btn">Close</button>
-                                    <button class="btn">Print</button>
+                                    <button onclick="window.print()" class="btn print">Print</button>
                                     <button class="btn" onclick="addExpenses()">Update</button>
                                 </div>
                             </div>
@@ -277,6 +314,20 @@ input{
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                                 style="font-size: 18px;">Dashboard</span></a>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs0"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse list-unstyled firstULs0 ">
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+                        </ul>
                     </li>
                     <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
                                 style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
@@ -507,7 +558,7 @@ input{
             var amount = document.getElementById("amount").value;
             var expense = document.getElementById("expense");
             var expenseID = document.getElementById("expense").value;
-            var paidto = document.getElementById("paidTo");
+            
             var paidby = document.getElementById("paidBy");
             var remarks = document.getElementById("remarks").value;
 
@@ -523,23 +574,22 @@ input{
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
-            var cell9 = row.insertCell(8);
-            var cell10 = row.insertCell(9);
+            
 
             cell1.innerHTML = date;
             cell2.innerHTML = amount;
-            cell3.innerHTML = expense.options[expense.selectedIndex].value;
+            cell3.innerHTML = expense.options[expense.selectedIndex].text;
             cell4.innerHTML = expenseID;
-            cell5.innerHTML = paidto.options[paidto.selectedIndex].text;
-            cell6.innerHTML = paidby.options[paidby.selectedIndex].text;
-            cell7.innerHTML = paidto.options[paidto.selectedIndex].value;
-            cell8.innerHTML = paidby.options[paidby.selectedIndex].value;
-            cell9.innerHTML = remarks;
-            cell10.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+            //cell5.innerHTML = paidto.options[paidto.selectedIndex].text;
+            cell5.innerHTML = paidby.options[paidby.selectedIndex].text;
+            //cell7.innerHTML = paidto.options[paidto.selectedIndex].value;
+            cell6.innerHTML = paidby.options[paidby.selectedIndex].value;
+            cell7.innerHTML = remarks;
+            cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
 
             cell4.style.display = "none";
-            cell7.style.display = "none";
-            cell8.style.display = "none";
+            cell6.style.display = "none";
+            
 
 
 
@@ -589,14 +639,14 @@ input{
                     $(tr).find('td:eq(3)').text(), //Expense ID
 
 
-                    //$(tr).find('td:eq(4)').text(), //Paid To
-                    //$(tr).find('td:eq(5)').text(), //Paid By
+                   
+                    //$(tr).find('td:eq(4)').text(), //Paid By
 
-                    $(tr).find('td:eq(6)').text(), //Paid To ID
-                    $(tr).find('td:eq(7)').text(), //Paid By ID
+                    
+                    $(tr).find('td:eq(5)').text(), //Paid By ID
 
-                    $(tr).find('td:eq(8)').text(), //Remarks
-                    $(tr).find('td:eq(9)').text()
+                    $(tr).find('td:eq(6)').text(), //Remarks
+                    $(tr).find('td:eq(7)').text()
                 ];
 
 
@@ -624,7 +674,6 @@ input{
     <script>
         function loadFunctions() {
             loadExpenseHeads();
-            loadParties();
             loadAccounts();
         }
 
@@ -672,24 +721,6 @@ input{
             }
             toggle = !toggle;
         });
-
-    </script>
-    <script>
-        function loadParties() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("paidTo").innerHTML = this.response;
-                    $('#paidTo').selectpicker('refresh');
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./getPartyNames/", true);
-
-            xhttp.send();
-        }
 
     </script>
 

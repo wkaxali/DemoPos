@@ -8,7 +8,7 @@ use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\UpdateStocksController;
-
+use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
 use App\Http\Controllers\uzairController;
 use App\Http\Controllers\TransactionFlow;
@@ -26,7 +26,7 @@ use App\Http\Controllers\serviceSalesFlow;
 use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
-
+use App\Http\Controllers\saleRequestController;
 
 
 /*
@@ -70,6 +70,8 @@ Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyD
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow'] );
 //getInvoiceCustomer/{data}
+
+Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleRequest'] );
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate'] );
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID'] );
 Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads'] );
@@ -90,6 +92,8 @@ Route::get('/transactionHistoryAccounts/{AID}',[TransactionFlow::class, 'getTran
 Route::get('/transactionHistoryParties/{LID}',[TransactionFlow::class, 'getTransactionsForParties']);
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
+Route::get('/viewSales',[salesFlow::class, 'viewSales']);
+Route::get('/viewExpense',[expenseController::class, 'viewExpense']);
 Route::get('/viewAllStock',[OrderFlowController::class, 'viewAllStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
@@ -115,6 +119,7 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
+Route::get('/addPayment/{data}',[payController::class, 'insertPayment']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
@@ -153,6 +158,7 @@ Route::get('/getAccounts',[expenseController::class, 'getAccounts'] );
 Route::get('/getCategory',[taskController::class, 'getCategory'] );
 Route::get('/getEmployees',[taskController::class, 'getEmployees'] );
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
+Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
 
 Route::get('/adduzairdata',[uzairController::class, 'function']);
 route::get('/addtable' , [uzairController::class, 'myfunction']);
@@ -167,6 +173,10 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 Route::get('/', function () {
     
     return view('signInSignUp');
+});
+Route::get('/sh', function () {
+    
+    return view('StockHistory');
 });
 
 Route::get('/chksessions',function(){
@@ -211,7 +221,7 @@ Route::get('/as', function () {
 });
 
 Route::get('/bo', function () {
-    return view('bookOrder');
+    return view('bookorder');
 });
 
 Route::get('/cl', function () {
@@ -328,9 +338,6 @@ Route::get('/e', function () {
 });
 
 
-Route::get('/vd', function () {
-    return view('vehicleDetail');
-});
 
 Route::get('/prc', function () {
     return view('paymentReceipt');
@@ -348,8 +355,7 @@ Route::get('/sheet', function () {
 });
 Route::get('/vd', function () {
     return view('vehicleDetail');
-<<<<<<< Updated upstream
-=======
+
 });
 Route::get('/sir', function () {
     return view('solutions');
@@ -394,6 +400,7 @@ Route::get('/vd', function () {
 
 Route::get('/ssi', function () {
     return view('servicesalesinvoice');
+
 });
 
 Route::get('/u', function () {
@@ -402,5 +409,5 @@ Route::get('/u', function () {
 
 Route::get('/uz', function () {
     return view('addtable');
->>>>>>> Stashed changes
+
 });

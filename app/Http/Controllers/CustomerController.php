@@ -122,7 +122,7 @@ class CustomerController extends Controller
         $address=$obj[5];
         $comments=$obj[6];
         $cnic=$obj[7];
-        $category=$obj[8];
+        
         $CID=DB::table('customeinformation')->insertGetId([
             'CustomerName'=>$customerName,
             'FatherName'=>$fatherName,
@@ -132,7 +132,7 @@ class CustomerController extends Controller
             'Address'=>$address,
             'Comments'=>$comments,
             'CNIC'=>$cnic,
-            'CustomerCatogery'=>$category,
+            
             
             ]);
         return $CID." ID customer added";
@@ -140,7 +140,33 @@ class CustomerController extends Controller
     public function getInvoiceCustomer($InvoiceNo){
         $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
         $product = collect([1,2,3,4]);
-        session(['invoiceDetails'=>$product]);
+        $re = DB::table('vw_customersale_invoice')
+        ->where('InvoiceNumber', '=', $InvoiceNo);
+
+        session(['invoiceNo' => $InvoiceNo]);
+        session(['customerID' => $re[0]->CustomerID]);
+        session(['itemNo' => $re->ProductSerial]);
+        session(['quantity' => $re->Quantity]);
+        session(['unitPrice' => $re->PerUnitSalePrice]);
+        session(['productName' => $re->ProductName]);
+        session(['price' => $re->PerUnitSalePrice]);
+        session(['contact' => $re->Contect]);
+        session(['customerName' => $re->CustomerName]);
+        session(['CNIC' => $re->CNIC]);
+        session(['address' => $re->Address]);
+        session(['engineNo' => $re->EngineNumber]);
+        session(['chassisNo' => $re->ChasisNumber]);
+        session(['color' => $re->color]);
+        session(['fatherName' => $re->FatherName]);
+        session(['total' => $re->AmountPaid]);
+        session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
+        session(['amountPaid' => $re->AmountPaid]);
+        session(['description' => $re->description]);
+        
+        session(['balance' => $re->Balance]);
+        session(['totalCost' => $re->TotalCost]);
+        session(['tax' => $re->VAT]);
+        session(['endTotal' => $re->NetTotal]);
         
         return $results;
 

@@ -13,11 +13,13 @@ class attendanceController extends Controller
     public static function markAttendance(Request $request, $CO){
 
         $EID=json_decode($CO);
-        $date = Carbon::now();
-        $time = $date->toTimeString();
-        $reportingTime = '15:15:00';
+       //->format('Y-m-d h:iA');
+        $date = Carbon::now()->toDateString();
+        $time = Carbon::now()->toTimeString();
+        $reportingTime = Carbon::create(0000, 00, 00, 15, 15, 00)->toTimeString();
+        $p='15-15-15';
         $status = '';
-        if ($time < $reportingTime) {
+        if ($time > $p) {
             $status = 'Late';
           } else {
             $status = 'In Time';
