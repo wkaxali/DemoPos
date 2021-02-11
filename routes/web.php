@@ -180,7 +180,6 @@ Route::get('/', function () {
 });
 
 Route::get('/sh', function () {
-    if
     return view('StockHistory');
 });
 
@@ -224,7 +223,7 @@ Route::get('/ps', function () {
     if ($UN=='1'){
     return view('PurchaseStock');
     }else{
-        return ""
+        return "";
     }
 });
 Route::get('/as', function () {

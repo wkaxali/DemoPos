@@ -246,7 +246,6 @@
                                             <th>Investor Profit</th>
                                             <th>Engine Number</th>
                                             <th>Chasis Number</th>
-                                            <th>Assigned</th>
                                         </tr>
                                     </thead>
                                     <tbody id="MainStockTableBody">
@@ -270,7 +269,7 @@
                             </div>
                             <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
                                 <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;"
-                                    onclick="addInvestorProducts()">Add Products</button>
+                                    onclick="addInvestorProducts()">Update</button>
                             </div>
 
                         </div>
@@ -630,7 +629,7 @@
             for (var i = 1; i < table.rows.length; i++) {
                 totalProfit = parseFloat(totalProfit) + parseFloat(table.rows[i].cells[6].innerHTML);
             }
-            alert(totalProfit);
+            
             document.getElementById("totalProfit").value = totalProfit;
             document.getElementById("capital").value = capital;
             document.getElementById("netTotal").value = parseFloat(totalProfit) + parseFloat(capital);
@@ -682,6 +681,7 @@
             mcell8.innerHTML = cell6;
             mcell9.innerHTML = cell7;
             mcell10.innerHTML = 0;
+            mcell10.style.display = "none";
 
         });
 
@@ -801,7 +801,7 @@
             $('#mainStockTable tr').each(function (row, tr) {
 
                 var v = $(tr).find('td:eq(9)').text();
-                alert(v);
+                
                 if (v == 0) {
                     ProductDetails[i] = [
 
@@ -823,7 +823,7 @@
             var LID = $('#investors').find(":selected").val();
             var TableWithLid = [LID, ProductDetails];
             var productTable = JSON.stringify(TableWithLid);
-            alert(productTable);
+            
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function () {
