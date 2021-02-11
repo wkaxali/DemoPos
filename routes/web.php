@@ -398,6 +398,10 @@ Route::get('/pay', function () {
     return view('payments');
 });
 
+Route::get('/ep', function () {
+    return view('employeePayment');
+});
+
 Route::get('/sales', function () {
     return view('viewSales');
 });
