@@ -6,6 +6,7 @@ use NumberToWords\NumberToWords;
 //https://github.com/kwn/number-to-words
 use Illuminate\Http\Request;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\saleRequestController;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\LedgerPartiesController;
@@ -122,9 +123,9 @@ class salesFlow extends Controller
           
         }
         
-
-
         UpdateStocksController::UpdateStockStatus($pid,"Sold");
+
+        saleRequestController::getInvoiceSaleRequest($invoiceNumber);
 
       
         return $invoiceNumber;

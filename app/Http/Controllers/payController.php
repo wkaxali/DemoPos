@@ -168,6 +168,14 @@ public static function getEmployeeName(){
     $data=DB:: select('select * from tbltransactionflow where EmpID='.$EID);
         return $data;
   }
+  public static function getTotalPay($empID){
+
+    $totatlPay = DB::table('vw_employeealowncspay')
+              ->where('EID', $empID)
+              ->first()->TotalPay;
+    return $totatlPay;
+
+  }
 
 }
 

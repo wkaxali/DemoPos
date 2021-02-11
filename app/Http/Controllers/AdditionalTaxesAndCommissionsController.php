@@ -117,7 +117,7 @@ return $CID;
         UpdateStocksController::setTotalSaleAmount($PID,$newCost);
 
 
-        return "HOLA";
+        return 'Hola';
 
     }
 

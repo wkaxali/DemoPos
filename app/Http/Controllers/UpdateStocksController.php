@@ -154,6 +154,17 @@ public static function setTotalCost($PID,$amount){
   return "Cost Updated";
 
 }
+public static function setTotalSaleAmount($PID,$amount){
+
+  DB::table('instock')
+  ->where('ProductSerial', $PID)
+  ->update(['TotalSaleAmount'=>$amount
+  
+
+  ]);
+  return "Sale Amount Updated";
+
+}
 public static function updateStock($PID,$stkIn){
 
   DB::table('instock')

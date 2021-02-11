@@ -1480,7 +1480,7 @@
                                                     <label for="status">Invoice Number</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" value="0" id="InvoiceID">
+                                                        name="name" value="" id="InvoiceID">
 
                                                     <button class="btn" onclick="getInvoiceRequest()"><img
                                                             src="https://img.icons8.com/officel/16/000000/cloud-print.png" /></button>
@@ -1629,8 +1629,8 @@
                                             <div class="modal-content">
 
                                                 <div class="modal-body">
-                                                    <form method="POST" class="appointment-form" id="appointment-form">
-                                                        <h2>Create Invoice</h2>
+                                                    <div class="appointment-form" id="appointment-form">
+                                                        <h2>Add New Customer</h2>
                                                         <div class="form-group-1">
                                                             <input type="text" name="name" id="addCustomerName"
                                                                 placeholder="Customer Name" required />
@@ -1657,7 +1657,7 @@
                                                             <button onclick="addCustomer()" name="submit" id="submit"
                                                                 class="submit" value="">Add Customer</button>
                                                         </div>
-                                                    </form>
+                                                   </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-org-1"
@@ -1699,7 +1699,7 @@
                                     </div>
 
                                     <div class="input-field">
-                                        <label for="status">Received By</label>
+                                        <label for="status">Sales Person</label>
                                         <select data-live-search="true" class=" selectpicker" id='employees'>
 
 
@@ -2321,6 +2321,7 @@
         xhttp.send();
         loadAllCustomers();
         loadEmployees();
+        getInvoiceID();
 
 
     }
@@ -2590,6 +2591,23 @@
 
         xhttp.send();
     }
+
+    function getInvoiceID() {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("InvoiceID").value = this.response;
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getInvoiceID", true);
+
+    xhttp.send();
+
+
+}
 
 </script>
 

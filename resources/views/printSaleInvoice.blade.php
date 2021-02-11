@@ -11721,7 +11721,7 @@
                                     <td style="width: 144px;">{{ Session::get('color')}}</td>
                                     <td style="width: 290px;">{{ Session::get('engineNo')}}</td>
                                     <td>{{ Session::get('chassisNo')}}</td>
-                                    <td>{{ Session::get('totalCost')}}</td>
+                                    <td>{{ Session::get('amountPaid')}}</td>
 
                                 </tr>
 
@@ -11748,7 +11748,7 @@
                                     </td>
                                     <td style="padding-left: 102px; border-bottom: none !important; font-weight: 800;">
                                         PKR
-                                        {{ Session::get('totalCost')}}</td>
+                                        {{ Session::get('amountPaid')}}</td>
 
                                 </tr>
                                 <tr style="height: 50px;">
@@ -11756,7 +11756,7 @@
                                         {{ Session::get('amountInWords')}}
                                     </td>
                                     <td style="font-weight: 800;border-top: none !important;" rowspan="2"></td>
-                                    <td style="border-top: none !important;"> {{ Session::get('tax')}} &nbsp;</td>
+                                    <!-- <td style="border-top: none !important;"> {{ Session::get('tax')}} &nbsp;</td> -->
 
                                 </tr>
                             </thead>
