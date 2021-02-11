@@ -138,7 +138,8 @@
                                 class="selectpicker form-control"  data-live-search="true"  id="paidTo" onchange="getAmount()">
                             
                             </select>
-                            <button class="btn btn-info">+</button><br>
+                            <!-- <button class="btn btn-info">+</button> -->
+                            <br>
                             <label for="">Paid by</label>
                             <select style="height: 25px !important; width: 158px !important; "
                                 class="selectpicker form-control"  data-live-search="true"  id="paidBy" >
@@ -174,7 +175,7 @@
         <div class="container">
             <div class="row mt-2">
                 <div class="col-md-12">
-                    <h4>Today's Expense</h4>
+                    <!-- <h4>Today's Expense</h4> -->
                 </div>
             </div>
             <div class="row">
@@ -340,7 +341,7 @@ document.getElementById("mainTotal").value=tot;
         });
         expenseDetails.shift();
         var expTable = JSON.stringify(expenseDetails);
-        alert(expTable);
+        
         var xhttp = new XMLHttpRequest();
         
         xhttp.onreadystatechange = function () {
@@ -402,8 +403,20 @@ function loadAccounts(){
     }
 
     function getAmount(){
-        var EmpID= document.getElementById("paidBy").value;
-        alert(EmpID);
+        var EmpID = $('#paidTo').find(":selected").val();
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            
+            if (this.readyState == 4 && this.status == 200) {
+                
+                document.getElementById("amount").value = this.response;
+            }
+        };
+    //alert("ljd");
+    xhttp.open("GET", "./getTotalPay/" + EmpID, true);
+    
+    xhttp.send();
     }
 </script>
 
