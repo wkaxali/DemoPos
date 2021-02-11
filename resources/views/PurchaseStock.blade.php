@@ -2172,22 +2172,10 @@
 
             }
         };
-<<<<<<< HEAD
-<<<<<<< HEAD
-        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-=======
-<<<<<<< HEAD
+
         // var MenuID=$('#Menus').find(":selected").val();
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-=======
-        xhttp.open("GET", "./addSalesForSS/" + array, true);
->>>>>>> 7f6f6415b81b4560f65332b878507988010be853
->>>>>>> 3ee4bbd4574fb810b75c70b3f7c3281c929d2cb1
-=======
-    
-        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-        // var MenuID=$('#Menus').find(":selected").val();
->>>>>>> f580da50b0bb08f1a05dd9738db40a1de157df93
+
         xhttp.send();
     }
     // }else{
