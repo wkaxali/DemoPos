@@ -209,208 +209,478 @@ Route::get('/logout', function () {
     return view('signInSignUp');
 });
 Route::get('/db', function () {
-    // $UN = session()->get('userName');
-    // if($UN!=NULL){
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('dashboard');
-    // }else{
-    //     return "Invalid Username Or Password";
-    // }
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
 Route::get('/ps', function () {
-    $UN=session()->get('userName');
+    $UN=session()->get('userType');
     if ($UN=='1'){
     return view('PurchaseStock');
     }else{
-        return ""
+        return "Unauthorized Access ";
     }
 });
 Route::get('/as', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('addNewStock');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/bo', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('bookorder');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/cl', function () {
-    return view('companyLedger');
+    $UN=session()->get('userType');
+    if ($UN=='1'){
+    return view('CompanyLedger');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/dl', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('deliveryLetter');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/ip', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('increaseInPrice');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/is', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('invoiceServices');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/psi', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('printSaleInvoice');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/rec', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('Receiving');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/sc', function () {
 
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('salesandc');
+    }else{
+        return "Unauthorized Access ";
+    }
 
 });
 Route::get('/stock', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('stock');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/th', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('transactionHistory');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/loop', function () {
-    return view('forLoopCheck');
+    $UN=session()->get('userType');
+    if ($UN=='1'){
+    return view('froLoopCheck');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/vc', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('viewCustomers');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/sp', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('viewSpareParts');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/vs', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('viewStock');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/ajax', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('ajax');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/scratch', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('scratch');
+    }else{
+        return "Unauthorized Access ";
+    }
 
 });
 Route::get('/ex', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('expense');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/ct', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('comissionAndTaxes');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/s', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('salesAndComission');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/ev', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('employerView');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/etv', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('EmployeeTaskView');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/emptv', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('employertasksViews');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/e', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('Employee');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/at', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('attendance');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/atv', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('attendanceView');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/l', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('investorLedger');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/igl', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('investorGeneralLedger');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/pr', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('payRoll');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/inv', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('investors');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/pr', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('payRoll');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/es', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('editStock');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/cr', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('cr');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/d', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('delivery');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/nd', function () {
-    return view('newDashboard');
+    $UN=session()->get('userType');
+    if ($UN=='1'){
+    return view('newDashBoard');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/SalarySlip', function () {
-    return view('SalarySlip');
+    $UN=session()->get('userType');
+    if ($UN=='1'){
+    return view('atteSalarySlipndanceView');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/l', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('investorLedger');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/ql', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('quotation');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/e', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('Employee');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 
 
 Route::get('/prc', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('paymentReceipt');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 
 Route::get('/fgp', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('ForlandGatePass');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/slip', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('SalarySlip');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/sheet', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('inventorysheet');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/vd', function () {
-    return view('vehicleDetail');
+    $UN=session()->get('userType');
+    if ($UN=='1'){
+    return view('VehicleDetail');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/sir', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('solutions');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/ql', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('quotationList');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/ac', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('addcategory');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/gb', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('generateBarcode');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/adc', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('addcustomer');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/ads', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('addsuplier');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/dp', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('dailypurchase');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/pay', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('payments');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/sales', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('viewSales');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/exv', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('viewExpenses');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 
@@ -425,13 +695,28 @@ Route::get('/pdfvs', function () {
     return $pdf->download('pdf_file.pdf');
 });
 Route::get('/vd', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('vehicleDetail');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
 Route::get('/ssi2', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('printSaleInvoice');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 Route::get('/ssi', function () {
+    $UN=session()->get('userType');
+    if ($UN=='1'){
     return view('servicesalesinvoice');
+    }else{
+        return "Unauthorized Access ";
+    }
 });
 
