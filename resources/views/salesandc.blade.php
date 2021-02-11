@@ -310,8 +310,8 @@
                                                     data-dismiss="modal">&times;</button>
 
                                             </div>
-                                            <div class="modal-body">
-                                                <div class="receivingTable">
+                                            <div class="modal-body" style="overflow: auto;">
+                                                <div class="receivingTable" >
                                                     <table id="productSearchTable" class=" table-striped"
                                                         style="width: 100%; text-align: center;">
                                                         <thead>
