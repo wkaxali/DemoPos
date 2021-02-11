@@ -160,6 +160,15 @@ public static function getEmployeeName(){
     
   }
 
+
+
+  public static function getPayRecivingHistory($EID)
+  {
+
+    $data=DB:: select('select * from tbltransactionflow where EmpID='.$EID);
+        return $data;
+  }
+
 }
 
   

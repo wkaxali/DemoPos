@@ -122,6 +122,7 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addPayment/{data}',[payController::class, 'insertPayment']);
+Route::get('/getPaymentHistory/{data}',[payController::class, 'getPayRecivingHistory']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
