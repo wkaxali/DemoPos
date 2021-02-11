@@ -133,6 +133,9 @@ public static function getEmployeeName(){
     $total=$obj[5];
     $workingHours=$obj[6];
     $EID=$obj[7];
+    $perDayPay=floatval($total)/floatval(30);
+    $perHourPay=$perDayPay/floatval($workingHours);
+  
 
     DB::table('tblemployeepay')
               ->where('EID', $EID)
@@ -143,10 +146,35 @@ public static function getEmployeeName(){
                 'SaleTarget' =>$saleTarget,
                 'Alownces' =>$allownces,
                 'TotalPay' =>$total,
-                'WorkingHours' =>$workingHours
+                'WorkingHours' =>$workingHours,
+                'PerHourPay'=>$perHourPay,
+                'PayPerDay'=>$perDayPay
               ]);
 
   return "Pay Updated";
+  }
+
+
+  public static function getCalculatedPay($EMPID)
+  {
+    
+  }
+
+
+
+  public static function getPayRecivingHistory($EID)
+  {
+
+    $data=DB:: select('select * from tbltransactionflow where EmpID='.$EID);
+        return $data;
+  }
+  public static function getTotalPay($empID){
+
+    $totatlPay = DB::table('vw_employeealowncspay')
+              ->where('EID', $empID)
+              ->first()->TotalPay;
+    return $totatlPay;
+
   }
 
 }

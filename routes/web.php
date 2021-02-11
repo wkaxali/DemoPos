@@ -122,6 +122,7 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addPayment/{data}',[payController::class, 'insertPayment']);
+Route::get('/getPaymentHistory/{data}',[payController::class, 'getPayRecivingHistory']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
@@ -134,6 +135,7 @@ Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact']);
 Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory']);
 Route::get('/getEmployee',[expenseController::class, 'getEmployee']);
 Route::get('/updatePay/{data}',[payController::class, 'updatePay']);
+Route::get('/getTotalPay/{EID}',[payController::class, 'getTotalPay']);
 
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
 
@@ -174,11 +176,15 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 
 Route::get('/', function () {   
+    session(['userCategory' =>1]);
     return view('signInSignUp');
 });
 
+Route::get('/ed', function () {   
+    return view('EmpDashboard');
+});
+
 Route::get('/sh', function () {
-    
     return view('StockHistory');
 });
 
@@ -197,6 +203,7 @@ Route::get('/ss', function () {
     return view('sales');
 });
 Route::get('/qt', function () {
+    
     return view('quotation');
 });
 
@@ -217,7 +224,12 @@ Route::get('/db', function () {
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
 Route::get('/ps', function () {
+    $UN=session()->get('userName');
+    if ($UN=='1'){
     return view('PurchaseStock');
+    }else{
+        return "";
+    }
 });
 Route::get('/as', function () {
     return view('addNewStock');
@@ -396,6 +408,10 @@ Route::get('/dp', function () {
 
 Route::get('/pay', function () {
     return view('payments');
+});
+
+Route::get('/ep', function () {
+    return view('employeePayment');
 });
 
 Route::get('/sales', function () {

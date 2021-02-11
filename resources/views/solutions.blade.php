@@ -132,13 +132,13 @@
                         </tr>
                         <tr>
                             <th>Salesperson</th>
-                            <!-- <th>Forland Modern Motors</th> -->
+                            <th>Forland Modern Motors</th>
                             <th></th>
                         </tr>
                         <tr>
                             <th>Dealer</th>
-                            <!-- <th>Forland Modern Motors</th> -->
-                            <th></th>
+                            <th>Forland Modern Motors</th>
+                            
                         </tr>
                         <tr>
                             <th>Vehicle</th>
@@ -158,12 +158,12 @@
                         </tr>
                         <tr>
                             <th>Amount</th>
-                            <th></th>
+                            <th>{{ Session::get('amountPaid')}}</th>
                             <!-- <th>PKR {{ Session::get('price')}}/-</th> -->
                         </tr>
                         <tr>
                             <th>Payment Details</th>
-                            <!-- <th>Payment Details Attached</th> -->
+                            <th>Payment Details Attached</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -171,7 +171,7 @@
                 </table>
                 <p>Note:</p>
                 <h5 id="leftUnits">1- 04<sup>RD</sup> Unit Out of 55 Units </h5>
-                <button onclick="printPDF()">Download</button>
+                <!-- <button onclick="printPDF()">Download</button> -->
             </div>
                 <p style="font-size: 18px; margin-top: 5px;">Note:</p>
                 <div class="mainDivs">
