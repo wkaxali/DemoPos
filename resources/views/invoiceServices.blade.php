@@ -1627,8 +1627,8 @@
                                             <div class="modal-content">
 
                                                 <div class="modal-body">
-                                                    <form method="POST" class="appointment-form" id="appointment-form">
-                                                        <h2>Create Invoice</h2>
+                                                    <div class="appointment-form" id="appointment-form">
+                                                        <h2>Add New Customer</h2>
                                                         <div class="form-group-1">
                                                             <input type="text" name="name" id="addCustomerName"
                                                                 placeholder="Customer Name" required />
@@ -1655,7 +1655,7 @@
                                                             <button onclick="addCustomer()" name="submit" id="submit"
                                                                 class="submit" value="">Add Customer</button>
                                                         </div>
-                                                    </form>
+                                                   </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-org-1"
