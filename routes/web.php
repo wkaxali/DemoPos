@@ -175,11 +175,12 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 
 Route::get('/', function () {   
+    session(['userCategory' =>1]);
     return view('signInSignUp');
 });
 
 Route::get('/sh', function () {
-    
+    if
     return view('StockHistory');
 });
 
@@ -198,6 +199,7 @@ Route::get('/ss', function () {
     return view('sales');
 });
 Route::get('/qt', function () {
+    
     return view('quotation');
 });
 
@@ -218,7 +220,12 @@ Route::get('/db', function () {
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
 Route::get('/ps', function () {
+    $UN=session()->get('userName');
+    if ($UN=='1'){
     return view('PurchaseStock');
+    }else{
+        return ""
+    }
 });
 Route::get('/as', function () {
     return view('addNewStock');
