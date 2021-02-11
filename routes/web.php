@@ -178,6 +178,10 @@ Route::get('/', function () {
     return view('signInSignUp');
 });
 
+Route::get('/ed', function () {   
+    return view('EmpDashboard');
+});
+
 Route::get('/sh', function () {
     
     return view('StockHistory');
