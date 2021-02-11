@@ -152,7 +152,7 @@ Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendanc
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
 Route::get('/searchEmployeeData/{EID}',[taskController::class, 'searchEmployeeData']);
 Route::get('/searchTaskWithStatus/{EID}/{status}',[taskController::class, 'searchTaskWithStatus']);
-
+Route::get('/loadTaskDetails/{TID}',[taskController::class, 'loadTaskDetails']);
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance']);
 Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID']);
 Route::get('/getEmployeeName',[payController::class, 'getEmployeeName']);

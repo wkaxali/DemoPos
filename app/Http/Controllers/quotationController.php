@@ -31,27 +31,34 @@ class quotationController extends Controller
             $quantity = $Array[9];
             $totalPrice = $Array[10];
             $model = $Array[11];
+            $deliverTime = $Array[12];
+            $qoutationValidityTime = $Array[13];
+            $payTo = $Array[14];
             $date = Carbon::now()->toDateString();
 
             $numberToWords = new NumberToWords();
             $numberTransformer = $numberToWords->getNumberTransformer('en');
             $a= $numberTransformer->toWords($totalPrice);
             //there will query that will store information to database
-
-            session(['amountInWords' => $a]);
+            $b=ucwords($a);
+            session(['amountInWords' => $b]);
             session(['customerName' => $customerName]);
             session(['fatherName' => $fatherName]);
             session(['CNIC' => $CNIC]);
             session(['address' => $address]);
-            session(['price' => $unitPrice]);
+            session(['price' =>  number_format($unitPrice)]);
             session(['contact' => $contact]);
-            session(['total' => $totalPrice]);
+            session(['total' => number_format($totalPrice)]);
             session(['invoiceDate' => $date]);
             session(['description' => $description]);
             session(['color' => $color]);
             session(['productName' => $model]);
             session(['quantity' => $quantity]);
             session(['city' => $city]);
+
+            session(['DeliveryTime' => $deliverTime]);
+            session(['ValidityPeriod' => $qoutationValidityTime]);
+            session(['PayTo' => $payTo]);
 
             DB::table('tbl_quotations')->insertGetId([
                 'CustomerName'=>$customerName,
@@ -66,7 +73,12 @@ class quotationController extends Controller
                 'Quantity'=>$quantity,
                 'TotalPrice'=>$totalPrice,
                 'Model'=>$model,
-                'Date'=>$date
+                'Date'=>$date,
+                'DeliveryTime'=>$deliverTime,
+                'ValidityPeriod'=>$qoutationValidityTime,
+                'PayTo'=>$payTo
+    
+
                 ]);
 
             DB::table('customeinformation')->insertGetId([
