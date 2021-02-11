@@ -173,7 +173,7 @@ public static function updateStock($PID,$stkIn){
   
 
   ]);
-  return "Cost Updated";
+  return "Sale Amount Updated";
 
 }
 public function UpdateInStock(Request $request,$CO){

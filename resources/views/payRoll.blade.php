@@ -297,17 +297,9 @@
                                 <input type="text" class="form-control" value="50,000"
                                     style="display: inline-block; width: 200px;" name="" id="allownces">
                                 <br>
-                                <label for="">Comission On Sale</label>
-                                <select style="height: 25px !important; width: 158px !important; "
-                                    class="selectpicker form-control" data-live-search="true" id="category"
-                                    tabindex="null">
-                                    <option value=1>5%</option>
-                                    <option value=2>1279</option>
-                                    <option value=3>1342</option>
-                                    <option value=4>9754</option>
-
-
-                                </select>
+                                <label for="">Comission On Sale (%)</label>
+                                <input type="text" class="form-control" value="50,000"
+                                    style="display: inline-block; width: 200px;" name="" id="comission">
                                 <br>
                                 <label for="">Allowed Holidays</label>
                                 <input type="text" class="form-control" value="5"
@@ -316,6 +308,10 @@
                                 <label for="">Target Sales</label>
                                 <input type="text" class="form-control" value="10"
                                     style="display: inline-block; width: 200px;" name="" id="saleTarget">
+                                <br>
+                                <label for="">Working Hours</label>
+                                <input type="text" class="form-control" value="10"
+                                    style="display: inline-block; width: 200px;" name="" id="workingHours">
                                 <br>
                                 <label for="">Total</label>
                                 <input type="number" class="form-control" value="48000"
@@ -662,7 +658,7 @@
                     document.getElementById("allowedHolidays").value = a[0].AllowedHolidays;
                     document.getElementById("allownces").value = a[0].Alownces;
                     document.getElementById("saleTarget").value = a[0].SaleTarget;
-                   
+                    document.getElementById("total").value = a[0].TotalPay;
                     $('#contact').val(a[0].EID);
                     $("#contact").selectpicker('refresh');
                     $('#cnic').val(a[0].EID) ;
@@ -670,7 +666,7 @@
                     $('#name').val(a[0].EID) ;
                     $("#name").selectpicker('refresh');
                     //alert();
-                   
+                    //payCalculation();
 
 
                     //     // alert(a[0].FirstName);
@@ -821,6 +817,40 @@
 
     </script>
     <script>
+
+
+        function updatePay() {
+            var data=[];
+            var basicPay = document.getElementById("basicPay").value;
+            var allowedHolidays = document.getElementById("allowedHolidays").value;
+            var comission = document.getElementById("comission").value;
+            var saleTarget = document.getElementById("saleTarget").value;
+            var allownces = document.getElementById("allownces").value;
+            var total = document.getElementById("total").value;
+            var workingHours = document.getElementById("workingHours").value;
+            var EID = $('#id').find(":selected").val();
+
+            data = [basicPay, allowedHolidays, comission, saleTarget, allownces, total, workingHours, EID]
+            payData = JSON.stringify(data);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert(this.response);
+                    
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./updatePay/"+ payData, true);
+
+            xhttp.send();
+
+
+        }
+
+
+
         function loadEmployeeContact() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -843,6 +873,7 @@
        var alounsec=document.getElementById("allownces").value;  
        tot=Number(alounsec)+Number(bp);
        document.getElementById("total").value=tot;
+       updatePay();
 
        }
 
