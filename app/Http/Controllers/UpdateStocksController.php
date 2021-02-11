@@ -164,7 +164,7 @@ public static function setTotalSaleAmount($PID,$amount){
   
 
   ]);
-  return "Cost Updated";
+  return "Sale Amount Updated";
 
 }
 public static function updateStock($PID,$qty){
