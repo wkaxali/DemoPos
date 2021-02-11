@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Carbon\Carbon;
+use NumberToWords\NumberToWords;
+//https://github.com/kwn/number-to-words
 use Illuminate\Http\Request;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UpdateStocksController;
@@ -13,22 +15,42 @@ use DB;
 
 class salesFlow extends Controller
 {
+    function viewSales(){
+      $data=DB:: select('select * from vw_customersale_invoice');
+      return $data;
+    }
+
     public function SalesFlow(Request $request,$data){
      // order = [pid,totwT,discount,netTotal,amp,rmb,CID];
-        $Array=json_decode($data);
-        $pid=$Array[0];
-        $tot=$Array[1];
-        $OverAllDiscount= $Array[2];
-        $AmountAfterDiscount=$Array[3];
-       $amp =$Array[4];
-        $rmb=$Array[5];
-       $CID=$Array[6];
-       $TransactionMode=$Array[7];
-       $AID=$Array[8];
-       
+      $Array=json_decode($data);
+      $pid=$Array[0];
+      $tot=$Array[1];
+      $OverAllDiscount= $Array[2];
+      $AmountAfterDiscount=$Array[3];
+      $amp =$Array[4];
+      $rmb=$Array[5];
+      $CID=$Array[6];
+      $TransactionMode=$Array[7];
+      $AID=$Array[8];
+      $customerName =$Array[9];
+      $CNIC=$Array[10];
+      $address=$Array[11];
+      $contact=$Array[12];
+      $fatherName=$Array[13];
+      $engineNo=$Array[14];
+      $chassisNo=$Array[15];
+      $color=$Array[16];
+      $description=$Array[17];
+      $productName=$Array[18];
+      $city=$Array[19];
+      $receivedBy=$Array[20];
+      $totalCost=$Array[21];
+
        //return $TransactionMode;
          
-         $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
+      $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
+
+      
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
          //return $dateNow;
         
@@ -104,7 +126,8 @@ class salesFlow extends Controller
 
         UpdateStocksController::UpdateStockStatus($pid,"Sold");
 
-       return $invoiceNumber;
+      
+        return $invoiceNumber;
     }
     public function insertInDetailedOrder($row,$InvoiceID,$date){
      
@@ -149,5 +172,10 @@ class salesFlow extends Controller
 
 
     }
+  public static function getAllInvoiceDetails($InvoiceNo){
+      $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+      return $results;
+
+  }
     
 }

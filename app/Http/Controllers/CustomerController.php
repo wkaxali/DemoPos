@@ -80,7 +80,7 @@ class CustomerController extends Controller
         //    $sOp=" <select style=\"height: 45px !important; width: 298px !important;\" class=\"form-control selectpicker\"
         //                         data-live-search=\"true\" tabindex=\"null\" onchange=\"getRecipes()\" id=\"SelectMenu\">";
                                // $sOp='<select data-live-search="true" class="form-control ">';
-                               $sOp='<option value=" "></option>';
+        $sOp='<option value=" "></option>';
                                 
                                 
                             
@@ -109,8 +109,69 @@ class CustomerController extends Controller
        // mysql_insert_id()
         return $results;
 
+    }
 
+    public function addCustomer(Request $request, $CO){
+        
+        $obj=json_decode($CO);
+        $customerName=$obj[0];
+        $fatherName=$obj[1];
+        $contact=$obj[2];
+        $profession=$obj[3];
+        $balance=$obj[4];
+        $address=$obj[5];
+        $comments=$obj[6];
+        $cnic=$obj[7];
+        
+        $CID=DB::table('customeinformation')->insertGetId([
+            'CustomerName'=>$customerName,
+            'FatherName'=>$fatherName,
+            'Contect'=>$contact,
+            'Ocupation'=>$profession,
+            'Balance'=>$balance,
+            'Address'=>$address,
+            'Comments'=>$comments,
+            'CNIC'=>$cnic,
+            
+            
+            ]);
+        return $CID." ID customer added";
+    }
+    public function getInvoiceCustomer($InvoiceNo){
+        $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+        $product = collect([1,2,3,4]);
+        $re = DB::table('vw_customersale_invoice')
+        ->where('InvoiceNumber', '=', $InvoiceNo);
+
+        session(['invoiceNo' => $InvoiceNo]);
+        session(['customerID' => $re[0]->CustomerID]);
+        session(['itemNo' => $re->ProductSerial]);
+        session(['quantity' => $re->Quantity]);
+        session(['unitPrice' => $re->PerUnitSalePrice]);
+        session(['productName' => $re->ProductName]);
+        session(['price' => $re->PerUnitSalePrice]);
+        session(['contact' => $re->Contect]);
+        session(['customerName' => $re->CustomerName]);
+        session(['CNIC' => $re->CNIC]);
+        session(['address' => $re->Address]);
+        session(['engineNo' => $re->EngineNumber]);
+        session(['chassisNo' => $re->ChasisNumber]);
+        session(['color' => $re->color]);
+        session(['fatherName' => $re->FatherName]);
+        session(['total' => $re->AmountPaid]);
+        session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
+        session(['amountPaid' => $re->AmountPaid]);
+        session(['description' => $re->description]);
+        
+        session(['balance' => $re->Balance]);
+        session(['totalCost' => $re->TotalCost]);
+        session(['tax' => $re->VAT]);
+        session(['endTotal' => $re->NetTotal]);
+        
+        return $results;
 
     }
+
+    
 }
 

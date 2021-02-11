@@ -16,11 +16,23 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+    <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
     <style>
+           @media (max-width: 1366px) {
+            .left-content {
+                width: 83%;
+            }
+        }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
+      
+
         @-moz-document url-prefix() {
 
             input {
@@ -55,7 +67,7 @@
         }
 
         .bootstrap-select .dropdown-toggle {
-            width: 151px;
+            width: 107px !important;
             height: 30px !important;
 
         }
@@ -558,7 +570,7 @@
         }
 
         .centhour button {
-            width: 90px !important;
+            width: 76px !important;
         }
 
         #prod-hour {
@@ -767,8 +779,8 @@
         }
 
         .total-buttons button {
-            width: 88px;
-            height: 80px;
+            width: 75px;
+            height: 35px;
         }
 
         .total-buttons {
@@ -896,7 +908,7 @@
 
         .registration-form .item {
             border-radius: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 5px;
             padding: 10px 20px;
         }
 
@@ -914,6 +926,10 @@
         .registration-form .form-group {
             padding: 0;
             margin: 0;
+        }
+
+        .registration-form input {
+            width: auto !important;
         }
 
 
@@ -1049,10 +1065,6 @@
             }
         }
 
-        body {
-            background-color: lightblue;
-
-        }
 
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
@@ -1066,361 +1078,622 @@
             -moz-appearance: textfield;
         }
 
-        body {
-            background: rgb(230, 29, 47);
-            background: radial-gradient(circle, rgba(230, 29, 47, 0.9528186274509804) 0%, rgba(10, 84, 157, 0.9360119047619048) 100%);
-            color: #ffffff;
-        }
         .dropdown {
-    width: 151px !important;
-    height: 30px !important;
-}
+            width: 117px !important;
+            height: 30px !important;
+        }
 
-#myTable_length label{
+        #myTable_length label {
             width: auto !important;
         }
-        .dataTables_filter label{
+
+        .dataTables_filter label {
             width: auto !important;
 
         }
+
+        .okay-invo input {
+            width: 107px;
+        }
+
+        .okay-invo-1 input {
+            width: 107px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #0a549d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e61d2f;
+        }
+
+        .fa-bars {
+            color: #fff;
+        }
+
+        .okay-invo-3 label {
+            width: 80px;
+        }
+
+        .modal-content {
+            border: none !important;
+            margin-left: 130px;
+            margin-top: -29px;
+        }
+
+        .okay-invo-3 .bootstrap-select .dropdown-toggle {
+            width: 150px !important;
+            height: 30px !important;
+
+        }
+
     </style>
 </head>
 
 
 <body id="kt_bodys" onload="getPartsAndServices()">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>Purchase Stock</h1>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-3  col-lg-6 col-md-6  okay-invo">
-                <label for="invo-1">Invoice Number</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="InvoiceID">
-                <button class="btn" style="height: 25px; margin-top: -5px;background-color: #e61d2f;"></button>
-                <label for="prod-1">Product Number</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="invo-1">
-                <button type="button" class="btn" style="height: 25px; margin-top: -5px;background-color:#0a549d;"
-                    data-toggle="modal" data-target=".bd-example-modal-xl"></button>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="inner-block">
 
-                </button>
-
-
-
-                <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
-                    aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog  modal-xl">
-                        <div class="modal-content">
-                            <div class="container">
-                                <div class="row">
-
-                                </div>
-                            </div>
-
-                            <div class="container">
-                                <div class="row">
-                                    <div class="overFlowingTable"
-                                        style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
-
-
-                                        <table class="table  table-bordered " id="searchProductTable">
-                                            <thead>
-                                                <tr>
-
-                                                    <th>Product Id</th>
-
-                                                    <th>Product Name</th>
-                                                    <th>Company</th>
-                                                    <th>Price</th>
-                                                    <th>Stock</th>
-
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
-                                        <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
-                                        <button type="submit" data-dismiss="modal" class="btn btn-org-1">Okay</button>
-
-                                    </div>
-                                </div>
-                            </div>
-
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h1>Purchase Stock</h1>
                         </div>
-
                     </div>
                 </div>
-                <label style="visibility: hidden;" for="prod-hour">Product Number</label>
-                <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3  col-lg-6 col-md-6  okay-invo">
+                            <label for="invo-1">Invoice Number</label>
+                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                name="invo-1" id="InvoiceID">
+                            <button class="btn" style="height: 25px; margin-top: -5px;background-color: #e61d2f;"
+                                onclick="getInvoiceStock()"></button>
+                            <label for="prod-1">Product Number</label>
+                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                name="invo-1" id="invo-1">
+                            <button type="button" class="btn"
+                                style="height: 25px; margin-top: -5px;background-color:#0a549d;" data-toggle="modal"
+                                data-target=".bd-example-modal-xl"></button>
+
+                            </button>
+
+
+
+                            <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
+                                aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog  modal-xl">
+                                    <div class="modal-content">
+                                        <div class="container">
+                                            <div class="row">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="overFlowingTable"
+                                                    style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
+
+
+                                                    <table class="table  table-bordered " id="searchProductTable">
+                                                        <thead>
+                                                            <tr>
+
+                                                                <th>Product Id</th>
+
+                                                                <th>Product Name</th>
+                                                                <th>Company</th>
+                                                                <th>Price</th>
+                                                                <th>Stock</th>
+
+
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
+                                                    <button type="button" class="btn btn-org-1"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="submit" data-dismiss="modal"
+                                                        class="btn btn-org-1">Okay</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <label style="visibility: hidden;" for="prod-hour">Product Number</label>
+                            <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
+                            <br>
+                            <div class="centhour">
+                                <button class="btn btn-new" style="background-color: #e61d2f;">New</button>
+                                <button class="btn btn-edit" style="background-color: #13579a;">Edit</button>
+                                <button class="btn" style="background-color: #e61d2f;">Delete</button>
+                            </div>
+                            <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
+                        </div>
+
+                        <div class="col-md-6  okay-invo-1">
+                            <div class="o-inv">
+                                <label for="invo-1">Supplier Id</label>
+                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                    name="invo-1" id="SID">
+                                <button class="btn "
+                                    style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
+                                <br>
+                                <label for="prod-1">Last Balance</label>
+                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                    name="invo-1" id="LastBalance">
+                                <button class="btn "
+                                    style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
+                                <br>
+                                <label for="prod-1">Current Balance</label>
+                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                    name="invo-1" id="CurrentBalance">
+
+                            </div>
+                            <div class="o-inv-2">
+
+
+                                <label for="issue-3">Supplier Name</label>
+                                <select class="selectpicker" data-live-search="true" tabindex="null" id="SupplierName"
+                                    onchange="getCurrentSupplierInfo()">
+                                    <!-- from database -->
+                                </select>
+
+
+                                </button>
+
+                                <br>
+                                <label for="prod-1">Contact Number</label>
+                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                    name="invo-1" id="CNO">
+                                <br>
+                                <label for="prod-1">Category</label>
+                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                    name="invo-1" id="SupplierCategory">
+                                <br>
+                            </div>
+                            <div class="clear">
+
+                            </div>
+                            <div class="inv-bor-btns">
+                                <button class="btn " style="background-color:#0a549d;" data-toggle="modal"
+                                    data-target="#staticBackdrop">Add</button>
+
+
+
+                                <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content" style="background:none;">
+
+                                            <div class="modal-body">
+
+                                                <div class="registration-form">
+                                                    <form>
+                                                        <div class="SupplierAddition  mb-3"
+                                                            style="margin-top:-20px !important;">
+                                                            <h2>Add Supplier</h2>
+
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control item"
+                                                                autocomplete="OFF" id="username"
+                                                                placeholder="Supplier ID">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control item"
+                                                                autocomplete="OFF" id="password"
+                                                                placeholder="Supplier Name">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="email" class="form-control item"
+                                                                autocomplete="OFF" id="email" placeholder="Email">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="number" class="form-control item"
+                                                                autocomplete="OFF" id="phone-number"
+                                                                placeholder="Phone Number">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control item"
+                                                                autocomplete="OFF" id="birth-date"
+                                                                placeholder="Birth Date">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control item"
+                                                                autocomplete="OFF" id="email" placeholder="Dummy">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control item"
+                                                                autocomplete="OFF" id="phone-number"
+                                                                placeholder="Phone Number">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control item"
+                                                                autocomplete="OFF" id="birth-date"
+                                                                placeholder="Birth Date">
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <button type="button"
+                                                                class="btn btn-block create-account">Add</button>
+                                                        </div>
+
+
+                                                    </form>
+
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <button class="btn " style="background-color: #e61d2f;">View</button>
+                                <button class="btn " style="background-color:#0a549d;">History</button>
+                                <button class="btn " style="background-color: #e61d2f;">Info</button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 okay-invo okay-invo-hide">
+                            <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid"
+                                alt="">
+                        </div>
+
+
+
+                    </div>
+
+                </div>
                 <br>
-                <div class="centhour">
-                    <button class="btn btn-new" style="background-color: #e61d2f;">New</button>
-                    <button class="btn btn-edit" style="background-color: #13579a;">Edit</button>
-                    <button class="btn" style="background-color: #e61d2f;">Delete</button>
-                </div>
-                <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
-            </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 myGoggle" style="overflow-x: auto; overflow-y: auto;">
+                            <div>
+                                <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
+                                    id="ProductSaleTable">
 
-            <div class="col-md-6  okay-invo-1">
-                <div class="o-inv">
-                    <label for="invo-1">Supplier Id</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                        name="invo-1" id="SID">
-                    <button class="btn " style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
-                    <br>
-                    <label for="prod-1">Last Balance</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                        name="invo-1" id="LastBalance">
-                    <button class="btn " style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
-                    <br>
-                    <label for="prod-1">Current Balance</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                        name="invo-1" id="CurrentBalance">
+                                    <thead>
+                                        <tr>
 
-                </div>
-                <div class="o-inv-2">
+                                            <th>Product ID</th>
 
-
-                    <label for="issue-3">Supplier Name</label>
-                    <select class="selectpicker" data-live-search="true" tabindex="null" id="SupplierName"
-                        onchange="getCurrentSupplierInfo()">
-                        <!-- from database -->
-                    </select>
-
-
-                    </button>
-
-                    <br>
-                    <label for="prod-1">Contact Number</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                        name="invo-1" id="CNO">
-                    <br>
-                    <label for="prod-1">Category</label>
-                    <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                        name="invo-1" id="SupplierCategory">
-                    <br>
-                </div>
-                <div class="clear">
-
-                </div>
-                <div class="inv-bor-btns">
-                    <button class="btn " style="background-color:#0a549d;" data-toggle="modal"
-                        data-target="#staticBackdrop">Add</button>
+                                            <th>Product Name</th>
+                                            <th>Company</th>
+                                            <th>Purchase Price</th>
+                                            <th>Quantity</th>
+                                            <th>Discount</th>
+                                            <th>Total</th>
+                                            <th>Action</th>
 
 
 
-                    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content" style="background:none;">
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                <div class="modal-body">
-
-                                    <div class="registration-form">
-                                        <form>
-                                            <div class="SupplierAddition  mb-3" style="margin-top:-20px !important;">
-                                                <h2>Add Supplier</h2>
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
-                                                    id="username" placeholder="Supplier ID">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
-                                                    id="password" placeholder="Supplier Name">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" class="form-control item" autocomplete="OFF"
-                                                    id="email" placeholder="Email">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="number" class="form-control item" autocomplete="OFF"
-                                                    id="phone-number" placeholder="Phone Number">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
-                                                    id="birth-date" placeholder="Birth Date">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
-                                                    id="email" placeholder="Dummy">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
-                                                    id="phone-number" placeholder="Phone Number">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control item" autocomplete="OFF"
-                                                    id="birth-date" placeholder="Birth Date">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <button type="button" class="btn btn-block create-account">Add</button>
-                                            </div>
-
-
-                                        </form>
-
-                                    </div>
-
-
-                                </div>
-
+                                        <!-- this will be populated from database -->
+                                    </tbody>
+                                </table>
                             </div>
 
                         </div>
+                        <div class="col-md-3 okay-invo-3">
+                            <label for="invo-1">Total</label>
+                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                name="invo-1" id="Total">
+
+                            <label for="prod-1">Discount</label>
+                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                name="invo-1" id="DiscountOverall" value="00" onchange="calc()">
+                            <label for="invo-1">Gross Total</label>
+                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                name="invo-1" id="grossTotal">
+                            <label for="prod-1"> Tax 17%</label>
+                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                name="invo-1" id="tax" onchange="calc()">
+                            <label for="prod-1">Net Total</label>
+                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                name="invo-1" id="NetTotal">
+                            <label for="invo-1" style=" font-weight: 500;">Amount Paid</label>
+                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                name="invo-1" id="AmountPaid" onchange="calcForBalance()">
+                            <label for="prod-1" style=" font-weight: 500;">Remaining Balance</label>
+                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                                name="invo-1" id="RemainingBalance">
+                            <label for="">Paid From</label>
+                            <select class="selectpicker form-control" data-live-search="true" id="accounts"
+                                tabindex="null">
+
+
+
+                            </select>
+
+                            <div class="total-buttons" id="hideme">
+                                <button class="btn" style="background-color: #0a549d;"
+                                    onclick="insertInOrder()">Save</button>
+                                <button class="btn" style="background-color: #e61d2f ;">Print</button>
+                                <button class="btn" style="background-color:#0a549d;">Edit</button>
+                            </div>
+                            <div class="total-buttons" id="hideme">
+                                <button class="btn" style="background-color: #e61d2f;">Hold</button>
+                                <button class="btn" style="background-color: #0a549d;">Update</button>
+                                <button class="btn" style="background-color: #e61d2f ;">Delete</button>
+                            </div>
+
+
+
+
+                        </div>
                     </div>
-                    <button class="btn " style="background-color: #e61d2f;">View</button>
-                    <button class="btn " style="background-color:#0a549d;">History</button>
-                    <button class="btn " style="background-color: #e61d2f;">Info</button>
                 </div>
+
+                <section>
+                    <div class="total-buttons mb-5" id="holdPlz" style="text-align: center;">
+                        <button class="btn" style="background-color:#0a549d;">Save</button>
+                        <button class="btn btn-info">Hold</button>
+                        <button class="btn btn-info">Save</button>
+
+                        <button class="btn btn-info">Save</button>
+                        <button class="btn btn-info">Hold</button>
+                        <button class="btn btn-info">Save</button>
+                    </div>
+                </section>
             </div>
-
-            <div class="col-md-3 okay-invo okay-invo-hide">
-                <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid" alt="">
-            </div>
-
-
-
         </div>
+        <div class="sidebar-menu">
 
+            <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
+                    <span id="logo"></span>
+                </a> </div>
+            <div class="menu">
+                <ul id="menu">
+                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
+                                style="font-size: 18px;">Dashboard</span></a>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs0"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Operations</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse list-unstyled firstULs0 ">
+                            <li><a href="/bo">Book Order</a></li>
+                            <li><a href="/rec">Receiving</a></li>
+                            <li><a href="/is">Invoice Services</a></li>
+                            <li><a href="/sc">Commissions and Taxes</a></li>
+                            <li><a href="/as">Add Stock</a></li>
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="/l">Investor Sale Ledger</a></li>
+                            <li><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse list-unstyled firstULs ">
+                            <li><a href="/">Category</a></li>
+                            <li><a href="/vs">Product Record</a></li>
+                            <li><a href="/as">Add Product</a></li>
+                            <li><a href="/">Barcode</a></li>
+
+                            <li><a href="/">Stock Audit</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Customer</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs1">
+                            <li><a href="/">Add Customer</a></li>
+                            <li><a href="/vs">Customer List</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">Supplier</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs2">
+                            <li><a href="/">Add Supplier</a></li>
+                            <li><a href="/vs">Supplier List</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
+                                class="fab fa-alipay"></i>
+                            <span style="font-size: 18px;">Purchase</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs3">
+                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
+                            </li>
+                            <li><a href="">Daily Purchase</a></li>
+                            <li><a href="">Monthly Purchase</a></li>
+                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
+                                style="font-size: 18px;">POS</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs4">
+                            <li><a href="/ss">POS</a></li>
+                            <li><a href="/sc">Add Sale</a></li>
+                            <li><a href="">Daily Sales</a></li>
+                            <li><a href="">Monthly Sales</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
+                                style="font-size: 18px;">Expense</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs5">
+                            <li><a href="/ex">Add Expense</a></li>
+                            <li><a href="">Expense List</a></li>
+                            <li><a href="">Expense Head</a></li>
+                            <li><a href="">Expense Category</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-quote-right"></i><span
+                                style="font-size: 18px;">Quotation<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul class="collapse firstULs6">
+                            <li><a href="/ql">Quotation List</a></li>
+                            <li><a href="/is">Add Quotation</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-random"></i><span
+                                style="font-size: 18px;">Transfer<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul class="collapse firstULs7">
+                            <li><a href="/th">Transaction History</a></li>
+                            <li><a href="">Transfer Funds</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-undo-alt"></i><span
+                                style="font-size: 18px;">Return<span class="fa fa-angle-right"
+                                    style="float: right"></span></a>
+                        <ul class="collapse firstULs8">
+                            <li><a href="/ss">Sale</a></li>
+                            <li><a href="/is">Purchase</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs9"><i
+                                class="fas fa-user-circle"></i><span style="font-size: 18px;">Accounts</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul class="collapse firstULs9">
+                            <li id="menu-academico-boletim"><a href="/l">Investor Ledger</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
+                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
+                                style="font-size: 18px;">HR</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs10" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
+                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
+                        </ul>
+                    </li>
+
+
+
+                    <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
+                                style="font-size: 18px;">People</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs11" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
+                            <li id="menu-academico-boletim"><a href="/">Add User</a></li>
+
+
+                        </ul>
+                    </li>
+
+
+
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs12"><i
+                                style="font-size: 20px;" class="fab fa-stack-overflow"></i><span
+                                style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs12" id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
+                            <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
+                        </ul>
+                    </li>
+
+
+
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
+                                class="fas fa-flag-checkered"></i><span style="font-size: 18px;">Reports</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul class="collapse firstULs13" id="menu-academico-sub">
+                            <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Customer Report</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Best Seller</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Daily Sale</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Monthly Sale</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Daily Purchase</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">MonthlyPurchase</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">User Report</a></li>
+                            <li id="menu-academico-boletim"><a href="/d">Supplier Report</a></li>
+
+                            <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li>
+
+
+                        </ul>
+                    </li>
+                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14"><i
+                                class="fas fa-truck-loading"></i><span style="font-size: 18px;">Order
+                                Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
+                        <ul class="collapse firstULs14" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
+                                style="font-size: 18px;">PayRoll</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs15" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
+                            <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
+                            <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
+                        </ul>
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs16" href="/at"><i
+                                class="fas fa-guitar"></i><span style="font-size: 18px;">Attendance</span><span
+                                class="fa fa-angle-right" style="float: right"></span></a>
+                        <ul class="collapse firstULs16" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
+                            <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
+                        </ul>
+
+                    </li>
+                    <li><a data-toggle="collapse" data-target=".firstULs17"><i class="fas fa-eye"></i><span
+                                style="font-size: 18px;">Task View</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="firstULs17 collapse" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
+                            <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a data-toggle="collapse" data-target=".firstULs18"><i class="fas fa-cogs"></i><span
+                                style="font-size: 18px;">Account Settings</span><span class="fa fa-angle-right"
+                                style="float: right"></span></a>
+                        <ul class="collapse firstULs18" id="menu-academico-sub">
+                            <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
+                            <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"></div>
     </div>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 myGoggle" style="overflow-x: auto; overflow-y: auto;">
-                <div>
-                    <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
-                        id="ProductSaleTable">
-
-                        <thead>
-                            <tr>
-
-                                <th>Product ID</th>
-
-                                <th>Product Name</th>
-                                <th>Company</th>
-                                <th>Purchase Price</th>
-                                <th>Quantity</th>
-                                <th>Discount</th>
-                                <th>Total</th>
-                                <th>Action</th>
-
-
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <!-- this will be populated from database -->
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-            <div class="col-md-3 okay-invo-3">
-                <label for="invo-1" style="width: 130px;">Total</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="Total">
-
-                <label for="prod-1" style="width: 130px;">Discount</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="DiscountOverall" value="00" onchange="calc()">
-                <label for="invo-1" style="width: 130px;">Gross Total</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="grossTotal">
-                <label for="prod-1" style="width: 130px;"> Tax 17%</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="tax" onchange="calc()">
-                <label for="prod-1" style="width: 130px;">Net Total</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="NetTotal">
-                <label for="invo-1" style="width: 130px; font-weight: 500;">Amount Paid</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="AmountPaid" onchange="calcForBalance()">
-                <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
-                <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                    name="invo-1" id="RemainingBalance">
-                    <label style="width: 130px;" for="">Paid From</label>
-                    <select class="selectpicker form-control" data-live-search="true" id="accounts" tabindex="null">
-                        
-    
-    
-                    </select>
-                    
-                <div class="total-buttons" id="hideme">
-                    <button class="btn" style="background-color: #0a549d;" onclick="insertInOrder()">Save</button>
-                    <button class="btn" style="background-color: #e61d2f ;">Print</button>
-                    <button class="btn" style="background-color:#0a549d;">Edit</button>
-                </div>
-                <div class="total-buttons" id="hideme">
-                    <button class="btn" style="background-color: #e61d2f;">Hold</button>
-                    <button class="btn" style="background-color: #0a549d;">Update</button>
-                    <button class="btn" style="background-color: #e61d2f ;">Delete</button>
-                </div>
-
-
-
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-    <section>
-        <div class="total-buttons mb-5" id="holdPlz" style="text-align: center;">
-            <button class="btn" style="background-color:#0a549d;">Save</button>
-            <button class="btn btn-info">Hold</button>
-            <button class="btn btn-info">Save</button>
-
-            <button class="btn btn-info">Save</button>
-            <button class="btn btn-info">Hold</button>
-            <button class="btn btn-info">Save</button>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1437,7 +1710,29 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+    <script>
+        var toggle = true;
 
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute",
+
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
+
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+
+    </script>
     <script>
         $(document).ready(function () {
             $('#myTables').DataTable();
@@ -1490,7 +1785,7 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-               // alert(this.responseText);
+                // alert(this.responseText);
                 document.getElementById("SupplierName").innerHTML =
                     this.responseText;
                 $('#SupplierName').selectpicker('refresh');
@@ -1773,10 +2068,11 @@
         }
     };
     //alert("ljd");
-    xhttp.open("GET", "./getAccounts/", true);
+    xhttp.open("GET", "./getAccountHeads/", true);
     
     xhttp.send();
     }
+
     function IsItemExistInDataTable(item) {
 
 
@@ -1853,17 +2149,22 @@
         var SLB = document.getElementById("LastBalance").value;
 
         var SCB = document.getElementById("CurrentBalance").value;
-        var AID=$('#accounts').find(":selected").val();
-        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB,AID];
+        var AID = $('#accounts').find(":selected").val();
+        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB, AID];
 
 
 
 
         var array = JSON.stringify(myRow2);
-
-
+       // alert(array);
+       
 
         var xhttp = new XMLHttpRequest();
+        
+        if(AID == ""){
+            alert("Payment Method not selected");
+        }else{
+            
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
 
@@ -1871,20 +2172,146 @@
 
             }
         };
-
+<<<<<<< HEAD
+<<<<<<< HEAD
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-
+=======
+<<<<<<< HEAD
         // var MenuID=$('#Menus').find(":selected").val();
         xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-
+=======
         xhttp.open("GET", "./addSalesForSS/" + array, true);
-
+>>>>>>> 7f6f6415b81b4560f65332b878507988010be853
+>>>>>>> 3ee4bbd4574fb810b75c70b3f7c3281c929d2cb1
+=======
+    
+        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+        // var MenuID=$('#Menus').find(":selected").val();
+>>>>>>> f580da50b0bb08f1a05dd9738db40a1de157df93
         xhttp.send();
-    };
-
-    function validation(){
-        
     }
+    // }else{
+    //         alert("Payment Method is not selected");
+    //     }
+    }
+
+    function validation() {
+
+    }
+
+</script>
+
+<script>
+    function getInvoiceStock(){
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        //alert(data);
+        var a = JSON.parse(data);
+        document.getElementById("SID").value = a[0].SID;
+        document.getElementById("LastBalance").value = a[0].Balance;
+        document.getElementById("CurrentBalance").value = a[0].Balance;
+        calc();
+        document.getElementById("CNO").value = a[0].Contect;
+        document.getElementById("SupplierCategory").value = a[0].Category;
+        //document.getElementById("SupplierName").value =;
+        $('#SupplierName').val( a[0].SupplierID);
+        $('#SupplierName').selectpicker('refresh');
+        // var e = document.getElementById("SupplierName");
+        //  e.options[e.selectedIndex].value=a[0].SID;
+
+        var i=0;
+        //alert(a.length);
+        var table = document.getElementById("ProductSaleTable");
+        table.innerHTML="<thead>\
+                            <tr>\
+                                <th>Product ID</th>\
+                                <th>Product Name</th>\
+                                <th>Company</th>\
+                                <th>Purchase Price</th>\
+                                <th>Quantity</th>\
+                                <th>Discount</th>\
+                                <th>Total</th>\
+                                <th>Action</th>\
+                            </tr>\
+                        </thead>";
+
+        for (i; i < a.length; i++) {
+            var PID = a[i].ProductSerial;
+            var discount = a[i].Discount;
+            var quantity = a[i].OrderedQuantiy;
+            var purchasePrice = a[i].PurchasePricePerUnit;
+            var company = a[i].Company;
+            var productName = a[i].ProductName;
+            var totalAmount = a[i].NetAmount;
+
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+
+            cell1.innerHTML = PID;
+            cell2.innerHTML = productName;
+            cell3.innerHTML = company;
+            cell4.innerHTML = purchasePrice;
+            cell5.innerHTML = quantity;
+            cell6.innerHTML = discount;
+            cell7.innerHTML = totalAmount;
+            //calc();
+            cell8.innerHTML =
+                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+    }
+
+
+
+
+            } else {
+                //alert( this.responseText);
+            }
+        };
+        var invoiceNumber = document.getElementById("InvoiceID").value;
+
+xhttp.open("GET", "./getInvoiceStock/" + invoiceNumber, true);
+xhttp.send();
+}
+</script>
+
+<script>
+function getInvoiceSupplier(){
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        //alert(data);
+        var a = JSON.parse(data);
+        
+        document.getElementById("CID").value = a[0].CustomerID;
+        document.getElementById("LastBalance").value = a[0].Balance;
+        document.getElementById("CurrentBalance").value = a[0].Balance;
+        calc();
+        document.getElementById("CNO").value = a[0].Contect;
+        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+        document.getElementById("CustomerName").value = a[0].CustomerID;
+        
+
+    }
+};
+var invoiceNumber = document.getElementById("InvoiceID").value;
+
+xhttp.open("GET", "./getInvoiceSupplier/" + invoiceNumber, true);
+xhttp.send();
+
+
+    }
+
 
 </script>
 

@@ -17,16 +17,18 @@ class taskController extends Controller
         $assignedTo=$ata[2];
         $dueDate=$ata[3];
         $category=$ata[4];
-        // $priority=$ata[5];
+        $priority=$ata[5];
         // $remarks=$ata[6];
+        $assignedDate=Carbon::now()->toDateString();
         $st=$ata[0];
         $tid=DB::table('tbl_tasks')->insertGetId([
             'Subject'=>$subject,
             'DueDate'=>$dueDate,
             'AssignedTo'=>$assignedTo,
-            //'Status'=>$ts,
-            //'Priority'=>$ts,
+            'Status'=>'Pending',
+            'Priority'=>$priority,
             'CategoryID'=>$category,
+            'AssignedDate'=>$assignedDate,
             
             ]);
         foreach ($st as $obj){
@@ -109,7 +111,7 @@ public static function getEmployees(){
   }
 
   public static function getCategory(){
-    $data=DB:: select('select * from tblemployees');
+    $data=DB:: select('select * from tbl_taskcategory');
     
     $option='<option value=" "></option>';
 
@@ -118,11 +120,117 @@ public static function getEmployees(){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->EID.'>'.$d->FirstName.' '.$d->LastName.'</option>';
+        <option value= '.$d->CategoryID.'>'.$d->Category.'</option>';
       
     }
     return $option;
   }
+
+
+  public static function searchEmployeeData($EID){
+    $card="";
+    $data=DB:: select('select * from vw_employeetask where EID='.$EID);
+    foreach ($data as $obj){
+        $card=$card.'<div class="card" >
+
+        <div class="card-body">
+            <div class="mainCardBody">
+                <div class="leftCardBody">
+                    <button
+                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
+                </div>
+                <div class="rightCardBody">
+                    <span><i class="fa fa-fire"></i></span>
+                    <span><i class="fa fa-wifi"></i></span>
+                </div>
+            </div>
+            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">'.$obj->Subject.'</h4>
+            <div class="mainCardBody" style="padding-top: 20px;">
+                <div class="leftCardBody">
+                    <div
+                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                        W A</div>
+   
+                    <span>Waqas Ali</span>
+                </div>
+                <div class="rightCardBody">
+   
+                    <div>Overdue</div>
+                    <div class="mainDots text-center">
+                        <div
+                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
+                        </div>
+                        <div
+                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
+                        </div>
+                        <div
+                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
+                        </div>
+   
+                    </div>
+                </div>
+            </div>
+        </div></div>';
+
+    }
+
+
+    return $card;
+     
+}
+
+
+public static function searchTaskWithStatus($EID, $status){
+    $card="";
+    $data=DB:: select('select * from vw_employeetask where EID='.$EID.' AND Status="'.$status.'"');
+    foreach ($data as $obj){
+        $card=$card.'<div class="card" >
+
+        <div class="card-body">
+            <div class="mainCardBody">
+                <div class="leftCardBody">
+                    <button
+                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
+                </div>
+                <div class="rightCardBody">
+                    <span><i class="fa fa-fire"></i></span>
+                    <span><i class="fa fa-wifi"></i></span>
+                </div>
+            </div>
+            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">'.$obj->Subject.'</h4>
+            <div class="mainCardBody" style="padding-top: 20px;">
+                <div class="leftCardBody">
+                    <div
+                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                        W A</div>
+   
+                    <span>Waqas Ali</span>
+                </div>
+                <div class="rightCardBody">
+   
+                    <div>Overdue</div>
+                    <div class="mainDots text-center">
+                        <div
+                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
+                        </div>
+                        <div
+                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
+                        </div>
+                        <div
+                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
+                        </div>
+   
+                    </div>
+                </div>
+            </div>
+        </div></div>';
+
+    }
+
+
+    return $card;
+     
+}
 
 
 }
