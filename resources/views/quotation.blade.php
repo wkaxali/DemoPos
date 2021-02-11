@@ -588,17 +588,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Delivery Time.</td>
-                                <td>1 to 7 days after receipt of 100% advance payment.</td>
+                                <td>{{ Session::get('DeliveryTime')}} days after receipt of 100% advance payment.</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Validity</td>
-                                <td>This Quotation is Valid For 25 Days Only.</td>
+                                <td>This Quotation is Valid For {{ Session::get('ValidityPeriod')}} Days Only.</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Payment</td>
-                                <td>100% Advance Payment In shape of DD/PO in favor of FORLAND MODERN MOTORS</td>
+                                <td>100% Advance Payment In shape of DD/PO in favor of {{ Session::get('PayTo')}}</td>
                             </tr>
                             <tr>
                                 <td>4</td>
@@ -642,7 +642,7 @@
     </section>
 
 
-    <footer style="margin-top: 600px;">
+    <footer style="margin-top: 400px;">
         <div class="container">
             <div class="row" style="border-top: 1px solid #333;">
                 <div class="col-md-4 p-2 text-center">

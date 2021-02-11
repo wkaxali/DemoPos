@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
@@ -741,64 +742,7 @@ class="selectpicker form-control" data-live-search="true" id="category">
 </select>
 </div>
 </div>
-<div class="row">
-<div class="col-md-8">
-<input type="text" class="form-control" name="" id="">
 
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true" id="category">
-
-</select>
-</div>
-</div>
-<div class="row">
-<div class="col-md-8">
-<input type="text" class="form-control" name="" id="">
-
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true" id="category">
-
-</select>
-</div>
-</div>
-<div class="row">
-<div class="col-md-8">
-<input type="text" class="form-control" name="" id="">
-
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true" id="category">
-
-</select>
-</div>
-</div>
-<div class="row">
-<div class="col-md-8">
-<input type="text" class="form-control" name="" id="">
-
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true" id="category">
-
-</select>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-12">
-<label for="">Last Comment</label>
-<textarea name="" placeholder="Last Comment" class="form-control"
-style="height: 100%; width: 100%; resize: none;" id=""></textarea>
-
-</div>
-
-</div>
 <br><br>
 <div class="row">
 
@@ -842,75 +786,12 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="row">
 <div class="col-md-12">
 <input type="text" placeholder="Task" class="form-control" name=""
-id="">
+id="mainTask">
 </div>
 
 </div>
-<div class="row">
-<div class="col-md-8 ">
-<input type="text" class="form-control" name="" id="">
+<div id="AllSubTasks"></div>
 
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true"
-id="category">
-
-</select>
-</div>
-</div>
-<div class="row">
-<div class="col-md-8">
-<input type="text" class="form-control" name="" id="">
-
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true"
-id="category">
-
-</select>
-</div>
-</div>
-<div class="row">
-<div class="col-md-8">
-<input type="text" class="form-control" name="" id="">
-
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true"
-id="category">
-
-</select>
-</div>
-</div>
-<div class="row">
-<div class="col-md-8">
-<input type="text" class="form-control" name="" id="">
-
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true"
-id="category">
-
-</select>
-</div>
-</div>
-<div class="row">
-<div class="col-md-8">
-<input type="text" class="form-control" name="" id="">
-
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true"
-id="category">
-
-</select>
-</div>
-</div>
 <br>
 <div class="row">
 <div class="col-md-12">
@@ -921,6 +802,10 @@ style="height: 100%; width: 100%; resize: none;" id=""></textarea>
 </div>
 
 </div>
+<br>
+<button onclick="updateStatus()" type="button" id="Today"
+
+class="btn primary ">Update</button>
 <br>
 <div class="row">
 <div class="col-md-8">
@@ -1580,6 +1465,87 @@ name="" id="date"></button>
             })
         })
 
+        function updateStatus(){
+            var status = $('#status').find(":selected").val();
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployeeData/", true);
+
+            xhttp.send();
+            loadEmployees();
+        }
+
+
+        function loadTaskDetails(taskID){
+
+           // alert(taskID);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    var a = JSON.parse(data);
+                    document.getElementById("mainTask").value=a[0].TaskID;
+                    //alert(a[0].TaskID);
+                        a[0].STaskID;
+                        a[0].Status;
+                        a[0].DueDate;
+                        a[0].taskDetails;
+                        a[0].StockIn;
+                        a[0].AssignedBy;
+                        a[0].AssignedTo;
+                        a[0].DueDate;
+                        a[0].taskDetails;
+                        a[0].Priority;
+                        a[0].Remarks;
+                        a[0].EID;
+                        a[0].FirstName;
+                        a[0].LastName;
+
+                       document.getElementById("AllSubTasks").innerHTML="";
+                       var st= "";
+
+                    $.each(a, function (i, item) {
+                        // document.getElementById("AllSubTasks").innerHTML=;
+                        st=st+'<div class="row">\
+                            <div class="col-md-8 ">\
+                            <input type="text" class="form-control" name="" id="subTask" value="'+item.taskDetails+'">\
+                            </div>\
+                            <div class="col-md-4">\
+                            <select style="height: 35px !important; width: 120px !important; "\
+                            class="form-control" \
+                            id="category">\
+                            <option value="1">Complete</option>\
+                            <option value="2">Pending</option>\
+                                                       </select>\
+                            </div>\
+                            </div>';
+
+                        
+                    });
+
+                    document.getElementById("AllSubTasks").innerHTML=st;
+
+                    
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadTaskDetails/"+taskID, true);
+
+            xhttp.send();
+
+            }
+
     </script>
     <script>
         function getRowId() {
@@ -1786,6 +1752,7 @@ name="" id="date"></button>
             }
             toggle = !toggle;
         });
+
 
     </script>
 

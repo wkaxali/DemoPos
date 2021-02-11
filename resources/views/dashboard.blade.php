@@ -9692,12 +9692,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="form-group-1">
                                             <input type="text" name="title" id="customerName" placeholder="Customer Name"
                                                 required />
-                                            <input type="text" name="name" id="fatherName" placeholder="Client's Father Name"
-                                                required />
-                                            <input type="text" name="tel" id="CNIC" placeholder="Customer CNIC"
-                                                required />
-                                            <input type="text" name="phone_number" id="city"
-                                                placeholder="Movement City / Area" required />
+                                           
                                             <input type="text" name="address" id="address" placeholder="Address"
                                                 required />
                                             <input type="text" name="phone_number" id="contact"
@@ -9707,6 +9702,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="text" name="phone_number" id="description"
                                                 placeholder="Description" required />
                                             <input type="text" name="phone_number" id="color" placeholder="Color"
+                                                required />
+                                                <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
+                                                required />
+                                                <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
+                                                required />
+                                                <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
                                                 required />
                                             <input type="text" name="phone_number" id="unitPrice"
                                                 onchange="calculation()" placeholder="Unit Price" required />
@@ -10738,10 +10739,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         function createQuotation(){
+            // <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
+            //                                     required />
+            //                                     <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
+            //                                     required />
+            //                                     <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
+            //                                     required />
             var customerName = document.getElementById("customerName").value;
-            var fatherName = document.getElementById("fatherName").value;
-            var CNIC = document.getElementById("CNIC").value;
-            var city = document.getElementById("city").value;
+            var fatherName ="";
+            var CNIC = "";
+            var city ="";
             var address = document.getElementById("address").value;
             var contact = document.getElementById("contact").value;
             var description = document.getElementById("description").value;
@@ -10750,8 +10757,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var quantity = document.getElementById("quantity").value;
             var totalPrice = document.getElementById("totalPrice").value;
             var model = document.getElementById("model").value;
+            var det=document.getElementById("dt").value;
+            var qvt=document.getElementById("qvt").value;
+            var payTo=document.getElementById("paymentTo").value;
 
-            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model];
+            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model,det,qvt,payTo];
 
             var quotationData = JSON.stringify(data);
 
