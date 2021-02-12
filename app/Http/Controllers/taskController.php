@@ -233,10 +233,28 @@ public static function searchTaskWithStatus($EID, $status){
 }
 
 public static function loadTaskDetails($TID){
-    $data=DB:: select('select * from tbl_subtasks where TaskID='.$TID);
+    $data=DB:: select('select * from vw_subtasks where TaskID='.$TID);
     return $data;
   }
 
+public static function updateTaskStatus(Request $request, $CO){
+   
+    $ata=json_decode($CO);
+
+    for ($i=0; $i<sizeof($ata); $i++) {
+        foreach ($ata as $obj){
+            $id = $obj[0];
+            
+        }
+    } 
+
+    //  DB::table('tbl_subtasks')
+    // ->where('ProductSerial', $PID)
+    // ->update(['TotalSaleAmount'=>$amount
+    // ]);
+
+    return $id;
+  }
 
 }
 

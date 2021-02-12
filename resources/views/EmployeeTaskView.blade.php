@@ -787,6 +787,8 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="col-md-12">
 <input type="text" placeholder="Task" class="form-control" name=""
 id="mainTask">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="mainTaskID" style="display:none">
 </div>
 
 </div>
@@ -806,6 +808,9 @@ style="height: 100%; width: 100%; resize: none;" id=""></textarea>
 <button onclick="updateStatus()" type="button" id="Today"
 
 class="btn primary ">Update</button>
+<button onclick="checks()" type="button" id="Today"
+
+class="btn primary ">check</button>
 <br>
 <div class="row">
 <div class="col-md-8">
@@ -1466,20 +1471,33 @@ name="" id="date"></button>
         })
 
         function updateStatus(){
-            var status = $('#status').find(":selected").val();
+            var mainTaskID = [document.getElementById("mainTaskID").value];
+            var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
+            var allSubTasks = [];
+            for(i = 0; i < task.length; i++){
+                var singleSubTaskDeatails=[];
+                
+                var STaskID = task[i].value;
+                singleSubTaskDeatails.push(STaskID);
+                singleSubTaskDeatails.push(task[i].options[task[i].selectedIndex].text);
+                allSubTasks.push(singleSubTaskDeatails);
+
+            }
+            allSubTasks.push(mainTaskID)
+            var status = JSON.stringify(allSubTasks);
             
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
 
-                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+                    alert(this.response);
 
 
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./getEmployeeData/", true);
+            xhttp.open("GET", "./updateTaskStatus/"+ status, true);
 
             xhttp.send();
             loadEmployees();
@@ -1495,9 +1513,12 @@ name="" id="date"></button>
                 if (this.readyState == 4 && this.status == 200) {
                     var data = this.responseText;
                     var a = JSON.parse(data);
-                    document.getElementById("mainTask").value=a[0].TaskID;
-                    //alert(a[0].TaskID);
+                    document.getElementById("mainTask").value=a[0].Subject;
+                    document.getElementById("mainTaskID").value=a[0].TaskID;
+
+                        a[0].TaskID;
                         a[0].STaskID;
+                        a[0].Subject;
                         a[0].Status;
                         a[0].DueDate;
                         a[0].taskDetails;
@@ -1512,33 +1533,49 @@ name="" id="date"></button>
                         a[0].FirstName;
                         a[0].LastName;
 
-                       document.getElementById("AllSubTasks").innerHTML="";
-                       var st= "";
+                        document.getElementById("AllSubTasks").innerHTML="";
+                        var st= "";
 
-                    $.each(a, function (i, item) {
-                        // document.getElementById("AllSubTasks").innerHTML=;
-                        st=st+'<div class="row">\
-                            <div class="col-md-8 ">\
-                            <input type="text" class="form-control" name="" id="subTask" value="'+item.taskDetails+'">\
-                            </div>\
-                            <div class="col-md-4">\
-                            <select style="height: 35px !important; width: 120px !important; "\
-                            class="form-control" \
-                            id="category">\
-                            <option value="1">Complete</option>\
-                            <option value="2">Pending</option>\
-                                                       </select>\
-                            </div>\
-                            </div>';
+                    
 
-                        
-                    });
+                        $.each(a, function (i, item) {
+                            if (a[i].Status=="Pending"){
+                            // document.getElementById("AllSubTasks").innerHTML=;
+                                st=st+'<div class="row">\
+                                <div class="col-md-8 ">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                </div>\
+                                <div class="col-md-4">\
+                                <select style="height: 35px !important; width: 120px !important; "\
+                                class="form-control" \
+                                id="TaskStatus[]">\
+                                <option value="'+item.STaskID+'">Pending</option>\
+                                <option value="'+item.STaskID+'">Complete</option>\
+                                </select>\
+                                </div>\
+                                </div>';
+                            }
+                            if (a[i].Status!="Pending"){
+
+                                st=st+'<div class="row">\
+                                <div class="col-md-8 ">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                </div>\
+                                <div class="col-md-4">\
+                                <input style="height: 35px !important; width: 120px !important; " readonly\
+                                class="form-control" value="'+item.Status+'">\
+                                </input>\
+                                </div>\
+                                </div>';
+                            }
+                        });
+                    }
 
                     document.getElementById("AllSubTasks").innerHTML=st;
 
                     
                 }
-            };
+            
             //alert("ljd");
             xhttp.open("GET", "./loadTaskDetails/"+taskID, true);
 
@@ -1727,6 +1764,13 @@ name="" id="date"></button>
             xhttp.send();
 
 
+        }
+        function checks(){
+            //alert( document.getElementById("subTask[0]").value);
+            var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
+            for(i = 0; i < task.length; i++){
+                alert(task[i].value);
+            }
         }
 
     </script>

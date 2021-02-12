@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
+use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
@@ -49,12 +50,13 @@ Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
 Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu']);
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu']);
 
-
+Route::get('/addNewEmployee/{data}',[employeeController::class, 'addNewEmployee']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow']);
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem']);
 Route::get('/getAllProducts',[getProducts::class, 'getAllProducts']);
 Route::get('/getProductByCategory/{CID}',[getProducts::class, 'getProductByCategory']);
+Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus']);
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 
@@ -224,12 +226,8 @@ Route::get('/db', function () {
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
 Route::get('/ps', function () {
-    $UN=session()->get('userName');
-    if ($UN=='1'){
     return view('PurchaseStock');
-    }else{
-        return "";
-    }
+    
 });
 Route::get('/as', function () {
     return view('addNewStock');
@@ -446,4 +444,7 @@ Route::get('/ssi', function () {
 
 Route::get('/ed', function () {
     return view('EmpDashboard');
+});
+Route::get('/ae', function () {
+    return view('addEmployees');
 });
