@@ -642,7 +642,7 @@
     </section>
 
 
-    <footer style="margin-top: 400px;">
+    <footer style="margin-top: 300px;">
         <div class="container">
             <div class="row" style="border-top: 1px solid #333;">
                 <div class="col-md-4 p-2 text-center">
