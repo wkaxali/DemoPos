@@ -178,10 +178,7 @@ Route::get('/', function () {
     return view('signInSignUp');
 });
 
-Route::get('/sh', function () {
-    if
-    return view('StockHistory');
-});
+
 
 Route::get('/chksessions',function(){
 
@@ -719,4 +716,7 @@ Route::get('/ssi', function () {
         return "Unauthorized Access ";
     }
 });
+// Route::get('/sh', function () {
+//     return view('StockHistory');
+// });
 
