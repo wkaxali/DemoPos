@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
-    <title>Invoice</title>
+    <title>Add New Employee</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -1389,14 +1389,14 @@
     </style>
 </head>
 
-<body style="font-family: 'Roboto', sans-serif;" onload="fetchAccounts()">
+<body style="font-family: 'Roboto', sans-serif;">
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center mt-1">
-                            <h4>Create Invoice</h4>
+                            <h4>Add New Employee</h4>
                         </div>
                     </div>
                     <div class="row">
@@ -1415,7 +1415,7 @@
                             <div class="col-md-12 ">
                                 <div class="firstColor my-4">
                                     <div class="date text-right">
-                                        <h6> <strong>Date :</strong> 27/11/2020</h6>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -1431,43 +1431,33 @@
 
                                     <div class="myOwnRow-left">
                                         <div class="input-field">
-                                            <label for="status">Product ID</label>
+                                            <label for="status">First Name</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="PID">
+                                                name="name" id="firstName">
                                         </div>
                                         <div class="input-field">
-                                            <label for="status">Model</label>
+                                            <label for="status">Last Name</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="ProductName">
+                                                name="name" id="lastName">
                                         </div>
 
                                         <div class="input-field">
-                                            <label for="status">Color</label>
+                                            <label for="status">CNIC</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="color">
+                                                name="name" id="CNIC">
                                         </div>
 
                                         <div class="input-field">
-                                            <label for="status">Chassis Number </label>
+                                            <label for="status">Contact</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="ChasisNumber">
+                                                name="name" id="contact">
                                         </div>
-                                        <div class="input-field">
-                                            <label for="status">Engine Number</label>
-                                            <input type="text" autocomplete="OFF" class="form-control"
-                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="EngineNumber">
-                                        </div>
-                                        <div class="input-field">
-                                            <label for="status">Status</label>
-                                            <input type="text" autocomplete="OFF" class="form-control"
-                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="Status">
-                                        </div>
+                                        
+                                        
 
                                     </div>
                                     <div class="myOwnROw">
@@ -1477,95 +1467,35 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="input-field">
-                                                    <label for="status">Invoice Number</label>
+                                                    <label for="status">Address</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" value="" id="InvoiceID">
-
-                                                    <button class="btn" onclick="getInvoiceRequest()"><img
-                                                            src="https://img.icons8.com/officel/16/000000/cloud-print.png" /></button>
-
+                                                        name="name" value="" id="address">
                                                 </div>
 
 
                                                 <div class="input-field">
-                                                    <label for="status">Description</label>
+                                                    <label for="status">Email ID</label>
+                                                    <input type="email" autocomplete="OFF" class="form-control"
+                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                        name="name" id="email">
+                                                </div>
+
+                                                <div class="input-field">
+                                                    <label for="status">Designation</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" id="description">
+                                                        name="name" id="designation">
                                                 </div>
-
+                                                    
                                                 <div class="input-field">
-                                                    <label for="status">Invoice Price</label>
-                                                    <input type="number" autocomplete="OFF" class="form-control"
-                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" id="TotalPrice">
-                                                    <!-- <label for="status">Total Cost</label> -->
-                                                    <input type="number" autocomplete="OFF" class="form-control"
-                                                        style="display: none !important; height: 30px !important; width: 183px;"
-                                                        name="name" id="TotalCost"><br>
-                                                    <!-- <label for="status">17 % Tax on Price</label> -->
-                                                    <input type="number" autocomplete="OFF" class="form-control"
-                                                        style="display: none !important; height: 30px !important; width: 183px;"
-                                                        name="name" id="tax">
-
-                                                    <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">
-                                                                        Purchase
-                                                                        Price Details
-                                                                    </h5>
-                                                                    <button type="button" class="btn-close"
-                                                                        data-bs-dismiss="modal"
-                                                                        aria-label="Close"></button>
-                                                                </div>
-                                                                <div class="modal-body" id="SmallFontlabel">
-                                                                    <div class="input-field">
-                                                                        <label for="">Invoice Price</label>
-                                                                        <input type="text" name=""
-                                                                            style="display: inline-block; width: 200px;"
-                                                                            class="form-control" id="">
-                                                                    </div>
-                                                                    <div class="input-field">
-                                                                        <label for="">Price With Additional Tax</label>
-                                                                        <input type="text" name=""
-                                                                            style="display: inline-block; width: 200px;"
-                                                                            class="form-control" id="">
-                                                                    </div>
-
-
-                                                                    <div class="input-field">
-                                                                        <label for="">Increase In Price</label>
-                                                                        <input type="text" name=""
-                                                                            style="display: inline-block; width: 200px;"
-                                                                            class="form-control" id="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary"
-                                                                        data-bs-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary">Save
-                                                                        changes</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <label for="status">Joining Date</label>
+                                                    <input type="date" autocomplete="OFF" class="form-control"
+                                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                            name="name" id="date">
+                                                    
                                                 </div>
-                                                <div class="input-field">
-                                                    <label for="status">Discount</label>
-                                                    <input type="number" autocomplete="OFF" class="form-control"
-                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" value="0" id="Discount" onchange="calc()">
-                                                </div>
-                                                <div class="input-field">
-                                                    <label for="status">Net Total</label>
-                                                    <input type="text" readonly class="form-control"
-                                                        style=" pointer-events: none; display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" id="NetTotal">
-                                                </div>
+                                                
                                             </div>
 
                                         </div>
@@ -1574,237 +1504,11 @@
                             </div>
 
                         </div>
+                        <input type="button" value="Add Employee" style="display: inline-block !important; 
+                        height: 30px !important; width: 120px;" onclick="addEmployee()">
                     </div>
                 </section>
-                <section>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="SecondColor my-4">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="head-left">
-
-
-                                    <div class="input-field">
-                                        <label for="issue-3">Customer Name</label>
-                                        <select class="selectpicker" data-live-search="true" tabindex="null"
-                                            id="CustomerName" onchange="getCurrentCustomerInfo()">
-                                            <!-- from database -->
-                                        </select>
-                                        <button data-toggle="modal" data-target="#staticBackdrop" style="height: 40px;
-                               margin-top: -5px;width:41px;" class="btn"><i class="fas fa-user-plus"></i></button>
-                                    </div>
-                                    <div class="input-field">
-                                        <label for="status">Client's Father Name</label>
-                                        <input type="text" autocomplete="OFF" class="form-control"
-                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                            name="name" id="fatherName">
-                                    </div>
-                                    <div class="input-field">
-                                        <label for="status">Customer CNIC</label>
-                                        <input type="number" autocomplete="OFF" class="form-control"
-                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                            name="name" id="CNIC">
-
-                                    </div>
-                                    <div class="input-field">
-                                        <label for="status">Movement City/Area</label>
-                                        <input type="text" autocomplete="OFF" class="form-control"
-                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                            name="name" id="city">
-
-                                    </div>
-                                    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-
-                                                <div class="modal-body">
-                                                    <div class="appointment-form" id="appointment-form">
-                                                        <h2>Add New Customer</h2>
-                                                        <div class="form-group-1">
-                                                            <input type="text" name="name" id="addCustomerName"
-                                                                placeholder="Customer Name" required />
-                                                            <input type="text" name="title" id="addFatherName"
-                                                                placeholder="Father Name" required />
-
-                                                            <input type="number" name="tel" id="addContact"
-                                                                placeholder="Contact" required />
-                                                            <input type="number" name="title" id="addCNIC"
-                                                                placeholder="ID Card" required />
-                                                            <input type="text" name="phone_number" id="addAddress"
-                                                                placeholder="Address" required />
-                                                            <input type="text" name="phone_number" id="addProfession"
-                                                                placeholder="Profession" required />
-                                                            <input type="number" name="phone_number" id="addBalance"
-                                                                placeholder="Balance" required />
-
-                                                            <input type="text" name="phone_number" id="addComments"
-                                                                placeholder="Comments" required />
-
-                                                        </div>
-
-                                                        <div class="form-submit">
-                                                            <button onclick="addCustomer()" name="submit" id="submit"
-                                                                class="submit" value="">Add Customer</button>
-                                                        </div>
-                                                   </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-org-1"
-                                                        data-dismiss="modal">Close</button>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="input-field">
-                                        <label for="status">Address</label>
-                                        <input type="text" autocomplete="OFF" class="form-control"
-                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                            name="name" id="Address">
-                                    </div>
-                                    <div class="input-field">
-                                        <label for="status">Contact</label>
-                                        <input type="text" autocomplete="OFF" class="form-control"
-                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                            name="name" id="contact">
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="LastInput">
-
-                                    <div class="input-field">
-                                        <label for="status">Amount Paid</label>
-                                        <input type="number" autocomplete="OFF" class="form-control"
-                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                            name="name" id="amountPaid" onkeyup="calcRemainingAmount()">
-                                    </div>
-                                    <div class="input-field">
-                                        <label for="status">Remaining</label>
-                                        <input type="number" autocomplete="OFF" class="form-control"
-                                            style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                            name="name" id="amountRemaining">
-                                    </div>
-
-                                    <div class="input-field">
-                                        <label for="status">Sales Person</label>
-                                        <select data-live-search="true" class=" selectpicker" id='employees'>
-
-
-
-                                        </select>
-                                    </div>
-
-                                    <div class="input-field">
-                                        <label for="status">Payment Mode</label>
-                                        <select data-live-search="true" class=" selectpicker" id='slctAccounts'>
-
-
-
-                                        </select>
-                                    </div>
-                                    <div class="input-field">
-                                        <label for="status">Paid To</label>
-                                        <select data-live-search="true" class=" selectpicker" id="paidTo">
-                                            <option value=1>Forland Modren Motors</option>
-                                            <option value=2>FJW</option>
-
-
-                                        </select> </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="ThirdColor my-4">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <footer class="text-center mt-2">
-                    <div class="container">
-                        <div class="row ">
-                            <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
-                                <a class="btn" href="viewCustomers.html">view Customers</a>
-                                <a class="btn" onclick="printDocs()">Print Docs</a>
-                                <a class="btn" onclick="validPlz()">Generate Sale</a>
-                                <a class="btn" href="#">Close Form</a>
-
-
-
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                </footer>
-                <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                    aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" style="margin-left:100px;">
-                        <div class="modal-content" style="width: 1300px;">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4 class="text-center my-4">Products Table</h4>
-                                        <table class="table  table-bordered mb-5" id="searchProductTable">
-                                            <thead>
-                                                <tr>
-
-                                                    <th>Product Id</th>
-
-                                                    <th>Product Name</th>
-                                                    <th>Color</th>
-                                                    <th>Engine Number</th>
-
-                                                    <th>Chasis Number</th>
-
-                                                    <!-- <th>Purchse Price</th> -->
-                                                    <th>Invoice Price</th>
-                                                    <!-- <th>Cost with Additional charges</th> -->
-                                                    <th>Status</th>
-                                                    <th>Description</th>
-
-
-
-
-
-
-
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+               
         <div class="sidebar-menu">
 
             <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
@@ -2121,494 +1825,35 @@
             });
         })(jQuery);
 
-    </script>
-</body>
-<script>
-    $(document).ready(function () {
-        $('#myTables').DataTable();
-    });
 
-</script>
-<script>
-    function loadStock() {
+function addEmployee(){
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var CNIC = document.getElementById("CNIC").value;
+    var contact = document.getElementById("contact").value;
+    var address = document.getElementById("address").value;
+    var email = document.getElementById("email").value;
+    var designation = document.getElementById("designation").value;
+    var date = document.getElementById("date").value;
+    var array =[firstName,lastName,CNIC,contact,address,email,designation,date];
+    var empData = JSON.stringify(array);
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                //alert(data);
-                var table;
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                table = $('#searchProductTable').DataTable();
-                table.clear();
-                $.each(a, function (i, item) {
-
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i]
-                        .EngineNumber,
-                        a[i].PerUnitSalePrice, a[i].StatusInStock, a[i].description
-                    ]);
-                });
-                table.draw();
-            }
-        };
-
-        xhttp.open("GET", "./getAvailableProducts/", true);
-        xhttp.send();
-    }
-
-    function getInvoiceRequest() {
-
-        id = document.getElementById("InvoiceID").value;
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-
-            if (this.readyState == 4 && this.status == 200) {
-                alert("Printed");
-                window.open("./sir");
-
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getSaleInvReq/" + id, true);
-        xhttp.send();
-
-
-    }
-
-    $(document).ready(function () {
-
-        // code to read selected table row cell data (values).
-        $("#searchProductTable").on('click', 'tr', function () {
-            // get the current row
-
-
-
-            var table = document.getElementById("ProductSaleTable");
-
-            document.getElementById("PID").value = this.cells[0]
-                .innerText; // get current row 1st TD value
-            document.getElementById("ProductName").value = this.cells[1].innerText;
-            document.getElementById("color").value = this.cells[2].innerText;
-            document.getElementById("ChasisNumber").value = this.cells[3].innerText;
-
-            document.getElementById("EngineNumber").value = this.cells[4].innerText;
-            document.getElementById("Status").value = this.cells[6].innerText;
-            document.getElementById("description").value = this.cells[7].innerText;
-            document.getElementById("TotalPrice").value = this.cells[5].innerText;
-            //document.getElementById("TotalCost").value = this.cells[5].innerText;
-            document.getElementById("Discount").value = "0";
-
-
-            alert(this.cells[0].innerText);
-            calc();
-        });
-        calc();
-    });
-
-    function calc() {
-
-        var tot = document.getElementById("TotalPrice").value;
-        var dis = document.getElementById("Discount").value;
-        //var tax = Number(tot)*0.17;
-        var tax = 0;
-
-        var netTot = Number(tot) + Number(tax) - Number(dis);
-
-        document.getElementById("NetTotal").value = netTot;
-        document.getElementById("amountPaid").value = netTot;
-        document.getElementById("tax").value = tax;
-
-        calcRemainingAmount();
-
-
-    }
-
-    function calcRemainingAmount() {
-
-        var tot = document.getElementById("NetTotal").value;
-        var ap = document.getElementById("amountPaid").value;
-        var rem = Number(tot) - Number(ap);
-        document.getElementById("amountRemaining").value = rem;
-
-
-    }
-
-
-
-    function generateSale() {
-
-
-        var pid = document.getElementById("PID").value;
-        var totwT = document.getElementById("TotalPrice").value;
-        var discount = document.getElementById('Discount').value;
-        var netTotal = document.getElementById('NetTotal').value;
-        var amp = document.getElementById('amountPaid').value;
-        var rmb = document.getElementById("amountRemaining").value;
-        var CID = $('#CustomerName').find(":selected").val();
-        var paidTo = document.getElementById("paidTo").value;
-        var AID = document.getElementById("slctAccounts").value;
-
-        var customerName = $('#CustomerName').find(":selected").text();
-
-        var receivedBy = $('#employees').find(":selected").text();
-        var CNIC = document.getElementById("CNIC").value;
-        var address = document.getElementById('Address').value;
-        var contact = document.getElementById('contact').value;
-        var fatherName = document.getElementById('fatherName').value;
-
-        var engineNo = document.getElementById("EngineNumber").value;
-        var chassisNo = document.getElementById('ChasisNumber').value;
-        var color = document.getElementById('color').value;
-        var description = document.getElementById('description').value;
-        var productName = document.getElementById('ProductName').value;
-        var city = document.getElementById('city').value;
-        var totalCost = document.getElementById('TotalCost').value;
-
-        order = [pid, totwT, discount, netTotal, amp, rmb,
-            CID, paidTo, AID, customerName, CNIC, address,
-            contact, fatherName, engineNo, chassisNo, color,
-            description, productName, city, receivedBy,
-            totalCost
-
-        ];
-
-        var array = JSON.stringify(order);
-
-        var xhttp = new XMLHttpRequest();
-
-        if (AID == "") {
-            alert('Payment Method not Selected');
-        } else {
+    var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
+
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Invoice =" + this.responseText + " is generated");
-
-
-
-
+                    alert(this.response);
+                    
                 }
             };
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addSales/" + array, true);
+            //alert("ljd");
+            xhttp.open("GET", "./addNewEmployee/" + empData, true);
+
             xhttp.send();
-        }
-    }
-
-</script>
-
-<script>
-    function printDocs() {
-        window.open("/psi");
-        window.open("/fgp");
-        window.open("/prc");
-    }
-
-    function fetchAccounts() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-
-            if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("slctAccounts").innerHTML = this.response;
-                $('#slctAccounts').selectpicker('refresh');
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getAccountHeads/", true);
-
-        xhttp.send();
-        loadAllCustomers();
-        loadEmployees();
-        getInvoiceID();
-
-
-    }
-
-</script>
-<script>
-    function validPlz() {
-
-        var PID = document.getElementById("PID").value;
-        var ProductName = document.getElementById("ProductName").value;
-        var ChasisNumber = document.getElementById("ChasisNumber").value;
-        var EngineNumber = document.getElementById("EngineNumber").value;
-
-        var Status = document.getElementById("Status").value;
-
-        var TotalPrice = document.getElementById("TotalPrice").value;
-        var Discount = document.getElementById("Discount").value;
-        var NetTotal = document.getElementById("NetTotal").value;
-
-        var CustomerName = document.getElementById("CustomerName").value;
-        var CNIC = document.getElementById("CNIC").value;
-        var Address = document.getElementById("Address").value;
-        var contact = document.getElementById("contact").value;
-        var fatherName = document.getElementById("fatherName").value;
-        var amountPaid = document.getElementById("amountPaid").value;
-        var amountRemaining = document.getElementById("amountRemaining").value;
-
-
-        if (PID == "") {
-            // alert("Product Id Field Must Be Valid");
-            document.getElementById("PID").focus();
-        } else if (ProductName == "") {
-            // alert("Product Name Field Must Be Valid");
-            document.getElementById("ProductName").focus();
-        } else if (ChasisNumber == "") {
-            // alert("Chasis Number Field Must Be Valid");
-            document.getElementById("ChasisNumber").focus();
-
-
-        } else if (EngineNumber == "") {
-            // alert("Engine Number Field Must Be Valid");
-            document.getElementById("EngineNumber").focus();
-
-
-        } else if (Status == "") {
-            // alert("Status Must Be Mentioned");
-            document.getElementById("Status").focus();
-
-
-        } else if (TotalPrice == "") {
-            // alert("Total Price Field Must Be Valid");
-            document.getElementById("Status").focus();
-
-            document.getElementById("TotalPrice").focus();
-
-
-        } else if (isNaN(TotalPrice)) {
-            alert("Total Price Field Must Be Numeric");
-            document.getElementById("TotalPrice").value = "";
-
-
-
-        } else if (Discount == "") {
-            // alert("Total Price Field Must Be Valid");
-            document.getElementById("Discount").focus();
-
-
-        } else if (isNaN(Discount)) {
-            alert("Discount Field Must Be Numeric");
-            document.getElementById("Discount").value = "";
-
-
-        } else if (NetTotal == "") {
-            // alert("Total Price Field Must Be Valid");
-            document.getElementById("NetTotal").focus();
-
-
-        } else if (CustomerName == "") {
-            // alert("Customer Name Field Must Be Valid");
-            document.getElementById("CustomerName").focus();
-
-
-        } else if (CNIC == "") {
-            // alert("Customer ID Field Must Be Valid");
-            document.getElementById("CNIC").focus();
-
-
-        } else if (Address == "") {
-            // alert("Address  Must Be Mentioned");
-            document.getElementById("Address").focus();
-
-
-        } else if (contact == "") {
-            // alert("Contact Field Must Be Valid");
-            document.getElementById("contact").focus();
-
-
-        } else if (isNaN(contact)) {
-
-            alert("Contact Field Must Be Number");
-            document.getElementById("contact").value = "";
-
-
-        } else if (fatherName == "") {
-            // alert("Manager Name Must Be Mentioned");
-            document.getElementById("fatherName").focus();
-
-
-        } else if (amountPaid == "") {
-            // alert("Amount Paid  Must Be Mentioned");
-            document.getElementById("amountPaid").focus();
-
-
-        } else if (amountRemaining == "") {
-            // alert("Amount Remaining  Must Be Mentioned");
-            document.getElementById("amountRemaining").focus();
-
-
-        } else {
-            generateSale();
-
-        }
-
-
-    }
-
-    $("body").on('keypress', function (event) {
-        if (event.keyCode === 13) {
-            validPlz();
-        } else {}
-    })
-
-    function loadAllCustomers() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("CustomerName").innerHTML =
-                    this.responseText;
-                $('#CustomerName').selectpicker('refresh');
-
-            }
-        };
-
-        xhttp.open("GET", "./getCustomerNames", true);
-        xhttp.send();
-    }
-
-    function getCurrentCustomerInfo() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                var a = JSON.parse(data);
-                //document.getElementById("CID").value = a[0].CustomerID;
-                document.getElementById("fatherName").value = a[0].FatherName;
-                document.getElementById("CNIC").value = a[0].CNIC;
-                document.getElementById("contact").value = a[0].Contect;
-                document.getElementById("Address").value = a[0].Address;
-
-
-
-
-            } else {
-                //alert( this.responseText);
-            }
-        }
-        var CustomerID = $('#CustomerName').find(":selected").val();
-
-        xhttp.open("GET", "./getCustomersInfo/" + CustomerID, true);
-        xhttp.send();
-
-
-    }
-
-    function addCustomer() {
-
-        var customerName = document.getElementById("addCustomerName").value;
-        //	alert("It is working"+CustomerName);
-        var fatherName = document.getElementById("addFatherName").value;
-        //	alert("It is working"+password);
-        var contact = document.getElementById("addContact").value;
-        //alert("It is working"+CustomerContact);
-        var profession = document.getElementById("addProfession").value;
-        //alert("It is working"+CustomerProfession);
-        var balance = document.getElementById("addBalance").value;
-        //alert("It is working"+CustomerBalance);
-        var address = document.getElementById("addAddress").value;
-        //alert("It is working"+CustomerAddress);
-        var comments = document.getElementById("addComments").value;
-        //alert("It is working"+CustomerComments);
-        var cnic = document.getElementById("addCNIC").value;
-        //alert("It is working"+CustomerComments);
-
-        var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-            comments, cnic
-        ];
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText);
-            }
-        };
-        var EC = JSON.stringify(newCustomer);
-        alert(EC);
-        xhttp.open("GET", "./insertCustomer/" + EC, true);
-        xhttp.send();
-
-
-    }
-
-    function modalValidation() {
-        var tel = document.getElementById("tel").value;
-        var Balance = document.getElementById("Balance").value;
-
-        if (tel == "") {
-            document.getElementById("tel").focus();
-        } else if (isNaN(tel)) {
-            alert("Contact Should Be A Number");
-        } else if (Balance == "") {
-            document.getElementById("Balance").focus();
-        } else if (isNaN(Balance)) {
-            alert("Balance Field Should Be  Numeric");
-        } else {
-            alert('Okay');
-        }
-    }
-
-</script>
-<script>
-    var toggle = true;
-
-    $(".sidebar-icon").click(function () {
-        if (toggle) {
-            $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-            $("#menu span").css({
-                "position": "absolute",
-
-            });
-        } else {
-            $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-            setTimeout(function () {
-                $("#menu span").css({
-                    "position": "relative",
-
-                });
-            }, 400);
-        }
-        toggle = !toggle;
-    });
-
-
-    function loadEmployees() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-
-            if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("employees").innerHTML = this.response;
-                $('#employees').selectpicker('refresh');
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getEmployeeName/", true);
-
-        xhttp.send();
-    }
-
-    function getInvoiceID() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("InvoiceID").value = this.response;
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getInvoiceID", true);
-
-    xhttp.send();
-
 
 }
 
 </script>
 
-</html>
+

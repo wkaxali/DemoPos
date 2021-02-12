@@ -19,6 +19,9 @@ class userAccountController extends Controller
     }else{
     
     session(['userName' => $re[0]->UserName]);
+    session(['userCategory' => $re[0]->Designation]);
+      
+        session(['userID' => $re[0]->UserID]);
      return $re;
     }
 

@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
@@ -706,7 +707,155 @@
 
         <div class="left-content">
             <div class="inner-block">
+            <button type="button" class="btn btn-primary" data-toggle="modal"
+data-target="#exampleModalCenter">Large modal</button>
 
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog mydialog modal-dialog-centered" role="document">
+<div class="modal-content myshadow">
+<div class="myshadow">
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h4>Tasks View</h4>
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-12">
+<input type="text" placeholder="Task" class="form-control" name="" id="">
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-8 ">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true" id="category">
+
+</select>
+</div>
+</div>
+
+<br><br>
+<div class="row">
+
+<div class="col-md-12">
+<div class="rightButtons">
+<button class="btn">Update</button>
+<button class="btn">Ok</button>
+<button class="btn">History</button>
+</div>
+</div>
+</div>
+<br>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog mydialog" role="document">
+<div class="modal-content myshadow">
+
+<div class="modal-body">
+<div class="myshadow">
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h4>Tasks View</h4>
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-12">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="mainTask">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="mainTaskID" style="display:none">
+</div>
+
+</div>
+<div id="AllSubTasks"></div>
+
+<br>
+<div class="row">
+<div class="col-md-12">
+<label for="">Last Comment</label>
+<textarea name="" placeholder="Last Comment" class="form-control"
+style="height: 100%; width: 100%; resize: none;" id=""></textarea>
+
+</div>
+
+</div>
+<br>
+<button onclick="updateStatus()" type="button" id="Today"
+
+class="btn primary ">Update</button>
+<button onclick="checks()" type="button" id="Today"
+
+class="btn primary ">check</button>
+<br>
+<div class="row">
+<div class="col-md-8">
+<label for="">Remarks</label>
+<input type="text" class="form-control" name="" id="">
+</div> <div class="col-md-4">
+<label for="">&nbsp;</label>
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true"
+id="category">
+
+</select>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<label for="">Due On</label><br>
+<div class="btn-group" id="groupButtons" role="group"
+aria-label="Basic example">
+<button onclick="GetDates()" type="button" id="Today"
+style="background-color: #ffffff; border: 1px solid #aaa;"
+class="btn ">Today</button>
+<button onclick="TomorrowDate()" type="button" id="Tomorrow"
+style="background-color: #ffffff; border: 1px solid #aaa;"
+class="btn ">Tomorrow</button>
+<button type="button" id="Date"
+style="background-color: #ffffff; border: 1px solid #aaa;"
+class="btn "><input class="hello" onchange="customDate()"
+type="date"
+style="background: none !important; width:103px; border: none !important;"
+name="" id="date"></button>
+</div>
+</div>
+</div>
+
+<br>
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
 
                 <div class="main_container">
                     <div class="container">
@@ -962,7 +1111,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                     <button type="button" class="btn btn-primary">Save changes</button> -->
+                     <button type="button" class="btn btn-primary">Save changes</button>
             </div>
             </div>
         </div>
@@ -1321,6 +1470,119 @@
             })
         })
 
+        function updateStatus(){
+            var mainTaskID = [document.getElementById("mainTaskID").value];
+            var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
+            var allSubTasks = [];
+            for(i = 0; i < task.length; i++){
+                var singleSubTaskDeatails=[];
+                
+                var STaskID = task[i].value;
+                singleSubTaskDeatails.push(STaskID);
+                singleSubTaskDeatails.push(task[i].options[task[i].selectedIndex].text);
+                allSubTasks.push(singleSubTaskDeatails);
+
+            }
+            allSubTasks.push(mainTaskID)
+            var status = JSON.stringify(allSubTasks);
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert(this.response);
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./updateTaskStatus/"+ status, true);
+
+            xhttp.send();
+            loadEmployees();
+        }
+
+
+        function loadTaskDetails(taskID){
+
+           // alert(taskID);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    var a = JSON.parse(data);
+                    document.getElementById("mainTask").value=a[0].Subject;
+                    document.getElementById("mainTaskID").value=a[0].TaskID;
+
+                        a[0].TaskID;
+                        a[0].STaskID;
+                        a[0].Subject;
+                        a[0].Status;
+                        a[0].DueDate;
+                        a[0].taskDetails;
+                        a[0].StockIn;
+                        a[0].AssignedBy;
+                        a[0].AssignedTo;
+                        a[0].DueDate;
+                        a[0].taskDetails;
+                        a[0].Priority;
+                        a[0].Remarks;
+                        a[0].EID;
+                        a[0].FirstName;
+                        a[0].LastName;
+
+                        document.getElementById("AllSubTasks").innerHTML="";
+                        var st= "";
+
+                    
+
+                        $.each(a, function (i, item) {
+                            if (a[i].Status=="Pending"){
+                            // document.getElementById("AllSubTasks").innerHTML=;
+                                st=st+'<div class="row">\
+                                <div class="col-md-8 ">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                </div>\
+                                <div class="col-md-4">\
+                                <select style="height: 35px !important; width: 120px !important; "\
+                                class="form-control" \
+                                id="TaskStatus[]">\
+                                <option value="'+item.STaskID+'">Pending</option>\
+                                <option value="'+item.STaskID+'">Complete</option>\
+                                </select>\
+                                </div>\
+                                </div>';
+                            }
+                            if (a[i].Status!="Pending"){
+
+                                st=st+'<div class="row">\
+                                <div class="col-md-8 ">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                </div>\
+                                <div class="col-md-4">\
+                                <input style="height: 35px !important; width: 120px !important; " readonly\
+                                class="form-control" value="'+item.Status+'">\
+                                </input>\
+                                </div>\
+                                </div>';
+                            }
+                        });
+                    }
+
+                    document.getElementById("AllSubTasks").innerHTML=st;
+
+                    
+                }
+            
+            //alert("ljd");
+            xhttp.open("GET", "./loadTaskDetails/"+taskID, true);
+
+            xhttp.send();
+
+            }
+
     </script>
     <script>
         function getRowId() {
@@ -1503,6 +1765,13 @@
 
 
         }
+        function checks(){
+            //alert( document.getElementById("subTask[0]").value);
+            var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
+            for(i = 0; i < task.length; i++){
+                alert(task[i].value);
+            }
+        }
 
     </script>
 
@@ -1527,6 +1796,7 @@
             }
             toggle = !toggle;
         });
+
 
     </script>
 

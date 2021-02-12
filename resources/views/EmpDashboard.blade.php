@@ -6034,9 +6034,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         @media only screen and (max-width: 768px) {
-            /* .header-main {
+            .header-main {
                 display: none !important;
-            } */
+            }
         }
 
         ::-webkit-scrollbar {
@@ -6050,7 +6050,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         ::-webkit-scrollbar-thumb {
             background-color: #e61d2f;
         }
-        
 
     </style>
 
@@ -9692,7 +9691,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="form-group-1">
                                             <input type="text" name="title" id="customerName" placeholder="Customer Name"
                                                 required />
-                                           
+                                            <input type="text" name="name" id="fatherName" placeholder="Client's Father Name"
+                                                required />
+                                            <input type="text" name="tel" id="CNIC" placeholder="Customer CNIC"
+                                                required />
+                                            <input type="text" name="phone_number" id="city"
+                                                placeholder="Movement City / Area" required />
                                             <input type="text" name="address" id="address" placeholder="Address"
                                                 required />
                                             <input type="text" name="phone_number" id="contact"
@@ -9702,12 +9706,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="text" name="phone_number" id="description"
                                                 placeholder="Description" required />
                                             <input type="text" name="phone_number" id="color" placeholder="Color"
-                                                required />
-                                                <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
-                                                required />
-                                                <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
-                                                required />
-                                                <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
                                                 required />
                                             <input type="text" name="phone_number" id="unitPrice"
                                                 onchange="calculation()" placeholder="Unit Price" required />
@@ -10333,222 +10331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </div>
         </div>
-        <div class="sidebar-menu">
-
-            <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
-                    <span id="logo"></span>
-                </a> </div>
-            <div class="menu">
-                <ul id="menu">
-                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
-                    </li>
-                    
-                    <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/bo">Book Order</a></li>
-                            <li><a href="/rec">Receiving</a></li>
-                            <li><a href="/is">Invoice Services</a></li>
-                            <li><a href="/sc">Commissions and Taxes</a></li>
-                            <li><a data-toggle="modal" id="killme" data-target="#staticBackdrop">Quotation</a></li>
-                            <li><a href="/as">Add Stock</a></li>
-                            <li><a href="/th">Transaction History</a></li>
-                            <li><a href="/l">Investor Sale Ledger</a></li>
-                            <li><a href="/cl">Company Ledger</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a><i class="fab fa-salesforce"></i><span>Products</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/">Category</a></li>
-                            <li><a href="/vs">Product Record</a></li>
-                            <li><a href="/as">Add Product</a></li>
-                            <li><a href="/">Barcode</a></li>
-
-                            <li><a href="/">Stock Audit</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fab fa-salesforce"></i><span>Customer</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/">Add Customer</a></li>
-                            <li><a href="/vs">Customer List</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a><i class="fab fa-salesforce"></i><span>Supplier</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/">Add Supplier</a></li>
-                            <li><a href="/vs">Supplier List</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-comunicacao"><a><i class="fab fa-alipay"></i>
-                            <span>Purchase</span><span class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-comunicacao-sub">
-                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
-                            </li>
-                            <li><a href="">Daily Purchase</a></li>
-                            <li><a href="">Monthly Purchase</a></li>
-                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fab fa-salesforce"></i><span>POS</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/ss">POS</a></li>
-                            <li><a href="/sc">Add Sale</a></li>
-                            <li><a href="">Daily Sales</a></li>
-                            <li><a href="">Monthly Sales</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a><i class="fas fa-vials"></i><span>Expense</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/ex">Add Expense</a></li>
-                            <li><a href="">Expense List</a></li>
-                            <li><a href="">Expense Head</a></li>
-                            <li><a href="">Expense Category</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fas fa-quote-right"></i><span>Quotation<span class="fa fa-angle-right"
-                                    style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/ql">Quotation List</a></li>
-                            <li><a href="/is">Add Quotation</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fas fa-random"></i><span>Transfer<span class="fa fa-angle-right"
-                                    style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/th">Transaction History</a></li>
-                            <li><a href="">Transfer Funds</a></li>
-                        </ul>
-                    </li>
-                    <li><a><i class="fas fa-undo-alt"></i><span>Return<span class="fa fa-angle-right"
-                                    style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/ss">Sale</a></li>
-                            <li><a href="/is">Purchase</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-academico"><a href="/l"><i class="fas fa-user-circle"></i><span>Accounts</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="/l">Investor Ledger</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
-                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a><i class="fab fa-accusoft"></i><span>HR</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
-                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- <li><a><i class="fas fa-address-book"></i><br><span>Customer</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul>
-                            <li><a href="/">Add Customer</a></li>
-                            <li><a href="/">View Customer</a></li>
-                            <li><a href="/">Delete Customer</a></li>
-                        </ul>
-                    </li> -->
-
-                    <li><a><i class="fas fa-people-carry"></i><span>People</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
-                            <li id="menu-academico-boletim"><a href="/">Add User</a></li>
-
-
-                        </ul>
-                    </li>
-
-
-
-                    <li id="menu-academico"><a href="/stock"><i style="font-size: 20px;"
-                                class="fab fa-stack-overflow"></i><span>Stock</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
-                        </ul>
-                    </li>
-
-
-
-                    <li id="menu-academico"><a href="/d"><i class="fas fa-flag-checkered"></i><span>Reports</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">Customer Report</a></li>
-                            <li id="menu-academico-boletim"><a href="/d">Best Seller</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">Daily Sale</a></li>
-                            <li id="menu-academico-boletim"><a href="/d">Monthly Sale</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">Daily Purchase</a></li>
-                            <li id="menu-academico-boletim"><a href="/d">MonthlyPurchase</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">User Report</a></li>
-                            <li id="menu-academico-boletim"><a href="/d">Supplier Report</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li>
-
-
-                        </ul>
-                    </li>
-                    <li id="menu-academico"><a href="/d"><i class="fas fa-truck-loading"></i><span>Order
-                                Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
-
-                        </ul>
-                    </li>
-
-
-                    <li><a><i class="fab fa-amazon-pay"></i><span>PayRoll</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
-                            <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
-                            <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="/at"><i class="fas fa-guitar"></i><span>Attendance</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
-                            <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
-                        </ul>
-
-                    </li>
-                    <li><a><i class="fas fa-eye"></i><span>Task View</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
-                            <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a><i class="fas fa-cogs"></i><span>Account Settings</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
-                            <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
-                            <li id="menu-academico-boletim"><a href="./logout">Logout</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+      
 
         <div class="clearfix"> </div>
     </div>
@@ -10739,16 +10522,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         function createQuotation(){
-            // <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
-            //                                     required />
-            //                                     <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
-            //                                     required />
-            //                                     <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
-            //                                     required />
             var customerName = document.getElementById("customerName").value;
-            var fatherName ="";
-            var CNIC = "";
-            var city ="";
+            var fatherName = document.getElementById("fatherName").value;
+            var CNIC = document.getElementById("CNIC").value;
+            var city = document.getElementById("city").value;
             var address = document.getElementById("address").value;
             var contact = document.getElementById("contact").value;
             var description = document.getElementById("description").value;
@@ -10757,11 +10534,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var quantity = document.getElementById("quantity").value;
             var totalPrice = document.getElementById("totalPrice").value;
             var model = document.getElementById("model").value;
-            var det=document.getElementById("dt").value;
-            var qvt=document.getElementById("qvt").value;
-            var payTo=document.getElementById("paymentTo").value;
 
-            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model,det,qvt,payTo];
+            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model];
 
             var quotationData = JSON.stringify(data);
 
