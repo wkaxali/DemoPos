@@ -44,11 +44,11 @@ class taskController extends Controller
 
 public static function employeeData(){
     $card="";
-    $data=DB:: select('select * from vw_employeetask');
+    $data=DB:: select('select * from vw_tasks');
     foreach ($data as $obj){
         $card=$card.'<div class="card" >
 
-        <div class="card-body">
+        <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
             <div class="mainCardBody">
                 <div class="leftCardBody">
                     <button
@@ -129,11 +129,11 @@ public static function getEmployees(){
 
   public static function searchEmployeeData($EID){
     $card="";
-    $data=DB:: select('select * from vw_employeetask where EID='.$EID);
+    $data=DB:: select('select * from vw_tasks where EID='.$EID);
     foreach ($data as $obj){
         $card=$card.'<div class="card" >
 
-        <div class="card-body">
+        <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
             <div class="mainCardBody">
                 <div class="leftCardBody">
                     <button
@@ -182,11 +182,11 @@ public static function getEmployees(){
 
 public static function searchTaskWithStatus($EID, $status){
     $card="";
-    $data=DB:: select('select * from vw_employeetask where EID='.$EID.' AND Status="'.$status.'"');
+    $data=DB:: select('select * from vw_tasks where EID='.$EID.' AND Status="'.$status.'"');
     foreach ($data as $obj){
         $card=$card.'<div class="card" >
 
-        <div class="card-body">
+        <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
             <div class="mainCardBody">
                 <div class="leftCardBody">
                     <button
@@ -231,6 +231,11 @@ public static function searchTaskWithStatus($EID, $status){
     return $card;
      
 }
+
+public static function loadTaskDetails($TID){
+    $data=DB:: select('select * from tbl_subtasks where TaskID='.$TID);
+    return $data;
+  }
 
 
 }
