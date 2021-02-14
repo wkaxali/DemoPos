@@ -152,8 +152,8 @@ Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
-Route::get('/searchEmployeeData/{EID}',[taskController::class, 'searchEmployeeData']);
-Route::get('/searchTaskWithStatus/{EID}/{status}',[taskController::class, 'searchTaskWithStatus']);
+Route::get('/searchEmployeeData/{EID}/{name}',[taskController::class, 'searchEmployeeData']);
+Route::get('/searchTaskWithStatus/{EID}/{status}/{name}',[taskController::class, 'searchTaskWithStatus']);
 Route::get('/loadTaskDetails/{TID}',[taskController::class, 'loadTaskDetails']);
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance']);
 Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID']);
@@ -299,7 +299,10 @@ Route::get('/ev', function () {
     return view('employerView');
 });
 Route::get('/etv', function () {
+    session(['EMPID' => '1']);
+
     return view('EmployeeTaskView');
+
 });
 Route::get('/emptv', function () {
     return view('employertasksViews');

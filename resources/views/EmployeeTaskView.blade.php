@@ -789,6 +789,8 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 id="mainTask">
 <input type="text" placeholder="Task" class="form-control" name=""
 id="mainTaskID" style="display:none">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="employeeID" style="display:none">
 </div>
 
 </div>
@@ -799,7 +801,7 @@ id="mainTaskID" style="display:none">
 <div class="col-md-12">
 <label for="">Last Comment</label>
 <textarea name="" placeholder="Last Comment" class="form-control"
-style="height: 100%; width: 100%; resize: none;" id=""></textarea>
+style="height: 100%; width: 100%; resize: none;" id="comment"></textarea>
 
 </div>
 
@@ -808,11 +810,8 @@ style="height: 100%; width: 100%; resize: none;" id=""></textarea>
 <button onclick="updateStatus()" type="button" id="Today"
 
 class="btn primary ">Update</button>
-<button onclick="checks()" type="button" id="Today"
-
-class="btn primary ">check</button>
 <br>
-<div class="row">
+<div class="row" id="adminUseOnly">
 <div class="col-md-8">
 <label for="">Remarks</label>
 <input type="text" class="form-control" name="" id="">
@@ -825,7 +824,7 @@ id="category">
 </select>
 </div>
 </div>
-<div class="row">
+<div class="row" id="adminUseOnly2">
 <div class="col-md-12">
 <label for="">Due On</label><br>
 <div class="btn-group" id="groupButtons" role="group"
@@ -1471,18 +1470,27 @@ name="" id="date"></button>
         })
 
         function updateStatus(){
+            var employeeID = [document.getElementById("employeeID").value];
+            alert(employeeID);
+
             var mainTaskID = [document.getElementById("mainTaskID").value];
+            var comment = [document.getElementById("comment").value];
             var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
-            var allSubTasks = [mainTaskID];
+            var overallStatus = ["Pending"]
+            var allSubTasks = [mainTaskID, comment, employeeID, overallStatus];
+            
             for(i = 0; i < task.length; i++){
+                allSubTasks[3]=["Completed"];
                 var singleSubTaskDeatails=[];
-                
                 var STaskID = task[i].value;
                 singleSubTaskDeatails.push(STaskID);
                 singleSubTaskDeatails.push(task[i].options[task[i].selectedIndex].text);
                 allSubTasks.push(singleSubTaskDeatails);
-
+                if (task[i].options[task[i].selectedIndex].text=="Pending"){
+                    allSubTasks[3]=["Pending"];
+                }
             }
+            
             
             var status = JSON.stringify(allSubTasks);
             alert(status);
@@ -1515,7 +1523,7 @@ name="" id="date"></button>
                     var a = JSON.parse(data);
                     document.getElementById("mainTask").value=a[0].Subject;
                     document.getElementById("mainTaskID").value=a[0].TaskID;
-
+                    document.getElementById("employeeID").value=a[0].EID;
                         a[0].TaskID;
                         a[0].STaskID;
                         a[0].Subject;
@@ -1550,7 +1558,7 @@ name="" id="date"></button>
                                 class="form-control" \
                                 id="TaskStatus[]">\
                                 <option value="'+item.STaskID+'">Pending</option>\
-                                <option value="'+item.STaskID+'">Complete</option>\
+                                <option value="'+item.STaskID+'">Completed</option>\
                                 </select>\
                                 </div>\
                                 </div>';
@@ -1567,6 +1575,13 @@ name="" id="date"></button>
                                 </input>\
                                 </div>\
                                 </div>';
+                            }
+                            var userCategory=( '{{ Session::get('EMPID')}}');
+                            if(userCategory==2){
+                                
+                                document.getElementById("adminUseOnly").style.visibility = "hidden"; 
+                                document.getElementById("adminUseOnly2").style.visibility = "hidden";
+
                             }
                         });
                     }
@@ -1618,6 +1633,7 @@ name="" id="date"></button>
     </script>
     <script>
         function getEmployeeData() {
+            var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1633,11 +1649,23 @@ name="" id="date"></button>
 
             xhttp.send();
             loadEmployees();
+            displayOptions();
             
+        }
+        function displayOptions(){
+           var userCategor=( '{{ Session::get('EMPID')}}');
+
+           if(userCategor==2){
+
+
+           }
+          
+
         }
 
         function searchEmployeeData() {
             var employeeID = document.getElementById("employee").value;
+            var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1650,13 +1678,14 @@ name="" id="date"></button>
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./searchEmployeeData/" + employeeID, true);
+            xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
 
             xhttp.send();
         }
 
         function searchTaskWithStatus() {
             var employeeID = document.getElementById("employee").value;
+            var employeeName = $('#employee').find(":selected").text();
             var status = document.getElementById("status").value;
             
             var xhttp = new XMLHttpRequest();
@@ -1671,7 +1700,7 @@ name="" id="date"></button>
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status, true);
+            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
            
             xhttp.send();
         }
@@ -1764,13 +1793,6 @@ name="" id="date"></button>
             xhttp.send();
 
 
-        }
-        function checks(){
-            //alert( document.getElementById("subTask[0]").value);
-            var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
-            for(i = 0; i < task.length; i++){
-                alert(task[i].value);
-            }
         }
 
     </script>
