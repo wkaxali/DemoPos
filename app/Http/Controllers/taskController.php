@@ -240,10 +240,11 @@ public static function loadTaskDetails($TID){
 public static function updateTaskStatus(Request $request, $CO){
    
     $ata=json_decode($CO);
-
-    for ($i=0; $i<sizeof($ata); $i++) {
+    $mainTaskID = $ata[0][0];
+    for ($i=1; $i<sizeof($ata); $i++) {
         foreach ($ata as $obj){
-            $id = $obj[0];
+            $subTaskID = $obj[0];
+            $subTaskStatus = $obj[1];
             
         }
     } 
@@ -253,7 +254,7 @@ public static function updateTaskStatus(Request $request, $CO){
     // ->update(['TotalSaleAmount'=>$amount
     // ]);
 
-    return $id;
+    return $maintaskID;
   }
 
 }
