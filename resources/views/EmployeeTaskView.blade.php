@@ -1473,7 +1473,7 @@ name="" id="date"></button>
         function updateStatus(){
             var mainTaskID = [document.getElementById("mainTaskID").value];
             var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
-            var allSubTasks = [];
+            var allSubTasks = [mainTaskID];
             for(i = 0; i < task.length; i++){
                 var singleSubTaskDeatails=[];
                 
@@ -1483,9 +1483,9 @@ name="" id="date"></button>
                 allSubTasks.push(singleSubTaskDeatails);
 
             }
-            allSubTasks.push(mainTaskID)
-            var status = JSON.stringify(allSubTasks);
             
+            var status = JSON.stringify(allSubTasks);
+            alert(status);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
