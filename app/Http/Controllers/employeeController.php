@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use DB;
+
 class employeeController extends Controller
 {
     public static function addNewEmployee(Request $request, $CO){
@@ -31,4 +33,37 @@ class employeeController extends Controller
         return "New Employee Added at ".$data;
     }
 
+    function getAllEmployees(){
+        $data=DB:: select('select * from tblemployees');
+        return $data;
+    }
+
+    public static function editEmployee(Request $request, $CO){
+        $ata=json_decode($CO);
+        $EID = $ata[0];
+        $firstName = $ata[1];
+        $lastName = $ata[2];
+        $CNIC = $ata[3];
+        $contact = $ata[4];
+        $address = $ata[5];
+        $email = $ata[6];
+        $designation = $ata[7];
+        $date = $ata[8];
+
+        $re = DB::table('tblemployees')
+        ->where('EID', $EID)
+        ->update([
+          'FirstName'=>$firstName,
+          'LastName'=>$lastName,
+          'CNIC'=>$CNIC,
+          'ContactNo'=>$contact,
+          'HomeAddress'=>$address,
+          'EmailID'=>$email,
+          'DesignationID'=>$designation,
+          'JoiningDate'=>$date
+          ]);
+
+          return $re;
+        }
+        
 }

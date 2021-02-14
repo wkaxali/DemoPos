@@ -38,6 +38,7 @@ class taskController extends Controller
             'TaskID'=>$tid,
             'DueDate'=>$dueDate,
             'AssignedTo'=>$assignedTo,
+            'Status'=>'Pending'
         ]);
         }         
 }
@@ -227,7 +228,6 @@ public static function searchTaskWithStatus($EID, $status, $name){
 
     }
 
-
     return $card;
      
 }
@@ -273,6 +273,27 @@ public static function updateTaskStatus(Request $request, $CO){
          
 
     return $employeeID;
+  }
+
+  public static function updateAdminTaskStatus(Request $request, $CO){
+
+    $obj=json_decode($CO);
+    
+    $employeeID = $obj[0][0];
+    $mainTaskID = $obj[1][0];
+    $remarks = $obj[2][0];
+    $status = $obj[3][0];
+    $date = $obj[4][0];
+    $data = DB::table('tbl_tasks')
+            ->where('TaskID', '=', $mainTaskID)
+            ->update([
+                'Status'=>$status,
+                'Remarks'=>$remarks,
+                'DueDate'=>$date
+            ]);
+    
+
+    return $status;
   }
 
 }

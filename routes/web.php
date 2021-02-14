@@ -44,13 +44,14 @@ use App\Http\Controllers\saleRequestController;
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
 
-
+Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
 Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
 Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu']);
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu']);
 
 Route::get('/addNewEmployee/{data}',[employeeController::class, 'addNewEmployee']);
+Route::get('/getAllEmployees',[employeeController::class, 'getAllEmployees']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow']);
 Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem']);
@@ -68,6 +69,7 @@ Route::get('/getAllCustomers/',[CustomerController::class, 'getAllCustomers']);
 Route::get('/getCustomerNames/',[CustomerViewController::class, 'getCustomerNames']);
 //Route::get('/getAllSupliers/',[CustomerController::class, 'getAllCustomers']);
 Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail']);
+Route::get('/getCustomers',[CustomerController::class, 'getCustomers']);
 
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail']);
 //__________________________Sales Flow___________________________________
@@ -126,6 +128,7 @@ Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addPayment/{data}',[payController::class, 'insertPayment']);
 Route::get('/getPaymentHistory/{data}',[payController::class, 'getPayRecivingHistory']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
+Route::get('/updateAdminStatus/{data}',[taskController::class, 'updateAdminTaskStatus']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance']);
@@ -146,7 +149,7 @@ Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 
-//Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
+Route::get('/editCustomer/{data}',[CustomerController::class, 'editCustomer']);
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
@@ -450,4 +453,10 @@ Route::get('/ed', function () {
 });
 Route::get('/ae', function () {
     return view('addEmployees');
+});
+Route::get('/ee', function () {
+    return view('editEmployee');
+});
+Route::get('/ec', function () {
+    return view('customerEdit');
 });
