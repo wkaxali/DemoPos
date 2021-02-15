@@ -86,6 +86,7 @@ Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct']);
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails']);
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock']);
+Route::get('/addUser/{data}',[userController::class, 'addnewuser']);
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);

@@ -515,7 +515,9 @@
 
 <body>
 
+
     <main style="margin-top: 5px;">
+    <div id='target'>
         <div class="container">
             <div class="row my-2">
                 <div class="col-md-12 text-center">
@@ -639,6 +641,10 @@
                 </div>
             </div>
         </div>
+        <div id="content">
+
+            <button id="print">Generate PDF</button>
+        </div>
     </section>
 
 
@@ -663,6 +669,8 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>      
     </footer>
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Launch demo modal
@@ -698,12 +706,46 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
 
+
     </script>
+
+<script>
+    $(document).ready(function()
+    {
+
+             var specialElementHandlers = 
+             {
+                '#editor': function (element, renderer)
+                {
+                   return true;
+                }
+    
+             };
+
+         $('#print').click(function () {
+         
+             var doc = new jsPDF('p','pt','a4',true);
+             doc.setFontSize(6);  
+                 doc.fromHTML($('#target').html(), 15, 15,
+         {
+                     'width': 100,
+            
+                'elementHandlers': specialElementHandlers
+        });
+        doc.save('file.pdf');
+    });
+
+});
+</script>
+
 </body>
 
 </html>
