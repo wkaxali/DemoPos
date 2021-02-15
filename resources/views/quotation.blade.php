@@ -514,9 +514,10 @@
 </head>
 
 <body>
-<div class="homepage">
+
 
     <main style="margin-top: 5px;">
+    <div id='target'>
         <div class="container">
             <div class="row my-2">
                 <div class="col-md-12 text-center">
@@ -669,7 +670,7 @@
             </div>
         </div>
     </div>
-        
+</div>      
     </footer>
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Launch demo modal
@@ -717,23 +718,32 @@
     </script>
 
 <script>
-    var doc = new jsPDF();
-    var specialElementHandlers = {
-        '#editor': function (element, renderer) {
-            return true;
-        }
-    };
+    $(document).ready(function()
+    {
 
-    $('#print').click(function () {
-        // console.log('hello');
-        doc.fromHTML($('.homepage').html(), 60, 120, {
-            'width': 400,
+             var specialElementHandlers = 
+             {
+                '#editor': function (element, renderer)
+                {
+                   return true;
+                }
+    
+             };
+
+         $('#print').click(function () {
+         
+             var doc = new jsPDF('p','pt','a4',true);
+             doc.setFontSize(6);  
+                 doc.fromHTML($('#target').html(), 15, 15,
+         {
+                     'width': 100,
+            
                 'elementHandlers': specialElementHandlers
         });
-        doc.save('sample-file.pdf');
+        doc.save('file.pdf');
     });
 
-  
+});
 </script>
 
 </body>
