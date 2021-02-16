@@ -28,7 +28,8 @@ use App\Http\Controllers\AdditionalTaxesAndCommissionsController;
 use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
 use App\Http\Controllers\saleRequestController;
-//use PDF;
+use App\Http\Controllers\TEST;
+
 
 
 /*
@@ -60,6 +61,7 @@ Route::get('/getProductByCategory/{CID}',[getProducts::class, 'getProductByCateg
 Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus']);
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
+Route::get('/testpdf',[TEST::class, 'getInfo']);
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
@@ -86,6 +88,7 @@ Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct']);
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails']);
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock']);
+Route::get('/addUser/{data}',[userController::class, 'addnewuser']);
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
@@ -459,4 +462,7 @@ Route::get('/ee', function () {
 });
 Route::get('/ec', function () {
     return view('editCustomer');
+});
+Route::get('/pdf', function () {
+    return view('test');
 });
