@@ -777,6 +777,7 @@
                     document.getElementById("MainStockTableBody").innerHTML = "";
 
                     getInvestorStock();
+                    profits();
                 }
 
                 //alert( this.responsedwedText);

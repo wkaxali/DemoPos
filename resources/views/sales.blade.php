@@ -2456,7 +2456,7 @@
 
 
             var array = JSON.stringify(myRow2);
-
+            alert(array);
 
 
             var xhttp = new XMLHttpRequest();

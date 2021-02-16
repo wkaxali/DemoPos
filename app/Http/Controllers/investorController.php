@@ -144,7 +144,7 @@ foreach ($data as $d){
 
     <td>'.$d->EngineNumber.'</td>
     <td>'.$d->ChasisNumber.'</td>
-    <td>1</td>
+    <td style=" display:none;">1</td>
     </tr>';
 
 }

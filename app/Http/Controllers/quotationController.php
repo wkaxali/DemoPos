@@ -127,7 +127,22 @@ class quotationController extends Controller
             session(['city' => $data->City]);
 
             }
+
+            public function getInfo($htmldata)
+            {
+                $html = '';
+               $html= $htmldata;
+                
+                PDF::SetTitle('Hello World');
+                PDF::AddPage();
+                PDF::writeHTML($html, true, false, true, false, '');
+        
+                PDF::Output('hello_world.pdf');
+            }
+
+            
             
             
         
 }
+

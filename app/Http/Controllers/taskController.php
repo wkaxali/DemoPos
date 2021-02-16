@@ -38,6 +38,7 @@ class taskController extends Controller
             'TaskID'=>$tid,
             'DueDate'=>$dueDate,
             'AssignedTo'=>$assignedTo,
+            'Status'=>'Pending'
         ]);
         }         
 }
@@ -66,7 +67,7 @@ public static function employeeData(){
                         style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                         W A</div>
    
-                    <span>Waqas Ali</span>
+                    <span>'.$obj->FirstName.' '.$obj->LastName.'</span>
                 </div>
                 <div class="rightCardBody">
    
@@ -127,7 +128,7 @@ public static function getEmployees(){
   }
 
 
-  public static function searchEmployeeData($EID){
+  public static function searchEmployeeData($EID, $name){
     $card="";
     $data=DB:: select('select * from vw_tasks where EID='.$EID);
     foreach ($data as $obj){
@@ -151,7 +152,7 @@ public static function getEmployees(){
                         style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                         W A</div>
    
-                    <span>Waqas Ali</span>
+                    <span>'.$name.'</span>
                 </div>
                 <div class="rightCardBody">
    
@@ -180,7 +181,7 @@ public static function getEmployees(){
 }
 
 
-public static function searchTaskWithStatus($EID, $status){
+public static function searchTaskWithStatus($EID, $status, $name){
     $card="";
     $data=DB:: select('select * from vw_tasks where EID='.$EID.' AND Status="'.$status.'"');
     foreach ($data as $obj){
@@ -204,7 +205,7 @@ public static function searchTaskWithStatus($EID, $status){
                         style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                         W A</div>
    
-                    <span>Waqas Ali</span>
+                    <span>'.$name.'</span>
                 </div>
                 <div class="rightCardBody">
    
@@ -227,16 +228,73 @@ public static function searchTaskWithStatus($EID, $status){
 
     }
 
-
     return $card;
      
 }
 
 public static function loadTaskDetails($TID){
-    $data=DB:: select('select * from tbl_subtasks where TaskID='.$TID);
+    $data=DB:: select('select * from vw_subtasks where TaskID='.$TID);
     return $data;
   }
 
+public static function updateTaskStatus(Request $request, $CO){
+   
+    $ata=json_decode($CO);
+    $mainTaskID = $ata[0][0];
+    $comment = $ata[1][0];
+    $employeeID = $ata[2][0];
+    $overallStatus = $ata[3][0];
+
+    DB::table('tbl_tasks')
+            ->where('TaskID', '=', $mainTaskID)
+            ->update(['Status'=>$overallStatus
+            ]);
+
+    for ($i=4; $i<sizeof($ata); $i++) {
+
+            $subTaskID = $ata[$i][0];
+            $subTaskStatus = $ata[$i][1];
+
+            DB::table('tbl_subtasks')
+            ->where([['TaskID', '=', $mainTaskID ],['STaskID', '=', $subTaskID ]])
+            ->update(['Status'=>$subTaskStatus
+            ]);
+  
+    } 
+
+    $dateTime=Carbon::now();
+    $chat=DB::table('tbl_chatbox')->insertGetId([
+        'TaskID'=>$mainTaskID,
+        'Comment'=>$comment,
+        'CommentedBy'=>$employeeID,
+        'DateTime'=>$dateTime
+        ]);
+
+         
+
+    return $employeeID;
+  }
+
+  public static function updateAdminTaskStatus(Request $request, $CO){
+
+    $obj=json_decode($CO);
+    
+    $employeeID = $obj[0][0];
+    $mainTaskID = $obj[1][0];
+    $remarks = $obj[2][0];
+    $status = $obj[3][0];
+    $date = $obj[4][0];
+    $data = DB::table('tbl_tasks')
+            ->where('TaskID', '=', $mainTaskID)
+            ->update([
+                'Status'=>$status,
+                'Remarks'=>$remarks,
+                'DueDate'=>$date
+            ]);
+    
+
+    return $status;
+  }
 
 }
 

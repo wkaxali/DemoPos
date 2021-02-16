@@ -432,7 +432,7 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" id="password"/>
           </div>
-          <input type="submit" value="Login" onclick="UserLogin()" class="btn solid" />
+          <input type="submit" value="Login" onclick="AdminLogin()" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
