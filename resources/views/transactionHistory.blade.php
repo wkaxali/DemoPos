@@ -672,7 +672,7 @@
             // var divToPrint = document.getElementById("printTable");
             newWin = window.open("");
             newWin.document.write(
-                '<html><head><title>Print it!</title><style>table,th,td{border:1px solid #333}</style></head><body>'
+                '<html><head><title>Print it!</title><style>table,th,td{border:1px solid #333 ;}</style></head><body>'
             );
             // newWin.document.write("<h1> hhdd</h1>");
 

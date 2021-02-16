@@ -106,7 +106,7 @@
             <br>
             <div class="row">
                 <div class="col-md-4 offset-md-8 text-right">
-                    <button class="btn printBtns" onclick=" CustomerInfo()">
+                    <button class="btn printBtns" onclick=" tablePDF()">
                         Print
                     </button>
                 </div>
@@ -170,6 +170,25 @@ if (this.readyState == 4 && this.status == 200) {
 };
 var EC=JSON.stringify(custinfo);
 xhttp.open("GET", "./customer/"+EC, true);
+xhttp.send();
+
+
+}; 
+
+
+
+function tablePDF(){
+
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+alert( this.responseText);
+}
+};
+var table=document.getElementById("myTable").innerHTML;
+var EC=JSON.stringify(table);
+xhttp.open("GET", "./testpdf/"+table, true);
 xhttp.send();
 
 

@@ -734,13 +734,26 @@
          
              var doc = new jsPDF('p','pt','a4',true);
              doc.setFontSize(6);  
-                 doc.fromHTML($('#target').html(), 15, 15,
-         {
-                     'width': 100,
+          var a=   '<html><head><title>Print it!</title><style>table,th,td{border:1px solid #333 ;}</style></head><body>';
+        //          doc.addHTML($('#target').html().css({
+
+        //             background: "#000",  
+        //             opacity: 0.7,  
+        //             position: "fixed",  
+        //             top: 10,  
+
+        //          }), 15, 15,
+        //  {
+        //              'width': 100,
             
-                'elementHandlers': specialElementHandlers
-        });
-        doc.save('file.pdf');
+        //         'elementHandlers': specialElementHandlers
+        // });
+        doc.addHTML($('#target'), function () {
+            doc.save('Test.pdf');
+ });
+
+
+      
     });
 
 });
