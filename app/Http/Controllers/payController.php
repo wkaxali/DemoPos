@@ -122,6 +122,33 @@ public static function getEmployeeName(){
     return $data;
   }
 
+  public static function updatePay($data){
+    
+    $obj=json_decode($data);
+    $basicPay=$obj[0];
+    $allowedHolidays=$obj[1];
+    $comission=$obj[2];
+    $saleTarget=$obj[3];
+    $allownces=$obj[4];
+    $total=$obj[5];
+    $workingHours=$obj[6];
+    $EID=$obj[7];
+
+    DB::table('tblemployeepay')
+              ->where('EID', $EID)
+              ->update([
+                'BasicPay' =>$basicPay,
+                'AllowedHolidays' =>$allowedHolidays,
+                'CommisionOnSale' =>$comission,
+                'SaleTarget' =>$saleTarget,
+                'Alownces' =>$allownces,
+                'TotalPay' =>$total,
+                'WorkingHours' =>$workingHours
+              ]);
+
+  return "Pay Updated";
+  }
+
 }
 
   

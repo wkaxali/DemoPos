@@ -522,30 +522,57 @@
                     var a = JSON.parse(data);
                     //  alert(a[0].ProductSerial);
                     table = $('#attendanceTable').DataTable();
-
+                   
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].FirstName, a[i].LastName, a[i].EID, a[i].Date, a[i].TimeIn, a[i]
-                            .TimeOut, a[i].Status, '+'
+                        table.row.add([a[i].EID,a[i].FirstName, a[i].LastName,  a[i].Date, a[i]
+                            .ReportingTime, a[i].TimeIn, a[i].Status, a[i].Remarks
                         ]);
+                        
                     });
-                    table.draw();
+                    //$('#attendanceTable').DataTable({ "order": []});
+                    table.columns.adjust().draw();
+                    setColors();
+                
 
                 }
             };
             //alert("ljd");
+         
             xhttp.open("GET", "./getAttendance/", true);
 
             xhttp.send();
 
 
         }
+        function setColors(){
+            $('#attendanceTable tbody tr').each(function (row, tr) {
+               
+             var status=  $(tr).find('td:eq(6)').html();
+            // alert(status);
+             if(status=="Late")
+             {
+                 
+                $(tr).css('background', '#f8aeae');   
+                
+                 
+                              } 
+                              else{
+                                $(tr).css('background', '#dcf9b1');   
+                              }                
+                
+            });
+
+
+        }
+
 
     </script>
 
     <script>
+   
         $(document).ready(function () {
-            $('#attendanceTable').DataTable();
+            $('#attendanceTable').DataTable( {"order": []});
         });
 
     </script>

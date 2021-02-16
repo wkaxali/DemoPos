@@ -539,7 +539,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Expense number " + this.responseText + " is added");
+                    alert("You are  " + this.responseText + " is added");
 
                 }
             };
