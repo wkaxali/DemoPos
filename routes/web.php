@@ -461,7 +461,7 @@ Route::get('/ee', function () {
     return view('editEmployee');
 });
 Route::get('/ec', function () {
-    return view('customerEdit');
+    return view('editCustomer');
 });
 Route::get('/pdf', function () {
     return view('test');
