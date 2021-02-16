@@ -787,6 +787,10 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="col-md-12">
 <input type="text" placeholder="Task" class="form-control" name=""
 id="mainTask">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="mainTaskID" style="display:none">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="employeeID" style="display:none">
 </div>
 
 </div>
@@ -797,31 +801,33 @@ id="mainTask">
 <div class="col-md-12">
 <label for="">Last Comment</label>
 <textarea name="" placeholder="Last Comment" class="form-control"
-style="height: 100%; width: 100%; resize: none;" id=""></textarea>
+style="height: 100%; width: 100%; resize: none;" id="comment"></textarea>
 
 </div>
 
 </div>
 <br>
-<button onclick="updateStatus()" type="button" id="Today"
-
+<button onclick="updateEmployeeStatus()" type="button" id="updateEmployeeStatus"
 class="btn primary ">Update</button>
 <br>
-<div class="row">
+<div class="row" id="adminUseOnly">
 <div class="col-md-8">
 <label for="">Remarks</label>
-<input type="text" class="form-control" name="" id="">
+<input type="text" class="form-control" name="" id="remarks">
 </div> <div class="col-md-4">
 <label for="">&nbsp;</label>
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true"
-id="category">
-
+<select style="height: 35px !important; width: 120px !important; "
+    class="form-control" 
+    id="adminStatus">
+    <option value="Pending">Pending</option>
+    <option value="Completed">Completed</option>
 </select>
 </div>
 </div>
-<div class="row">
+<div class="row" id="adminUseOnly2">
 <div class="col-md-12">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="dateValue" style="display:none">
 <label for="">Due On</label><br>
 <div class="btn-group" id="groupButtons" role="group"
 aria-label="Basic example">
@@ -837,8 +843,13 @@ class="btn "><input class="hello" onchange="customDate()"
 type="date"
 style="background: none !important; width:103px; border: none !important;"
 name="" id="date"></button>
+
 </div>
 </div>
+<br>
+<button onclick="updateAdminStatus()" type="button" id="updateAdminStatus"
+class="btn primary ">Update</button>
+<br>
 </div>
 
 <br>
@@ -1465,24 +1476,71 @@ name="" id="date"></button>
             })
         })
 
-        function updateStatus(){
-            var status = $('#status').find(":selected").val();
+        function updateEmployeeStatus(){
+            var employeeID = [document.getElementById("employeeID").value];
+            var mainTaskID = [document.getElementById("mainTaskID").value];
+            var comment = [document.getElementById("comment").value];
+            var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
+            var overallStatus = ["Pending"]
+            var allSubTasks = [mainTaskID, comment, employeeID, overallStatus];
             
+            for(i = 0; i < task.length; i++){
+                allSubTasks[3]=["Completed"];
+                var singleSubTaskDeatails=[];
+                var STaskID = task[i].value;
+                singleSubTaskDeatails.push(STaskID);
+                singleSubTaskDeatails.push(task[i].options[task[i].selectedIndex].text);
+                allSubTasks.push(singleSubTaskDeatails);
+                if (task[i].options[task[i].selectedIndex].text=="Pending"){
+                    allSubTasks[3]=["Pending"];
+                }
+            }
+            
+            
+            var status = JSON.stringify(allSubTasks);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
 
-                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+                    alert(this.response);
 
 
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./getEmployeeData/", true);
+            xhttp.open("GET", "./updateTaskStatus/"+ status, true);
 
             xhttp.send();
             loadEmployees();
+        }
+
+
+        function updateAdminStatus(){
+            var employeeID = document.getElementById("employeeID").value;
+            var mainTaskID = document.getElementById("mainTaskID").value;
+            var remarks = document.getElementById("remarks").value;
+            var status = document.getElementById("adminStatus").value;
+            var date = document.getElementById("dateValue").value;
+            var adminStatus = [[employeeID], [mainTaskID], [remarks], [status], [date]];
+            alert(adminStatus);
+            
+            var status = JSON.stringify(adminStatus);
+            alert(status);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert(this.response);
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./updateAdminStatus/"+ status, true);
+
+            xhttp.send();
         }
 
 
@@ -1495,9 +1553,12 @@ name="" id="date"></button>
                 if (this.readyState == 4 && this.status == 200) {
                     var data = this.responseText;
                     var a = JSON.parse(data);
-                    document.getElementById("mainTask").value=a[0].TaskID;
-                    //alert(a[0].TaskID);
+                    document.getElementById("mainTask").value=a[0].Subject;
+                    document.getElementById("mainTaskID").value=a[0].TaskID;
+                    document.getElementById("employeeID").value=a[0].EID;
+                        a[0].TaskID;
                         a[0].STaskID;
+                        a[0].Subject;
                         a[0].Status;
                         a[0].DueDate;
                         a[0].taskDetails;
@@ -1512,33 +1573,57 @@ name="" id="date"></button>
                         a[0].FirstName;
                         a[0].LastName;
 
-                       document.getElementById("AllSubTasks").innerHTML="";
-                       var st= "";
+                        document.getElementById("AllSubTasks").innerHTML="";
+                        var st= "";
 
-                    $.each(a, function (i, item) {
-                        // document.getElementById("AllSubTasks").innerHTML=;
-                        st=st+'<div class="row">\
-                            <div class="col-md-8 ">\
-                            <input type="text" class="form-control" name="" id="subTask" value="'+item.taskDetails+'">\
-                            </div>\
-                            <div class="col-md-4">\
-                            <select style="height: 35px !important; width: 120px !important; "\
-                            class="form-control" \
-                            id="category">\
-                            <option value="1">Complete</option>\
-                            <option value="2">Pending</option>\
-                                                       </select>\
-                            </div>\
-                            </div>';
+                    
 
-                        
-                    });
+                        $.each(a, function (i, item) {
+                            if (a[i].Status=="Pending"){
+                            // document.getElementById("AllSubTasks").innerHTML=;
+                                st=st+'<div class="row">\
+                                <div class="col-md-8 ">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                </div>\
+                                <div class="col-md-4">\
+                                <select style="height: 35px !important; width: 120px !important; "\
+                                class="form-control" \
+                                id="TaskStatus[]">\
+                                <option value="'+item.STaskID+'">Pending</option>\
+                                <option value="'+item.STaskID+'">Completed</option>\
+                                </select>\
+                                </div>\
+                                </div>';
+                            }
+                            if (a[i].Status!="Pending"){
+
+                                st=st+'<div class="row">\
+                                <div class="col-md-8 ">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                </div>\
+                                <div class="col-md-4">\
+                                <input style="height: 35px !important; width: 120px !important; " readonly\
+                                class="form-control" value="'+item.Status+'">\
+                                </input>\
+                                </div>\
+                                </div>';
+                            }
+                            var userCategory=( '{{ Session::get('EMPID')}}');
+                            if(userCategory!=1){
+                                document.getElementById("adminUseOnly").style.visibility = "hidden"; 
+                                document.getElementById("adminUseOnly2").style.visibility = "hidden";
+                                
+                            }else{
+                                document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
+                            }
+                        });
+                    }
 
                     document.getElementById("AllSubTasks").innerHTML=st;
 
                     
                 }
-            };
+            
             //alert("ljd");
             xhttp.open("GET", "./loadTaskDetails/"+taskID, true);
 
@@ -1581,6 +1666,7 @@ name="" id="date"></button>
     </script>
     <script>
         function getEmployeeData() {
+            var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1596,11 +1682,23 @@ name="" id="date"></button>
 
             xhttp.send();
             loadEmployees();
+            displayOptions();
             
+        }
+        function displayOptions(){
+           var userCategor=( '{{ Session::get('EMPID')}}');
+
+           if(userCategor==2){
+
+
+           }
+          
+
         }
 
         function searchEmployeeData() {
             var employeeID = document.getElementById("employee").value;
+            var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1613,13 +1711,14 @@ name="" id="date"></button>
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./searchEmployeeData/" + employeeID, true);
+            xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
 
             xhttp.send();
         }
 
         function searchTaskWithStatus() {
             var employeeID = document.getElementById("employee").value;
+            var employeeName = $('#employee').find(":selected").text();
             var status = document.getElementById("status").value;
             
             var xhttp = new XMLHttpRequest();
@@ -1634,7 +1733,7 @@ name="" id="date"></button>
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status, true);
+            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
            
             xhttp.send();
         }
@@ -1682,33 +1781,34 @@ name="" id="date"></button>
     </script>
     <script>
         function GetDates() {
-            var date = new Date();
+            var dateFull = new Date();
+            y = dateFull.getFullYear();
+            m = dateFull.getMonth() + 1;
+            d = dateFull.getDate()
+            date = y + '-' + m + '-' + d;
             alert(date);
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = date;
-
-
-        }
+            document.getElementById("dateValue").value = date
+            
+            }
 
         function TomorrowDate() {
             const today = new Date()
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
-            alert(tomorrow);
+            y = tomorrow.getFullYear();
+            m = tomorrow.getMonth() + 1;
+            d = tomorrow.getDate()
+            date = y + '-' + m + '-' + d;
+            alert(date);
+            document.getElementById("dateValue").value = date;
 
-
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = tomorrow;
-        }
+            }
 
         function customDate() {
             var custumDate = document.getElementById("date").value;
+            document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
-
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = custumDate;
-
-
+            
         }
 
         function loadEmployees() {

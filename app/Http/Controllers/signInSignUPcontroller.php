@@ -31,15 +31,15 @@ class signInSignUPcontroller extends Controller
 
 
         
-    $admin= DB::table('userinfo')->where(['UserName'=>$Username
-    ]);
+    
+    $user=DB:: select('select * from userinfo where UserName='.$Username.'and Password='.$Userpaswd);
 
    
         
         
-        
+        return $user;
        
-        //session(['pass' => 'yes']);
+        
          
         return "es";
 
