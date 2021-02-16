@@ -62,6 +62,7 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
+Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice']);
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
