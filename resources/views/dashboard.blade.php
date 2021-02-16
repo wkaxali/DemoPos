@@ -4711,7 +4711,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
 
             .header-right {
-                float: none;
+                float: left;
                 width: 100%;
             }
 
@@ -5921,7 +5921,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: #222;
         }
 
-   
+
 
         .appointment-form ul {
             background: 0 0;
@@ -6034,9 +6034,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         @media only screen and (max-width: 768px) {
-            .header-main {
+            /* .header-main {
                 display: none !important;
-            }
+            } */
         }
 
         ::-webkit-scrollbar {
@@ -9516,7 +9516,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .btn1:hover::before {
             height: 180%;
         }
-        
+
         @keyframes btn-anim4 {
             0% {
                 bottom: -100%;
@@ -9533,14 +9533,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             background-color: #0a549d;
             border-radius: 15px;
         }
-        
-        input{
-            outline:none;
+
+        input {
+            outline: none;
         }
+
         .login-box {
-            text-align:center;
+            text-align: center;
         }
-        .login-box  a {
+
+        .login-box a {
             position: relative;
             display: inline-block;
             padding: 10px 20px;
@@ -9641,8 +9643,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             animation: btn-anim4 1s linear infinite;
             animation-delay: .75s
         }
+
         input:focus~label,
-      input:valid~label {
+        input:valid~label {
             top: -25px;
             left: 0;
             color: #f1c40f;
@@ -9671,6 +9674,99 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin-right: 30px;
         }
 
+        .btn1 {
+            margin-left: 200px;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            .btn1 {
+                margin-left: 0px !important;
+            }
+      
+
+        .col,
+        .col-1,
+        .col-10,
+        .col-11,
+        .col-12,
+        .col-2,
+        .col-3,
+        .col-4,
+        .col-5,
+        .col-6,
+        .col-7,
+        .col-8,
+        .col-9,
+        .col-auto,
+        .col-lg,
+        .col-lg-1,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-lg-auto,
+        .col-md,
+        .col-md-1,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-auto,
+        .col-sm,
+        .col-sm-1,
+        .col-sm-10,
+        .col-sm-11,
+        .col-sm-12,
+        .col-sm-2,
+        .col-sm-3,
+        .col-sm-4,
+        .col-sm-5,
+        .col-sm-6,
+        .col-sm-7,
+        .col-sm-8,
+        .col-sm-9,
+        .col-sm-auto,
+        .col-xl,
+        .col-xl-1,
+        .col-xl-10,
+        .col-xl-11,
+        .col-xl-12,
+        .col-xl-2,
+        .col-xl-3,
+        .col-xl-4,
+        .col-xl-5,
+        .col-xl-6,
+        .col-xl-7,
+        .col-xl-8,
+        .col-xl-9,
+        .col-xl-auto {
+            position: relative;
+            width: auto !important;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin: 0 auto !important;
+        }
+
+        .modal-body .btn {
+            font-size: 14px !important;
+        }
+        }
+
     </style>
 </head>
 
@@ -9689,20 +9785,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <form method="POST" class="appointment-form" id="appointment-form">
                                         <h2></h2>
                                         <div class="form-group-1">
-                                            <input type="text" name="title" id="customerName" placeholder="Customer Name"
-                                                required />
-                                            <input type="text" name="name" id="fatherName" placeholder="Client's Father Name"
-                                                required />
+                                            <input type="text" name="title" id="customerName"
+                                                placeholder="Customer Name" required />
+                                            <input type="text" name="name" id="fatherName"
+                                                placeholder="Client's Father Name" required />
                                             <input type="text" name="tel" id="CNIC" placeholder="Customer CNIC"
                                                 required />
                                             <input type="text" name="phone_number" id="city"
                                                 placeholder="Movement City / Area" required />
                                             <input type="text" name="address" id="address" placeholder="Address"
                                                 required />
-                                            <input type="text" name="phone_number" id="contact"
-                                                placeholder="Contact" required />
-                                            <input type="text" name="model" id="model"
-                                                placeholder="model" required />
+                                            <input type="text" name="phone_number" id="contact" placeholder="Contact"
+                                                required />
+                                            <input type="text" name="model" id="model" placeholder="model" required />
                                             <input type="text" name="phone_number" id="description"
                                                 placeholder="Description" required />
                                             <input type="text" name="phone_number" id="color" placeholder="Color"
@@ -9719,11 +9814,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         <div class="login-box">
                                             <a onclick="createQuotation()">
-                                            <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                            Create Quotation</a>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                Create Quotation</a>
                                         </div>
                                     </form>
                                 </div>
@@ -9748,7 +9843,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="profile_details_left">
 
 
-                            <button class="btn-my btn1" style="margin-left: 200px;" data-toggle="modal"
+                            <button class="btn-my btn1" style="" data-toggle="modal"
                                 data-target=".bd-example-modal-lg">Operations</button>
 
                             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
@@ -9848,31 +9943,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             <div class="clearfix"> </div>
                         </div>
-                        <div class="profile_details">
-                            <ul>
-                                <li class="dropdown profile_details_drop">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <div class="profile_img">
-                                            <span class="prfil-img"><img style="height: 50px; border-radius: 50%; "
-                                                    src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
-                                                    alt=""> </span>
-                                            <div class="user-name">
-                                                <p style="color: #e61d2f;">{{ Session::get('UserName')}}</p>
-                                                <span>Administrator</span>
-                                            </div>
-                                            <i class="fa fa-angle-down lnr"></i>
-                                            <i class="fa fa-angle-up lnr"></i>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </a>
-                                    <!-- <ul class="dropdown-menu drp-mnu">
-										<li> <a ><i class="fa fa-cog"></i> Settings</a> </li>
-										<li> <a ><i class="fa fa-user"></i> Profile</a> </li>
-										<li> <a ><i class="fa fa-sign-out"></i> Logout</a> </li>
-									</ul> -->
-                                </li>
-                            </ul>
-                        </div>
+
                         <div class="clearfix"> </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -10193,7 +10264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <canvas id="doughnut" height="300" width="470"
                                         style="width: 470px; height: 300px;"></canvas>
-                                    
+
                                 </div>
                             </div>
 
@@ -10340,9 +10411,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
                     </li>
-                    
+
                     <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
+                                style="float: right"></span></a>
                         <ul>
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
@@ -10634,19 +10705,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function dailySaleAmount() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                var a = JSON.parse(data);
-                document.getElementById("saleAmount").innerHTML  = a[0].DailySale;
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    var a = JSON.parse(data);
+                    document.getElementById("saleAmount").innerHTML = a[0].DailySale;
 
-            } 
+                }
+            }
+
+            xhttp.open("GET", "./dailySaleAmount/", true);
+            xhttp.send();
+
+
         }
-
-    xhttp.open("GET", "./dailySaleAmount/", true);
-    xhttp.send();
-
-
-    }
 
 
 
@@ -10728,15 +10799,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         }
 
-        function calculation(){
+        function calculation() {
             var price = document.getElementById("unitPrice").value;
-            var quantity = document.getElementById("quantity").value;    
-            
-            var total = price*quantity;
+            var quantity = document.getElementById("quantity").value;
+
+            var total = price * quantity;
             document.getElementById("totalPrice").value = total;
         }
 
-        function createQuotation(){
+        function createQuotation() {
             var customerName = document.getElementById("customerName").value;
             var fatherName = document.getElementById("fatherName").value;
             var CNIC = document.getElementById("CNIC").value;
@@ -10750,51 +10821,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var totalPrice = document.getElementById("totalPrice").value;
             var model = document.getElementById("model").value;
 
-            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model];
+            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity,
+                totalPrice, model
+            ];
 
             var quotationData = JSON.stringify(data);
 
             var xhttp = new XMLHttpRequest();
 
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
 
-                        alert("Quotation =" + this.responseText + " is generated");
-                        
-                        window.open("/qt");
+                    alert("Quotation =" + this.responseText + " is generated");
 
-                    }
-                };
-                // var MenuID=$('#Menus').find(":selected").val();
-                xhttp.open("GET", "./createQuotation/" + quotationData, true);
-                xhttp.send();
-            
+                    window.open("/qt");
+
+                }
+            };
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./createQuotation/" + quotationData, true);
+            xhttp.send();
+
         }
 
     </script>
 
-<script>
-    var doughnutData = [{
-            value: 30,
-            color: "#e61d2f"
-        },
-        {
-            value: 50,
-            color: "#0a549d"
-        },
-        {
-            value: 100,
-            color: "#e61d2f"
-        },
-        {
-            value: 40,
-            color: "#0a549d"
-        },
-    ];
-    new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
-        doughnutData);
+    <script>
+        var doughnutData = [{
+                value: 30,
+                color: "#e61d2f"
+            },
+            {
+                value: 50,
+                color: "#0a549d"
+            },
+            {
+                value: 100,
+                color: "#e61d2f"
+            },
+            {
+                value: 40,
+                color: "#0a549d"
+            },
+        ];
+        new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
+            doughnutData);
 
-</script>
+    </script>
 
 
 
