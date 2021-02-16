@@ -92,10 +92,14 @@
       text-align: center;
       line-height: 55px;
 <<<<<<< HEAD
+<<<<<<< HEAD
       color: #0a549d;
 =======
       color: #13579a;
 >>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+=======
+      color: #13579a;
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
       transition: 0.5s;
       font-size: 1.1rem;
     }
@@ -148,10 +152,14 @@
     .btn {
       width: 150px;
 <<<<<<< HEAD
+<<<<<<< HEAD
       background-color: #0a549d;
 =======
       background-color: #13579a;
 >>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+=======
+      background-color: #13579a;
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
       border: none;
       outline: none;
       height: 49px;
@@ -440,7 +448,7 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" id="password"/>
           </div>
-          <input type="submit" value="Login" onclick="UserLogin()" class="btn solid" />
+          <input type="submit" value="Login" onclick="AdminLogin()" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">

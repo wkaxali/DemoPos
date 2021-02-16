@@ -122,6 +122,61 @@ public static function getEmployeeName(){
     return $data;
   }
 
+  public static function updatePay($data){
+    
+    $obj=json_decode($data);
+    $basicPay=$obj[0];
+    $allowedHolidays=$obj[1];
+    $comission=$obj[2];
+    $saleTarget=$obj[3];
+    $allownces=$obj[4];
+    $total=$obj[5];
+    $workingHours=$obj[6];
+    $EID=$obj[7];
+    $perDayPay=floatval($total)/floatval(30);
+    $perHourPay=$perDayPay/floatval($workingHours);
+  
+
+    DB::table('tblemployeepay')
+              ->where('EID', $EID)
+              ->update([
+                'BasicPay' =>$basicPay,
+                'AllowedHolidays' =>$allowedHolidays,
+                'CommisionOnSale' =>$comission,
+                'SaleTarget' =>$saleTarget,
+                'Alownces' =>$allownces,
+                'TotalPay' =>$total,
+                'WorkingHours' =>$workingHours,
+                'PerHourPay'=>$perHourPay,
+                'PayPerDay'=>$perDayPay
+              ]);
+
+  return "Pay Updated";
+  }
+
+
+  public static function getCalculatedPay($EMPID)
+  {
+    
+  }
+
+
+
+  public static function getPayRecivingHistory($EID)
+  {
+
+    $data=DB:: select('select * from tbltransactionflow where EmpID='.$EID);
+        return $data;
+  }
+  public static function getTotalPay($empID){
+
+    $totatlPay = DB::table('vw_employeealowncspay')
+              ->where('EID', $empID)
+              ->first()->TotalPay;
+    return $totatlPay;
+
+  }
+
 }
 
   

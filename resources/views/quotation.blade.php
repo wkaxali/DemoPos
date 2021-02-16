@@ -501,13 +501,23 @@
             width: auto !important;
 
         }
+        @media only screen and (max-width: 768px) {
+            img {
+                width: 300px !important;
+            }
+            footer{
+                margin-top: 200px !important;
+            }
+        }
 
     </style>
 </head>
 
 <body>
 
+
     <main style="margin-top: 5px;">
+    <div id='target'>
         <div class="container">
             <div class="row my-2">
                 <div class="col-md-12 text-center">
@@ -580,17 +590,17 @@
                             <tr>
                                 <td>1</td>
                                 <td>Delivery Time.</td>
-                                <td>1 to 7 days after receipt of 100% advance payment.</td>
+                                <td>{{ Session::get('DeliveryTime')}} days after receipt of 100% advance payment.</td>
                             </tr>
                             <tr>
                                 <td>2</td>
                                 <td>Validity</td>
-                                <td>This Quotation is Valid For 25 Days Only.</td>
+                                <td>This Quotation is Valid For {{ Session::get('ValidityPeriod')}} Days Only.</td>
                             </tr>
                             <tr>
                                 <td>3</td>
                                 <td>Payment</td>
-                                <td>100% Advance Payment In shape of DD/PO in favor of FORLAND MODERN MOTORS</td>
+                                <td>100% Advance Payment In shape of DD/PO in favor of {{ Session::get('PayTo')}}</td>
                             </tr>
                             <tr>
                                 <td>4</td>
@@ -631,10 +641,14 @@
                 </div>
             </div>
         </div>
+        <div id="content">
+
+            <button id="print">Generate PDF</button>
+        </div>
     </section>
 
 
-    <footer style="margin-top: 600px;">
+    <footer style="margin-top: 300px;">
         <div class="container">
             <div class="row" style="border-top: 1px solid #333;">
                 <div class="col-md-4 p-2 text-center">
@@ -655,6 +669,8 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>      
     </footer>
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
         Launch demo modal
@@ -690,12 +706,59 @@
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
 
+
     </script>
+
+<script>
+    $(document).ready(function()
+    {
+
+             var specialElementHandlers = 
+             {
+                '#editor': function (element, renderer)
+                {
+                   return true;
+                }
+    
+             };
+
+         $('#print').click(function () {
+         
+             var doc = new jsPDF('p','pt','a4',true);
+             doc.setFontSize(6);  
+          var a=   '<html><head><title>Print it!</title><style>table,th,td{border:1px solid #333 ;}</style></head><body>';
+        //          doc.addHTML($('#target').html().css({
+
+        //             background: "#000",  
+        //             opacity: 0.7,  
+        //             position: "fixed",  
+        //             top: 10,  
+
+        //          }), 15, 15,
+        //  {
+        //              'width': 100,
+            
+        //         'elementHandlers': specialElementHandlers
+        // });
+        doc.addHTML($('#target'), function () {
+            doc.save('Test.pdf');
+ });
+
+
+      
+    });
+
+});
+</script>
+
 </body>
 
 </html>

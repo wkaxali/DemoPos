@@ -754,20 +754,17 @@
         .appointment-form #hour_appointment {
             z-index: 9;
         }
-    
-        }
+
         @media screen and (max-width: 1024px) {
             .container {
                 margin: 0 auto;
-
             }
         }
-        .container{  max-height: 260px;}
+
         @media screen and (max-width: 768px) {
             .container {
                 width: calc(100% - 30px);
                 max-width: 100%;
-              
             }
         }
 
@@ -822,6 +819,7 @@
             -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
             -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
             box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+            height: 312px;
 
         }
 
@@ -865,7 +863,7 @@
             -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
             -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
             box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-            height: 229px !important;
+            height: 312px !important;
 
 
         }
@@ -1412,6 +1410,7 @@
                     </div>
                 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
             </div>
         </div>
     </header>
@@ -1437,6 +1436,8 @@
                                     style="display: inline-block !important; height: 30px !important; width: 183px;"
                                     name="name" id="ProductName">
 =======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                 <header>
                     <div class="container">
                         <div class="row">
@@ -1446,7 +1447,10 @@
                                         <h6> <strong>Date :</strong> 27/11/2020</h6>
                                     </div>
                                 </div>
+<<<<<<< HEAD
 >>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                             </div>
                         </div>
                     </div>
@@ -1480,6 +1484,7 @@
                                         </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <div class="input-field">
                                 <label for="status">Chassis Number </label>
                                 <input type="text" autocomplete="OFF" class="form-control"
@@ -1511,6 +1516,8 @@
                                 <div class="col-md-12">
                             
 =======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                         <div class="input-field">
                                             <label for="status">Chassis Number </label>
                                             <input type="text" autocomplete="OFF" class="form-control"
@@ -1529,6 +1536,7 @@
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="Status">
                                         </div>
+<<<<<<< HEAD
 >>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
 
                                         <div class="input-field">
@@ -1646,32 +1654,113 @@
                                                 style=" pointer-events: none; display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="NetTotal">
                                         </div>
+=======
+
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                     </div>
                                     <div class="myOwnROw">
 
 
 
                                         <div class="row">
-                                            <div class="col-md-5">
+                                            <div class="col-md-12">
                                                 <div class="input-field">
                                                     <label for="status">Invoice Number</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" value="0" id="InvoiceID">
-                                                    <input type="button" value="Print Invoice Request"
-                                                        onclick="getInvoiceRequest()"></input>
+                                                        name="name" value="" id="InvoiceID">
+
+                                                    <button class="btn" onclick="getInvoiceRequest()"><img
+                                                            src="https://img.icons8.com/officel/16/000000/cloud-print.png" /></button>
 
                                                 </div>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="head-right">
 
+
+                                                <div class="input-field">
+                                                    <label for="status">Description</label>
+                                                    <input type="text" autocomplete="OFF" class="form-control"
+                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                        name="name" id="description">
+                                                </div>
+
+                                                <div class="input-field">
+                                                    <label for="status">Invoice Price</label>
+                                                    <input type="number" autocomplete="OFF" class="form-control"
+                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                        name="name" id="TotalPrice">
+                                                    <!-- <label for="status">Total Cost</label> -->
+                                                    <input type="number" autocomplete="OFF" class="form-control"
+                                                        style="display: none !important; height: 30px !important; width: 183px;"
+                                                        name="name" id="TotalCost"><br>
+                                                    <!-- <label for="status">17 % Tax on Price</label> -->
+                                                    <input type="number" autocomplete="OFF" class="form-control"
+                                                        style="display: none !important; height: 30px !important; width: 183px;"
+                                                        name="name" id="tax">
+
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        Purchase
+                                                                        Price Details
+                                                                    </h5>
+                                                                    <button type="button" class="btn-close"
+                                                                        data-bs-dismiss="modal"
+                                                                        aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body" id="SmallFontlabel">
+                                                                    <div class="input-field">
+                                                                        <label for="">Invoice Price</label>
+                                                                        <input type="text" name=""
+                                                                            style="display: inline-block; width: 200px;"
+                                                                            class="form-control" id="">
+                                                                    </div>
+                                                                    <div class="input-field">
+                                                                        <label for="">Price With Additional Tax</label>
+                                                                        <input type="text" name=""
+                                                                            style="display: inline-block; width: 200px;"
+                                                                            class="form-control" id="">
+                                                                    </div>
+
+
+                                                                    <div class="input-field">
+                                                                        <label for="">Increase In Price</label>
+                                                                        <input type="text" name=""
+                                                                            style="display: inline-block; width: 200px;"
+                                                                            class="form-control" id="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-bs-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary">Save
+                                                                        changes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="input-field">
+                                                    <label for="status">Discount</label>
+                                                    <input type="number" autocomplete="OFF" class="form-control"
+                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                        name="name" value="0" id="Discount" onchange="calc()">
+                                                </div>
+                                                <div class="input-field">
+                                                    <label for="status">Net Total</label>
+                                                    <input type="text" readonly class="form-control"
+                                                        style=" pointer-events: none; display: inline-block !important; height: 30px !important; width: 183px;"
+                                                        name="name" id="NetTotal">
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <div class="input-field">
                                 <label for="status">Discount</label>
@@ -1694,6 +1783,8 @@
 
                                     </div>
 =======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
 
                         </div>
                     </div>
@@ -1704,11 +1795,15 @@
                             <div class="col-md-12">
                                 <div class="SecondColor my-4">
 
+<<<<<<< HEAD
 >>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                 </div>
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 </div>
 
@@ -1744,6 +1839,8 @@
                                 </select>
                             <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
 =======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                 </section>
                 <section>
                     <div class="container">
@@ -1758,9 +1855,14 @@
                                             id="CustomerName" onchange="getCurrentCustomerInfo()">
                                             <!-- from database -->
                                         </select>
+<<<<<<< HEAD
                                         <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
 >>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
                                margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
+=======
+                                        <button data-toggle="modal" data-target="#staticBackdrop" style="height: 40px;
+                               margin-top: -5px;width:41px;" class="btn"><i class="fas fa-user-plus"></i></button>
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                     </div>
                                     <div class="input-field">
                                         <label for="status">Client's Father Name</label>
@@ -1788,8 +1890,8 @@
                                             <div class="modal-content">
 
                                                 <div class="modal-body">
-                                                    <form method="POST" class="appointment-form" id="appointment-form">
-                                                        <h2>Create Invoice</h2>
+                                                    <div class="appointment-form" id="appointment-form">
+                                                        <h2>Add New Customer</h2>
                                                         <div class="form-group-1">
                                                             <input type="text" name="name" id="addCustomerName"
                                                                 placeholder="Customer Name" required />
@@ -1816,7 +1918,7 @@
                                                             <button onclick="addCustomer()" name="submit" id="submit"
                                                                 class="submit" value="">Add Customer</button>
                                                         </div>
-                                                    </form>
+                                                   </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-org-1"
@@ -1858,7 +1960,7 @@
                                     </div>
 
                                     <div class="input-field">
-                                        <label for="status">Received By</label>
+                                        <label for="status">Sales Person</label>
                                         <select data-live-search="true" class=" selectpicker" id='employees'>
 
 
@@ -1887,6 +1989,7 @@
                         </div>
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 </div>
             </div>
         </div>
@@ -1899,13 +2002,18 @@
                 <div class="col-md-12">
                     <div class="ThirdColor my-4">
 =======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                 </section>
                 <section>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="ThirdColor my-4">
+<<<<<<< HEAD
 >>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
 
                                 </div>
                             </div>
@@ -2329,10 +2437,11 @@
         xhttp.open("GET", "./getAvailableProducts/", true);
         xhttp.send();
     }
-   function  getInvoiceRequest(){
 
-    id =document.getElementById("InvoiceID").value ;
-    var xhttp = new XMLHttpRequest();
+    function getInvoiceRequest() {
+
+        id = document.getElementById("InvoiceID").value;
+        var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
             if (this.readyState == 4 && this.status == 200) {
@@ -2493,6 +2602,7 @@
         xhttp.send();
         loadAllCustomers();
         loadEmployees();
+        getInvoiceID();
 
 
     }
@@ -2762,6 +2872,23 @@
 
         xhttp.send();
     }
+
+    function getInvoiceID() {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("InvoiceID").value = this.response;
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getInvoiceID", true);
+
+    xhttp.send();
+
+
+}
 
 </script>
 

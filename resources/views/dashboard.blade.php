@@ -6034,9 +6034,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         @media only screen and (max-width: 768px) {
-            .header-main {
+            /* .header-main {
                 display: none !important;
-            }
+            } */
         }
 
         ::-webkit-scrollbar {
@@ -6050,6 +6050,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         ::-webkit-scrollbar-thumb {
             background-color: #e61d2f;
         }
+        
 
     </style>
 
@@ -9676,6 +9677,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body onload="loadFields()">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -9751,6 +9753,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
 =======
 >>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
 
     <div class="page-container">
         <div class="left-content">
@@ -9767,12 +9771,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="form-group-1">
                                             <input type="text" name="title" id="customerName" placeholder="Customer Name"
                                                 required />
-                                            <input type="text" name="name" id="fatherName" placeholder="Client's Father Name"
-                                                required />
-                                            <input type="text" name="tel" id="CNIC" placeholder="Customer CNIC"
-                                                required />
-                                            <input type="text" name="phone_number" id="city"
-                                                placeholder="Movement City / Area" required />
+                                           
                                             <input type="text" name="address" id="address" placeholder="Address"
                                                 required />
                                             <input type="text" name="phone_number" id="contact"
@@ -9782,6 +9781,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="text" name="phone_number" id="description"
                                                 placeholder="Description" required />
                                             <input type="text" name="phone_number" id="color" placeholder="Color"
+                                                required />
+                                                <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
+                                                required />
+                                                <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
+                                                required />
+                                                <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
                                                 required />
                                             <input type="text" name="phone_number" id="unitPrice"
                                                 onchange="calculation()" placeholder="Unit Price" required />
@@ -9845,27 +9850,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                 onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
-<<<<<<< HEAD
-                                                            onclick="location.href = 'Receiving.html'">Dilivery</button><br>
-=======
                                                                 onclick="location.href = '/d'">Dilivery</button><br>
->>>>>>> f580da50b0bb08f1a05dd9738db40a1de157df93
                                                             <button data-toggle="modal" id="killme"
                                                                 data-target="#staticBackdrop"
                                                                 class="btn btn-mysecondary">Quotation</button><br>
 
-<<<<<<< HEAD
-                                                               
-                                                                <button class="btn btn-mysecondary"
-                                                                onclick="location.href = '/dl'">Dilivery letter</button><br>
-                                                                <button class="btn btn-mysecondary"
-=======
 
                                                             <button class="btn btn-mysecondary"
                                                                 onclick="location.href = '/dl'">Dilivery
                                                                 letter</button><br>
                                                             <button class="btn btn-mysecondary"
->>>>>>> f580da50b0bb08f1a05dd9738db40a1de157df93
                                                                 onclick="location.href = '/ct'">Comissions</button><br>
                                                         </div>
 
@@ -10824,10 +10818,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         function createQuotation(){
+            // <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
+            //                                     required />
+            //                                     <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
+            //                                     required />
+            //                                     <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
+            //                                     required />
             var customerName = document.getElementById("customerName").value;
-            var fatherName = document.getElementById("fatherName").value;
-            var CNIC = document.getElementById("CNIC").value;
-            var city = document.getElementById("city").value;
+            var fatherName ="";
+            var CNIC = "";
+            var city ="";
             var address = document.getElementById("address").value;
             var contact = document.getElementById("contact").value;
             var description = document.getElementById("description").value;
@@ -10836,8 +10836,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var quantity = document.getElementById("quantity").value;
             var totalPrice = document.getElementById("totalPrice").value;
             var model = document.getElementById("model").value;
+            var det=document.getElementById("dt").value;
+            var qvt=document.getElementById("qvt").value;
+            var payTo=document.getElementById("paymentTo").value;
 
-            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model];
+            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model,det,qvt,payTo];
 
             var quotationData = JSON.stringify(data);
 

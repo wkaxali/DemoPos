@@ -2251,7 +2251,7 @@
 
                     //$("#searchModal").modal('hide');
                     //calculation than enter price
-                    alert("Item added");
+                    //alert("Item added");
 
 
                     cell8.innerHTML =
@@ -2456,7 +2456,7 @@
 
 
             var array = JSON.stringify(myRow2);
-
+            alert(array);
 
 
             var xhttp = new XMLHttpRequest();
@@ -2468,7 +2468,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated");
-                        window.open("./vd");
+                        window.open("./sbp");
 
                     }
                 };
@@ -2538,7 +2538,9 @@
 
 
             var xhttp = new XMLHttpRequest();
+            
 
+            
             if (AID == "") {
                 alert("Payment Method not selected");
 
@@ -2548,7 +2550,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated");
-                        window.open("/vd");
+                        window.open("/ssi");
 
                     }
                 };

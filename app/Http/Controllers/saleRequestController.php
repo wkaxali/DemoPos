@@ -23,7 +23,7 @@ class saleRequestController extends Controller
         }
 
 
-    public function getInvoiceSaleRequest($InvoiceNo){
+    public static function getInvoiceSaleRequest($InvoiceNo){
         $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
         $re = DB::table('vw_customersale_invoice')
         ->where('InvoiceNumber', '=', $InvoiceNo)
@@ -44,7 +44,7 @@ class saleRequestController extends Controller
         session(['chassisNo' => $re->ChasisNumber]);
         session(['color' => $re->color]);
         session(['fatherName' => $re->FatherName]);
-        session(['total' => $re->AmountPaid]);
+        
         session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
         session(['amountPaid' => $re->AmountPaid]);
         session(['description' => $re->ProductName]);

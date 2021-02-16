@@ -12,7 +12,7 @@ class getProducts extends Controller
 
 
     public static function getAllProducts(){
-        $results=DB::select('select * from  vw_stockdetails');
+        $results=DB::select('select * from  vw_stockdetails where category = 21');
         
             
         return $results;

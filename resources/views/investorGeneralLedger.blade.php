@@ -376,7 +376,7 @@
                             <div class="col-md-4 offset-md-8">
                                 <div class="footerBtns">
                                     <button class="btn">Edit</button>
-                                    <button onclick="window.print()" class="btn">Print</button>
+                                    <button onclick="printWindow()" class="btn">Print</button>
                                 </div>
                             </div>
                         </div>
@@ -689,6 +689,20 @@
             }
             toggle = !toggle;
         });
+
+    </script>
+    <script>
+        function printWindow() {
+            var divToPrint = document.getElementById("myTable");
+            divToPrint.style.textAlign = "center";
+            divToPrint.style.border = "1px solid #333";
+            newWin = window.open("");
+            newWin.document.write('<html><head><title>Print it!</title><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css"></head><body>');
+            newWin.document.write(divToPrint.outerHTML);
+            newWin.document.write('</body></html>');
+            newWin.print();
+            newWin.close();
+        }
 
     </script>
 </body>

@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+    
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <title>Test</title>
@@ -106,7 +105,7 @@
             <br>
             <div class="row">
                 <div class="col-md-4 offset-md-8 text-right">
-                    <button class="btn printBtns" onclick=" CustomerInfo()">
+                    <button class="btn printBtns" onclick=" tablePDF()">
                         Print
                     </button>
                 </div>
@@ -170,6 +169,25 @@ if (this.readyState == 4 && this.status == 200) {
 };
 var EC=JSON.stringify(custinfo);
 xhttp.open("GET", "./customer/"+EC, true);
+xhttp.send();
+
+
+}; 
+
+
+
+function tablePDF(){
+
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+alert( this.responseText);
+}
+};
+var table=document.getElementById("myTable").innerHTML;
+var EC=JSON.stringify(table);
+xhttp.open("GET", "./testpdf/"+table, true);
 xhttp.send();
 
 
