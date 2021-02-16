@@ -453,18 +453,6 @@ Route::get('/ssi2', function () {
 });
 Route::get('/ssi', function () {
     return view('servicesalesinvoice');
-<<<<<<< HEAD
-
-});
-
-Route::get('/u', function () {
-    return view('uzair');
-});
-
-Route::get('/uz', function () {
-    return view('addtable');
-
-=======
 });
 
 Route::get('/ed', function () {
@@ -481,5 +469,4 @@ Route::get('/ec', function () {
 });
 Route::get('/pdf', function () {
     return view('test');
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
 });
