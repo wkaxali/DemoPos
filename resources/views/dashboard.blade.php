@@ -10647,7 +10647,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     xhttp.open("GET", "./dailySaleAmount/", true);
     xhttp.send();
 
-
+//working
     }
 
 
