@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PDF;
+use DB;
 
 
 
@@ -40,7 +41,7 @@ use PDF;
 class printServiceInvoice extends Controller
 {
     public function printSaleInvoice(){
-  $html= '<table border="0">
+  $html= '<table border="1">
 <thead>
 <tr>
 <th><br><h1>FORLAND MODREN MOTORS</h1></th>
@@ -82,34 +83,34 @@ Customer\'s Copy
 <table border="0">
 <tbody>
 <tr>
-<td><br><span style="font-size: medium;">Customer Name</span></td>
+<td><br><span style="font-size: medium;">Customer Name:</span></td>
 <td align="center"><br>'.session()->get("customerName").'</td>
-<td><br><span style="font-size: medium;">Booking No</span></td>
-<td align="center"><br>'.session()->get("_____").'</td>
-
-
-</tr>
-<tr>
-<td><br><span style="font-size: medium;">Address</span></td>
-<td align="center"><br>'.session()->get("address").'</td>
-<td><br><span style="font-size: medium;">Invoice Number</span></td>
+<td><br><span style="font-size: medium;">Booking No:</span></td>
 <td align="center"><br>'.session()->get("invoiceNo").'</td>
 
 
 </tr>
 <tr>
-<td><br><span style="font-size: medium;">CNIC/NTN</span></td>
-<td align="center"><br>'.session()->get("CNIC").'</td>
-<td><br><span style="font-size: medium;">Invoice Date</span></td>
-<td align="center"><br>'.session()->get("_____").'</td>
+<td><br><span style="font-size: medium;">Address:</span></td>
+<td align="center"><br>'.session()->get("address").'</td>
+<td><br><span style="font-size: medium;">Invoice Number:</span></td>
+<td align="center"><br>'.session()->get("invoiceNo").'</td>
 
 
 </tr>
 <tr>
-<td><br><span style="font-size: medium;">Contact</span></td>
-<td align="center"><br>'.session()->get("address").'</td>
+<td><br><span style="font-size: medium;">CNIC/NTN #</span></td>
+<td align="center"><br>'.session()->get("CNIC").'</td>
+<td><br><span style="font-size: medium;">Invoice Date:</span></td>
+<td align="center"><br>'.session()->get("invoiceDate").'</td>
+
+
+</tr>
+<tr>
+<td><br><span style="font-size: medium;">Contact:</span></td>
+<td align="center"><br>'.session()->get("contact").'</td>
 <td><br><span style="font-size: medium;"></span></td>
-<td align="center"><br>____________</td>
+
 
 
 </tr>
@@ -138,78 +139,47 @@ Description </td>
 </thead>
 <tbody >
 <tr >
-<td >'.session()->get("description").'</td>
+<td style="text-align:center" >'.session()->get("description").'</td>
+<td style="text-align:center">'.session()->get("engineNo").'f</td>
+<td style="text-align:center">'.session()->get("amoutPaid").'a</td>
+<td style="text-align:center">'.session()->get("chassisNo").'q</td>
+<td style="text-align:center">'.session()->get("amoutPaid").'w</td>
+</tr> <tr>
+<td></td>
+
+
+</tr> 
+ <tr>
+<td></td>
 
 </tr> <tr>
-<td>'.session()->get("color").'</td>
-
-</tr> <tr>
-<td>'.session()->get("engineNo").'</td>
-
-</tr> <tr>
-<td>'.session()->get("chassisNo").'</td>
-
-</tr> <tr>
-<td>'.session()->get("amoutPaid").'</td>
+<td></td>
 
 </tr> <tr>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+
 </tr> <tr>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+
 </tr> <tr>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr> <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr> <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+
 </tr>
 <tr>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+
 </tr>
 <tr>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+
 </tr>
 <tr>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+
 </tr>
 <tr>
 <td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+
 </tr>
 </tbody>
 </table>
@@ -229,10 +199,10 @@ Total in Word </th>
 
 </tr>
 </thead>
-<tbody>
+<tbody border="1 ">
 <tr>
-<td width="60%" border="1" align="center">1000</td>
-<td width="40%" border="1" align="center">10000</td>
+<td width="60%" border="1" align="center">'.session()->get("total").'</td>
+<td width="40%" border="1" align="center">100007</td>
 
 
 </tr>
@@ -255,8 +225,8 @@ Total in Word </th>
 <tr>
 <br>
 
-<td width="60%" border="0"></td>
-<td width="40%" align="center" border="0">Sign and Signature</td>
+<td width="60%" align="right" border="0">_________________</td>
+<td width="40%" align="right" border="0">Sign and Signature</td>
 
 
 
@@ -298,7 +268,7 @@ Total in Word </th>
   
 PDF::SetTitle('Request for Invoice');
 PDF::AddPage();
-PDF::writeHTML($newHTML, true, false, true, false, '');
+PDF::writeHTML($html, true, false, true, false, '');
 
 PDF::Output('sales.pdf');
 

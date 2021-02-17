@@ -29,6 +29,7 @@ use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
 use App\Http\Controllers\saleRequestController;
 use App\Http\Controllers\TEST;
+use App\Http\Controllers\printServiceInvoice;
 
 
 
@@ -184,6 +185,7 @@ Route::get('/getEmployees',[taskController::class, 'getEmployees']);
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
 Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
+Route::get('/printsi',[printServiceInvoice::class, 'printSaleInvoice']);
 
 Route::get('/adduzairdata',[uzairController::class, 'function']);
 route::get('/addtable' , [uzairController::class, 'myfunction']);
