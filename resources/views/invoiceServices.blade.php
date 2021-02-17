@@ -1353,7 +1353,7 @@
             }
 
             .LastInput {
-                height: 315px !important;
+                height: 375px !important;
             }
 
         }
@@ -1386,6 +1386,12 @@
             color: #fff;
         }
 
+        @media only screen and (max-width: 600px) {
+            .inner-block {
+                padding: .5em 1em 2em 1em;
+            }
+        }
+
     </style>
 </head>
 
@@ -1409,6 +1415,35 @@
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+            </div>
+        </div>
+    </header>
+    
+    <section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="myMainRow">
+
+
+                        <div class="myOwnRow-left">
+                            <div class="input-field">
+                                <label for="status">Product ID</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="PID">
+                            </div>
+                            <div class="input-field">
+                                <label for="status">Model</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="ProductName">
+=======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                 <header>
                     <div class="container">
                         <div class="row">
@@ -1418,6 +1453,10 @@
                                         <h6> <strong>Date :</strong> 27/11/2020</h6>
                                     </div>
                                 </div>
+<<<<<<< HEAD
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                             </div>
                         </div>
                     </div>
@@ -1450,6 +1489,41 @@
                                                 name="name" id="color">
                                         </div>
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            <div class="input-field">
+                                <label for="status">Chassis Number </label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="ChasisNumber">
+                            </div>
+                            <div class="input-field">
+                                <label for="status">Engine Number</label>
+                                <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="EngineNumber">
+                            </div>
+                            <div class="input-field"></label>
+                             
+                                <label for="status">Status</label>   <input type="text" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="Status">
+                            </div>
+                           
+                        </div>
+
+                        <div style="display: flex;" class="myOwnROw">
+ <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                            
+=======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                         <div class="input-field">
                                             <label for="status">Chassis Number </label>
                                             <input type="text" autocomplete="OFF" class="form-control"
@@ -1468,7 +1542,127 @@
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="Status">
                                         </div>
+<<<<<<< HEAD
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
 
+                                        <div class="input-field">
+                                            <label for="status">Description</label>
+                                            <input type="text" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="description">
+                                        </div>
+
+<<<<<<< HEAD
+                            <div class="input-field">
+                            <label for="status">Purchase Price</label>
+                                <input type="number" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="TotalPrice"><br>
+                                <label for="status">Total Cost</label>
+                                <input type="number" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="TotalCost"><br>
+                                <!-- <label for="status">17 % Tax on Price</label>
+                                <input type="number" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="tax"> -->
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Purchase Price Details
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body" id="SmallFontlabel">
+                                                <div class="input-field">
+                                                    <label for="">Invoice Price</label>
+                                                    <input type="text" name=""
+                                                        style="display: inline-block; width: 200px;"
+                                                        class="form-control" id="">
+                                                </div>
+                                                <div class="input-field">
+                                                    <label for="">Price With Additional Tax</label>
+                                                    <input type="text" name=""
+                                                        style="display: inline-block; width: 200px;"
+                                                        class="form-control" id="">
+=======
+                                        <div class="input-field">
+                                            <label for="status">Invoice Price</label>
+                                            <input type="number" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="TotalPrice"><br>
+                                            <!-- <label for="status">Total Cost</label> -->
+                                            <input type="number" autocomplete="OFF" class="form-control"
+                                                style="display: none !important; height: 30px !important; width: 183px;"
+                                                name="name" id="TotalCost"><br>
+                                            <!-- <label for="status">17 % Tax on Price</label> -->
+                                            <input type="number" autocomplete="OFF" class="form-control"
+                                                style="display: none !important; height: 30px !important; width: 183px;"
+                                                name="name" id="tax">
+
+                                            <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Purchase
+                                                                Price Details
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body" id="SmallFontlabel">
+                                                            <div class="input-field">
+                                                                <label for="">Invoice Price</label>
+                                                                <input type="text" name=""
+                                                                    style="display: inline-block; width: 200px;"
+                                                                    class="form-control" id="">
+                                                            </div>
+                                                            <div class="input-field">
+                                                                <label for="">Price With Additional Tax</label>
+                                                                <input type="text" name=""
+                                                                    style="display: inline-block; width: 200px;"
+                                                                    class="form-control" id="">
+                                                            </div>
+
+
+                                                            <div class="input-field">
+                                                                <label for="">Increase In Price</label>
+                                                                <input type="text" name=""
+                                                                    style="display: inline-block; width: 200px;"
+                                                                    class="form-control" id="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save
+                                                                changes</button>
+                                                        </div>
+                                                    </div>
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="input-field">
+                                            <label for="status">Discount</label>
+                                            <input type="number" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" value="0" id="Discount" onchange="calc()">
+                                        </div>
+                                        <div class="input-field">
+                                            <label for="status">Net Total</label>
+                                            <input type="text" readonly class="form-control"
+                                                style=" pointer-events: none; display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="NetTotal">
+                                        </div>
+=======
+
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                     </div>
                                     <div class="myOwnROw">
 
@@ -1572,6 +1766,31 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                            <div class="input-field">
+                                <label for="status">Discount</label>
+                                <input type="number" autocomplete="OFF" class="form-control"
+                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" value="0" id="Discount" onkeyup="calc()">
+                            </div>
+                            <div class="input-field">
+                                <label for="status">Net Total</label>
+                                <input type="text" readonly class="form-control"
+                                    style=" pointer-events: none; display: inline-block !important; height: 30px !important; width: 183px;"
+                                    name="name" id="NetTotal">
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="head-right">
+
+                                    </div>
+=======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
 
                         </div>
                     </div>
@@ -1582,10 +1801,52 @@
                             <div class="col-md-12">
                                 <div class="SecondColor my-4">
 
+<<<<<<< HEAD
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                 </div>
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <br>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="SecondColor my-4">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="head-left">
+
+
+                        <div class="input-field">
+                        <label for="issue-3">Customer Name</label>
+                                <select class="selectpicker" data-live-search="true" tabindex="null" id="CustomerName"
+                                    onchange="getCurrentCustomerInfo()">
+                                    <!-- from database -->
+                                </select>
+                            <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
+=======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                 </section>
                 <section>
                     <div class="container">
@@ -1600,8 +1861,14 @@
                                             id="CustomerName" onchange="getCurrentCustomerInfo()">
                                             <!-- from database -->
                                         </select>
+<<<<<<< HEAD
+                                        <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+                               margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
+=======
                                         <button data-toggle="modal" data-target="#staticBackdrop" style="height: 40px;
                                margin-top: -5px;width:41px;" class="btn"><i class="fas fa-user-plus"></i></button>
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                     </div>
                                     <div class="input-field">
                                         <label for="status">Client's Father Name</label>
@@ -1657,7 +1924,7 @@
                                                             <button onclick="addCustomer()" name="submit" id="submit"
                                                                 class="submit" value="">Add Customer</button>
                                                         </div>
-                                                   </div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-org-1"
@@ -1727,12 +1994,32 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="ThirdColor my-4">
+=======
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                 </section>
                 <section>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="ThirdColor my-4">
+<<<<<<< HEAD
+>>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
+=======
+>>>>>>> cf351a058479b326e61140f47f357086aa9ad199
 
                                 </div>
                             </div>
@@ -1765,7 +2052,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h4 class="text-center my-4">Products Table</h4>
-                                        <table class="table  table-bordered mb-5" id="searchProductTable">
+                                        <table class="table  table-bordered mb-5 " id="searchProductTable">
                                             <thead>
                                                 <tr>
 
@@ -1805,236 +2092,7 @@
                 </div>
             </div>
         </div>
-        <div class="sidebar-menu">
-
-            <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
-                    <span id="logo"></span>
-                </a> </div>
-            <div class="menu">
-                <ul id="menu">
-                    <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
-                                style="font-size: 18px;">Dashboard</span></a>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs0"><i class="fab fa-salesforce"></i><span
-                                style="font-size: 18px;">Operations</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse list-unstyled firstULs0 ">
-                            <li><a href="/bo">Book Order</a></li>
-                            <li><a href="/rec">Receiving</a></li>
-                            <li><a href="/is">Invoice Services</a></li>
-                            <li><a href="/sc">Commissions and Taxes</a></li>
-                            <li><a href="/as">Add Stock</a></li>
-                            <li><a href="/th">Transaction History</a></li>
-                            <li><a href="/l">Investor Sale Ledger</a></li>
-                            <li><a href="/cl">Company Ledger</a></li>
-
-                        </ul>
-                    </li>
-
-                    <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-                                style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs">
-                            <li><a href="/">Category</a></li>
-                            <li><a href="/vs">Product Record</a></li>
-                            <li><a href="/as">Add Product</a></li>
-                            <li><a href="/">Barcode</a></li>
-
-                            <li><a href="/">Stock Audit</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
-                                style="font-size: 18px;">Customer</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs1">
-                            <li><a href="/">Add Customer</a></li>
-                            <li><a href="/vs">Customer List</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
-                                style="font-size: 18px;">Supplier</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs2">
-                            <li><a href="/">Add Supplier</a></li>
-                            <li><a href="/vs">Supplier List</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
-                                class="fab fa-alipay"></i>
-                            <span style="font-size: 18px;">Purchase</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs3">
-                            <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
-                            </li>
-                            <li><a href="">Daily Purchase</a></li>
-                            <li><a href="">Monthly Purchase</a></li>
-                            <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
-                        </ul>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
-                                style="font-size: 18px;">POS</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs4">
-                            <li><a href="/ss">POS</a></li>
-                            <li><a href="/sc">Add Sale</a></li>
-                            <li><a href="">Daily Sales</a></li>
-                            <li><a href="">Monthly Sales</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
-                                style="font-size: 18px;">Expense</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs5">
-                            <li><a href="/ex">Add Expense</a></li>
-                            <li><a href="">Expense List</a></li>
-                            <li><a href="">Expense Head</a></li>
-                            <li><a href="">Expense Category</a></li>
-                        </ul>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-quote-right"></i><span
-                                style="font-size: 18px;">Quotation<span class="fa fa-angle-right"
-                                    style="float: right"></span></a>
-                        <ul class="collapse firstULs6">
-                            <li><a href="/ql">Quotation List</a></li>
-                            <li><a href="/is">Add Quotation</a></li>
-                        </ul>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-random"></i><span
-                                style="font-size: 18px;">Transfer<span class="fa fa-angle-right"
-                                    style="float: right"></span></a>
-                        <ul class="collapse firstULs7">
-                            <li><a href="/th">Transaction History</a></li>
-                            <li><a href="">Transfer Funds</a></li>
-                        </ul>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-undo-alt"></i><span
-                                style="font-size: 18px;">Return<span class="fa fa-angle-right"
-                                    style="float: right"></span></a>
-                        <ul class="collapse firstULs8">
-                            <li><a href="/ss">Sale</a></li>
-                            <li><a href="/is">Purchase</a></li>
-                        </ul>
-                    </li>
-                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs9"><i
-                                class="fas fa-user-circle"></i><span style="font-size: 18px;">Accounts</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul class="collapse firstULs9">
-                            <li id="menu-academico-boletim"><a href="/l">Investor Ledger</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
-                            <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
-
-                        </ul>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
-                                style="font-size: 18px;">HR</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs10" id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
-                            <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
-                        </ul>
-                    </li>
-
-
-
-                    <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
-                                style="font-size: 18px;">People</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs11" id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
-                            <li id="menu-academico-boletim"><a href="/">Add User</a></li>
-
-
-                        </ul>
-                    </li>
-
-
-
-                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs12"><i
-                                style="font-size: 20px;" class="fab fa-stack-overflow"></i><span
-                                style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs12" id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
-                            <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
-                        </ul>
-                    </li>
-
-
-
-                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
-                                class="fas fa-flag-checkered"></i><span style="font-size: 18px;">Reports</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul class="collapse firstULs13" id="menu-academico-sub">
-                            <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">Customer Report</a></li>
-                            <li id="menu-academico-boletim"><a href="/d">Best Seller</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">Daily Sale</a></li>
-                            <li id="menu-academico-boletim"><a href="/d">Monthly Sale</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">Daily Purchase</a></li>
-                            <li id="menu-academico-boletim"><a href="/d">MonthlyPurchase</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">User Report</a></li>
-                            <li id="menu-academico-boletim"><a href="/d">Supplier Report</a></li>
-
-                            <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li>
-
-
-                        </ul>
-                    </li>
-                    <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14"><i
-                                class="fas fa-truck-loading"></i><span style="font-size: 18px;">Order
-                                Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
-                        <ul class="collapse firstULs14" id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
-
-                        </ul>
-                    </li>
-
-
-                    <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
-                                style="font-size: 18px;">PayRoll</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs15" id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
-                            <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
-                            <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
-                        </ul>
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs16" href="/at"><i
-                                class="fas fa-guitar"></i><span style="font-size: 18px;">Attendance</span><span
-                                class="fa fa-angle-right" style="float: right"></span></a>
-                        <ul class="collapse firstULs16" id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
-                            <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
-                        </ul>
-
-                    </li>
-                    <li><a data-toggle="collapse" data-target=".firstULs17"><i class="fas fa-eye"></i><span
-                                style="font-size: 18px;">Task View</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="firstULs17 collapse" id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
-                            <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a data-toggle="collapse" data-target=".firstULs18"><i class="fas fa-cogs"></i><span
-                                style="font-size: 18px;">Account Settings</span><span class="fa fa-angle-right"
-                                style="float: right"></span></a>
-                        <ul class="collapse firstULs18" id="menu-academico-sub">
-                            <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
-                            <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        @include('sidenavbar')
     </div>
 
 
@@ -2604,10 +2662,10 @@
         //alert("ljd");
         xhttp.open("GET", "./getInvoiceID", true);
 
-    xhttp.send();
+        xhttp.send();
 
 
-}
+    }
 
 </script>
 
