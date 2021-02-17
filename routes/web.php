@@ -182,6 +182,7 @@ Route::get('/getCategory',[taskController::class, 'getCategory']);
 Route::get('/getEmployees',[taskController::class, 'getEmployees']);
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
 Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
+Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 
 Route::get('/adduzairdata',[uzairController::class, 'function']);
 route::get('/addtable' , [uzairController::class, 'myfunction']);

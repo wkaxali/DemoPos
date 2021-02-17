@@ -12,6 +12,7 @@ use NumberToWords\NumberToWords;
 //https://github.com/kwn/number-to-words
 
 use DB;
+use PDF;
 
 class quotationController extends Controller
 {
@@ -119,18 +120,19 @@ class quotationController extends Controller
             session(['price' => $data->UnitPrice]);
             session(['contact' => $data->Contact]);
             session(['total' => $data->TotalPrice]);
-            session(['invoiceDate' => $data->Date]);
+            session(['invoiceDate' => $data->DatproductNamee]);
             session(['description' => $data->Discription]);
             session(['color' => $data->Color]);
-            session(['productName' => $data->Model]);
+            session(['' => $data->Model]);
             session(['quantity' => $data->Quantity]);
             session(['city' => $data->City]);
 
-            qoutationToPDF();
+            
             }
 
             public function qoutationToPDF()
             {
+                
                 $html = '<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
                 <tr><td>
                 
@@ -143,6 +145,13 @@ class quotationController extends Controller
                 '.session()->get("customerName").'
                 </td>
                 </tr>
+
+                <tr>
+                <td align="right">Date:
+                '.session()->get("Date").'
+                </td>
+                </tr>
+
                 <tr>
                 <td >
                 Qoutation For '.session()->get("productName").'
@@ -167,16 +176,16 @@ class quotationController extends Controller
                 <tr><td>'.session()->get("description").'</td>
                 <td rowspan="2">'.session()->get("color").'</td>
                 <td >Rs</td>
-                <td rowspan="2" width="40">2</td>
+                <td rowspan="2" width="40">'.session()->get("quantity").'</td>
                 <td width="173">Rs</td></tr>
-                <tr><td >ABHA</td>
+                <tr><td >'.session()->get("city").'</td>
                 
-                <td>175000</td>
-                <td width="173">1254222</td>
+                <td>'.session()->get("price").'</td>
+                <td width="173">'.session()->get("total").'</td>
                 </tr>
                 
                 
-                <tr><td colspan="5">'.session()->.'  </td></tr>
+                <tr><td colspan="5">'.session()->get("amountInWords").' </td></tr>
                 
                 </tbody>
                 </table>
@@ -203,20 +212,20 @@ class quotationController extends Controller
                     <tr>
                    
                         <td width="30%" border="0" align="left" >Delivery Time</td>
-                        <td width="70%" border="0" align="left">DAays after recipt of 100% advance payment</td>
+                        <td width="70%" border="0" align="left">'.session()->get("DeliveryTime").'Days after recipt of 100% advance payment</td>
                        
                     </tr>
                     
                     <tr>
                     <td width="30%" border="0">Validity</td>
-                    <td width="70%" align="left" border="0">This Qoutation is valid for days only</td>
+                    <td width="70%" align="left" border="0">This Qoutation is valid for '.session()->get("ValidityPeriod").'days only</td>
                 
                 </tr>
                 <tr>
                 
                    
                     <td width="30%" border="0">Payment</td>
-                    <td width="70%" align="left" border="0">100% Advance payment in shape of DD/PO in favor of </td>
+                    <td width="70%" align="left" border="0">100% Advance payment in shape of DD/PO in favor of '.session()->get("PayTo").'</td>
                     
                 </tr>
                 <tr>
@@ -244,7 +253,7 @@ class quotationController extends Controller
                 </tr>
                 <tr>
                 <td width="30%" border="0">Model</td>
-                <td width="70%" align="left" border="0">Forland C 10(2021)</td>
+                <td width="70%" align="left" border="0">'.session()->get("Model").'</td>
                 
                 
                 
@@ -312,8 +321,7 @@ class quotationController extends Controller
                 
                 
                 ';
-               $html= $htmldata;
-                
+               
                 PDF::SetTitle('Hello World');
                 PDF::AddPage();
                 PDF::writeHTML($html, true, false, true, false, '');
