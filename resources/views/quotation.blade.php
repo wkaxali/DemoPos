@@ -15,12 +15,7 @@
 
     <title>Quotation</title>
     <style>
-        /*!
- * Bootstrap-select v1.13.1 (https://developer.snapappointments.com/bootstrap-select)
- *
- * Copyright 2012-2018 SnapAppointments, LLC
- * Licensed under MIT (https://github.com/snapappointments/bootstrap-select/blob/master/LICENSE)
- */
+
         .bootstrap-select>select.bs-select-hidden,
         select.bs-select-hidden,
         select.selectpicker {
@@ -518,6 +513,7 @@
 
     <main style="margin-top: 5px;">
     <div id='target'>
+        <!-- @include('sales')  -->
         <div class="container">
             <div class="row my-2">
                 <div class="col-md-12 text-center">
@@ -548,29 +544,31 @@
                     <table style="width: 100%;">
                         <thead>
                             <tr>
-                                <th>Description</th>
-                                <th>Color</th>
-                                <th>Unit Price</th>
-                                <th>Qty</th>
-                                <th>Total Price</th>
+                                <th style=" border: 1px solid #333;">Description</th>
+                                <th style=" border: 1px solid #333;">Color</th>
+                                <th style=" border: 1px solid #333;">Unit Price</th>
+                                <th style=" border: 1px solid #333;">Qty</th>
+                                <th style=" border: 1px solid #333;">Total Price</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ Session::get('productName')}}</td>
-                                <td rowspan="2">{{ Session::get('color')}}</td>
-                                <td>Rs.</td>
-                                <td rowspan="2">{{ Session::get('quantity')}}</td>
-                                <td>Rs.</td>
+                                <td style=" border: 1px solid #333;  width: 50px;
+                                text-align: center;">{{ Session::get('productName')}}</td>
+                                <td style=" border: 1px solid #333;" rowspan="2">{{ Session::get('color')}}</td>
+                                <td style=" border: 1px solid #333;">Rs.</td>
+                                <td style=" border: 1px solid #333;" rowspan="2">{{ Session::get('quantity')}}</td>
+                                <td style=" border: 1px solid #333;">Rs.</td>
                             </tr>
                             <tr>
-                                <td>{{ Session::get('description')}}</td>
-                                <td>={{ Session::get('price')}}/-</td>
+                                <td style=" border: 1px solid #333;width: 50px;
+                                text-align: center;">{{ Session::get('description')}}</td>
+                                <td style=" border: 1px solid #333;">={{ Session::get('price')}}/-</td>
 
-                                <td>={{ Session::get('total')}}/-</td>
+                                <td style=" border: 1px solid #333;">={{ Session::get('total')}}/-</td>
                             </tr>
                             <tr>
-                                <td colspan="5">({{ Session::get('amountInWords')}} Only.)</td>
+                                <td style=" border: 1px solid #333;" colspan="5">({{ Session::get('amountInWords')}} Only.)</td>
                             </tr>
 
                         </tbody>
@@ -588,36 +586,42 @@
 
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Delivery Time.</td>
-                                <td>{{ Session::get('DeliveryTime')}} days after receipt of 100% advance payment.</td>
+                                <td style=" border: 1px solid #333;  width: 50px;
+                                text-align: center;">1</td>
+                                <td style=" border: 1px solid #333;">Delivery Time.</td>
+                                <td style=" border: 1px solid #333;">{{ Session::get('DeliveryTime')}} days after receipt of 100% advance payment.</td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>Validity</td>
-                                <td>This Quotation is Valid For {{ Session::get('ValidityPeriod')}} Days Only.</td>
+                                <td style=" border: 1px solid #333;  width: 50px;
+                                text-align: center;">2</td>
+                                <td style=" border: 1px solid #333;">Validity</td>
+                                <td style=" border: 1px solid #333;">This Quotation is Valid For {{ Session::get('ValidityPeriod')}} Days Only.</td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>Payment</td>
-                                <td>100% Advance Payment In shape of DD/PO in favor of {{ Session::get('PayTo')}}</td>
+                                <td style=" border: 1px solid #333;  width: 50px;
+                                text-align: center;">3</td>
+                                <td style=" border: 1px solid #333;">Payment</td>
+                                <td style=" border: 1px solid #333;">100% Advance Payment In shape of DD/PO in favor of {{ Session::get('PayTo')}}</td>
                             </tr>
                             <tr>
-                                <td>4</td>
-                                <td>Duty / Taxes</td>
-                                <td>Any Change In Govt. Fiscal Policies , RGST/VAT and tariff structures will be on
+                                <td style=" border: 1px solid #333;  width: 50px;
+                                text-align: center;">4</td>
+                                <td style=" border: 1px solid #333;">Duty / Taxes</td>
+                                <td style=" border: 1px solid #333;">Any Change In Govt. Fiscal Policies , RGST/VAT and tariff structures will be on
                                     customer's Account.</td>
                             </tr>
                             <tr>
-                                <td>5</td>
-                                <td>Force Majeure</td>
-                                <td>Manufacture will Not be responsible for any delay in delivery due to force majeure
+                                <td style=" border: 1px solid #333;  width: 50px;
+                                text-align: center;">5</td>
+                                <td style=" border: 1px solid #333;">Force Majeure</td>
+                                <td style=" border: 1px solid #333;">Manufacture will Not be responsible for any delay in delivery due to force majeure
                                     circumstance.</td>
                             </tr>
                             <tr>
-                                <td>6</td>
-                                <td>Warranty</td>
-                                <td>Manufacture's Standard Warranty 120,000 Km or 02-Years , Whichever is occurs first
+                                <td style=" border: 1px solid #333;  width: 50px;
+                                text-align: center;">6</td>
+                                <td style=" border: 1px solid #333;">Warranty</td>
+                                <td style=" border: 1px solid #333;">Manufacture's Standard Warranty 120,000 Km or 02-Years , Whichever is occurs first
                                 </td>
                             </tr>
                             <tr>
@@ -652,18 +656,21 @@
         <div class="container">
             <div class="row" style="border-top: 1px solid #333;">
                 <div class="col-md-4 p-2 text-center">
-                    <span><i class="fa fa-map-marker"></i></span>
+                    <span><i style=" font-size: 30px !important;
+                        color: #e61d2f;" class="fa fa-map-marker"></i></span>
                     <h5 style="text-transform: uppercase;">BKM, {{ Session::get('UserName')}}Road,OM MILLAT Tractors,Lhr
                     </h5>
                 </div>
                 <div class="col-md-4 p-2 text-center">
-                    <span><i class="fa fa-phone"></i></span>
+                    <span><i style=" font-size: 30px !important;
+                        color: #e61d2f;" class="fa fa-phone"></i></span>
 
                     <h5>Mob: <a href="+92-300-0600061">+92-300-0600061</a></h5>
                     <h5>Tel: <a href="+92-300-0600061">+92-42-37925218/318</a></h5>
                 </div>
                 <div class="col-md-4 p-2 text-center">
-                    <span><i class="fas fa-envelope"></i></span>
+                    <span><i style=" font-size: 30px !important;
+                        color: #e61d2f;" class="fas fa-envelope"></i></span>
                     <h5>forlandmodernmotors@gmail.com</h5>
 
                 </div>
@@ -672,30 +679,7 @@
     </div>
 </div>      
     </footer>
-    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-        Launch demo modal
-    </button>
-
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" name="" id="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
+   
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"

@@ -17,69 +17,162 @@ class TEST extends Controller
 
         PDF::Output('hello_world.pdf');
     }
+    public function requestForQuotation()
+    {
+        
+        $html = '
+        <img  src="https://scontent.flhe3-1.fna.fbcdn.net/v/t31.0-8/p960x960/26233302_139328973417837_8607029096157006840_o.png?_nc_cat=109&ccb=3&_nc_sid=85a577&_nc_ohc=A3sG37gNOCIAX99Fp97&_nc_ht=scontent.flhe3-1.fna&_nc_tp=30&oh=70820213552a4e5f8d5ab72846496285&oe=60519500" alt="logo"  style="width:195px;height:152px;"  >
+        <div id="target">
+        <p><b>To, <br/>
+        Foton Auto Park (PVT) Ltd. <br/>
+        Subject: Invoice Request
+        </b>
+        </p>
+        
+        <p style="text-align: right;"><b>Date:</b></p>
+        
+        <table style="width:100%">
+          
+          <tr>
+            <th style="border: 1px solid black;">Costumer Name</th>
+            <th style="border: 1px solid black;">Ahmad</th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Address</td>
+            <td style="border: 1px solid black;">Lahore</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Contact Details</td>
+            <td style="border: 1px solid black;">new</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">NTN/CNIC#</td>
+            <td style="border: 1px solid black;">2551234100</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Salesperson</td>
+            <td style="border: 1px solid black;">khan</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Dealer</td>
+            <td style="border: 1px solid black;">khan</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Vehicle</td>
+            <td style="border: 1px solid black;">Forland Modern Motors</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Chassis No</td>
+            <td style="border: 1px solid black;">100</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Engine No</td>
+            <td style="border: 1px solid black;">50</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Color</td>
+            <td style="border: 1px solid black;">red</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Amount</td>
+            <td style="border: 1px solid black;">$50</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">payment: Cheque Details</td>
+            <td style="border: 1px solid black;">34000330030330</td>
+          </tr>
+        </table>
+   
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <p style="text-align: right;"><b>_____________________</b>
+        
+        </p>
+        ';
+      // $html= $htmldata;
+        
+        PDF::SetTitle('Hello World');
+        PDF::AddPage();
+        PDF::writeHTML($html, true, false, true, false, '');
+
+        PDF::Output('hello_world.pdf');
+    }
+
     public function getInfo()
     {
         
-        $html = '<img style="height: 200px; width: 200px;" src="https://images.pexels.com/photos/1619792/pexels-photo-1619792.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+        $html = '
+        <img  src="https://scontent.flhe3-1.fna.fbcdn.net/v/t31.0-8/p960x960/26233302_139328973417837_8607029096157006840_o.png?_nc_cat=109&ccb=3&_nc_sid=85a577&_nc_ohc=A3sG37gNOCIAX99Fp97&_nc_ht=scontent.flhe3-1.fna&_nc_tp=30&oh=70820213552a4e5f8d5ab72846496285&oe=60519500" alt="logo"  style="width:195px;height:152px;"  >
+        <div id="target">
+        <p><b>To, <br/>
+        Foton Auto Park (PVT) Ltd. <br/>
+        Subject: Invoice Request
+        </b>
+        </p>
         
-        <br><br><br><br><br><br><br><table border="1" cellpadding="2" cellspacing="2">
-        <thead>
-         <tr style="background-color:#FFFF00;color:#0000FF;">
-          <td width="30" align="center"><b>A</b></td>
-          <td width="140" align="center"><b>XXXX</b></td>
-          <td width="140" align="center"><b>XXXX</b></td>
-          <td width="80" align="center"> <b>XXXX</b></td>
-          <td width="80" align="center"><b>XXXX</b></td>
-          <td width="45" align="center"><b>XXXX</b></td>
-         </tr>
-         <tr >
-          <td width="30" align="center" style="background-color:#FF0000;color:#FFFF00;"><b>B</b></td>
-          <td width="140" align="center"><b>XXXX</b></td>
-          <td width="140" align="center"><b>XXXX</b></td>
-          <td width="80" align="center"> <b>XXXX</b></td>
-          <td width="80" align="center"><b>XXXX</b></td>
-          <td width="45" align="center"><b>XXXX</b></td>
-         </tr>
-        </thead>
-         <tr>
-          <td width="30" align="center">1.</td>
-          <td width="140" rowspan="6">XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX</td>
-          <td width="140">XXXX<br />XXXX</td>
-          <td width="80">XXXX<br />XXXX</td>
-          <td width="80">XXXX</td>
-          <td align="center" width="45">XXXX<br />XXXX</td>
-         </tr>
-         <tr>
-          <td width="30" align="center" rowspan="3">2.</td>
-          <td width="140" rowspan="3">XXXX<br />XXXX</td>
-          <td width="80">XXXX<br />XXXX</td>
-          <td width="80">XXXX<br />XXXX</td>
-          <td align="center" width="45">XXXX<br />XXXX</td>
-         </tr>
-         <tr>
-          <td width="80">XXXX<br />XXXX<br />XXXX<br />XXXX</td>
-          <td width="80">XXXX<br />XXXX</td>
-          <td align="center" width="45">XXXX<br />XXXX</td>
-         </tr>
-         <tr>
-          <td width="80" rowspan="2" >RRRRRR<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX</td>
-          <td width="80">XXXX<br />XXXX</td>
-          <td align="center" width="45">XXXX<br />XXXX</td>
-         </tr>
-         <tr>
-          <td width="30" align="center">3.</td>
-          <td width="140">XXXX1<br />XXXX</td>
-          <td width="80">XXXX<br />XXXX</td>
-          <td align="center" width="45">XXXX<br />XXXX</td>
-         </tr>
-         <tr>
-          <td width="30" align="center">4.</td>
-          <td width="140">XXXX<br />XXXX</td>
-          <td width="80">XXXX<br />XXXX</td>
-          <td width="80">XXXX<br />XXXX</td>
-          <td align="center" width="45">XXXX<br />XXXX</td>
-         </tr>
+        <p style="text-align: right;"><b>Date:</b></p>
+        
+        <table style="width:100%">
+          
+          <tr>
+            <th style="border: 1px solid black;">Costumer Name</th>
+            <th style="border: 1px solid black;">Ahmad</th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Address</td>
+            <td style="border: 1px solid black;">Lahore</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Contact Details</td>
+            <td style="border: 1px solid black;">new</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">NTN/CNIC#</td>
+            <td style="border: 1px solid black;">2551234100</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Salesperson</td>
+            <td style="border: 1px solid black;">khan</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Dealer</td>
+            <td style="border: 1px solid black;">khan</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Vehicle</td>
+            <td style="border: 1px solid black;">Forland Modern Motors</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Chassis No</td>
+            <td style="border: 1px solid black;">100</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Engine No</td>
+            <td style="border: 1px solid black;">50</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Color</td>
+            <td style="border: 1px solid black;">red</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Amount</td>
+            <td style="border: 1px solid black;">$50</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">payment: Cheque Details</td>
+            <td style="border: 1px solid black;">34000330030330</td>
+          </tr>
         </table>
+   
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <p style="text-align: right;"><b>_____________________</b>
+        
+        </p>
         ';
       // $html= $htmldata;
         
