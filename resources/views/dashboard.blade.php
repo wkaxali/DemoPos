@@ -10807,9 +10807,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
+<<<<<<< HEAD
 
                     alert("Quotation =" + this.responseText + " is generated");
 
+=======
+
+                    alert("Quotation =" + this.responseText + " is generated");
+
+>>>>>>> a41cbe53ff2b7a6e221384a297e082dc26bd0b92
                     window.open("/qt");
 
                 }

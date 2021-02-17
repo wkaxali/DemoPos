@@ -64,6 +64,7 @@ Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierPart
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice']);
 
+
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
 Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer']);
