@@ -20,8 +20,8 @@ class TEST extends Controller
     public function getInfo()
     {
         
-        $html = '<img style="height: 200px; width: 200px;" src="https://images.pexels.com/photos/1619792/pexels-photo-1619792.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
-        
+        $html = '<img style="height: 100px; width: 200px;" src="./assets/img/logo.jpg">
+  
         <br><br><br><br><br><br><br><table border="0.5" cellpadding="2" cellspacing="2">
         <thead>
          <tr style="background-color:#FFFF00;color:#0000FF;">
