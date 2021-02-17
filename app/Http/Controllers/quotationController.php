@@ -125,13 +125,15 @@ class quotationController extends Controller
             session(['productName' => $data->Model]);
             session(['quantity' => $data->Quantity]);
             session(['city' => $data->City]);
+            self::getInfo();
+            return "wlgdhu";
 
             }
 
-            public function getInfo($htmldata)
+            public function getInfo()
             {
                 $html = '';
-               $html= $htmldata;
+              // $html= $htmldata;
                 
                 PDF::SetTitle('Hello World');
                 PDF::AddPage();
