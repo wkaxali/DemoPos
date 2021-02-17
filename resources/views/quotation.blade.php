@@ -513,7 +513,7 @@
 
     <main style="margin-top: 5px;">
     <div id='target'>
-        <!-- @include('sales')  -->
+        @include('sales') 
         <div class="container">
             <div class="row my-2">
                 <div class="col-md-12 text-center">
