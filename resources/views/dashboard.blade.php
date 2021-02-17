@@ -1072,7 +1072,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
             -o-transition: 0.5s all;
-            height: 258px;
+            height: 236px;
         }
 
         .market-update-block.clr-block-3 {
@@ -5921,7 +5921,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: #222;
         }
 
-   
+
 
         .appointment-form ul {
             background: 0 0;
@@ -6050,7 +6050,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         ::-webkit-scrollbar-thumb {
             background-color: #e61d2f;
         }
-        
 
     </style>
 
@@ -9457,6 +9456,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .leftBtns .btn {
             margin: 5px 0px;
+            height: 59px;
         }
 
         .labels {
@@ -9485,9 +9485,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             overflow: hidden;
         }
 
-        #staticBackdrop {
-            position: absolute !important;
-        }
+
 
         .btn1 {
             color: #3498db;
@@ -9517,7 +9515,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .btn1:hover::before {
             height: 180%;
         }
-        
+
         @keyframes btn-anim4 {
             0% {
                 bottom: -100%;
@@ -9534,14 +9532,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             background-color: #0a549d;
             border-radius: 15px;
         }
-        
-        input{
-            outline:none;
+
+        input {
+            outline: none;
         }
+
         .login-box {
-            text-align:center;
+            text-align: center;
         }
-        .login-box  a {
+
+        .login-box a {
             position: relative;
             display: inline-block;
             padding: 10px 20px;
@@ -9642,8 +9642,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             animation: btn-anim4 1s linear infinite;
             animation-delay: .75s
         }
+
         input:focus~label,
-      input:valid~label {
+        input:valid~label {
             top: -25px;
             left: 0;
             color: #f1c40f;
@@ -9672,122 +9673,82 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin-right: 30px;
         }
 
+        @media only screen and (max-width: 600px) {
+            .profile_details {
+                display: none;
+            }
+
+            .col-md-3 {
+                position: relative;
+                width: auto !important;
+                padding-right: 15px;
+                padding-left: 15px;
+            }
+
+            .leftBtns {
+                border
+            }
+
+        }
+
+        #staticBackdrop::-webkit-scrollbar-track {
+            border: 1px solid #000;
+            padding: 2px 0;
+            background-color: #66ff33;
+        }
+
+        #staticBackdrop::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        #staticBackdrop::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #66ff33 !important;
+            border: 1px solid #000;
+        }
+
     </style>
 </head>
 
 <body onload="loadFields()">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-body">
-                    <form method="POST" class="appointment-form" id="appointment-form">
-                        <h2>Create Invoice</h2>
-                        <div class="form-group-1">
-
-                           
-                        <input type="text" name="title" id="title" placeholder="Customer" required />
-                            <input type="text" name="name" id="name" placeholder="Customer ID" required />
-                            <input type="number" name="tel" id="tel" placeholder="Contact" required />
-                            <input type="number" name="phone_number" id="Profession" placeholder="Profession"
-                                required />
-                            <input type="number" name="phone_number" id="Balance" placeholder="Balance" required />
-                            <input type="number" name="phone_number" id="Profession" placeholder="Address" required />
-                            <input type="number" name="phone_number" id="Profession" placeholder="Comments" required />
-
- 
-
-
-
-                        <label for="">Coustomer ID</label>
-                        <select style="width: 100px;" data-live-search="true" 
-                        class="selectpicker form-control"  id="Spare Tyre" >
-                <option value=1>Ahmad</option>
-                <option value=2>Ali</option>
-                <option value=2>usama</option>
-               
-                </select>
-                <label for="">Product Name </label>
-                <select style="width: 100px;" data-live-search="true" 
-                class="selectpicker form-control"  id="Spare Tyre" >
-        <option value=1>Ahmad</option>
-        <option value=2>Ali</option>
-        <option value=2>Ali</option>
-        </select>
-                        <label for="">Tool Kit</label>
-                            <select  style="width: 80px;" data-live-search="true" 
-                                class="selectpicker form-control"  id="Tool Kit" >
-                        <option value=1>YES</option>
-                        <option value=2>NO</option>
-                        </select>
-                        
-                        <label for="">Spare Tyre</label>
-                        <select style="width: 80px;" data-live-search="true" 
-                        class="selectpicker form-control"  id="Spare Tyre" >
-                <option value=1>YES</option>
-                <option value=2>NO</option>
-                </select>
-                <label for="">Original Keys</label>
-                <select style="width: 80px;"  data-live-search="true" 
-                class="selectpicker form-control"  id="originalkeys" >
-        <option value=1>1</option>
-        <option value=2>2</option>
-        <option value=2>3</option>
-        <option value=2>4</option>
-        </select>
-        <label for="">Warranty Book</label>
-        <select  style="width: 80px;" data-live-search="true" 
-        class="selectpicker form-control"  id="originalkeys" >
-<option value=1>YES</option>
-<option value=2>NO</option>
-                                                   <div class="select-list">
-                                <select name="course_type" id="course_type">
-                                    <option slected value="">Category</option>
-                                    <option value="society">Society</option>
-                                    <option value="language">Language</option>
-                                </select>
-                            </div>
-                        </div>
-=======
->>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
-=======
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
 
     <div class="page-container">
         <div class="left-content">
             <div class="mother-grid-inner">
                 <div class="header-main">
-                    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" style="overflow: auto;padding-left: 45px;" id="staticBackdrop" data-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Create Quotation</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                                 <div class="modal-body">
                                     <form method="POST" class="appointment-form" id="appointment-form">
                                         <h2></h2>
                                         <div class="form-group-1">
-                                            <input type="text" name="title" id="customerName" placeholder="Customer Name"
-                                                required />
-                                           
+                                            <input type="text" name="title" id="customerName"
+                                                placeholder="Customer Name" required />
+
                                             <input type="text" name="address" id="address" placeholder="Address"
                                                 required />
-                                            <input type="text" name="phone_number" id="contact"
-                                                placeholder="Contact" required />
-                                            <input type="text" name="model" id="model"
-                                                placeholder="model" required />
+                                            <input type="text" name="phone_number" id="contact" placeholder="Contact"
+                                                required />
+                                            <input type="text" name="model" id="model" placeholder="model" required />
                                             <input type="text" name="phone_number" id="description"
                                                 placeholder="Description" required />
                                             <input type="text" name="phone_number" id="color" placeholder="Color"
                                                 required />
-                                                <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
+                                            <input type="text" name="phone_number" id="qvt"
+                                                placeholder="Quotation Validity Time" required />
+                                            <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
                                                 required />
-                                                <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
-                                                required />
-                                                <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
-                                                required />
+                                            <input type="text" name="phone_number" id="paymentTo"
+                                                placeholder="Payment To" required />
                                             <input type="text" name="phone_number" id="unitPrice"
                                                 onchange="calculation()" placeholder="Unit Price" required />
                                             <input type="text" name="phone_number" id="quantity" placeholder="Quantity"
@@ -9800,17 +9761,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         <div class="login-box">
                                             <a onclick="createQuotation()">
-                                            <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                            Create Quotation</a>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                <span></span>
+                                                Create Quotation</a>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
-                                </div>
+
                             </div>
 
                         </div>
@@ -9829,11 +9788,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="profile_details_left">
 
 
-                            <button class="btn-my btn1" style="margin-left: 200px;" data-toggle="modal"
+                            <button class="btn-my btn1" data-toggle="modal"
                                 data-target=".bd-example-modal-lg">Operations</button>
 
-                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                            <div class="modal fade bd-example-modal-lg" style="margin-left:38px;" tabindex="-1"
+                                role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-body">
@@ -9843,28 +9802,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
                                                     {{ session()->put('CID','125')}}
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-3 mainCol">
                                                         <label class="labels" for="">Purchase</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
                                                             <button class="btn btn-myPrimary-add"
                                                                 onclick="location.href = '/bo'">Book
                                                                 Order</button><br>
                                                             <button class="btn btn-mysecondary"
-                                                                onclick="location.href = '/d'">Dilivery</button><br>
+                                                                onclick="location.href = '/d'">Dilevery</button><br>
                                                             <button data-toggle="modal" id="killme"
                                                                 data-target="#staticBackdrop"
                                                                 class="btn btn-mysecondary">Quotation</button><br>
 
 
                                                             <button class="btn btn-mysecondary"
-                                                                onclick="location.href = '/dl'">Dilivery
+                                                                onclick="location.href = '/dl'">Dilevery
                                                                 letter</button><br>
                                                             <button class="btn btn-mysecondary"
                                                                 onclick="location.href = '/ct'">Comissions</button><br>
                                                         </div>
 
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-3 mainCol">
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Sales</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
@@ -9875,10 +9834,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             <a href="/sc"><button class="btn btn-myPrimary">Sales&
                                                                     comission</button><br></a>
                                                             <a href="/ct"> <button
-                                                                    class="btn btn-myPrimary-add">texes</button><br></a>
+                                                                    class="btn btn-myPrimary-add">taxes</button><br></a>
+                                                            <a href="/vc"><button
+                                                                    class="btn btn-myPrimary-add">ViewCustmer</button><br></a>
+
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-3 mainCol">
                                                         <label style="margin-left: 30px;" class="labels"
                                                             for="">Stock</label>
                                                         <div style="border-right: 2px solid gray;" class="leftBtns">
@@ -9889,15 +9851,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                     In price</button><br></a>
                                                             <a href="/stock"> <button
                                                                     class="btn btn-myPrimary">Stock</button><br></a>
-                                                            <a href="/vc"><button
-                                                                    class="btn btn-myPrimary-add">ViewCustmer</button><br></a>
                                                             <a href="/sp"> <button class="btn btn-mysecondary">View
-                                                                    Spareoarts</button><br></a>
+                                                                    Spare Parts</button><br></a>
                                                             <a href="/vs"> <button class="btn btn-myPrimary">View
                                                                     Stock</button><br></a>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-3">
+                                                    <div class="col-md-3 mainCol">
                                                         <label style="margin-left: 22px;" class="labels"
                                                             for="">Ledger</label>
                                                         <div class="leftBtns">
@@ -9910,6 +9870,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                     History</button><br></a>
                                                             <a href="/ex"><button
                                                                     class="btn btn-myPrimary-add">Expance</button><br></a>
+
+                                                            <a href="/ex"><button
+                                                                    class="btn btn-myPrimary-add">Supplier</button><br></a>
 
                                                         </div>
                                                     </div>
@@ -9975,7 +9938,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 </script>
                 <div class="inner-block">
-                    <ul class="nav nav-pills  mb-3" id="pills-tab" role="tablist">
+                    <ul class="nav nav-pills   mb-3" style="justify-content: center;" id="pills-tab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
                                 role="tab" aria-controls="pills-home" aria-selected="true">Today</a>
@@ -10007,7 +9970,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3 id="saleAmount" value=""></h3>
                                                 <h4>Todays Sale Amount</h4>
-                                                <p>80% cash sales</p>
+                                                <h4>New Messages</h4>
+
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-file-text-o"> </i>
@@ -10020,7 +9984,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>135</h3>
                                                 <h4>Leads</h4>
-                                                <p>Team visited 230 people</p>
+
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-eye"> </i>
@@ -10033,7 +9997,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>23</h3>
                                                 <h4>New Messages</h4>
-                                                <p>get reply</p>
+
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-envelope-o"> </i>
@@ -10069,7 +10033,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>135</h3>
                                                 <h4>Leads</h4>
-                                                <p>Team visited 230 people</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-eye"> </i>
@@ -10082,7 +10045,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>23</h3>
                                                 <h4>New Messages</h4>
-                                                <p>get reply</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-envelope-o"> </i>
@@ -10105,7 +10067,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>83</h3>
                                                 <h4>Sales Today</h4>
-                                                <p>80% cash sales</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-file-text-o"> </i>
@@ -10118,7 +10079,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>135</h3>
                                                 <h4>Leads</h4>
-                                                <p>Team visited 230 people</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-eye"> </i>
@@ -10131,7 +10091,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>23</h3>
                                                 <h4>New Messages</h4>
-                                                <p>get reply</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-envelope-o"> </i>
@@ -10153,7 +10112,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>83</h3>
                                                 <h4>Sales Today</h4>
-                                                <p>80% cash sales</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-file-text-o"> </i>
@@ -10179,7 +10137,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <div class="col-md-8 market-update-left">
                                                 <h3>23</h3>
                                                 <h4>New Messages</h4>
-                                                <p>get reply</p>
                                             </div>
                                             <div class="col-md-4 market-update-right">
                                                 <i class="fa fa-envelope-o"> </i>
@@ -10274,7 +10231,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <canvas id="doughnut" height="300" width="470"
                                         style="width: 470px; height: 300px;"></canvas>
-                                    
+
                                 </div>
                             </div>
 
@@ -10421,9 +10378,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul id="menu">
                     <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a>
                     </li>
-                    
+
                     <li><a><i class="fab fa-salesforce"></i><span>Operations</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
+                                style="float: right"></span></a>
                         <ul>
                             <li><a href="/bo">Book Order</a></li>
                             <li><a href="/rec">Receiving</a></li>
@@ -10715,19 +10672,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function dailySaleAmount() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                var a = JSON.parse(data);
-                document.getElementById("saleAmount").innerHTML  = a[0].DailySale;
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    var a = JSON.parse(data);
+                    document.getElementById("saleAmount").innerHTML = a[0].DailySale;
 
-            } 
+                }
+            }
+
+            xhttp.open("GET", "./dailySaleAmount/", true);
+            xhttp.send();
+
+
         }
-
-    xhttp.open("GET", "./dailySaleAmount/", true);
-    xhttp.send();
-
-
-    }
 
 
 
@@ -10809,15 +10766,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         }
 
-        function calculation(){
+        function calculation() {
             var price = document.getElementById("unitPrice").value;
-            var quantity = document.getElementById("quantity").value;    
-            
-            var total = price*quantity;
+            var quantity = document.getElementById("quantity").value;
+
+            var total = price * quantity;
             document.getElementById("totalPrice").value = total;
         }
 
-        function createQuotation(){
+        function createQuotation() {
             // <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
             //                                     required />
             //                                     <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
@@ -10825,9 +10782,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             //                                     <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
             //                                     required />
             var customerName = document.getElementById("customerName").value;
-            var fatherName ="";
+            var fatherName = "";
             var CNIC = "";
-            var city ="";
+            var city = "";
             var address = document.getElementById("address").value;
             var contact = document.getElementById("contact").value;
             var description = document.getElementById("description").value;
@@ -10836,55 +10793,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var quantity = document.getElementById("quantity").value;
             var totalPrice = document.getElementById("totalPrice").value;
             var model = document.getElementById("model").value;
-            var det=document.getElementById("dt").value;
-            var qvt=document.getElementById("qvt").value;
-            var payTo=document.getElementById("paymentTo").value;
+            var det = document.getElementById("dt").value;
+            var qvt = document.getElementById("qvt").value;
+            var payTo = document.getElementById("paymentTo").value;
 
-            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model,det,qvt,payTo];
+            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity,
+                totalPrice, model, det, qvt, payTo
+            ];
 
             var quotationData = JSON.stringify(data);
 
             var xhttp = new XMLHttpRequest();
 
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
 
-                        alert("Quotation =" + this.responseText + " is generated");
-                        
-                        window.open("/qt");
+                    alert("Quotation =" + this.responseText + " is generated");
 
-                    }
-                };
-                // var MenuID=$('#Menus').find(":selected").val();
-                xhttp.open("GET", "./createQuotation/" + quotationData, true);
-                xhttp.send();
-            
+                    window.open("/qt");
+
+                }
+            };
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./createQuotation/" + quotationData, true);
+            xhttp.send();
+
         }
 
     </script>
 
-<script>
-    var doughnutData = [{
-            value: 30,
-            color: "#e61d2f"
-        },
-        {
-            value: 50,
-            color: "#0a549d"
-        },
-        {
-            value: 100,
-            color: "#e61d2f"
-        },
-        {
-            value: 40,
-            color: "#0a549d"
-        },
-    ];
-    new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
-        doughnutData);
+    <script>
+        var doughnutData = [{
+                value: 30,
+                color: "#e61d2f"
+            },
+            {
+                value: 50,
+                color: "#0a549d"
+            },
+            {
+                value: 100,
+                color: "#e61d2f"
+            },
+            {
+                value: 40,
+                color: "#0a549d"
+            },
+        ];
+        new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(
+            doughnutData);
 
-</script>
+    </script>
 
 
 
