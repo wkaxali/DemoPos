@@ -120,14 +120,14 @@ class quotationController extends Controller
             session(['price' => $data->UnitPrice]);
             session(['contact' => $data->Contact]);
             session(['total' => $data->TotalPrice]);
-            session(['invoiceDate' => $data->DatproductNamee]);
+            session(['invoiceDate' => $data->Date]);
             session(['description' => $data->Discription]);
             session(['color' => $data->Color]);
             session(['' => $data->Model]);
             session(['quantity' => $data->Quantity]);
             session(['city' => $data->City]);
-            self::getInfo();
-            return "wlgdhu";
+            self::qoutationToPDF();
+            
 
             
             }
