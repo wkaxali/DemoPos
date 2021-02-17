@@ -72,25 +72,25 @@ class TEST extends Controller
     <tbody>
     <tr>
    
-        <td width="30%" border="0" align="left" >Customer Name</td>
+        <td width="30%" border="0" align="left" >Customer Name:'.session(['customerName' => $customerName].'</td>
         <td width="70%" border="0" align="center"></td>
        
     </tr>
     
     <tr>
-    <td width="30%" border="0">Address</td>
+    <td width="30%" border="0">Address:'.$address.'</td>
     <td width="70%" align="center" border="0"></td>
 
 </tr>
 <tr>
 
    
-    <td width="30%" border="0">Contact Details</td>
+    <td width="30%" border="0">Contact Details:'.$contact.'</td>
     <td width="70%" align="center" border="0"> </td>
     
 </tr>
 <tr>
-<td width="30%" border="0">NTN/CNIC #</td>
+<td width="30%" border="0">NTN/CNIC #'.$CNIC.'</td>
 <td width="70%" align="center" border="0"></td>
 
 
