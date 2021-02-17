@@ -818,7 +818,9 @@ Qoutation For Forland C 10
 <br><br>
 <table border="0">
 
-<tr ><td colspan="5" align ="left" ><h3>Terms & Conditions</h3> </td></tr>
+<tr ><td colspan="5" align ="left" ><h3>Terms & Conditions<br><br>
+
+</h3> </td></tr>
 </table>
 
 
@@ -829,97 +831,59 @@ Qoutation For Forland C 10
 
 
 
-<table border="1" cellpadding="9">
+<table border="1" cellpadding="3">
     <tbody>
     <tr>
    
-        <td width="30%" border="0" align="left" >Customer Name</td>
-        <td width="70%" border="0" align="center"></td>
+        <td width="30%" border="0" align="left" >Delivery Time</td>
+        <td width="70%" border="0" align="left">DAays after recipt of 100% advance payment</td>
        
     </tr>
     
     <tr>
-    <td width="30%" border="0">Address</td>
-    <td width="70%" align="center" border="0"></td>
+    <td width="30%" border="0">Validity</td>
+    <td width="70%" align="left" border="0">This Qoutation is valid for days only</td>
 
 </tr>
 <tr>
 
    
-    <td width="30%" border="0">Contact Details</td>
-    <td width="70%" align="center" border="0"> </td>
+    <td width="30%" border="0">Payment</td>
+    <td width="70%" align="left" border="0">100% Advance payment in shape of DD/PO in favor of </td>
     
 </tr>
 <tr>
-<td width="30%" border="0">NTN/CNIC #</td>
-<td width="70%" align="center" border="0"></td>
+<td width="30%" border="0">Duty/Taxes #</td>
+<td width="70%" align="left" border="0">Any change in Govt.faisal Policies,RGST/VAT and tariff structures will be on coustumer accounts</td>
 
 
 
 </tr>
 
 <tr>
-<td width="30%" border="0">SalesPerson</td>
-<td width="70%" align="center" border="0"></td>
+<td width="30%" border="0">Force Majeure</td>
+<td width="70%" align="left" border="0">Manufacture will will not be responsible for any delay in delivery due to force majeure circumstance </td>
 
 
 
 </tr>
 
 <tr>
-<td width="30%" border="0">Dealer</td>
-<td width="70%" align="center" border="0"></td>
+<td width="30%" border="0">Warranty</td>
+<td width="70%" align="left" border="0"> Manufacture will not br responsible for any delay in delivery due to forcemajor circumstance</td>
 
 
 
 </tr>
 <tr>
-<td width="30%" border="0">Vehicle</td>
-<td width="70%" align="center" border="0"></td>
+<td width="30%" border="0">Model</td>
+<td width="70%" align="left" border="0">Forland C 10(2021)</td>
 
 
 
 </tr>
 
-<tr>
-<td width="30%" border="0">Chassis No</td>
-<td width="70%" align="center" border="0"></td>
 
-
-
-</tr>
-
-<tr>
-<td width="30%" border="0">Engine NO</td>
-<td width="70%" align="center" border="0"></td>
-
-
-
-</tr>
-
-<tr>
-<td width="30%" border="0">Color</td>
-<td width="70%" align="center" border="0"></td>
-
-
-
-</tr>
-
-<tr>
-<td width="30%" border="0">Amount</td>
-<td width="70%" align="center" border="0"></td>
-
-
-
-</tr>
-
-<tr>
-<td width="30%" border="0">Payment Detail</td>
-<td width="70%" align="center" border="0"></td>
-
-
-
-</tr>
 
  
  
@@ -929,7 +893,53 @@ Qoutation For Forland C 10
 
 
 
+  
+<table border="0">
+<thead>
+<br>
+<br>
 
+
+<br>
+
+
+<br><br>
+<br>
+
+
+<br>
+<br>
+<br>
+
+
+<br>
+
+<br>
+
+
+<br>
+<tr>
+<td width="60%" border="0"></td>
+<td width="40%" align="center" border="0">_______________________</td>
+
+
+
+</tr>
+<tr>
+<br>
+
+<td width="60%" border="0"></td>
+<td width="40%" align="center" border="0">Sign and Signature</td>
+
+
+
+</tr>
+
+
+
+
+</tbody>
+</table>
 
 
 

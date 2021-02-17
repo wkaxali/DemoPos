@@ -10813,15 +10813,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Quotation =" + this.responseText + " is generated");
+                        alert("Quotation =" + this.responseText + " is generated");
+                        
+                        window.open("./oqp");
 
-                    window.open("/qt");
-
-                }
-            };
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./createQuotation/" + quotationData, true);
-            xhttp.send();
 
         }
 
