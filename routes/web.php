@@ -62,7 +62,11 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
-Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice']);
+Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
+
+Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
+//qutationRequest
+Route::get('/testpdf/4',[TEST::class, 'qutationRequest']);
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
