@@ -297,7 +297,7 @@ class TEST extends Controller
         <th width="60%" border="1" align="center">
            Total in Word </th>
       
-        <th  width="40%" border="1" align="center""> Tootal PKR</th>
+        <th  width="40%" border="1" align="center" style="line-height: 100%;"> Tootal PKR</th>
       
     </tr>
 </thead>
