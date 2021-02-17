@@ -418,7 +418,7 @@ class TEST extends Controller
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-public function qutationRequest()
+public function gatePass()
 {
     
     
@@ -761,7 +761,191 @@ public function qutationRequest()
 
 
 
+public function  qutationRequestFinal(){
 
+
+$newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
+<tr><td>
+
+
+
+
+<img src="/assets/img/logo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
+<tr>
+<td align="Left">
+Customer Name
+</td>
+</tr>
+<tr>
+<td >
+Qoutation For Forland C 10
+</td>
+</tr>
+
+</table>
+<br>
+<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
+<thead>
+<tr>
+<th>Description</th>
+<th>Color</th>
+<th>Unit Price</th>
+<th width="40">Qty</th>
+<th width="173">Total Price</th>
+</tr>
+</thead>
+
+
+<tbody>
+<tr><td>Forland C10</td>
+<td rowspan="2">White</td>
+<td >Rs</td>
+<td rowspan="2" width="40">2</td>
+<td width="173">Rs</td></tr>
+<tr><td >ABHA</td>
+
+<td>175000</td>
+<td width="173">1254222</td>
+</tr>
+
+
+<tr><td colspan="5">Two milion fifty Thousand only  </td></tr>
+
+</tbody>
+</table>
+
+
+<br><br>
+<table border="0">
+
+<tr ><td colspan="5" align ="left" ><h3>Terms & Conditions</h3> </td></tr>
+</table>
+
+
+
+<table>
+
+</table>
+
+
+
+<table border="1" cellpadding="9">
+    <tbody>
+    <tr>
+   
+        <td width="30%" border="0" align="left" >Customer Name</td>
+        <td width="70%" border="0" align="center"></td>
+       
+    </tr>
+    
+    <tr>
+    <td width="30%" border="0">Address</td>
+    <td width="70%" align="center" border="0"></td>
+
+</tr>
+<tr>
+
+   
+    <td width="30%" border="0">Contact Details</td>
+    <td width="70%" align="center" border="0"> </td>
+    
+</tr>
+<tr>
+<td width="30%" border="0">NTN/CNIC #</td>
+<td width="70%" align="center" border="0"></td>
+
+
+
+</tr>
+
+<tr>
+<td width="30%" border="0">SalesPerson</td>
+<td width="70%" align="center" border="0"></td>
+
+
+
+</tr>
+
+<tr>
+<td width="30%" border="0">Dealer</td>
+<td width="70%" align="center" border="0"></td>
+
+
+
+</tr>
+<tr>
+<td width="30%" border="0">Vehicle</td>
+<td width="70%" align="center" border="0"></td>
+
+
+
+</tr>
+
+<tr>
+<td width="30%" border="0">Chassis No</td>
+<td width="70%" align="center" border="0"></td>
+
+
+
+</tr>
+
+<tr>
+<td width="30%" border="0">Engine NO</td>
+<td width="70%" align="center" border="0"></td>
+
+
+
+</tr>
+
+<tr>
+<td width="30%" border="0">Color</td>
+<td width="70%" align="center" border="0"></td>
+
+
+
+</tr>
+
+<tr>
+<td width="30%" border="0">Amount</td>
+<td width="70%" align="center" border="0"></td>
+
+
+
+</tr>
+
+<tr>
+<td width="30%" border="0">Payment Detail</td>
+<td width="70%" align="center" border="0"></td>
+
+
+
+</tr>
+
+ 
+ 
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+';
+ 
+    PDF::SetTitle('Qoutation');
+    PDF::AddPage();
+    PDF::writeHTML($newHTML, true, false, true, false, '');
+
+    PDF::Output('qty.pdf');
+
+
+
+}
 
 
 
