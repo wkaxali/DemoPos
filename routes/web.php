@@ -30,6 +30,7 @@ use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
 use App\Http\Controllers\saleRequestController;
 use App\Http\Controllers\TEST;
+use App\Http\Controllers\printServiceInvoice;
 
 
 
@@ -71,7 +72,7 @@ Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 
 Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
-
+Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
