@@ -100,10 +100,10 @@ class quotationController extends Controller
             return $data;
             }
 
-        public function myQuotation(){
-                $record = DB:: select ('select * from');
-                return $record;
-            }
+        // public function myQuotation(){
+        //         $record = DB:: select ('select * from');
+        //         return $record;
+        //     }
  
         public function  getQuotation($QID){
 
@@ -132,9 +132,10 @@ class quotationController extends Controller
 
             }
 
-            public function getInfo($htmldata)
+            public function qoutationToPdf()
             {
-                $html = '';
+                 $a="Ali";
+                $html = 'this is'.$a.' HTML';
                $html= $htmldata;
                 
                 PDF::SetTitle('Hello World');
