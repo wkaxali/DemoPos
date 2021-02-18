@@ -2446,7 +2446,7 @@
 
             if (this.readyState == 4 && this.status == 200) {
                 alert("Printed");
-                window.open("./sir");
+                window.open("./testpdf/3");
 
             }
         };
@@ -2581,8 +2581,10 @@
 
 <script>
     function printDocs() {
-        window.open("/psi");
-        window.open("/fgp");
+        //window.open("/psi");
+        //window.open("/fgp");
+        window.open("/testpdf/3");
+        window.open("/testpdf/4");
         window.open("/prc");
     }
 

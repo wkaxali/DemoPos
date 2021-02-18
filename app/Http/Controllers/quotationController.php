@@ -117,15 +117,18 @@ class quotationController extends Controller
             session(['fatherName' => $data->FatherName]);
             session(['CNIC' => $data->CNIC]);
             session(['address' => $data->Address]);
-            session(['price' => $data->UnitPrice]);
+            session(['price' => number_format($data->UnitPrice)]);
             session(['contact' => $data->Contact]);
-            session(['total' => $data->TotalPrice]);
-            session(['invoiceDate' => $data->DatproductNamee]);
+            session(['total' => number_format($data->TotalPrice)]);
+            session(['invoiceDate' => $data->Date]);
             session(['description' => $data->Discription]);
             session(['color' => $data->Color]);
             session(['' => $data->Model]);
             session(['quantity' => $data->Quantity]);
             session(['city' => $data->City]);
+            session(['DeliveryTime' => $data->DeliveryTime]);
+            session(['ValidityPeriod' => $data->ValidityPeriod]);
+            session(['PayTo' => $data->PayTo]);
 
             
             }

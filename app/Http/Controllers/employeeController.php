@@ -63,7 +63,7 @@ class employeeController extends Controller
           'JoiningDate'=>$date
           ]);
 
-          return $re;
+          return $EID;
         }
         
 }

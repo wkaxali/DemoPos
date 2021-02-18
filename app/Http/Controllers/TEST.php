@@ -19,11 +19,9 @@ class TEST extends Controller
     }
 
 
-    public function saleInvoiceRequest1()
+    public function saleServiceInvoice1()
     {
         
-        
-
         $newHTML='<table border="0" cellpadding="2">
         <thead>
             <tr>
@@ -44,11 +42,6 @@ class TEST extends Controller
     
         </td>
 
-
-
-
-        
-        
         </tr>
         <tr>
    
@@ -92,110 +85,56 @@ class TEST extends Controller
 <tr>
 <td width="30%" border="0">NTN/CNIC #</td>
 <td width="70%" align="center" border="0"></td>
-
-
-
 </tr>
-
 <tr>
 <td width="30%" border="0">SalesPerson</td>
 <td width="70%" align="center" border="0"></td>
-
-
-
 </tr>
-
 <tr>
 <td width="30%" border="0">Dealer</td>
 <td width="70%" align="center" border="0"></td>
-
-
-
 </tr>
 <tr>
 <td width="30%" border="0">Vehicle</td>
 <td width="70%" align="center" border="0"></td>
-
-
-
 </tr>
-
 <tr>
 <td width="30%" border="0">Chassis No</td>
 <td width="70%" align="center" border="0"></td>
-
-
-
 </tr>
-
 <tr>
 <td width="30%" border="0">Engine NO</td>
 <td width="70%" align="center" border="0"></td>
-
-
-
 </tr>
-
 <tr>
 <td width="30%" border="0">Color</td>
 <td width="70%" align="center" border="0"></td>
-
-
-
 </tr>
-
 <tr>
 <td width="30%" border="0">Amount</td>
 <td width="70%" align="center" border="0"></td>
-
-
-
 </tr>
-
 <tr>
 <td width="30%" border="0">Payment Detail</td>
 <td width="70%" align="center" border="0"></td>
-
-
-
 </tr>
-
- 
- 
 </tbody>
 </table>
     <br>
-   
 <br><br> <br>
 <br>
 <table border="0">
-
 <tr>
-    
  <td  align="right">      
  _______________________</td>
 
-        
-       
-      
     </tr>
     <tr>
-    
-       
     <td align="right"> Sign & Signature
     </td>           
-        
-       
-      
     </tr>
-    
 </table>
 
-    
-    
-    
-    
-    
     ';     // $html= $htmldata;
   
         
@@ -206,34 +145,9 @@ class TEST extends Controller
         PDF::Output('invoiceRequest.pdf');
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function saleInvoiceRequest()
     {
         
-        
-
         $newHTML='<table border="0" cellpadding="2">
         <thead>
             <tr>
@@ -254,24 +168,14 @@ class TEST extends Controller
     
         </td>
 
-
-
-
-        
-        
         </tr>
         <tr>
    
         <td width="30%" border="0" align="left" >Subject</td>
-        <td width="70%" border="0" align="right"><h4>DATE________________________</h4></td>
+        <td width="70%" border="0" align="right"><h4>Date: '.session()->get("invoiceDate").'</h4></td>
        
     </tr>
-      
-
-        
         </tbody>
-        
-
             
     </table>
     <br>
@@ -283,25 +187,25 @@ class TEST extends Controller
     <tr>
    
         <td width="30%" border="0" align="left" >Customer Name</td>
-        <td width="70%" border="0" align="center"></td>
+        <td width="70%" border="0" align="center">'.session()->get("customerName").'</td>
        
     </tr>
     
     <tr>
     <td width="30%" border="0">Address</td>
-    <td width="70%" align="center" border="0"></td>
+    <td width="70%" align="center" border="0">'.session()->get("address").'</td>
 
 </tr>
 <tr>
 
    
     <td width="30%" border="0">Contact Details</td>
-    <td width="70%" align="center" border="0"> </td>
+    <td width="70%" align="center" border="0">'.session()->get("contact").'</td>
     
 </tr>
 <tr>
 <td width="30%" border="0">NTN/CNIC #</td>
-<td width="70%" align="center" border="0"></td>
+<td width="70%" align="center" border="0">'.session()->get("CNIC").'</td>
 
 
 
@@ -309,7 +213,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">SalesPerson</td>
-<td width="70%" align="center" border="0"></td>
+<td width="70%" align="center" border="0">Forland Modern Motors</td>
 
 
 
@@ -317,14 +221,14 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Dealer</td>
-<td width="70%" align="center" border="0"></td>
+<td width="70%" align="center" border="0">Forland Modern Motors</td>
 
 
 
 </tr>
 <tr>
 <td width="30%" border="0">Vehicle</td>
-<td width="70%" align="center" border="0"></td>
+<td width="70%" align="center" border="0">'.session()->get("productName").'</td>
 
 
 
@@ -332,7 +236,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Chassis No</td>
-<td width="70%" align="center" border="0"></td>
+<td width="70%" align="center" border="0">'.session()->get("chassisNo").'</td>
 
 
 
@@ -340,7 +244,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Engine NO</td>
-<td width="70%" align="center" border="0"></td>
+<td width="70%" align="center" border="0">'.session()->get("engineNo").'</td>
 
 
 
@@ -348,7 +252,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Color</td>
-<td width="70%" align="center" border="0"></td>
+<td width="70%" align="center" border="0">'.session()->get("color").'</td>
 
 
 
@@ -356,7 +260,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Amount</td>
-<td width="70%" align="center" border="0"></td>
+<td width="70%" align="center" border="0">'.session()->get("amountPaid").'</td>
 
 
 
@@ -364,7 +268,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Payment Detail</td>
-<td width="70%" align="center" border="0"></td>
+<td width="70%" align="center" border="0">Payment Details Attached</td>
 
 
 
@@ -401,11 +305,6 @@ class TEST extends Controller
     
 </table>
 
-    
-    
-    
-    
-    
     ';     // $html= $htmldata;
   
         
@@ -420,7 +319,6 @@ class TEST extends Controller
 
 public function gatePass()
 {
-    
     
 
     $newHTML='<table border="0">
@@ -447,17 +345,17 @@ public function gatePass()
     <tbody>
     <tr>
     <td><br><span style="font-size: medium;">Refrence Number</span></td>
-    <td align="center"><br>____________</td>
+    <td align="center"><br>'.session()->get("referenceNumber").'</td>
     <td><br><span style="font-size: medium;">Customer Name</span></td>
-    <td align="center"><br>____________</td>
+    <td align="center"><br>'.session()->get("customerName").'</td>
     
     
     </tr>
     <tr>
     <td><br><span style="font-size: medium;">Date</span></td>
-    <td align="center"><br>____________</td>
+    <td align="center"><br>'.session()->get("invoiceDate").'</td>
     <td><br><span style="font-size: medium;">CNIC/NTN</span></td>
-    <td align="center"><br>____________</td>
+    <td align="center"><br>'.session()->get("CNIC").'</td>
     
     
     </tr>
@@ -474,8 +372,7 @@ public function gatePass()
     <table border="0">
     <thead>
     <tr>
-    <td align="left" bgcolor="#C0C0C0" width="60" >
-    Sr# </td>
+    <td align="left" bgcolor="#C0C0C0" width="60" > Sr# </td>
     <td align="center" bgcolor="#C0C0C0" width="140">Product Description</td>
     <td align="center"bgcolor="#C0C0C0" >Engine No</td>
     <td align="center" bgcolor=" #C0C0C0">Chassis No</td>
@@ -485,44 +382,11 @@ public function gatePass()
     </thead>
     <tbody >
     <tr >
-    <td ></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr> <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr> <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td >1</td>
+    <td>'.session()->get("description").'</td>
+    <td>'.session()->get("engineNo").'</td>
+    <td>'.session()->get("chassisNo").'</td>
+    <td>'.session()->get("color").'</td>
     </tr>
     </tbody>
     </table>
@@ -614,17 +478,17 @@ public function gatePass()
     <tbody>
     <tr>
     <td><br><span style="font-size: medium;">Refrence Number</span></td>
-    <td align="center"><br>____________</td>
+    <td align="center"><br>'.session()->get("referenceNumber").'</td>
     <td><br><span style="font-size: medium;">Customer Name</span></td>
-    <td align="center"><br>____________</td>
+    <td align="center"><br>'.session()->get("customerName").'</td>
     
     
     </tr>
     <tr>
     <td><br><span style="font-size: medium;">Date</span></td>
-    <td align="center"><br>____________</td>
+    <td align="center"><br>'.session()->get("invoiceDate").'</td>
     <td><br><span style="font-size: medium;">CNIC/NTN</span></td>
-    <td align="center"><br>____________</td>
+    <td align="center"><br>'.session()->get("CNIC").'</td>
     
     
     </tr>
@@ -654,33 +518,13 @@ public function gatePass()
     </thead>
     <tbody >
     <tr >
-    <td ></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td >1</td>
+    <td>'.session()->get("description").'</td>
+    <td>'.session()->get("engineNo").'</td>
+    <td>'.session()->get("chassisNo").'</td>
+    <td>'.session()->get("color").'</td>
     </tr>
-     <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-     <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
-    <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    </tr>
+     
  </tbody>
     </table>
     
@@ -770,15 +614,16 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
 
 
 
-<img src="/assets/img/logo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
+<img src="/assets/img/forLogo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
 <tr>
 <td align="Left">
-Customer Name
+'.session()->get("customerName").' Date: '.session()->get("invoiceDate").'
 </td>
+
 </tr>
 <tr>
 <td >
-Qoutation For Forland C 10
+Qoutation For '.session()->get("productName").'
 </td>
 </tr>
 
@@ -797,19 +642,20 @@ Qoutation For Forland C 10
 
 
 <tbody>
-<tr><td>Forland C10</td>
-<td rowspan="2">White</td>
+<tr>
+<td>'.session()->get("productName").'</td>
+<td rowspan="2">'.session()->get("color").'</td>
 <td >Rs</td>
-<td rowspan="2" width="40">2</td>
+<td rowspan="2" width="40">'.session()->get("quantity").'</td>
 <td width="173">Rs</td></tr>
-<tr><td >ABHA</td>
+<tr><td >'.session()->get("description").'</td>
 
-<td>175000</td>
-<td width="173">1254222</td>
+<td>'.session()->get("price").'</td>
+<td width="173">'.session()->get("total").'</td>
 </tr>
 
 
-<tr><td colspan="5">Two milion fifty Thousand only  </td></tr>
+<tr><td colspan="5">('.session()->get("amountInWords").'/Only).</td></tr>
 
 </tbody>
 </table>
@@ -836,20 +682,20 @@ Qoutation For Forland C 10
     <tr>
    
         <td width="30%" border="0" align="left" >Delivery Time</td>
-        <td width="70%" border="0" align="left">DAays after recipt of 100% advance payment</td>
+        <td width="70%" border="0" align="left">'.session()->get("DeliveryTime").' days after recipt of 100% advance payment</td>
        
     </tr>
     
     <tr>
     <td width="30%" border="0">Validity</td>
-    <td width="70%" align="left" border="0">This Qoutation is valid for days only</td>
+    <td width="70%" align="left" border="0">This Qoutation is valid for '.session()->get("ValidityPeriod").' days only</td>
 
 </tr>
 <tr>
 
    
     <td width="30%" border="0">Payment</td>
-    <td width="70%" align="left" border="0">100% Advance payment in shape of DD/PO in favor of </td>
+    <td width="70%" align="left" border="0">100% Advance payment in shape of DD/PO in favor of '.session()->get("PayTo").'</td>
     
 </tr>
 <tr>
@@ -877,7 +723,7 @@ Qoutation For Forland C 10
 </tr>
 <tr>
 <td width="30%" border="0">Model</td>
-<td width="70%" align="left" border="0">Forland C 10(2021)</td>
+<td width="70%" align="left" border="0">'.session()->get("productName").'(2021)</td>
 
 
 
@@ -940,10 +786,6 @@ Qoutation For Forland C 10
 
 </tbody>
 </table>
-
-
-
-
 
 ';
  

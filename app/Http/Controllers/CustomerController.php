@@ -201,7 +201,7 @@ class CustomerController extends Controller
           'Comments'=>$comments
           ]);
 
-          return $re;
+          return $CID;
         }
     
 }
