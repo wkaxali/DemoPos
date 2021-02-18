@@ -172,6 +172,37 @@ class CustomerController extends Controller
 
     }
 
+    public function getCustomers(){
+        $results=DB::select('select * from customeinformation');
+        return $results;
+    }
+
+
+    public static function editCustomer(Request $request, $CO){
+        $ata=json_decode($CO);
+        $CID = $ata[0];
+        $customerName = $ata[1];
+        $fatherName = $ata[2];
+        $address = $ata[3];
+        $contact = $ata[4];
+        $CNIC = $ata[5];
+        $balance = $ata[6];
+        $comments = $ata[7];
+
+        $re = DB::table('customeinformation')
+        ->where('CustomerID', $CID)
+        ->update([
+          'CustomerName'=>$customerName,
+          'FatherName'=>$fatherName,
+          'Address'=>$address,
+          'Contect'=>$contact,
+          'CNIC'=>$CNIC,
+          'Balance'=>$balance,
+          'Comments'=>$comments
+          ]);
+
+          return $CID;
+        }
     
 }
 
