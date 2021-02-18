@@ -344,7 +344,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin-left: 50px;
         }
 
-        /*--nav strip start here--*/
+        /*--F strip start here--*/
         .header-main {
             background: #fff;
             padding: 1em 2em;
@@ -9679,6 +9679,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <div class="page-container">
         <div class="left-content">
+        <!-- nav bar -->
             <div class="mother-grid-inner">
                 <div class="header-main">
                     <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
