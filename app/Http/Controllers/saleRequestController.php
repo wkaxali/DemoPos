@@ -44,6 +44,7 @@ class saleRequestController extends Controller
         session(['chassisNo' => $re->ChasisNumber]);
         session(['color' => $re->color]);
         session(['fatherName' => $re->FatherName]);
+        session(['invoiceDate' => $re->DateStamp]);
         
         session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
         session(['amountPaid' => $re->AmountPaid]);
@@ -59,7 +60,7 @@ class saleRequestController extends Controller
         session(['amountInWords' => $a]);
 
         session(['receiptNumber' => 'FMM-'.$dateNow.'-'.$InvoiceNo]);
-        session(['invoiceDate' => $dateNow]);
+        
         //session(['vehRegNo' => '']);
         //session(['distanceTraveled' => '']);
         session(['Amount' =>'']);

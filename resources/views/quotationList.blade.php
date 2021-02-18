@@ -166,7 +166,12 @@
             xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 
+<<<<<<< HEAD
                
+=======
+                window.open('/qt');
+                window.open('/testpdf/5');
+>>>>>>> 8e78c63d9295d89bce2894d81901e5410e2d0e08
 
                 }
             }

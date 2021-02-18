@@ -1052,9 +1052,15 @@
         {
             "name": "laravel/framework",
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> ff0cd043d1103fbe6f2bd182ade0c4f7be00a53f
+=======
+=======
+
+>>>>>>> ffdb309726ca044587c9e229955399a38598cce6
+>>>>>>> 8e78c63d9295d89bce2894d81901e5410e2d0e08
             "version": "v8.28.1",
             "source": {
                 "type": "git",
@@ -1066,9 +1072,15 @@
                 "url": "https://api.github.com/repos/laravel/framework/zipball/73dd43d92fcde6c6abc00658ae33391397ca119d",
                 "reference": "73dd43d92fcde6c6abc00658ae33391397ca119d",
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> ff0cd043d1103fbe6f2bd182ade0c4f7be00a53f
+=======
+=======
+
+>>>>>>> ffdb309726ca044587c9e229955399a38598cce6
+>>>>>>> 8e78c63d9295d89bce2894d81901e5410e2d0e08
                 "shasum": ""
             },
             "require": {
@@ -1224,12 +1236,22 @@
                 "source": "https://github.com/laravel/framework"
             },
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8e78c63d9295d89bce2894d81901e5410e2d0e08
             "time": "2021-02-16T18:07:44+00:00"
+=======
 
+<<<<<<< HEAD
 =======
             "time": "2021-02-16T18:07:44+00:00"
 >>>>>>> ff0cd043d1103fbe6f2bd182ade0c4f7be00a53f
+=======
+            "time": "2021-02-16T18:07:44+00:00"
+
+>>>>>>> ffdb309726ca044587c9e229955399a38598cce6
+>>>>>>> 8e78c63d9295d89bce2894d81901e5410e2d0e08
         },
         {
             "name": "laravel/tinker",

@@ -2,8 +2,6 @@
 
 use NumberToWords\NumberToWords;
 
-
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -16,9 +14,13 @@ use NumberToWords\NumberToWords;
 use DB;
 use PDF;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> ff0cd043d1103fbe6f2bd182ade0c4f7be00a53f
+=======
+
+>>>>>>> 8e78c63d9295d89bce2894d81901e5410e2d0e08
 class quotationController extends Controller
 {
 
@@ -122,15 +124,16 @@ class quotationController extends Controller
             session(['fatherName' => $data->FatherName]);
             session(['CNIC' => $data->CNIC]);
             session(['address' => $data->Address]);
-            session(['price' => $data->UnitPrice]);
+            session(['price' => number_format($data->UnitPrice)]);
             session(['contact' => $data->Contact]);
-            session(['total' => $data->TotalPrice]);
+            session(['total' => number_format($data->TotalPrice)]);
             session(['invoiceDate' => $data->Date]);
             session(['description' => $data->Discription]);
             session(['color' => $data->Color]);
             session(['' => $data->Model]);
             session(['quantity' => $data->Quantity]);
             session(['city' => $data->City]);
+<<<<<<< HEAD
 <<<<<<< HEAD
             self::qoutationToPDF();
             
@@ -145,6 +148,16 @@ class quotationController extends Controller
 
             public function getInfo()
 >>>>>>> ff0cd043d1103fbe6f2bd182ade0c4f7be00a53f
+=======
+            session(['DeliveryTime' => $data->DeliveryTime]);
+            session(['ValidityPeriod' => $data->ValidityPeriod]);
+            session(['PayTo' => $data->PayTo]);
+
+            
+            }
+
+            public function qoutationToPDF()
+>>>>>>> 8e78c63d9295d89bce2894d81901e5410e2d0e08
             {
                 
                 $html = '<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
