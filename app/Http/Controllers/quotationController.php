@@ -2,6 +2,8 @@
 
 use NumberToWords\NumberToWords;
 
+
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -12,7 +14,7 @@ use NumberToWords\NumberToWords;
 //https://github.com/kwn/number-to-words
 
 use DB;
-
+use PDF;
 class quotationController extends Controller
 {
 
@@ -129,10 +131,10 @@ class quotationController extends Controller
             session(['productName' => $data->Model]);
             session(['quantity' => $data->Quantity]);
             session(['city' => $data->City]);
-
+            
             }
 
-            public function qoutationToPdf()
+            public function getInfo()
             {
                  $a="Ali";
                 $html = 'this is'.$a.' HTML';

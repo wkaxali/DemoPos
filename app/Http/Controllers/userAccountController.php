@@ -24,11 +24,34 @@ class userAccountController extends Controller
         session(['userID' => $re[0]->UserID]);
      return $re;
     }
+ }
+    public static function addUsers(Request $request, $CO){
+        $ata=json_decode($CO);
+        $userName = $ata[0];
+        $password = $ata[1];
+        $designation = $ata[2];
+
+        $re = DB::table('userinfo')
+        ->insert([
+          
+          'UserName'=>$userName,
+          'Password'=>$password,
+          'Designation'=>$designation
+          ]);
+
+          return $userName;
+        }
+        
+        public static function getUsers(){
+            $data=DB:: select('select * from userinfo ');
+            return $data;
+          }
 
 
 
 
 
 
-    }
+
+    
 }

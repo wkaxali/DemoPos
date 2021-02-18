@@ -63,7 +63,7 @@ Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
-
+// Route::get('/editLedgerParties',[LedgerPartiesController::class, '']);
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
@@ -181,15 +181,17 @@ Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
 Route::get('/getEmployees',[taskController::class, 'getEmployees']);
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
-Route::get('/create
-
-/{data}',[quotationController::class, 'createQuotation']);
-
+Route::get('/create/{data}',[quotationController::class, 'createQuotation']);
+Route::get('/getParty',[LedgerPartiesController::class, 'getParty']);
+Route::get('/editParty/{UP}',[LedgerPartiesController::class, 'editParty']);
 Route::get('/adduzairdata',[uzairController::class, 'function']);
 route::get('/addtable' , [uzairController::class, 'myfunction']);
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
+Route::get('/addUsers/{AU}',[userAccountController::class, 'addUsers']);
+Route::get('/editUsers/{AU}',[userAccountController::class, 'editUsers']);
+Route::get('/getUsers',[userAccountController::class, 'getUsers']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
@@ -474,8 +476,19 @@ Route::get('/ee', function () {
     return view('editEmployee');
 });
 Route::get('/ec', function () {
-    return view('customerEdit');
+    return view('editCustomer');
 });
 Route::get('/pdf', function () {
     return view('test');
+});
+Route::get('/ep', function () {
+    return view('editLedgerParties');
+});
+
+Route::get('/au', function () {
+    return view('addUsers');
+});
+
+Route::get('/eu', function () {
+    return view('editUsers');
 });
