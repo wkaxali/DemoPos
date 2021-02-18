@@ -1415,35 +1415,6 @@
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            </div>
-        </div>
-    </header>
-    
-    <section>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="myMainRow">
-
-
-                        <div class="myOwnRow-left">
-                            <div class="input-field">
-                                <label for="status">Product ID</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="PID">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Model</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="ProductName">
-=======
-=======
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                 <header>
                     <div class="container">
                         <div class="row">
@@ -1453,10 +1424,6 @@
                                         <h6> <strong>Date :</strong> 27/11/2020</h6>
                                     </div>
                                 </div>
-<<<<<<< HEAD
->>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
-=======
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                             </div>
                         </div>
                     </div>
@@ -1489,41 +1456,6 @@
                                                 name="name" id="color">
                                         </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                            <div class="input-field">
-                                <label for="status">Chassis Number </label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="ChasisNumber">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Engine Number</label>
-                                <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="EngineNumber">
-                            </div>
-                            <div class="input-field"></label>
-                             
-                                <label for="status">Status</label>   <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="Status">
-                            </div>
-                           
-                        </div>
-
-                        <div style="display: flex;" class="myOwnROw">
- <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-
-                            <div class="row">
-                                <div class="col-md-12">
-                            
-=======
-=======
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                         <div class="input-field">
                                             <label for="status">Chassis Number </label>
                                             <input type="text" autocomplete="OFF" class="form-control"
@@ -1542,127 +1474,7 @@
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="Status">
                                         </div>
-<<<<<<< HEAD
->>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
 
-                                        <div class="input-field">
-                                            <label for="status">Description</label>
-                                            <input type="text" autocomplete="OFF" class="form-control"
-                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="description">
-                                        </div>
-
-<<<<<<< HEAD
-                            <div class="input-field">
-                            <label for="status">Purchase Price</label>
-                                <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="TotalPrice"><br>
-                                <label for="status">Total Cost</label>
-                                <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="TotalCost"><br>
-                                <!-- <label for="status">17 % Tax on Price</label>
-                                <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="tax"> -->
-
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Purchase Price Details
-                                                </h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body" id="SmallFontlabel">
-                                                <div class="input-field">
-                                                    <label for="">Invoice Price</label>
-                                                    <input type="text" name=""
-                                                        style="display: inline-block; width: 200px;"
-                                                        class="form-control" id="">
-                                                </div>
-                                                <div class="input-field">
-                                                    <label for="">Price With Additional Tax</label>
-                                                    <input type="text" name=""
-                                                        style="display: inline-block; width: 200px;"
-                                                        class="form-control" id="">
-=======
-                                        <div class="input-field">
-                                            <label for="status">Invoice Price</label>
-                                            <input type="number" autocomplete="OFF" class="form-control"
-                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="TotalPrice"><br>
-                                            <!-- <label for="status">Total Cost</label> -->
-                                            <input type="number" autocomplete="OFF" class="form-control"
-                                                style="display: none !important; height: 30px !important; width: 183px;"
-                                                name="name" id="TotalCost"><br>
-                                            <!-- <label for="status">17 % Tax on Price</label> -->
-                                            <input type="number" autocomplete="OFF" class="form-control"
-                                                style="display: none !important; height: 30px !important; width: 183px;"
-                                                name="name" id="tax">
-
-                                            <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLabel">Purchase
-                                                                Price Details
-                                                            </h5>
-                                                            <button type="button" class="btn-close"
-                                                                data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body" id="SmallFontlabel">
-                                                            <div class="input-field">
-                                                                <label for="">Invoice Price</label>
-                                                                <input type="text" name=""
-                                                                    style="display: inline-block; width: 200px;"
-                                                                    class="form-control" id="">
-                                                            </div>
-                                                            <div class="input-field">
-                                                                <label for="">Price With Additional Tax</label>
-                                                                <input type="text" name=""
-                                                                    style="display: inline-block; width: 200px;"
-                                                                    class="form-control" id="">
-                                                            </div>
-
-
-                                                            <div class="input-field">
-                                                                <label for="">Increase In Price</label>
-                                                                <input type="text" name=""
-                                                                    style="display: inline-block; width: 200px;"
-                                                                    class="form-control" id="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save
-                                                                changes</button>
-                                                        </div>
-                                                    </div>
->>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="input-field">
-                                            <label for="status">Discount</label>
-                                            <input type="number" autocomplete="OFF" class="form-control"
-                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" value="0" id="Discount" onchange="calc()">
-                                        </div>
-                                        <div class="input-field">
-                                            <label for="status">Net Total</label>
-                                            <input type="text" readonly class="form-control"
-                                                style=" pointer-events: none; display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="NetTotal">
-                                        </div>
-=======
-
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                     </div>
                                     <div class="myOwnROw">
 
@@ -1766,31 +1578,6 @@
                                     </div>
                                 </div>
                             </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                            <div class="input-field">
-                                <label for="status">Discount</label>
-                                <input type="number" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" value="0" id="Discount" onkeyup="calc()">
-                            </div>
-                            <div class="input-field">
-                                <label for="status">Net Total</label>
-                                <input type="text" readonly class="form-control"
-                                    style=" pointer-events: none; display: inline-block !important; height: 30px !important; width: 183px;"
-                                    name="name" id="NetTotal">
-                            </div>
-                        </div>
-                        </div>
-                        </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="head-right">
-
-                                    </div>
-=======
-=======
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
 
                         </div>
                     </div>
@@ -1801,52 +1588,10 @@
                             <div class="col-md-12">
                                 <div class="SecondColor my-4">
 
-<<<<<<< HEAD
->>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
-=======
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                 </div>
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <br>
-
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="SecondColor my-4">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-  
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="head-left">
-
-
-                        <div class="input-field">
-                        <label for="issue-3">Customer Name</label>
-                                <select class="selectpicker" data-live-search="true" tabindex="null" id="CustomerName"
-                                    onchange="getCurrentCustomerInfo()">
-                                    <!-- from database -->
-                                </select>
-                            <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
-=======
-=======
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                 </section>
                 <section>
                     <div class="container">
@@ -1861,14 +1606,8 @@
                                             id="CustomerName" onchange="getCurrentCustomerInfo()">
                                             <!-- from database -->
                                         </select>
-<<<<<<< HEAD
-                                        <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
->>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
-                               margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
-=======
                                         <button data-toggle="modal" data-target="#staticBackdrop" style="height: 40px;
                                margin-top: -5px;width:41px;" class="btn"><i class="fas fa-user-plus"></i></button>
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                                     </div>
                                     <div class="input-field">
                                         <label for="status">Client's Father Name</label>
@@ -1994,32 +1733,12 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                </div>
-            </div>
-        </div>
-    </section>
-    <br>
-    <br>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="ThirdColor my-4">
-=======
-=======
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
                 </section>
                 <section>
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="ThirdColor my-4">
-<<<<<<< HEAD
->>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
-=======
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
 
                                 </div>
                             </div>
@@ -2223,7 +1942,7 @@
 
             if (this.readyState == 4 && this.status == 200) {
                 alert("Printed");
-                window.open("./sir");
+                window.open("./testpdf/3");
 
             }
         };
@@ -2358,9 +2077,9 @@
 
 <script>
     function printDocs() {
-        window.open("/psi");
-        window.open("/fgp");
-        window.open("/prc");
+        window.open("/testpdf/2");
+        window.open("/testpdf/3");
+        window.open("/testpdf/4");
     }
 
     function fetchAccounts() {

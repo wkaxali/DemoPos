@@ -9736,9 +9736,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <input type="text" name="address" id="address" placeholder="Address"
                                                 required />
-                                            <input type="text" name="phone_number" id="contact" placeholder="Contact"
-                                                required />
-                                            <input type="text" name="model" id="model" placeholder="model" required />
+                                            <input type="text" name="phone_number" id="contact"
+                                                placeholder="Contact" required />
+                                            <label for="Model">Select Model</label>
+                                            <select style="height: 40px !important; width: 200px !important;" name="Select Model"
+                                                class="selectpicker form-control" data-live-search="true" id="model" onchange="updateModelData()">
+
+                                            </select>
                                             <input type="text" name="phone_number" id="description"
                                                 placeholder="Description" required />
                                             <input type="text" name="phone_number" id="color" placeholder="Color"
@@ -10621,8 +10625,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>
         function loadFields() {
             dailySaleAmount();
+            loadAutos();
+        }
+        
+        function updateModelData() {
+            var AID = $('#model').find(":selected").val();
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var a = this.response;
+                    var data = JSON.parse(a);
+                    var price = data[0].Price;
+                    var description = data[0].Description;
+                    document.getElementById("unitPrice").value = price;
+                    document.getElementById("description").value = description;
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getAutoData/" + AID, true);
+
+            xhttp.send();
         }
 
+        function loadAutos() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("model").innerHTML = this.response;
+                    $('#model').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadAutos/", true);
+
+            xhttp.send();
+        }
 
 
 
@@ -10683,13 +10725,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             xhttp.open("GET", "./dailySaleAmount/", true);
             xhttp.send();
 
-<<<<<<< HEAD
-//working
-    }
-=======
 
         }
->>>>>>> 34334efcb437211c4435637db1b1d4026d153898
 
 
 
@@ -10813,15 +10850,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Quotation =" + this.responseText + " is generated");
-
-                    window.open("/qt");
-
-                }
-            };
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./createQuotation/" + quotationData, true);
-            xhttp.send();
+                        alert("Quotation =" + this.responseText + " is generated");
+                        
+                        window.open("/qt");
+                        window.open("/testpdf/5");
+                        
 
         }
 
