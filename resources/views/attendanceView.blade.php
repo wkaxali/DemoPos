@@ -234,7 +234,6 @@
                                             style="width: 100%; text-align: center;" id="attendanceTable">
                                             <thead>
                                                 <tr>
-                                                    <th></th>
                                                     <th>First Name</th>
                                                     <th>Last Name</th>
                                                     <th>Employee ID</th>
