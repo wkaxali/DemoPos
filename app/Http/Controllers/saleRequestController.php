@@ -33,9 +33,9 @@ class saleRequestController extends Controller
         session(['customerID' => $re->CustomerID]);
         session(['itemNo' => $re->ProductSerial]);
         session(['quantity' => $re->Quantity]);
-        session(['unitPrice' => $re->PerUnitSalePrice]);
+        session(['unitPrice' => number_format($re->PerUnitSalePrice)]);
         session(['productName' => $re->ProductName]);
-        session(['price' => $re->PerUnitSalePrice]);
+        session(['price' => number_format($re->PerUnitSalePrice)]);
         session(['contact' => $re->Contect]);
         session(['customerName' => $re->CustomerName]);
         session(['CNIC' => $re->CNIC]);
@@ -47,17 +47,17 @@ class saleRequestController extends Controller
         session(['invoiceDate' => $re->DateStamp]);
         
         session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
-        session(['amountPaid' => $re->AmountPaid]);
+        session(['amountPaid' => number_format($re->AmountPaid)]);
         session(['description' => $re->ProductName]);
         
-        session(['balance' => $re->Balance]);
-        session(['totalCost' => $re->TotalCost]);
-        session(['tax' => $re->VAT]);
-        session(['endTotal' => $re->NetTotal]);
+        session(['balance' => number_format($re->Balance)]);
+        session(['totalCost' => number_format($re->TotalCost)]);
+        session(['tax' => number_format($re->VAT)]);
+        session(['endTotal' => number_format($re->NetTotal)]);
         $numberToWords = new NumberToWords();
         $numberTransformer = $numberToWords->getNumberTransformer('en');
         $a= $numberTransformer->toWords($re->AmountPaid);
-        session(['amountInWords' => $a]);
+        session(['amountInWords' => ucwords($a)]);
 
         session(['receiptNumber' => 'FMM-'.$dateNow.'-'.$InvoiceNo]);
         

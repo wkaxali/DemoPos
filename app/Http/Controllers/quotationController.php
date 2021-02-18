@@ -112,7 +112,7 @@ class quotationController extends Controller
             $numberTransformer = $numberToWords->getNumberTransformer('en');
             $a= $numberTransformer->toWords($data->TotalPrice);
             
-            session(['amountInWords' => $a]);
+            session(['amountInWords' => ucwords($a)]);
             session(['customerName' => $data->CustomerName]);
             session(['fatherName' => $data->FatherName]);
             session(['CNIC' => $data->CNIC]);

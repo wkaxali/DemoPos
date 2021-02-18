@@ -2300,11 +2300,9 @@
 
 <script>
     function printDocs() {
-        //window.open("/psi");
-        //window.open("/fgp");
+        window.open("/testpdf/2");
         window.open("/testpdf/3");
         window.open("/testpdf/4");
-        window.open("/prc");
     }
 
     function fetchAccounts() {

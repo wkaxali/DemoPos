@@ -2468,7 +2468,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated");
-                        window.open("./sbp");
+                        window.open("./testpdf/6");
 
                     }
                 };

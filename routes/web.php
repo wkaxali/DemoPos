@@ -11,6 +11,7 @@ use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
+use App\Http\Controllers\salePrintInvoice;
 
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\userAccountController;
@@ -192,6 +193,8 @@ Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 
 Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
+
+Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
 
 
 Route::get('/', function () {   
