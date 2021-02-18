@@ -705,10 +705,6 @@
 
     <div class="page-container">
 
-        <div class="left-content">
-            <div class="inner-block">
-            <button type="button" class="btn btn-primary" data-toggle="modal"
-data-target="#exampleModalCenter">Large modal</button>
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -762,9 +758,6 @@ class="selectpicker form-control" data-live-search="true" id="category">
 </div>
 </div>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"

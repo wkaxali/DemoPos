@@ -9776,8 +9776,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 required />
                                             <input type="text" name="phone_number" id="contact"
                                                 placeholder="Contact" required />
-                                            <input type="text" name="model" id="model"
-                                                placeholder="model" required />
+                                            <label for="Model">Select Model</label>
+                                            <select style="height: 40px !important; width: 200px !important;" name="Select Model"
+                                                class="selectpicker form-control" data-live-search="true" id="model" onchange="updateModelData()">
+
+                                            </select>
                                             <input type="text" name="phone_number" id="description"
                                                 placeholder="Description" required />
                                             <input type="text" name="phone_number" id="color" placeholder="Color"
@@ -10664,8 +10667,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>
         function loadFields() {
             dailySaleAmount();
+            loadAutos();
+        }
+        
+        function updateModelData() {
+            var AID = $('#model').find(":selected").val();
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var a = this.response;
+                    var data = JSON.parse(a);
+                    var price = data[0].Price;
+                    var description = data[0].Description;
+                    document.getElementById("unitPrice").value = price;
+                    document.getElementById("description").value = description;
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getAutoData/" + AID, true);
+
+            xhttp.send();
         }
 
+        function loadAutos() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("model").innerHTML = this.response;
+                    $('#model').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadAutos/", true);
+
+            xhttp.send();
+        }
 
 
 
@@ -10852,6 +10893,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         alert("Quotation =" + this.responseText + " is generated");
                         
                         window.open("/qt");
+                        window.open("/testpdf/5");
+                        
 
                     }
                 };
