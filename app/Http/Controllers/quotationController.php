@@ -2,6 +2,8 @@
 
 use NumberToWords\NumberToWords;
 
+
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -13,7 +15,10 @@ use NumberToWords\NumberToWords;
 
 use DB;
 use PDF;
+<<<<<<< HEAD
 
+=======
+>>>>>>> ff0cd043d1103fbe6f2bd182ade0c4f7be00a53f
 class quotationController extends Controller
 {
 
@@ -126,6 +131,7 @@ class quotationController extends Controller
             session(['' => $data->Model]);
             session(['quantity' => $data->Quantity]);
             session(['city' => $data->City]);
+<<<<<<< HEAD
             self::qoutationToPDF();
             
 
@@ -133,6 +139,12 @@ class quotationController extends Controller
             }
 
             public function qoutationToPDF()
+=======
+            
+            }
+
+            public function getInfo()
+>>>>>>> ff0cd043d1103fbe6f2bd182ade0c4f7be00a53f
             {
                 
                 $html = '<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">

@@ -17,11 +17,17 @@ class TEST extends Controller
 
         PDF::Output('hello_world.pdf');
     }
+<<<<<<< HEAD
 
 
     public function saleInvoiceRequest1()
     {
         
+=======
+    public function getInfo()
+    {  
+        $html = '<img style="height: 200px; width: 200px;" src="https://images.pexels.com/photos/1619792/pexels-photo-1619792.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+>>>>>>> ff0cd043d1103fbe6f2bd182ade0c4f7be00a53f
         
 
         $newHTML='<table border="0" cellpadding="2">
