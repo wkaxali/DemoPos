@@ -49,5 +49,12 @@ class getProducts extends Controller
         }
         return $option;
       }
+
+      public static function getAutoData($AID){
+        $results=DB::select('select * from  tbl_auto_models where ModelID='.$AID);
+        
+        return $results;
+
+    }
     
 }

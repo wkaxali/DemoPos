@@ -174,6 +174,7 @@ Route::get('/getCategory',[taskController::class, 'getCategory']);
 Route::get('/getEmployees',[taskController::class, 'getEmployees']);
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
 Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
+Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
@@ -181,6 +182,16 @@ Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
+
+
+Route::get('/testpdf',[TEST::class, 'getInfo']);
+Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
+
+Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
+//qutationRequest
+Route::get('/testpdf/4',[TEST::class, 'gatePass']);
+
+Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
 
 Route::get('/', function () {   
