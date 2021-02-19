@@ -82,9 +82,6 @@ class quotationController extends Controller
 
                 ]);
 
-                $CID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
-                return $IID+1;
-                
 
             DB::table('customeinformation')->insertGetId([
                 'CustomerName'=>$customerName,
