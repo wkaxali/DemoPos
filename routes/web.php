@@ -152,7 +152,8 @@ Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategor
 Route::get('/getEmployee',[expenseController::class, 'getEmployee']);
 Route::get('/updatePay/{data}',[payController::class, 'updatePay']);
 Route::get('/getTotalPay/{EID}',[payController::class, 'getTotalPay']);
-
+Route::get('/getTaskcatagory',[payController::class, 'getTaskcatagory']);
+Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
 
 
@@ -179,6 +180,9 @@ Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategor
 Route::get('/getPartyNames',[expenseController::class, 'getPartyNames']);
 Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
+
+Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
+
 Route::get('/getEmployees',[taskController::class, 'getEmployees']);
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
 Route::get('/create/{data}',[quotationController::class, 'createQuotation']);
@@ -491,4 +495,9 @@ Route::get('/au', function () {
 
 Route::get('/eu', function () {
     return view('editUsers');
+});
+
+
+Route::get('/atc', function () {
+    return view('taskCategory');
 });

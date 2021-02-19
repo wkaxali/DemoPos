@@ -10636,6 +10636,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         $(".sidebar-icon").click(function () {
             if (toggle) {
+
+                
                 $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
                 $("#menu span").css({
                     "position": "absolute"
