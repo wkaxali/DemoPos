@@ -12,6 +12,8 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <style>
@@ -154,16 +156,14 @@
         }
 
     </style>
-    <title>Generate Barcode</title>
+    <title>Daily Purchase</title>
 </head>
 
 <body>
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
-
-
-                <div class="container-fluid">
+  <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h3>Daily Purchase</h3>
@@ -194,6 +194,7 @@
                         <table id="myTables">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Dummy</th>
                                     <th>Dummy</th>
                                     <th>Dummy</th>
@@ -207,34 +208,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-                                    <td>hello</td>
-
-                                </tr>
+                          
+                          
                             </tbody>
                         </table>
                     </div>
-                </div>
+ </div>
             </div>
 
 
         </div>
-
-
         @include('sidenavbar')
-
-
-
-
-
         <div class="clearfix"></div>
     </div>
 
@@ -248,12 +232,30 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
     </script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('#myTables').DataTable();
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+            <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+
+      <script>
+    $(document).ready(function () {
+        $('#myTables').DataTable({
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: 'tr'
+                }
+            },
+            columnDefs: [{
+                className: 'control',
+                orderable: false,
+                targets: 0
+            }],
+            order: [1, 'asc']
         });
+    });
+
+</script>
+    <script>
+   
         var toggle = true;
 
         $(".sidebar-icon").click(function () {

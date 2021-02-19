@@ -195,7 +195,18 @@
                 margin: 5px 0px;
             }
         }
-
+.showMe{
+    display:none;
+}
+        
+        @media only screen and (max-width: 600px) {
+            .myClass {
+  display:none;
+  }
+  .showMe{
+      display:inline-block;
+  }
+}
     </style>
 </head>
 
@@ -288,15 +299,18 @@
                 </section>
                 <section>
                     <div class="container">
-                        <div class="row">
+                        <div class="row my-2">
                             <div class="col-md-4 customBorder">
                                 <h4>SUMMARY</h4>
                             </div>
                             <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
                                 <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;"
                                     onclick="profits()">Calculate</button>
+                                    <button class="btn showMe"
+                                    style="width: 80px; background-color:#13579a;color: #ffffff;"
+                                    onclick="addInvestorProducts()">Update</button>
                             </div>
-                            <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
+                            <div class="col-md-4 offset-md-4 myClass" style="margin: 5px 0px 5px auto;">
                                 <button class="btn"
                                     style="float: right;width: 80px; background-color:#13579a;color: #ffffff;"
                                     onclick="addInvestorProducts()">Update</button>

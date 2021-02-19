@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <title>Company Ledger</title>
@@ -169,16 +171,16 @@
         }
 
         @media only screen and (max-width: 600px) {
-            .responseTable table {
-                width: 900px !important;
-            }
-
+        
             .inner-block {
                 padding: .5em 1em 2em 1em;
             }
 
             .Footerbtns .btn {
                 margin: 5px 0px;
+            }
+            .dataTables_length{
+                display:none !important;
             }
         }
 
@@ -212,6 +214,7 @@
                                                     style="width: 100%; text-align: center;">
                                                     <thead>
                                                         <tr>
+                                                            <th></th>
                                                             <th id="Cusname">Transaction ID</th>
                                                             <th id="CusCont">Order No</th>
                                                             <th id="Cusaddr">Transaction Category</th>
@@ -279,6 +282,7 @@
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
+        <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 
     <script>
         var toggle = true;
@@ -400,12 +404,26 @@
 
     </script>
 
-    <script>
-        $(document).ready(function () {
-            $('#companyLedgerData').DataTable();
+  
+      <script>
+    $(document).ready(function () {
+        $('#companyLedgerData').DataTable({
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: 'tr'
+                }
+            },
+            columnDefs: [{
+                className: 'control',
+                orderable: false,
+                targets: 0
+            }],
+            order: [1, 'asc']
         });
+    });
 
-    </script>
+</script>
 
     <script>
         function printWindow() {

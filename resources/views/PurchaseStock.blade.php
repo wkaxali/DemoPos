@@ -22,7 +22,7 @@
 
 
     <style>
-           @media (max-width: 1366px) {
+        @media (max-width: 1366px) {
             .left-content {
                 width: 83%;
             }
@@ -31,7 +31,7 @@
         .page-container.sidebar-collapsed-back .left-content {
             width: 83% !important;
         }
-      
+
 
         @-moz-document url-prefix() {
 
@@ -809,9 +809,7 @@
             border-color: #007bff;
         }
 
-        @media only screen and (max-width: 768px) {
-          
-        }
+        @media only screen and (max-width: 768px) {}
 
         @media only screen and (max-width: 1024px) {
             .o-inv-2 {
@@ -1130,46 +1128,55 @@
             height: 30px !important;
 
         }
+
         @media only screen and (max-width: 768px) {
             .okay-invo input {
-    width: 179px;
-}
-.o-inv input {
-    width: 179px;
-}
-.o-inv-2 input {
-    width: 179px !important;
-}
+                width: 179px;
+            }
 
-.bootstrap-select .dropdown-toggle {
-    width: 179px;
-    height: 33px !important;
-    color: #ffffff !important;
-}
-.okay-invo-3 input {
-    width: 179px !important;
-}
-.total-buttons button {
-    height: 35px !important;
-    width: 60px !important;
-}
-        
-       
-.inner-block {
-    padding: .5em 1em 2em 1em;
-}
-.bootstrap-select .dropdown-toggle {
-    width: 179px !important;
-    height: 30px !important;
-}
-#payFrom{
-    display:block;
-}
-.okay-invo-3 label {
-    width: 80px;
-    margin:5px 0px;
-}
+            .o-inv input {
+                width: 179px;
+            }
+
+            .o-inv-2 input {
+                width: 179px !important;
+            }
+
+            .bootstrap-select .dropdown-toggle {
+                width: 179px;
+                height: 33px !important;
+                color: #ffffff !important;
+            }
+
+            .okay-invo-3 input {
+                width: 179px !important;
+            }
+
+            .total-buttons button {
+                height: 35px !important;
+                width: 60px !important;
+            }
+
+
+            .inner-block {
+                padding: .5em 1em 2em 1em;
+            }
+
+            .bootstrap-select .dropdown-toggle {
+                width: 179px !important;
+                height: 30px !important;
+            }
+
+            #payFrom {
+                display: block;
+            }
+
+            .okay-invo-3 label {
+                width: 80px;
+                margin: 5px 0px;
+            }
         }
+
     </style>
 </head>
 
@@ -1867,20 +1874,21 @@
 
 
     }
-    function loadAccounts(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("accounts").innerHTML = this.response;
-            $('#accounts').selectpicker('refresh');
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getAccountHeads/", true);
-    
-    xhttp.send();
+
+    function loadAccounts() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("accounts").innerHTML = this.response;
+                $('#accounts').selectpicker('refresh');
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getAccountHeads/", true);
+
+        xhttp.send();
     }
 
     function IsItemExistInDataTable(item) {
@@ -1966,31 +1974,31 @@
 
 
         var array = JSON.stringify(myRow2);
-       // alert(array);
-       
+        // alert(array);
+
 
         var xhttp = new XMLHttpRequest();
-        
-        if(AID == ""){
+
+        if (AID == "") {
             alert("Payment Method not selected");
-        }else{
-            
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+        } else {
 
-                alert("Invoice =" + this.responseText + " is generated");
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
 
-            }
-        };
+                    alert("Invoice =" + this.responseText + " is generated");
 
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+                }
+            };
 
-        xhttp.send();
-    }
-    // }else{
-    //         alert("Payment Method is not selected");
-    //     }
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+
+            xhttp.send();
+        }
+        // }else{
+        //         alert("Payment Method is not selected");
+        //     }
     }
 
     function validation() {
@@ -2000,30 +2008,30 @@
 </script>
 
 <script>
-    function getInvoiceStock(){
+    function getInvoiceStock() {
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        var data = this.responseText;
-        //alert(data);
-        var a = JSON.parse(data);
-        document.getElementById("SID").value = a[0].SID;
-        document.getElementById("LastBalance").value = a[0].Balance;
-        document.getElementById("CurrentBalance").value = a[0].Balance;
-        calc();
-        document.getElementById("CNO").value = a[0].Contect;
-        document.getElementById("SupplierCategory").value = a[0].Category;
-        //document.getElementById("SupplierName").value =;
-        $('#SupplierName').val( a[0].SupplierID);
-        $('#SupplierName').selectpicker('refresh');
-        // var e = document.getElementById("SupplierName");
-        //  e.options[e.selectedIndex].value=a[0].SID;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = this.responseText;
+                //alert(data);
+                var a = JSON.parse(data);
+                document.getElementById("SID").value = a[0].SID;
+                document.getElementById("LastBalance").value = a[0].Balance;
+                document.getElementById("CurrentBalance").value = a[0].Balance;
+                calc();
+                document.getElementById("CNO").value = a[0].Contect;
+                document.getElementById("SupplierCategory").value = a[0].Category;
+                //document.getElementById("SupplierName").value =;
+                $('#SupplierName').val(a[0].SupplierID);
+                $('#SupplierName').selectpicker('refresh');
+                // var e = document.getElementById("SupplierName");
+                //  e.options[e.selectedIndex].value=a[0].SID;
 
-        var i=0;
-        //alert(a.length);
-        var table = document.getElementById("ProductSaleTable");
-        table.innerHTML="<thead>\
+                var i = 0;
+                //alert(a.length);
+                var table = document.getElementById("ProductSaleTable");
+                table.innerHTML = "<thead>\
                             <tr>\
                                 <th>Product ID</th>\
                                 <th>Product Name</th>\
@@ -2036,36 +2044,36 @@ xhttp.onreadystatechange = function () {
                             </tr>\
                         </thead>";
 
-        for (i; i < a.length; i++) {
-            var PID = a[i].ProductSerial;
-            var discount = a[i].Discount;
-            var quantity = a[i].OrderedQuantiy;
-            var purchasePrice = a[i].PurchasePricePerUnit;
-            var company = a[i].Company;
-            var productName = a[i].ProductName;
-            var totalAmount = a[i].NetAmount;
+                for (i; i < a.length; i++) {
+                    var PID = a[i].ProductSerial;
+                    var discount = a[i].Discount;
+                    var quantity = a[i].OrderedQuantiy;
+                    var purchasePrice = a[i].PurchasePricePerUnit;
+                    var company = a[i].Company;
+                    var productName = a[i].ProductName;
+                    var totalAmount = a[i].NetAmount;
 
-            var row = table.insertRow(-1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4);
-            var cell6 = row.insertCell(5);
-            var cell7 = row.insertCell(6);
-            var cell8 = row.insertCell(7);
+                    var row = table.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+                    var cell6 = row.insertCell(5);
+                    var cell7 = row.insertCell(6);
+                    var cell8 = row.insertCell(7);
 
-            cell1.innerHTML = PID;
-            cell2.innerHTML = productName;
-            cell3.innerHTML = company;
-            cell4.innerHTML = purchasePrice;
-            cell5.innerHTML = quantity;
-            cell6.innerHTML = discount;
-            cell7.innerHTML = totalAmount;
-            //calc();
-            cell8.innerHTML =
-                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
-    }
+                    cell1.innerHTML = PID;
+                    cell2.innerHTML = productName;
+                    cell3.innerHTML = company;
+                    cell4.innerHTML = purchasePrice;
+                    cell5.innerHTML = quantity;
+                    cell6.innerHTML = discount;
+                    cell7.innerHTML = totalAmount;
+                    //calc();
+                    cell8.innerHTML =
+                        "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+                }
 
 
 
@@ -2076,40 +2084,40 @@ xhttp.onreadystatechange = function () {
         };
         var invoiceNumber = document.getElementById("InvoiceID").value;
 
-xhttp.open("GET", "./getInvoiceStock/" + invoiceNumber, true);
-xhttp.send();
-}
+        xhttp.open("GET", "./getInvoiceStock/" + invoiceNumber, true);
+        xhttp.send();
+    }
+
 </script>
 
 <script>
-function getInvoiceSupplier(){
+    function getInvoiceSupplier() {
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        var data = this.responseText;
-        //alert(data);
-        var a = JSON.parse(data);
-        
-        document.getElementById("CID").value = a[0].CustomerID;
-        document.getElementById("LastBalance").value = a[0].Balance;
-        document.getElementById("CurrentBalance").value = a[0].Balance;
-        calc();
-        document.getElementById("CNO").value = a[0].Contect;
-        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
-        document.getElementById("CustomerName").value = a[0].CustomerID;
-        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = this.responseText;
+                //alert(data);
+                var a = JSON.parse(data);
+
+                document.getElementById("CID").value = a[0].CustomerID;
+                document.getElementById("LastBalance").value = a[0].Balance;
+                document.getElementById("CurrentBalance").value = a[0].Balance;
+                calc();
+                document.getElementById("CNO").value = a[0].Contect;
+                document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+                document.getElementById("CustomerName").value = a[0].CustomerID;
+
+
+            }
+        };
+        var invoiceNumber = document.getElementById("InvoiceID").value;
+
+        xhttp.open("GET", "./getInvoiceSupplier/" + invoiceNumber, true);
+        xhttp.send();
+
 
     }
-};
-var invoiceNumber = document.getElementById("InvoiceID").value;
-
-xhttp.open("GET", "./getInvoiceSupplier/" + invoiceNumber, true);
-xhttp.send();
-
-
-    }
-
 
 </script>
 

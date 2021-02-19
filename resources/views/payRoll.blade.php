@@ -17,8 +17,6 @@
 
     <title>Pay Roll</title>
     <style>
-     
-
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
@@ -45,7 +43,7 @@
         }
 
         .updateButtons button {
-            margin-right: 140px;
+            margin-right: 187px;
             margin-top: 5px;
         }
 
@@ -93,7 +91,7 @@
         .EmpRow {
             margin: 5px 0px;
             padding: 10px 0px;
-            width: 1048px;
+            width: auto !important;
             border: 1px solid #333;
             margin-left: 79px;
             border-radius: 10px;
@@ -103,6 +101,7 @@
             background-color: #e61d2f;
             color: #ffffff;
             padding: 4px;
+            margin: 5px 0px;
             border-radius: 10px;
             text-align: center;
         }
@@ -137,7 +136,7 @@
         }
 
         .updateButtons-1 {
-            margin-top: 100px;
+            margin-top: 157px;
         }
 
         input[type="text"]:focus,
@@ -186,6 +185,38 @@
         }
 
 
+        @media only screen and (max-width: 768px) {
+            #address {
+                width: 200px !important;
+            }
+
+            .EmpRow {
+                margin: 5px 0px;
+                padding: 10px 0px;
+                width: auto !important;
+                border: 1px solid #333;
+                margin-left: 0px;
+                border-radius: 10px;
+            }
+
+            .leftMrg {
+                padding-left: 0px;
+            }
+
+            .common {
+                margin-left: 0px;
+                margin-top: 20px;
+            }
+
+            .inner-block {
+                padding: 0em !important;
+            }
+
+            .epr {
+                font-size: 25px;
+                font-weight: 600;
+            }
+        }
 
     </style>
 </head>
@@ -201,7 +232,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <h4>Employee Pay Role</h4>
+                                <h4 class="epr">Employee Pay Role</h4>
                             </div>
                         </div>
                     </div>
@@ -225,7 +256,8 @@
                                     <div class="col-md-5 offset-md-2" id="divName">
                                         <label for="">Name</label>
                                         <select style="height: 25px !important; width: 158px !important; "
-                                            class="selectpicker form-control" data-live-search="true" id="name" onchange="getByName()">
+                                            class="selectpicker form-control" data-live-search="true" id="name"
+                                            onchange="getByName()">
 
                                         </select>
                                     </div>
@@ -423,9 +455,9 @@
 
                 if (this.readyState == 4 && this.status == 200) {
 
-                   //  alert(this.response);
+                    //  alert(this.response);
                     var a = JSON.parse(this.response);
-                
+
                     document.getElementById("date").value = a[0].JoiningDate;
                     document.getElementById("address").value = a[0].HomeAddress;
                     document.getElementById("basicPay").value = a[0].BasicPay;
@@ -435,9 +467,9 @@
                     document.getElementById("total").value = a[0].TotalPay;
                     $('#contact').val(a[0].EID);
                     $("#contact").selectpicker('refresh');
-                    $('#cnic').val(a[0].EID) ;
+                    $('#cnic').val(a[0].EID);
                     $("#cnic").selectpicker('refresh');
-                    $('#name').val(a[0].EID) ;
+                    $('#name').val(a[0].EID);
                     $("#name").selectpicker('refresh');
                     //alert();
                     //payCalculation();
@@ -591,10 +623,8 @@
 
     </script>
     <script>
-
-
         function updatePay() {
-            var data=[];
+            var data = [];
             var basicPay = document.getElementById("basicPay").value;
             var allowedHolidays = document.getElementById("allowedHolidays").value;
             var comission = document.getElementById("comission").value;
@@ -612,11 +642,11 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert(this.response);
-                    
+
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./updatePay/"+ payData, true);
+            xhttp.open("GET", "./updatePay/" + payData, true);
 
             xhttp.send();
 
@@ -642,14 +672,15 @@
 
 
         }
-       function payCalculation(){
-       var bp= document.getElementById("basicPay").value;  
-       var alounsec=document.getElementById("allownces").value;  
-       tot=Number(alounsec)+Number(bp);
-       document.getElementById("total").value=tot;
-       updatePay();
 
-       }
+        function payCalculation() {
+            var bp = document.getElementById("basicPay").value;
+            var alounsec = document.getElementById("allownces").value;
+            tot = Number(alounsec) + Number(bp);
+            document.getElementById("total").value = tot;
+            updatePay();
+
+        }
 
     </script>
 
