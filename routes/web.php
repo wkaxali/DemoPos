@@ -479,3 +479,6 @@ Route::get('/ec', function () {
 Route::get('/pdf', function () {
     return view('test');
 });
+Route::get('/tc', function () {
+    return view('taskCategory');
+});
