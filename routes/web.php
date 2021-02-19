@@ -64,6 +64,7 @@ Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 
+
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
 Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer']);
@@ -479,6 +480,9 @@ Route::get('/ec', function () {
 Route::get('/pdf', function () {
     return view('test');
 });
+<<<<<<< HEAD
 Route::get('/tc', function () {
     return view('taskCategory');
 });
+=======
+>>>>>>> 1ff4125e71f9824aa2285cbc8335614237654fd9

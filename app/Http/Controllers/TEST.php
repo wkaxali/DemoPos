@@ -17,12 +17,105 @@ class TEST extends Controller
 
         PDF::Output('hello_world.pdf');
     }
+<<<<<<< HEAD
 
 
     public function saleServiceInvoice1()
     {
         
         $newHTML='<table border="0">
+=======
+    public function requestForQuotation()
+    {
+        
+        $html = '
+        <img  src="https://scontent.flhe3-1.fna.fbcdn.net/v/t31.0-8/p960x960/26233302_139328973417837_8607029096157006840_o.png?_nc_cat=109&ccb=3&_nc_sid=85a577&_nc_ohc=A3sG37gNOCIAX99Fp97&_nc_ht=scontent.flhe3-1.fna&_nc_tp=30&oh=70820213552a4e5f8d5ab72846496285&oe=60519500" alt="logo"  style="width:195px;height:152px;"  >
+        <div id="target">
+        <p><b>To, <br/>
+        Foton Auto Park (PVT) Ltd. <br/>
+        Subject: Invoice Request
+        </b>
+        </p>
+        
+        <p style="text-align: right;"><b>Date:</b></p>
+        
+        <table style="width:100%">
+          
+          <tr>
+            <th style="border: 1px solid black;">Costumer Name</th>
+            <th style="border: 1px solid black;">Ahmad</th>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Address</td>
+            <td style="border: 1px solid black;">Lahore</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Contact Details</td>
+            <td style="border: 1px solid black;">new</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">NTN/CNIC#</td>
+            <td style="border: 1px solid black;">2551234100</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Salesperson</td>
+            <td style="border: 1px solid black;">khan</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Dealer</td>
+            <td style="border: 1px solid black;">khan</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Vehicle</td>
+            <td style="border: 1px solid black;">Forland Modern Motors</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Chassis No</td>
+            <td style="border: 1px solid black;">100</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Engine No</td>
+            <td style="border: 1px solid black;">50</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Color</td>
+            <td style="border: 1px solid black;">red</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">Amount</td>
+            <td style="border: 1px solid black;">$50</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid black;">payment: Cheque Details</td>
+            <td style="border: 1px solid black;">34000330030330</td>
+          </tr>
+        </table>
+   
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <p style="text-align: right;"><b>_____________________</b>
+        
+        </p>
+        ';
+      // $html= $htmldata;
+        
+        PDF::SetTitle('Hello World');
+        PDF::AddPage();
+        PDF::writeHTML($html, true, false, true, false, '');
+
+        PDF::Output('hello_world.pdf');
+    }
+
+    public function getInfo()
+    {
+        
+
+        $html = '<img style="height: 100px; width: 200px;" src="./assets/img/logo.jpg">
+  
+        <br><br><br><br><br><br><br><table border="0.5" cellpadding="2" cellspacing="2">
+>>>>>>> 1ff4125e71f9824aa2285cbc8335614237654fd9
         <thead>
         <tr>
         <th><br><h1>FORLAND MODREN MOTORS</h1></th>
@@ -30,12 +123,66 @@ class TEST extends Controller
         
         </tr>
         </thead>
+<<<<<<< HEAD
+=======
+         <tr>
+          <td width="30" align="center">1.</td>
+          <td width="140" rowspan="6">XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX</td>
+          <td width="140">XXXX<br />XXXX</td>
+          <td width="80">XXXX<br />XXXX</td>
+          <td width="80">XXXX</td>
+          <td align="center" width="45">XXXX<br />XXXX</td>
+         </tr>
+         <tr>
+          <td width="30" align="center" rowspan="3">2.</td>
+          <td width="140" rowspan="3">XXXX<br />XXXX</td>
+          <td width="80">XXXX<br />XXXX</td>
+          <td width="80">XXXX<br />XXXX</td>
+          <td align="center" width="45">XXXX<br />XXXX</td>
+         </tr>
+         <tr>
+          <td width="80">XXXX<br />XXXX<br />XXXX<br />XXXX</td>
+          <td width="80">XXXX<br />XXXX</td>
+          <td align="center" width="45">XXXX<br />XXXX</td>
+         </tr>
+         <tr>
+          <td width="80" rowspan="2" >RRRRRR<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX<br />XXXX</td>
+          <td width="80">XXXX<br />XXXX</td>
+          <td align="center" width="45">XXXX<br />XXXX</td>
+         </tr>
+         <tr>
+          <td width="30" align="center">3.</td>
+          <td width="140">XXXX1<br />XXXX</td>
+          <td width="80">XXXX<br />XXXX</td>
+          <td align="center" width="45">XXXX<br />XXXX</td>
+         </tr>
+         <tr>
+          <td width="30" align="center">4.</td>
+          <td width="140">XXXX<br />XXXX</td>
+          <td width="80">XXXX<br />XXXX</td>
+          <td width="80">XXXX<br />XXXX</td>
+          <td align="center" width="45">XXXX<br />XXXX</td>
+         </tr>
+
+        </table>
+   
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <br><br><br><br>
+        <p style="text-align: right;"><b>_____________________</b>
+        
+        </p>
+        ';
+      // $html= $htmldata;
+>>>>>>> 1ff4125e71f9824aa2285cbc8335614237654fd9
         
         <tbody>
         <tr>
         <br>
         <td>
         
+<<<<<<< HEAD
         NTN:82588676-6 <br>
         
         STRN:3277876204764 <br>
@@ -284,6 +431,9 @@ class TEST extends Controller
         </tr>
         
         </table>
+=======
+        
+>>>>>>> 1ff4125e71f9824aa2285cbc8335614237654fd9
 
     ';     // $html= $htmldata;
   
@@ -373,6 +523,7 @@ class TEST extends Controller
 <td width="30%" border="0">Dealer</td>
 <td width="70%" align="center" border="0">Forland Modern Motors</td>
 
+<<<<<<< HEAD
 
 
 </tr>
@@ -427,6 +578,55 @@ class TEST extends Controller
  
  
 </tbody>
+=======
+<table border="0">
+    <thead>
+    <tr>
+        <th width="60%" border="1" align="center">
+           Total in Word </th>
+      
+        <th  width="40%" border="1" align="center" style="line-height: 100%;"> Tootal PKR</th>
+      
+    </tr>
+</thead>
+        <tbody>
+        <tr>
+            <td width="60%" border="1" align="center">1000</td>
+            <td width="40%" border="1" align="center">10000</td>
+           
+          
+        </tr>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+       
+        <br>
+        <tr>
+        <td width="60%" border="0"></td>
+        <td width="40%" align="center" border="0">_______________________</td>
+        
+       
+      
+    </tr>
+    <tr>
+    <br>
+       
+        <td width="60%" border="0"></td>
+        <td width="40%" align="center" border="0">Sign and Signature</td>
+        
+       
+      
+    </tr>
+    
+    
+     
+     
+    </tbody>
+>>>>>>> 1ff4125e71f9824aa2285cbc8335614237654fd9
 </table>
     <br>
    
@@ -890,11 +1090,22 @@ Qoutation For '.session()->get("productName").'
 
 
   
+<<<<<<< HEAD
 <table border="0">
 <thead>
 <br>
 <br>
 
+=======
+        
+        PDF::SetTitle('Sale Invoice');
+        PDF::AddPage();
+        PDF::writeHTML($newHTML, true, false, true, false, '');
+
+        PDF::Output('saleInvoice.pdf');
+       
+    }
+>>>>>>> 1ff4125e71f9824aa2285cbc8335614237654fd9
 
 <br>
 
