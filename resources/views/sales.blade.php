@@ -2027,7 +2027,6 @@
                         cell8.innerHTML =
                             "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
 
-
                     }
                 }
             };
