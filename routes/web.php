@@ -11,7 +11,7 @@ use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
-
+use App\Http\Controllers\uzairController;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\userAccountController;
 
@@ -62,6 +62,7 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
+Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice']);
 
 
 //---------------------------//LedgerPartiesController
@@ -176,6 +177,8 @@ Route::get('/getEmployees',[taskController::class, 'getEmployees']);
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
 Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
 
+Route::get('/adduzairdata',[uzairController::class, 'function']);
+route::get('/addtable' , [uzairController::class, 'myfunction']);
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
@@ -387,6 +390,7 @@ Route::get('/sheet', function () {
 });
 Route::get('/vd', function () {
     return view('vehicleDetail');
+
 });
 Route::get('/sir', function () {
     return view('solutions');
