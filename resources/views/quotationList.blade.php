@@ -57,13 +57,8 @@
                     <thead>
                         <th>QID</th>
                         <th>CustomerName</th>
-                        
-                        <th>CNIC</th>
-                        <th>City</th>
                         <th>Address</th>
                         <th>Contact</th>
-                        
-                        
                         <th>UnitPrice</th>
                         <th>Quantity</th>
                         <th>TotalPrice</th>
@@ -72,10 +67,8 @@
                         <th>Action</th>
                     </thead>
                     <tbody>
-
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
@@ -369,8 +362,7 @@
 
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].QID,  a[i].CustomerName, a[i]
-                            .CNIC, a[i].City, a[i].Address, a[i]
+                        table.row.add([a[i].QID,  a[i].CustomerName, a[i].Address, a[i]
                             .Contact, a[i]
                             .UnitPrice, a[i].Quantity, a[i].TotalPrice, a[i]
                             .Model, a[i].Date, '<button class="btn print" onclick="printQuotation('+a[i].QID+')" >Print</button>'
