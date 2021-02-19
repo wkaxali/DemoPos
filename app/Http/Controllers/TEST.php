@@ -943,7 +943,7 @@ Qoutation For '.session()->get("productName").'
     PDF::AddPage();
     PDF::writeHTML($newHTML, true, false, true, false, '');
 
-    PDF::Output('qty.pdf');
+    PDF::Output('qty.pdf','I');
 
 
 
