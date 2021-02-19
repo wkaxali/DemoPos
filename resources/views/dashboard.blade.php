@@ -9676,8 +9676,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body onload="loadFields()">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
