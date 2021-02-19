@@ -23,7 +23,12 @@
                                                 required />
                                             <input type="text" name="phone_number" id="contact" placeholder="Contact"
                                                 required />
-                                            <input type="text" name="model" id="model" placeholder="model" required />
+                                                <label for="Model">Select Model</label>
+<select style="height: 40px !important; width: 200px !important;" name="Select Model"
+class="selectpicker form-control" data-live-search="true" id="model" onchange="updateModelData()">
+
+</select>
+
                                             <input type="text" name="phone_number" id="description"
                                                 placeholder="Description" required />
                                             <input type="text" name="phone_number" id="color" placeholder="Color"
