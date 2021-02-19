@@ -15,12 +15,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
-
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
-    <title>Invoice</title>
+    <title>Task Category</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -1355,7 +1353,7 @@
             }
 
             .LastInput {
-                height: 375px !important;
+                height: 315px !important;
             }
 
         }
@@ -1388,18 +1386,85 @@
             color: #fff;
         }
 
-        @media only screen and (max-width: 600px) {
-            .inner-block {
-                padding: .5em 1em 2em 1em;
-            }
-        }
-
     </style>
 </head>
 
 <body style="font-family: 'Roboto', sans-serif;" onload="fetchAccounts()">
+    <div class="page-container">
+        <div class="left-content">
+            <div class="inner-block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center mt-1">
+                            <h4>Task Category</h4>
+                        </div>
+                    </div>
+                    
+                </div>
+                <header>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <div class="firstColor my-4">
+                                    <div class="date text-right">
+                                        <h6> <strong>.</strong></h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="myMainRow">
 
-    @include('invoiceserviceshtml')
+                                    
+                                    <div class="myOwnRow-left">
+                                    <h2>Add New Category</h2>
+                                        <div class="input-field">
+                                            <label for="status">Product ID</label>
+                                            <input type="text" autocomplete="OFF" class="form-control"
+                                                style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                name="name" id="PID">
+                                        </div>
+
+                                    </div>
+                                    <div class="myOwnROw">
+
+
+
+                                        <div class="row">
+                                        
+                                            <div class="col-md-12">
+                                            <h2>Edit Category</h2>
+                                                <div class="input-field">
+                                                    <label for="status">Invoice Number</label>
+                                                    <input type="text" autocomplete="OFF" class="form-control"
+                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                        name="name" value="" id="InvoiceID">
+
+    
+
+                                                </div>
+
+
+                                               
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                
+                
+                
+    </div>
 
 
 
@@ -1410,533 +1475,10 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#searchProductTable').DataTable({
-                responsive: {
-                    details: {
-                        type: 'column',
-                        target: 'tr'
-                    }
-                },
-                columnDefs: [{
-                    className: 'control',
-                    orderable: false,
-                    targets: 0
-                }],
-                order: [1, 'asc']
-            });
-        });
-
-    </script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
-    <script>
-        (function ($) {
-            // USE STRICT
-            "use strict";
 
-            $(".form-radio .radio-item").click(function () {
-                //Spot switcher:
-                $(this).parent().find(".radio-item").removeClass("active");
-                $(this).addClass("active");
-            });
 
-            $('#course_type').parent().append('<ul class="list-item" id="newcourse_type" name="course_type"></ul>');
-            $('#course_type option').each(function () {
-                $('#newcourse_type').append('<li value="' + $(this).val() + '">' + $(this).text() +
-                    '</li>');
-            });
-            $('#course_type').remove();
-            $('#newcourse_type').attr('id', 'course_type');
-            $('#course_type li').first().addClass('init');
-            $("#course_type").on("click", ".init", function () {
-                $(this).closest("#course_type").children('li:not(.init)').toggle('slow');
-            });
 
-            $('#confirm_type').parent().append(
-                '<ul class="list-item" id="newconfirm_type" name="confirm_type"></ul>');
-            $('#confirm_type option').each(function () {
-                $('#newconfirm_type').append('<li value="' + $(this).val() + '">' + $(this).text() +
-                    '</li>');
-            });
-            $('#confirm_type').remove();
-            $('#newconfirm_type').attr('id', 'confirm_type');
-            $('#confirm_type li').first().addClass('init');
-            $("#confirm_type").on("click", ".init", function () {
-                $(this).closest("#confirm_type").children('li:not(.init)').toggle('slow');
-            });
-
-            $('#hour_appointment').parent().append(
-                '<ul class="list-item" id="newhour_appointment" name="hour_appointment"></ul>');
-            $('#hour_appointment option').each(function () {
-                $('#newhour_appointment').append('<li value="' + $(this).val() + '">' + $(this).text() +
-                    '</li>');
-            });
-            $('#hour_appointment').remove();
-            $('#newhour_appointment').attr('id', 'hour_appointment');
-            $('#hour_appointment li').first().addClass('init');
-            $("#hour_appointment").on("click", ".init", function () {
-                $(this).closest("#hour_appointment").children('li:not(.init)').toggle('slow');
-            });
-
-            var allOptions = $("#course_type").children('li:not(.init)');
-            $("#course_type").on("click", "li:not(.init)", function () {
-                allOptions.removeClass('selected');
-                $(this).addClass('selected');
-                $("#course_type").children('.init').html($(this).html());
-                allOptions.toggle('slow');
-            });
-
-            var FoodOptions = $("#confirm_type").children('li:not(.init)');
-            $("#confirm_type").on("click", "li:not(.init)", function () {
-                FoodOptions.removeClass('selected');
-                $(this).addClass('selected');
-                $("#confirm_type").children('.init').html($(this).html());
-                FoodOptions.toggle('slow');
-            });
-
-            var AppointmentOptions = $("#hour_appointment").children('li:not(.init)');
-            $("#hour_appointment").on("click", "li:not(.init)", function () {
-                AppointmentOptions.removeClass('selected');
-                $(this).addClass('selected');
-                $("#hour_appointment").children('.init').html($(this).html());
-                AppointmentOptions.toggle('slow');
-            });
-        })(jQuery);
-
-    </script>
-</body>
-<script>
-    $(document).ready(function () {
-        $('#myTables').DataTable();
-    });
-
-</script>
-<script>
-    function loadStock() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                //alert(data);
-                var table;
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                table = $('#searchProductTable').DataTable();
-                table.clear();
-                $.each(a, function (i, item) {
-
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i]
-                        .EngineNumber,
-                        a[i].PerUnitSalePrice, a[i].StatusInStock, a[i].description
-                    ]);
-                });
-                table.draw();
-            }
-        };
-
-        xhttp.open("GET", "./getAvailableProducts/", true);
-        xhttp.send();
-    }
-
-    function getInvoiceRequest() {
-
-        id = document.getElementById("InvoiceID").value;
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-
-            if (this.readyState == 4 && this.status == 200) {
-                alert("Printed");
-                window.open("./testpdf/3");
-
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getSaleInvReq/" + id, true);
-        xhttp.send();
-
-
-    }
-
-    $(document).ready(function () {
-
-        // code to read selected table row cell data (values).
-        $("#searchProductTable").on('click', 'tr', function () {
-            // get the current row
-
-
-
-            var table = document.getElementById("ProductSaleTable");
-
-            document.getElementById("PID").value = this.cells[0]
-                .innerText; // get current row 1st TD value
-            document.getElementById("ProductName").value = this.cells[1].innerText;
-            document.getElementById("color").value = this.cells[2].innerText;
-            document.getElementById("ChasisNumber").value = this.cells[3].innerText;
-
-            document.getElementById("EngineNumber").value = this.cells[4].innerText;
-            document.getElementById("Status").value = this.cells[6].innerText;
-            document.getElementById("description").value = this.cells[7].innerText;
-            document.getElementById("TotalPrice").value = this.cells[5].innerText;
-            //document.getElementById("TotalCost").value = this.cells[5].innerText;
-            document.getElementById("Discount").value = "0";
-
-
-            alert(this.cells[0].innerText);
-            calc();
-        });
-        calc();
-    });
-
-    function calc() {
-
-        var tot = document.getElementById("TotalPrice").value;
-        var dis = document.getElementById("Discount").value;
-        //var tax = Number(tot)*0.17;
-        var tax = 0;
-
-        var netTot = Number(tot) + Number(tax) - Number(dis);
-
-        document.getElementById("NetTotal").value = netTot;
-        document.getElementById("amountPaid").value = netTot;
-        document.getElementById("tax").value = tax;
-
-        calcRemainingAmount();
-
-
-    }
-
-    function calcRemainingAmount() {
-
-        var tot = document.getElementById("NetTotal").value;
-        var ap = document.getElementById("amountPaid").value;
-        var rem = Number(tot) - Number(ap);
-        document.getElementById("amountRemaining").value = rem;
-
-
-    }
-
-
-
-    function generateSale() {
-
-
-        var pid = document.getElementById("PID").value;
-        var totwT = document.getElementById("TotalPrice").value;
-        var discount = document.getElementById('Discount').value;
-        var netTotal = document.getElementById('NetTotal').value;
-        var amp = document.getElementById('amountPaid').value;
-        var rmb = document.getElementById("amountRemaining").value;
-        var CID = $('#CustomerName').find(":selected").val();
-        var paidTo = document.getElementById("paidTo").value;
-        var AID = document.getElementById("slctAccounts").value;
-
-        var customerName = $('#CustomerName').find(":selected").text();
-
-        var receivedBy = $('#employees').find(":selected").text();
-        var CNIC = document.getElementById("CNIC").value;
-        var address = document.getElementById('Address').value;
-        var contact = document.getElementById('contact').value;
-        var fatherName = document.getElementById('fatherName').value;
-
-        var engineNo = document.getElementById("EngineNumber").value;
-        var chassisNo = document.getElementById('ChasisNumber').value;
-        var color = document.getElementById('color').value;
-        var description = document.getElementById('description').value;
-        var productName = document.getElementById('ProductName').value;
-        var city = document.getElementById('city').value;
-        var totalCost = document.getElementById('TotalCost').value;
-
-        order = [pid, totwT, discount, netTotal, amp, rmb,
-            CID, paidTo, AID, customerName, CNIC, address,
-            contact, fatherName, engineNo, chassisNo, color,
-            description, productName, city, receivedBy,
-            totalCost
-
-        ];
-
-        var array = JSON.stringify(order);
-
-        var xhttp = new XMLHttpRequest();
-
-        if (AID == "") {
-            alert('Payment Method not Selected');
-        } else {
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-
-                    alert("Invoice =" + this.responseText + " is generated");
-
-
-
-
-                }
-            };
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addSales/" + array, true);
-            xhttp.send();
-        }
-    }
-
-</script>
-
-<script>
-    function printDocs() {
-        window.open("/testpdf/2");
-        window.open("/testpdf/3");
-        window.open("/testpdf/4");
-    }
-
-    function fetchAccounts() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-
-            if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("slctAccounts").innerHTML = this.response;
-                $('#slctAccounts').selectpicker('refresh');
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getAccountHeads/", true);
-
-        xhttp.send();
-        loadAllCustomers();
-        loadEmployees();
-        getInvoiceID();
-
-
-    }
-
-</script>
-<script>
-    function validPlz() {
-
-        var PID = document.getElementById("PID").value;
-        var ProductName = document.getElementById("ProductName").value;
-        var ChasisNumber = document.getElementById("ChasisNumber").value;
-        var EngineNumber = document.getElementById("EngineNumber").value;
-
-        var Status = document.getElementById("Status").value;
-
-        var TotalPrice = document.getElementById("TotalPrice").value;
-        var Discount = document.getElementById("Discount").value;
-        var NetTotal = document.getElementById("NetTotal").value;
-
-        var CustomerName = document.getElementById("CustomerName").value;
-        var CNIC = document.getElementById("CNIC").value;
-        var Address = document.getElementById("Address").value;
-        var contact = document.getElementById("contact").value;
-        var fatherName = document.getElementById("fatherName").value;
-        var amountPaid = document.getElementById("amountPaid").value;
-        var amountRemaining = document.getElementById("amountRemaining").value;
-
-
-        if (PID == "") {
-            // alert("Product Id Field Must Be Valid");
-            document.getElementById("PID").focus();
-        } else if (ProductName == "") {
-            // alert("Product Name Field Must Be Valid");
-            document.getElementById("ProductName").focus();
-        } else if (ChasisNumber == "") {
-            // alert("Chasis Number Field Must Be Valid");
-            document.getElementById("ChasisNumber").focus();
-
-
-        } else if (EngineNumber == "") {
-            // alert("Engine Number Field Must Be Valid");
-            document.getElementById("EngineNumber").focus();
-
-
-        } else if (Status == "") {
-            // alert("Status Must Be Mentioned");
-            document.getElementById("Status").focus();
-
-
-        } else if (TotalPrice == "") {
-            // alert("Total Price Field Must Be Valid");
-            document.getElementById("Status").focus();
-
-            document.getElementById("TotalPrice").focus();
-
-
-        } else if (isNaN(TotalPrice)) {
-            alert("Total Price Field Must Be Numeric");
-            document.getElementById("TotalPrice").value = "";
-
-
-
-        } else if (Discount == "") {
-            // alert("Total Price Field Must Be Valid");
-            document.getElementById("Discount").focus();
-
-
-        } else if (isNaN(Discount)) {
-            alert("Discount Field Must Be Numeric");
-            document.getElementById("Discount").value = "";
-
-
-        } else if (NetTotal == "") {
-            // alert("Total Price Field Must Be Valid");
-            document.getElementById("NetTotal").focus();
-
-
-        } else if (CustomerName == "") {
-            // alert("Customer Name Field Must Be Valid");
-            document.getElementById("CustomerName").focus();
-
-
-        } else if (CNIC == "") {
-            // alert("Customer ID Field Must Be Valid");
-            document.getElementById("CNIC").focus();
-
-
-        } else if (Address == "") {
-            // alert("Address  Must Be Mentioned");
-            document.getElementById("Address").focus();
-
-
-        } else if (contact == "") {
-            // alert("Contact Field Must Be Valid");
-            document.getElementById("contact").focus();
-
-
-        } else if (isNaN(contact)) {
-
-            alert("Contact Field Must Be Number");
-            document.getElementById("contact").value = "";
-
-
-        } else if (fatherName == "") {
-            // alert("Manager Name Must Be Mentioned");
-            document.getElementById("fatherName").focus();
-
-
-        } else if (amountPaid == "") {
-            // alert("Amount Paid  Must Be Mentioned");
-            document.getElementById("amountPaid").focus();
-
-
-        } else if (amountRemaining == "") {
-            // alert("Amount Remaining  Must Be Mentioned");
-            document.getElementById("amountRemaining").focus();
-
-
-        } else {
-            generateSale();
-
-        }
-
-
-    }
-
-    $("body").on('keypress', function (event) {
-        if (event.keyCode === 13) {
-            validPlz();
-        } else {}
-    })
-
-    function loadAllCustomers() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("CustomerName").innerHTML =
-                    this.responseText;
-                $('#CustomerName').selectpicker('refresh');
-
-            }
-        };
-
-        xhttp.open("GET", "./getCustomerNames", true);
-        xhttp.send();
-    }
-
-    function getCurrentCustomerInfo() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var data = this.responseText;
-                var a = JSON.parse(data);
-                //document.getElementById("CID").value = a[0].CustomerID;
-                document.getElementById("fatherName").value = a[0].FatherName;
-                document.getElementById("CNIC").value = a[0].CNIC;
-                document.getElementById("contact").value = a[0].Contect;
-                document.getElementById("Address").value = a[0].Address;
-
-
-
-
-            } else {
-                //alert( this.responseText);
-            }
-        }
-        var CustomerID = $('#CustomerName').find(":selected").val();
-
-        xhttp.open("GET", "./getCustomersInfo/" + CustomerID, true);
-        xhttp.send();
-
-
-    }
-
-    function addCustomer() {
-
-        var customerName = document.getElementById("addCustomerName").value;
-        //	alert("It is working"+CustomerName);
-        var fatherName = document.getElementById("addFatherName").value;
-        //	alert("It is working"+password);
-        var contact = document.getElementById("addContact").value;
-        //alert("It is working"+CustomerContact);
-        var profession = document.getElementById("addProfession").value;
-        //alert("It is working"+CustomerProfession);
-        var balance = document.getElementById("addBalance").value;
-        //alert("It is working"+CustomerBalance);
-        var address = document.getElementById("addAddress").value;
-        //alert("It is working"+CustomerAddress);
-        var comments = document.getElementById("addComments").value;
-        //alert("It is working"+CustomerComments);
-        var cnic = document.getElementById("addCNIC").value;
-        //alert("It is working"+CustomerComments);
-
-        var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-            comments, cnic
-        ];
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText);
-            }
-        };
-        var EC = JSON.stringify(newCustomer);
-        alert(EC);
-        xhttp.open("GET", "./insertCustomer/" + EC, true);
-        xhttp.send();
-
-
-    }
-
-    function modalValidation() {
-        var tel = document.getElementById("tel").value;
-        var Balance = document.getElementById("Balance").value;
-
-        if (tel == "") {
-            document.getElementById("tel").focus();
-        } else if (isNaN(tel)) {
-            alert("Contact Should Be A Number");
-        } else if (Balance == "") {
-            document.getElementById("Balance").focus();
-        } else if (isNaN(Balance)) {
-            alert("Balance Field Should Be  Numeric");
-        } else {
-            alert('Okay');
-        }
-    }
-
-</script>
 <script>
     var toggle = true;
 
@@ -1958,40 +1500,6 @@
         }
         toggle = !toggle;
     });
-
-
-    function loadEmployees() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-
-            if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("employees").innerHTML = this.response;
-                $('#employees').selectpicker('refresh');
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getEmployeeName/", true);
-
-        xhttp.send();
-    }
-
-    function getInvoiceID() {
-
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("InvoiceID").value = this.response;
-            }
-        };
-        //alert("ljd");
-        xhttp.open("GET", "./getInvoiceID", true);
-
-        xhttp.send();
-
-
-    }
 
 </script>
 

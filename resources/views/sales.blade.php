@@ -1495,7 +1495,6 @@
                         cell8.innerHTML =
                             "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
 
-
                     }
                 }
             };
@@ -1936,7 +1935,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated");
-                        window.open("./sbp");
+                        window.open("./testpdf/6");
 
                     }
                 };

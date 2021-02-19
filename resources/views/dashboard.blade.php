@@ -9524,6 +9524,303 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body onload="loadFields()">
 
+    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <form method="POST" class="appointment-form" id="appointment-form">
+                        <h2>Create Invoice</h2>
+                        <div class="form-group-1">
+
+                           
+                        <input type="text" name="title" id="title" placeholder="Customer" required />
+                            <input type="text" name="name" id="name" placeholder="Customer ID" required />
+                            <input type="number" name="tel" id="tel" placeholder="Contact" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Profession"
+                                required />
+                            <input type="number" name="phone_number" id="Balance" placeholder="Balance" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Address" required />
+                            <input type="number" name="phone_number" id="Profession" placeholder="Comments" required />
+
+ 
+
+
+
+                        <label for="">Coustomer ID</label>
+                        <select style="width: 100px;" data-live-search="true" 
+                        class="selectpicker form-control"  id="Spare Tyre" >
+                <option value=1>Ahmad</option>
+                <option value=2>Ali</option>
+                <option value=2>usama</option>
+               
+                </select>
+                <label for="">Product Name </label>
+                <select style="width: 100px;" data-live-search="true" 
+                class="selectpicker form-control"  id="Spare Tyre" >
+        <option value=1>Ahmad</option>
+        <option value=2>Ali</option>
+        <option value=2>Ali</option>
+        </select>
+                        <label for="">Tool Kit</label>
+                            <select  style="width: 80px;" data-live-search="true" 
+                                class="selectpicker form-control"  id="Tool Kit" >
+                        <option value=1>YES</option>
+                        <option value=2>NO</option>
+                        </select>
+                        
+                        <label for="">Spare Tyre</label>
+                        <select style="width: 80px;" data-live-search="true" 
+                        class="selectpicker form-control"  id="Spare Tyre" >
+                <option value=1>YES</option>
+                <option value=2>NO</option>
+                </select>
+                <label for="">Original Keys</label>
+                <select style="width: 80px;"  data-live-search="true" 
+                class="selectpicker form-control"  id="originalkeys" >
+        <option value=1>1</option>
+        <option value=2>2</option>
+        <option value=2>3</option>
+        <option value=2>4</option>
+        </select>
+        <label for="">Warranty Book</label>
+        <select  style="width: 80px;" data-live-search="true" 
+        class="selectpicker form-control"  id="originalkeys" >
+<option value=1>YES</option>
+<option value=2>NO</option>
+                                                   <div class="select-list">
+                                <select name="course_type" id="course_type">
+                                    <option slected value="">Category</option>
+                                    <option value="society">Society</option>
+                                    <option value="language">Language</option>
+                                </select>
+                            </div>
+                        </div>
+=======
+
+
+    <div class="page-container">
+        <div class="left-content">
+            <div class="mother-grid-inner">
+                <div class="header-main">
+                    <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
+                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    <form method="POST" class="appointment-form" id="appointment-form">
+                                        <h2></h2>
+                                        <div class="form-group-1">
+                                            <input type="text" name="title" id="customerName" placeholder="Customer Name"
+                                                required />
+                                           
+                                            <input type="text" name="address" id="address" placeholder="Address"
+                                                required />
+                                            <input type="text" name="phone_number" id="contact"
+                                                placeholder="Contact" required />
+                                            <label for="Model">Select Model</label>
+                                            <select style="height: 40px !important; width: 200px !important;" name="Select Model"
+                                                class="selectpicker form-control" data-live-search="true" id="model" onchange="updateModelData()">
+
+                                            </select>
+                                            <input type="text" name="phone_number" id="description"
+                                                placeholder="Description" required />
+                                            <input type="text" name="phone_number" id="color" placeholder="Color"
+                                                required />
+                                                <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
+                                                required />
+                                                <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
+                                                required />
+                                                <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
+                                                required />
+                                            <input type="text" name="phone_number" id="unitPrice"
+                                                onchange="calculation()" placeholder="Unit Price" required />
+                                            <input type="text" name="phone_number" id="quantity" placeholder="Quantity"
+                                                onchange="calculation()" required />
+                                            <input type="text" name="phone_number" id="totalPrice"
+                                                placeholder="Total Price" required />
+
+
+                                        </div>
+
+                                        <div class="login-box">
+                                            <a onclick="createQuotation()">
+                                            <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                            Create Quotation</a>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="header-left">
+                        <div class="logo-name">
+                            <a href="/db">
+                                <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png"
+                                    class="img-fluid" alt="">
+                            </a>
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="header-right">
+                        <div class="profile_details_left">
+
+
+                            <button class="btn-my btn1" style="margin-left: 200px;" data-toggle="modal"
+                                data-target=".bd-example-modal-lg">Operations</button>
+
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <div class="container-fluid">
+                                                <div class="row p-2"
+                                                    style="border: 2px solid gray; border-radius: 10px;">
+
+
+                                                    {{ session()->put('CID','125')}}
+                                                    <div class="col-md-3">
+                                                        <label class="labels" for="">Purchase</label>
+                                                        <div style="border-right: 2px solid gray;" class="leftBtns">
+                                                            <button class="btn btn-myPrimary-add"
+                                                                onclick="location.href = '/bo'">Book
+                                                                Order</button><br>
+                                                            <button class="btn btn-mysecondary"
+                                                                onclick="location.href = '/d'">Dilivery</button><br>
+                                                            <button data-toggle="modal" id="killme"
+                                                                data-target="#staticBackdrop"
+                                                                class="btn btn-mysecondary">Quotation</button><br>
+
+
+                                                            <button class="btn btn-mysecondary"
+                                                                onclick="location.href = '/dl'">Dilivery
+                                                                letter</button><br>
+                                                            <button class="btn btn-mysecondary"
+                                                                onclick="location.href = '/ct'">Comissions</button><br>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label style="margin-left: 30px;" class="labels"
+                                                            for="">Sales</label>
+                                                        <div style="border-right: 2px solid gray;" class="leftBtns">
+                                                            <a href="/is"><button class="btn btn-myPrimary-add">invoice
+                                                                    services</button><br></a>
+                                                            <a href="/psi"><button class="btn btn-mysecondary">Print
+                                                                    Sale Invoice</button><br></a>
+                                                            <a href="/sc"><button class="btn btn-myPrimary">Sales&
+                                                                    comission</button><br></a>
+                                                            <a href="/ct"> <button
+                                                                    class="btn btn-myPrimary-add">texes</button><br></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label style="margin-left: 30px;" class="labels"
+                                                            for="">Stock</label>
+                                                        <div style="border-right: 2px solid gray;" class="leftBtns">
+
+                                                            <a href="/as"> <button class="btn btn-myPrimary-add">Add
+                                                                    Stock</button><br></a>
+                                                            <a href="/ip"><button class="btn btn-mysecondary">Increase
+                                                                    In price</button><br></a>
+                                                            <a href="/stock"> <button
+                                                                    class="btn btn-myPrimary">Stock</button><br></a>
+                                                            <a href="/vc"><button
+                                                                    class="btn btn-myPrimary-add">ViewCustmer</button><br></a>
+                                                            <a href="/sp"> <button class="btn btn-mysecondary">View
+                                                                    Spareoarts</button><br></a>
+                                                            <a href="/vs"> <button class="btn btn-myPrimary">View
+                                                                    Stock</button><br></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <label style="margin-left: 22px;" class="labels"
+                                                            for="">Ledger</label>
+                                                        <div class="leftBtns">
+                                                            <button class="btn btn-myPrimary-add"
+                                                                onclick="location.href = '/cl'">Company
+                                                                ledger</button><br>
+                                                            <a href="/l"> <button
+                                                                    class="btn btn-mysecondary">ledger</button><br></a>
+                                                            <a href="/th"><button class="btn btn-myPrimary">Transaction
+                                                                    History</button><br></a>
+                                                            <a href="/ex"><button
+                                                                    class="btn btn-myPrimary-add">Expance</button><br></a>
+
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="profile_details">
+                            <ul>
+                                <li class="dropdown profile_details_drop">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="profile_img">
+                                            <span class="prfil-img"><img style="height: 50px; border-radius: 50%; "
+                                                    src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
+                                                    alt=""> </span>
+                                            <div class="user-name">
+                                                <p style="color: #e61d2f;">{{ Session::get('UserName')}}</p>
+                                                <span>Administrator</span>
+                                            </div>
+                                            <i class="fa fa-angle-down lnr"></i>
+                                            <i class="fa fa-angle-up lnr"></i>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </a>
+                                    <!-- <ul class="dropdown-menu drp-mnu">
+										<li> <a ><i class="fa fa-cog"></i> Settings</a> </li>
+										<li> <a ><i class="fa fa-user"></i> Profile</a> </li>
+										<li> <a ><i class="fa fa-sign-out"></i> Logout</a> </li>
+									</ul> -->
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        var navoffeset = $(".header-main").offset().top;
+                        $(window).scroll(function () {
+                            var scrollpos = $(window).scrollTop();
+                            if (scrollpos >= navoffeset) {
+                                $(".header-main").addClass("fixed");
+                            } else {
+                                $(".header-main").removeClass("fixed");
+                            }
+                        });
+
+                    });
+>>>>>>> origin/zainFeatures
+
 @include('dashboardhtml')
     <script>
         var toggle = true;
@@ -9558,8 +9855,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>
         function loadFields() {
             dailySaleAmount();
+            loadAutos();
+        }
+        
+        function updateModelData() {
+            var AID = $('#model').find(":selected").val();
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var a = this.response;
+                    var data = JSON.parse(a);
+                    var price = data[0].Price;
+                    var description = data[0].Description;
+                    document.getElementById("unitPrice").value = price;
+                    document.getElementById("description").value = description;
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getAutoData/" + AID, true);
+
+            xhttp.send();
         }
 
+        function loadAutos() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("model").innerHTML = this.response;
+                    $('#model').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadAutos/", true);
+
+            xhttp.send();
+        }
 
 
 
@@ -9745,15 +10080,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Quotation =" + this.responseText + " is generated");
-
-                    window.open("/qt");
-
-                }
-            };
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./createQuotation/" + quotationData, true);
-            xhttp.send();
+                        alert("Quotation =" + this.responseText + " is generated");
+                        
+                        window.open("/qt");
+                        window.open("/testpdf/5");
+                        
 
         }
 

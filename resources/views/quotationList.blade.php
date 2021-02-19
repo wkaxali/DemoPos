@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <style>
@@ -51,19 +52,125 @@
                 <h1>Quotation List</h1>
             </div>
         </div><br><br>
+        <header>
+                    <div class="container" >
+                    
+                    <div class="myContentInputs" style="display: flex">
+                        
+                            <div class="inputField-1">
+                                <label for="prodName">Customer Name</label>
+                                <input type="text" id="customerName" class="form-control"
+                                style="height: 40px !important; width: 200px !important; ">
+                            </div>
+                            <br>
+                            <div class="inputField-1">
+                                <label for="cost">Address</label>
+                                <input type="text" class="form-control" id="address"
+                                style="height: 40px !important; width: 200px !important; ">
+                            </div>
+                           <br>
+                            <div class="inputField-1">
+                                <label for="prodName">Contact</label>
+                                <input type="text" class="form-control" id="contact"
+                                style="height: 40px !important; width: 200px !important; ">
+
+                            </div>
+                            <br>
+                            <div class="inputField-1">
+                                <label for="Model">Select Model</label>
+                                <select style="height: 40px !important; width: 200px !important;" name="Select Model"
+                                    class="selectpicker form-control" data-live-search="true" id="model" onchange="updateModelData()">
+
+                                </select>
+
+                            </div>
+                            <br>
+                            
+                        </div>
+                        <br>
+                    <div class="myContentInputs" style="display: flex">
+                    
+                        <div class="inputField-1">
+                            <label for="prodName">Description</label>
+                            <input type="text" id="description" class="form-control"
+                            style="height: 40px !important; width: 200px !important; ">
+                        </div>
+                        <br>
+                        <div class="inputField-1">
+                            <label for="cost">Color</label>
+                            <input type="text" class="form-control" id="color"
+                            style="height: 40px !important; width: 200px !important; ">
+                        </div>
+                        <br>
+                        <div class="inputField-1">
+                            <label for="prodName">Quotation Validity Time</label>
+                            <input type="text" class="form-control" id="qvt"
+                            style="height: 40px !important; width: 200px !important; ">
+
+                        </div>
+                        <br>
+                        <div class="inputField-1">
+                            <label for="prodName">Delivery Time</label>
+                            <input type="text" class="form-control" id="dt"
+                            style="height: 40px !important; width: 200px !important; ">
+
+                        </div>
+                        <br>
+                        
+                    </div>
+                    <br>
+                    <div class="myContentInputs" style="display: flex">
+                    
+                    <div class="inputField-1">
+                            <label for="prodName">Payment To</label>
+                            <input type="text" class="form-control" id="paymentTo"
+                            style="height: 40px !important; width: 200px !important; ">
+
+                        </div>
+                        <br>
+                        <div class="inputField-1">
+                            <label for="cost">Unit Price</label>
+                            <input type="text" class="form-control" id="unitPrice" onchange="calculation()"
+                            style="height: 40px !important; width: 200px !important; ">
+                        </div>
+                        <br>
+                        <div class="inputField-1">
+                            <label for="prodName">Quantity</label>
+                            <input type="text" class="form-control" id="quantity" onchange="calculation()"
+                            style="height: 40px !important; width: 200px !important; ">
+
+                        </div>
+                        <br>
+                        <div class="inputField-1">
+                            <label for="prodName">Total Price</label>
+                            <input type="text" class="form-control" id="totalPrice"
+                            style="height: 40px !important; width: 200px !important; ">
+
+                        </div>
+                    </div>
+                    <br>
+                    <div class="input-Btn-1">
+                            <button class="btn btn-success" style="margin-top: 30px !important;"
+                                onclick="createQuotation()">Create Quotation</button>
+
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                </header>
         <div class="row">
             <div class="col-md-8">
                 <table class="table table-bordered table-hover" id="quotationsTable">
                     <thead>
                         <th>QID</th>
                         <th>CustomerName</th>
-                        
-                        <th>CNIC</th>
-                        <th>City</th>
                         <th>Address</th>
                         <th>Contact</th>
-                        
-                        
                         <th>UnitPrice</th>
                         <th>Quantity</th>
                         <th>TotalPrice</th>
@@ -72,10 +179,8 @@
                         <th>Action</th>
                     </thead>
                     <tbody>
-
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
@@ -142,8 +247,7 @@
 
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].QID,  a[i].CustomerName, a[i]
-                            .CNIC, a[i].City, a[i].Address, a[i]
+                        table.row.add([a[i].QID,  a[i].CustomerName, a[i].Address, a[i]
                             .Contact, a[i]
                             .UnitPrice, a[i].Quantity, a[i].TotalPrice, a[i]
                             .Model, a[i].Date, '<button class="btn print" onclick="printQuotation('+a[i].QID+')" >Print</button>'
@@ -157,6 +261,7 @@
             xhttp.open("GET", "./viewQuotations/", true);
 
             xhttp.send();
+            loadAutos();
         }
 
 
@@ -166,7 +271,7 @@
             xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 
-                window.open('/qt');
+                window.open('/testpdf/5');
 
                 }
             }
@@ -174,6 +279,100 @@
             xhttp.open("GET", "./getQuotation/" + QID, true);
             xhttp.send();
 
+        }
+
+
+        function createQuotation(){
+            // <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
+            //                                     required />
+            //                                     <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
+            //                                     required />
+            //                                     <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
+            //                                     required />
+            var customerName = document.getElementById("customerName").value;
+            var fatherName ="";
+            var CNIC = "";
+            var city ="";
+            var address = document.getElementById("address").value;
+            var contact = document.getElementById("contact").value;
+            var description = document.getElementById("description").value;
+            var color = document.getElementById("color").value;
+            var unitPrice = document.getElementById("unitPrice").value;
+            var quantity = document.getElementById("quantity").value;
+            var totalPrice = document.getElementById("totalPrice").value;
+            var model = document.getElementById("model").value;
+            var det=document.getElementById("dt").value;
+            var qvt=document.getElementById("qvt").value;
+            var payTo=document.getElementById("paymentTo").value;
+
+            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity, totalPrice, model,det,qvt,payTo];
+
+            var quotationData = JSON.stringify(data);
+            alert(data);
+            var xhttp = new XMLHttpRequest();
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        alert("Quotation =" + this.responseText + " is generated");
+                        
+                        window.open("/qt");
+                        window.open("/testpdf/5");
+                        
+
+                    }
+                };
+                // var MenuID=$('#Menus').find(":selected").val();
+                xhttp.open("GET", "./createQuotation/" + quotationData, true);
+                xhttp.send();
+            
+        }
+
+
+        function updateModelData() {
+            var AID = $('#model').find(":selected").val();
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var a = this.response;
+                    var data = JSON.parse(a);
+                    var price = data[0].Price;
+                    var description = data[0].Description;
+                    document.getElementById("unitPrice").value = price;
+                    document.getElementById("description").value = description;
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getAutoData/" + AID, true);
+
+            xhttp.send();
+        }
+
+        function loadAutos() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("model").innerHTML = this.response;
+                    $('#model').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadAutos/", true);
+
+            xhttp.send();
+        }
+
+        function calculation(){
+            var price = document.getElementById("unitPrice").value;
+            var quantity = document.getElementById("quantity").value;    
+            
+            var total = price*quantity;
+            document.getElementById("totalPrice").value = total;
         }
 
 

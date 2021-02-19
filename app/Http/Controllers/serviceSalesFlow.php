@@ -9,6 +9,7 @@ use App\Http\Controllers\accountsController;
 use App\Http\Controllers\UpdateStocksController;
 use DB;
 use PDF;
+use NumberToWords\NumberToWords;
 
 
 class serviceSalesFlow extends Controller
@@ -118,15 +119,19 @@ class serviceSalesFlow extends Controller
          session(['customerName' => $customerName]);
          session(['contact' => $contact]);
          session(['model' => $productName]);
-
+         session(['invoiceNo' => $invoiceNumber]);
          session(['CNIC' => $CNIC]);
          session(['tax' => $tax]);
          session(['total' => $TotalAmount]);
          session(['netTotal' => $netTotal]);
          session(['InvBalance' => $InvoiceBalance]);
-         session(['amountPaid' => $AmountPaid]);
+         session(['amountPaid' =>  number_format($AmountPaid)]);
          session(['overallDiscount' => $Discount]);
 
+         $numberToWords = new NumberToWords();
+            $numberTransformer = $numberToWords->getNumberTransformer('en');
+            $a= $numberTransformer->toWords($AmountPaid);
+          session(['amountInWords' => ucwords($a)]);
       }
   
     }
