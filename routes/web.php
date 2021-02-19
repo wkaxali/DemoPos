@@ -219,7 +219,6 @@ Route::get('/chksessions',function(){
 
     echo $value;
    
-
 });
 Route::get('/ss', function () {
     return view('sales');
