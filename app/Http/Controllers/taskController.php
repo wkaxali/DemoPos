@@ -53,7 +53,7 @@ public static function employeeData(){
             <div class="mainCardBody">
                 <div class="leftCardBody">
                     <button
-                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
+                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
                 </div>
                 <div class="rightCardBody">
                     <span><i class="fa fa-fire"></i></span>
@@ -138,7 +138,7 @@ public static function getEmployees(){
             <div class="mainCardBody">
                 <div class="leftCardBody">
                     <button
-                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
+                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
                 </div>
                 <div class="rightCardBody">
                     <span><i class="fa fa-fire"></i></span>
@@ -191,7 +191,7 @@ public static function searchTaskWithStatus($EID, $status, $name){
             <div class="mainCardBody">
                 <div class="leftCardBody">
                     <button
-                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
+                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
                 </div>
                 <div class="rightCardBody">
                     <span><i class="fa fa-fire"></i></span>

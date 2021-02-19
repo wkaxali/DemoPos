@@ -219,7 +219,6 @@ Route::get('/chksessions',function(){
 
     echo $value;
    
-
 });
 Route::get('/ss', function () {
     return view('sales');
@@ -479,4 +478,7 @@ Route::get('/ec', function () {
 });
 Route::get('/pdf', function () {
     return view('test');
+});
+Route::get('/tc', function () {
+    return view('taskCategory');
 });
