@@ -9530,7 +9530,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-<script>
+    <script>
 var toggle = true;
 
 $(".sidebar-icon").click(function () {
