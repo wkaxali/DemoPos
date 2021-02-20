@@ -11,7 +11,8 @@ use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
-use App\Http\Controllers\uzairController;
+use App\Http\Controllers\salePrintInvoice;
+
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\userAccountController;
 
@@ -62,13 +63,6 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
-Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
-// Route::get('/editLedgerParties',[LedgerPartiesController::class, '']);
-Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
-//qutationRequest
-Route::get('/testpdf/4',[TEST::class, 'gatePass']);
-
-Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
 
 //---------------------------//LedgerPartiesController
@@ -130,6 +124,13 @@ Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
 Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
 Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStock']);
 
+
+Route::get('/editAutoModels/{UC}',[UpdateStocksController::class, 'editAutoModels']);
+Route::get('/getAutoModel',[UpdateStocksController::class, 'getAutoModel']);
+
+Route::get('/addAutoModel',[employeeController::class, 'addAutoModel']);
+
+
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
@@ -185,11 +186,9 @@ Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateT
 
 Route::get('/getEmployees',[taskController::class, 'getEmployees']);
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
-Route::get('/create/{data}',[quotationController::class, 'createQuotation']);
-Route::get('/getParty',[LedgerPartiesController::class, 'getParty']);
-Route::get('/editParty/{UP}',[LedgerPartiesController::class, 'editParty']);
-Route::get('/adduzairdata',[uzairController::class, 'function']);
-route::get('/addtable' , [uzairController::class, 'myfunction']);
+Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
+Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
+
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
@@ -199,6 +198,18 @@ Route::get('/getUsers',[userAccountController::class, 'getUsers']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
+
+
+Route::get('/testpdf',[TEST::class, 'getInfo']);
+Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
+
+Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
+//qutationRequest
+Route::get('/testpdf/4',[TEST::class, 'gatePass']);
+
+Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
+
+Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
 
 
 Route::get('/', function () {   
@@ -223,7 +234,6 @@ Route::get('/chksessions',function(){
 
     echo $value;
    
-
 });
 Route::get('/ss', function () {
     return view('sales');
@@ -404,7 +414,6 @@ Route::get('/sheet', function () {
 });
 Route::get('/vd', function () {
     return view('vehicleDetail');
-
 });
 Route::get('/sir', function () {
     return view('solutions');
@@ -485,19 +494,27 @@ Route::get('/ec', function () {
 Route::get('/pdf', function () {
     return view('test');
 });
-Route::get('/ep', function () {
-    return view('editLedgerParties');
+Route::get('/tc', function () {
+    return view('taskCategory');
+});
+
+
+Route::get('/ds', function () {
+    return view('dailysales');
+});
+
+Route::get('/ex', function () {
+    return view('expense');
 });
 
 Route::get('/au', function () {
-    return view('addUsers');
+    return view('addusers');
 });
 
-Route::get('/eu', function () {
-    return view('editUsers');
+Route::get('/eam', function () {
+    return view('editAutoModels');
 });
 
-
-Route::get('/atc', function () {
-    return view('taskCategory');
+Route::get('/aam', function () {
+    return view('addAutoModel');
 });

@@ -194,11 +194,11 @@ function getCustomers() {
        var table;
        var a=JSON.parse(data);
        
-       table = $('#stocktable').DataTable(); 
+       table = $('#modeltable').DataTable(); 
        
         $.each(a, function (i, item) {
             
-            table.row.add([a[i].CustomerID, a[i].CustomerName, a[i].FatherName, a[i].Address, a[i].Contect
+            table.row.add([a[i].MID, a[i].company, a[i].modelname, a[i].Address, a[i].Contect
             , a[i].CNIC, a[i].Balance, a[i].Comments]);
             });   
          table.draw();          

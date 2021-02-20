@@ -1389,7 +1389,7 @@
     </style>
 </head>
 
-<body style="font-family: 'Roboto', sans-serif;" onload="loadCategory()">
+<body style="font-family: 'Roboto', sans-serif;" onload="fetchAccounts()">
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -1424,12 +1424,10 @@
                                     <div class="myOwnRow-left">
                                     <h2>Add New Category</h2>
                                         <div class="input-field">
-                                            <label for="status">Add New category</label>
+                                            <label for="status">Product ID</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="category">
-
-                                                <button onclick= "addTaskcategory()">Add Category</button>
+                                                name="name" id="PID">
                                         </div>
 
                                     </div>
@@ -1442,17 +1440,10 @@
                                             <div class="col-md-12">
                                             <h2>Edit Category</h2>
                                                 <div class="input-field">
-                                                    
-                                                        <label for="">Task Category</label>
-                                                        <select onchange="updateData()" style="height: 25px !important; width: 158px !important; "
-                                                            class="selectpicker form-control" 
-                                                                     id="oldCategory">
-                                                            </select><br>
-                                                            <label for="status">Edit Task Category</label>
+                                                    <label for="status">Invoice Number</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" value="" id="editcategory"><br>
-                                                        <button onclick= "updateTaskCategory()">Update Category</button>
+                                                        name="name" value="" id="InvoiceID">
 
     
 
@@ -1511,72 +1502,5 @@
     });
 
 </script>
-
-<script>
-
-function updateData(){
-    var oldcategory = $('#oldCategory').find(":selected").text();
-    document.getElementById("editcategory").value =oldcategory;
-}
-          function updateTaskCategory() {
-            var ID = document.getElementById("oldCategory").value;
-              
-            var newcategory = document.getElementById("editcategory").value;
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                alert("Category "+this.response+" Updated Successfully")
-
-                }
-            };
-           
-            xhttp.open("GET", "./updatecategory/"+ID +"/"+ newcategory, true);
-
-            xhttp.send();
- 
-        }
-        
-        function loadCategory() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("oldCategory").innerHTML = this.response;
-                    $('#oldCategory').selectpicker('refresh');
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./getCategory/", true);
-
-            xhttp.send();
-
-
-        }
-        
-    </script>
-    <script>
-    function addTaskcategory() {
-    var category = document.getElementById("category").value;
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                        alert("New Category " +  this.response+ " is added.") ;
-
-                }
-            };
-           
-            xhttp.open("GET", "./addTaskCategory/"+category, true);
-
-            xhttp.send();
-        
-        }
-    </script>
-
 
 </html>
