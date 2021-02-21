@@ -12,6 +12,7 @@ use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
 use App\Http\Controllers\salePrintInvoice;
+use App\Http\Controllers\StripeController;
 
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\userAccountController;
@@ -186,6 +187,7 @@ Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController:
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
 
 
+Route::post('/Checkout/{token}',[StripeController::class, 'postCheckout']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
 
@@ -202,6 +204,10 @@ Route::get('/', function () {
     session(['userCategory' =>1]);
     return view('signInSignUp');
 });
+Route::get('/stripe', function () {   
+    return view('stripe');
+});
+
 
 Route::get('/ed', function () {   
     return view('EmpDashboard');
