@@ -20,21 +20,14 @@ class StripeController extends Controller
                            
         dd($token = $request->stripeToken);
         try {
-            $customer = Customer::create(array(
-                'email' => "wkaxali@gmail.com",
-                'source'  => $request->stripeToken
-            ));
-            Stripe\Charge::create ([
-
-                "amount" => 100 * 100,
-
-                "currency" => "usd",
-
-                "source" => $request->stripeToken,
-
-                "description" => "Test payment from itsolutionstuff.com." 
-
-        ]);
+         
+            $payment_intent = \Stripe\PaymentIntent::create([
+                'description' => 'Stripe Test Payment',
+                'amount' => 1500,
+                'currency' => 'usd',
+                'description' => 'Payment From Codehunger',
+                'payment_method_types' => ['card'],
+            ]);
             
     
         }
