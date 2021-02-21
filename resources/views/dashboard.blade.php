@@ -9788,7 +9788,7 @@ if (this.readyState == 4 && this.status == 200) {
 
 alert("Quotation =" + this.responseText + " is generated");
 
-window.open("/qt");
+
 window.open("/testpdf/5");
 
 
