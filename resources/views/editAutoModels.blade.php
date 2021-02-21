@@ -100,7 +100,7 @@
                     
                     <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
                         <button class="btn btn-success" onclick="editAutoModels()">Update </button>
-                        
+                        <div class="modal-content">
                             
                         <div class="col-md-4 ">
                     <button type="button" class="btn btn-info btn-cp" style="margin-top:29px;" data-toggle="modal"
@@ -158,7 +158,7 @@ function getAutoModel() {
     }
   };
   
-  xhttp.open("GET", "./editAutoModels/", true);
+  xhttp.open("GET", "./getAutoModel/", true);
   xhttp.send();
 }
 $("#stocktable").on('click','tr',function(){
@@ -174,25 +174,25 @@ $("#stocktable").on('click','tr',function(){
 }
 );
 
-function setAutoModel() {
+function editAutoModels() {
     
-    var PID = document.getElementById("ModelID").value;
+    var ModelID = document.getElementById("ModelID").value;
     //alert("updated  "+PID);
-    var productName = document.getElementById("Company").value;
+    var Company = document.getElementById("Company").value;
     //alert("updated  "+productName);
-    var company = document.getElementById("ModelName").value;
+    var ModelName = document.getElementById("ModelName").value;
     //alert("updated  "+company);
-    var salePrice = document.getElementById("ProductCategory").value;
+    var ProductCategory = document.getElementById("ProductCategory").value;
     //alert("updated "+salePrice);
-    var purchasePrice = document.getElementById("Price").value;
+    var Price = document.getElementById("Price").value;
     
     
     
        
-    var editAutoModel = [ModelID, Company, ModelName, ProductCategory, Price];
+    var edit = [ModelID, Company, ModelName, ProductCategory, Price];
     
 
-    var UC = JSON.stringify(editAutoModel);
+    var UC = JSON.stringify(edit);
             
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
