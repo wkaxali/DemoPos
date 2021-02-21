@@ -6531,7 +6531,7 @@
 
 <body id="mainBody" onload="loadData()">
 
-@include('addNewStock')
+@include('addnewstockhtml')
 
 
 

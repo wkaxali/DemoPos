@@ -87,8 +87,8 @@
                 <div class="row">
                     <div class="col-md-2 offset-md-10 text-right">
                         <button class="btn btn-success  mt-1"
-                            style="height: 40px;width: 102px;  color: #ffffff;"
-                            onclick="insertProducts()">PlaceOrder</button>
+                            style="height: 40px;width: 120px;  color: #ffffff;"
+                            onclick="insertProducts()">Update Stock</button>
                     </div>
                 </div>
             </div>

@@ -256,9 +256,11 @@ Route::get('/ps', function () {
     
 });
 Route::get('/as', function () {
+    return view('a');
+});
+Route::get('/as2', function () {
     return view('addNewStock');
 });
-
 Route::get('/bo', function () {
     return view('bookorder');
 });
