@@ -30,9 +30,9 @@
                 <li><a href="/">Category</a></li>
                 <li><a href="/vs">Product Record</a></li>
                 <li><a href="/as">Add Product</a></li>
-                <li><a href="/">Barcode</a></li>
+                <li><a href="/gb">Barcode</a></li>
 
-                <li><a href="/">Stock Audit</a></li>
+                <li><a href="/sh">Stock Audit</a></li>
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span

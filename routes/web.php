@@ -272,7 +272,7 @@ Route::get('/ps', function () {
 Route::get('/as', function () {
     return view('a');
 });
-Route::get('/as2', function () {
+Route::get('/as', function () {
     return view('addNewStock');
 });
 Route::get('/bo', function () {
@@ -433,6 +433,11 @@ Route::get('/ql', function () {
 Route::get('/ac', function () {
     return view('addcategory');
 });
+
+Route::get('/vc', function () {
+    return view('viewCustomers');
+});
+
 Route::get('/gb', function () {
     return view('generateBarcode');
 });
@@ -525,4 +530,8 @@ Route::get('/eam', function () {
 
 Route::get('/aam', function () {
     return view('addAutoModels');
+});
+
+Route::get('/eu', function () {
+    return view('editUsers');
 });

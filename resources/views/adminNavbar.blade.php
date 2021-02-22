@@ -27,12 +27,12 @@
                     style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse list-unstyled firstULs ">
-                <li><a href="/">Category</a></li>
+                <li><a href="/ac">Category</a></li>
                 <li><a href="/vs">Product Record</a></li>
                 <li><a href="/as">Add Product</a></li>
-                <li><a href="/">Barcode</a></li>
+                <!-- <li><a href="/">Barcode</a></li> -->
 
-                <li><a href="/">Stock Audit</a></li>
+                <li><a href="/sh">Stock Audit</a></li>
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
@@ -155,7 +155,7 @@
                     style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs12" id="menu-academico-sub">
-                <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
+                <li id="menu-academico-boletim"><a href="/as2">Add New Stock</a></li>
                 <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
             </ul>
         </li>
