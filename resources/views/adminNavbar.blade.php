@@ -27,12 +27,12 @@
                     style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse list-unstyled firstULs ">
-                <li><a href="/">Category</a></li>
+                <li><a href="/ac">Category</a></li>
                 <li><a href="/vs">Product Record</a></li>
                 <li><a href="/as">Add Product</a></li>
-                <li><a href="/">Barcode</a></li>
+                <!-- <li><a href="/">Barcode</a></li> -->
 
-                <li><a href="/">Stock Audit</a></li>
+                <li><a href="/sh">Stock Audit</a></li>
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
@@ -48,7 +48,7 @@
                     style="font-size: 18px;">Supplier</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs2">
-                <li><a href="/">Add Supplier</a></li>
+                <li><a href="/ads">Add Supplier</a></li>
                 <li><a href="/vs">Supplier List</a></li>
             </ul>
         </li>
@@ -59,8 +59,8 @@
             <ul class="collapse firstULs3">
                 <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
                 </li>
-                <li><a href="">Daily Purchase</a></li>
-                <li><a href="">Monthly Purchase</a></li>
+                <li><a href="/dp">Daily Purchase</a></li>
+                <li><a href="/dp">Monthly Purchase</a></li>
                 <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
             </ul>
         </li>
@@ -70,8 +70,8 @@
             <ul class="collapse firstULs4">
                 <li><a href="/ss">POS</a></li>
                 <li><a href="/sc">Add Sale</a></li>
-                <li><a href="">Daily Sales</a></li>
-                <li><a href="">Monthly Sales</a></li>
+                <li><a href="ds">Daily Sales</a></li>
+                <li><a href="ds">Monthly Sales</a></li>
 
             </ul>
         </li>
@@ -155,7 +155,7 @@
                     style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs12" id="menu-academico-sub">
-                <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
+                <li id="menu-academico-boletim"><a href="/as2">Add New Stock</a></li>
                 <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
             </ul>
         </li>
