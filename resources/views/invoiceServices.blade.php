@@ -1550,6 +1550,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 alert("Printed");
                 window.open("./testpdf/3");
+                window.open("./testpdf/4");
 
             }
         };
