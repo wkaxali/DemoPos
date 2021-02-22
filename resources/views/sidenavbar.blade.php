@@ -27,11 +27,10 @@
                     style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse list-unstyled firstULs ">
-                <li><a href="/">Category</a></li>
+                <li><a href="/ac">Category</a></li>
                 <li><a href="/vs">Product Record</a></li>
                 <li><a href="/as">Add Product</a></li>
                 <li><a href="/gb">Barcode</a></li>
-
                 <li><a href="/sh">Stock Audit</a></li>
             </ul>
         </li>
@@ -40,7 +39,7 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs1">
                 <li><a href="/adc">Add Customer</a></li>
-                <li><a href="/vs">Customer List</a></li>
+                <li><a href="/vc">Customer List</a></li>
 
             </ul>
         </li>
@@ -49,7 +48,7 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs2">
                 <li><a href="/ads">Add Supplier</a></li>
-                <li><a href="/vs">Supplier List</a></li>
+                <!-- <li><a href="/vs">Supplier List</a></li> -->
             </ul>
         </li>
         <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
@@ -60,7 +59,7 @@
                 <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
                 </li>
                 <li><a href="/dp">Daily Purchase</a></li>
-                <li><a href="">Monthly Purchase</a></li>
+                <li><a href="/dp">Monthly Purchase</a></li>
                 <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
             </ul>
         </li>
@@ -71,7 +70,7 @@
                 <li><a href="/ss">POS</a></li>
                 <li><a href="/sc">Add Sale</a></li>
                 <li><a href="/ds">Daily Sales</a></li>
-                <li><a href="">Monthly Sales</a></li>
+                <li><a href="/ds">Monthly Sales</a></li>
 
             </ul>
         </li>
@@ -80,7 +79,7 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs5">
                 <li><a href="/ex">Add Expense</a></li>
-                <li><a href="">Expense List</a></li>
+                <li><a href="/exv">Expense List</a></li>
                 <li><a href="">Expense Head</a></li>
                 <li><a href="">Expense Category</a></li>
             </ul>
@@ -90,7 +89,7 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs5">
                 <li><a href="/ex">Add Expense</a></li>
-                <li><a href="/ex">Expense List</a></li>
+                <li><a href="/exv">Expense List</a></li>
                 <li><a href="">Expense Head</a></li>
                 <li><a href="">Expense Category</a></li>
             </ul>
@@ -100,7 +99,7 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs5">
                 <li><a href="/ex">Add Expense</a></li>
-                <li><a href="">Expense List</a></li>
+                <li><a href="/exv">Expense List</a></li>
                 <li><a href="">Expense Head</a></li>
                 <li><a href="">Expense Category</a></li>
             </ul>
@@ -131,7 +130,7 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs10" id="menu-academico-sub">
                 <li id="menu-academico-avaliacoes"><a href="/ae">Add Employee</a></li>
-                <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
+                <li id="menu-academico-boletim"><a href="/ee">View Employee</a></li>
             </ul>
         </li>
 
@@ -141,7 +140,7 @@
                     style="font-size: 18px;">People</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs11" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
+                <li id="menu-academico-avaliacoes"><a href="/eu">User List</a></li>
                 <li id="menu-academico-boletim"><a href="/au">Add User</a></li>
 
 
@@ -155,14 +154,14 @@
                     style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs12" id="menu-academico-sub">
-                <li id="menu-academico-boletim"><a href="/as">Add New Stock</a></li>
-                <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
+                <li id="menu-academico-boletim"><a href="/eam">Add and Edit Stock</a></li>
+                <!-- <li id="menu-academico-avaliacoes"><a href="/eam">View Stock</a></li> -->
             </ul>
         </li>
 
 
 
-        <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
+        <!-- <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
                     class="fas fa-flag-checkered"></i><span style="font-size: 18px;">Reports</span><span
                     class="fa fa-angle-right" style="float: right"></span></a>
             <ul class="collapse firstULs13" id="menu-academico-sub">
@@ -184,15 +183,15 @@
 
 
             </ul>
-        </li>
-        <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14"><i
+        </li> -->
+        <!-- <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14"><i
                     class="fas fa-truck-loading"></i><span style="font-size: 18px;">Order
                     Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
             <ul class="collapse firstULs14" id="menu-academico-sub">
                 <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
 
             </ul>
-        </li>
+        </li> -->
 
 
         <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
@@ -222,14 +221,17 @@
             </ul>
         </li>
 
-        <li><a data-toggle="collapse" data-target=".firstULs18"><i class="fas fa-cogs"></i><span
+        <!-- <li><a data-toggle="collapse" data-target=".firstULs18"><i class="fas fa-cogs"></i><span
                     style="font-size: 18px;">Account Settings</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs18" id="menu-academico-sub">
                 <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
                 <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
             </ul>
-        </li>
+        </li> -->
     </ul>
 </div>
 </div>
+
+        <div class="clearfix"> </div>
+    </div>
