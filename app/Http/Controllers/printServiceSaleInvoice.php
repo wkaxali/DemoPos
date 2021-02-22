@@ -16,8 +16,38 @@ class printServiceSaleInvoice extends Controller
 {
     public function afterSalesServicePrint()
     {
+        $productHtmlTDs=null;
+        $counter=0;
+        $maxinmunLines=13;
+    // dd(session()->get('ProductNames'));
+
+        foreach(session()->get('ProductNames') as $p){
+        $productHtmlTDs =$productHtmlTDs.'<tr>
+        <td align="center"><div>'.$p[0].'</div></td>
+        <td align="center"><div>'.$p[1].'</div></td>
+        <td align="center"><div>'.$p[2].'</div></td>
+        <td align="center"><div>'.$p[3].'</div></td>
+        <td align="center"><div>'.$p[4].'</div></td></tr>';//..'<td>'.$p[1].'</td><td>'.$p[2].'</td><td>'.$p[3].'</td><td>'.$p[4].'</td><td>'.$p[5].'</td></tr>';
+       // $productHtmlTDs =$productHtmlTDs.'<tr><td>'.$p[0].'</td><td>'.$p[1].'</td><td>'.$p[2].'</td><td>'.$p[3].'</td><td>'.$p[4].'</td><td>'.$p[5].'</td></tr>';
+
+      
+       $counter++;
+        }
+
+        for( $i=$counter;$i<$maxinmunLines;$i++){
+            $productHtmlTDs =$productHtmlTDs.'<tr><td><div></div></td>
+            
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            <td><div></div></td>
+            </tr>';
+
+
+        }
         
-        $newHTML='<table border="0">
+      //dd($productHtmlTDs);
+        $newHTML='<table border="1">
         <thead>
         <tr>
         <th><br><h1>FORLAND MODREN MOTORS</h1></th>
@@ -56,7 +86,7 @@ class printServiceSaleInvoice extends Controller
         <br>
         <br>
         
-        <table border="0">
+        <table border="1">
         <tbody>
         <tr>
         <td><br><span style="font-size: medium;">Customer Name:</span></td>
@@ -99,9 +129,8 @@ class printServiceSaleInvoice extends Controller
         <br>
         <br>
         <br>
-        <table border="1" >
-        <tr ><td>
-        <table border="0">
+        
+        <table border="1">
         <thead>
         <tr>
         <td align="left" bgcolor="#C0C0C0" >
@@ -114,96 +143,17 @@ class printServiceSaleInvoice extends Controller
         </tr>
         </thead>
         <tbody >
-        <tr>
-        <td>'.session()->get("description").'</td>
-        <td>'.session()->get("color").'</td>
-        <td>'.session()->get("engineNo").'</td>
-        <td>'.session()->get("chassisNo").'</td>
-        <td>'.session()->get("unitPrice").'</td>
-        </tr>
         
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
+        
+        
+       
+        
+        '.$productHtmlTDs.'
         </tbody>
         </table>
-        </td>
-        </tr>
-        </table>
+        
+        
+        
         
         
         
@@ -257,7 +207,7 @@ class printServiceSaleInvoice extends Controller
         </table>
         <br><br> <br>
         <br>
-        <table border="0">
+        <table border="1">
         
         <tr>
         
@@ -282,7 +232,7 @@ class printServiceSaleInvoice extends Controller
 
     ';     // $html= $htmldata;
   
-        
+        //dd($newHTML);
         PDF::SetTitle('Request for Invoice');
         PDF::AddPage();
         PDF::writeHTML($newHTML, true, false, true, false, '');
