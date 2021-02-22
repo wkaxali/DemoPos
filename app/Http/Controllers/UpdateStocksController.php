@@ -234,4 +234,47 @@ public static function getCurrentStock($PID){
              return $re[0]->StockIn;
 }
 
+
+public function getAutoModel(){
+  $results=DB::select('select * from tbl_auto_models');
+  return $results;
+}
+
+
+public static function editAutoModels(Request $request, $CO){
+  $ata=json_decode($CO);
+  $MID = $ata[0];
+  $company = $ata[1];
+  $modelname = $ata[2];
+  $productcategory = $ata[3];
+  $price = $ata[4];
+
+  $re = DB::table('tbl_auto_models')
+  ->where('ModelID', $MID)
+  ->update([
+   'Company'=>$company,
+    'ModelName'=>$modelname,
+    'ProductCategory'=>$productcategory,
+    'Price'=>$price 
+    ]);
+
+    return $MID;
+  }
+
+
+  public static function addAutoModels(Request $request, $CO){
+    $ata=json_decode($CO);
+    $company = $ata[0];
+    $modelname = $ata[1];
+    $productcategory = $ata[2];
+    $price = $ata[3];
+
+    $tid=DB::table('tbl_auto_models')->insertGetId([
+      'Company'=>$company,
+      'ModelName'=>$modelname,
+      'ProductCategory'=>$productcategory,
+      'Price'=>$price
+      ]);       
+  return $tid;
+  }
 }

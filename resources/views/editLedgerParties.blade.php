@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>Edit Customer</title>
+    <title>Edit Ledger Parties</title>
 
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -43,13 +43,13 @@
     </style>
 </head>
 
-<body onload="getCustomers()">
+<body onload="getParty()">
 
     <header class="idi">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="mt-3">Edit Customer</h3>
+                    <h3 class="mt-3">Edit Investor</h3>
                 </div>
             </div>
 
@@ -62,17 +62,19 @@
                 <div class="col-md-8 ">
                     <div class="stock-table"
                         style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
-                        <table style="width: 100%;" id="stocktable">
+                        <table style="width: 100%;" id="ledgertable">
                             <thead>
                             
-                                        <th>Customer ID</th>
-                                        <th>Customer Name</th>
-                                        <th>Father Name</th>
-                                        <th>Address</th>
-                                        <th>Contact</th>
-                                        <th>CNIC</th>
+                                        <th>Ledger ID</th>
+                                        <th>Party Name</th>
+                                        <th>Category</th>
                                         <th>Balance</th>
-                                        <th>Comments</th>
+                                        <th>Contact No</th>
+                                        <th>Addresss</th>
+                                        <th>Status</th>
+                                        <th>Our Profit Ratio</th>
+                                        <th>Investor Profit Ratio</th>
+                                        <th>Initial Investment</th>
                                         
                                         
                                 </tr>
@@ -87,37 +89,37 @@
                 <div class="col-md-4 stockLabels">
                 <div class="myOwnRow-left">
                                         <div class="input-field">
-                                            <label for="status">CustomerID</label>
+                                            <label for="status">Ledger ID</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="CID">
+                                                name="name" id="LID">
                                         </div>
                                         <div class="input-field">
-                                            <label for="status">CustomerName</label>
+                                            <label for="status">Party Name</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="customerName">
+                                                name="name" id="PartyName">
                                         </div>
                                        
                                         <div class="input-field">
-                                            <label for="status">FatherName</label>
+                                            <label for="status">Category</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="fatherName">
+                                                name="name" id="Category">
                                         </div>
 
                                         <div class="input-field">
-                                            <label for="status">Address</label>
+                                            <label for="status">Balance</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="address">
+                                                name="name" id="Balance">
                                         </div>
 
                                         <div class="input-field">
-                                            <label for="status">Contact</label>
+                                            <label for="status">Contact No#</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                name="name" id="contact">
+                                                name="name" id="ContantNo">
                                         </div>
                                         
                                     </div>
@@ -125,29 +127,43 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="input-field">
-                                                    <label for="status">CNIC</label>
+                                                    <label for="status">Address</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" value="" id="CNIC">
+                                                        name="name" value="" id="Address">
                                                 </div>
 
 
                                                 <div class="input-field">
-                                                    <label for="status">Balance</label>
+                                                    <label for="status">Status</label>
                                                     <input type="email" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" id="balance">
+                                                        name="name" id="Status">
                                                 </div>
 
                                                 <div class="input-field">
-                                                    <label for="status">Comments</label>
+                                                    <label for="status">Our Profit Ratio</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" id="comments">
+                                                        name="name" id="OurProfitRatio">
+                                                </div>
+
+                                                <div class="input-field">
+                                                    <label for="status">Investor Profit Ratio</label>
+                                                    <input type="text" autocomplete="OFF" class="form-control"
+                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                        name="name" id="InvestorProfitRatio">
+                                                </div>
+
+                                                <div class="input-field">
+                                                    <label for="status">Initial Investment</label>
+                                                    <input type="text" autocomplete="OFF" class="form-control"
+                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                                        name="name" id="InitialInvestment">
                                                 </div>
                                                 
                     <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
-                        <button class="btn btn-success" onclick="editEmployee()">Update </button>
+                        <button class="btn btn-success" onclick="editParty()">Update </button>
 
                         <div class="col-md-4 ">
                     <button type="button" class="btn btn-info btn-cp" style="margin-top:29px;" data-toggle="modal"
@@ -178,46 +194,49 @@
     </script>
     <script>
         $(document).ready(function () {
-            $('#stocktable').DataTable();
+            $('#ledger').DataTable();
         });
     </script>
     <!--end::Global Theme Bundle-->
 
 <script>
 
-function getCustomers() {
+function getParty() {
     var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        var data =   this.responseText;
-       //alert(data);
+       
        var table;
        var a=JSON.parse(data);
        
-       table = $('#modeltable').DataTable(); 
+       table = $('#ledgertable').DataTable(); 
        
         $.each(a, function (i, item) {
             
-            table.row.add([a[i].MID, a[i].company, a[i].modelname, a[i].Address, a[i].Contect
-            , a[i].CNIC, a[i].Balance, a[i].Comments]);
+            table.row.add([a[i].LID, a[i].PartyName, a[i].Category, a[i].Balance, a[i].ContantNo
+            , a[i].Address, a[i].Status, a[i].OurProfitRatio,a[i].InvestorProfitRatio,a[i].InitialInvestment]);
             });   
          table.draw();          
          
     }
   };
   
-  xhttp.open("GET", "./getCustomers/", true);
+  xhttp.open("GET", "./getParty/", true);
   xhttp.send();
 }
-$("#stocktable").on('click','tr',function(){
-    document.getElementById("CID").value=this.cells[0].innerText; 
-    document.getElementById("customerName").value=this.cells[1].innerText; 
-    document.getElementById("fatherName").value=this.cells[2].innerText;
-    document.getElementById("address").value=this.cells[3].innerText;
-    document.getElementById("contact").value=this.cells[4].innerText;
-    document.getElementById("CNIC").value=this.cells[5].innerText;
-    document.getElementById("balance").value=this.cells[6].innerText;
-    document.getElementById("comments").value=this.cells[7].innerText;
+$("#ledgertable").on('click','tr',function(){
+    document.getElementById("LID").value=this.cells[0].innerText; 
+    document.getElementById("PartyName").value=this.cells[1].innerText; 
+    document.getElementById("Category").value=this.cells[2].innerText;
+    document.getElementById("Balance").value=this.cells[3].innerText;
+    document.getElementById("ContantNo").value=this.cells[4].innerText;
+    document.getElementById("Address").value=this.cells[5].innerText;
+    document.getElementById("Status").value=this.cells[6].innerText;
+    document.getElementById("OurProfitRatio").value=this.cells[7].innerText;
+    document.getElementById("InvestorProfitRatio").value=this.cells[8].innerText;
+    document.getElementById("InitialInvestment").value=this.cells[9].innerText;
+
 
 
 
@@ -228,32 +247,33 @@ $("#stocktable").on('click','tr',function(){
 }
 );
 
-function editEmployee() {
-    var CID = document.getElementById("CID").value; 
-    var customerName = document.getElementById("customerName").value; 
-    var fatherName = document.getElementById("fatherName").value;
-    var address = document.getElementById("address").value;
-    var contact = document.getElementById("contact").value;
-    var CNIC = document.getElementById("CNIC").value;
-    var balance = document.getElementById("balance").value;
-    var comments = document.getElementById("comments").value;
+function editParty() {
+    var LID = document.getElementById("LID").value; 
+    var partyName = document.getElementById("PartyName").value; 
+    var category = document.getElementById("Category").value;
+    var balance = document.getElementById("Balance").value;
+    var contact = document.getElementById("ContantNo").value;
+    var address = document.getElementById("Address").value;
+    var status = document.getElementById("Status").value;
+    var OurProfitRatio = document.getElementById("OurProfitRatio").value;
+    var InvestorProfitRatio = document.getElementById("InvestorProfitRatio").value;
+    var InitialInvestment = document.getElementById("InitialInvestment").value;
 
-    var updateCustomer = [CID, customerName, fatherName, address, contact, CNIC, balance, comments];
+    var updateParties = [LID, partyName, category, balance, contact, address, status, OurProfitRatio, InvestorProfitRatio, InitialInvestment];
 
-    var UC = JSON.stringify(updateCustomer);
-    alert(UC);
+    var UP = JSON.stringify(updateParties);
+    alert(UP);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Customer " + this.responseText + " is Updated");
-
+                    alert("Ledger " + this.responseText + " is Updated");
 
                 }
             };
             
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./editCustomer/" + UC, true);
+            xhttp.open("GET", "./editParty/" + UP, true);
             xhttp.send();
             
         }

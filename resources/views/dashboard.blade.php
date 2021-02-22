@@ -9496,8 +9496,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 padding-left: 15px;
             }
 
+<<<<<<< HEAD
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+
+                
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute"
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative"
+                    });
+                }, 400);
+=======
             .leftBtns {
                 border
+>>>>>>> 1ed2b96b9ac6b128fb92236eea452c220314b008
             }
 
         }

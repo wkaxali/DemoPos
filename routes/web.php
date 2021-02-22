@@ -125,6 +125,13 @@ Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
 Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
 Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStock']);
 
+
+Route::get('/editAutoModels/{UC}',[UpdateStocksController::class, 'editAutoModels']);
+Route::get('/getAutoModel',[UpdateStocksController::class, 'getAutoModel']);
+
+Route::get('/addAutoModels/{AA}',[UpdateStocksController::class, 'addAutoModels']);
+
+
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
@@ -147,7 +154,8 @@ Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategor
 Route::get('/getEmployee',[expenseController::class, 'getEmployee']);
 Route::get('/updatePay/{data}',[payController::class, 'updatePay']);
 Route::get('/getTotalPay/{EID}',[payController::class, 'getTotalPay']);
-
+Route::get('/getTaskcatagory',[payController::class, 'getTaskcatagory']);
+Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
 
 
@@ -174,6 +182,9 @@ Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategor
 Route::get('/getPartyNames',[expenseController::class, 'getPartyNames']);
 Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
+
+Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
+
 Route::get('/getEmployees',[taskController::class, 'getEmployees']);
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
 Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
@@ -182,6 +193,9 @@ Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
+Route::get('/addUsers/{AU}',[userAccountController::class, 'addUsers']);
+Route::get('/editUsers/{AU}',[userAccountController::class, 'editUsers']);
+Route::get('/getUsers',[userAccountController::class, 'getUsers']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
@@ -490,4 +504,25 @@ Route::get('/pdf', function () {
 });
 Route::get('/tc', function () {
     return view('taskCategory');
+});
+
+
+Route::get('/ds', function () {
+    return view('dailysales');
+});
+
+Route::get('/ex', function () {
+    return view('expense');
+});
+
+Route::get('/au', function () {
+    return view('addusers');
+});
+
+Route::get('/eam', function () {
+    return view('editAutoModels');
+});
+
+Route::get('/aam', function () {
+    return view('addAutoModels');
 });

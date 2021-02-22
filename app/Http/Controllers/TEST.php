@@ -24,13 +24,40 @@ class TEST extends Controller
         
         $newHTML='<table border="0">
         <thead>
+<<<<<<< HEAD
+         <tr style="background-color:#FFFF00;color:#0000FF;">
+          <td width="30" align="center"><b>A</b></td>
+          <td width="140" align="center"><b>XXXX</b></td>
+          <td width="140" align="center"><b>XXXX</b></td>
+          <td width="80" align="center"> <b>XXXX</b></td>
+          <td width="80" align="center"><b>XXXX</b></td>
+          <td width="45" align="center"><b>XXXX</b></td>
+         </tr>
+         <tr >
+          <td width="30" align="center" style="background-color:#FF0000;color:#FFFF00;"><b>B</b></td>
+          <td width="140" align="center"><b>XXXX</b></td>
+          <td width="140" align="center"><b>XXXX</b></td>
+          <td width="80" align="center"> <b>XXXX</b></td>
+          <td width="80" align="center"><b>XXXX</b></td>
+          <td width="45" align="center"><b>XXXX</b></td>
+         </tr>
+=======
         <tr>
         <th><br><h1>FORLAND MODREN MOTORS</h1></th>
         
         
         </tr>
+>>>>>>> 1ed2b96b9ac6b128fb92236eea452c220314b008
         </thead>
         
+<<<<<<< HEAD
+        PDF::SetTitle('Hello World');
+        PDF::AddPage();
+        PDF::writeHTML($html, true, false, true, false, '');
+
+        PDF::Output('hello_world.pdf');
+    }
+=======
         <tbody>
         <tr>
         <br>
@@ -950,6 +977,7 @@ Qoutation For '.session()->get("productName").'
 }
 
 
+>>>>>>> 1ed2b96b9ac6b128fb92236eea452c220314b008
 }
 
 

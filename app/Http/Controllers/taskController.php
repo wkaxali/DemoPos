@@ -296,7 +296,24 @@ public static function updateTaskStatus(Request $request, $CO){
     return $status;
   }
 
+  public static function addTaskCategory(Request $request, $category){
+    DB::table('tbl_taskcategory')
+            ->insert(['Category'=>$category
+            ]);
+
+            return $category;
 }
 
+
+
+public static function updateTaskCategory($ID, $newcategory){
+
+
+    DB::table('tbl_taskcategory')
+            ->where('CategoryID', '=', $ID)
+            ->update(['Category'=>$newcategory
+            ]);
+            return $newcategory;
+}
   
-  
+}

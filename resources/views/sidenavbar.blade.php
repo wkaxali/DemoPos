@@ -39,7 +39,7 @@
                     style="font-size: 18px;">Customer</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs1">
-                <li><a href="/">Add Customer</a></li>
+                <li><a href="/adc">Add Customer</a></li>
                 <li><a href="/vs">Customer List</a></li>
 
             </ul>
@@ -48,7 +48,7 @@
                     style="font-size: 18px;">Supplier</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs2">
-                <li><a href="/">Add Supplier</a></li>
+                <li><a href="/ads">Add Supplier</a></li>
                 <li><a href="/vs">Supplier List</a></li>
             </ul>
         </li>
@@ -59,7 +59,7 @@
             <ul class="collapse firstULs3">
                 <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
                 </li>
-                <li><a href="">Daily Purchase</a></li>
+                <li><a href="/dp">Daily Purchase</a></li>
                 <li><a href="">Monthly Purchase</a></li>
                 <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
             </ul>
@@ -70,7 +70,7 @@
             <ul class="collapse firstULs4">
                 <li><a href="/ss">POS</a></li>
                 <li><a href="/sc">Add Sale</a></li>
-                <li><a href="">Daily Sales</a></li>
+                <li><a href="/ds">Daily Sales</a></li>
                 <li><a href="">Monthly Sales</a></li>
 
             </ul>
@@ -90,7 +90,7 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs5">
                 <li><a href="/ex">Add Expense</a></li>
-                <li><a href="">Expense List</a></li>
+                <li><a href="/ex">Expense List</a></li>
                 <li><a href="">Expense Head</a></li>
                 <li><a href="">Expense Category</a></li>
             </ul>
@@ -130,7 +130,7 @@
                     style="font-size: 18px;">HR</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs10" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
+                <li id="menu-academico-avaliacoes"><a href="/ae">Add Employee</a></li>
                 <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
             </ul>
         </li>
@@ -142,7 +142,7 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs11" id="menu-academico-sub">
                 <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
-                <li id="menu-academico-boletim"><a href="/">Add User</a></li>
+                <li id="menu-academico-boletim"><a href="/au">Add User</a></li>
 
 
             </ul>
