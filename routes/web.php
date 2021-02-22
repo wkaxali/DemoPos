@@ -207,6 +207,8 @@ Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
+Route::get('/viewDocuments',[printServiceSaleInvoice::class, '']);
+
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
@@ -536,4 +538,8 @@ Route::get('/aam', function () {
 
 Route::get('/eu', function () {
     return view('editUsers');
+});
+
+route::get('/pds', function(){
+        return view('printDocuments');
 });
