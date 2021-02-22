@@ -140,12 +140,6 @@ class quotationController extends Controller
 
             public function qoutationToPDF()
             {
-<<<<<<< HEAD
-                 $a="Ali";
-                $html = 'this is'.$a.' HTML';
-               $html= $htmldata;
-=======
->>>>>>> 1ed2b96b9ac6b128fb92236eea452c220314b008
                 
                 $html = '<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
                 <tr><td>
