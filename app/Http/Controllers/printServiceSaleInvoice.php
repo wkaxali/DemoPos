@@ -23,11 +23,12 @@ class printServiceSaleInvoice extends Controller
 
         foreach(session()->get('ProductNames') as $p){
         $productHtmlTDs =$productHtmlTDs.'<tr>
-        <td align="center"><div>'.$p[0].'</div></td>
-        <td align="center"><div>'.$p[1].'</div></td>
-        <td align="center"><div>'.$p[2].'</div></td>
-        <td align="center"><div>'.$p[3].'</div></td>
-        <td align="center"><div>'.$p[4].'</div></td></tr>';//..'<td>'.$p[1].'</td><td>'.$p[2].'</td><td>'.$p[3].'</td><td>'.$p[4].'</td><td>'.$p[5].'</td></tr>';
+        <td align="center" width="10%"><div>'.$p[0].'</div></td>
+        <td align="center" width="30%"><div>'.$p[1].'</div></td>
+        <td align="center" width="10%"><div>'.$p[2].'</div></td>
+        <td align="center" width="20%"><div>'.$p[3].'</div></td>
+        <td align="center" width="15%"><div>'.$p[4].'</div></td>
+        <td align="center" width="15%"><div>'.$p[5].'</div></td></tr>';//..'<td>'.$p[1].'</td><td>'.$p[2].'</td><td>'.$p[3].'</td><td>'.$p[4].'</td><td>'.$p[5].'</td></tr>';
        // $productHtmlTDs =$productHtmlTDs.'<tr><td>'.$p[0].'</td><td>'.$p[1].'</td><td>'.$p[2].'</td><td>'.$p[3].'</td><td>'.$p[4].'</td><td>'.$p[5].'</td></tr>';
 
       
@@ -133,12 +134,13 @@ class printServiceSaleInvoice extends Controller
         <table border="1">
         <thead>
         <tr>
-        <td align="left" bgcolor="#C0C0C0" >
-        Description </td>
-        <td align="center" bgcolor="#C0C0C0" >color</td>
-        <td align="center"bgcolor="#C0C0C0" >Engine No</td>
-        <td align="center" bgcolor=" #C0C0C0">Chassis No</td>
-        <td align="center" bgcolor=" #C0C0C0">Amount</td>
+        <td align="left"  width="10%" bgcolor="#C0C0C0" >
+        ID# </td>
+        <td align="center" bgcolor="#C0C0C0"  width="30%">Description</td>
+        <td align="center"bgcolor="#C0C0C0"  width="10%">Qty</td>
+        <td align="center" bgcolor=" #C0C0C0"  width="20%">Unit Price</td>
+        <td align="center" bgcolor=" #C0C0C0"  width="15%">Tax</td>
+        <td align="center" bgcolor=" #C0C0C0" width="15%">Total</td>
         
         </tr>
         </thead>
