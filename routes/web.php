@@ -128,7 +128,7 @@ Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStoc
 Route::get('/editAutoModels/{UC}',[UpdateStocksController::class, 'editAutoModels']);
 Route::get('/getAutoModel',[UpdateStocksController::class, 'getAutoModel']);
 
-Route::get('/addAutoModel',[employeeController::class, 'addAutoModel']);
+Route::get('/addAutoModels/{AA}',[UpdateStocksController::class, 'addAutoModels']);
 
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
@@ -516,5 +516,5 @@ Route::get('/eam', function () {
 });
 
 Route::get('/aam', function () {
-    return view('addAutoModel');
+    return view('addAutoModels');
 });

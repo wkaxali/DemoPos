@@ -98,17 +98,22 @@
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="Price"><br><br>
                     
+                        <br>
+                   <button id="addUsers" onclick="addAutoModels()">Add AutoModel</button>
+
+                    <br>
                     <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
                         <button class="btn btn-success" onclick="editAutoModels()">Update </button>
                         <div class="modal-content">
                             
-                        <div class="col-md-4 ">
+                      
+                        <!-- <div class="col-md-4 ">
                     <button type="button" class="btn btn-info btn-cp" style="margin-top:29px;" data-toggle="modal"
                         data-target=".bd-example-modal-xl"></button>
                     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
                         aria-labelledby="myExtraLargeModalLabel" aria-hidden="true" id="searchModal">
                         <div class="modal-dialog modal-lg">
-                            <div class=
+                            <div class= -->
                             
 
 
@@ -170,7 +175,6 @@ $("#stocktable").on('click','tr',function(){
      document.getElementById("ProductCategory").value=this.cells[3].innerText;
      document.getElementById("Price").value=this.cells[4].innerText;
      
-     
 }
 );
 
@@ -211,13 +215,35 @@ function editAutoModels() {
         }
 
 
+</script>
+<script>
+    function addAutoModels() {
 
+    var comp = document.getElementById("Company").value; 
+    var model = document.getElementById("ModelName").value;
+    var product = document.getElementById("ProductCategory").value;
+    var price = document.getElementById("Price").value;
+    var add = [ comp, model, product, price];
 
+    var AA = JSON.stringify(add);
+    alert(AA);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
 
+                    alert("AutoModel " + this.responseText + " is Added");
+ 
 
-
-
-
+                }
+            };
+            
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addAutoModels/" + AA, true);
+            xhttp.send();
+            
+        }
+            
+        
 </script>
     
 </body>

@@ -255,10 +255,26 @@ public static function editAutoModels(Request $request, $CO){
    'Company'=>$company,
     'ModelName'=>$modelname,
     'ProductCategory'=>$productcategory,
-    'Price'=>$price
+    'Price'=>$price 
     ]);
 
     return $MID;
   }
 
+
+  public static function addAutoModels(Request $request, $CO){
+    $ata=json_decode($CO);
+    $company = $ata[0];
+    $modelname = $ata[1];
+    $productcategory = $ata[2];
+    $price = $ata[3];
+
+    $tid=DB::table('tbl_auto_models')->insertGetId([
+      'Company'=>$company,
+      'ModelName'=>$modelname,
+      'ProductCategory'=>$productcategory,
+      'Price'=>$price
+      ]);       
+  return $tid;
+  }
 }
