@@ -8,6 +8,7 @@ use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\CustomerViewController;
+use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
@@ -204,6 +205,7 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 Route::post('/Checkout/{token}',[StripeController::class, 'postCheckout']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
+Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
@@ -270,7 +272,7 @@ Route::get('/ps', function () {
     
 });
 Route::get('/as', function () {
-    return view('a');
+    return view('addNewStock');
 });
 Route::get('/as', function () {
     return view('addNewStock');
