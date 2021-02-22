@@ -203,6 +203,21 @@
                 <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
                 <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
             </ul>
+            <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
+                    style="font-size: 18px;">Quotations</span><span class="fa fa-angle-right"
+                    style="float: right"></span></a>
+            <ul class="collapse firstULs15" id="menu-academico-sub">
+                <li id="menu-academico-avaliacoes"><a href="/ql">Quotation List</a></li>
+            </ul>
+        </li>
+        <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
+                    style="font-size: 18px;">Print Documents</span><span class="fa fa-angle-right"
+                    style="float: right"></span></a>
+            <ul class="collapse firstULs15" id="menu-academico-sub">
+                <li id="menu-academico-avaliacoes"><a href="/pds">Documents</a></li>
+            </ul>
+        </li>
+
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs16" href="/at"><i
                     class="fas fa-guitar"></i><span style="font-size: 18px;">Attendance</span><span
