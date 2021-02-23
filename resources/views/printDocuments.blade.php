@@ -57,7 +57,7 @@
     </style>
 </head>
 
-<body onload="getDocument()">
+<body onload="getDocuments()">
   @include('printDocumenthtml')
 
 
@@ -80,7 +80,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function getDocument() {
+        function getDocuments() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -96,7 +96,12 @@
                     $.each(a, function (i, item) {
 
                         table.row.add([a[i].InvoiceNumber,a[i].EngineNumber,a[i].ChasisNumber,a[i].NetTotal,
-                        ]);
+                        '<button class="btn print" onclick="gatePass(' + a[i].Invoiceumber +
+                            ')" >Print</button>' , '<button class="btn print" onclick="printQuotation(' + a[i].Invoiceumber +
+                            ')" >Print</button>','<button class="btn print" onclick="printQuotation(' + a[i].Invoiceumber +
+                            ')" >Print</button>','<button class="btn print" onclick="salesInvoice(' + a[i].Invoiceumber +
+                            ')" >Print</button>']
+                            );
                     });
                     table.draw();
 
@@ -140,6 +145,43 @@
         });
 
     </script>
+    <script>
+    function gatePass()
+    {
+        
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                window.open('/testpdf/5');
+
+                }
+            }
+
+            xhttp.open("GET", "./printGatePass/", true);
+            xhttp.send();
+
+    }
+
+
+    function salesInvoice()
+    {
+        
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                window.open('/testpdf/5');
+
+                }
+            }
+
+            xhttp.open("GET", "./testpdf/", true);
+            xhttp.send();
+
+    }
+    </script>
+    
 
 </body>
 

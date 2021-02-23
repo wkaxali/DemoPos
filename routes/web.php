@@ -14,7 +14,7 @@ use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
 use App\Http\Controllers\salePrintInvoice;
 use App\Http\Controllers\StripeController;
-
+use App\Http\Controllers\printDocuments;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\userAccountController;
 
@@ -46,8 +46,8 @@ use App\Http\Controllers\TEST;
 |
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
-
-
+Route::get('/printGatePass',[TEST::class, 'gatePass']);
+Route::get('/saleInvoiceRequest',[TEST::class, ' saleInvoiceRequest']);
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
 Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
@@ -207,7 +207,7 @@ Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
-Route::get('/viewDocuments',[printServiceSaleInvoice::class, '']);
+Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
