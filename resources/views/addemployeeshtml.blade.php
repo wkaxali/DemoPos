@@ -112,8 +112,9 @@
                             </div>
 
                         </div>
-                        <input type="button" value="Add Employee" style="display: inline-block !important; 
-                        height: 30px !important; width: 120px;" onclick="addEmployee()">
+                        <br>
+                        <button type="button" class="btn" style="background-color: #e61d2f;color: #fff;" 
+                        onclick="addEmployee()">Add Employee</button>
                     </div>
                 </section>
                

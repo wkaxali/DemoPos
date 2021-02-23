@@ -56,8 +56,8 @@
         </div>
     </header>
     <br>
-    <section class="mt-5">
-        <div class="containerMy">
+    <section >
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-8 ">
                     <div class="stock-table"
@@ -85,7 +85,6 @@
 
                 </div>
                 <div class="col-md-4 stockLabels">
-                <div class="myOwnRow-left">
                                         <div class="input-field">
                                             <label for="status">CustomerID</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
@@ -120,10 +119,6 @@
                                                 name="name" id="contact">
                                         </div>
                                         
-                                    </div>
-                                    <div class="myOwnROw">
-                                        <div class="row">
-                                            <div class="col-md-12">
                                                 <div class="input-field">
                                                     <label for="status">CNIC</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
@@ -146,16 +141,9 @@
                                                         name="name" id="comments">
                                                 </div>
                                                 
-                    <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
                         <button class="btn btn-success" onclick="editEmployee()">Update </button>
 
-                        <div class="col-md-4 ">
-                    <button type="button" class="btn btn-info btn-cp" style="margin-top:29px;" data-toggle="modal"
-                        data-target=".bd-example-modal-xl"></button>
-                    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
-                        aria-labelledby="myExtraLargeModalLabel" aria-hidden="true" id="searchModal">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
+                 
                             
                             
 
