@@ -47,7 +47,12 @@ use App\Http\Controllers\TEST;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 Route::get('/printGatePass',[TEST::class, 'gatePass']);
-Route::get('/saleInvoiceRequest',[TEST::class, ' saleInvoiceRequest']);
+Route::get('/saleServiceInvoice1',[TEST::class, 'saleServiceInvoice1']);
+Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
+Route::get('/deliveryLetter',[TEST::class, 'deliveryLetter']);
+
+
+Route::get('/qutationRequestFinal',[TEST::class, 'qutationRequestFinal']);
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
 Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);

@@ -97,8 +97,8 @@
 
                         table.row.add([a[i].InvoiceNumber,a[i].EngineNumber,a[i].ChasisNumber,a[i].NetTotal,
                         '<button class="btn print" onclick="gatePass(' + a[i].Invoiceumber +
-                            ')" >Print</button>' , '<button class="btn print" onclick="printQuotation(' + a[i].Invoiceumber +
-                            ')" >Print</button>','<button class="btn print" onclick="printQuotation(' + a[i].Invoiceumber +
+                            ')" >Print</button>' , '<button class="btn print" onclick="deliveryLetter(' + a[i].Invoiceumber +
+                            ')" >Print</button>','<button class="btn print" onclick="InvoiceRequest(' + a[i].Invoiceumber +
                             ')" >Print</button>','<button class="btn print" onclick="salesInvoice(' + a[i].Invoiceumber +
                             ')" >Print</button>']
                             );
@@ -162,7 +162,8 @@
             xhttp.send();
 
     }
-
+    </script>
+   <script>
 
     function salesInvoice()
     {
@@ -176,12 +177,51 @@
                 }
             }
 
-            xhttp.open("GET", "./testpdf/", true);
+            xhttp.open("GET", "./saleServiceInvoice1/", true);
             xhttp.send();
 
     }
     </script>
     
+    
+    <script>
+
+function InvoiceRequest()
+{
+    
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            
+            window.open('/testpdf/3');
+
+            }
+        }
+
+        xhttp.open("GET", "./InvoiceRequest/", true);
+        xhttp.send();
+
+}
+</script>
+<script>
+
+function deliveryLetter()
+{
+    
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            
+            window.open('/testpdf/3');
+
+            }
+        }
+
+        xhttp.open("GET", "./deliveryLetter/", true);
+        xhttp.send();
+
+}
+</script>
 
 </body>
 
