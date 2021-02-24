@@ -5,6 +5,7 @@ use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
+use App\Http\Controllers\deliverLetterPrintController;
 use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\CustomerViewController;
@@ -49,7 +50,7 @@ use App\Http\Controllers\TEST;
 Route::get('/printGatePass',[TEST::class, 'gatePass']);
 Route::get('/saleServiceInvoice1',[TEST::class, 'saleServiceInvoice1']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
-Route::get('/deliveryLetter',[TEST::class, 'deliveryLetter']);
+Route::get('/deliveryLetter',[deliverLetterPrintController::class, 'deliveryLetter']);
 
 
 Route::get('/qutationRequestFinal',[TEST::class, 'qutationRequestFinal']);
