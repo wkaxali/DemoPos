@@ -47,7 +47,7 @@ use App\Http\Controllers\TEST;
 |
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
-Route::get('/printGatePass',[TEST::class, 'gatePass']);
+Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/saleServiceInvoice1',[TEST::class, 'saleServiceInvoice1']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
 Route::get('/deliveryLetter',[deliverLetterPrintController::class, 'deliveryLetter']);

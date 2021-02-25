@@ -94,13 +94,12 @@
                     table = $('#stockTable').DataTable();
 
                     $.each(a, function (i, item) {
-
+                            invoiceID=a[i].InvoiceNumber;
                         table.row.add([a[i].InvoiceNumber,a[i].EngineNumber,a[i].ChasisNumber,a[i].NetTotal,
-                        '<button class="btn print" onclick="gatePass(' + a[i].Invoiceumber +
-                            ')" >Print</button>' , '<button class="btn print" onclick="deliveryLetter(' + a[i].Invoiceumber +
-                            ')" >Print</button>','<button class="btn print" onclick="InvoiceRequest(' + a[i].Invoiceumber +
-                            ')" >Print</button>','<button class="btn print" onclick="salesInvoice(' + a[i].Invoiceumber +
-                            ')" >Print</button>']
+                        '<button class="btn print" onclick="gatePass('+invoiceID+')" >Print</button>' , 
+                        '<button class="btn print" onclick="deliveryLetter('+invoiceID+')" >Print</button>',
+                        '<button class="btn print" onclick="InvoiceRequest('+invoiceID+')" >Print</button>',
+                        '<button class="btn print" onclick="salesInvoice('+invoiceID+')" >Print</button>']
                             );
                     });
                     table.draw();
@@ -146,7 +145,7 @@
 
     </script>
     <script>
-    function gatePass()
+    function gatePass(InvoiceID)
     {
         
             var xhttp = new XMLHttpRequest();
@@ -158,7 +157,7 @@
                 }
             }
 
-            xhttp.open("GET", "./printGatePass/", true);
+            xhttp.open("GET", "./printGatePass/"+InvoiceID, true);
             xhttp.send();
 
     }
@@ -221,6 +220,14 @@ function deliveryLetter()
         xhttp.send();
 
 }
+
+
+// $("#stockTable").on('click','td button',function(){
+//     alert(this.cells[0].innerText); 
+     
+// }
+// );
+
 </script>
 
 </body>

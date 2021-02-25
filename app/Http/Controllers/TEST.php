@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\serviceSalesFlow;
 use PDF;
 
 class TEST extends Controller
@@ -467,10 +468,9 @@ class TEST extends Controller
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-public function gatePass()
+public function gatePass($InvoiceID)
 {
-    
-
+    serviceSalesFlow::getAllInvoiceDetails($InvoiceID);
     $newHTML='<table border="0">
     <thead>
     <tr>
