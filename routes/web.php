@@ -1,12 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\userController;
+
 use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\deliverLetterPrintController;
-use App\Http\Controllers\CustomerViewcotroller;
+
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\printServiceSaleInvoice;
@@ -118,7 +120,7 @@ Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
-Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo']);
+Route::get('/customer/{data}',[CustomerViewController::class, 'customerinfo']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
