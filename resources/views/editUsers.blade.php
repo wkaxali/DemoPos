@@ -181,9 +181,11 @@ function getUsers() {
        
         $.each(a, function (i, item) {
             
-            table.row.add([a[i].UID, a[i].UserName, a[i].Password, a[i].Designation, a[i].Enable
+            table.row.add([a[i].UserID, a[i].UserName, a[i].Password, a[i].Designation, a[i].Enable
             , a[i].LastLogin]);
             });   
+            
+            
          table.draw();          
          
     }
@@ -193,6 +195,7 @@ function getUsers() {
   xhttp.send();
 }
 $("#usertable").on('click','tr',function(){
+    
     document.getElementById("UserID").value=this.cells[0].innerText; 
     document.getElementById("UserName").value=this.cells[1].innerText; 
     document.getElementById("Password").value=this.cells[2].innerText;
@@ -208,7 +211,7 @@ function editUsers() {
     var UID = document.getElementById("UserID").value; 
     var username = document.getElementById("UserName").value; 
     var pass = document.getElementById("Password").value;
-    var desgination = document.getElementById("Desgination").value;
+    var desgination = document.getElementById("Designation").value;
     var enable = document.getElementById("Enable").value;
     var lastlogin = document.getElementById("LastLogin").value;
 
