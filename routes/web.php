@@ -227,7 +227,7 @@ Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
 
 
 Route::get('/', function () {   
-    session(['userCategory' =>1]);
+  
     return view('signInSignUp');
 });
 Route::get('/stripe', function () {   
@@ -268,12 +268,12 @@ Route::get('/logout', function () {
     return view('signInSignUp');
 });
 Route::get('/db', function () {
-    // $UN = session()->get('userName');
-    // if($UN!=NULL){
+     $UN = session()->get('Designation');
+     if($UN=="Admin"){
     return view('dashboard');
-    // }else{
-    //     return "Invalid Username Or Password";
-    // }
+    }else{
+        //return "Invalid Username Or Password";
+    }
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
