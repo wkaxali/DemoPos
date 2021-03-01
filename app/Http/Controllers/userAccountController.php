@@ -14,6 +14,7 @@ class userAccountController extends Controller
         ->get();
      //->first()->UserName;
     if($re=="[]"){
+      
         session(['userName' =>null]);
         return "Invalid Username";
     }else{
