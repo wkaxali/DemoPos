@@ -533,9 +533,9 @@
 
  function RegisAdmin(){
 
-var Username=document.getElementById("UserName").value;
+var Username=document.getElementById("username").value;
 alert("working"+Username);
-var UserPassword=document.getElementById("UserPaswd").value;
+var UserPassword=document.getElementById("password").value;
 alert("working"+UserPassword);
 
 var Insert=[Username,UserPassword]
@@ -564,13 +564,14 @@ function AdminLogin(){
 
                  if (this.readyState == 4 && this.status == 200) {
 
-                  //alert(this.responseText);
-                  if(this.responseText!="Invalid Username"){
+                  // //alert(this.responseText);
+                  // if(this.responseText!="Invalid Username"){
+                  // window.location.href = "./db";
+                  // }
+                  // else{
+                  //   alert("Invalid user");
+                  // }
                   window.location.href = "./db";
-                  }
-                  else{
-                    alert("Invalid user");
-                  }
                  }
              };
              //alert("ljd");
