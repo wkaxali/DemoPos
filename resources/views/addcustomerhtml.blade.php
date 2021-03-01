@@ -20,15 +20,15 @@
                                             placeholder="Customer ID">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control item" autocomplete="OFF"
+                                        <input type="text" class="form-control item" autocomplete="OFF"
                                             id="password" placeholder="Customer Name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="email"
+                                        <input type="email" class="form-control item" autocomplete="OFF" id="email"
                                             placeholder="Email">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF"
+                                        <input type="tel" class="form-control item" autocomplete="OFF"
                                             id="phone-number" placeholder="Phone Number">
                                     </div>
                                     <div class="form-group">
@@ -36,8 +36,8 @@
                                             placeholder="Birth Date">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="email"
-                                            placeholder="Email">
+                                        <input type="text" class="form-control item" autocomplete="OFF" id=""
+                                            placeholder="">
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF"

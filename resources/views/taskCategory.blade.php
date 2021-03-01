@@ -1399,7 +1399,7 @@
                             <h4>Task Category</h4>
                         </div>
                     </div>
-                    
+
                 </div>
                 <header>
                     <div class="container">
@@ -1420,9 +1420,9 @@
                             <div class="col-md-12">
                                 <div class="myMainRow">
 
-                                    
+
                                     <div class="myOwnRow-left">
-                                    <h2>Add New Category</h2>
+                                        <h2>Add New Category</h2>
                                         <div class="input-field">
                                             <label for="status">Product ID</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
@@ -1436,21 +1436,21 @@
 
 
                                         <div class="row">
-                                        
+
                                             <div class="col-md-12">
-                                            <h2>Edit Category</h2>
+                                                <h2>Edit Category</h2>
                                                 <div class="input-field">
                                                     <label for="status">Invoice Number</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                         name="name" value="" id="InvoiceID">
 
-    
+
 
                                                 </div>
 
 
-                                               
+
                                             </div>
 
                                         </div>
@@ -1461,10 +1461,15 @@
                         </div>
                     </div>
                 </section>
-                
-                
-                
+
+
+
+            </div>
+            @include('sidenavbar')
+            <div class="clearfix"></div>
+        </div>
     </div>
+
 
 
 
@@ -1479,28 +1484,28 @@
 
 
 
-<script>
-    var toggle = true;
+    <script>
+        var toggle = true;
 
-    $(".sidebar-icon").click(function () {
-        if (toggle) {
-            $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-            $("#menu span").css({
-                "position": "absolute",
-
-            });
-        } else {
-            $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-            setTimeout(function () {
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
                 $("#menu span").css({
-                    "position": "relative",
+                    "position": "absolute",
 
                 });
-            }, 400);
-        }
-        toggle = !toggle;
-    });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
 
-</script>
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+
+    </script>
 
 </html>
