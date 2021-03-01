@@ -255,7 +255,8 @@ Route::get('/qt', function () {
 
 //61bd06c
 Route::get('/logout', function () {
-    session(['userName' =>null]);
+    session(['Designation' =>null]);
+
 
     return view('signInSignUp');
 });
@@ -264,7 +265,7 @@ Route::get('/db', function () {
      if($UN=="Admin"){
     return view('dashboard');
     }else{
-        //return "Invalid Username Or Password";
+        return view("signInSignUp");
     }
 });
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);

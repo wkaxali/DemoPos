@@ -438,7 +438,7 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" id="password"/>
           </div>
-          <input type="submit" value="Login" onclick="AdminLogin()" class="btn solid" />
+          <input type="Button" value="Login" onclick="AdminLogin()" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -558,15 +558,15 @@ function AdminLogin(){
 
   var xhttp = new XMLHttpRequest();
 
-  var UserName=  document.getElementById("adminUser").value ;
-  var Password=  document.getElementById("adminPass").value ;
+  var UserName=  document.getElementById("username").value ;
+  var Password=  document.getElementById("password").value ;
              xhttp.onreadystatechange = function () {
 
                  if (this.readyState == 4 && this.status == 200) {
 
                   //alert(this.responseText);
                   if(this.responseText!="Invalid Username"){
-                  window.location.href = "./db";
+                    location.replace("./db")
                   }
                   else{
                     alert("Invalid user");
