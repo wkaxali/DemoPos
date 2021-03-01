@@ -288,22 +288,18 @@ Route::get('/qt', function () {
 });
 
 //61bd06c
-// Route::get('/logout', function () {
-//     $UN = session()->get('Designation');
-//     if($UN=="Admin"){
-//    return view('signInSignUp');
-//    }else{
-//        return "Invalid Username Or Password";
-//    }
-// });
+Route::get('/logout', function () {
+    session(['Designation' =>null]);
+
+    return view('signInSignUp');
+});
 Route::get('/db', function () {
      $UN = session()->get('Designation');
-     return $UN;
-    //  if($UN=="Admin"){
-    // return view('dashboard');
-    // }else{
-    //     return "Invalid Username Or Password";
-    // }
+     if($UN=="Admin"){
+    return view('dashboard');
+    }else{
+        return view("signInSignUp");
+    }
 });
 
 
