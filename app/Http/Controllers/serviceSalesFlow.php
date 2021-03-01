@@ -256,10 +256,57 @@ class serviceSalesFlow extends Controller
   
   
    }
-   public function getAllInvoiceDetails($InvoiceNo){
-    $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+   public static function getAllInvoiceDetails($InvoiceNo){
+    $invoiceDetails=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
    
-    return $results;
+    foreach($invoiceDetails as $product){
+        $qty=$product->Quantity;
+        $contact=$product->ProductSerial;
+        $customerName=$product->CustomerName;
+        $PID=$product->ProductSerial;
+        $productName=$product->ProductName;
+        $IN=$product->InvoiceNumber;
+        $tax=$product->VAT;
+        $Pt =$product->NetAmount;
+        $engineNo =$product->EngineNumber;
+        $unitPrice=$product->PerUnitSalePrice;
+        $CNIC=$product->CNIC;
+        $productName=$product->ProductName;
+        $contact=$product->Contect;
+        $TotalAmount=$product->TotalAmount;
+        $tax=$product->VAT;
+        $Discount=$product->Discount;
+        $netTotal=$product->NetTotal;
+        $AmountPaid=$product->AmountPaid;
+        $Balance=$product->Balance;
+        $dat=$product->DateStamp;
+        $BillStatus=$product->BillStatus;
+    
+        $InvoiceBalance=$product->Balance;
+        session(['engineNo' => $engineNo]);
+        
+        session(['ivd' => $dat]);
+        session(['iu' => $IN]);
+       
+        session(['customerName' => $customerName]);
+        session(['contact' => $contact]);
+        session(['model' => $productName]);
+        
+        session(['CNIC' => $CNIC]);
+        session(['tax' => $tax]);
+        session(['total' => $TotalAmount]);
+        session(['netTotal' => $netTotal]);
+        session(['InvBalance' => $InvoiceBalance]);
+        session(['amountPaid' =>  number_format($AmountPaid)]);
+        session(['overallDiscount' => $Discount]);
+
+        $numberToWords = new NumberToWords();
+        $numberTransformer = $numberToWords->getNumberTransformer('en');
+        $a= $numberTransformer->toWords($AmountPaid);
+        session(['amountInWords' => ucwords($a)]);
+
+    }
+    return $invoiceDetails;
 
 }
 

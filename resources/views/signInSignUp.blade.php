@@ -533,9 +533,9 @@
 
  function RegisAdmin(){
 
-var Username=document.getElementById("UserName").value;
+var Username=document.getElementById("username").value;
 alert("working"+Username);
-var UserPassword=document.getElementById("UserPaswd").value;
+var UserPassword=document.getElementById("password").value;
 alert("working"+UserPassword);
 
 var Insert=[Username,UserPassword]

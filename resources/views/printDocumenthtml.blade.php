@@ -1,3 +1,7 @@
+<Html>
+<head>
+<title>
+</title>invoice printing</head>
 <div class="page-container">
 
 <div class="left-content">
@@ -29,12 +33,13 @@
                                             <th>Net Total</th>
                                             <th>Gate Pass</th>
                                             <th>Delivery Letter </th>
-                                            <th>Invoice Letter</th>
+                                            <th>Invoice Request </th>
+                                            <th>Sale Invoice </th>
                                             
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                            
                                     </tbody>
 
                                 </table>
@@ -50,3 +55,4 @@
 @include('sidenavbar')
 <div class="clearfix"></div>
 </div>
+</Html>
