@@ -438,7 +438,7 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" id="password"/>
           </div>
-          <input type="Button" value="Login" onclick="AdminLogin()" class="btn solid" />
+          <input type="button" value="Login" onclick="AdminLogin()" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -470,7 +470,7 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" id="adminPass" />
           </div>
-          <input type="submit" class="btn" onclick="AdminLogin()"value="Login" />
+          <input type="button" class="btn" onclick="AdminLogin()"value="Login" />
           <p class="social-text">Or Sign up with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">

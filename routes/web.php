@@ -1,14 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\userController;
-
 use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
-use App\Http\Controllers\deliverLetterPrintController;
-
+use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\printServiceSaleInvoice;
@@ -17,7 +14,7 @@ use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
 use App\Http\Controllers\salePrintInvoice;
 use App\Http\Controllers\StripeController;
-use App\Http\Controllers\printDocuments;
+
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\userAccountController;
 
@@ -49,13 +46,8 @@ use App\Http\Controllers\TEST;
 |
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
-Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
-Route::get('/saleServiceInvoice1',[TEST::class, 'saleServiceInvoice1']);
-Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
-Route::get('/deliveryLetter',[deliverLetterPrintController::class, 'deliveryLetter']);
 
 
-Route::get('/qutationRequestFinal',[TEST::class, 'qutationRequestFinal']);
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
 Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
@@ -120,7 +112,7 @@ Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
-Route::get('/customer/{data}',[CustomerViewController::class, 'customerinfo']);
+Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
@@ -209,13 +201,13 @@ Route::get('/getUsers',[userAccountController::class, 'getUsers']);
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
 
-
+Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 Route::post('/Checkout/{token}',[StripeController::class, 'postCheckout']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
-Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
+Route::get('/viewDocuments',[printServiceSaleInvoice::class, '']);
 
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
@@ -224,424 +216,399 @@ Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
 Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
-Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 
 
-Route::get('/', function () {   
-  
-    return view('signInSignUp');
+Route::get('/', function () {
+
+return view('signInSignUp');
 });
-
 Route::get('/stripe', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('stripe');
-   }else{
-       return "Invalid Username Or Password";
-   }
+return view('stripe');
 });
 
 
 Route::get('/ed', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('empDashboard');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    if($UN=="User"){
+    return view('EmpDashboard');
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/sh', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('stockHistory');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('stockHistory');
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/chksessions',function(){
 
-   // $request->session()->forget('name');
-   session(['key' => '88888888']);
-   // $request->session()->put('key', '8');
-    $value = session()->get('CID');
+// $request->session()->forget('name');
+session(['key' => '88888888']);
+// $request->session()->put('key', '8');
+$value = session()->get('CID');
 
-    echo $value;
-   
+echo $value;
+
 });
 Route::get('/ss', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('sales');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('sales');
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/qt', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('quotation');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('quotation'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 //61bd06c
 Route::get('/logout', function () {
-    session(['Designation' =>null]);
+session(['Designation' =>null]);
 
-    return view('signInSignUp');
+
+return view('signInSignUp');
 });
 Route::get('/db', function () {
-     $UN = session()->get('Designation');
-     if($UN=="Admin"){
-    return view('dashboard');
+$UN = session()->get('Designation');
+if($UN=="Admin"){
+return view('dashboard');
+}
+else if($UN=="User"){
+return view("EmployeeTaskView");
+}
+});
+
+
+Route::get('/ps', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('PurchaseStock'); 
     }else{
-        return view("signInSignUp");
+    return view("signInSignUp");
+    }
+
+});
+Route::get('/as', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addNewStock'); 
+    }else{
+    return view("signInSignUp");
     }
 });
-
-
-Route::get('/ps', function (){
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('PurchaseStock');
-   }else{
-       return "Invalid Username Or Password";
-   }
-});
-Route::get('/as', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('addNewStock');
-   }else{
-       return "Invalid Username Or Password";
-   }
-});
-Route::get('/as', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('addNewStock');
-   }else{
-       return "Invalid Username Or Password";
-   }
-});
+// Route::get('/as', function () {
+// return view('addNewStock');
+// });
 Route::get('/bo', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('bookorder');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('bookorder'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/cl', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('companyLedger');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('companyLedger'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/dl', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('deliveryLetter');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('deliveryLetter'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/ip', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('increaseInPrice');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('increaseInPrice'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/is', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('invoiceServices');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('invoiceServices'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
-Route::get('/psi', function (){
+Route::get('/psi', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('printSaleInvoice');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('printSaleInvoice'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
-Route::get('/rec', function () {
+Route::get('/rec', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('Receiving');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('Receiving'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/sc', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('salesandc');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('salesandc'); 
+    }else{
+    return view("signInSignUp");
+    }
 
 });
-Route::get('/stock', function (){
+Route::get('/stock', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('stock');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    if($UN=="Admin"||$UN=="User"){
+    return view('stock'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/th', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('transactionHistory');
+    return view('transactionHistory'); 
     }else{
-        return "Invalid Username Or Password";
+    return view("signInSignUp");
     }
 });
-Route::get('/loop', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('forlLoopCheck');
-   }else{
-       return "Invalid Username Or Password";
-   };
-});
+// Route::get('/loop', function () {
+// return view('forLoopCheck');
+// });
 
 Route::get('/vc', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('viewCustomers');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('viewCustomers'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/sp', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('viewSpareParts');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('viewSpareParts'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/vs', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('viewStock');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('viewStock'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
-Route::get('/ajax', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('ajax');
-   }else{
-       return "Invalid Username Or Password";
-   }
-});
+// Route::get('/ajax', function () {
+// return view('ajax');
+// });
 Route::get('/scratch', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('scratch');
-   }else{
-       return "Invalid Username Or Password";
-   }
+return view('scratch');
 
 });
 Route::get('/ex', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('expense');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('expense'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/ct', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('comissionAndtaxes');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('comissionAndTaxes'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
-
 Route::get('/s', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('salesAndComsission');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('salesAndComission'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/ev', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('employerView');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    if($UN=="User"){
+    return view('employerView'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/etv', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('EmployeeTaskView');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    if($UN=="User"){
+    return view('EmployeeTaskView'); 
+    }else{
+    return view("signInSignUp");
+    }
 
 });
 Route::get('/emptv', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('employertaskViews');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('employertaskViews'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/e', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('Employee');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    if($UN=="User"){
+    return view('Employee'); 
+    }else{
+    return view("signInSignUp");
+    };
 });
-Route::get('/at', function () {
+Route::get('/at', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('attendance');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('attendance'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/atv', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('attendanceView');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('attendanceView'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/l', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('investorLedger');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('investorLedger'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/igl', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('investorGeneralLedger');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('investorGeneralLedger'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/pr', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('payRoll');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('payRoll'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/inv', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('investors');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('investors'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/pr', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('payRoll');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('payRoll'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/es', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('editStock');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('editStock'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/cr', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('cr');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('cr'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
-Route::get('/d', function (){
+Route::get('/d', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('delivery');
-   }else{
-       return "Invalid Username Or Password";
-   };
+    return view('delivery'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/nd', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('newDashboard');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('newdashboard'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/SalarySlip', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('SalarySlip');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('SalarySlip'); 
+    }else{
+    return view("signInSignUp");
+    };
 });
 Route::get('/l', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('investorLedger');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('investorLedger'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/ql', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('quotation');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('quotation'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/e', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('Employee');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    if($UN=="User"){
+    return view('Employee'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 
@@ -649,304 +616,298 @@ Route::get('/e', function () {
 Route::get('/prc', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('paymentReceipt');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('paymentReceipt'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 
 Route::get('/fgp', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('ForlandGatePass');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('ForlandGatePass'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
-Route::get('/slip', function (){
+Route::get('/slip', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('SalarySlip');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('SalarySlip'); 
+    }else{
+    return view("signInSignUp");
+    };
 });
-Route::get('/sheet', function () {
+Route::get('/sheet', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('inventorysheet');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('inventorysheet'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/vd', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('vehicleDetail');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    if($UN=="Admin"||$UN=="User"){
+    return view('vehicleDetails'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/sir', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('solutions');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('solutions'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/ql', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('quotationList');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('quotationList'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/ac', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('addcategory');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('addcategory'); 
+    }else{
+    return view("signInSignUp");
+    };
 });
 
 Route::get('/vc', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('viewCustomers');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('viewCustomers'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/gb', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('generateBarcode');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('generateBarcode'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/adc', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('addcustomer');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('addcustomer'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/ads', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('addsuplier');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('addsuplier'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/dp', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('dailypurchase');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('dailypurchase'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
-Route::get('/pay', function () {
+Route::get('/pay', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('payments');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('payments'); 
+    }else{
+    return view("signInSignUp");
+    };
 });
 
 Route::get('/ep', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('employeePayment');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('employeePayment'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/sales', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('viewSales');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('viewSales'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
-Route::get('/exv', function () {
+Route::get('/exv', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('viewExpenses');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('viewExpenses'); 
+    }else{
+    return view("signInSignUp");
+    };
 });
 
 
 
 Route::get('/pdfvs', function () {
-    ini_set('max_execution_time', 60);
-    $data=TransactionFlow::getTransactionsForAccounts(1);
-    view()->share('viewExpenses',$data);
-    $pdf = PDF::loadView('viewExpenses', $data);
+ini_set('max_execution_time', 60);
+$data=TransactionFlow::getTransactionsForAccounts(1);
+view()->share('viewExpenses',$data);
+$pdf = PDF::loadView('viewExpenses', $data);
 
-    // download PDF file with download method
-    return $pdf->download('pdf_file.pdf');
+// download PDF file with download method
+return $pdf->download('pdf_file.pdf');
 });
 Route::get('/vd', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('vehicleDetail');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('vehicleDetails'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/ssi2', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('printSaleInvoice');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('printSaleInvoice'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/ssi', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('servicesalesinvoice');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('servicesalesinvoice'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/ed', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('EmpDashboard');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('EmpDashboard'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/ae', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('addEmployees');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('addEmployees'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/ee', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('editEmployee');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('editEmployee'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/ec', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('editCustomer');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('editCustomer'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/pdf', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('test');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('test'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/tc', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('taskCategory');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('taskCategory'); 
+    }else{
+    return view("signInSignUp");
+    };
 });
 
 
-Route::get('/ds', function () {
+Route::get('/ds', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('dailysales');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('dailysales'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/ex', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('expense');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('expense'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/au', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('addusers');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('addusers'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
 Route::get('/eam', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('editAutoModels');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('editAutoModels'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
-Route::get('/aam', function (){
+Route::get('/aam', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('addAutoModels');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('addAutoModels'); 
+    }else{
+    return view("signInSignUp");
+    };
 });
 
-Route::get('/eu', function (){
+Route::get('/eu', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('editUsers');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('editUsers'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
 
-Route::get('/pds', function(){
+route::get('/pds', function(){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('printDocuments');
-   }else{
-       return "Invalid Username Or Password";
-   }
+    return view('printDocuments'); 
+    }else{
+    return view("signInSignUp");
+    }
 });
-
-Route::get('/logout', function(){
-    session()->forget('Designation');
-  return view('signInSignUp');
-   }
-);
