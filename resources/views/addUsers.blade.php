@@ -171,8 +171,12 @@ margin-bottom: 50px;
                                                 id="Password" placeholder="Password">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control item" autocomplete="OFF" id="designation"
-                                                placeholder="Designation">
+                                          
+                                                <select name="" class="form-control item" id="designation">
+                                                    <option value="0">Admin</option>
+                                                    <option value="1">Manager</option>
+                                                    <option value="1">Employee</option>
+                                                </select>
                                         </div>
                           
     
