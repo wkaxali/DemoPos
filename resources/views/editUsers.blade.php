@@ -327,7 +327,7 @@ function editUsers() {
 
                                     $.each(a, function (i, item) {
 
-                                        table.row.add([a[i].UID, a[i].UserName, a[i].Password, a[i]
+                                        table.row.add([a[i].UserID, a[i].UserName, a[i].Password, a[i]
                                             .Designation, a[i].Enable, a[i].LastLogin
                                         ]);
                                     });
