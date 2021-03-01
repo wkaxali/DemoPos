@@ -21,7 +21,7 @@
         }
 
         .stockLabels label {
-            width: 235px;
+            width: 100px;
         }
 
         .stockLabels {
@@ -40,6 +40,7 @@
             margin: 0 auto;
 
         }
+
     </style>
 </head>
 
@@ -49,31 +50,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="mt-3">Edit Users</h3>
+                    <h3 class="mt-1">Edit Users</h3>
                 </div>
             </div>
 
         </div>
     </header>
     <br>
-    <section class="mt-5">
-        <div class="containerMy">
+    <section class="">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8 ">
+                <div class="col-md-8">
                     <div class="stock-table"
                         style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
                         <table style="width: 100%;" id="usertable">
                             <thead>
-                            
-                                        <th>User ID</th>
-                                        <th>User Name</th>
-                                        <th>Password</th>
-                                        <th>Designation</th>
-                                        <th>Enable</th>
-                                        <th>Last Login</th>
-                                       
-                                        
-                                        
+
+                                <th>User ID</th>
+                                <th>User Name</th>
+                                <th>Password</th>
+                                <th>Designation</th>
+                                <th>Enable</th>
+                                <th>Last Login</th>
+
+
+
                                 </tr>
                             </thead>
                             <tbody id="stocktableBody">
@@ -181,9 +182,11 @@ function getUsers() {
        
         $.each(a, function (i, item) {
             
-            table.row.add([a[i].UID, a[i].UserName, a[i].Password, a[i].Designation, a[i].Enable
+            table.row.add([a[i].UserID, a[i].UserName, a[i].Password, a[i].Designation, a[i].Enable
             , a[i].LastLogin]);
             });   
+            
+            
          table.draw();          
          
     }
@@ -193,6 +196,7 @@ function getUsers() {
   xhttp.send();
 }
 $("#usertable").on('click','tr',function(){
+    
     document.getElementById("UserID").value=this.cells[0].innerText; 
     document.getElementById("UserName").value=this.cells[1].innerText; 
     document.getElementById("Password").value=this.cells[2].innerText;
@@ -208,7 +212,7 @@ function editUsers() {
     var UID = document.getElementById("UserID").value; 
     var username = document.getElementById("UserName").value; 
     var pass = document.getElementById("Password").value;
-    var desgination = document.getElementById("Desgination").value;
+    var desgination = document.getElementById("Designation").value;
     var enable = document.getElementById("Enable").value;
     var lastlogin = document.getElementById("LastLogin").value;
 
@@ -231,9 +235,150 @@ function editUsers() {
             
         }
 
+                    <div class="input-field">
+                        <label for="status">User ID</label>
+                        <input type="text" autocomplete="OFF" class="form-control"
+                            style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+                            id="UserID">
+                    </div>
+                    <div class="input-field">
+                        <label for="status">User Name</label>
+                        <input type="text" autocomplete="OFF" class="form-control"
+                            style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+                            id="UserName">
+                    </div>
 
-</script>
-    
+                    <div class="input-field">
+                        <label for="status">Password</label>
+                        <input type="text" autocomplete="OFF" class="form-control"
+                            style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+                            id="Password">
+                    </div>
+
+                    <div class="input-field">
+                        <label for="status">Designation</label>
+                        <input type="text" autocomplete="OFF" class="form-control"
+                            style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+                            id="Designation">
+                    </div>
+
+                    <div class="input-field">
+                        <label for="status">Enable</label>
+                        <input type="text" autocomplete="OFF" class="form-control"
+                            style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+                            id="Enable">
+                    </div>
+
+                    <div class="input-field">
+                        <label for="status">Last Login</label>
+                        <input type="text" autocomplete="OFF" class="form-control"
+                            style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+                            id="LastLogin">
+                    </div>
+
+
+
+
+                    <button class="btn btn-success" id="edit" onclick="editUsers()">Update </button>
+
+
+
+
+
+
+
+
+
+
+
+                    <!--end::Demo Panel-->
+
+                    <!-- jQuery and JS bundle w/ Popper.js -->
+                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                        crossorigin="anonymous">
+                    </script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+                        crossorigin="anonymous">
+                    </script>
+                    <script type="text/javascript" charset="utf8"
+                        src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+                    </script>
+                    <script>
+                        $(document).ready(function () {
+                            $('#usertable').DataTable();
+                        });
+
+                    </script>
+                    <!--end::Global Theme Bundle-->
+
+                    <script>
+                        function getUsers() {
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.onreadystatechange = function () {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    var data = this.responseText;
+
+                                    var table;
+                                    var a = JSON.parse(data);
+
+                                    table = $('#usertable').DataTable();
+
+                                    $.each(a, function (i, item) {
+
+                                        table.row.add([a[i].UserID, a[i].UserName, a[i].Password, a[i]
+                                            .Designation, a[i].Enable, a[i].LastLogin
+                                        ]);
+                                    });
+                                    table.draw();
+
+                                }
+                            };
+
+                            xhttp.open("GET", "./getUsers/", true);
+                            xhttp.send();
+                        }
+                        $("#usertable").on('click', 'tr', function () {
+                            document.getElementById("UserID").value = this.cells[0].innerText;
+                            document.getElementById("UserName").value = this.cells[1].innerText;
+                            document.getElementById("Password").value = this.cells[2].innerText;
+                            document.getElementById("Designation").value = this.cells[3].innerText;
+                            document.getElementById("Enable").value = this.cells[4].innerText;
+                            document.getElementById("LastLogin").value = this.cells[5].innerText;
+
+
+                        });
+
+                        function editUsers() {
+                            var UID = document.getElementById("UserID").value;
+                            var username = document.getElementById("UserName").value;
+                            var pass = document.getElementById("Password").value;
+                            var desgination = document.getElementById("Desgination").value;
+                            var enable = document.getElementById("Enable").value;
+                            var lastlogin = document.getElementById("LastLogin").value;
+
+                            var edituser = [UID, username, pass, desgination, enable, lastlogin];
+
+                            var EU = JSON.stringify(edituser);
+                            alert(EU);
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.onreadystatechange = function () {
+                                if (this.readyState == 4 && this.status == 200) {
+
+                                    alert("User " + this.responseText + " is Updated");
+
+                                }
+                            };
+
+                            // var MenuID=$('#Menus').find(":selected").val();
+                            xhttp.open("GET", "./editUsers/" + EU, true);
+                            xhttp.send();
+
+                        }
+
+                    </script>
+
 </body>
 
 </html>

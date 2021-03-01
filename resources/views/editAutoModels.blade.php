@@ -20,26 +20,21 @@
             padding: 5px;
         }
 
-        .stockLabels label {
-            width: 235px;
+         label {
+            width: 150px;
         }
 
         .stockLabels {
-            padding: 20px 10px;
+            padding-top:5px;
             border-radius: 10px;
             border: 1px solid rgb(202, 202, 202);
         }
 
         .stock-table {
             border-radius: 10px;
-            padding: 10px;
+            padding: 3px;
         }
 
-        .containerMy {
-            max-width: 1400px;
-            margin: 0 auto;
-
-        }
     </style>
 </head>
 
@@ -56,10 +51,10 @@
         </div>
     </header>
     <br>
-    <section class="mt-5">
-        <div class="containerMy">
+    <section class="">
+        <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8 ">
+                <div class="col-md-8">
                     <div class="stock-table"
                         style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
                         <table style="width: 100%;" id="stocktable">
@@ -81,7 +76,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-4 stockLabels">
+                <div class="col-md-4">
                     <label for="id">Model ID</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="ModelID"><br><br>
@@ -99,33 +94,19 @@
                         name="id" id="Price"><br><br>
                     
                         <br>
-                   <button id="addUsers" onclick="addAutoModels()">Add AutoModel</button>
+                   <button id="addUsers" class="btn btn-warning"  onclick="addAutoModels()">Add AutoModel</button>
 
-                    <br>
-                    <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
+                
                         <button class="btn btn-success" onclick="editAutoModels()">Update </button>
-                        <div class="modal-content">
-                            
                       
-                        <!-- <div class="col-md-4 ">
-                    <button type="button" class="btn btn-info btn-cp" style="margin-top:29px;" data-toggle="modal"
-                        data-target=".bd-example-modal-xl"></button>
-                    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
-                        aria-labelledby="myExtraLargeModalLabel" aria-hidden="true" id="searchModal">
-                        <div class="modal-dialog modal-lg">
-                            <div class= -->
-                            
-
-
-
-
-
-
-
-    <!--end::Demo Panel-->
-
-    <!-- jQuery and JS bundle w/ Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                </div>
+            </div>
+        </div>
+    </section>
+    
+                   
+  
+                        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
