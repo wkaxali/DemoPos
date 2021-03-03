@@ -925,8 +925,8 @@ Route::get('/dls', function () {
     return view("signInSignUp");
     }
 });
-        return view('printDocuments');
-});
+//         return view('printDocuments');
+// });
 
 route::get('/acc', function(){
     return view('accesoriest');
