@@ -333,6 +333,7 @@ class serviceSalesFlow extends Controller
         $productName=$product->ProductName;
         $IN=$product->InvoiceNumber;
         $tax=$product->VAT;
+        $vColor=$product->color;
         $Pt =$product->NetAmount;
         $engineNo =$product->EngineNumber;
         $unitPrice=$product->PerUnitSalePrice;
@@ -353,6 +354,7 @@ class serviceSalesFlow extends Controller
         
         session(['ivd' => $dat]);
         session(['iu' => $IN]);
+        session(['color' => $vColor]);
        
         session(['customerName' => $customerName]);
         session(['contact' => $contact]);
