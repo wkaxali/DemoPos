@@ -52,7 +52,7 @@ use App\Http\Controllers\TEST;
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
-Route::get('/deliveryLetter',[deliverLetterPrintController::class, 'deliveryLetter']);
+Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliveryLetter']);
 
 
 Route::get('/qutationRequestFinal',[TEST::class, 'qutationRequestFinal']);
@@ -212,7 +212,7 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 Route::post('/Checkout/{token}',[StripeController::class, 'postCheckout']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
-Route::get('/testpdf/2',[salePrintInvoice::class, 'serviceSalesRequest']);
+Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
