@@ -468,9 +468,10 @@ class TEST extends Controller
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-public function gatePass($InvoiceID)
+public function gatePass()
 {
-    serviceSalesFlow::getAllInvoiceDetails($InvoiceID);
+   // dd($InvoiceID);
+    //serviceSalesFlow::getAllInvoiceDetails($InvoiceID);
     $newHTML='<table border="0">
     <thead>
     <tr>

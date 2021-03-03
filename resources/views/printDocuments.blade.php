@@ -152,7 +152,7 @@
             xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 
-                window.open('/testpdf/5');
+                window.open('/printGatePass');
 
                 }
             }
@@ -164,19 +164,20 @@
     </script>
    <script>
 
-    function salesInvoice()
+    function salesInvoice(InvoiceID)
     {
+        alert(InvoiceID);
         
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 
-                window.open('/testpdf/5');
+                window.open('/testpdf/2');
 
                 }
             }
 
-            xhttp.open("GET", "./saleServiceInvoice1/", true);
+            xhttp.open("GET", "./invoiceDetails/"+InvoiceID, true);
             xhttp.send();
 
     }
@@ -185,19 +186,21 @@
     
     <script>
 
-function InvoiceRequest()
+function InvoiceRequest(id)
 {
     
-        var xhttp = new XMLHttpRequest();
+    var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            
-            window.open('/testpdf/3');
+
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Printed");
+               
+                window.open("./printSaleInvReq");
 
             }
-        }
-
-        xhttp.open("GET", "./InvoiceRequest/", true);
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getSaleInvReq/" + id, true);
         xhttp.send();
 
 }

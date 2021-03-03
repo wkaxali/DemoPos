@@ -50,7 +50,7 @@ use App\Http\Controllers\TEST;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
-Route::get('/saleServiceInvoice1',[TEST::class, 'saleServiceInvoice1']);
+Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
 Route::get('/deliveryLetter',[deliverLetterPrintController::class, 'deliveryLetter']);
 
@@ -212,14 +212,14 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 
 Route::post('/Checkout/{token}',[StripeController::class, 'postCheckout']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
-Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
+Route::get('/testpdf/2',[salePrintInvoice::class, 'serviceSalesRequest']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
-Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
+Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
-Route::get('/testpdf/4',[TEST::class, 'gatePass']);
+Route::get('/printGatePass',[TEST::class, 'gatePass']);
 
 Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
