@@ -68,12 +68,12 @@
 
                                 <th>Customer ID</th>
                                 <th>Customer Name</th>
-                                <th>Father Name</th>
-                                <th>Address</th>
                                 <th>Contact</th>
+                                <th>Address</>
+                                
                                 <th>CNIC</th>
                                 <th>Balance</th>
-                                <th>Comments</th>
+                                
 
 
                                 </tr>
@@ -99,32 +99,27 @@
                             id="customerName">
                     </div>
 
+            
+
                     <div class="input-field">
-                        <label for="status">FatherName</label>
+                        <label for="status">Contact</label>
                         <input type="text" autocomplete="OFF" class="form-control"
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-                            id="fatherName">
+                            id="Contact" required>
                     </div>
 
                     <div class="input-field">
                         <label for="status">Address</label>
                         <input type="text" autocomplete="OFF" class="form-control"
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-                            id="address">
-                    </div>
-
-                    <div class="input-field">
-                        <label for="status">Contact</label>
-                        <input type="text" autocomplete="OFF" class="form-control"
-                            style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-                            id="contact">
+                            id="Address" required>
                     </div>
 
                     <div class="input-field">
                         <label for="status">CNIC</label>
                         <input type="text" autocomplete="OFF" class="form-control"
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-                            value="" id="CNIC">
+                            value="" id="CNIC" required>
                     </div>
 
 
@@ -132,15 +127,10 @@
                         <label for="status">Balance</label>
                         <input type="email" autocomplete="OFF" class="form-control"
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-                            id="balance">
+                            id="balance" required>
                     </div>
 
-                    <div class="input-field">
-                        <label for="status">Comments</label>
-                        <input type="text" autocomplete="OFF" class="form-control"
-                            style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-                            id="comments">
-                    </div>
+            
 
                     <button class="btn btn-success" onclick="editEmployee()">Update </button>
 
@@ -213,12 +203,12 @@
                         $("#stocktable").on('click', 'tr', function () {
                             document.getElementById("CID").value = this.cells[0].innerText;
                             document.getElementById("customerName").value = this.cells[1].innerText;
-                            document.getElementById("fatherName").value = this.cells[2].innerText;
-                            document.getElementById("address").value = this.cells[3].innerText;
-                            document.getElementById("contact").value = this.cells[4].innerText;
-                            document.getElementById("CNIC").value = this.cells[5].innerText;
-                            document.getElementById("balance").value = this.cells[6].innerText;
-                            document.getElementById("comments").value = this.cells[7].innerText;
+                            document.getElementById("Contact").value = this.cells[2].innerText;
+                            document.getElementById("Address").value = this.cells[3].innerText;
+                            
+                            document.getElementById("CNIC").value = this.cells[4].innerText;
+                            document.getElementById("balance").value = this.cells[5].innerText;
+                         
 
 
 
@@ -231,15 +221,14 @@
                         function editEmployee() {
                             var CID = document.getElementById("CID").value;
                             var customerName = document.getElementById("customerName").value;
-                            var fatherName = document.getElementById("fatherName").value;
-                            var address = document.getElementById("address").value;
-                            var contact = document.getElementById("contact").value;
+                            var contact = document.getElementById("Contact").value;
+                            var address = document.getElementById("Address").value;
+                           
                             var CNIC = document.getElementById("CNIC").value;
                             var balance = document.getElementById("balance").value;
-                            var comments = document.getElementById("comments").value;
+                          
 
-                            var updateCustomer = [CID, customerName, fatherName, address, contact, CNIC, balance,
-                                comments
+                            var updateCustomer = [CID, customerName, contact, address, CNIC, balance,
                             ];
 
                             var UC = JSON.stringify(updateCustomer);

@@ -468,20 +468,12 @@ Route::get('/ev', function () {
 });
 Route::get('/etv', function () {
     $UN = session()->get('Designation');
-<<<<<<< HEAD
-    if($UN=="User"){
-    return view('EmployeeTaskView'); 
-    }else{
-    return view("signInSignUp");
-    }
-=======
     if($UN=="Admin"){
         return view('EmployeeTaskView', ['UserID' => '1']);
   
    }else{
        return "Invalid Username Or Password";
    }
->>>>>>> 350dc6e9b44234b55039b989b96a6f145593c66f
 
 });
 Route::get('/emptv', function () {
