@@ -1415,8 +1415,12 @@
                         cell2.innerHTML = productName;
                         cell3.innerHTML = company;
                         cell4.innerHTML = salePrice;
-                        cell5.innerHTML = quantity;
-                        cell6.innerHTML = discount;
+                    //     cell5.innerHTML =
+                    //     '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
+                    // cell6.innerHTML =
+                    //     '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
+                        cell5.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+quantity+'>';
+                        cell6.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+discount+'>';
                         cell7.innerHTML = totalAmount;
                         //calc();
                         cell8.innerHTML =
@@ -1490,8 +1494,10 @@
                         cell2.innerHTML = productName;
                         cell3.innerHTML = company;
                         cell4.innerHTML = PerUnitSalePrice;
-                        cell5.innerHTML = quantity;
-                        cell6.innerHTML = discount;
+                        cell5.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+quantity+'>';
+                        cell6.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+discount+'>';
+                        // cell5.innerHTML = "<input type='Text' value='"+quantity+"'>";
+                        // cell6.innerHTML = "<input type='Text' value='"+discount+"'>";
                         cell7.innerHTML = totalAmount;
                         //calc();
                         cell8.innerHTML =
