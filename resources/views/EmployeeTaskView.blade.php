@@ -1329,7 +1329,9 @@
                                 <div class="logo">
                                     W A</div>
 
-                                <span>Mian Abdullah</span>
+                                <span>Mian Abdullah
+                                    
+                                </span>
                             </div>
                             <div class="rightCardBody">
 
