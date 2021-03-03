@@ -14,8 +14,9 @@ use App\Http\Controllers\quotationController;
 use App\Http\Controllers\payController;
 use App\Http\Controllers\salePrintInvoice;
 use App\Http\Controllers\StripeController;
-
+use App\Http\Controllers\assesoriesController;
 use App\Http\Controllers\TransactionFlow;
+use App\Http\Controllers\printDocuments;
 use App\Http\Controllers\userAccountController;
 
 use App\Http\Controllers\expenseController;
@@ -53,6 +54,7 @@ Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliver
 
 
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
+Route::get('/getDocuments',[printDocuments::class, 'getDocuments']);
 Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
 Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu']);
@@ -129,7 +131,7 @@ Route::get('/loadAutos',[getProducts::class, 'getAutosNames']);
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
 Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
 Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStock']);
-
+Route::get('/AddAcessories/{UC}',[assesoriesController::class, 'AddAcessories']);
 
 Route::get('/editAutoModels/{UC}',[UpdateStocksController::class, 'editAutoModels']);
 Route::get('/getAutoModel',[UpdateStocksController::class, 'getAutoModel']);
@@ -925,8 +927,7 @@ Route::get('/dls', function () {
     return view("signInSignUp");
     }
 });
-//         return view('printDocuments');
-// });
+  
 
 route::get('/acc', function(){
     return view('accesoriest');
