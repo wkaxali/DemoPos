@@ -47,7 +47,7 @@ public static function employeeData(){
     $card="";
     $data=DB:: select('select * from vw_tasks');
     foreach ($data as $obj){
-        $card=$card.'<div class="card" >
+        $card=$card.'<div class="card colorcard" >
 
         <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
             <div class="mainCardBody">
