@@ -3,11 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use db;
+use DB;
 use Carbon\Carbon;
 
 use App\Http\Controllers\salesFlow;
 use App\Http\Controllers\UpdateStocksController;
+
+
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\LedgerPartiesController;
+use App\Http\Controllers\accountsController;
+
+use PDF;
+use NumberToWords\NumberToWords;
+
 
 class saleInvoiceEditController extends Controller
 {
@@ -37,27 +46,58 @@ class saleInvoiceEditController extends Controller
  
          }
         
-        //Restoring Balance 
         
-        $amount = DB::table('tbltransactionflow')
-            ->where('InvoiceNo', '=', $InvoiceID)
-             ->first()->Amount;
+        
+        $amount = DB::table('tblsaleinvoice')
+            ->where('InvoiceNumber', '=', $InvoiceID)
+             ->first()->AmountPaid;
+        $OldCID = DB::table('tblsaleinvoice')
+            ->where('InvoiceNumber', '=', $InvoiceID)
+             ->first()->CustomerID;
+        $OldRmb = DB::table('tblsaleinvoice')
+             ->where('InvoiceNumber', '=', $InvoiceID)
+              ->first()->Balance;
 
-        $cumstomerBalance = DB::table('customeinformation')
-            ->where('CustomerID', '=', $CID)
-             ->first()->Balance;
-        //return $amount;
+       
+       //Old customer balance Update
+
+
+       $oldCustomerBalance=CustomerController::getCustomerBalance($OldCID);
+       
+       
+       $currentCustomerBalance=floatval($oldCustomerBalance)-floatval($OldRmb);
+       CustomerController::UpdateCustomerBalance($OldCID,$currentCustomerBalance);
+
+
+       
+       
+       // Account is changed
+       $OldAID = DB::table('tbltransactionflow')
+       ->where([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Stock and Service']])
+        ->first()->PaidVia;
+
+       $OldAccBalance=accountsController::getAccountBalance($OldAID);
+       $newAccountBalance=floatval($OldAccBalance)-floatval($amount);
+       
+       accountsController::UpdateNewBalance($OldAID ,$newAccountBalance);
+       
+       
+       
+       
+       
+       
+       
+             //Party Balance
         $SelfBalance = LedgerPartiesController::getPartyBalance(2);
 
-        $newSelfBalance = $SelfBalance - $amount;
-        $newCumstomerBalance =$cumstomerBalance - $amount;
+        $newSelfBalance =floatval($SelfBalance) - floatval($amount);
+      
 
         LedgerPartiesController::UpdatePartiesBalance(2, $newSelfBalance);
-        DB::table('customeinformation')
-        ->where('CustomerID', $CID)
-        ->update([
-          'Balance'=>$newCumstomerBalance
-          ]);
+      //  _____________________________________________________
+      //  _____________________________________________________
+      //  __________________________________________Old Values Deleted___________
+
 
 
          self::deleteInTnblSaleInvoiceDetails($InvoiceID);
@@ -73,10 +113,24 @@ class saleInvoiceEditController extends Controller
 
 
      
-     self::updateintblSaleInvoice($InvoiceID,$tot,$OverAllDiscount,$tax,$netTotal,$AP,$RBI);
-     
- 
+      self::updateintblSaleInvoice($InvoiceID,$tot,$OverAllDiscount,$tax,$netTotal,$AP,$RBI,$CID,$AID);
+      $oldCustomerBalance=CustomerController::getCustomerBalance($CID);
+      $currentCustomerBalance=floatval($oldCustomerBalance)+floatval($RBI);
+    //  //Customer Balance
+      CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
+    //  //Parties Balance
+     $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+     $newSelfBalance=floatval($oldSelfBalance)+floatval($AP);
+     LedgerPartiesController::UpdatePartiesBalance(2, $newSelfBalance);
+    //  //Accounts Balance
+      $OldAccBalance=accountsController::getAccountBalance($AID);
+        $newAccountBalance=floatval($OldAccBalance)+floatval($AP);
        
+       accountsController::UpdateNewBalance($AID,$newAccountBalance);
+
+     //TransactioFlow Edit
+ 
+   
      }
      public function insertInDetailedOrder($OrderDetails,$InvoiceID,$date){
         foreach ($OrderDetails as $row){
@@ -104,6 +158,7 @@ class saleInvoiceEditController extends Controller
         
   
       }
+      
     
 
 
@@ -122,7 +177,7 @@ class saleInvoiceEditController extends Controller
     
 
 
-    public function updateintblSaleInvoice($InvoiceID,$tot,$OverAllDiscount,$tax,$netTotal,$AP,$RBI){
+    public function updateintblSaleInvoice($InvoiceID,$tot,$OverAllDiscount,$tax,$netTotal,$AP,$RBI,$CID,$AID){
 
         
         DB::table('tblsaleinvoice')
@@ -134,8 +189,18 @@ class saleInvoiceEditController extends Controller
           'NetTotal'=>$netTotal,
           'AmountPaid'=>$AP,
           'Balance'=>$RBI,
+          'CustomerID'=>$CID
           
           ]);
+          //Balance before this transaction and ater this transaction will be edited there
+          DB::table('tbltransactionflow')
+          ->where([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Stock and Service']])
+          ->update([
+            'Amount'=>$tot,
+            'PaidTo'=>$CID,
+            'PaidVia'=>$AID
+            
+            ]);
           
       }
 
