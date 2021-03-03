@@ -67,12 +67,12 @@ class serviceSalesFlow extends Controller
        
        $currentCustomerBalance=floatval($oldCustomerBalance)+floatval($RBI);
        CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
-       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
+       $selfBalance=floatval($oldSelfBalance)+floatval($totlpaid);
        LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
        TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock and Service",
        $totlpaid,$dateNow,"1",$oldCustomerBalance,$currentCustomerBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$CID,$paidVia,NULL);
        $OldAccBalance=accountsController::getAccountBalance($AID);
-       $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
+       $newAccountBalance=floatval($OldAccBalance)+floatval($totlpaid);
        
        accountsController::UpdateNewBalance($AID,$newAccountBalance);
 
@@ -186,7 +186,7 @@ class serviceSalesFlow extends Controller
         //session(['invoiceDetails' => $invoiceDetails]);
         $ProductDetailsArray=array();
         $oneProductInInvoice=array();
-          foreach($invoiceDetails as $product){
+        foreach($invoiceDetails as $product){
           $qty=$product->Quantity;
          
           $contact=$product->ProductSerial;
