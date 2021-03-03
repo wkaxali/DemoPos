@@ -718,15 +718,66 @@
             padding: 10px;
             display: inline-block;
         }
+
         .colorcard .mainCardBody .mainDots div:nth-child(1) {
-            height: 10px;width: 10px;border-radius: 50%; background-color: #FA5632; display: inline-block;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #FA5632;
+            display: inline-block;
         }
+
         .colorcard .mainCardBody .mainDots div:nth-child(2) {
-            height: 10px;width: 10px;border-radius: 50%; background-color: #FAB732; display: inline-block;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #FAB732;
+            display: inline-block;
         }
+
         .colorcard .mainCardBody .mainDots div:nth-child(3) {
-            height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: black;
+            display: inline-block;
         }
+
+        .colorcard-1 {
+            border-left: 10px solid #8B45F1 !important;
+            border-top: 10px solid #634492 !important;
+        }
+
+        .colorcard-1 button {
+            border-radius: 20px;
+            background-color: #FA5632 !important;
+            border-color: #FA5632 !important;
+            color: #fff !important;
+        }
+
+        .colorcard-1 .mainCardBody .leftCardBody .logo {
+            background-color: #CF1D73 !important;
+            color: #fff !important;
+            border-radius: 50% !important;
+            padding: 10px !important;
+            display: inline-block;
+        }
+      
+
+
+
+        .colorcard-1 .mainCardBody .mainDots div:nth-child(1) {
+            height: 10px;width: 10px;border-radius: 50%; background-color: #8B45F1; display: inline-block;
+        }
+
+        .colorcard-1 .mainCardBody .mainDots div:nth-child(2) {
+            height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;}
+
+        .colorcard-1 .mainCardBody .mainDots div:nth-child(3) {
+            height: 10px;width: 10px;border-radius: 50%; background-color: #634492; display: inline-block;
+
+        }
+
     </style>
 </head>
 
@@ -1634,8 +1685,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card" style="    border-left: 10px solid #8B45F1;
-            border-top: 10px solid #634492;">
+                <div class="card colorcard-1">
 
                     <div class="card-body" data-toggle="modal" data-target="#exampleModal"
                         onclick="loadTaskDetails('.$obj->TaskID.')">
@@ -1652,8 +1702,8 @@
                         <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Development</h4>
                         <div class="mainCardBody" style="padding-top: 20px;">
                             <div class="leftCardBody">
-                                <div
-                                    style="background-color: #634492; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                <div class="logo">
+                                   
                                     W A</div>
 
                                 <span>Mian Abdullah</span>
@@ -1662,14 +1712,11 @@
 
                                 <div>Overdue</div>
                                 <div class="mainDots text-center">
-                                    <div
-                                        style="height: 10px;width: 10px;border-radius: 50%; background-color: #8B45F1; display: inline-block;">
+                                    <div>
                                     </div>
-                                    <div
-                                        style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
+                                    <div>
                                     </div>
-                                    <div
-                                        style="height: 10px;width: 10px;border-radius: 50%; background-color: #634492; display: inline-block;">
+                                    <div>
                                     </div>
 
                                 </div>
@@ -2033,8 +2080,7 @@
                         <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Development</h4>
                         <div class="mainCardBody" style="padding-top: 20px;">
                             <div class="leftCardBody">
-                                <div
-                                    style="background-color: #CF1D73; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                <div style="">
                                     W A</div>
 
                                 <span>Mian Abdullah</span>
