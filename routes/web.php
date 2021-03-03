@@ -222,9 +222,9 @@ Route::get('/', function () {
 
 return view('signInSignUp');
 });
-Route::get('/stripe', function () {
-return view('stripe');
-});
+// Route::get('/stripe', function () {
+// return view('stripe');
+// });
 
 
 Route::get('/ed', function () {
@@ -257,7 +257,7 @@ echo $value;
 });
 Route::get('/ss', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="User"){
     return view('sales');
     }else{
     return view("signInSignUp");
@@ -292,7 +292,7 @@ return view("EmployeeTaskView");
 
 Route::get('/ps', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="User"){
     return view('PurchaseStock'); 
     }else{
     return view("signInSignUp");
@@ -414,7 +414,7 @@ Route::get('/sp', function () {
 });
 Route::get('/vs', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="User"){
     return view('viewStock'); 
     }else{
     return view("signInSignUp");
