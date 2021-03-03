@@ -21,6 +21,7 @@ class salesFlow extends Controller
       $data=DB:: select('select * from vw_customersale_invoice');
       return $data;
     }
+    
 
     public function SalesFlow(Request $request,$data){
      // order = [pid,totwT,discount,netTotal,amp,rmb,CID];

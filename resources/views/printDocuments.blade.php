@@ -57,7 +57,7 @@
     </style>
 </head>
 
-<body onload="getDocument()">
+<body onload="getDocuments()">
   @include('printDocumenthtml')
 
 
@@ -80,7 +80,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function getDocument() {
+        function getDocuments() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -94,9 +94,13 @@
                     table = $('#stockTable').DataTable();
 
                     $.each(a, function (i, item) {
-
+                            invoiceID=a[i].InvoiceNumber;
                         table.row.add([a[i].InvoiceNumber,a[i].EngineNumber,a[i].ChasisNumber,a[i].NetTotal,
-                        ]);
+                        '<button class="btn print" onclick="gatePass('+invoiceID+')" >Print</button>' , 
+                        '<button class="btn print" onclick="deliveryLetter('+invoiceID+')" >Print</button>',
+                        '<button class="btn print" onclick="InvoiceRequest('+invoiceID+')" >Print</button>',
+                        '<button class="btn print" onclick="salesInvoice('+invoiceID+')" >Print</button>']
+                            );
                     });
                     table.draw();
 
@@ -140,6 +144,95 @@
         });
 
     </script>
+    <script>
+    function gatePass(InvoiceID)
+    {
+        
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                
+                window.open('/printGatePass');
+
+                }
+            }
+
+            xhttp.open("GET", "./printGatePass/"+InvoiceID, true);
+            xhttp.send();
+
+    }
+    </script>
+   <script>
+
+    function salesInvoice(InvoiceID)
+    {
+        alert(InvoiceID);
+        
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                
+                window.open('/testpdf/2');
+
+                }
+            }
+
+            xhttp.open("GET", "./invoiceDetails/"+InvoiceID, true);
+            xhttp.send();
+
+    }
+    </script>
+    
+    
+    <script>
+
+function InvoiceRequest(id)
+{
+    
+    var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+                alert("Printed");
+               
+                window.open("./printSaleInvReq");
+
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getSaleInvReq/" + id, true);
+        xhttp.send();
+
+}
+</script>
+<script>
+
+function deliveryLetter(id)
+{
+    
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            
+            window.open('/deliveryLetter/1');
+
+            }
+        }
+
+        xhttp.open("GET", "./deliveryLetter/"+id, true);
+        xhttp.send();
+
+}
+
+
+// $("#stockTable").on('click','td button',function(){
+//     alert(this.cells[0].innerText); 
+     
+// }
+// );
+
+</script>
 
 </body>
 
