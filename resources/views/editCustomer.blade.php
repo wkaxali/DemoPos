@@ -186,15 +186,23 @@
                                     var table;
                                     var a = JSON.parse(data);
 
-                                    table = $('#modeltable').DataTable();
+                                    table = $('#stocktable').DataTable();
 
                                     $.each(a, function (i, item) {
 
-                                        table.row.add([a[i].MID, a[i].company, a[i].modelname, a[i].Address,
-                                            a[i].Contect, a[i].CNIC, a[i].Balance, a[i].Comments
+                                        table.row.add([a[i].CustomerID, a[i].CustomerName, a[i].Contect, a[i].Address,
+                                            a[i].CNIC, a[i].Balance
                                         ]);
                                     });
                                     table.draw();
+                                //     <th>Customer ID</th>
+                                // <th>Customer Name</th>
+                                // <th>Father Name</th>
+                                // <th>Address</th>
+                                // <th>Contact</th>
+                                // <th>CNIC</th>
+                                // <th>Balance</th>
+                                // <th>Comments</th>
 
                                 }
                             };
