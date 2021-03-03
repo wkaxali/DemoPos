@@ -495,7 +495,8 @@ Route::get('/ev', function () {
 Route::get('/etv', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-   return view('EmployeeTaskView');
+        return view('EmployeeTaskView', ['UserID' => '1']);
+  
    }else{
        return "Invalid Username Or Password";
    }
