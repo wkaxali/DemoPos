@@ -4,7 +4,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h1 class="mainHeadings">Sales</h1>
+                            <h1 style="font-size:45px;" class="mainHeadings">Sales</h1>
                         </div>
                     </div>
                 </div>

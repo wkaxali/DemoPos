@@ -789,11 +789,7 @@
             height: 2.5em !important;
         }
 
-        .total-buttons button {
-            width: 88px;
-            height: 80px;
-            margin: 5px 0px;
-        }
+
 
         .total-buttons {
             margin-top: 10px;
@@ -1240,71 +1236,57 @@
                 padding: .5em 1em 2em 1em !important;
             }
         }
+
         @media only screen and (max-width: 768px) {
             .okay-invo input {
-    width: 179px;
-}
-.o-inv input {
-    width: 179px;
-}
-.o-inv-2 input {
-    width: 179px !important;
-}
+                width: 179px;
+            }
 
-.bootstrap-select .dropdown-toggle {
-    width: 179px;
-    height: 33px !important;
-    color: #ffffff !important;
-}
-.okay-invo-3 input {
-    width: 179px !important;
-}
-.total-buttons button {
-    height: 35px !important;
-    width: 60px !important;
-}
+            .o-inv input {
+                width: 179px;
+            }
+
+            .o-inv-2 input {
+                width: 179px !important;
+            }
+
+            .bootstrap-select .dropdown-toggle {
+                width: 179px;
+                height: 33px !important;
+                color: #ffffff !important;
+            }
+
+            .okay-invo-3 input {
+                width: 179px !important;
+            }
+
+            element.style {
+                background-color: #0a549d;
+            }
+
+            .btn:not(:disabled):not(.disabled) {
+                cursor: pointer;
+            }
+
+
         }
+
+        .total-buttons button {
+            margin: 5px 0px;
+            width: 75px !important;
+            height: 35px !important;
+        }
+
+        .okay-invo-1 input {
+            width: 107px;
+        }
+
     </style>
 </head>
 
 
 <body id="kt_bodys" onload="getAllProducts()">
-@include('saleshtml')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @include('saleshtml')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
