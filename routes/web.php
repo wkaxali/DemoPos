@@ -46,13 +46,10 @@ use App\Http\Controllers\TEST;
 |
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
-<<<<<<< HEAD
-=======
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
 Route::get('/deliveryLetter',[deliverLetterPrintController::class, 'deliveryLetter']);
->>>>>>> 350dc6e9b44234b55039b989b96a6f145593c66f
 
 
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
@@ -915,6 +912,15 @@ route::get('/pds', function(){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('printDocuments'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/dls', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('deliveryletters'); 
     }else{
     return view("signInSignUp");
     }

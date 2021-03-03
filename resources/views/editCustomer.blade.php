@@ -227,9 +227,12 @@
                             var CNIC = document.getElementById("CNIC").value;
                             var balance = document.getElementById("balance").value;
                           
+                            if (customerName == null || contact == null || address == null || CNIC == null || balance == null) {      
 
+                            alert("fill all columns");
+                                }  else{
                             var updateCustomer = [CID, customerName, contact, address, CNIC, balance,
-                            ];
+                            ]};
 
                             var UC = JSON.stringify(updateCustomer);
                             alert(UC);
