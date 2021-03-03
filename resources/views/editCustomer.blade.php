@@ -227,9 +227,9 @@
                             var CNIC = document.getElementById("CNIC").value;
                             var balance = document.getElementById("balance").value;
                           
-                            if (customerName == null || contact == null || address == null || CNIC == null || balance == null) {      
+                            if (customerName == "" || contact == "" || address == "" || CNIC == "" || balance == "") {      
 
-                            alert("fill all columns");
+                            alert("please fill all fields");
                                 }  else{
                             var updateCustomer = [CID, customerName, contact, address, CNIC, balance,
                             ]};
