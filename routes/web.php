@@ -543,3 +543,7 @@ Route::get('/eu', function () {
 route::get('/pds', function(){
         return view('printDocuments');
 });
+
+route::get('/acc', function(){
+    return view('accesoriest');
+});
