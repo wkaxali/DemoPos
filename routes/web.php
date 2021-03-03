@@ -951,3 +951,20 @@ Route::get('/logout', function(){
   return view('signInSignUp');
    }
 );
+    
+
+Route::get('/aam', function () {
+    return view('addAutoModels');
+});
+
+Route::get('/eu', function () {
+    return view('editUsers');
+});
+
+route::get('/pds', function(){
+        return view('printDocuments');
+});
+
+route::get('/acc', function(){
+    return view('accesoriest');
+});
