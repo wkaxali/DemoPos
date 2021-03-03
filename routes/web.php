@@ -49,7 +49,7 @@ use App\Http\Controllers\TEST;
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
-Route::get('/deliveryLetter',[deliverLetterPrintController::class, 'deliveryLetter']);
+Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliveryLetter']);
 
 
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
@@ -208,7 +208,7 @@ Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 Route::post('/Checkout/{token}',[StripeController::class, 'postCheckout']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
-Route::get('/testpdf/2',[salePrintInvoice::class, 'serviceSalesRequest']);
+Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
 Route::get('/viewDocuments',[printServiceSaleInvoice::class, '']);

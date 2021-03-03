@@ -14,7 +14,7 @@ use NumberToWords\NumberToWords;
 
 class salePrintInvoice extends Controller
 {
-    public function serviceSalesRequest()
+    public function printSaleInvoice()
     {
         
         $newHTML='<table border="0">
@@ -56,13 +56,16 @@ class salePrintInvoice extends Controller
         <br>
         <br>
         
+
+       
+
         <table border="0">
         <tbody>
         <tr>
         <td><br><span style="font-size: medium;">Customer Name:</span></td>
         <td align="center"><br>'.session()->get("customerName").'</td>
         <td><br><span style="font-size: medium;">Booking No:</span></td>
-        <td align="center"><br>BO-FMM-'.session()->get("invoiceNo").'</td>
+        <td align="center"><br>BO-FMM-'.session()->get("iu").'</td>
         
         
         </tr>
@@ -70,7 +73,7 @@ class salePrintInvoice extends Controller
         <td><br><span style="font-size: medium;">Address:</span></td>
         <td align="center"><br>'.session()->get("address").'</td>
         <td><br><span style="font-size: medium;">Invoice Number:</span></td>
-        <td align="center"><br>'.session()->get("invoiceNo").'</td>
+        <td align="center"><br>'.session()->get("iu").'</td>
         
         
         </tr>
@@ -115,11 +118,11 @@ class salePrintInvoice extends Controller
         </thead>
         <tbody >
         <tr>
-        <td align="center">'.session()->get("description").'</td>
+        <td align="center">'.session()->get("model").'</td>
         <td align="center">'.session()->get("color").'</td>
         <td align="center">'.session()->get("engineNo").'</td>
         <td align="center">'.session()->get("chassisNo").'</td>
-        <td align="center">'.session()->get("unitPrice").'</td>
+        <td align="center">'.session()->get("netTotal").'</td>
         </tR>
         
         <tr>

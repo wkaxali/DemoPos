@@ -171,6 +171,7 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
+
                 
                 window.open('/testpdf/2');
 
@@ -207,19 +208,19 @@ function InvoiceRequest(id)
 </script>
 <script>
 
-function deliveryLetter()
+function deliveryLetter(id)
 {
     
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             
-            window.open('/deliveryLetter');
+            window.open('/deliveryLetter/1');
 
             }
         }
 
-        xhttp.open("GET", "./deliveryLetter/", true);
+        xhttp.open("GET", "./deliveryLetter/"+id, true);
         xhttp.send();
 
 }
