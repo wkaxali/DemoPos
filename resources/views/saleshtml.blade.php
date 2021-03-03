@@ -83,7 +83,7 @@
                             <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
 
                             <div class="centhour">
-                                <button class="btn" style="background-color: #13579a;">New</button>
+                                <button class="btn" style="background-color: #13579a;" onclick="pageReload()">New</button>
                                 <button class="btn" style="background-color: #e61d2f;">Edit</button>
                                 <button class="btn" style="background-color: #13579a;">Delete</button>
                             </div>
@@ -298,11 +298,12 @@
                             </select>
                             <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #e61d2f;"
-                                    onclick="insertInSales()">Save</button>
-                                <button class="btn" style="background-color: #0a549d;">Print</button>
+                                    id="saveBtn"onclick="insertInSales()">Save</button>
+                                <button class="btn" style="background-color: #0a549d;" onclick="print()">Print</button>
                                 <button class="btn" style="background-color: #e61d2f;">Edit</button>
                                 <button class="btn" style="background-color: #0a549d;">Hold</button>
-                                <button class="btn" style="background-color: #e61d2f;">Update</button>
+                                <button class="btn" style="background-color: #e61d2f;"
+                                     id="updateBtn" onclick="UpdateSaleInvoice()">Update</button>
                                 <button class="btn" style="background-color: #0a549d;">Delete</button>
                             </div>
                            

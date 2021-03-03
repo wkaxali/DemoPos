@@ -1432,6 +1432,8 @@
         }
 
         function getInvoiceCustomer() {
+            document.getElementById("saveBtn").disabled = true; 
+            document.getElementById("updateBtn").disabled = false; 
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1506,10 +1508,12 @@
 
         }
 
-    </script>
+        function pageReload(){
+            location.reload(); 
+        }
 
-    <script>
         function getAllProducts() {
+            document.getElementById("updateBtn").disabled = true; 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -1872,6 +1876,7 @@
 
         function insertInSales() {
 
+           
             var myTrows = [];
             var table = document.getElementById("ProductSaleTable");
             var myRow2 = [];
@@ -1946,6 +1951,10 @@
             }
         }
 
+        function print(){
+            window.open("./testpdf/as");
+        }
+
         function UpdateSaleInvoice() {
 
             var myTrows = [];
@@ -2017,7 +2026,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated");
-                        window.open("/ssi");
+                        
 
                     }
                 };

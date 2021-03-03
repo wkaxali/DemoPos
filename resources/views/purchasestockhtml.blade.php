@@ -84,7 +84,7 @@
                             <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
                             <br>
                             <div class="centhour">
-                                <button class="btn btn-new" style="background-color: #e61d2f;">New</button>
+                                <button class="btn btn-new" style="background-color: #e61d2f;" onclick="pageReload()">New</button>
                                 <button class="btn btn-edit" style="background-color: #13579a;">Edit</button>
                                 <button class="btn" style="background-color: #e61d2f;">Delete</button>
                             </div>

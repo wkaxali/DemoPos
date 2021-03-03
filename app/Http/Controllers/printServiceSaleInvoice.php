@@ -109,7 +109,7 @@ Customer\'s Copy
 <td><br><span style="font-size: medium;">CNIC/NTN:</span></td>
 <td align="center"><br>'.session()->get("CNIC").'</td>
 <td><br><span style="font-size: medium;">Invoice Date:</span></td>
-<td align="center"><br>'.session()->get("invoiceDate").'</td>
+<td align="center"><br>'.session()->get("ivd").'</td>
 
 
 </tr>

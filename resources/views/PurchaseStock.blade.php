@@ -1760,9 +1760,10 @@
         xhttp.send();
     }
 
-</script>
+    function pageReload() {
+        location.reload(); 
+    }
 
-<script>
     function getInvoiceSupplier() {
 
         var xhttp = new XMLHttpRequest();
