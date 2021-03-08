@@ -53,9 +53,14 @@
             .myContentInputs {
                 display: block !important;
             }
+
             .inner-block {
-    padding: .5em 1em 2em 1em;
-}
+                padding: .5em 1em 2em 1em;
+            }
+        }
+
+        .left-content {
+            width: 85% !important;
         }
 
     </style>
@@ -63,7 +68,7 @@
 </head>
 
 <body onload="getQuotations()">
- @include('quotationlisthtml')
+    @include('quotationlisthtml')
 
 
 

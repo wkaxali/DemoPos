@@ -94,6 +94,10 @@
 
         }
 
+        .inner-block {
+            padding: 1em 1em 2em 1em;
+        }
+
     </style>
 </head>
 
@@ -155,7 +159,7 @@
                                         <table class="table display table-bordered table-striped" id="myTable">
                                             <thead>
                                                 <tr>
-                                                  <th></th>
+                                                    <th></th>
 
                                                     <th id="Cusname">Transaction ID</th>
                                                     <th id="CusCont">Invoice No</th>
@@ -329,7 +333,8 @@
 
                             $.each(a, function (i, item) {
 
-                                table.row.add([ '',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
+                                table.row.add(['', a[i].TransactionID, a[i].InvoiceNo, a[i]
+                                    .TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp

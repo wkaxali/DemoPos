@@ -6522,16 +6522,18 @@
         .fa-bars {
             color: #fff;
         }
+
         .inner-block {
-    padding: .5em 1em 2em 1em;
-}
+            padding: .5em 1em 2em 1em;
+        }
+
     </style>
 
 </head>
 
 <body id="mainBody" onload="loadData()">
 
-@include('addnewstockhtml')
+    @include('addnewstockhtml')
 
 
 

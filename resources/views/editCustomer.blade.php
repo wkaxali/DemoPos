@@ -45,6 +45,7 @@
 </head>
 
 <body onload="getCustomers()">
+<div class="container">
 
     <header class="idi">
         <div class="container">
@@ -145,6 +146,11 @@
                     <button class="btn btn-success" onclick="editEmployee()">Update </button>
 
 
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 
 
