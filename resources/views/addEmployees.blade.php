@@ -1386,11 +1386,15 @@
             color: #fff;
         }
 
+        .inner-block {
+            padding: 1em 1em 2em 1em;
+        }
+
     </style>
 </head>
 
 <body style="font-family: 'Roboto', sans-serif;">
-@include('addemployeeshtml')
+    @include('addemployeeshtml')
 
 
 
@@ -1477,25 +1481,25 @@
         })(jQuery);
 
 
-function addEmployee(){
-    var firstName = document.getElementById("firstName").value;
-    var lastName = document.getElementById("lastName").value;
-    var CNIC = document.getElementById("CNIC").value;
-    var contact = document.getElementById("contact").value;
-    var address = document.getElementById("address").value;
-    var email = document.getElementById("email").value;
-    var designation = document.getElementById("designation").value;
-    var date = document.getElementById("date").value;
-    var array =[firstName,lastName,CNIC,contact,address,email,designation,date];
-    var empData = JSON.stringify(array);
+        function addEmployee() {
+            var firstName = document.getElementById("firstName").value;
+            var lastName = document.getElementById("lastName").value;
+            var CNIC = document.getElementById("CNIC").value;
+            var contact = document.getElementById("contact").value;
+            var address = document.getElementById("address").value;
+            var email = document.getElementById("email").value;
+            var designation = document.getElementById("designation").value;
+            var date = document.getElementById("date").value;
+            var array = [firstName, lastName, CNIC, contact, address, email, designation, date];
+            var empData = JSON.stringify(array);
 
-    var xhttp = new XMLHttpRequest();
+            var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert(this.response);
-                    
+
                 }
             };
             //alert("ljd");
@@ -1503,8 +1507,6 @@ function addEmployee(){
 
             xhttp.send();
 
-}
+        }
 
-</script>
-
-
+    </script>

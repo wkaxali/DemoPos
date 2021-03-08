@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>Title Stock</title>
+    <title>Accessories With Autos</title>
 
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -25,7 +25,6 @@
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
-            /* background-color:#0a549d !important; */
 
 
         }
@@ -49,6 +48,12 @@
             max-width: 1400px;
             margin: 0 auto;
 
+        }
+
+        @media only screen and (max-width: 768px) {
+            .stockLabels {
+                text-align: center;
+            }
         }
 
     </style>

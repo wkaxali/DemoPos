@@ -48,7 +48,9 @@
         .row {
             margin: 10px 0px;
         }
-
+.inner-block {
+    padding: 1em 1em 2em 1em !important;
+}
     </style>
 </head>
 
@@ -73,7 +75,7 @@
       
                 <div class="col-md-8">
                     <div class="stock-table"
-                        style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
+                        style="height: 640px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
                         <table style="width: 100%;" id="stocktable">
                             <thead>
                                 <tr ondblclick="getEmployee()">
@@ -96,7 +98,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 stockLabels">
                     <div class="input-field">
                         <label for="status">Employee ID</label>
                         <input type="text" autocomplete="OFF" class="form-control"

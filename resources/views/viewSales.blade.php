@@ -54,11 +54,15 @@
             overflow: auto !important;
         }
 
+        .inner-block {
+            padding: 1em 1em 2em 1em;
+        }
+
     </style>
 </head>
 
 <body onload="getStock()">
-  @include('viewsaleshtml')
+    @include('viewsaleshtml')
 
 
 
@@ -96,7 +100,8 @@
                     $.each(a, function (i, item) {
 
                         table.row.add([a[i].ProductSerial, a[i].ProductName, a[i]
-                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].Quantity, a[i].StockIn, a[i]
+                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].Quantity, a[i]
+                            .StockIn, a[i]
                             .EngineNumber, a[i].ChasisNumber, a[i].color, a[i].DateStamp
                         ]);
                     });

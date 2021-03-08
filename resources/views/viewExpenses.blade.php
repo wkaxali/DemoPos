@@ -27,16 +27,13 @@
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
-            /* background-color:#0a549d !important; */
 
 
         }
 
         .receivingMain {
-            /* border: 1px solid #aaaaaa; */
             border-radius: 10px;
             height: 550px;
-            /* overflow: auto; */
         }
 
 
@@ -54,11 +51,15 @@
             overflow: auto !important;
         }
 
+        .inner-block {
+            padding: 1em 1em 2em 1em;
+        }
+
     </style>
 </head>
 
 <body onload="getStock()">
-  @include('viewexpenseshtml')
+    @include('viewexpenseshtml')
 
 
 
@@ -95,9 +96,10 @@
                     table = $('#stockTable').DataTable();
 
                     $.each(a, function (i, item) {
-                      
+
                         table.row.add([a[i].TransactionID, a[i].ExpenseHead, a[i].TransactionCatogery, a[i]
-                            .Amount, a[i].TransactionType, a[i].DateStamp, a[i].FirstName, a[i].AccountName, a[i].AccountNumber, a[i].Remarks
+                            .Amount, a[i].TransactionType, a[i].DateStamp, a[i].FirstName, a[i]
+                            .AccountName, a[i].AccountNumber, a[i].Remarks
                         ]);
                     });
                     table.draw();
