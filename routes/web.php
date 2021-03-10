@@ -35,6 +35,7 @@ use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
 use App\Http\Controllers\saleRequestController;
 use App\Http\Controllers\TEST;
+use App\Http\Controllers\printServiceInvoice;
 
 
 
@@ -73,7 +74,15 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
+Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
 
+Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
+//qutationRequest
+Route::get('/testpdf/4',[TEST::class, 'gatePass']);
+
+Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
+
+Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
