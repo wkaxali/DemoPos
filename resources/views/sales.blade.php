@@ -1632,12 +1632,14 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     //  alert( this.responseText);
+                    
+                    
                 }
             };
             var EC = JSON.stringify(Customer);
             xhttp.open("GET", "./addCustomer/" + EC, true);
             xhttp.send();
-
+            
 
         };
 
@@ -2046,6 +2048,7 @@
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 alert(this.responseText);
+                loadAllCustomers();
             }
         };
         var EC = JSON.stringify(newCustomer);

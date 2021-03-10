@@ -180,9 +180,7 @@
 
                                         </div>
                                     </div>
-                                <button class="btn" style="background-color: #13579a;">View</button>
-                                <button class="btn" style="background-color: #e61d2f;">History</button>
-                                <button class="btn" style="background-color: #13579a;">Info</button>
+                                
                             </div>
                         </div>
 

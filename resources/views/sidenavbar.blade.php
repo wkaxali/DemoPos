@@ -22,7 +22,7 @@
                     <li><a href="/ec">Customer Edit</a></li>
                     <li><a href="/adc">Add Customer</a></li>
                     <li><a href="/ads">Add Supplier</a></li>
-                    <li><a href="/as">Edit Supplier</a></li>
+                    <li><a href="">Edit Supplier</a></li>
                     <li><a href="/aeh">Add Expense Head</a></li>
                     <li><a href="/pay">Payment</a></li>
                     <li><a href="/pr">Pay Roll</a></li>

@@ -9,57 +9,57 @@
                     style="font-size: 18px;">Dashboard</span></a>
         </li>
         <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
-                    style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
+                    style="font-size:18px;">Book Order</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse list-unstyled new">
-                <li><a href="/bo">Book Order</a></li>
-                <li><a href="/rec">Receiving</a></li>
-                <li><a href="/is">Invoice Services</a></li>
-                <li><a href="/sc">Commissions and Taxes</a></li>
-                <li><a href="/as">Add Stock</a></li>
-                <li><a href="/th">Transaction History</a></li>
-                <li><a href="/l">Investor Sale Ledger</a></li>
-                <li><a href="/cl">Company Ledger</a></li>
+                <li><a href="/bo">Vehicle</a></li>
+                <li><a href="/ps">Parts</a></li>
 
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-                    style="font-size: 18px;">Products</span><span class="fa fa-angle-right"
+                    style="font-size: 18px;">Add Stock</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse list-unstyled firstULs ">
-                <li><a href="/ac">Category</a></li>
-                <li><a href="/vs">Product Record</a></li>
-                <li><a href="/as">Add Product</a></li>
-                <!-- <li><a href="/">Barcode</a></li> -->
-
-                <li><a href="/sh">Stock Audit</a></li>
+                <li><a href="/rec">Vehicle</a></li>
+                <li><a href="/as">Parts</a></li>
+                <li><a href="/es">Edit Parts</a></li>
+                <li><a href="/vs">View Parts</a></li>
+                
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
-                    style="font-size: 18px;">Customer</span><span class="fa fa-angle-right"
+                    style="font-size: 18px;">Customer/Supplier Informtion</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs1">
-                <li><a href="/">Add Customer</a></li>
-                <li><a href="/vs">Customer List</a></li>
+                <li><a href="/adc">Add Customer</a></li>
+                <li><a href="/ec">Edit Customer</a></li>
+                <li><a href="/vs">View Customer List</a></li>
+                <li><a href="/ads">Add Supplier</a></li>
+                <li><a href="/eds">Edit Supplier</a></li>
 
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
-                    style="font-size: 18px;">Supplier</span><span class="fa fa-angle-right"
+                    style="font-size: 18px;">Expenses</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs2">
-                <li><a href="/ads">Add Supplier</a></li>
-                <li><a href="/vs">Supplier List</a></li>
+                <li><a href="/ex">Daily Expense</a></li>
+                <li><a href="/pay">Payments</a></li>
+                <li><a href="/pr">Payroll</a></li>
+                <li><a href="/exv">Expense List</a></li>
+                <li><a href="/aeh">Add Expense Head</a></li>
+
             </ul>
         </li>
         <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
                     class="fab fa-alipay"></i>
-                <span style="font-size: 18px;">Purchase</span><span class="fa fa-angle-right"
+                <span style="font-size: 18px;">Sales</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs3">
-                <li id="menu-mensagens" style="width: 201px"><a href="/ps">Purchase Stock</a>
+                <li id="menu-mensagens" style="width: 201px"><a href="/is">Sales Invoice</a>
                 </li>
-                <li><a href="/dp">Daily Purchase</a></li>
+                <li><a href="/ss">Service Sales Invoice</a></li>
                 <li><a href="/dp">Monthly Purchase</a></li>
                 <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
             </ul>
