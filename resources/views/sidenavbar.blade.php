@@ -17,12 +17,12 @@
                     <li><a href="/is">Invoice Services</a></li>
                     <li><a href="/as">Add Stock</a></li>
                     <li><a href="/es">Edit Stock</a></li>
-                    <li><a href="">Stock Audit</a></li>
-                    <li><a href="/cv">Cusomer View</a></li>
+                    <li><a href="/vs">Stock Audit</a></li>
+                    <li><a href="/vc">Cusomer View</a></li>
                     <li><a href="/ec">Customer Edit</a></li>
                     <li><a href="/adc">Add Customer</a></li>
-                    <li><a href="/">Add Supplier</a></li>
-                    <li><a href="/as">Edit Supplier</a></li>
+                    <li><a href="/ads">Add Supplier</a></li>
+                    <li><a href="">Edit Supplier</a></li>
                     <li><a href="/aeh">Add Expense Head</a></li>
                     <li><a href="/pay">Payment</a></li>
                     <li><a href="/pr">Pay Roll</a></li>

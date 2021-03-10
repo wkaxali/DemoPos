@@ -72,8 +72,8 @@
                                     <th>User Name</th>
                                     <th>Password</th>
                                     <th>Designation</th>
-                                    <th>Enable</th>
-                                    <th>Last Login</th>
+                                    <!-- <th>Enable</th>
+                                    <th>Last Login</th> -->
 
 
 
@@ -115,16 +115,16 @@
                             </div>
 
                             <div class="input-field">
-                                <label for="status">Enable</label>
+                                <!-- <label for="status">Enable</label> -->
                                 <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    style="display: none !important; height: 30px !important; width: 183px;"
                                     name="name" id="Enable">
                             </div>
 
                             <div class="input-field">
-                                <label for="status">Last Login</label>
+                                <!-- <label for="status">Last Login</label> -->
                                 <input type="text" autocomplete="OFF" class="form-control"
-                                    style="display: inline-block !important; height: 30px !important; width: 183px;"
+                                    style="display: none !important; height: 30px !important; width: 183px;"
                                     name="name" id="LastLogin">
                             </div>
 
@@ -183,8 +183,7 @@
 
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].UserID, a[i].UserName, a[i].Password, a[i].Designation, a[i]
-                            .Enable, a[i].LastLogin
+                        table.row.add([a[i].UserID, a[i].UserName, a[i].Password, a[i].Designation //, a[i].Enable, //a[i].LastLogin
                         ]);
                     });
 
@@ -302,7 +301,7 @@
             var UID = document.getElementById("UserID").value;
             var username = document.getElementById("UserName").value;
             var pass = document.getElementById("Password").value;
-            var desgination = document.getElementById("Desgination").value;
+            var desgination = document.getElementById("Designation").value;
             var enable = document.getElementById("Enable").value;
             var lastlogin = document.getElementById("LastLogin").value;
 

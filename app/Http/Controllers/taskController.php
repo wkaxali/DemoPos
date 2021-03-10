@@ -303,11 +303,11 @@ public static function updateTaskStatus(Request $request, $CO){
   }
 
   public static function addTaskCategory(Request $request, $category){
-    DB::table('tbl_taskcategory')
-            ->insert(['Category'=>$category
+        $ID=DB::table('tbl_taskcategory')
+            ->insertGetId(['Category'=>$category
             ]);
 
-            return $category;
+            return $ID;
 }
 
 
