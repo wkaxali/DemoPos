@@ -60,39 +60,35 @@
                 <li id="menu-mensagens" style="width: 201px"><a href="/is">Sales Invoice</a>
                 </li>
                 <li><a href="/ss">Service Sales Invoice</a></li>
-                <li><a href="/dp">Monthly Purchase</a></li>
-                <li id="menu-arquivos"><a href="/psi">Print Sales Invoice</a></li>
+                
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
-                    style="font-size: 18px;">POS</span><span class="fa fa-angle-right"
+                    style="font-size: 18px;">Investor</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs4">
-                <li><a href="/ss">POS</a></li>
-                <li><a href="/sc">Add Sale</a></li>
-                <li><a href="ds">Daily Sales</a></li>
-                <li><a href="ds">Monthly Sales</a></li>
+                <li><a href="/l">Investor Sales Ledger</a></li>
+                <li><a href="/igl">Investor General Ledger</a></li>
+                <li><a href="cl">FJW Ledger</a></li>
 
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
-                    style="font-size: 18px;">Expense</span><span class="fa fa-angle-right"
+                    style="font-size: 18px;">HR</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs5">
-                <li><a href="/ex">Add Expense</a></li>
-                <li><a href="">Expense List</a></li>
-                <li><a href="">Expense Head</a></li>
-                <li><a href="">Expense Category</a></li>
+                <li><a href="/ae">Add Employee</a></li>
+                <li><a href="ee">View/Edit Employee</a></li>
+                
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
-                    style="font-size: 18px;">Transfer</span><span class="fa fa-angle-right"
+                    style="font-size: 18px;">Account Settings</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs5">
-                <li><a href="/ex">Add Expense</a></li>
-                <li><a href="">Expense List</a></li>
-                <li><a href="">Expense Head</a></li>
-                <li><a href="">Expense Category</a></li>
+                <li><a href="/au">Add User</a></li>
+                <li><a href="eu">Edit User</a></li>
+                
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span

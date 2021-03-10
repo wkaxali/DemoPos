@@ -302,7 +302,7 @@
             var UID = document.getElementById("UserID").value;
             var username = document.getElementById("UserName").value;
             var pass = document.getElementById("Password").value;
-            var desgination = document.getElementById("Desgination").value;
+            var desgination = document.getElementById("Designation").value;
             var enable = document.getElementById("Enable").value;
             var lastlogin = document.getElementById("LastLogin").value;
 
