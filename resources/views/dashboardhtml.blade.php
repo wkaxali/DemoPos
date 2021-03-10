@@ -1,6 +1,5 @@
 <head>
-
-    <style>
+  <style>
         #movetop {
             position: fixed;
             bottom: 40px;
@@ -772,6 +771,10 @@
         #cardsCanvas {
             margin-left: -200px !important;
         }
+        :not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
+    width: 100%;
+    z-index: 0 !important;
+}
 
     </style>
 </head>
@@ -800,7 +803,7 @@
                                         <input type="text" name="phone_number" id="contact" placeholder="Contact"
                                             required />
                                         <label for="Model">Select Model</label>
-                                        <select style="height: 40px !important; width: 200px !important;"
+                                        <select 
                                             name="Select Model" class="selectpicker form-control"
                                             data-live-search="true" id="model" onchange="updateModelData()">
 
@@ -1199,7 +1202,6 @@
 
 
         </div>
-        @include('EmployeeTaskView')
 
     </div>
     @include('sidenavbar')
@@ -1211,9 +1213,3 @@
 
   
 
-<div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    </div>
-  </div>
-</div>

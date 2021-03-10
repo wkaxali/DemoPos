@@ -905,7 +905,7 @@
                     <div class="col-md-4">
 
                         <label for="">Employee ID</label><br>
-                        <select style="height: 25px !important; width: 158px !important; "
+                        <select 
                             class="selectpicker form-control" data-live-search="true" id="employee"
                             onchange="searchEmployeeData()">
 
@@ -913,7 +913,7 @@
                     </div>
                     <div class="col-md-4 ">
                         <label for="">Task Status</label><br>
-                        <select style="height: 25px !important; width: 158px !important; "
+                        <select 
                             class="selectpicker form-control" data-live-search="true" id="status"
                             onchange="searchTaskWithStatus()">
                             <option value=" "></option>
