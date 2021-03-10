@@ -74,7 +74,18 @@
 
 <body onload="getStock()">
   
+<div class="page-container">
+
+<div class="left-content">
+    <div class="inner-block">
 @include('viewstockhtml')
+
+    
+    </div>
+</div>
+@include('sidenavbar')
+<div class="clearfix"></div>
+</div>
 
 
 

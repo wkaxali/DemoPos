@@ -1018,17 +1018,8 @@
 
 
                                 <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-1">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3 id="saleAmount" value=""></h3>
-                                            <h4>Todays Sale Amount</h4>
-                                            <h4>New Messages</h4>
-
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-file-text-o"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
+                                    <div  data-toggle="modal" data-target="#bd-example-modal-lg" class="market-update-block clr-block-1">
+                                  <h3>Total Stock</h3>
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
@@ -1216,4 +1207,13 @@
     <div class="clearfix"> </div>
 
 
+</div>
+
+  
+
+<div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    </div>
+  </div>
 </div>

@@ -361,6 +361,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .market-update-block {
             height: 258px;
+            border-radius: 10px;
         }
 
         label {
@@ -415,6 +416,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             dailySaleAmount();
             loadAutos();
             getEmployeeData();
+            getStock()
         }
 
         function updateModelData() {
