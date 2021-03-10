@@ -16,21 +16,27 @@
             <header>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-5 offset-md-1">
+                        <div class="col-md-4">
                             <label for="">Employee ID</label>
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select 
                                 class="selectpicker form-control" data-live-search="true" id="employeeID">
 
                             </select>
 
                         </div>
 
-                        <div class="col-md-5 ">
+                        <div class="col-md-4">
                             <label for="">Employee Name</label>
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select 
                                 class="selectpicker form-control" data-live-search="true" id="employeeName">
 
                             </select>
+
+
+                        </div>
+                        <div class="col-md-4">
+                            <label  for="">Date</label>
+                        <input class="form-control" style="width: 200px; display: inline-block;" type="date" name="" id="">
 
                         </div>
                     </div>
