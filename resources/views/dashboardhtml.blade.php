@@ -1196,6 +1196,7 @@
 
 
 
+                @include('EmployeeTaskView')
 
 
             </div>
@@ -1204,7 +1205,7 @@
         </div>
 
     </div>
-    @include('sidenavbar')
+    @include('adminNavbar')
 
     <div class="clearfix"> </div>
 
