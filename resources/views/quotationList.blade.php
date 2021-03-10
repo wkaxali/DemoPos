@@ -235,7 +235,7 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("model").innerHTML = this.response;
-                    $('#model').selectpicker('refresh');
+                   // $('#model').selectpicker('refresh');
                 }
             };
             //alert("ljd");
