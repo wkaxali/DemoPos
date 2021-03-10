@@ -24,7 +24,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
    
+        <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
     <link href="css/font-awesome.css" rel="stylesheet">
 
 
@@ -361,6 +366,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .market-update-block {
             height: 258px;
+            border-radius: 10px;
         }
 
         label {
@@ -415,6 +421,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             dailySaleAmount();
             loadAutos();
             getEmployeeData();
+            getStock();
         }
 
         function updateModelData() {
