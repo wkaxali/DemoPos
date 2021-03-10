@@ -1,3 +1,780 @@
+<head>
+
+    <style>
+        #movetop {
+            position: fixed;
+            bottom: 40px;
+            right: 15px;
+            z-index: 9;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            background-color: #0a549d;
+            border-radius: 50px;
+            -webkit-border-radius: 50px;
+            -o-border-radius: 50px;
+            -moz-border-radius: 50px;
+            -ms-border-radius: 50px;
+            padding: 0;
+        }
+
+        .top_menu label {
+            width: 100px !important;
+        }
+
+        .leftCardBody button {
+
+            width: 100px;
+        }
+
+        .rightCardBody button {
+
+            width: 100px;
+        }
+
+        .mainCardBody {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        ol li {
+            margin: 3px 0px;
+        }
+
+        #myBtnGroup {
+            margin: 3px 0px;
+        }
+
+        #myBtnGroup button {
+            width: 150px;
+            height: 35px;
+        }
+
+        .rightButtons {
+            float: right;
+        }
+
+        /* @media only screen and (max-width: 768px) {
+            input {
+                width: 200px !important;
+            }
+        } */
+
+        td {
+            /* border: 1px solid #333; */
+        }
+
+        td:first-child {
+            border: none !important;
+            display: none;
+        }
+
+
+
+        tr td:nth-child(2) {
+            width: 367px;
+        }
+
+
+        input[type="checkbox"] {
+            height: 35px;
+            width: 43px;
+            /* margin-top: 4px; */
+            margin: 3px 0px;
+        }
+
+        tr td {}
+
+        .mainButtons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .mainButtons button {
+            margin: 0px 3px;
+        }
+
+        @media (min-width: 768px) {
+            .offset-md-3 {
+                margin-left: 31% !important;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            tr td:nth-child(1) {
+                width: 320px;
+            }
+
+        }
+
+        .card-header {
+            background-color: #e61d2f;
+            padding: 3px;
+        }
+
+        #cardsCanvas {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            flex-direction: row;
+            width: 100%;
+
+        }
+
+        .mainContCards .mainCards-1 .card {
+            margin: 10px;
+            width: 20rem;
+        }
+
+        @media screen and (max-width: 1202px) {
+            .mainContCards {
+                flex-direction: column;
+            }
+
+            .mainCards-1 {
+                margin: 10px 0px;
+                width: 30rem !important;
+
+            }
+
+
+        }
+
+
+        .card {
+            border-top: 10px solid #e61d2f;
+            border-left: 10px solid #0a549d;
+            border-radius: 10px;
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+
+            .mainCards-1 {
+
+                width: 850px !important;
+
+            }
+
+
+
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        /* .mainWords {
+	width: 500px;
+	margin: auto;
+} */
+        .mainWords {
+            height: 383px !important;
+            overflow: auto;
+            /* border-radius: 20px !important; */
+        }
+
+        .chat {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background: #f1f0e8;
+        }
+
+        .chat-header {
+            display: flex;
+            cursor: pointer;
+        }
+
+        .profile {
+            width: 78.5%;
+            background: #032360;
+            display: flex;
+            align-items: center;
+            height: 60px;
+            padding: 0px 10px;
+            position: fixed;
+        }
+
+        .profile .pp {
+            width: 50px;
+            display: inline-block;
+            border-radius: 50%;
+            margin-left: 32px;
+        }
+
+        .profile .arrow {
+            display: inline-block;
+            width: 30px;
+            position: absolute;
+            top: 19px;
+            cursor: pointer;
+        }
+
+        .profile h2 {
+            display: inline-block;
+            line-height: 60px;
+            vertical-align: bottom;
+            color: #fff;
+            font-size: 20px;
+        }
+
+        .profile span {
+            color: #ccc;
+            position: absolute;
+            top: 42px;
+            left: 100px;
+            font-size: 14px;
+        }
+
+        .right .icon {
+            display: inline-block;
+            width: 25px;
+            margin-left: 10px;
+        }
+
+        .profile .left {
+            flex: 1;
+        }
+
+        .chat-box {
+            background: url('../img/bg.jpeg');
+            background-attachment: fixed;
+            padding-left: 20px;
+            overflow: hidden;
+            flex: 1;
+
+        }
+
+        .chat-box img {
+            display: none;
+        }
+
+        .chat-box .img_chat {
+            width: 280px;
+        }
+
+        .chat-r {
+            display: flex;
+        }
+
+        .chat-r .sp {
+            flex: 1;
+        }
+
+        .chat-l {
+            display: flex;
+        }
+
+        .chat-l .sp {
+            flex: 1;
+        }
+
+        .chat-box .mess {
+            max-width: 300px;
+            background: #F7FCF6;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 20px 0px;
+            cursor: pointer;
+        }
+
+        .chat-box .mess p {
+            word-break: break-all;
+            font-size: 18px;
+        }
+
+        .chat-box .mess-r {
+            background: #E2FFC7;
+        }
+
+        .chat-box .emoji {
+            width: 20px;
+        }
+
+        .chat-box .check {
+            float: right;
+        }
+
+        .chat-box .check img {
+            width: 20px;
+        }
+
+        .chat-box .check span {
+            color: #888;
+            font-size: 12px;
+            font-weight: 700px;
+        }
+
+        *::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        *::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        *::-webkit-scrollbar-thumb {
+            background: #aaa;
+        }
+
+
+
+        .chat-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 60px;
+            position: fixed;
+            cursor: pointer;
+            top: 56.5%;
+            width: 81%;
+            left: 9.5%;
+        }
+
+        .chat-footer textarea {
+            display: block;
+            flex: 1;
+            width: 100%;
+            height: 50px;
+            border-radius: 60px;
+            margin: 5px;
+            padding: 10px;
+            outline: none;
+            font-size: 19px;
+            padding-left: 40px;
+            padding-right: 90px;
+            border: 2px solid #ccc;
+            color: #555;
+            resize: none;
+        }
+
+        .chat-footer .mic {
+            display: block;
+            width: 55px;
+            height: 55px;
+            margin-right: 20px;
+        }
+
+        .chat-footer .emo {
+            display: block;
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            left: 10px;
+            top: 12px;
+        }
+
+        .chat-footer .icons {
+            position: absolute;
+            right: 100px;
+            top: 10px;
+        }
+
+        .chat-footer .icons img {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            margin-left: 5px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+
+        .container .row {
+            margin: 5px 0px !important;
+        }
+
+        #movetop {
+            position: fixed;
+            bottom: 40px;
+            right: 15px;
+            z-index: 9;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            background-color: #0abf53 !important;
+            border-radius: 50px;
+            -webkit-border-radius: 50px;
+            -o-border-radius: 50px;
+            -moz-border-radius: 50px;
+            -ms-border-radius: 50px;
+            padding: 0;
+        }
+
+        .top_menu label {
+            width: 100px !important;
+        }
+
+        .leftCardBody button {
+
+            width: 100px;
+        }
+
+        .rightCardBody button {
+
+            width: 100px;
+        }
+
+        .mainCardBody {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        ol li {
+            margin: 3px 0px;
+        }
+
+        #myBtnGroup {
+            margin-left: 49px;
+        }
+
+        #myBtnGroup button {
+            width: 121px;
+        }
+
+        .rightButtons {
+            float: right;
+        }
+
+        td:first-child {
+            border: none !important;
+            width: 50px;
+
+        }
+
+
+
+        tr td:nth-child(2) {
+            width: 332px;
+
+
+        }
+
+
+
+        .mainButtons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .mainButtons button {
+            margin: 0px 3px;
+            width: 116px !important;
+            font-size: 14px;
+        }
+
+        @media (min-width: 768px) {
+            .offset-md-3 {
+                margin-left: 31% !important;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            tr td:nth-child(1) {
+                width: 320px;
+            }
+
+        }
+
+        .card-header {
+            background-color: #e61d2f;
+            padding: 3px;
+        }
+
+        .mainContCards {
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+            margin: 10px 0px;
+
+        }
+
+        .mainContCards .mainCards-1 {
+            background: none !important;
+            border-radius: 10px;
+            width: 20rem;
+            /* -webkit-box-shadow: 10px 10px 31px 0px #4360b5;
+            -moz-box-shadow: 10px 10px 31px 0px#e61d2f;
+            box-shadow: 10px 10px 31px 0px #4360b5; */
+            transition: .7s;
+
+        }
+
+
+
+        .card {
+            border-left: 10px solid #4360b5;
+            border-top: 10px solid #e61d2f;
+            border-radius: 10px !important;
+        }
+
+        @media screen and (max-width: 1202px) {
+            .mainContCards {
+                flex-direction: column;
+            }
+
+            .mainCards-1 {
+                margin: 10px 0px;
+                width: 30rem !important;
+
+            }
+
+
+            .btn-group span {
+                margin-top: 20px;
+                margin-left: 30px !important;
+                width: 120px;
+                text-align: center;
+            }
+        }
+
+
+
+
+        #groupButtons {
+            margin-left: 49px;
+        }
+
+        #groupButtons button {
+            width: 121px;
+
+        }
+
+        .btn-secondary-1 {
+            background-color: #e61d2f;
+            outline: none !important;
+            color: #ffffff;
+
+        }
+
+        .btn-secondary-1:hover {
+            background-color: #e61d2f;
+            outline: none !important;
+            color: #ffffff;
+
+
+
+        }
+
+        .btn-dark-1 {
+            background-color: #0a549d;
+            border-color: #2e4ead;
+            outline: none !important;
+            color: #ffffff;
+
+        }
+
+        .btn-dark-1:hover {
+            background-color: #0a549d;
+            border-color: #2e4ead;
+            color: #ffffff;
+
+            outline: none !important;
+
+
+        }
+
+        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+
+            .mainCards-1 {
+
+                width: 850px !important;
+
+            }
+
+
+
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="datetime"]:focus,
+        input[type="datetime-local"]:focus,
+        input[type="date"]:focus,
+        input[type="month"]:focus,
+        input[type="time"]:focus,
+        input[type="week"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        input[type="url"]:focus,
+        input[type="search"]:focus,
+        input[type="tel"]:focus,
+        input[type="color"]:focus,
+        .uneditable-input:focus {
+            border-color: #0a549d;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            outline: 0 none;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #0a549d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e61d2f;
+        }
+
+        .fa-bars {
+            color: #fff;
+        }
+
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 82% !important;
+            }
+        }
+
+        .colorcard {
+            border-left: 10px solid #FA5632;
+            border-top: 10px solid #FAB732;
+        }
+
+        .colorcard button {
+            border-radius: 20px;
+            background-color: #FA5632;
+            border-color: #FA5632;
+            color: #fff;
+        }
+
+        .colorcard .mainCardBody .leftCardBody .logo {
+            background-color: #FA5632;
+            color: #fff;
+            border-radius: 50%;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .colorcard .mainCardBody .mainDots div:nth-child(1) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #FA5632;
+            display: inline-block;
+        }
+
+        .colorcard .mainCardBody .mainDots div:nth-child(2) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #FAB732;
+            display: inline-block;
+        }
+
+        .colorcard .mainCardBody .mainDots div:nth-child(3) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: black;
+            display: inline-block;
+        }
+
+        .colorcard-1 {
+            border-left: 10px solid #8B45F1 !important;
+            border-top: 10px solid #634492 !important;
+        }
+
+        .colorcard-1 button {
+            border-radius: 20px;
+            background-color: #FA5632 !important;
+            border-color: #FA5632 !important;
+            color: #fff !important;
+        }
+
+        .colorcard-1 .mainCardBody .leftCardBody .logo {
+            background-color: #CF1D73 !important;
+            color: #fff !important;
+            border-radius: 50% !important;
+            padding: 10px !important;
+            display: inline-block;
+        }
+
+
+
+
+        .colorcard-1 .mainCardBody .mainDots div:nth-child(1) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #8B45F1;
+            display: inline-block;
+        }
+
+        .colorcard-1 .mainCardBody .mainDots div:nth-child(2) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: pink;
+            display: inline-block;
+        }
+
+        .colorcard-1 .mainCardBody .mainDots div:nth-child(3) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #634492;
+            display: inline-block;
+
+        }
+
+        .mainMarg {
+            margin-left: -200px !important;
+        }
+
+        #cardsCanvas {
+            margin-left: -200px !important;
+        }
+
+    </style>
+</head>
 <div class="page-container">
     <div class="left-content">
         <div class="mother-grid-inner">
@@ -87,13 +864,13 @@
                                 <div class="modal-content">
                                     <div class="container">
 
-                                   
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Forland Modern Motors</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
+
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Forland Modern Motors</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
                                     </div>
                                     <div class="modal-body">
                                         <div class="container-fluid">
@@ -191,27 +968,7 @@
 
                         <div class="clearfix"> </div>
                     </div>
-                    <div class="profile_details">
-                        <ul>
-                            <li class="dropdown profile_details_drop">
-                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <div class="profile_img">
-                                        <span class="prfil-img"><img style="height: 50px; border-radius: 50%; "
-                                                src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
-                                                alt=""> </span>
-                                        <div class="user-name">
-                                            <p style="color: #e61d2f;">{{ Session::get('UserName')}}</p>
-                                            <span>Administrator</span>
-                                        </div>
-                                        <i class="fa fa-angle-down lnr"></i>
-                                        <i class="fa fa-angle-up lnr"></i>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </a>
 
-                            </li>
-                        </ul>
-                    </div>
                     <div class="clearfix"> </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -444,225 +1201,19 @@
                 </div>
 
 
-                <div class="chit-chat-layer1">
-                    <div class="row">
 
-                        <div class="col-md-6 chit-chat-layer1-left">
-                            <div class="work-progres">
-                                <div class="chit-chat-heading">
-                                    Recent Orders
-                                </div>
-                                <div class="table-responsive">
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Client</th>
-                                                <th>Manager</th>
-
-                                                <th>Status</th>
-                                                <th>Progress</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>PELL </td>
-                                                <td>Mushtaq</td>
-
-                                                <td><span class="label label-warning">in progress</span></td>
-                                                <td><span class="badge badge-info">50%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Qarshi</td>
-                                                <td>Sultan</td>
-
-                                                <td><span class="label label-success">completed</span></td>
-                                                <td><span class="badge badge-success">100%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Gormets</td>
-                                                <td>John</td>
-
-                                                <td><span class="label label-danger">Delayed</span></td>
-                                                <td><span class="badge badge-warning">75%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>4</td>
-                                                <td>Khadi</td>
-                                                <td>Danial</td>
-
-                                                <td><span class="label label-info">in progress</span></td>
-                                                <td><span class="badge badge-info">65%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>5</td>
-                                                <td>J.</td>
-                                                <td>Amjad</td>
-
-                                                <td><span class="label label-warning">in progress</span></td>
-                                                <td><span class="badge badge-danger">95%</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>6</td>
-                                                <td>UCP</td>
-                                                <td>Ali</td>
-
-                                                <td><span class="label label-info">in progress</span></td>
-                                                <td><span class="badge badge-success">95%</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 chart-blo-1">
-                            <div class="dygno" style="height: 431px !important;">
-                                <h2>Ring Chart</h2>
-
-                                <canvas id="doughnut" height="300" width="470"
-                                    style="width: 470px; height: 300px;"></canvas>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-
-                <div class="main-page-charts">
-                    <div class="main-page-chart-layer1">
-                        <div class="row">
-
-
-                            <div class="col-md-6 chart-layer1-left">
-                                <div class="glocy-chart">
-                                    <div class="span-2c">
-                                        <h3 class="tlt">Sales Analytics</h3>
-                                        <canvas id="bar" height="300" width="400"
-                                            style="width: 400px; height: 300px;"></canvas>
-                                        <script>
-                                            var barChartData = {
-                                                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "jul"],
-                                                datasets: [{
-                                                        fillColor: "#e61d2f",
-                                                        data: [65, 59, 90, 81, 56, 55, 40]
-                                                    },
-                                                    {
-                                                        fillColor: "#337AB7",
-                                                        data: [28, 48, 40, 19, 96, 27, 100]
-                                                    }
-                                                ]
-
-                                            };
-                                            new Chart(document.getElementById("bar").getContext("2d")).Bar(
-                                                barChartData);
-
-                                        </script>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 chart-blo-1">
-                                <div class="line-chart">
-                                    <h3>Line Chart</h3>
-                                    <canvas id="line" height="300" width="400" style="width: 400px; height: 300px;">
-                                    </canvas>
-                                    <script>
-                                        var lineChartData = {
-                                            labels: ["", "", "", "", "", "", ""],
-                                            datasets: [{
-                                                    fillColor: "#337AB7",
-                                                    strokeColor: "#e61d2f",
-                                                    pointColor: "#e61d2f",
-                                                    pointStrokeColor: "#fff",
-                                                    data: [65, 59, 90, 81, 56, 55, 40]
-                                                },
-                                                {
-                                                    fillColor: "#e61d2f",
-                                                    strokeColor: "#337AB7",
-                                                    pointColor: "#337AB7",
-                                                    pointStrokeColor: "#fff",
-                                                    data: [28, 48, 40, 19, 96, 27, 100]
-                                                }
-                                            ]
-
-                                        };
-                                        new Chart(document.getElementById("line").getContext("2d")).Line(
-                                            lineChartData);
-
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </div>
-                </div>
-                <div class="chart-layer-2">
-                    <div class="row">
-
-
-                        <div class="col-md-6 chart-layer2-right">
-                            <div class="prograc-blocks">
-                                <div class="home-progres-main">
-                                    <h3>Total Sales</h3>
-                                </div>
-                                <div class='bar_group'>
-                                    <div class='bar_group__bar thin' label='Rating' show_values='true' tooltip='true'
-                                        value='343'></div>
-                                    <div class='bar_group__bar myBlueColor thin' style="background: #0a549d;"
-                                        label='Quality' show_values='true' tooltip='true' value='235'></div>
-                                    <div class='bar_group__bar thin' label='Amount' show_values='true' tooltip='true'
-                                        value='550'></div>
-                                    <div class='bar_group__bar thin' style="background: #0a549d;" label='Farming'
-                                        show_values='true' tooltip='true' value='456'></div>
-                                </div>
-                                <script src="js/bars.js"></script>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6 chart-layer2-left">
-                            <div class="content-main revenue">
-                                <h3>Total Revenue</h3>
-                                <canvas id="radar" height="300" width="300"
-                                    style="width: 300px; height: 300px;"></canvas>
-                                <script>
-                                    var radarChartData = {
-                                        labels: ["", "", "", "", "", "", ""],
-                                        datasets: [{
-                                                fillColor: "#e61d2f",
-                                                strokeColor: "#0a549d",
-                                                pointColor: "#0a549d",
-                                                pointStrokeColor: "#fff",
-                                                data: [65, 59, 90, 81, 56, 55, 40]
-                                            },
-                                            {
-                                                fillColor: "#0a549d",
-                                                strokeColor: "#e61d2f",
-                                                pointColor: "#e61d2f",
-                                                pointStrokeColor: "#fff",
-                                                data: [28, 48, 40, 19, 96, 27, 100]
-                                            }
-                                        ]
-
-                                    };
-                                    new Chart(document.getElementById("radar").getContext("2d")).Radar(
-                                        radarChartData);
-
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
 
 
             </div>
 
+
         </div>
+        @include('EmployeeTaskView')
+
     </div>
-   @include('sidenavbar')
+    @include('sidenavbar')
 
     <div class="clearfix"> </div>
+
+
 </div>

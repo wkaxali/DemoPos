@@ -42,7 +42,7 @@
                     <div class="input-Btn-1">
                         <button class="btn btn-success" style="margin-top: 30px !important;"
                             onclick="AddItemInGrid()">Add
-                            Menu</button>
+                            Stock</button>
 
                     </div>
                 </div>
