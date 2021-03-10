@@ -64,7 +64,7 @@
                     </select><br><br>
 
                     <div class="st-button" style="margin-top: 15px;">
-                        <button class="btn btn-success" onclick="SetStockIdeal()">Update</button>
+                        <button class="btn btn-success" onclick="setStock()">Update</button>
                     </div>
                 </div>
             </div>
