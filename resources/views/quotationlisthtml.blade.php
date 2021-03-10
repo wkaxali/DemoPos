@@ -20,18 +20,7 @@
                                             style="height: 40px !important; width: 200px !important; ">
                                     </div>
 
-                                    <div class="inputField-1">
-                                        <label for="cost">Address</label>
-                                        <input type="text" class="form-control" id="address"
-                                            style="height: 40px !important; width: 200px !important; ">
-                                    </div>
-
-                                    <div class="inputField-1">
-                                        <label for="prodName">Contact</label>
-                                        <input type="text" class="form-control" id="contact"
-                                            style="height: 40px !important; width: 200px !important; ">
-
-                                    </div>
+                            
 
                                     <div class="inputField-1">
                                         <label for="Model">Select Model</label>
