@@ -118,17 +118,15 @@ class CustomerController extends Controller
         $fatherName=$obj[1];
         $contact=$obj[2];
         $profession=$obj[3];
-        $balance=$obj[4];
-        $address=$obj[5];
-        $comments=$obj[6];
-        $cnic=$obj[7];
+        $address=$obj[4];
+        $comments=$obj[5];
+        $cnic=$obj[6];
         
         $CID=DB::table('customeinformation')->insertGetId([
             'CustomerName'=>$customerName,
             'FatherName'=>$fatherName,
             'Contect'=>$contact,
             'Ocupation'=>$profession,
-            'Balance'=>$balance,
             'Address'=>$address,
             'Comments'=>$comments,
             'CNIC'=>$cnic,

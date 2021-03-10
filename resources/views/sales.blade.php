@@ -1726,11 +1726,7 @@
 
         function taxCalculation() {
 
-
-
-
-
-            var taxRate = 17.00;
+            var taxRate = document.getElementById('tax').value;
             var grosstotal = document.getElementById('grossTotal').value;
             //alert(taxRate/100);
             var tax = Number(grosstotal) * (taxRate / 100);
@@ -2024,6 +2020,41 @@
                 xhttp.send();
             }
         }
+
+    function addCustomer() {
+
+        var customerName = document.getElementById("addCustomerName").value;
+        //	alert("It is working"+CustomerName);
+        var fatherName = document.getElementById("addFatherName").value;
+        //	alert("It is working"+password);
+        var contact = document.getElementById("addContact").value;
+        //alert("It is working"+CustomerContact);
+        var profession = document.getElementById("addProfession").value;
+        //alert("It is working"+CustomerProfession);
+        var address = document.getElementById("addAddress").value;
+        //alert("It is working"+CustomerAddress);
+        var comments = document.getElementById("addComments").value;
+        //alert("It is working"+CustomerComments);
+        var cnic = document.getElementById("addCNIC").value;
+        //alert("It is working"+CustomerComments);
+
+        var newCustomer = [customerName, fatherName, contact, profession, address,
+            comments, cnic
+        ];
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+            }
+        };
+        var EC = JSON.stringify(newCustomer);
+        alert(EC);
+        xhttp.open("GET", "./insertCustomer/" + EC, true);
+        xhttp.send();
+
+
+}
 
     </script>
 </body>

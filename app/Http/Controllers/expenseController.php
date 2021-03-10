@@ -111,8 +111,16 @@ public static function getPartyNames(){
     return $data;
   }
 
-
+  public static function addExpenseHead($CO){
+    $ata=json_decode($CO);
+    $expenseHead=$ata[0];
+    $remarks=$ata[1];
+    $ex=DB::table('tblexpenseheads')->insertGetId([
+      'ExpenseHead'=>$expenseHead,
+      'Remarks'=>$remarks,
+      
+      ]);
+    return $ex;
+  }
+  
 }
-
-  
-  
