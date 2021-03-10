@@ -1424,10 +1424,11 @@
                                     <div class="myOwnRow-left">
                                         <h2>Add New Category</h2>
                                         <div class="input-field">
-                                            <label for="status">Product ID</label>
+                                           
                                             <input type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="PID">
+                                            <button class="btn" style="background-color: #e61d2f;">Add</button>
                                         </div>
 
                                     </div>
@@ -1440,10 +1441,11 @@
                                             <div class="col-md-12">
                                                 <h2>Edit Category</h2>
                                                 <div class="input-field">
-                                                    <label for="status">Invoice Number</label>
+                                                    
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                         name="name" value="" id="InvoiceID">
+                                                    <button class="btn" style="background-color: #e61d2f;" onload="addCategorey">Update</button>
 
 
 

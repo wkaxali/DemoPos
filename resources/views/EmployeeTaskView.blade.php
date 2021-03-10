@@ -898,8 +898,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                    
-                        <label for="" id="EmpIdLabel">Employee ID</label><br>
+
+                        <label for="">Employee ID</label><br>
                         <select style="height: 25px !important; width: 158px !important; "
                             class="selectpicker form-control" data-live-search="true" id="employee"
                             onchange="searchEmployeeData()">
@@ -2349,18 +2349,6 @@
             loadEmployees();
         }
 
-    function loginAccess(){
-        var userCategory = ('{{ Session::get('EmpID')}}');
-            if (userCategory != 1) {
-                //document.getElementById("employee").style.display = "none";
-                $('#employee').selectpicker('hide');
-                document.getElementById("EmpIdLabel").style.display = "none";
-                alert();
-                
-
-            }
-        }
-
 
         function updateAdminStatus() {
             var employeeID = document.getElementById("employeeID").value;
@@ -2462,11 +2450,11 @@
                                 </div>\
                                 </div>';
                         }
-                        var userCategory = ('{{ Session::get('EmpID')}}');
+                        var userCategory = ('{{ Session::get('
+                            EMPID ')}}');
                         if (userCategory != 1) {
                             document.getElementById("adminUseOnly").style.visibility = "hidden";
                             document.getElementById("adminUseOnly2").style.visibility = "hidden";
-                          
 
                         } else {
                             document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
@@ -2538,7 +2526,6 @@
             xhttp.send();
             loadEmployees();
             displayOptions();
-            loginAccess();
 
         }
 

@@ -12,15 +12,21 @@
                         style="font-size:18px;">Operations</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse list-unstyled new">
-                    <li><a href="/bo">Book Order</a></li>
+                    
                     <li><a href="/rec">Receiving</a></li>
                     <li><a href="/is">Invoice Services</a></li>
-                    <li><a href="/sc">Commissions and Taxes</a></li>
                     <li><a href="/as">Add Stock</a></li>
-                    <li><a href="/th">Transaction History</a></li>
-                    <li><a href="/l">Investor Sale Ledger</a></li>
-                    <li><a href="/cl">Company Ledger</a></li>
-
+                    <li><a href="/es">Edit Stock</a></li>
+                    <li><a href="">Stock Audit</a></li>
+                    <li><a href="/cv">Cusomer View</a></li>
+                    <li><a href="/ec">Customer Edit</a></li>
+                    <li><a href="/adc">Add Customer</a></li>
+                    <li><a href="/">Add Supplier</a></li>
+                    <li><a href="/as">Edit Supplier</a></li>
+                    <li><a href="/aeh">Add Expense Head</a></li>
+                    <li><a href="/pay">Payment</a></li>
+                    <li><a href="/pr">Pay Roll</a></li>
+                  
                 </ul>
             </li>
             <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span

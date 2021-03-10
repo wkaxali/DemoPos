@@ -1893,8 +1893,6 @@
         //alert("It is working"+CustomerContact);
         var profession = document.getElementById("addProfession").value;
         //alert("It is working"+CustomerProfession);
-        var balance = document.getElementById("addBalance").value;
-        //alert("It is working"+CustomerBalance);
         var address = document.getElementById("addAddress").value;
         //alert("It is working"+CustomerAddress);
         var comments = document.getElementById("addComments").value;
@@ -1902,7 +1900,7 @@
         var cnic = document.getElementById("addCNIC").value;
         //alert("It is working"+CustomerComments);
 
-        var newCustomer = [customerName, fatherName, contact, profession, balance, address,
+        var newCustomer = [customerName, fatherName, contact, profession, address,
             comments, cnic
         ];
 

@@ -73,7 +73,7 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
-
+Route::get('/addExpenseHead/{EH}',[expenseController::class, 'addExpenseHead']);
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
@@ -307,14 +307,6 @@ Route::get('/ps', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
    return view('PurchaseStock');
-   }else{
-       return "Invalid Username Or Password";
-   }
-});
-Route::get('/as', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('addNewStock');
    }else{
        return "Invalid Username Or Password";
    }
@@ -638,18 +630,6 @@ Route::get('/ql', function () {
        return "Invalid Username Or Password";
    }
 });
-
-Route::get('/e', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('Employee');
-   }else{
-       return "Invalid Username Or Password";
-   }
-});
-
-
-
 Route::get('/prc', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -895,15 +875,6 @@ Route::get('/ds', function () {
    }
 });
 
-Route::get('/ex', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-   return view('expense');
-   }else{
-       return "Invalid Username Or Password";
-   }
-});
-
 Route::get('/au', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -970,4 +941,7 @@ route::get('/pds', function(){
 
 route::get('/acc', function(){
     return view('accesoriest');
+});
+route::get('/aeh', function(){
+    return view('addExpenseHeads');
 });
