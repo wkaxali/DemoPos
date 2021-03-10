@@ -192,6 +192,7 @@ class serviceSalesFlow extends Controller
           $contact=$product->ProductSerial;
           $customerName=$product->CustomerName;
           $CID=$product->CustomerID;
+          $cAddrss=$product->Address;
           $PID=$product->ProductSerial;
           $IN=$product->InvoiceNumber;
           $tax=$product->VAT;
@@ -231,6 +232,8 @@ class serviceSalesFlow extends Controller
           session(['InvBalance' => $InvoiceBalance]);
           session(['amountPaid' =>  number_format($AmountPaid)]);
           session(['overallDiscount' => $Discount]);
+          session(['address' => $cAddrss]);
+
  
           $numberToWords = new NumberToWords();
              $numberTransformer = $numberToWords->getNumberTransformer('en');
