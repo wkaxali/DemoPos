@@ -1430,12 +1430,23 @@
                     document.getElementById("CID").value = a[0].CustomerID;
                     document.getElementById("LastBalance").value = a[0].Balance;
                     document.getElementById("CurrentBalance").value = a[0].Balance;
-                    calc();
                     document.getElementById("CNO").value = a[0].Contect;
                     document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+
+                    document.getElementById("Total").value = a[0].TotalAmount;
+                    document.getElementById("DiscountOverall").value = a[0].Discount;
+                     grossTotal = Number(a[0].TotalAmount)-Number(a[0].Discount);
+                    document.getElementById("grossTotal").value = grossTotal;
+                    document.getElementById("tax").value = a[0].VAT;
+                    document.getElementById("NetTotal").value = a[0].NetTotal;
+                    document.getElementById("AmountPaid").value = a[0].AmountPaid;
+                    document.getElementById("RemainingBalance").value = a[0].Balance;
+                    //document.getElementById("accounts").value = a[0].CustomerCatogery;
                     //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
                     $('#CustomerName').val(a[0].CustomerID);
                     $('#CustomerName').selectpicker('refresh');
+                    $('#accounts').val(a[0].AID);
+                    $('#accounts').selectpicker('refresh');
 
                     var i = 0;
                     //alert(a.length);
