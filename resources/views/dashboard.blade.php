@@ -411,6 +411,83 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
+      <script>
+        function getEmployeeData() {
+            var employeeName = $('#employee').find(":selected").text();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployeeData/", true);
+
+            xhttp.send();
+            loadEmployees();
+            displayOptions();
+
+        }
+
+        function displayOptions() {
+            var userCategor = ('{{ Session::get('
+                EMPID ')}}');
+
+            if (userCategor == 2) {
+
+
+            }
+
+
+        }
+
+        function searchEmployeeData() {
+            var employeeID = document.getElementById("employee").value;
+            var employeeName = $('#employee').find(":selected").text();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = "";
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
+
+            xhttp.send();
+        }
+
+        function searchTaskWithStatus() {
+            var employeeID = document.getElementById("employee").value;
+            var employeeName = $('#employee').find(":selected").text();
+            var status = document.getElementById("status").value;
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = "";
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
+
+            xhttp.send();
+        }
+
+    </script>
     <script>
         function loadFields() {
             dailySaleAmount();

@@ -353,10 +353,6 @@ a:hover {
     transform: rotate(180deg);
 }
 
-/* #menu li ul:hover> .fa-angle-right {
-    transform: rotate(180deg);
-} */
-
 #menu li a:hover span {
 
     padding-left: 13px;
