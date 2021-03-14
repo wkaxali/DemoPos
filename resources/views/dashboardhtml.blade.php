@@ -753,15 +753,16 @@
 
         }
 
-        .mainMarg {
-            margin-left: -200px !important;
-        }
-
+    
       
 
         :not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
             width: 100%;
-            z-index: 0 !important;
+        }
+        .borderClass{
+            border: 5px solid #e61d2f;
+            padding: 20px 3px;
+            border-radius: 10%;
         }
 
     </style>
@@ -1181,7 +1182,42 @@
                         </div>
                     </div>
                 </div>
+             
+                <div class="borderClass">
 
+              
+                <div class="container mainMarg">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <label for="">Employee ID</label><br>
+                        <select 
+                            class="selectpicker form-control" data-live-search="true" id="employee"
+                            onchange="searchEmployeeData()">
+
+                        </select>
+                    </div>
+                    <div class="col-md-4 ">
+                        <label for="">Task Status</label><br>
+                        <select 
+                            class="selectpicker form-control" data-live-search="true" id="status"
+                            onchange="searchTaskWithStatus()">
+                            <option value=" "></option>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="">Date</label><br>
+                        <input type="date" name="" class="form-control" id=""></div>
+                    <div class="col-md-1">
+                        <button class="btn btn-primary" style="margin-top: 31px;">Search</button>
+                    </div>
+                </div>
+
+
+
+            </div>
                 <div class="mainContCards">
                     <div class="mainCards-1" id="cardsCanvas">
     
@@ -1189,7 +1225,7 @@
                     </div>
     
                 </div>
-
+            </div>
                
        
 

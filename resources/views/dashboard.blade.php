@@ -24,7 +24,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
 
-   
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link href="css/font-awesome.css" rel="stylesheet">
 
 
@@ -379,6 +380,210 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     @include('dashboardhtml')
 
+    <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
+        <span class="fas fa-plus-circle" aria-hidden="true"></span>
+
+    </button>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mainAbs">
+                                    <label for="">Task</label>
+                                    <input type="text" class="form-control" name="" id="taskSubject">
+
+                                    <label for="">Assign To</label><br>
+                                    <select style="height: 25px !important; width: 158px !important; "
+                                        class="selectpicker form-control" data-live-search="true" id="assignTo">
+
+                                    </select>
+                                    <label for="">Details</label>
+                                    <table id="subTasks">
+                                        <tr>
+                                            <td id="td-1">1</td>
+                                            <td id="td-2"><input type="text" style="margin: 4px 0px;"
+                                                    class="form-control" name="" id="">
+                                            </td>
+
+                                        </tr>
+                                    </table>
+                                    <div class="row">
+                                        <div class="col-md-12" style="margin-left:20px;">
+                                            <div class="mainButtons">
+                                                <button class="btn btn-info">Progress</button>
+                                                <button onclick="getRowId()" class="btn btn-success">Add New
+                                                    List</button>
+
+                                                <button class="btn btn-success">Done</button>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                    <label for="">Due On</label><br>
+                                    <div class="btn-group" id="groupButtons" role="group" aria-label="Basic example">
+                                        <button onclick="GetDates()" type="button" id="Today"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn ">Today</button>
+                                        <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn ">Tomorrow</button>
+                                        <button type="button" id="Date"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn "><input class="hello" onchange="customDate()" type="date"
+                                                style="background: none !important; width:103px; border: none !important;"
+                                                name="" id="date"></button>
+                                    </div>
+                                    <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
+                                    <br>
+                                    <label for="">Priority</label><br>
+
+                                    <div class="btn-group" id="myBtnGroup" role="group" aria-label="Basic example">
+                                        <button type="button" id="Urgent"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn ">Urgent</button>
+                                        <button type="button" id="Normal"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn ">Normal</button>
+                                        <button type="button" id="Easily"
+                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                            class="btn">Easily</button>
+                                    </div><br>
+                                    <label for="">Category</label><br>
+                                    <select style="height: 25px !important; width: 158px !important; "
+                                        class="selectpicker form-control" data-live-search="true" id="category">
+
+                                    </select>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary-1" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog mydialog" role="document">
+            <div class="modal-content myshadow">
+                <div class="modal-header">
+                    <h5 class="modal-title">Forland Modern Motors</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="myshadow">
+
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <h4>Tasks View</h4>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Task" class="form-control" name="" id="mainTask">
+                                    <input type="text" placeholder="Task" class="form-control" name="" id="mainTaskID"
+                                        style="display:none">
+                                    <input type="text" placeholder="Task" class="form-control" name="" id="employeeID"
+                                        style="display:none">
+                                </div>
+
+                            </div>
+                            <div id="AllSubTasks"></div>
+
+                            <br>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="">Last Comment</label>
+                                    <textarea name="" placeholder="Last Comment" class="form-control"
+                                        style="height: 100%; width: 100%; resize: none;" id="comment"></textarea>
+
+                                </div>
+
+                            </div>
+                            <br> <br>
+                            <button onclick="updateEmployeeStatus()" style="margin-left: 17px;" type="button"
+                                id="updateEmployeeStatus" class="btn btn-primary  ">Update</button>
+                            <br>
+                            <div class="row" id="adminUseOnly">
+                                <div class="col-md-8">
+                                    <label for="">Remarks</label>
+                                    <input type="text" class="form-control" name="" id="remarks">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">&nbsp;</label>
+                                    <select style="height: 35px !important; width: 120px !important; "
+                                        class="form-control" id="adminStatus">
+                                        <option value="Pending">Pending</option>
+                                        <option value="Completed">Completed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row" id="adminUseOnly2">
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Task" class="form-control" name="" id="dateValue"
+                                        style="display:none">
+                                    <label for="">Due On</label><br>
+                                    <div class="btn-group" id="groupButtons" role="group" aria-label="Basic example">
+                                        <button onclick="GetDates()" type="button" id="Today"
+                                            style="background-color: #ffffff; border: 1px solid #aaa;"
+                                            class="btn ">Today</button>
+                                        <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                            style="background-color: #ffffff; border: 1px solid #aaa;"
+                                            class="btn ">Tomorrow</button>
+                                        <button type="button" id="Date"
+                                            style="background-color: #ffffff; border: 1px solid #aaa;"
+                                            class="btn "><input class="hello" onchange="customDate()" type="date"
+                                                style="background: none !important; width:103px; border: none !important;"
+                                                name="" id="date"></button>
+
+                                    </div>
+                                </div>
+                                <br>
+                                <button onclick="updateAdminStatus()" type="button" id="updateAdminStatus"
+                                    class="btn primary ">Update</button>
+                                <br>
+                            </div>
+
+                            <br>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
 
     <script>
@@ -411,7 +616,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
-      <script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+    <script>
         function getEmployeeData() {
             var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
@@ -485,6 +693,96 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
 
             xhttp.send();
+        }
+
+        function loadTaskDetails(taskID) {
+
+            // alert(taskID);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    var a = JSON.parse(data);
+                    document.getElementById("mainTask").value = a[0].Subject;
+                    document.getElementById("mainTaskID").value = a[0].TaskID;
+                    document.getElementById("employeeID").value = a[0].EID;
+                    a[0].TaskID;
+                    a[0].STaskID;
+                    a[0].Subject;
+                    a[0].Status;
+                    a[0].DueDate;
+                    a[0].taskDetails;
+                    a[0].StockIn;
+                    a[0].AssignedBy;
+                    a[0].AssignedTo;
+                    a[0].DueDate;
+                    a[0].taskDetails;
+                    a[0].Priority;
+                    a[0].Remarks;
+                    a[0].EID;
+                    a[0].FirstName;
+                    a[0].LastName;
+
+                    document.getElementById("AllSubTasks").innerHTML = "";
+                    var st = "";
+
+
+
+                    $.each(a, function (i, item) {
+                        if (a[i].Status == "Pending") {
+                            // document.getElementById("AllSubTasks").innerHTML=;
+                            st = st + '<div class="row">\
+                    <div class="col-md-8 ">\
+                    <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="' +
+                                item.taskDetails + '">\
+                    </div>\
+                    <div class="col-md-4">\
+                    <select style="height: 35px !important; width: 120px !important; "\
+                    class="form-control" \
+                    id="TaskStatus[]">\
+                    <option value="' + item.STaskID + '">Pending</option>\
+                    <option value="' + item.STaskID + '">Completed</option>\
+                    </select>\
+                    </div>\
+                    </div>';
+                        }
+                        if (a[i].Status != "Pending") {
+
+                            st = st + '<div class="row">\
+                    <div class="col-md-8 ">\
+                    <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="' +
+                                item.taskDetails + '">\
+                    </div>\
+                    <div class="col-md-4">\
+                    <input style="height: 35px !important; width: 120px !important; " readonly\
+                    class="form-control" value="' + item.Status + '">\
+                    </input>\
+                    </div>\
+                    </div>';
+                        }
+                        var userCategory = ('{{ Session::get('
+                            EMPID ')}}');
+                        if (userCategory != 1) {
+                            document.getElementById("adminUseOnly").style.visibility = "hidden";
+                            document.getElementById("adminUseOnly2").style.visibility = "hidden";
+
+                        } else {
+                            document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
+                        }
+                    });
+                }
+
+                document.getElementById("AllSubTasks").innerHTML = st;
+
+
+            }
+
+            //alert("ljd");
+            xhttp.open("GET", "./loadTaskDetails/" + taskID, true);
+
+            xhttp.send();
+
         }
 
     </script>
@@ -729,6 +1027,57 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./createQuotation/" + quotationData, true);
             xhttp.send();
+
+        }
+
+        function loadEmployees() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("employee").innerHTML = this.response;
+                    $('#employee').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployees/", true);
+
+            xhttp.send();
+
+
+        }
+
+    </script>
+    <script>
+        function GetDates() {
+            var dateFull = new Date();
+            y = dateFull.getFullYear();
+            m = dateFull.getMonth() + 1;
+            d = dateFull.getDate()
+            date = y + '-' + m + '-' + d;
+            alert(date);
+            document.getElementById("dateValue").value = date
+
+        }
+
+        function TomorrowDate() {
+            const today = new Date()
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            y = tomorrow.getFullYear();
+            m = tomorrow.getMonth() + 1;
+            d = tomorrow.getDate()
+            date = y + '-' + m + '-' + d;
+            alert(date);
+            document.getElementById("dateValue").value = date;
+
+        }
+
+        function customDate() {
+            var custumDate = document.getElementById("date").value;
+            document.getElementById("dateValue").value = custumDate;
+            alert(custumDate);
 
         }
 
