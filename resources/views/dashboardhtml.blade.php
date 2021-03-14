@@ -1236,7 +1236,7 @@
         </div>
 
     </div>
-    @include('adminNavbar')
+    @include('sidenavbar')
 
     <div class="clearfix"> </div>
 
