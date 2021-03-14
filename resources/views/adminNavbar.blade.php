@@ -440,7 +440,7 @@
             float: left;
             text-align: center;
             line-height: 1;
-            font-size: 18px;
+            font-size: 14px;
             padding: 6px 8px;
             border-radius: 3px;
             -webkit-border-radius: 3px;
@@ -6461,7 +6461,7 @@ element.style {
                 <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
             </ul>
             <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
-                        style="font-size: 18px;">PayRoll</span><span class="fa fa-angle-right"
+                        style="font-size: 14px;">PayRoll</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs15" id="menu-academico-sub">
                     <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
@@ -6470,7 +6470,7 @@ element.style {
                 </ul>
             </li>
             <li><a data-toggle="collapse" data-target=".firstULs16"><i class="fab fa-amazon-pay"></i><span
-                        style="font-size: 18px;">Quotations</span><span class="fa fa-angle-right"
+                        style="font-size: 14px;">Quotations</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs16" id="menu-academico-sub">
                     <li id="menu-academico-avaliacoes"><a href="/ql">Quotation List</a></li>
@@ -6478,7 +6478,7 @@ element.style {
             </li>
 
             <li><a data-toggle="collapse" data-target=".firstULs17"><i class="fab fa-amazon-pay"></i><span
-                        style="font-size: 18px;">Print Documents</span><span class="fa fa-angle-right"
+                        style="font-size: 14px;">Print Documents</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs17" id="menu-academico-sub">
                     <li id="menu-academico-avaliacoes"><a href="/pds">Documents</a></li>
@@ -6487,7 +6487,7 @@ element.style {
 
 
             <li><a data-toggle="collapse" data-target=".firstULs18" href="/at"><i class="fas fa-guitar"></i><span
-                        style="font-size: 18px;">Attendance</span><span class="fa fa-angle-right"
+                        style="font-size: 14px;">Attendance</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs18" id="menu-academico-sub">
                     <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
@@ -6496,7 +6496,7 @@ element.style {
 
             </li>
             <li><a data-toggle="collapse" data-target=".firstULs19"><i class="fas fa-eye"></i><span
-                        style="font-size: 18px;">Task View</span><span class="fa fa-angle-right"
+                        style="font-size: 14px;">Task View</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="firstULs19 collapse" id="menu-academico-sub">
                     <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
