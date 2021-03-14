@@ -1,5 +1,5 @@
 <head>
-  <style>
+    <style>
         #movetop {
             position: fixed;
             bottom: 40px;
@@ -139,7 +139,6 @@
 
             .mainCards-1 {
                 margin: 10px 0px;
-                width: 30rem !important;
 
             }
 
@@ -155,11 +154,7 @@
 
         @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
 
-            .mainCards-1 {
-
-                width: 850px !important;
-
-            }
+        
 
 
 
@@ -535,7 +530,6 @@
         .mainContCards .mainCards-1 {
             background: none !important;
             border-radius: 10px;
-            width: 20rem;
             /* -webkit-box-shadow: 10px 10px 31px 0px #4360b5;
             -moz-box-shadow: 10px 10px 31px 0px#e61d2f;
             box-shadow: 10px 10px 31px 0px #4360b5; */
@@ -558,7 +552,6 @@
 
             .mainCards-1 {
                 margin: 10px 0px;
-                width: 30rem !important;
 
             }
 
@@ -619,11 +612,7 @@
 
         @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
 
-            .mainCards-1 {
 
-                width: 850px !important;
-
-            }
 
 
 
@@ -764,17 +753,17 @@
 
         }
 
-        .mainMarg {
-            margin-left: -200px !important;
-        }
+    
+      
 
-        #cardsCanvas {
-            margin-left: -200px !important;
-        }
         :not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
-    width: 100%;
-    z-index: 0 !important;
-}
+            width: 100%;
+        }
+        .borderClass{
+            border: 5px solid #e61d2f;
+            padding: 20px 3px;
+            border-radius: 10%;
+        }
 
     </style>
 </head>
@@ -803,8 +792,7 @@
                                         <input type="text" name="phone_number" id="contact" placeholder="Contact"
                                             required />
                                         <label for="Model">Select Model</label>
-                                        <select 
-                                            name="Select Model" class="selectpicker form-control"
+                                        <select name="Select Model" class="selectpicker form-control"
                                             data-live-search="true" id="model" onchange="updateModelData()">
 
                                         </select>
@@ -1021,8 +1009,9 @@
 
 
                                 <div class="col-md-4 market-update-gd">
-                                    <div  data-toggle="modal" data-target="#bd-example-modal-lg" class="market-update-block clr-block-1">
-                                  <h3>Total Stock</h3>
+                                    <div data-toggle="modal" data-target="#bd-example-modal-lg"
+                                        class="market-update-block clr-block-1">
+                                        <h3>Total Stock</h3>
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
@@ -1193,10 +1182,52 @@
                         </div>
                     </div>
                 </div>
+             
+                <div class="borderClass">
+
+              
+                <div class="container mainMarg">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <label for="">Employee ID</label><br>
+                        <select 
+                            class="selectpicker form-control" data-live-search="true" id="employee"
+                            onchange="searchEmployeeData()">
+
+                        </select>
+                    </div>
+                    <div class="col-md-4 ">
+                        <label for="">Task Status</label><br>
+                        <select 
+                            class="selectpicker form-control" data-live-search="true" id="status"
+                            onchange="searchTaskWithStatus()">
+                            <option value=" "></option>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="">Date</label><br>
+                        <input type="date" name="" class="form-control" id=""></div>
+                    <div class="col-md-1">
+                        <button class="btn btn-primary" style="margin-top: 31px;">Search</button>
+                    </div>
+                </div>
 
 
 
-                @include('EmployeeTaskView')
+            </div>
+                <div class="mainContCards">
+                    <div class="mainCards-1" id="cardsCanvas">
+    
+    
+                    </div>
+    
+                </div>
+            </div>
+               
+       
 
 
             </div>
@@ -1211,6 +1242,3 @@
 
 
 </div>
-
-  
-
