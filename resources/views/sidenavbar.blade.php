@@ -29,7 +29,7 @@
                 </ul>
             </li>
             <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
-                        style="font-size: 14px;">Customer Information</span><span class="fa fa-angle-right"
+                        style="font-size: 14px;">Customer Info</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs1">
                     <li><a href="/adc">Add Customer</a></li>
