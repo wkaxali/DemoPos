@@ -530,9 +530,6 @@
         .mainContCards .mainCards-1 {
             background: none !important;
             border-radius: 10px;
-            /* -webkit-box-shadow: 10px 10px 31px 0px #4360b5;
-            -moz-box-shadow: 10px 10px 31px 0px#e61d2f;
-            box-shadow: 10px 10px 31px 0px #4360b5; */
             transition: .7s;
 
         }
@@ -847,9 +844,9 @@
 
 
                         <button class="btn-my btn1" data-toggle="modal"
-                            data-target=".bd-example-modal-lg">Operations</button>
+                            data-target="#bd-example-modal-lg-1">Operations</button>
 
-                        <div class="modal fade bd-example-modal-lg" style="margin-left:38px;" tabindex="-1"
+                        <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg-1" style="margin-left:38px;" tabindex="-1"
                             role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
@@ -955,6 +952,68 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" style="margin-left:38px;" tabindex="-1"
+                        role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="container">
+
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Forland Modern Motors</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                
+                                    <header>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-12 mt-3 text-center">
+                                                    <h3>View Stock</h3>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="receivingMain">
+                                    
+                                    
+                                                        <div class="receivingTable">
+                                                            <table id="stockTable" class=" table-striped display nowrap"
+                                                                style="width: 100%; text-align: center;">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th></th>
+                                                                        <th>Product Id</th>
+                                                                        <th>Company</th>
+                                                                        <th>Product Name</th>
+                                                                        <th>Invoice Price</th>
+                                                                        <th>Unit Purchase Price</th>
+                                                                        <th>Stock</th>
+                                                                        <th>Engine Number</th>
+                                                                        <th>Chasis Number</th>
+                                                                        <th>Status</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                    
+                                                                </tbody>
+                                    
+                                                            </table>
+                                    
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </header>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
                         <div class="clearfix"> </div>
