@@ -17,6 +17,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
     </script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
@@ -27,14 +30,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link href="css/font-awesome.css" rel="stylesheet">
-
-
-
-
-
-
-
     <style>
+        :not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
+            width: 100%;
+            z-index: 0;
+        }
+
+        .dataTables_length {
+            display: none !important;
+        }
+
+        .dataTables_filter {
+            display: none !important;
+        }
+
         .leftBtns .btn {
             color: #333333;
             background: none !important;
@@ -618,6 +627,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+
+    </script>
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+
+    <script>
+        function getStock() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var data = this.responseText;
+                    //alert(data);
+                    var table;
+                    var a = JSON.parse(data);
+                    //  alert(a[0].ProductSerial);
+                    table = $('#stockTable').DataTable();
+
+                    $.each(a, function (i, item) {
+
+                        table.row.add([a[i].ProductID, a[i].Company, a[i].ProductName, a[i]
+                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StockIn, a[i]
+                            .EngineNumber, a[i].ChasisNumber, a[i].Status
+                        ]);
+                    });
+                    table.columns.adjust().draw();
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./viewStock/", true);
+
+            xhttp.send();
+        }
+
+    </script>
+
+    <!-- <script>
+        $(document).ready(function () {
+            $('#stockTable').DataTable();
+        });
+
+    </script> -->
+    <script>
+        $(document).ready(function () {
+            $('#stockTable').DataTable({
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: 'tr'
+                    }
+                },
+                columnDefs: [{
+                    className: 'control',
+                    orderable: false,
+                    targets: 0
+                }],
+                order: [1, 'asc']
+            });
+        });
+
+    </script>
 
     <script>
         function getEmployeeData() {
@@ -638,8 +710,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             xhttp.send();
             loadEmployees();
             displayOptions();
+            getStock();
 
         }
+
 
         function displayOptions() {
             var userCategor = ('{{ Session::get('
@@ -786,12 +860,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
     </script>
+
     <script>
         function loadFields() {
             dailySaleAmount();
             loadAutos();
             getEmployeeData();
-            getStock()
+            getStock();
         }
 
         function updateModelData() {
