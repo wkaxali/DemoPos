@@ -157,16 +157,22 @@
                                 <form>
 
                                     <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
-                                        <h2 class="text-center addCut">Task Category</h2>
+                                        <h2 class="text-center addCut">Expense Heads</h2>
 
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" id="taskCategorey" required
-                                            placeholder="Task Categorey">
+                                        <input type="text" class="form-control item" id="head" required
+                                            placeholder="Expense Head">
                                     </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control item" placeholder="Remarks"
+                                            id="remarks" required>
+
+                                    </div>
+
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" class="btn  create-account" onclick="addTaskCategory()">Add Expense Head</button>
+                                        <button type="button" class="btn  create-account" onclick="addExpenseHead()">Add Expense Head</button>
                                     </div>
 
 
@@ -174,7 +180,6 @@
 
                             </div>
                         </div>
-                        
                     </div>
                 </div>
 
@@ -196,27 +201,27 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function addTaskCategory() {
+        function addExpenseHead() {
 
-            var tCat = document.getElementById("taskCategorey").value;
+            var expense = document.getElementById("head").value;
+            var remarks = document.getElementById("remarks").value;
             
-            
-            var TC = [tCat];
+            var add = [expense, remarks];
 
-            var data = JSON.stringify(TC);
-            alert(data);
+            var EH = JSON.stringify(add);
+            alert(EH);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Task Category " + this.responseText + " is Added");
+                    alert("Expense head " + this.responseText + " is Added");
 
 
                 }
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addTaskCategory/" + data, true);
+            xhttp.open("GET", "./addExpenseHead/" + EH, true);
             xhttp.send();
 
         }

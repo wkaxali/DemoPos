@@ -22,7 +22,8 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        <h4>sks View</h4>
+                                        <h4>Tasks View</h4>
+                                        
                                     </div>
 
                                 </div>

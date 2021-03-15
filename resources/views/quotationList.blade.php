@@ -168,8 +168,7 @@
             var fatherName = "";
             var CNIC = "";
             var city = "";
-            var address = document.getElementById("address").value;
-            var contact = document.getElementById("contact").value;
+            
             var description = document.getElementById("description").value;
             var color = document.getElementById("color").value;
             var unitPrice = document.getElementById("unitPrice").value;
@@ -180,7 +179,7 @@
             var qvt = document.getElementById("qvt").value;
             var payTo = document.getElementById("paymentTo").value;
 
-            var data = [customerName, fatherName, CNIC, city, address, contact, description, color, unitPrice, quantity,
+            var data = [customerName, fatherName, CNIC, city, "address", "contact", description, color, unitPrice, quantity,
                 totalPrice, model, det, qvt, payTo
             ];
 
@@ -235,7 +234,7 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("model").innerHTML = this.response;
-                    $('#model').selectpicker('refresh');
+                   // $('#model').selectpicker('refresh');
                 }
             };
             //alert("ljd");
