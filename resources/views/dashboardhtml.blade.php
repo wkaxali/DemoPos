@@ -986,7 +986,6 @@
                                                                 style="width: 100%; text-align: center;">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th></th>
                                                                         <th>Product Id</th>
                                                                         <th>Company</th>
                                                                         <th>Product Name</th>
