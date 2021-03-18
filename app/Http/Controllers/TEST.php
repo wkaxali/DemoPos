@@ -303,7 +303,7 @@ class TEST extends Controller
         <thead>
             <tr>
                
-                 <th><br><h1>FORLAND MODREN MOTORS</h1></th>
+                 <th align="center"><br><h1>FORLAND MODREN MOTORS</h1></th>
                
             </tr>
         </thead>
@@ -338,25 +338,25 @@ class TEST extends Controller
     <tr>
    
         <td width="30%" border="0" align="left" >Customer Name</td>
-        <td width="70%" border="0" align="center">'.session()->get("customerName").'</td>
+        <td width="55%" border="0" align="center">'.session()->get("customerName").'</td>
        
     </tr>
     
     <tr>
     <td width="30%" border="0">Address</td>
-    <td width="70%" align="center" border="0">'.session()->get("address").'</td>
+    <td width="55%" align="center" border="0">'.session()->get("address").'</td>
 
 </tr>
 <tr>
 
    
     <td width="30%" border="0">Contact Details</td>
-    <td width="70%" align="center" border="0">'.session()->get("contact").'</td>
+    <td width="55%" align="center" border="0">'.session()->get("contact").'</td>
     
 </tr>
 <tr>
 <td width="30%" border="0">NTN/CNIC #</td>
-<td width="70%" align="center" border="0">'.session()->get("CNIC").'</td>
+<td width="55%" align="center" border="0">'.session()->get("CNIC").'</td>
 
 
 
@@ -364,7 +364,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">SalesPerson</td>
-<td width="70%" align="center" border="0">Forland Modern Motors</td>
+<td width="55%" align="center" border="0">Forland Modern Motors</td>
 
 
 
@@ -372,14 +372,14 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Dealer</td>
-<td width="70%" align="center" border="0">Forland Modern Motors</td>
+<td width="55%" align="center" border="0">Forland Modern Motors</td>
 
 
 
 </tr>
 <tr>
 <td width="30%" border="0">Vehicle</td>
-<td width="70%" align="center" border="0">'.session()->get("productName").'</td>
+<td width="55%" align="center" border="0">'.session()->get("productName").'</td>
 
 
 
@@ -387,7 +387,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Chassis No</td>
-<td width="70%" align="center" border="0">'.session()->get("chassisNo").'</td>
+<td width="55%" align="center" border="0">'.session()->get("chassisNo").'</td>
 
 
 
@@ -395,7 +395,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Engine NO</td>
-<td width="70%" align="center" border="0">'.session()->get("engineNo").'</td>
+<td width="55%" align="center" border="0">'.session()->get("engineNo").'</td>
 
 
 
@@ -403,7 +403,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Color</td>
-<td width="70%" align="center" border="0">'.session()->get("color").'</td>
+<td width="55%" align="center" border="0">'.session()->get("color").'</td>
 
 
 
@@ -411,7 +411,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Amount</td>
-<td width="70%" align="center" border="0">'.session()->get("amountPaid").'</td>
+<td width="55%" align="center" border="0">'.session()->get("amountPaid").'</td>
 
 
 
@@ -419,7 +419,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">Payment Detail</td>
-<td width="70%" align="center" border="0">Payment Details Attached</td>
+<td width="55%" align="center" border="0">Payment Details Attached</td>
 
 
 
@@ -767,14 +767,30 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
 
 <img src="/assets/img/forLogo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
 <tr>
-<td align="Left">
-'.session()->get("customerName").' Date: '.session()->get("invoiceDate").'
+ 
+<td width="80%" border="0" align="left" >'.session()->get("customerName").'</td>
+
+
+
+
+
+
+
+<td align="right">
+ Date: '.session()->get("invoiceDate").'
 </td>
 
 </tr>
 <tr>
-<td >
-Qoutation For '.session()->get("productName").'
+<td  width="100%">
+
+
+<br><h1>
+
+Qoutation For '.session()->get("productName").'</h1>
+<br>
+<br>
+<br>
 </td>
 </tr>
 
@@ -867,7 +883,7 @@ Qoutation For '.session()->get("productName").'
 
 <tr>
 <td width="30%" border="0">Warranty</td>
-<td width="70%" align="left" border="0"> Manufacture will not br responsible for any delay in delivery due to forcemajor circumstance</td>
+<td width="70%" align="left" border="0"></td>
 
 
 

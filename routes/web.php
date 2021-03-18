@@ -274,7 +274,7 @@ echo $value;
 });
 Route::get('/ss', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"||$UN=="User"){
     return view('sales');
     }else{
     return view("signInSignUp");
