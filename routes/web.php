@@ -5,6 +5,7 @@ use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
+
 use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\CustomerViewController;
@@ -213,7 +214,7 @@ Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
-Route::get('/viewDocuments',[printServiceSaleInvoice::class, '']);
+Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
 Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
