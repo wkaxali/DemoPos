@@ -224,7 +224,7 @@ Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
-Route::get('/viewDocuments',[printServiceSaleInvoice::class, '']);
+Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
 Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
