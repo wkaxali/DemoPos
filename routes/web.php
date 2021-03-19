@@ -111,6 +111,8 @@ Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
 Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
 Route::get('/transactionHistoryAccounts/{AID}',[TransactionFlow::class, 'getTransactionsForAccounts']);
 Route::get('/transactionHistoryParties/{LID}',[TransactionFlow::class, 'getTransactionsForParties']);
+Route::get('/debitTransactions',[TransactionFlow::class, 'debitTransactions']);
+Route::get('/creditTransactions',[TransactionFlow::class, 'creditTransactions']);
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
 Route::get('/viewSales',[salesFlow::class, 'viewSales']);
@@ -944,4 +946,10 @@ route::get('/acc', function(){
 });
 route::get('/aeh', function(){
     return view('addExpenseHeads');
+});
+route::get('/dt', function(){
+    return view('debitTransactions');
+});
+route::get('/ct', function(){
+    return view('creditTransactions');
 });

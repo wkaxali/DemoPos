@@ -33,8 +33,7 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs1">
                 <li><a href="/adc">Add Customer</a></li>
-                <li><a href="/ec">Edit Customer</a></li>
-                <li><a href="/vs">View Customer List</a></li>
+                <li><a href="/ec">View/Edit Customer</a></li>
                 <li><a href="/ads">Add Supplier</a></li>
                 <li><a href="/eds">Edit Supplier</a></li>
 
@@ -87,160 +86,32 @@
                     style="float: right"></span></a>
             <ul class="collapse firstULs5">
                 <li><a href="/au">Add User</a></li>
-                <li><a href="eu">Edit User</a></li>
+                <li><a href="eu">View/Edit User</a></li>
+                <li><a href="es">Edit Price List</a></li>
+                <li><a href="eam">Edit Model</a></li>
                 
             </ul>
         </li>
         <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
-                    style="font-size: 18px;">Return</span><span class="fa fa-angle-right"
+                    style="font-size: 18px;">Reporting</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs5">
-                <li><a href="/ex">Add Expense</a></li>
-                <li><a href="">Expense List</a></li>
-                <li><a href="">Expense Head</a></li>
-                <li><a href="">Expense Category</a></li>
+                <li><a href="">Daily Sales</a></li>
+                <li><a href="">Daily Purchase</a></li>
+                <li><a href="pds">Print Documents</a></li>
+                <li><a href="">Sallary Slip</a></li>
             </ul>
         </li>
-        <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
-                    style="font-size: 18px;">Expense</span><span class="fa fa-angle-right"
+        <li><a href="/ql" data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
+                    style="font-size: 18px;">Quotation</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
-            <ul class="collapse firstULs5">
-                <li><a href="/ex">Add Expense</a></li>
-                <li><a href="">Expense List</a></li>
-                <li><a href="">Expense Head</a></li>
-                <li><a href="">Expense Category</a></li>
-            </ul>
         </li>
     
-        <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs9"><i
-                    class="fas fa-user-circle"></i><span style="font-size: 18px;">Accounts</span><span
+        <li id="menu-academico"><a href="etv" data-toggle="collapse" data-target=".firstULs9"><i
+                    class="fas fa-user-circle"></i><span style="font-size: 18px;">Task View</span><span
                     class="fa fa-angle-right" style="float: right"></span></a>
-            <ul class="collapse firstULs9">
-                <li id="menu-academico-boletim"><a href="/l">Investor Ledger</a></li>
-                <li id="menu-academico-avaliacoes"><a href="/igl">Investor General Ledger</a></li>
-                <li id="menu-academico-boletim"><a href="/cl">Company Ledger</a></li>
-
-            </ul>
         </li>
-        <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
-                    style="font-size: 18px;">HR</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse firstULs10" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
-                <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
-            </ul>
-        </li>
-
-
-
-        <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
-                    style="font-size: 18px;">People</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse firstULs11" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/">User List</a></li>
-                <li id="menu-academico-boletim"><a href="/">Add User</a></li>
-
-
-            </ul>
-        </li>
-
-
-
-        <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs12"><i
-                    style="font-size: 20px;" class="fab fa-stack-overflow"></i><span
-                    style="font-size: 18px;">Stock</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse firstULs12" id="menu-academico-sub">
-                <li id="menu-academico-boletim"><a href="/as2">Add New Stock</a></li>
-                <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
-            </ul>
-        </li>
-
-
-
-        <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
-                    class="fas fa-flag-checkered"></i><span style="font-size: 18px;">Reports</span><span
-                    class="fa fa-angle-right" style="float: right"></span></a>
-            <ul class="collapse firstULs13" id="menu-academico-sub">
-                <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
-
-                <li id="menu-academico-boletim"><a href="/dl">Customer Report</a></li>
-                <li id="menu-academico-boletim"><a href="/d">Best Seller</a></li>
-
-                <li id="menu-academico-boletim"><a href="/dl">Daily Sale</a></li>
-                <li id="menu-academico-boletim"><a href="/d">Monthly Sale</a></li>
-
-                <li id="menu-academico-boletim"><a href="/dl">Daily Purchase</a></li>
-                <li id="menu-academico-boletim"><a href="/d">MonthlyPurchase</a></li>
-
-                <li id="menu-academico-boletim"><a href="/dl">User Report</a></li>
-                <li id="menu-academico-boletim"><a href="/d">Supplier Report</a></li>
-
-                <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li>
-
-
-            </ul>
-        </li>
-        <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14"><i
-                    class="fas fa-truck-loading"></i><span style="font-size: 18px;">Order
-                    Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
-            <ul class="collapse firstULs14" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/dl">Order Tracking Letter</a></li>
-
-            </ul>
-        </li>
-
-
-        <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
-                    style="font-size: 18px;">PayRoll</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse firstULs15" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
-                <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
-                <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
-            </ul>
-            <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
-                    style="font-size: 18px;">Quotations</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse firstULs15" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/ql">Quotation List</a></li>
-            </ul>
-        </li>
-        <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
-                    style="font-size: 18px;">Print Documents</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse firstULs15" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/pds">Documents</a></li>
-            </ul>
-        </li>
-
-        </li>
-        <li><a data-toggle="collapse" data-target=".firstULs16" href="/at"><i
-                    class="fas fa-guitar"></i><span style="font-size: 18px;">Attendance</span><span
-                    class="fa fa-angle-right" style="float: right"></span></a>
-            <ul class="collapse firstULs16" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
-                <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
-            </ul>
-
-        </li>
-        <li><a data-toggle="collapse" data-target=".firstULs17"><i class="fas fa-eye"></i><span
-                    style="font-size: 18px;">Task View</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="firstULs17 collapse" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/ev">Employer View</a></li>
-                <li id="menu-academico-boletim"><a href="/etv">Employer Task View</a></li>
-            </ul>
-        </li>
-
-        <li><a data-toggle="collapse" data-target=".firstULs18"><i class="fas fa-cogs"></i><span
-                    style="font-size: 18px;">Account Settings</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse firstULs18" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
-                <li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
-            </ul>
-        </li>
+        
     </ul>
 </div>
 </div>
