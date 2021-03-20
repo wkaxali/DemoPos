@@ -33,7 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <style>
         :not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
             width: 100%;
-            z-index: 0;
+            z-index: 1;
         }
 
         .dataTables_length {
