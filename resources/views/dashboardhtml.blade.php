@@ -1040,7 +1040,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
             </script>
             <div class="inner-block">
-                <ul class="nav nav-pills   mb-3" style="justify-content: center;" id="pills-tab" role="tablist">
+                <!-- <ul class="nav nav-pills   mb-3" style="justify-content: center;" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
                             aria-controls="pills-home" aria-selected="true">Today</a>
@@ -1057,7 +1057,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <a class="nav-link" id="pills-year-tab" data-toggle="pill" href="#pills-year" role="tab"
                             aria-controls="pills-year" aria-selected="false">This Year</a>
                     </li>
-                </ul>
+                </ul> -->
                 <div class="clearmain"></div>
 
                 <div class="tab-content" id="pills-tabContent">

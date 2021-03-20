@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <style>
@@ -131,16 +132,18 @@
                 width: 180px !important;
             }
 
-            .addCut{
-font-size: 25px;
-margin-bottom: 50px;
+            .addCut {
+                font-size: 25px;
+                margin-bottom: 50px;
             }
-            .registration-form {
-            padding: 60px 0;
-            /* background-color: #fff; */
 
+            .registration-form {
+                padding: 60px 0;
+                /* background-color: #fff; */
+
+            }
         }
-        }
+
     </style>
 </head>
 
@@ -149,55 +152,60 @@ margin-bottom: 50px;
 
         <div class="left-content">
             <div class="inner-block">
-            
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-8 offset-md-2">
-                                <div class="registration-form">
-    
-                                    <form>
-    
-                                        <div class="CustomerAddition  mb-3" style="margin:20px !important;">
-                                            <h2 class="text-center addCut">Add User</h2>
-    
-                                        </div>
-    
-                                        <div class="form-group">
-                                            <input type="text" class="form-control item" autocomplete="OFF" id="UserName"
-                                                placeholder="User Name">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control item" autocomplete="OFF"
-                                                id="Password" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                          
-                                                <select name="" class="form-control item" id="designation">
-                                                    <option value="0">Admin</option>
-                                                    <option value="1">Manager</option>
-                                                    <option value="1">Employee</option>
-                                                </select>
-                                        </div>
-                          
-    
-                                        <div class="form-group" style="text-align: center;">
-                                            <button type="button" id="addUsers" onclick="addUsers()" class="btn  create-account">Add</button>
-                                        </div>
-    
-    
-                                    </form>
-    
-                                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="registration-form">
+
+                                <form>
+
+                                    <div class="CustomerAddition  mb-3" style="margin:20px !important;">
+                                        <h2 class="text-center addCut">Add User</h2>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control item" autocomplete="OFF" id="UserName"
+                                            placeholder="User Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control item" autocomplete="OFF" id="Password"
+                                            placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+
+                                        <select name="" class="form-control item" id="designation">
+                                            <option value="0">Admin</option>
+                                            <option value="1">Manager</option>
+                                            <option value="1">Employee</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group" style="text-align: center;">
+                                        <button type="button" id="addUsers" onclick="addUsers()"
+                                            class="btn  create-account">Add</button>
+                                    </div>
+
+
+                                </form>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        @include('sidenavbar')
-        <div class="clearfix"></div>
     </div>
-
+    @include('adminNavbar')
+    <div class="clearfix"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+    </script>
     <script>
         function addUsers() {
 
