@@ -34,6 +34,7 @@ use App\Http\Controllers\AISessionController;
 use App\Http\Controllers\saleRequestController;
 use App\Http\Controllers\TEST;
 use App\Http\Controllers\printServiceInvoice;
+use App\Http\Controllers\deliverLetterPrintController;
 
 
 
@@ -74,7 +75,7 @@ Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierPart
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/addExpenseHead/{EH}',[expenseController::class, 'addExpenseHead']);
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
-Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
+Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
