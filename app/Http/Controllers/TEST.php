@@ -121,6 +121,7 @@ class TEST extends Controller
         </thead>
         <tbody >
         <tr>
+        
         <td>'.session()->get("description").'</td>
         <td>'.session()->get("color").'</td>
         <td>'.session()->get("engineNo").'</td>
@@ -787,7 +788,7 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
 
 <br><h1>
 
-Qoutation For '.session()->get("productName").'</h1>
+Qoutation For<br> '.session()->get("productName").'</h1>
 <br>
 <br>
 <br>
