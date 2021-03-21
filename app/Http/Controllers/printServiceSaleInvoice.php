@@ -48,7 +48,7 @@ $productHtmlTDs =$productHtmlTDs.'<tr><td><div></div></td>
 }
 
 //dd($productHtmlTDs);
-$newHTML='<table border="1">
+$newHTML='<table border="0">
 <thead>
 <tr>
 <th><br><h1>FORLAND MODREN MOTORS</h1></th>
@@ -74,7 +74,7 @@ Customer\'s Copy
 
 
 </tr>
-<tr><td align="center"><h1>Sales Invoice</h1></td></tr>
+<tr><td align="center"><h1>Service Sales Invoice</h1></td></tr>
 
 
 
@@ -87,7 +87,7 @@ Customer\'s Copy
 <br>
 <br>
 
-<table border="1">
+<table border="0">
 <tbody>
 <tr>
 <td><br><span style="font-size: medium;">Customer Name:</span></td>
@@ -109,7 +109,7 @@ Customer\'s Copy
 <td><br><span style="font-size: medium;">CNIC/NTN:</span></td>
 <td align="center"><br>'.session()->get("CNIC").'</td>
 <td><br><span style="font-size: medium;">Invoice Date:</span></td>
-<td align="center"><br>'.session()->get("invoiceDate").'</td>
+<td align="center"><br>'.session()->get("ivd").'</td>
 
 
 </tr>

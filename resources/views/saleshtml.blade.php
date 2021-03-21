@@ -4,7 +4,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h1 class="mainHeadings">Sales</h1>
+                            <h1 style="font-size:45px;" class="mainHeadings">Sales</h1>
                         </div>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                             <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
 
                             <div class="centhour">
-                                <button class="btn" style="background-color: #13579a;">New</button>
+                                <button class="btn" style="background-color: #13579a;" onclick="pageReload()">New</button>
                                 <button class="btn" style="background-color: #e61d2f;">Edit</button>
                                 <button class="btn" style="background-color: #13579a;">Delete</button>
                             </div>
@@ -135,87 +135,52 @@
 
                             </div>
                             <div class="inv-bor-btns">
-                                <button class="btn" style="background-color: #e61d2f;" data-toggle="modal"
-                                    data-target="#staticBackdrop">Add</button>
+                                <button class="btn" style="background-color: #e61d2f;" data-toggle="modal" data-target="#staticBackdrop">Add</button>
 
 
 
                                 <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content" style="background:none;">
+                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
 
-                                            <div class="modal-body">
+                                                <div class="modal-body">
+                                                    <div class="appointment-form" id="appointment-form">
+                                                        <h2>Add New Customer</h2>
+                                                        <div class="form-group-1">
+                                                            <input type="text" name="name" id="addCustomerName"
+                                                                placeholder="Customer Name" required />
+                                                            <input type="text" name="title" id="addFatherName"
+                                                                placeholder="Father Name" required />
 
-                                                <div class="registration-form">
-
-                                                    <form>
-
-                                                        <div class="CustomerAddition  mb-3"
-                                                            style="margin-top:-20px !important;">
-                                                            <h2>Add Customer</h2>
+                                                            <input type="number" name="tel" id="addContact"
+                                                                placeholder="Contact" required />
+                                                            <input type="number" name="title" id="addCNIC"
+                                                                placeholder="ID Card" required />
+                                                            <input type="text" name="phone_number" id="addAddress"
+                                                                placeholder="Address" required />
+                                                            <input type="text" name="phone_number" id="addProfession"
+                                                                placeholder="Profession" required />
+                                                            <input type="text" name="phone_number" id="addComments"
+                                                                placeholder="Comments" required />
 
                                                         </div>
 
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="username"
-                                                                placeholder="Customer ID">
+                                                        <div class="form-submit">
+                                                            <button onclick="addCustomer()" name="submit" id="submit"
+                                                                class="submit" value="">Add Customer</button>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <input type="password" class="form-control item"
-                                                                autocomplete="OFF" id="password"
-                                                                placeholder="Customer Name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="email" placeholder="Email">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="phone-number"
-                                                                placeholder="Phone Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="birth-date"
-                                                                placeholder="Birth Date">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="email" placeholder="Email">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="phone-number"
-                                                                placeholder="Phone Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="birth-date"
-                                                                placeholder="Birth Date">
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <button type="button"
-                                                                class="btn btn-block create-account">Add</button>
-                                                        </div>
-
-
-                                                    </form>
-
+                                                    </div>
                                                 </div>
-
-
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-org-1"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
                                             </div>
 
                                         </div>
-
                                     </div>
-                                </div>
-                                <button class="btn" style="background-color: #13579a;">View</button>
-                                <button class="btn" style="background-color: #e61d2f;">History</button>
-                                <button class="btn" style="background-color: #13579a;">Info</button>
+                                
                             </div>
                         </div>
 
@@ -298,11 +263,12 @@
                             </select>
                             <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #e61d2f;"
-                                    onclick="insertInSales()">Save</button>
-                                <button class="btn" style="background-color: #0a549d;">Print</button>
+                                    id="saveBtn"onclick="insertInSales()">Save</button>
+                                <button class="btn" style="background-color: #0a549d;" onclick="print()">Print</button>
                                 <button class="btn" style="background-color: #e61d2f;">Edit</button>
                                 <button class="btn" style="background-color: #0a549d;">Hold</button>
-                                <button class="btn" style="background-color: #e61d2f;">Update</button>
+                                <button class="btn" style="background-color: #e61d2f;"
+                                     id="updateBtn" onclick="UpdateSaleInvoice()">Update</button>
                                 <button class="btn" style="background-color: #0a549d;">Delete</button>
                             </div>
                            

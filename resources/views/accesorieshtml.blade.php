@@ -1,15 +1,16 @@
+<div class="container">
 <header class="idi">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="mt-3">Accessories  With Autos</h3>
+                    <h3 class="mt-1">Accessories  With Autos</h3>
                 </div>
             </div>
 
         </div>
-    </header>
+</header>
     <br>
-    <section class="mt-5">
+    <section class="mt-2">
         <div class="containerMy">
             <div class="row">
                 <div class="col-md-8 ">
@@ -61,13 +62,13 @@
                         <option value="">Yes</option>
                         <option value="">No</option>
                     </select><br><br>
-                        
-                
-                    <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
-                        <button class="btn btn-success" onclick="setStock()">Update </button>
+
+                    <div class="st-button" style="margin-top: 15px;">
+                        <button class="btn btn-success" onclick="setStock()">Update</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+</div>
     

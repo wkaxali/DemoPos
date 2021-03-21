@@ -34,6 +34,8 @@ use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\AISessionController;
 use App\Http\Controllers\saleRequestController;
 use App\Http\Controllers\TEST;
+use App\Http\Controllers\printServiceInvoice;
+use App\Http\Controllers\deliverLetterPrintController;
 
 
 
@@ -72,7 +74,17 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
+Route::get('/addExpenseHead/{EH}',[expenseController::class, 'addExpenseHead']);
+Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
+Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 
+Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
+//qutationRequest
+Route::get('/testpdf/4',[TEST::class, 'gatePass']);
+
+Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
+
+Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
@@ -93,7 +105,7 @@ Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleR
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate']);
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID']);
 Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads']);
-Route::get('/getInvoiceCustomer/{data}',[CustomerController::class, 'getInvoiceCustomer']);
+Route::get('/getInvoiceCustomer/{data}',[serviceSalesFlow::class, 'printSaleRequestOnInvoiceNumber']);
 Route::get('/getQuotation/{data}',[quotationController::class, 'getQuotation']);
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct']);
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails']);
@@ -110,6 +122,8 @@ Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
 Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
 Route::get('/transactionHistoryAccounts/{AID}',[TransactionFlow::class, 'getTransactionsForAccounts']);
 Route::get('/transactionHistoryParties/{LID}',[TransactionFlow::class, 'getTransactionsForParties']);
+Route::get('/debitTransactions',[TransactionFlow::class, 'debitTransactions']);
+Route::get('/creditTransactions',[TransactionFlow::class, 'creditTransactions']);
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
 Route::get('/viewSales',[salesFlow::class, 'viewSales']);
@@ -264,7 +278,7 @@ echo $value;
 });
 Route::get('/ss', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"||$UN=="User"){
     return view('sales');
     }else{
     return view("signInSignUp");
@@ -306,17 +320,6 @@ Route::get('/ps', function () {
     }
 
 });
-Route::get('/as', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('addNewStock'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
-// Route::get('/as', function () {
-// return view('addNewStock');
-// });
 Route::get('/bo', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -468,8 +471,11 @@ Route::get('/ev', function () {
 });
 Route::get('/etv', function () {
     $UN = session()->get('Designation');
+    session(['EmpID' => '1']);
+
     if($UN=="Admin"){
-        return view('EmployeeTaskView', ['UserID' => '1']);
+        
+        return view('EmployeeTaskView');
   
    }else{
        return "Invalid Username Or Password";
@@ -609,18 +615,6 @@ Route::get('/ql', function () {
     return view("signInSignUp");
     }
 });
-
-Route::get('/e', function () {
-    $UN = session()->get('Designation');
-    if($UN=="User"){
-    return view('Employee'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
-
-
-
 Route::get('/prc', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -866,15 +860,6 @@ Route::get('/ds', function (){
     }
 });
 
-Route::get('/ex', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('expense'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
-
 Route::get('/au', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -914,10 +899,25 @@ Route::get('/eu', function () {
 route::get('/pds', function(){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('printDocuments'); 
-    }else{
-    return view("signInSignUp");
-    }
+   return view('printDocuments');
+   }else{
+       return "Invalid Username Or Password";
+   }
+});
+
+Route::get('/logout', function(){
+    session()->forget('Designation');
+  return view('signInSignUp');
+   }
+);
+    
+
+Route::get('/aam', function () {
+    return view('addAutoModels');
+});
+
+Route::get('/eu', function () {
+    return view('editUsers');
 });
 
 Route::get('/dls', function () {
@@ -932,4 +932,13 @@ Route::get('/dls', function () {
 
 route::get('/acc', function(){
     return view('accesoriest');
+});
+route::get('/aeh', function(){
+    return view('addExpenseHeads');
+});
+route::get('/dt', function(){
+    return view('debitTransactions');
+});
+route::get('/ct', function(){
+    return view('creditTransactions');
 });

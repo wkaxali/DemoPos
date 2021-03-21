@@ -45,9 +45,15 @@ class taskController extends Controller
 
 public static function employeeData(){
     $card="";
-    $data=DB:: select('select * from vw_tasks');
+    $ID = session()->get('EmpID');
+    if($ID == 1){
+        $data=DB:: select('select * from vw_tasks');
+    }else{
+        $data=DB:: select('select * from vw_tasks where EID ='.$ID);
+    }
+   
     foreach ($data as $obj){
-        $card=$card.'<div class="card" >
+        $card=$card.'<div class="card colorcard" >
 
         <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
             <div class="mainCardBody">
@@ -297,11 +303,11 @@ public static function updateTaskStatus(Request $request, $CO){
   }
 
   public static function addTaskCategory(Request $request, $category){
-    DB::table('tbl_taskcategory')
-            ->insert(['Category'=>$category
+        $ID=DB::table('tbl_taskcategory')
+            ->insertGetId(['Category'=>$category
             ]);
 
-            return $category;
+            return $ID;
 }
 
 

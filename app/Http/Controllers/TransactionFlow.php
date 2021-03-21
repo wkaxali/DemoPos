@@ -58,6 +58,14 @@ class TransactionFlow extends Controller
     public static function getTransactionsForParties($LID){
         $data=DB:: select('select * from tbltransactionflow where PaidTo='.$LID);
         return $data;
+    }
+    public static function DebitTransactions(){
+        $data=DB:: select('select * from vw_debithistory');
+        return $data;
+    }
+    public static function creditTransactions(){
+        $data=DB:: select('select * from vw_credithistory');
+        return $data;
 
     }
     public static function addInTransactionFlowForSales($LID,$invoiceNumber,$dateNow,$AP,$userID,$pattyCash,$CLB,$CCB){
@@ -101,6 +109,13 @@ class TransactionFlow extends Controller
            ]);
            return $CID;
     }
+
+
+
+
+
+
+    
     public static function getChargesOrComissions($PID,$TTname,$ttype){
 
 

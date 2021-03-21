@@ -100,6 +100,9 @@
         .fa-bars {
             color: #fff;
         }
+.inner-block {
+    padding: 1em 1em 2em 1em;
+}
 
      </style>
  </head>

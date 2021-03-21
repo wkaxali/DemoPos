@@ -789,11 +789,7 @@
             height: 2.5em !important;
         }
 
-        .total-buttons button {
-            width: 88px;
-            height: 80px;
-            margin: 5px 0px;
-        }
+
 
         .total-buttons {
             margin-top: 10px;
@@ -1240,71 +1236,57 @@
                 padding: .5em 1em 2em 1em !important;
             }
         }
+
         @media only screen and (max-width: 768px) {
             .okay-invo input {
-    width: 179px;
-}
-.o-inv input {
-    width: 179px;
-}
-.o-inv-2 input {
-    width: 179px !important;
-}
+                width: 179px;
+            }
 
-.bootstrap-select .dropdown-toggle {
-    width: 179px;
-    height: 33px !important;
-    color: #ffffff !important;
-}
-.okay-invo-3 input {
-    width: 179px !important;
-}
-.total-buttons button {
-    height: 35px !important;
-    width: 60px !important;
-}
+            .o-inv input {
+                width: 179px;
+            }
+
+            .o-inv-2 input {
+                width: 179px !important;
+            }
+
+            .bootstrap-select .dropdown-toggle {
+                width: 179px;
+                height: 33px !important;
+                color: #ffffff !important;
+            }
+
+            .okay-invo-3 input {
+                width: 179px !important;
+            }
+
+            element.style {
+                background-color: #0a549d;
+            }
+
+            .btn:not(:disabled):not(.disabled) {
+                cursor: pointer;
+            }
+
+
         }
+
+        .total-buttons button {
+            margin: 5px 0px;
+            width: 75px !important;
+            height: 35px !important;
+        }
+
+        .okay-invo-1 input {
+            width: 107px;
+        }
+
     </style>
 </head>
 
 
 <body id="kt_bodys" onload="getAllProducts()">
-@include('saleshtml')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @include('saleshtml')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -1415,8 +1397,12 @@
                         cell2.innerHTML = productName;
                         cell3.innerHTML = company;
                         cell4.innerHTML = salePrice;
-                        cell5.innerHTML = quantity;
-                        cell6.innerHTML = discount;
+                    //     cell5.innerHTML =
+                    //     '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
+                    // cell6.innerHTML =
+                    //     '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
+                        cell5.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+quantity+'>';
+                        cell6.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+discount+'>';
                         cell7.innerHTML = totalAmount;
                         //calc();
                         cell8.innerHTML =
@@ -1432,6 +1418,8 @@
         }
 
         function getInvoiceCustomer() {
+            document.getElementById("saveBtn").disabled = true; 
+            document.getElementById("updateBtn").disabled = false; 
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1442,12 +1430,23 @@
                     document.getElementById("CID").value = a[0].CustomerID;
                     document.getElementById("LastBalance").value = a[0].Balance;
                     document.getElementById("CurrentBalance").value = a[0].Balance;
-                    calc();
                     document.getElementById("CNO").value = a[0].Contect;
                     document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+
+                    document.getElementById("Total").value = a[0].TotalAmount;
+                    document.getElementById("DiscountOverall").value = a[0].Discount;
+                     grossTotal = Number(a[0].TotalAmount)-Number(a[0].Discount);
+                    document.getElementById("grossTotal").value = grossTotal;
+                    document.getElementById("tax").value = a[0].VAT;
+                    document.getElementById("NetTotal").value = a[0].NetTotal;
+                    document.getElementById("AmountPaid").value = a[0].AmountPaid;
+                    document.getElementById("RemainingBalance").value = a[0].Balance;
+                    //document.getElementById("accounts").value = a[0].CustomerCatogery;
                     //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
                     $('#CustomerName').val(a[0].CustomerID);
                     $('#CustomerName').selectpicker('refresh');
+                    $('#accounts').val(a[0].AID);
+                    $('#accounts').selectpicker('refresh');
 
                     var i = 0;
                     //alert(a.length);
@@ -1488,8 +1487,10 @@
                         cell2.innerHTML = productName;
                         cell3.innerHTML = company;
                         cell4.innerHTML = PerUnitSalePrice;
-                        cell5.innerHTML = quantity;
-                        cell6.innerHTML = discount;
+                        cell5.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+quantity+'>';
+                        cell6.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+discount+'>';
+                        // cell5.innerHTML = "<input type='Text' value='"+quantity+"'>";
+                        // cell6.innerHTML = "<input type='Text' value='"+discount+"'>";
                         cell7.innerHTML = totalAmount;
                         //calc();
                         cell8.innerHTML =
@@ -1506,10 +1507,12 @@
 
         }
 
-    </script>
+        function pageReload(){
+            location.reload(); 
+        }
 
-    <script>
         function getAllProducts() {
+            document.getElementById("updateBtn").disabled = true; 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -1640,12 +1643,14 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     //  alert( this.responseText);
+                    
+                    
                 }
             };
             var EC = JSON.stringify(Customer);
             xhttp.open("GET", "./addCustomer/" + EC, true);
             xhttp.send();
-
+            
 
         };
 
@@ -1734,11 +1739,7 @@
 
         function taxCalculation() {
 
-
-
-
-
-            var taxRate = 17.00;
+            var taxRate = document.getElementById('tax').value;
             var grosstotal = document.getElementById('grossTotal').value;
             //alert(taxRate/100);
             var tax = Number(grosstotal) * (taxRate / 100);
@@ -1872,6 +1873,7 @@
 
         function insertInSales() {
 
+           
             var myTrows = [];
             var table = document.getElementById("ProductSaleTable");
             var myRow2 = [];
@@ -1946,6 +1948,10 @@
             }
         }
 
+        function print(){
+            window.open("./testpdf/as");
+        }
+
         function UpdateSaleInvoice() {
 
             var myTrows = [];
@@ -2017,7 +2023,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated");
-                        window.open("/ssi");
+                        
 
                     }
                 };
@@ -2027,6 +2033,42 @@
                 xhttp.send();
             }
         }
+
+    function addCustomer() {
+
+        var customerName = document.getElementById("addCustomerName").value;
+        //	alert("It is working"+CustomerName);
+        var fatherName = document.getElementById("addFatherName").value;
+        //	alert("It is working"+password);
+        var contact = document.getElementById("addContact").value;
+        //alert("It is working"+CustomerContact);
+        var profession = document.getElementById("addProfession").value;
+        //alert("It is working"+CustomerProfession);
+        var address = document.getElementById("addAddress").value;
+        //alert("It is working"+CustomerAddress);
+        var comments = document.getElementById("addComments").value;
+        //alert("It is working"+CustomerComments);
+        var cnic = document.getElementById("addCNIC").value;
+        //alert("It is working"+CustomerComments);
+
+        var newCustomer = [customerName, fatherName, contact, profession, address,
+            comments, cnic
+        ];
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+                loadAllCustomers();
+            }
+        };
+        var EC = JSON.stringify(newCustomer);
+        alert(EC);
+        xhttp.open("GET", "./insertCustomer/" + EC, true);
+        xhttp.send();
+
+
+}
 
     </script>
 </body>

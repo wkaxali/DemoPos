@@ -128,7 +128,7 @@ class quotationController extends Controller
             session(['invoiceDate' => $data->Date]);
             session(['description' => $data->Discription]);
             session(['color' => $data->Color]);
-            session(['' => $data->Model]);
+            session(['productName' => $data->Model]);
             session(['quantity' => $data->Quantity]);
             session(['city' => $data->City]);
             session(['DeliveryTime' => $data->DeliveryTime]);

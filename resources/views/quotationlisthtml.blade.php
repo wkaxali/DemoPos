@@ -20,18 +20,7 @@
                                             style="height: 40px !important; width: 200px !important; ">
                                     </div>
 
-                                    <div class="inputField-1">
-                                        <label for="cost">Address</label>
-                                        <input type="text" class="form-control" id="address"
-                                            style="height: 40px !important; width: 200px !important; ">
-                                    </div>
-
-                                    <div class="inputField-1">
-                                        <label for="prodName">Contact</label>
-                                        <input type="text" class="form-control" id="contact"
-                                            style="height: 40px !important; width: 200px !important; ">
-
-                                    </div>
+                            
 
                                     <div class="inputField-1">
                                         <label for="Model">Select Model</label>
@@ -131,7 +120,7 @@
                 </div>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-10 offset-md-1">
+                        <div class="col-md-12">
                             <div class="table-responsive">
                         <table class="table table-bordered table-hover" id="quotationsTable">
                             <thead>

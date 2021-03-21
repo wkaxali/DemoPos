@@ -67,12 +67,12 @@ class serviceSalesFlow extends Controller
        
        $currentCustomerBalance=floatval($oldCustomerBalance)+floatval($RBI);
        CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
-       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
+       $selfBalance=floatval($oldSelfBalance)+floatval($totlpaid);
        LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
        TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock and Service",
        $totlpaid,$dateNow,"1",$oldCustomerBalance,$currentCustomerBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$CID,$paidVia,NULL);
        $OldAccBalance=accountsController::getAccountBalance($AID);
-       $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
+       $newAccountBalance=floatval($OldAccBalance)+floatval($totlpaid);
        
        accountsController::UpdateNewBalance($AID,$newAccountBalance);
 
@@ -133,6 +133,8 @@ class serviceSalesFlow extends Controller
             $a= $numberTransformer->toWords($AmountPaid);
           session(['amountInWords' => ucwords($a)]);
       }
+
+      
   
     }
         //insert into order details
@@ -175,6 +177,73 @@ class serviceSalesFlow extends Controller
     return json_encode($obj);
       # code...
     }
+
+
+    public static function printSaleRequestOnInvoiceNumber($invoiceNumber){
+        $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$invoiceNumber);
+        $invoiceDetails=self::getAllInvoiceDetails($invoiceNumber);
+       
+        //session(['invoiceDetails' => $invoiceDetails]);
+        $ProductDetailsArray=array();
+        $oneProductInInvoice=array();
+        foreach($invoiceDetails as $product){
+          $qty=$product->Quantity;
+         
+          $contact=$product->ProductSerial;
+          $customerName=$product->CustomerName;
+          $CID=$product->CustomerID;
+          $cAddrss=$product->Address;
+          $PID=$product->ProductSerial;
+          $IN=$product->InvoiceNumber;
+          $tax=$product->VAT;
+          $Pt =$product->NetAmount;
+          $unitPrice=$product->PerUnitSalePrice;
+          $CNIC=$product->CNIC;
+          $productName=$product->ProductName;
+          $contact=$product->Contect;
+          $TotalAmount=$product->TotalAmount;
+          $tax=$product->VAT;
+          $Discount=$product->Discount;
+          $netTotal=$product->NetTotal;
+          $AmountPaid=$product->AmountPaid;
+          $Balance=$product->Balance;
+          $dat=$product->DateStamp;
+          $BillStatus=$product->BillStatus;
+          $AmountPaid=$product->AmountPaid;
+          $InvoiceBalance=$product->Balance;
+ 
+          
+          array_push($oneProductInInvoice,$PID,$productName,$qty,$unitPrice,$tax,$Pt);
+          array_push($ProductDetailsArray,$oneProductInInvoice);
+          $oneProductInInvoice=array();
+ 
+          session(['ProductNames' => $ProductDetailsArray]);
+          session(['ivd' => $dat]);
+          session(['iu' => $IN]);
+          session(['customerID' => $CID]);
+          session(['customerName' => $customerName]);
+          session(['contact' => $contact]);
+          session(['model' => $productName]);
+          session(['invoiceNo' => $invoiceNumber]);
+          session(['CNIC' => $CNIC]);
+          session(['tax' => $tax]);
+          session(['total' => $TotalAmount]);
+          session(['netTotal' => $netTotal]);
+          session(['InvBalance' => $InvoiceBalance]);
+          session(['amountPaid' =>  number_format($AmountPaid)]);
+          session(['overallDiscount' => $Discount]);
+          session(['address' => $cAddrss]);
+
+ 
+          $numberToWords = new NumberToWords();
+             $numberTransformer = $numberToWords->getNumberTransformer('en');
+             $a= $numberTransformer->toWords($AmountPaid);
+           session(['amountInWords' => ucwords($a)]);
+       }
+       return $results;
+      }
+
+
     public function addInTransactionFlowForSales($invoiceNumber,$dateNow,$AP,$userID,$pattyCash,$CLB,$CCB){
 
       // [TransactionID]

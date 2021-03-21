@@ -43,7 +43,7 @@ class salePrintInvoice extends Controller
         
         
         </tr>
-        <tr><td align="center"><h1>Service Sale Invoice</h1></td></tr>
+        <tr><td align="center"><h1>Sale Invoice</h1></td></tr>
         
         
         
