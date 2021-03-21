@@ -250,7 +250,7 @@ return view('signInSignUp');
 
 Route::get('/ed', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('EmpDashboard');
     }else{
     return view("signInSignUp");
@@ -313,7 +313,7 @@ return view("EmployeeTaskView");
 
 Route::get('/ps', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('PurchaseStock'); 
     }else{
     return view("signInSignUp");
@@ -424,7 +424,7 @@ Route::get('/sp', function () {
 });
 Route::get('/vs', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('viewStock'); 
     }else{
     return view("signInSignUp");
@@ -463,7 +463,7 @@ Route::get('/s', function () {
 });
 Route::get('/ev', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="User"||$UN=="Admin"){
     return view('employerView'); 
     }else{
     return view("signInSignUp");
@@ -492,7 +492,7 @@ Route::get('/emptv', function () {
 });
 Route::get('/e', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('Employee'); 
     }else{
     return view("signInSignUp");
@@ -915,6 +915,11 @@ Route::get('/logout', function(){
 Route::get('/aam', function () {
     return view('addAutoModels');
 });
+
+Route::get('/ans', function () {
+    return view('addNewStock');
+});
+
 
 Route::get('/eu', function () {
     return view('editUsers');

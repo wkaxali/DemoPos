@@ -36,7 +36,7 @@
                     <li><a href="/ec">Edit Customer</a></li>
                     <li><a href="/vs">View Customer List</a></li>
                     <li><a href="/ads">Add Supplier</a></li>
-                    <li><a href="/eds">Edit Supplier</a></li>
+                    <!-- <li><a href="/eds">Edit Supplier</a></li> -->
 
                 </ul>
             </li>
@@ -95,8 +95,8 @@
                         style="float: right"></span></a>
                 <ul class="collapse firstULs7">
                     <li><a href="/ex">Add Expense</a></li>
-                    <li><a href="">Expense List</a></li>
-                    <li><a href="">Expense Head</a></li>
+                    <li><a href="exv">Expense List</a></li>
+                    <li><a href="aeh">Expense Head</a></li>
                     <li><a href="">Expense Category</a></li>
                 </ul>
             </li>
@@ -105,8 +105,8 @@
                         style="float: right"></span></a>
                 <ul class="collapse firstULs8">
                     <li><a href="/ex">Add Expense</a></li>
-                    <li><a href="">Expense List</a></li>
-                    <li><a href="">Expense Head</a></li>
+                    <li><a href="exv">Expense List</a></li>
+                    <li><a href="aeh">Expense Head</a></li>
                     <li><a href="">Expense Category</a></li>
                 </ul>
             </li>
@@ -149,7 +149,7 @@
                         class="fab fa-stack-overflow"></i><span style="font-size: 14px;">Stock</span><span
                         class="fa fa-angle-right" style="float: right"></span></a>
                 <ul class="collapse firstULs12" id="menu-academico-sub">
-                    <li id="menu-academico-boletim"><a href="/as2">Add New Stock</a></li>
+                    <li id="menu-academico-boletim"><a href="/ans">Add New Stock</a></li>
                     <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
                 </ul>
             </li>
