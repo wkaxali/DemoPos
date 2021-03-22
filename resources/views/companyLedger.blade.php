@@ -295,9 +295,9 @@
                             a[i].Balance = 0;
                         }
 
-                        table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i]
+                        table.row.add([a[i].TransactionID,a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i]
                             .NetTotal,
-                            a[i].Amount, a[i].Balance, a[i].DateStamp
+                            a[i].AmountPaid,  a[i].Balance,a[i].DateStamp
                         ]);
                     });
                     table.draw();
