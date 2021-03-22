@@ -298,11 +298,11 @@
                                 <button class="btn" style="background-color: #e61d2f ;">Print</button>
                                 <button class="btn" style="background-color:#0a549d;">Edit</button>
                             </div>
-                            <div class="total-buttons" id="hideme">
+                            <!-- <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #e61d2f;">Hold</button>
                                 <button class="btn" style="background-color: #0a549d;">Update</button>
                                 <button class="btn" style="background-color: #e61d2f ;">Delete</button>
-                            </div>
+                            </div> -->
 
 
 

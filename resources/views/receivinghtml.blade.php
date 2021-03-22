@@ -64,8 +64,8 @@
                     <div class="row">
                         <div class="col-md-6 offset-md-6">
                             <div class="footerBtns text-right">
-                                <a class="btn btn-view" href="viewStock.html">View Stock</a>
-                                <a class="btn btn-print" href="viewStock.html">Print Details</a>
+                                <a class="btn btn-view" href="vs">View Stock</a>
+                                <a class="btn btn-print" href="vs">Print Details</a>
                                 <a class="btn btn-update" onclick="UpdateStatusAndTransaction()">Update</a>
 
 
