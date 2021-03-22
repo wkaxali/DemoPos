@@ -33,9 +33,19 @@
 
         }
 
+        /* @media print {
+            .left-content{
+                width: 100% !important;
+            }
+            .sidebar-menu{
+                display: none;
+            }
+            body * {
+                visibility: hidden;
+            }
         .mainButtons button {
             width: 150px;
-        }
+        } */
 
         th,
         td {
@@ -242,7 +252,7 @@
                 <div class="col-md-5 offset-md-7">
                     <div class="footerBtns">
                         <button class="btn">Close</button>
-                        <button class="btn">Print</button>
+                        <button class="btn" onclick="window.print()">Print</button>
                         <button class="btn" onclick="addExpenses()">Update</button>
                     </div>
                 </div>

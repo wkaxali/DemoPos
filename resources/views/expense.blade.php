@@ -282,7 +282,7 @@
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Amount</th>
-                                                <th>Expense ID</th>
+                                                <th>Expense </th>
                                                 <th>Paid By</th>
                                                 <th>Remarks</th>
                                                 <th>Action</th>

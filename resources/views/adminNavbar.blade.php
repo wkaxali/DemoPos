@@ -34,7 +34,7 @@ style="float: right"></span></a>
 <ul class="collapse firstULs1">
 <li><a href="/adc">Add Customer</a></li>
 <li><a href="/ec">Edit Customer</a></li>
-<li><a href="/vs">View Customer List</a></li>
+<li><a href="/ec">View Customer List</a></li>
 <li><a href="/ads">Add Supplier</a></li>
 <!-- <li><a href="/eds">Edit Supplier</a></li> -->
 
@@ -133,7 +133,7 @@ style="float: right"></span></a>
 
 
 
-<li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
+<!-- <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
 style="font-size: 14px;">People</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs11" id="menu-academico-sub">
@@ -142,7 +142,7 @@ style="float: right"></span></a>
 
 
 </ul>
-</li>
+</li> -->
 
 
 

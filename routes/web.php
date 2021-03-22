@@ -74,7 +74,7 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
-Route::get('/addExpenseHead/{EH}',[expenseController::class, 'addExpenseHead']);
+Route::get('/addExpenseHead/{expTable}',[expenseController::class, 'insertExpense']);
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
 Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 
