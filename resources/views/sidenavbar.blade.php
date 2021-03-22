@@ -97,7 +97,7 @@
                     <li><a href="/ex">Add Expense</a></li>
                     <li><a href="exv">Expense List</a></li>
                     <li><a href="aeh">Expense Head</a></li>
-                    <li><a href="">Expense Category</a></li>
+                    <!-- <li><a href="">Expense Category</a></li> -->
                 </ul>
             </li>
             <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-vials"></i><span
@@ -107,7 +107,7 @@
                     <li><a href="/ex">Add Expense</a></li>
                     <li><a href="exv">Expense List</a></li>
                     <li><a href="aeh">Expense Head</a></li>
-                    <li><a href="">Expense Category</a></li>
+                    <!-- <li><a href="">Expense Category</a></li> -->
                 </ul>
             </li>
 
