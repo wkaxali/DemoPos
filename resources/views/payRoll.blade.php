@@ -670,7 +670,6 @@
 
             xhttp.send();
 
-
         }
 
         function payCalculation() {
