@@ -122,14 +122,14 @@ class="fa fa-angle-right" style="float: right"></span></a>
 
 </ul>
 </li>
-<li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
+<!-- <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
 style="font-size: 14px;">HR</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs10" id="menu-academico-sub">
 <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
 <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
 </ul>
-</li>
+</li> -->
 
 
 
