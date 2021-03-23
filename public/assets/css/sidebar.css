@@ -314,10 +314,6 @@ a:hover {
 
 }
 
-/* #menu li ul {
-    opacity: 0;
-    height: 0px;
-} */
 
 #menu li a {
     position: relative;
@@ -326,7 +322,7 @@ a:hover {
     color: #FFFFFF;
     white-space: nowrap;
     z-index: 2;
-    font-size: 14px;
+    font-size: 12px;
     word-spacing: 2px;
 
     padding-right: 30px;
@@ -352,7 +348,10 @@ a:hover {
 #menu li a:hover .fa-angle-right {
     transform: rotate(180deg);
 }
+#menu li a span {
+    transition: .4s !important;
 
+}
 #menu li a:hover span {
 
     padding-left: 13px;

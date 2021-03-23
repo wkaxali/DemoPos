@@ -981,8 +981,8 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                     <div class="receivingMain">
                                     
                                     
-                                                        <div class="receivingTable">
-                                                            <table id="stockTable" class=" table-striped display nowrap"
+                                                        <div class="receivingTable" style="height: 400px; overflow: auto;">
+                                                            <table id="stockTable" class=" table-striped wrap"
                                                                 style="width: 100%; text-align: center;">
                                                                 <thead>
                                                                     <tr>
