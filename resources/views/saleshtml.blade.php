@@ -31,6 +31,12 @@
                             aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog  modal-xl">
                                 <div class="modal-content" style="margin: 0 auto; width: 70%;">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Forland Modern Motors</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
                                     <div class="container">
                                         <div class="row">
 
@@ -146,32 +152,34 @@
                                     <div class="modal-content">
 
                                         <div class="modal-body">
-                                            <div class="appointment-form" id="appointment-form">
+                                            <div class="registration-form" >
                                                 <h2>Add New Customer</h2>
                                                 <div class="form-group-1">
-                                                    <input type="text" name="name" id="addCustomerName"
+                                                    <form>
+                                                    <input type="text" style="width:232px;" class="form-control item" name="name" id="addCustomerName"
                                                         placeholder="Customer Name" required />
-                                                    <input type="text" name="title" id="addFatherName"
+                                                    <input type="text" style="width:232px;" class="form-control item" name="title" id="addFatherName"
                                                         placeholder="Father Name" required />
 
-                                                    <input type="number" name="tel" id="addContact"
+                                                    <input type="number" style="width:232px;" class="form-control item" name="tel" id="addContact"
                                                         placeholder="Contact" required />
-                                                    <input type="number" name="title" id="addCNIC" placeholder="ID Card"
+                                                    <input type="number" style="width:232px;" class="form-control item" name="title" id="addCNIC" placeholder="ID Card"
                                                         required />
-                                                    <input type="text" name="phone_number" id="addAddress"
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addAddress"
                                                         placeholder="Address" required />
-                                                    <input type="text" name="phone_number" id="addProfession"
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addProfession"
                                                         placeholder="Profession" required />
-                                                    <input type="text" name="phone_number" id="addComments"
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addComments"
                                                         placeholder="Comments" required />
-
+                                                        </form>
                                                 </div>
 
                                                 <div class="form-submit">
-                                                    <button onclick="addCustomer()" name="submit" id="submit"
+                                                    <button style="width: 124px;" onclick="addCustomer()" class="btn  create-account" name="submit" id="submit"
                                                         class="submit" value="">Add Customer</button>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-org-1"
