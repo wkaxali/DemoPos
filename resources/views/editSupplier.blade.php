@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>Set Ideal Stock</title>
+    <title>Edit Supplier</title>
 
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -50,7 +50,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="mt-3">Set Ideal Stock</h3>
+                    <h3 class="mt-3">Edit Supplier</h3>
                 </div>
             </div>
 
@@ -66,15 +66,13 @@
                             <thead>
                                 <tr ondblclick="SetStockIdeal()">
 
-                                        <th>Product Id</th>
-                                        <th>Product Name</th>
-                                        <th>Company</th>
-                                        <th>Invoice Price</th>
-                                        <th>Unit Purchase Price</th>
-                                        <th>Stock</th>
-                                        <th>Color</th>
-                                        <th>Engine Number</th>
-                                        <th>Chasis Number</th>
+                                        <th>Supplier Id</th>
+                                        <th>Supplier Name</th>
+                                        <th>Balance</th>
+                                        <th>Contant No</th>
+                                        <th>Address</th>
+                                        <th>Initial Investment</th>
+                                        
                                         <!-- <th>Status</th> -->
                                 </tr>
                             </thead>
@@ -86,33 +84,25 @@
 
                 </div>
                 <div class="col-md-4 stockLabels">
-                    <label for="id">Product ID</label>
+                    <label for="id">Supplier ID</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="productID">
-                    <label for="id">Product Name</label>
+                    <label for="id">Supplier Name</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="productName">
-                    <label for="id">Company</label>
+                    <label for="id">Balance</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="company">
-                    <label for="id">Invoice Price</label>
+                    <label for="id">Contant No</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="salePrice">
-                    <label for="id">Purchase Price</label>
+                    <label for="id">Address</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="purchasePrice">
-                    <label for="id">StockIn</label>
+                    <label for="id">Initial Investment</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="stockIn">
-                    <label for="id">Color</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="color">
-                    <label for="id">EngineNumber</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="engineNumber">
-                    <label for="id">Chasis Number</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="chasisNumber">
+                    
                     <!-- <label for="id">Status</label> -->
                     <input type="text" class="form-control" style="display: none; width: 200px !important;"
                         name="id" id="status">
