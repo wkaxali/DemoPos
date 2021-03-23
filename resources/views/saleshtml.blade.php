@@ -265,11 +265,10 @@
                                 <button class="btn" style="background-color: #e61d2f;"
                                     id="saveBtn"onclick="insertInSales()">Save</button>
                                 <button class="btn" style="background-color: #0a549d;" onclick="print()">Print</button>
-                                <button class="btn" style="background-color: #e61d2f;">Edit</button>
-                                <button class="btn" style="background-color: #0a549d;">Hold</button>
+                             
                                 <button class="btn" style="background-color: #e61d2f;"
                                      id="updateBtn" onclick="UpdateSaleInvoice()">Update</button>
-                                <button class="btn" style="background-color: #0a549d;">Delete</button>
+                                
                             </div>
                            
 
@@ -286,9 +285,7 @@
                         <button class="btn btn-info">Hold</button>
                         <button class="btn btn-info">Save</button>
 
-                        <button class="btn btn-info">Save</button>
-                        <button class="btn btn-info">Hold</button>
-                        <button class="btn btn-info">Save</button>
+                        
                     </div>
                 </section>
             </div>
