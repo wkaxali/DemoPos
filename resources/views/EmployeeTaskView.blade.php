@@ -1391,7 +1391,7 @@
                         } else {
                             document.getElementById("adminUseOnly").style.visibility = "hidden";
                             document.getElementById("adminUseOnly2").style.visibility = "hidden";
-                            document.getElementById("commentsShow").style.display = "none";
+                            document.getElementById("commentShow").style.display = "none";
                         }
                     });
                 }
