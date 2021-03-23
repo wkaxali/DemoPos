@@ -185,7 +185,7 @@ function editSupplier() {
     var initialInvestment = document.getElementById("initialInvestment").value;
     
     var UpdateSupplier = [SID, suppliertName, balance, contact, address, initialInvestment];
-    alert(UpdateSupplier);
+    // alert(UpdateSupplier);
 
     var ES = JSON.stringify(UpdateSupplier);
             
@@ -198,7 +198,7 @@ function editSupplier() {
 
                 }
             };
-            alert(ES);
+            // alert(ES);
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./editSupplier/" + ES, true);
             xhttp.send();

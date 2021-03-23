@@ -36,7 +36,7 @@ style="float: right"></span></a>
 <li><a href="/ec">Edit Customer</a></li>
 <li><a href="/ec">View Customer List</a></li>
 <li><a href="/ads">Add Supplier</a></li>
-<!-- <li><a href="/eds">Edit Supplier</a></li> -->
+<li><a href="/esp">Edit Supplier</a></li>
 
 </ul>
 </li>
