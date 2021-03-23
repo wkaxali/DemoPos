@@ -98,6 +98,10 @@ Route::get('/getCustomers',[CustomerController::class, 'getCustomers']);
 
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail']);
 Route::get('/addSupplier/{empData}',[LedgerPartiesController::class, 'addSupplier']);
+Route::get('/viewAllSupplier',[LedgerPartiesController::class, 'viewAllSupplier']);
+Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']);
+
+
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 //getInvoiceCustomer/{data}
