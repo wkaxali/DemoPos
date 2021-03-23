@@ -136,5 +136,32 @@ class LedgerPartiesController extends Controller
             }
             
     
-    
+            
+            public function addSupplier(Request $request, $CO){
+        
+                $obj=json_decode($CO);
+                $supplierName=$obj[0];
+                $balance=$obj[1];
+                $contact=$obj[2];
+                $address=$obj[3];
+                $InitialInvestment=$obj[4];
+        
+                
+                $CID=DB::table('tblledgerparties')->insertGetId([
+                    'PartyName'=>$supplierName,
+                    'Category'=> 'Supplier',
+                    'Balance'=>$balance,
+                    'ContantNo'=>$contact,
+                    'Address'=>$address,
+                    'InitialInvestment'=>$InitialInvestment,
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    ]);
+                return $CID." ID customer added";
+            }
 }

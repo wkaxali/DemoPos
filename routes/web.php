@@ -97,6 +97,7 @@ Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDet
 Route::get('/getCustomers',[CustomerController::class, 'getCustomers']);
 
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail']);
+Route::get('/addSupplier/{empData}',[LedgerPartiesController::class, 'addSupplier']);
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 //getInvoiceCustomer/{data}
@@ -948,3 +949,8 @@ route::get('/dt', function(){
 route::get('/ct', function(){
     return view('creditTransactions');
 });
+
+route::get('/esp', function(){
+    return view('editSupplier');
+});
+
