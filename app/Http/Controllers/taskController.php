@@ -253,9 +253,7 @@ public static function updateTaskStatus(Request $request, $CO){
 
     DB::table('tbl_tasks')
             ->where('TaskID', '=', $mainTaskID)
-            ->update([
-                'Status'=>$overallStatus,
-                'Comment'=>$comment
+            ->update(['Status'=>$overallStatus
             ]);
 
     for ($i=4; $i<sizeof($ata); $i++) {
