@@ -42,13 +42,13 @@
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="invoicenumber"><br><br>
                     <label for="id">Tool Kit</label>
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    <select  class="selectpicker form-control"
                         data-live-search="true" id="toolkit">
                         <option value="">Yes</option>
                         <option value="">No</option>
                     </select><br><br>
                     <label for="id">Spare Tyre</label>
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    <select  class="selectpicker form-control"
                         data-live-search="true" id="sparetyre">
                         <option value="">Yes</option>
                         <option value="">No</option>
@@ -57,7 +57,7 @@
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="orignalkeys"><br><br>
                     <label for="id">Warranty Book</label>
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    <select  class="selectpicker form-control"
                         data-live-search="true" id="warrentybook">
                         <option value="">Yes</option>
                         <option value="">No</option>

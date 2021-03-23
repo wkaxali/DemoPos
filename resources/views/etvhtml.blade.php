@@ -39,7 +39,7 @@
 
                                     </div>
                                     <div class="col-md-4">
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="category">
 
                                         </select>
@@ -87,7 +87,7 @@
                                                     <input type="text" class="form-control" name="" id="taskSubject">
 
                                                     <label for="">Assign To</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="assignTo">
 
@@ -150,7 +150,7 @@
                                                         <input type="text" class="form-control" name="" id="priority">
                                                     </div><br>
                                                     <label for="">Category</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="category">
 
@@ -183,7 +183,7 @@
 
                         </div>
                         <div class="col-md-4">
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select 
                                 class="selectpicker form-control" data-live-search="true" id="category">
 
                             </select>
@@ -343,7 +343,7 @@
         <div class="col-md-4">
 
             <label for="">Employee ID</label><br>
-            <select style="height: 25px !important; width: 158px !important; "
+            <select 
                 class="selectpicker form-control" data-live-search="true" id="employee"
                 onchange="searchEmployeeData()">
 
@@ -351,7 +351,7 @@
         </div>
         <div class="col-md-4 ">
             <label for="">Task Status</label><br>
-            <select style="height: 25px !important; width: 158px !important; "
+            <select 
                 class="selectpicker form-control" data-live-search="true" id="status"
                 onchange="searchTaskWithStatus()">
                 <option value=" "></option>
@@ -412,7 +412,7 @@
                                 <input type="text" class="form-control" name="" id="taskSubject">
 
                                 <label for="">Assign To</label><br>
-                                <select style="height: 25px !important; width: 158px !important; "
+                                <select 
                                     class="selectpicker form-control" data-live-search="true" id="assignTo">
 
                                 </select>
@@ -471,7 +471,7 @@
                                         class="btn">Easily</button>
                                 </div><br>
                                 <label for="">Category</label><br>
-                                <select style="height: 25px !important; width: 158px !important; "
+                                <select 
                                     class="selectpicker form-control" data-live-search="true" id="category">
 
                                 </select>
@@ -502,7 +502,7 @@
                                                     <input type="text" class="form-control" name="" id="taskSubject">
 
                                                     <label for="">Assign To</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="assignTo">
 
@@ -565,7 +565,7 @@
                                                         <input type="text" class="form-control" name="" id="priority">
                                                     </div><br>
                                                     <label for="">Category</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="category">
 

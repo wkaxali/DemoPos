@@ -941,3 +941,6 @@ route::get('/dt', function(){
 route::get('/ct', function(){
     return view('creditTransactions');
 });
+route::get('/acs', function(){
+    return view('accountSettings');
+});

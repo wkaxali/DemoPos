@@ -973,7 +973,7 @@
                                             <input type="text" class="form-control" name="" id="taskSubject">
 
                                             <label for="">Assign To</label><br>
-                                            <select style="height: 25px !important; width: 158px !important; "
+                                            <select 
                                                 class="selectpicker form-control" data-live-search="true" id="assignTo">
 
                                             </select>
@@ -1032,7 +1032,7 @@
                                                     class="btn">Easily</button>
                                             </div><br>
                                             <label for="">Category</label><br>
-                                            <select style="height: 25px !important; width: 158px !important; "
+                                            <select 
                                                 class="selectpicker form-control" data-live-search="true" id="category">
 
                                             </select>
