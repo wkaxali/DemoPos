@@ -7,18 +7,6 @@
             <div class="myshadow">
 
 
-<<<<<<< HEAD
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h4>Tasks View</h4>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="text" placeholder="Task" class="form-control" name="" id="">
-=======
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
@@ -168,15 +156,11 @@
                                     <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
                                 </div>
                             </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                         </div>
                     </div>
-<<<<<<< HEAD
-=======
 
         
                 <div class="container">
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                     <div class="row">
                         <div class="col-md-8 ">
                             <input type="text" class="form-control" name="" id="">
@@ -237,8 +221,6 @@
                                     id="employeeID" style="display:none">
                             </div>
 
-<<<<<<< HEAD
-=======
                 <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
                
                     <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Development</h4>
@@ -265,7 +247,6 @@
                                 </div>
            
                             </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                         </div>
                         <div id="AllSubTasks"></div>
 
@@ -401,82 +382,6 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-<<<<<<< HEAD
-            <div class="modal-body">
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="mainAbs">
-                                <label for="">Task</label>
-                                <input type="text" class="form-control" name="" id="taskSubject">
-
-                                <label for="">Assign To</label><br>
-                                <select style="height: 25px !important; width: 158px !important; "
-                                    class="selectpicker form-control" data-live-search="true" id="assignTo">
-
-                                </select>
-                                <label for="">Details</label>
-                                <table id="subTasks">
-                                    <tr>
-                                        <td id="td-1">1</td>
-                                        <td id="td-2"><input type="text" class="form-control" name="" id="">
-                                        </td>
-
-                                    </tr>
-                                </table>
-                                <div class="row">
-                                    <div class="col-md-12" style="margin-left:20px;">
-                                        <div class="mainButtons">
-                                            <button class="btn btn-info">Progress</button>
-                                            <button onclick="getRowId()" class="btn btn-success">Add New
-                                                List</button>
-
-                                            <button class="btn btn-success">Done</button>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                                <label for="">Due On</label><br>
-                                <div class="btn-group" id="groupButtons" role="group"
-                                    aria-label="Basic example">
-                                    <button onclick="GetDates()" type="button" id="Today"
-                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                        class="btn ">Today</button>
-                                    <button onclick="TomorrowDate()" type="button" id="Tomorrow"
-                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                        class="btn ">Tomorrow</button>
-                                    <button type="button" id="Date"
-                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                        class="btn "><input class="hello" onchange="customDate()"
-                                            type="date"
-                                            style="background: none !important; width:103px; border: none !important;"
-                                            name="" id="date"></button>
-                                </div>
-                                <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
-                                <br>
-                                <label for="">Priority</label><br>
-
-                                <div class="btn-group" id="myBtnGroup" role="group"
-                                    aria-label="Basic example">
-                                    <button type="button" id="Urgent"
-                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                        class="btn ">Urgent</button>
-                                    <button type="button" id="Normal"
-                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                        class="btn ">Normal</button>
-                                    <button type="button" id="Easily"
-                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                        class="btn">Easily</button>
-                                </div><br>
-                                <label for="">Category</label><br>
-                                <select style="height: 25px !important; width: 158px !important; "
-                                    class="selectpicker form-control" data-live-search="true" id="category">
-
-                                </select>
-
-=======
             <button id="movetop" data-toggle="modal" data-target="#exampleModal" title="Go to top">
                 <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
@@ -582,21 +487,11 @@
                                         data-dismiss="modal">Cancel</button>
                                     <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
                                 </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                             </div>
                         </div>
                     </div>
 
-<<<<<<< HEAD
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary-1" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
-            </div>
-=======
         </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
         </div>
     </div>
 </div>

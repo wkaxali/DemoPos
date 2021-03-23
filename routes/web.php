@@ -462,7 +462,7 @@ Route::get('/s', function () {
 });
 Route::get('/ev', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('employerView'); 
     }else{
     return view("signInSignUp");
@@ -470,14 +470,14 @@ Route::get('/ev', function () {
 });
 Route::get('/etv', function () {
     $UN = session()->get('Designation');
-    session(['EmpID' => '1']);
 
     if($UN=="Admin"){
-        
+
         return view('EmployeeTaskView');
   
    }else{
-       return "Invalid Username Or Password";
+        
+        return view('EmployeeTaskView');
    }
 
 });
