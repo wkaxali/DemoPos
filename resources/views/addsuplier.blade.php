@@ -149,6 +149,34 @@
         });
 
     </script>
+    <script>
+    function addSupplier() {
+            var name = document.getElementById("name").value;
+            var balance = document.getElementById("balance").value; 
+            var contact = document.getElementById("contact").value;
+            var address = document.getElementById("address").value;
+            var InitialInvestment = document.getElementById("InitialInvestment").value;
+     
+            var array = [name, balance, contact,address, InitialInvestment];
+            var empData = JSON.stringify(array);
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert(this.response);
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./addSupplier/" + empData, true);
+
+            xhttp.send();
+
+        }
+
+    </script>
 </body>
 
 </html>

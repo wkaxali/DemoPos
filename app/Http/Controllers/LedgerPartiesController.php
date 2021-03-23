@@ -136,5 +136,65 @@ class LedgerPartiesController extends Controller
             }
             
     
-    
+            
+            public function addSupplier(Request $request, $CO){
+        
+                $obj=json_decode($CO);
+                $supplierName=$obj[0];
+                $balance=$obj[1];
+                $contact=$obj[2];
+                $address=$obj[3];
+                $InitialInvestment=$obj[4];
+        
+                
+                $CID=DB::table('tblledgerparties')->insertGetId([
+                    'PartyName'=>$supplierName,
+                    'Category'=> 'Supplier',
+                    'Balance'=>$balance,
+                    'ContantNo'=>$contact,
+                    'Address'=>$address,
+                    'InitialInvestment'=>$InitialInvestment,
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    ]);
+                return $CID." ID customer added";
+            }
+
+            public function viewAllSupplier(){
+                $results=DB::select('select * from tblledgerparties');
+               // mysql_insert_id()
+                return $results;
+        
+            }
+
+            public static function editSupplier(Request $request, $CO){
+                $ata=json_decode($CO);
+                $LID = $ata[0];
+                $Name = $ata[1];
+                $Balance = $ata[2];
+                $ContantNo = $ata[3];
+                $Address = $ata[4];
+                $InitialInvestment = $ata[5];
+               
+        
+                $re = DB::table('tblledgerparties')
+                ->where('LID', $LID)
+                ->update([
+                  'PartyName'=>$Name,
+                  'Balance'=>$Balance,
+                  'ContantNo'=>$ContantNo,
+                  'Address'=>$Address,
+                  'InitialInvestment'=>$InitialInvestment
+                  
+                  ]);
+        
+                  return $LID;
+                }
+                
+
 }

@@ -27,7 +27,7 @@
 
                                     </div>
                                     <div class="col-md-4">
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="category">
 
                                         </select>
@@ -75,7 +75,7 @@
                                                     <input type="text" class="form-control" name="" id="taskSubject">
 
                                                     <label for="">Assign To</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="assignTo">
 
@@ -138,7 +138,7 @@
                                                         <input type="text" class="form-control" name="" id="priority">
                                                     </div><br>
                                                     <label for="">Category</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="category">
 
@@ -167,7 +167,7 @@
 
                         </div>
                         <div class="col-md-4">
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select 
                                 class="selectpicker form-control" data-live-search="true" id="category">
 
                             </select>
@@ -324,7 +324,7 @@
         <div class="col-md-4">
 
             <label for="">Employee ID</label><br>
-            <select style="height: 25px !important; width: 158px !important; "
+            <select 
                 class="selectpicker form-control" data-live-search="true" id="employee"
                 onchange="searchEmployeeData()">
 
@@ -332,7 +332,7 @@
         </div>
         <div class="col-md-4 ">
             <label for="">Task Status</label><br>
-            <select style="height: 25px !important; width: 158px !important; "
+            <select 
                 class="selectpicker form-control" data-live-search="true" id="status"
                 onchange="searchTaskWithStatus()">
                 <option value=" "></option>
@@ -382,6 +382,85 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            <div class="modal-body">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mainAbs">
+                                <label for="">Task</label>
+                                <input type="text" class="form-control" name="" id="taskSubject">
+
+                                <label for="">Assign To</label><br>
+                                <select 
+                                    class="selectpicker form-control" data-live-search="true" id="assignTo">
+
+                                </select>
+                                <label for="">Details</label>
+                                <table id="subTasks">
+                                    <tr>
+                                        <td id="td-1">1</td>
+                                        <td id="td-2"><input type="text" class="form-control" name="" id="">
+                                        </td>
+
+                                    </tr>
+                                </table>
+                                <div class="row">
+                                    <div class="col-md-12" style="margin-left:20px;">
+                                        <div class="mainButtons">
+                                            <button class="btn btn-info">Progress</button>
+                                            <button onclick="getRowId()" class="btn btn-success">Add New
+                                                List</button>
+
+                                            <button class="btn btn-success">Done</button>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <label for="">Due On</label><br>
+                                <div class="btn-group" id="groupButtons" role="group"
+                                    aria-label="Basic example">
+                                    <button onclick="GetDates()" type="button" id="Today"
+                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                        class="btn ">Today</button>
+                                    <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                        class="btn ">Tomorrow</button>
+                                    <button type="button" id="Date"
+                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                        class="btn "><input class="hello" onchange="customDate()"
+                                            type="date"
+                                            style="background: none !important; width:103px; border: none !important;"
+                                            name="" id="date"></button>
+                                </div>
+                                <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
+                                <br>
+                                <label for="">Priority</label><br>
+
+                                <div class="btn-group" id="myBtnGroup" role="group"
+                                    aria-label="Basic example">
+                                    <button type="button" id="Urgent"
+                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                        class="btn ">Urgent</button>
+                                    <button type="button" id="Normal"
+                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                        class="btn ">Normal</button>
+                                    <button type="button" id="Easily"
+                                        style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                        class="btn">Easily</button>
+                                </div><br>
+                                <label for="">Category</label><br>
+                                <select 
+                                    class="selectpicker form-control" data-live-search="true" id="category">
+
+                                </select>
+
+=======
+>>>>>>> 6adf7c8d005864e067eddd55a4709ab0889e42c8
             <button id="movetop" data-toggle="modal" data-target="#exampleModal" title="Go to top">
                 <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
@@ -407,7 +486,7 @@
                                                     <input type="text" class="form-control" name="" id="taskSubject">
 
                                                     <label for="">Assign To</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="assignTo">
 
@@ -470,7 +549,7 @@
                                                         <input type="text" class="form-control" name="" id="priority">
                                                     </div><br>
                                                     <label for="">Category</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="category">
 

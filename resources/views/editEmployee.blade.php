@@ -159,7 +159,7 @@
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
                             id="date">
 
-                    </div>
+                    </div><br>
                     <button class="btn btn-success" onclick="editEmployee()">Update </button>
                 </div>
             </div>

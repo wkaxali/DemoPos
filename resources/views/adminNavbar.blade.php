@@ -13,7 +13,7 @@ style="font-size:14px;">Book Order</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse list-unstyled new">
 <li><a href="/bo">Vehicle</a></li>
-<li><a href="/ps">Parts</a></li>
+<li><a href="/sp">Parts</a></li>
 
 </ul>
 </li>
@@ -22,21 +22,21 @@ style="font-size: 14px;">Add Stock</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse list-unstyled firstULs ">
 <li><a href="/rec">Vehicle</a></li>
-<li><a href="/as">Parts</a></li>
+<li><a href="/sp">Parts</a></li>
 <li><a href="/es">Edit Parts</a></li>
 <li><a href="/vs">View Parts</a></li>
 
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
-style="font-size: 14px;">Customer Information</span><span class="fa fa-angle-right"
+style="font-size: 14px;">Customer Info</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs1">
 <li><a href="/adc">Add Customer</a></li>
 <li><a href="/ec">Edit Customer</a></li>
-<li><a href="/vs">View Customer List</a></li>
+<li><a href="/ec">View Customer List</a></li>
 <li><a href="/ads">Add Supplier</a></li>
-<li><a href="/eds">Edit Supplier</a></li>
+<li><a href="/esp">Edit Supplier</a></li>
 
 </ul>
 </li>
@@ -96,9 +96,9 @@ style="font-size: 14px;">Return</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs7">
 <li><a href="/ex">Add Expense</a></li>
-<li><a href="">Expense List</a></li>
-<li><a href="">Expense Head</a></li>
-<li><a href="">Expense Category</a></li>
+<li><a href="exv">Expense List</a></li>
+<li><a href="aeh">Expense Head</a></li>
+<!-- <li><a href="">Expense Category</a></li> -->
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-vials"></i><span
@@ -106,9 +106,9 @@ style="font-size: 14px;">Expense</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs8">
 <li><a href="/ex">Add Expense</a></li>
-<li><a href="">Expense List</a></li>
-<li><a href="">Expense Head</a></li>
-<li><a href="">Expense Category</a></li>
+<li><a href="exv">Expense List</a></li>
+<li><a href="aeh">Expense Head</a></li>
+<!-- <li><a href="">Expense Category</a></li> -->
 </ul>
 </li>
 
@@ -122,18 +122,18 @@ class="fa fa-angle-right" style="float: right"></span></a>
 
 </ul>
 </li>
-<li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
+<!-- <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
 style="font-size: 14px;">HR</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs10" id="menu-academico-sub">
 <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
 <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
 </ul>
-</li>
+</li> -->
 
 
 
-<li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
+<!-- <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
 style="font-size: 14px;">People</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs11" id="menu-academico-sub">
@@ -142,7 +142,7 @@ style="float: right"></span></a>
 
 
 </ul>
-</li>
+</li> -->
 
 
 
@@ -151,7 +151,7 @@ style="font-size: 20px;" class="fab fa-stack-overflow"></i><span
 style="font-size: 14px;">Stock</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs12" id="menu-academico-sub">
-<li id="menu-academico-boletim"><a href="/as2">Add New Stock</a></li>
+<li id="menu-academico-boletim"><a href="/ans">Add New Stock</a></li>
 <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
 </ul>
 </li>

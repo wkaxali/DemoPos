@@ -957,53 +957,47 @@
 
             </button>
 
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="mainAbs">
-                                                    <label for="">Task</label>
-                                                    <input type="text" class="form-control" name="" id="taskSubject">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mainAbs">
+                                            <label for="">Task</label>
+                                            <input type="text" class="form-control" name="" id="taskSubject">
 
-                                                    <label for="">Assign To</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
-                                                        class="selectpicker form-control" data-live-search="true"
-                                                        id="assignTo">
+                                            <label for="">Assign To</label><br>
+                                            <select 
+                                                class="selectpicker form-control" data-live-search="true" id="assignTo">
 
-                                                    </select>
-                                                    <label for="">Details</label>
-                                                    <table id="subTasks">
-                                                        <tr>
-                                                            <td id="td-1">1</td>
-                                                            <td id="td-2"><input type="text" class="form-control"
-                                                                    name="" id=""></td>
+                                            </select>
+                                            <label for="">Details</label>
+                                            <table id="subTasks">
+                                                <tr>
+                                                    <td id="td-1">1</td>
+                                                    <td id="td-2"><input type="text" style="margin: 4px 0px;" class="form-control" name="" id="">
+                                                    </td>
 
-                                                        </tr>
-                                                    </table>
-                                                    <div class="row">
-                                                        <div class="col-md-12" style="margin-left:20px;">
-                                                            <div class="mainButtons">
-                                                                <button class="btn btn-info">Progress</button>
-                                                                <button onclick="getRowId()" class="btn btn-success">Add
-                                                                    New
-                                                                    List</button>
+                                                </tr>
+                                            </table>
+                                            <div class="row">
+                                                <div class="col-md-12" style="margin-left:20px;">
+                                                    <div class="mainButtons">
+                                                        <button class="btn btn-info">Progress</button>
+                                                        <button onclick="getRowId()" class="btn btn-success">Add New
+                                                            List</button>
 
-                                                                <button class="btn btn-success">Done</button>
-                                                            </div>
-
-
-                                                        </div>
+                                                        <button class="btn btn-success">Done</button>
                                                     </div>
                                                     <label for="">Due On</label><br>
                                                     <div class="btn-group" id="groupButtons" role="group"
@@ -1048,6 +1042,44 @@
 
                                                 </div>
                                             </div>
+                                            <label for="">Due On</label><br>
+                                            <div class="btn-group" id="groupButtons" role="group"
+                                                aria-label="Basic example">
+                                                <button onclick="GetDates()" type="button" id="Today"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Today</button>
+                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Tomorrow</button>
+                                                <button type="button" id="Date"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn "><input class="hello" onchange="customDate()"
+                                                        type="date"
+                                                        style="background: none !important; width:103px; border: none !important;"
+                                                        name="" id="date"></button>
+                                            </div>
+                                            <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
+                                            <br>
+                                            <label for="">Priority</label><br>
+
+                                            <div class="btn-group" id="myBtnGroup" role="group"
+                                                aria-label="Basic example">
+                                                <button type="button" id="Urgent"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Urgent</button>
+                                                <button type="button" id="Normal"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Normal</button>
+                                                <button type="button" id="Easily"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn">Easily</button>
+                                            </div><br>
+                                            <label for="">Category</label><br>
+                                            <select 
+                                                class="selectpicker form-control" data-live-search="true" id="category">
+
+                                            </select>
+
                                         </div>
 
                                     </div>

@@ -124,10 +124,10 @@
                     table = $('#stockTable').DataTable();
 
                     $.each(a, function (i, item) {
-
-                        table.row.add([a[i].ProductID,  a[i].Company, a[i].ProductName, a[i]
-                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StockIn, a[i]
-                            .EngineNumber, a[i].ChasisNumber, a[i].Status
+                        
+                        table.row.add([  a[i].ProductName,a[i].ProductID, a[i].Company, a[i]
+                            .ProductName, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i]
+                            .StockIn, a[i].EngineNumber, a[i].ChasisNumber,a[i].Status
                         ]);
                     });
                     table.columns.adjust().draw();

@@ -949,8 +949,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="profile_details_left">
 
 
-                        <button class="btn-my btn1" data-toggle="modal"
-                            data-target="#bd-example-modal-lg-1">Operations</button>
+                      
 
                   
                         <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" style="margin-left:38px;" tabindex="-1"
@@ -982,8 +981,8 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                     <div class="receivingMain">
                                     
                                     
-                                                        <div class="receivingTable">
-                                                            <table id="stockTable" class=" table-striped display nowrap"
+                                                        <div class="receivingTable" style="height: 400px; overflow: auto;">
+                                                            <table id="stockTable" class=" table-striped wrap"
                                                                 style="width: 100%; text-align: center;">
                                                                 <thead>
                                                                     <tr>
