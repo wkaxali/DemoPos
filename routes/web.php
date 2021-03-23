@@ -958,3 +958,6 @@ route::get('/esp', function(){
     return view('editSupplier');
 });
 
+route::get('/acs', function(){
+    return view('accountSettings');
+});

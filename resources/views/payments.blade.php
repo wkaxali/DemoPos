@@ -118,19 +118,63 @@
             .meExTable {
                 width: 900px !important;
             }
+
             .expenseButtons {
-            text-align: left;
-            margin-top: 10px;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            .expenseButtons label {
+                width: 100px !important;
+            }
+
+            label {
+                width: 100px !important;
+            }
+
+            #date {
+                width: auto;
+            }
         }
-        .expenseButtons label{
-            width: 100px !important;
-        }
-        label{
-            width: 100px !important;
-        }
-        #date{
-            width: auto;
-        }
+
+        @media print {
+            .left-content {
+                width: 100% !important;
+            }
+
+            .sidebar-menu {
+                display: none;
+            }
+
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            #mainComapnyLedger {
+                visibility: visible !important;
+                margin: 10px 0px;
+            }
+
+            #DNone {
+                display: none !important;
+            }
+
+            table {
+                width: 900px !important;
+            }
+
+
         }
 
     </style>
@@ -167,13 +211,13 @@
                             <input type="text" class="form-control" style="display: inline-block; width: 192px;"
                                 value="" name="" onclick="calculatonInTable()" id="amount"><br>
                             <label for="">Paid To</label>
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select 
                                 class="selectpicker form-control" data-live-search="true" id="paidTo">
 
                             </select>
                             <button class="btn btn-info">+</button><br>
                             <label for="">Paid by</label>
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select 
                                 class="selectpicker form-control" data-live-search="true" id="paidBy">
 
                             </select>
@@ -186,11 +230,12 @@
                             </input>
                             <!-- <button class="btn">+</button> -->
                             <br>
-                        <div class="expenseButtons">
-                            <label style="width: 100px !important;" for="">Date</label>
-                            <input type="date" style="display: inline-block !important; width: 200px;" class="form-control" name="" id="date"><br>
-                         
-                        </div>
+                            <div class="expenseButtons">
+                                <label style="width: 100px !important;" for="">Date</label>
+                                <input type="date" style="display: inline-block !important; width: 200px;"
+                                    class="form-control" name="" id="date"><br>
+
+                            </div>
                             <div class="expenseButtons">
                                 <label for="">Remarks</label>
                                 <input type="text" class="form-control" style="display: inline-block; width: 192px;"
@@ -207,7 +252,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section id="mainHeader">
         <div class="container">
             <div class="row mt-2">
                 <div class="col-md-12">
@@ -252,7 +297,7 @@
                 <div class="col-md-5 offset-md-7">
                     <div class="footerBtns">
                         <button class="btn">Close</button>
-                        <button class="btn" onclick="window.print()">Print</button>
+                        <button onclick="window.print()" class="btn">Print</button>
                         <button class="btn" onclick="addExpenses()">Update</button>
                     </div>
                 </div>

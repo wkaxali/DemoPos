@@ -162,7 +162,7 @@
                             <div class="row">
                                 <div class="col-md-5 offset-md-1">
                                     <label for="">Employee ID</label>
-                                    <select style="height: 25px !important; width: 158px !important; "
+                                    <select 
                                         class="selectpicker form-control" data-live-search="true" id="employeeID">
 
                                     </select>
@@ -171,7 +171,7 @@
 
                                 <div class="col-md-5 ">
                                     <label for="">Employee Name</label>
-                                    <select style="height: 25px !important; width: 158px !important; "
+                                    <select 
                                         class="selectpicker form-control" data-live-search="true" id="employeeName">
 
                                     </select>

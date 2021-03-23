@@ -18,7 +18,7 @@
                             </div>
                             <div class="col-md-4 offset-md-4">
                                 <label for="">Payment Method</label>
-                                <select style="height: 25px !important; width: 158px !important; "
+                                <select 
                                     class="selectpicker form-control" data-live-search="true" id="accounts">
 
                             </div>
