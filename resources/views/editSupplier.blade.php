@@ -86,28 +86,28 @@
                 <div class="col-md-4 stockLabels">
                     <label for="id">Supplier ID</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="productID">
+                        name="id" id="supplierID">
                     <label for="id">Supplier Name</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="productName">
+                        name="id" id="supplierName">
                     <label for="id">Balance</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="company">
-                    <label for="id">Contant No</label>
+                        name="id" id="balance">
+                    <label for="id">Contact No</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="salePrice">
+                        name="id" id="contact">
                     <label for="id">Address</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="purchasePrice">
+                        name="id" id="address">
                     <label for="id">Initial Investment</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="stockIn">
+                        name="id" id="initialInvestment">
                     
                     <!-- <label for="id">Status</label> -->
                     <input type="text" class="form-control" style="display: none; width: 200px !important;"
                         name="id" id="status">
                     <div class="st-button  " style="margin-top: 15px;">
-                        <button class="btn btn-success" onclick="SetStockIdeal()">Update </button>
+                        <button class="btn btn-success" onclick="editSupplier()">Update </button>
 
                     </div>
                 </div>
@@ -145,75 +145,62 @@ function searchRawMatirial() {
         
         $.each(a, function (i, item) {
 
-            table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].SalePrice, a[i].TotalCost
-            , a[i].StockIn, a[i].color, a[i].EngineNumber, a[i].ChasisNumber, a[i].Status]);
+            table.row.add([a[i].LID, a[i].PartyName, a[i].Balance, a[i].ContantNo, a[i].Address
+            , a[i].InitialInvestment]);
             });   
          table.draw();          
          
     }
   };
   
-  xhttp.open("GET", "./viewAllStock/", true);
+  xhttp.open("GET", "./viewAllSupplier/", true);
   xhttp.send();
 }
 $("#stocktable").on('click','tr',function(){
 
-     document.getElementById("productID").value=this.cells[0].innerText; 
-     document.getElementById("productName").value=this.cells[1].innerText;
-     document.getElementById("company").value=this.cells[2].innerText;
+     document.getElementById("supplierID").value=this.cells[0].innerText; 
+     document.getElementById("supplierName").value=this.cells[1].innerText;
+     document.getElementById("balance").value=this.cells[2].innerText;
      
-     document.getElementById("salePrice").value=this.cells[3].innerText;
-     document.getElementById("purchasePrice").value=this.cells[4].innerText;
-     document.getElementById("stockIn").value=this.cells[5].innerText;
-     document.getElementById("color").value=this.cells[6].innerText;
-     document.getElementById("engineNumber").value=this.cells[7].innerText;
-     document.getElementById("chasisNumber").value=this.cells[8].innerText;
-     document.getElementById("status").value=this.cells[9].innerText;
+     document.getElementById("contact").value=this.cells[3].innerText;
+     document.getElementById("address").value=this.cells[4].innerText;
+     document.getElementById("initialInvestment").value=this.cells[5].innerText;
+    
      
 }
 );
 
-function SetStockIdeal() {
+function editSupplier() {
     
-    var PID = document.getElementById("productID").value;
+    var SID = document.getElementById("supplierID").value;
     //alert("updated  "+PID);
-    var productName = document.getElementById("productName").value;
+    var suppliertName = document.getElementById("supplierName").value;
     //alert("updated  "+productName);
-    var company = document.getElementById("company").value;
+    var balance = document.getElementById("balance").value;
     //alert("updated  "+company);
-    var salePrice = document.getElementById("salePrice").value;
+    var contact = document.getElementById("contact").value;
     //alert("updated "+salePrice);
-    var purchasePrice = document.getElementById("purchasePrice").value;
+    var address = document.getElementById("address").value;
     //alert("updated  "+purchasePrice);
-    var stockIn = document.getElementById("stockIn").value;
-    //alert("updated "+stockIn);
-    var color = document.getElementById("color").value;
-    //alert("updated "+color);
-    var engineNumber = document.getElementById("engineNumber").value;
+    var initialInvestment = document.getElementById("initialInvestment").value;
     
-    alert("updated "+engineNumber);
-    var chasisNumber = document.getElementById("chasisNumber").value;
-    //alert("updated "+chasisNumber);
-    var status = document.getElementById("status").value;
-    //alert("updated "+status);
-       
-    var UpdateStock = [PID, productName, company, salePrice, purchasePrice, stockIn, color, engineNumber, chasisNumber, status];
-    alert(UpdateStock);
+    var UpdateSupplier = [SID, suppliertName, balance, contact, address, initialInvestment];
+    alert(UpdateSupplier);
 
-    var UC = JSON.stringify(UpdateStock);
+    var ES = JSON.stringify(UpdateSupplier);
             
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Expense number " + this.responseText + " is added");
+                    alert("Supplier " + this.responseText + " is Updated");
 
 
                 }
             };
-            alert(UC);
+            alert(ES);
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./setStockIdeal/" + UC, true);
+            xhttp.open("GET", "./editSupplier/" + ES, true);
             xhttp.send();
             
         }

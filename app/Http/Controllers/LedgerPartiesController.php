@@ -164,4 +164,37 @@ class LedgerPartiesController extends Controller
                     ]);
                 return $CID." ID customer added";
             }
+
+            public function viewAllSupplier(){
+                $results=DB::select('select * from tblledgerparties');
+               // mysql_insert_id()
+                return $results;
+        
+            }
+
+            public static function editSupplier(Request $request, $CO){
+                $ata=json_decode($CO);
+                $EID = $ata[0];
+                $Name = $ata[1];
+                $Balance = $ata[2];
+                $ContantNo = $ata[3];
+                $Address = $ata[4];
+                $InitialInvestment = $ata[5];
+               
+        
+                $re = DB::table('tblemployees')
+                ->where('EID', $EID)
+                ->update([
+                  'PartyName'=>$Name,
+                  'Balance'=>$Balance,
+                  'ContantNo'=>$ContantNo,
+                  'Address'=>$Address,
+                  'InitialInvestment'=>$InitialInvestment
+                  
+                  ]);
+        
+                  return $EID;
+                }
+                
+
 }
