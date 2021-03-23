@@ -174,7 +174,7 @@ class LedgerPartiesController extends Controller
 
             public static function editSupplier(Request $request, $CO){
                 $ata=json_decode($CO);
-                $EID = $ata[0];
+                $LID = $ata[0];
                 $Name = $ata[1];
                 $Balance = $ata[2];
                 $ContantNo = $ata[3];
@@ -182,8 +182,8 @@ class LedgerPartiesController extends Controller
                 $InitialInvestment = $ata[5];
                
         
-                $re = DB::table('tblemployees')
-                ->where('EID', $EID)
+                $re = DB::table('tblledgerparties')
+                ->where('LID', $LID)
                 ->update([
                   'PartyName'=>$Name,
                   'Balance'=>$Balance,
@@ -193,7 +193,7 @@ class LedgerPartiesController extends Controller
                   
                   ]);
         
-                  return $EID;
+                  return $LID;
                 }
                 
 
