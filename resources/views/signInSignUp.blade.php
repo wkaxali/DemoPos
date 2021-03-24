@@ -423,7 +423,7 @@
   <title>Forland</title>
 </head>
 
-<body>
+<body id="signBody">
 <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
@@ -552,6 +552,18 @@ var xhttp = new XMLHttpRequest();
 
  }
 
+ var body = document.getElementById("signBody");
+
+// Execute a function when the user releases a key on the keyboard
+body.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    AdminLogin();
+    
+  }
+});
 
 
 function AdminLogin(){
