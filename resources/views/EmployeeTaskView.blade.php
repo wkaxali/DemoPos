@@ -1329,6 +1329,9 @@
                     document.getElementById("mainTask").value = a[0].Subject;
                     document.getElementById("mainTaskID").value = a[0].TaskID;
                     document.getElementById("employeeID").value = a[0].EID;
+                    document.getElementById("commentShow").value = a[0].Comment;
+                    document.getElementById("comment").value = a[0].Comment;
+                    
                     a[0].TaskID;
                     a[0].STaskID;
                     a[0].Subject;
