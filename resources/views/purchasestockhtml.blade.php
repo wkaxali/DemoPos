@@ -231,7 +231,7 @@
                 <br>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-9 myGoggle" style="overflow-x: auto; overflow-y: auto;">
+                        <div class="col-md-9 myGoggle " id="mainHeader" style="overflow-x: auto; overflow-y: auto;">
                             <div>
                                 <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
                                     id="ProductSaleTable">
@@ -295,7 +295,7 @@
                             <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #0a549d;"
                                     onclick="insertInOrder()">Save</button>
-                                <button class="btn" style="background-color: #e61d2f ;">Print</button>
+                                <button class="btn" onclick="window.print()" style="background-color: #e61d2f ;">Print</button>
                                 <button class="btn" style="background-color:#0a549d;">Edit</button>
                             </div>
                             <!-- <div class="total-buttons" id="hideme">

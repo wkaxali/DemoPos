@@ -961,3 +961,8 @@ route::get('/esp', function(){
 route::get('/acs', function(){
     return view('accountSettings');
 });
+
+
+route::get('/ch', function(){
+    return view('customerHistory');
+});

@@ -1,3 +1,10 @@
+<head>
+    <style>
+        ul li a i{
+            width:25px !important;
+        }
+    </style>
+</head>
 <div class="sidebar-menu">
 
     <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
@@ -8,7 +15,7 @@
             <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                         style="font-size: 14px;">Dashboard</span></a>
             </li>
-            <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
+            <li><a data-toggle="collapse" data-target=".new"><i class="fas fa-address-book"></i><span
                         style="font-size:14px;">Book Order</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse list-unstyled new">
@@ -17,7 +24,7 @@
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs"><i class="fas fa-business-time"></i><span
                         style="font-size: 14px;">Add Stock</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse list-unstyled firstULs ">
@@ -28,7 +35,7 @@
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fas fa-users"></i><span
                         style="font-size: 14px;">Customer Info</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs1">
@@ -40,7 +47,7 @@
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fas fa-snowboarding"></i><span
                         style="font-size: 14px;">Expenses</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs2">
@@ -52,8 +59,8 @@
 
                 </ul>
             </li>
-            <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i class="fab fa-alipay"></i>
-                    <span style="font-size: 14px;">Sales</span><span class="fa fa-angle-right"
+            <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i class="fas fa-poo"></i>
+                    <span style="font-size: 14px; margin-left:-5px;">Sales</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs3">
                     <li id="menu-mensagens" style="width: 201px"><a href="/is">Sales Invoice</a>
@@ -62,7 +69,7 @@
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-suse"></i><span
                         style="font-size: 14px;">Investor</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs4">
@@ -72,7 +79,7 @@
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-viruses"></i><span
                         style="font-size: 14px;">HR</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs5">
@@ -81,7 +88,7 @@
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-vials"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-sort-numeric-up"></i><span
                         style="font-size: 14px;">Account Settings</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs6">
@@ -197,7 +204,7 @@
                     <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
                     <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
                 </ul>
-            <li><a data-toggle="collapse" data-target=".firstULs16"><i class="fab fa-amazon-pay"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs16"><i class="fas fa-anchor"></i><span
                         style="font-size: 14px;">Quotations</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs16" id="menu-academico-sub">
