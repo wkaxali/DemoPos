@@ -238,6 +238,59 @@ public static function searchTaskWithStatus($EID, $status, $name){
      
 }
 
+
+public static function searchTaskWithDate($EID, $date, $name){
+    $card="";
+    $data=DB:: select('select * from vw_tasks where EID='.$EID.' AND DueDate="'.$date.'"');
+    foreach ($data as $obj){
+        $card=$card.'<div class="card" >
+
+        <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
+            <div class="mainCardBody">
+                <div class="leftCardBody">
+                    <button
+                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
+                </div>
+                <div class="rightCardBody">
+                    <span><i class="fa fa-fire"></i></span>
+                    <span><i class="fa fa-wifi"></i></span>
+                </div>
+            </div>
+            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">'.$obj->Subject.'</h4>
+            <div class="mainCardBody" style="padding-top: 20px;">
+                <div class="leftCardBody">
+                    <div
+                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                        W A</div>
+   
+                    <span>'.$name.'</span>
+                </div>
+                <div class="rightCardBody">
+   
+                    <div>Overdue</div>
+                    <div class="mainDots text-center">
+                        <div
+                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
+                        </div>
+                        <div
+                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
+                        </div>
+                        <div
+                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
+                        </div>
+   
+                    </div>
+                </div>
+            </div>
+        </div></div>';
+
+    }
+
+    return $card;
+     
+}
+
+
 public static function loadTaskDetails($TID){
     $data=DB:: select('select * from vw_subtasks where TaskID='.$TID);
     return $data;
@@ -289,17 +342,23 @@ public static function updateTaskStatus(Request $request, $CO){
     
     $employeeID = $obj[0][0];
     $mainTaskID = $obj[1][0];
-    $remarks = $obj[2][0];
+    $comment = $obj[2][0];
     $status = $obj[3][0];
     $date = $obj[4][0];
     $data = DB::table('tbl_tasks')
             ->where('TaskID', '=', $mainTaskID)
             ->update([
                 'Status'=>$status,
-                'Remarks'=>$remarks,
+                'Comment'=>$comment,
                 'DueDate'=>$date
             ]);
-    
+    $dateTime=Carbon::now();
+    $chat=DB::table('tbl_chatbox')->insertGetId([
+        'TaskID'=>$mainTaskID,
+        'Comment'=>$comment,
+        'CommentedBy'=>$employeeID,
+        'DateTime'=>$dateTime
+        ]);
 
     return $status;
   }

@@ -198,6 +198,7 @@ Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendanc
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
 Route::get('/searchEmployeeData/{EID}/{name}',[taskController::class, 'searchEmployeeData']);
 Route::get('/searchTaskWithStatus/{EID}/{status}/{name}',[taskController::class, 'searchTaskWithStatus']);
+Route::get('/searchTaskWithStatus/{EID}/{date}/{name}',[taskController::class, 'searchTaskWithDate']);
 Route::get('/loadTaskDetails/{TID}',[taskController::class, 'loadTaskDetails']);
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance']);
 Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID']);
@@ -479,7 +480,7 @@ Route::get('/etv', function () {
     $UN = session()->get('Designation');
 
     if($UN=="Admin"){
-
+        
         return view('EmployeeTaskView');
   
    }else{
