@@ -618,9 +618,6 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <label for="">Last Comment</label>
-                                            <textarea name="" placeholder="Last Comment" class="form-control" 
-                                                style="height: 100%; width: 100%; resize: none; pointer-events: none;"
-                                                id="commentShow"></textarea>
                                             <textarea name="" placeholder="Last Comment" class="form-control"
                                                 style="height: 100%; width: 100%; resize: none;"
                                                 id="comment"></textarea>
@@ -634,12 +631,9 @@
                                         class="btn btn-primary  ">Update</button>
                                     <br>
                                     <div class="row" id="adminUseOnly">
-                                        <div class="col-md-8">
-                                            <label for="">Remarks</label>
-                                            <input type="text" class="form-control" name="" id="remarks">
-                                        </div>
+                                        
                                         <div class="col-md-4">
-                                            <label for="">&nbsp;</label>
+                                        <label for="">Task Status</label><br>
                                             <select style="height: 35px !important; width: 120px !important; "
                                                 class="form-control" id="adminStatus">
                                                 <option value="Pending">Pending</option>
@@ -649,6 +643,7 @@
                                     </div>
                                     <div class="row" id="adminUseOnly2">
                                         <div class="col-md-12">
+                                        
                                             <input type="text" placeholder="Task" class="form-control" name=""
                                                 id="dateValue" style="display:none">
                                             <label for="">Due On</label><br>
@@ -710,7 +705,7 @@
                     </div>
                     <div class="col-md-3 ">
                         <label for="">Date</label><br>
-                        <input type="date" name="" class="form-control" id=""></div>
+                        <input type="date" name="" class="form-control" id="taskDate" onchange=searchTaskWithDate()></div>
                     <div class="col-md-1">
                         <button class="btn btn-primary" style="margin-top: 31px;">Search</button>
                     </div>
@@ -802,7 +797,7 @@
                                                             class="btn "><input class="hello" onchange="customDate()"
                                                                 type="date"
                                                                 style="background: none !important; width:103px; border: none !important;"
-                                                                name="" id="date"></button>
+                                                                name="" id="customDate"></button>
                                                         <input type="text" class="form-control" name="" id="dateValue" style="display:none">
                                                     </div>
                                                     <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
@@ -1050,15 +1045,16 @@
 
 
         function updateAdminStatus() {
-            var employeeID = document.getElementById("employeeID").value;
+            var employeeID = ('{{ Session::get('EmpID')}}');
+            alert(employeeID);
             var mainTaskID = document.getElementById("mainTaskID").value;
-            var remarks = document.getElementById("remarks").value;
+            var comment = document.getElementById("comment").value;
             var status = document.getElementById("adminStatus").value;
             var date = document.getElementById("dateValue").value;
             var adminStatus = [
                 [employeeID],
                 [mainTaskID],
-                [remarks],
+                [comment],
                 [status],
                 [date]
             ];
@@ -1094,7 +1090,6 @@
                     document.getElementById("mainTask").value = a[0].Subject;
                     document.getElementById("mainTaskID").value = a[0].TaskID;
                     document.getElementById("employeeID").value = a[0].EID;
-                    document.getElementById("commentShow").value = a[0].Comment;
                     document.getElementById("comment").value = a[0].Comment;
                     
                     a[0].TaskID;
@@ -1119,7 +1114,7 @@
 
 
                     var userCategory = ('{{ Session::get('Designation')}}');
-                    alert(userCategory);
+                    
                     $.each(a, function (i, item) {
                         if (a[i].Status == "Pending") {
                             // document.getElementById("AllSubTasks").innerHTML=;
@@ -1155,11 +1150,11 @@
                         
                         if (userCategory == 'Admin') {
                             document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
-                            document.getElementById("comment").style.display = "none";
+                            
                         } else {
                             document.getElementById("adminUseOnly").style.visibility = "hidden";
                             document.getElementById("adminUseOnly2").style.visibility = "hidden";
-                            document.getElementById("commentShow").style.display = "none";
+                            
                         }
                     });
                 }
@@ -1230,7 +1225,16 @@
             displayOptions();
             loadCategory();
             loadEmployeesMainPage();
+            adminUserFunctions();
 
+        }
+
+        function adminUserFunctions(){
+            var userCategory = ('{{ Session::get('Designation')}}');
+            var EmpID=('{{ Session::get('EmpID')}}');
+            if(userCategory=="User"){
+            document.getElementById("movetop").style.display = "none";
+            }
         }
 
         function displayOptions() {
@@ -1283,6 +1287,29 @@
             };
             //alert("ljd");
             xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
+
+            xhttp.send();
+        }
+
+        function searchTaskWithDate() {
+            var employeeID = document.getElementById("employee").value;
+            var employeeName = $('#employee').find(":selected").text();
+            var date = document.getElementById("taskDate").value;
+            alert(date);
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = "";
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + date + "/" + employeeName, true);
 
             xhttp.send();
         }
@@ -1354,7 +1381,7 @@
         }
 
         function customDate() {
-            var custumDate = document.getElementById("date").value;
+            var custumDate = document.getElementById("customDate").value;
             document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
 
@@ -1443,7 +1470,7 @@
         }
 
         function customDate() {
-            var custumDate = document.getElementById("date").value;
+            var custumDate = document.getElementById("customDate").value;
             alert(custumDate);
         }
 
@@ -1464,7 +1491,7 @@
         }
 
         function customDate() {
-            var custumDate = document.getElementById("date").value;
+            var custumDate = document.getElementById("customDate").value;
             document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
 
