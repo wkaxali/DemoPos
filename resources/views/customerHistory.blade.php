@@ -177,583 +177,672 @@
             position: relative;
             width: 100%;
             min-height: 1px;
-             padding-right: 5px; 
-             padding-left: 15px; 
+            padding-right: 5px;
+            padding-left: 15px;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            /* .mainCards {
+                width: 196%;
+            }
+            .card{
+                margin: 5px 0px;
+            } */
+            .ownmargins {
+                margin-left: 49px !important;
+            }
+
+            .card {
+                width: 21rem;
+            }
+
+        }
+
+        .container {
+            padding: 0px !important;
         }
 
     </style>
 </head>
 
+<body>
 
 
-<div class="page-container">
+    <main style="margin:0px 0px 20px 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center mainHed">
+                    <h4>Customer History</h4>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 ownmargins" style="margin-left: 137px;">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="box-1" style=" background-color: #13579a; color: #fff; padding: 10px 20px;
+                    border-radius: 10px;">
 
-    <div class="left-content">
-        <div class="inner-block">
+                            <div style="display: flex; justify-content: space-between;">
+                                <div>
+                                    <p>Waqas Ali</p>
 
-            <main style="margin:0px 0px 20px 0px;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h4>Customer History</h4>
+                                </div>
+                                <div>
+                                    <p>03091422045</p>
+
+
+                                </div>
+                            </div>
+                            <div>
+                                <p style="font-size: 13px;"> 8-Km Lahore opposite Millat Tractors Ltd,</p>
+                            </div>
+
+
+
+
                         </div>
                     </div>
-                </div>
-            </main>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10" style="margin-left: 137px;">
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="box-1" style=" background-color: #13579a; color: #fff; padding: 10px 20px;
-                                border-radius: 10px;">
 
-                                    <div style="display: flex; justify-content: space-between;">
-                                        <div>
-                                            <p>Waqas Ali</p>
+                    <div class="col-md-5">
+                        <div class="box">
+                            <div>
+                                <h6 style=" color: #000; font-weight: bold;">Total Amount</h6>
+                                <p>12,000</p>
+                            </div>
+                            <div>
+                                <h6 style="color: #000; font-weight: bold;">Total Paid</h6>
+                                <p>10,000</p>
+                            </div>
+                            <div>
+                                <h6 style="color: #000; font-weight: bold;">Remaining</h6>
+                                <p style="color: #e61d2f; font-weight: bold;">2,000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <button data-toggle="modal" data-target="#exampleModal" class="btn btn-warning"
+                            style="margin-top: 13px;">
+                            +
+                        </button>
 
-                                        </div>
-                                        <div>
-                                            <p>03091422045</p>
-
-
-                                        </div>
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Forland Modern Motors
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                     </div>
-                                    <div>
-                                        <p style="font-size: 13px;"> 8-Km Lahore opposite Millat Tractors Ltd,</p>
+                                    <div class="modal-body">
+
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-md-10 offset-md-1">
+                                                    <label style="width: 150px;" for="">Invoice ID</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br>
+                                                    <label style="width: 150px;" for="">Name</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Name</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Contact No</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Customer ID</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">CNIC</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Last
+                                                        Balance</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Current
+                                                        Balance</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Invoice
+                                                        Total</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Amount Paid</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Remaining
+                                                        Balance</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Discount</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br> <label style="width: 150px;" for="">Cash Received
+                                                        New</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br>
+                                                    <label style="width: 150px;" for="">Remaining
+                                                        Balance</label>
+                                                    <input type="text" class="form-control"
+                                                        style="display: inline-block !important; width: 150px;" name=""
+                                                        id="">
+                                                    <br>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
-
-
-
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Update</button>
+                                      </div>
 
                                 </div>
-                            </div>
-
-                            <div class="col-md-5">
-                                <div class="box">
-                                    <div>
-                                        <h6 style=" color: #000; font-weight: bold;">Total Amount</h6>
-                                        <p>12,000</p>
-                                    </div>
-                                    <div>
-                                        <h6 style="color: #000; font-weight: bold;">Total Paid</h6>
-                                        <p>10,000</p>
-                                    </div>
-                                    <div>
-                                        <h6 style="color: #000; font-weight: bold;">Remaining</h6>
-                                        <p style="color: #e61d2f; font-weight: bold;">2,000</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-1">
-                                <button data-toggle="modal" data-target="#exampleModal" class="btn btn-warning" style="margin-top: 13px;">
-                                    +
-                                </button>
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <section>
-                <div class="container">
-                    <div class="row" style="width: 96% ;">
-                        <div class="col-md-11 offset-md-1">
-                            <div class="mainCards">
-                                <div class="card" data-toggle="collapse" data-target=".mainC"
-                                    title="Click  To View Details" id="myCard">
-                                    <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
-                                     padding: 5px 20px;
-                                    display: flex; justify-content: space-between; align-items: center;">
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="display: flex; align-items: center; ">
-                                                <div
-                                                    style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
-
-                                                </div>
-                                                <div class="mainCard" style="margin-left: 20px;">
-                                                    <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                        Invoice Number 5312
-                                                    </div>
-                                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                        11-April-2019
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                15,000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                13,000 Paid
-                                            </div>
-
-                                        </div>
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
-                                                2000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                Due
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="mainOwn collapse mainC">
-                                        <div class="myown " style="text-align: center;">
-
-                                            Information will be here
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" data-toggle="collapse" data-target=".mainC1"
-                                    title="Click  To View Details" id="myCard">
-                                    <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
-                                     padding: 5px 20px;
-                                    display: flex; justify-content: space-between; ">
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="display: flex; align-items: center; ">
-                                                <div
-                                                    style="height: 30px; width: 30px; background-color: green; border-radius: 50%;">
-
-                                                </div>
-                                                <div class="mainCard" style="margin-left: 20px;">
-                                                    <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                        Invoice Number 5312
-                                                    </div>
-                                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                        11-April-2019
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                15,000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                13,000 Paid
-                                            </div>
-
-                                        </div>
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: green; font-weight: bold;">
-                                                0
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                Due
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="mainOwn collapse mainC1">
-                                        <div class="myown " style="text-align: center;">
-
-                                            Information will be here
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" data-toggle="collapse" data-target=".mainC2"
-                                    title="Click  To View Details" id="myCard">
-                                    <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
-                                 padding: 5px 20px;
-                                display: flex; justify-content: space-between; align-items: center;">
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="display: flex; align-items: center; ">
-                                                <div
-                                                    style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
-
-                                                </div>
-                                                <div class="mainCard" style="margin-left: 20px;">
-                                                    <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                        Invoice Number 5312
-                                                    </div>
-                                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                        11-April-2019
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                15,000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                13,000 Paid
-                                            </div>
-
-                                        </div>
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
-                                                2000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                Due
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="mainOwn collapse mainC2">
-                                        <div class="myown " style="text-align: center;">
-
-                                            Information will be here
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" data-toggle="collapse" data-target=".mainC3"
-                                    title="Click  To View Details" id="myCard">
-                                    <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
-                             padding: 5px 20px;
-                            display: flex; justify-content: space-between; align-items: center;">
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="display: flex; align-items: center; ">
-                                                <div
-                                                    style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
-
-                                                </div>
-                                                <div class="mainCard" style="margin-left: 20px;">
-                                                    <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                        Invoice Number 5312
-                                                    </div>
-                                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                        11-April-2019
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                15,000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                13,000 Paid
-                                            </div>
-
-                                        </div>
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
-                                                2000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                Due
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="mainOwn collapse mainC3">
-                                        <div class="myown " style="text-align: center;">
-
-                                            Information will be here
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" data-toggle="collapse" data-target=".mainC4"
-                                    title="Click  To View Details" id="myCard">
-                                    <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
-                             padding: 5px 20px;
-                            display: flex; justify-content: space-between; ">
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="display: flex; align-items: center; ">
-                                                <div
-                                                    style="height: 30px; width: 30px; background-color: green; border-radius: 50%;">
-
-                                                </div>
-                                                <div class="mainCard" style="margin-left: 20px;">
-                                                    <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                        Invoice Number 5312
-                                                    </div>
-                                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                        11-April-2019
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                15,000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                13,000 Paid
-                                            </div>
-
-                                        </div>
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: green; font-weight: bold;">
-                                                0
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                Due
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="mainOwn collapse mainC4">
-                                        <div class="myown " style="text-align: center;">
-
-                                            Information will be here
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" data-toggle="collapse" data-target=".mainC5"
-                                    title="Click  To View Details" id="myCard">
-                                    <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
-                         padding: 5px 20px;
-                        display: flex; justify-content: space-between; align-items: center;">
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="display: flex; align-items: center; ">
-                                                <div
-                                                    style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
-
-                                                </div>
-                                                <div class="mainCard" style="margin-left: 20px;">
-                                                    <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                        Invoice Number 5312
-                                                    </div>
-                                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                        11-April-2019
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                15,000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                13,000 Paid
-                                            </div>
-
-                                        </div>
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
-                                                2000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                Due
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="mainOwn collapse mainC5">
-                                        <div class="myown " style="text-align: center;">
-
-                                            Information will be here
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" data-toggle="collapse" data-target=".mainC6"
-                                    title="Click  To View Details" id="myCard">
-                                    <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
-                                 padding: 5px 20px;
-                                display: flex; justify-content: space-between; ">
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="display: flex; align-items: center; ">
-                                                <div
-                                                    style="height: 30px; width: 30px; background-color: green; border-radius: 50%;">
-
-                                                </div>
-                                                <div class="mainCard" style="margin-left: 20px;">
-                                                    <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                        Invoice Number 5312
-                                                    </div>
-                                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                        11-April-2019
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                15,000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                13,000 Paid
-                                            </div>
-
-                                        </div>
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: green; font-weight: bold;">
-                                                0
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                Due
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="mainOwn collapse mainC6">
-                                        <div class="myown " style="text-align: center;">
-
-                                            Information will be here
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" data-toggle="collapse" data-target=".mainC7"
-                                    title="Click  To View Details" id="myCard">
-                                    <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
-                             padding: 5px 20px;
-                            display: flex; justify-content: space-between; align-items: center;">
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="display: flex; align-items: center; ">
-                                                <div
-                                                    style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
-
-                                                </div>
-                                                <div class="mainCard" style="margin-left: 20px;">
-                                                    <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                        Invoice Number 5312
-                                                    </div>
-                                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                        11-April-2019
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                15,000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                13,000 Paid
-                                            </div>
-
-                                        </div>
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
-                                                2000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                Due
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="mainOwn collapse mainC7">
-                                        <div class="myown " style="text-align: center;">
-
-                                            Information will be here
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card" data-toggle="collapse" data-target=".mainC8"
-                                    title="Click  To View Details" id="myCard">
-                                    <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
-                             padding: 5px 20px;
-                            display: flex; justify-content: space-between; ">
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="display: flex; align-items: center; ">
-                                                <div
-                                                    style="height: 30px; width: 30px; background-color: green; border-radius: 50%;">
-
-                                                </div>
-                                                <div class="mainCard" style="margin-left: 20px;">
-                                                    <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                        Invoice Number 5312
-                                                    </div>
-                                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                        11-April-2019
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: #000; font-weight: bold;">
-                                                15,000
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                13,000 Paid
-                                            </div>
-
-                                        </div>
-                                        <div class="mainCard">
-                                            <div class="leftcard" style="color: green; font-weight: bold;">
-                                                0
-                                            </div>
-                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
-                                                Due
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="mainOwn collapse mainC8">
-                                        <div class="myown " style="text-align: center;">
-
-                                            Information will be here
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </section>
-
         </div>
     </div>
-    @include('sidenavbar')
-    <div class="clearfix"></div>
-</div>
+
+    <section>
+        <div class="container">
+            <div class="row" style="width: 96% ;">
+                <div class="col-md-11 offset-md-1">
+                    <div class="mainCards">
+                        <div class="card" data-toggle="collapse" data-target=".mainC" title="Click  To View Details"
+                            id="myCard">
+                            <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
+                         padding: 5px 20px;
+                        display: flex; justify-content: space-between; align-items: center;">
+                                <div class="mainCard">
+                                    <div class="leftcard" style="display: flex; align-items: center; ">
+                                        <div
+                                            style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
+
+                                        </div>
+                                        <div class="mainCard" style="margin-left: 20px;">
+                                            <div class="leftcard" style="color: #000; font-weight: bold;">
+                                                Invoice Number 5312
+                                            </div>
+                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                                11-April-2019
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
+                                        15,000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        13,000 Paid
+                                    </div>
+
+                                </div>
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                        2000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        Due
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mainOwn collapse mainC">
+                                <div class="myown " style="text-align: center;">
+
+                                    Information will be here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-toggle="collapse" data-target=".mainC1" title="Click  To View Details"
+                            id="myCard">
+                            <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
+                         padding: 5px 20px;
+                        display: flex; justify-content: space-between; ">
+                                <div class="mainCard">
+                                    <div class="leftcard" style="display: flex; align-items: center; ">
+                                        <div
+                                            style="height: 30px; width: 30px; background-color: green; border-radius: 50%;">
+
+                                        </div>
+                                        <div class="mainCard" style="margin-left: 20px;">
+                                            <div class="leftcard" style="color: #000; font-weight: bold;">
+                                                Invoice Number 5312
+                                            </div>
+                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                                11-April-2019
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
+                                        15,000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        13,000 Paid
+                                    </div>
+
+                                </div>
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: green; font-weight: bold;">
+                                        0
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        Due
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mainOwn collapse mainC1">
+                                <div class="myown " style="text-align: center;">
+
+                                    Information will be here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-toggle="collapse" data-target=".mainC2" title="Click  To View Details"
+                            id="myCard">
+                            <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
+                     padding: 5px 20px;
+                    display: flex; justify-content: space-between; align-items: center;">
+                                <div class="mainCard">
+                                    <div class="leftcard" style="display: flex; align-items: center; ">
+                                        <div
+                                            style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
+
+                                        </div>
+                                        <div class="mainCard" style="margin-left: 20px;">
+                                            <div class="leftcard" style="color: #000; font-weight: bold;">
+                                                Invoice Number 5312
+                                            </div>
+                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                                11-April-2019
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
+                                        15,000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        13,000 Paid
+                                    </div>
+
+                                </div>
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                        2000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        Due
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mainOwn collapse mainC2">
+                                <div class="myown " style="text-align: center;">
+
+                                    Information will be here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-toggle="collapse" data-target=".mainC3" title="Click  To View Details"
+                            id="myCard">
+                            <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
+                 padding: 5px 20px;
+                display: flex; justify-content: space-between; align-items: center;">
+                                <div class="mainCard">
+                                    <div class="leftcard" style="display: flex; align-items: center; ">
+                                        <div
+                                            style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
+
+                                        </div>
+                                        <div class="mainCard" style="margin-left: 20px;">
+                                            <div class="leftcard" style="color: #000; font-weight: bold;">
+                                                Invoice Number 5312
+                                            </div>
+                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                                11-April-2019
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
+                                        15,000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        13,000 Paid
+                                    </div>
+
+                                </div>
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                        2000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        Due
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mainOwn collapse mainC3">
+                                <div class="myown " style="text-align: center;">
+
+                                    Information will be here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-toggle="collapse" data-target=".mainC4" title="Click  To View Details"
+                            id="myCard">
+                            <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
+                 padding: 5px 20px;
+                display: flex; justify-content: space-between; ">
+                                <div class="mainCard">
+                                    <div class="leftcard" style="display: flex; align-items: center; ">
+                                        <div
+                                            style="height: 30px; width: 30px; background-color: green; border-radius: 50%;">
+
+                                        </div>
+                                        <div class="mainCard" style="margin-left: 20px;">
+                                            <div class="leftcard" style="color: #000; font-weight: bold;">
+                                                Invoice Number 5312
+                                            </div>
+                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                                11-April-2019
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
+                                        15,000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        13,000 Paid
+                                    </div>
+
+                                </div>
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: green; font-weight: bold;">
+                                        0
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        Due
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mainOwn collapse mainC4">
+                                <div class="myown " style="text-align: center;">
+
+                                    Information will be here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-toggle="collapse" data-target=".mainC5" title="Click  To View Details"
+                            id="myCard">
+                            <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
+             padding: 5px 20px;
+            display: flex; justify-content: space-between; align-items: center;">
+                                <div class="mainCard">
+                                    <div class="leftcard" style="display: flex; align-items: center; ">
+                                        <div
+                                            style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
+
+                                        </div>
+                                        <div class="mainCard" style="margin-left: 20px;">
+                                            <div class="leftcard" style="color: #000; font-weight: bold;">
+                                                Invoice Number 5312
+                                            </div>
+                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                                11-April-2019
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
+                                        15,000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        13,000 Paid
+                                    </div>
+
+                                </div>
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                        2000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        Due
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mainOwn collapse mainC5">
+                                <div class="myown " style="text-align: center;">
+
+                                    Information will be here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-toggle="collapse" data-target=".mainC6" title="Click  To View Details"
+                            id="myCard">
+                            <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
+                     padding: 5px 20px;
+                    display: flex; justify-content: space-between; ">
+                                <div class="mainCard">
+                                    <div class="leftcard" style="display: flex; align-items: center; ">
+                                        <div
+                                            style="height: 30px; width: 30px; background-color: green; border-radius: 50%;">
+
+                                        </div>
+                                        <div class="mainCard" style="margin-left: 20px;">
+                                            <div class="leftcard" style="color: #000; font-weight: bold;">
+                                                Invoice Number 5312
+                                            </div>
+                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                                11-April-2019
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
+                                        15,000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        13,000 Paid
+                                    </div>
+
+                                </div>
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: green; font-weight: bold;">
+                                        0
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        Due
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mainOwn collapse mainC6">
+                                <div class="myown " style="text-align: center;">
+
+                                    Information will be here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-toggle="collapse" data-target=".mainC7" title="Click  To View Details"
+                            id="myCard">
+                            <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
+                 padding: 5px 20px;
+                display: flex; justify-content: space-between; align-items: center;">
+                                <div class="mainCard">
+                                    <div class="leftcard" style="display: flex; align-items: center; ">
+                                        <div
+                                            style="height: 30px; width: 30px; background-color: red; border-radius: 50%;">
+
+                                        </div>
+                                        <div class="mainCard" style="margin-left: 20px;">
+                                            <div class="leftcard" style="color: #000; font-weight: bold;">
+                                                Invoice Number 5312
+                                            </div>
+                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                                11-April-2019
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
+                                        15,000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        13,000 Paid
+                                    </div>
+
+                                </div>
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                        2000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        Due
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mainOwn collapse mainC7">
+                                <div class="myown " style="text-align: center;">
+
+                                    Information will be here
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card" data-toggle="collapse" data-target=".mainC8" title="Click  To View Details"
+                            id="myCard">
+                            <div class="bgColors" style="background-color: #fff;  border-radius: 10px;
+                 padding: 5px 20px;
+                display: flex; justify-content: space-between; ">
+                                <div class="mainCard">
+                                    <div class="leftcard" style="display: flex; align-items: center; ">
+                                        <div
+                                            style="height: 30px; width: 30px; background-color: green; border-radius: 50%;">
+
+                                        </div>
+                                        <div class="mainCard" style="margin-left: 20px;">
+                                            <div class="leftcard" style="color: #000; font-weight: bold;">
+                                                Invoice Number 5312
+                                            </div>
+                                            <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                                11-April-2019
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
+                                        15,000
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        13,000 Paid
+                                    </div>
+
+                                </div>
+                                <div class="mainCard">
+                                    <div class="leftcard" style="color: green; font-weight: bold;">
+                                        0
+                                    </div>
+                                    <div class="rightCard" style="color: rgb(145, 143, 143);">
+                                        Due
+                                    </div>
+
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="mainOwn collapse mainC8">
+                                <div class="myown " style="text-align: center;">
+
+                                    Information will be here
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </section>
 
 
 
@@ -770,38 +859,38 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
-<script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-<!-- <script src="js/bootstrap.min.js"></script> -->
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-</script>
-<script>
-    var toggle = true;
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+    </script>
+    <script>
+        var toggle = true;
 
-    $(".sidebar-icon").click(function () {
-        if (toggle) {
-            $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-            $("#menu span").css({
-                "position": "absolute",
-
-            });
-        } else {
-            $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-            setTimeout(function () {
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
                 $("#menu span").css({
-                    "position": "relative",
+                    "position": "absolute",
 
                 });
-            }, 400);
-        }
-        toggle = !toggle;
-    });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
 
-</script>
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+
+    </script>
 
 
 

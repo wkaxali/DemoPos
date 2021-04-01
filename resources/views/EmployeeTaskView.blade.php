@@ -85,14 +85,9 @@
             float: right;
         }
 
-        /* @media only screen and (max-width: 768px) {
-            input {
-                width: 200px !important;
-            }
-        } */
+   
 
         td {
-            /* border: 1px solid #333; */
         }
 
         td:first-child {
@@ -229,218 +224,7 @@
             /* border-radius: 20px !important; */
         }
 
-        .chat {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            background: #f1f0e8;
-        }
-
-        .chat-header {
-            display: flex;
-            cursor: pointer;
-        }
-
-        .profile {
-            width: 78.5%;
-            background: #032360;
-            display: flex;
-            align-items: center;
-            height: 60px;
-            padding: 0px 10px;
-            position: fixed;
-        }
-
-        .profile .pp {
-            width: 50px;
-            display: inline-block;
-            border-radius: 50%;
-            margin-left: 32px;
-        }
-
-        .profile .arrow {
-            display: inline-block;
-            width: 30px;
-            position: absolute;
-            top: 19px;
-            cursor: pointer;
-        }
-
-        .profile h2 {
-            display: inline-block;
-            line-height: 60px;
-            vertical-align: bottom;
-            color: #fff;
-            font-size: 20px;
-        }
-
-        .profile span {
-            color: #ccc;
-            position: absolute;
-            top: 42px;
-            left: 100px;
-            font-size: 14px;
-        }
-
-        .right .icon {
-            display: inline-block;
-            width: 25px;
-            margin-left: 10px;
-        }
-
-        .profile .left {
-            flex: 1;
-        }
-
-        .chat-box {
-            background: url('../img/bg.jpeg');
-            background-attachment: fixed;
-            padding-left: 20px;
-            overflow: hidden;
-            flex: 1;
-
-        }
-
-        .chat-box img {
-            display: none;
-        }
-
-        .chat-box .img_chat {
-            width: 280px;
-        }
-
-        .chat-r {
-            display: flex;
-        }
-
-        .chat-r .sp {
-            flex: 1;
-        }
-
-        .chat-l {
-            display: flex;
-        }
-
-        .chat-l .sp {
-            flex: 1;
-        }
-
-        .chat-box .mess {
-            max-width: 300px;
-            background: #F7FCF6;
-            padding: 10px;
-            border-radius: 10px;
-            margin: 20px 0px;
-            cursor: pointer;
-        }
-
-        .chat-box .mess p {
-            word-break: break-all;
-            font-size: 18px;
-        }
-
-        .chat-box .mess-r {
-            background: #E2FFC7;
-        }
-
-        .chat-box .emoji {
-            width: 20px;
-        }
-
-        .chat-box .check {
-            float: right;
-        }
-
-        .chat-box .check img {
-            width: 20px;
-        }
-
-        .chat-box .check span {
-            color: #888;
-            font-size: 12px;
-            font-weight: 700px;
-        }
-
-        *::-webkit-scrollbar {
-            width: 15px;
-        }
-
-        *::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        *::-webkit-scrollbar-thumb {
-            background: #aaa;
-        }
-
-
-
-        .chat-footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 60px;
-            position: fixed;
-            cursor: pointer;
-            top: 56.5%;
-            width: 81%;
-            left: 9.5%;
-        }
-
-        .chat-footer textarea {
-            display: block;
-            flex: 1;
-            width: 100%;
-            height: 50px;
-            border-radius: 60px;
-            margin: 5px;
-            padding: 10px;
-            outline: none;
-            font-size: 19px;
-            padding-left: 40px;
-            padding-right: 90px;
-            border: 2px solid #ccc;
-            color: #555;
-            resize: none;
-        }
-
-        .chat-footer .mic {
-            display: block;
-            width: 55px;
-            height: 55px;
-            margin-right: 20px;
-        }
-
-        .chat-footer .emo {
-            display: block;
-            width: 35px;
-            height: 35px;
-            position: absolute;
-            left: 10px;
-            top: 12px;
-        }
-
-        .chat-footer .icons {
-            position: absolute;
-            right: 100px;
-            top: 10px;
-        }
-
-        .chat-footer .icons img {
-            display: inline-block;
-            width: 35px;
-            height: 35px;
-            margin-left: 5px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            text-decoration: none;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
+     
 
 
         .container .row {
@@ -563,9 +347,7 @@
             background: none !important;
             border-radius: 10px;
             width: 20rem;
-            /* -webkit-box-shadow: 10px 10px 31px 0px #4360b5;
-            -moz-box-shadow: 10px 10px 31px 0px#e61d2f;
-            box-shadow: 10px 10px 31px 0px #4360b5; */
+         
             transition: .7s;
 
         }
@@ -796,108 +578,12 @@
 
 <body onload="getEmployeeData()">
 
+
     <div class="page-container">
         <div class="left-content">
 
-            <!-- Button trigger modal -->
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog mydialog" role="document">
-                    <div class="modal-content myshadow">
-
-                        <div class="modal-body">
-                            <div class="myshadow">
-
-
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12 text-center">
-                                            <h4>Tasks View</h4>
-                                        </div>
-
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="mainTask">
-                                            <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="mainTaskID" style="display:none">
-                                            <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="employeeID" style="display:none">
-                                        </div>
-
-                                    </div>
-                                    <div id="AllSubTasks"></div>
-
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="">Last Comment</label>
-                                            <textarea name="" placeholder="Last Comment" class="form-control"
-                                                style="height: 100%; width: 100%; resize: none;"
-                                                id="comment"></textarea>
-
-                                        </div>
-
-                                    </div>
-                                    <br> <br>
-                                    <button onclick="updateEmployeeStatus()" style="margin-left: 17px;" type="button" id="updateEmployeeStatus"
-                                        class="btn btn-primary  ">Update</button>
-                                    <br>
-                                    <div class="row" id="adminUseOnly">
-                                        <div class="col-md-8">
-                                            <label for="">Remarks</label>
-                                            <input type="text" class="form-control" name="" id="remarks">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="">&nbsp;</label>
-                                            <select style="height: 35px !important; width: 120px !important; "
-                                                class="form-control" id="adminStatus">
-                                                <option value="Pending">Pending</option>
-                                                <option value="Completed">Completed</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row" id="adminUseOnly2">
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="dateValue" style="display:none">
-                                            <label for="">Due On</label><br>
-                                            <div class="btn-group" id="groupButtons" role="group"
-                                                aria-label="Basic example">
-                                                <button onclick="GetDates()" type="button" id="Today"
-                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
-                                                    class="btn ">Today</button>
-                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
-                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
-                                                    class="btn ">Tomorrow</button>
-                                                <button type="button" id="Date"
-                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
-                                                    class="btn "><input class="hello" onchange="customDate()"
-                                                        type="date"
-                                                        style="background: none !important; width:103px; border: none !important;"
-                                                        name="" id="date"></button>
-
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <button onclick="updateAdminStatus()" type="button" id="updateAdminStatus"
-                                            class="btn primary ">Update</button>
-                                        <br>
-                                    </div>
-
-                                    <br>
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+            
+         
 
 
             <div class="container mainMarg">
@@ -1063,24 +749,6 @@
 
 
 
-
-
-
-
-    </div>
-    </div>
-
-
-
-    <div class="leftCardBody">
-        <div>
-            &nbsp;</div>
-
-        <span>&nbsp;</span>
-    </div>
-
-    </div>
-    </div>
 
 
 
@@ -1498,7 +1166,102 @@
         });
 
     </script>
+   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog mydialog" role="document">
+                    <div class="modal-content myshadow">
 
+                        <div class="modal-body">
+                            <div class="myshadow">
+
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <h4>Tasks View</h4>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="mainTask">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="mainTaskID" style="display:none">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="employeeID" style="display:none">
+                                        </div>
+
+                                    </div>
+                                    <div id="AllSubTasks"></div>
+
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="">Last Comment</label>
+                                            <textarea name="" placeholder="Last Comment" class="form-control"
+                                                style="height: 100%; width: 100%; resize: none;"
+                                                id="comment"></textarea>
+
+                                        </div>
+
+                                    </div>
+                                    <br> <br>
+                                    <button onclick="updateEmployeeStatus()" style="margin-left: 17px;" type="button" id="updateEmployeeStatus"
+                                        class="btn btn-primary  ">Update</button>
+                                    <br>
+                                    <div class="row" id="adminUseOnly">
+                                        <div class="col-md-8">
+                                            <label for="">Remarks</label>
+                                            <input type="text" class="form-control" name="" id="remarks">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="">&nbsp;</label>
+                                            <select style="height: 35px !important; width: 120px !important; "
+                                                class="form-control" id="adminStatus">
+                                                <option value="Pending">Pending</option>
+                                                <option value="Completed">Completed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="adminUseOnly2">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="dateValue" style="display:none">
+                                            <label for="">Due On</label><br>
+                                            <div class="btn-group" id="groupButtons" role="group"
+                                                aria-label="Basic example">
+                                                <button onclick="GetDates()" type="button" id="Today"
+                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Today</button>
+                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Tomorrow</button>
+                                                <button type="button" id="Date"
+                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
+                                                    class="btn "><input class="hello" onchange="customDate()"
+                                                        type="date"
+                                                        style="background: none !important; width:103px; border: none !important;"
+                                                        name="" id="date"></button>
+
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button onclick="updateAdminStatus()" type="button" id="updateAdminStatus"
+                                            class="btn primary ">Update</button>
+                                        <br>
+                                    </div>
+
+                                    <br>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 </body>
 
 </html>
