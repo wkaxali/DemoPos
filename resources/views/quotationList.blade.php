@@ -192,7 +192,7 @@
 
                     alert("Quotation =" + this.responseText + " is generated");
 
-                    window.open("/qt");
+                    
                     window.open("/testpdf/5");
 
 
