@@ -90,15 +90,7 @@
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-vials"></i><span
-                        style="font-size: 14px;">Return</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs7">
-                    <li><a href="/ex">Add Expense</a></li>
-                    <li><a href="exv">Expense List</a></li>
-                    <li><a href="aeh">Expense Head</a></li>
-                    <!-- <li><a href="">Expense Category</a></li> -->
-                </ul>
+            
             </li>
             <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-vials"></i><span
                         style="font-size: 14px;">Expense</span><span class="fa fa-angle-right"
