@@ -145,18 +145,6 @@ class="fa fa-angle-right" style="float: right"></span></a>
 <ul class="collapse firstULs13" id="menu-academico-sub">
 <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
 
-<li id="menu-academico-boletim"><a href="/dl">Customer Report</a></li>
-<li id="menu-academico-boletim"><a href="/d">Best Seller</a></li>
-
-<li id="menu-academico-boletim"><a href="/dl">Daily Sale</a></li>
-<li id="menu-academico-boletim"><a href="/d">Monthly Sale</a></li>
-
-<li id="menu-academico-boletim"><a href="/dl">Daily Purchase</a></li>
-<li id="menu-academico-boletim"><a href="/d">MonthlyPurchase</a></li>
-
-<li id="menu-academico-boletim"><a href="/dl">User Report</a></li>
-<li id="menu-academico-boletim"><a href="/d">Supplier Report</a></li>
-
 <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li>
 
 
