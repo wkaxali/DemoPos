@@ -175,6 +175,7 @@
             var quantity = document.getElementById("quantity").value;
             var totalPrice = document.getElementById("totalPrice").value;
             var model = document.getElementById("model").value;
+            alert(model);
             var det = document.getElementById("dt").value;
             var qvt = document.getElementById("qvt").value;
             var payTo = document.getElementById("paymentTo").value;
