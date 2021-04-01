@@ -582,8 +582,109 @@
     <div class="page-container">
         <div class="left-content">
 
-            
-         
+            <!-- Button trigger modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog mydialog" role="document">
+                    <div class="modal-content myshadow">
+
+                        <div class="modal-body">
+                            <div class="myshadow">
+
+
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <h4>Tasks View</h4>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="mainTask">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="mainTaskID" style="display:none">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="employeeID" style="display:none">
+                                        </div>
+
+                                    </div>
+                                    <div id="AllSubTasks"></div>
+
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="">Last Comment</label>
+                                            <textarea name="" placeholder="Last Comment" class="form-control" 
+                                                style="height: 100%; width: 100%; resize: none; pointer-events: none;"
+                                                id="commentShow"></textarea>
+                                            <textarea name="" placeholder="Last Comment" class="form-control"
+                                                style="height: 100%; width: 100%; resize: none;"
+                                                id="comment"></textarea>
+                                            
+
+                                        </div>
+
+                                    </div>
+                                    <br> <br>
+                                    <button onclick="updateEmployeeStatus()" style="margin-left: 17px;" type="button" id="updateEmployeeStatus"
+                                        class="btn btn-primary  ">Update</button>
+                                    <br>
+                                    <div class="row" id="adminUseOnly">
+                                        <div class="col-md-8">
+                                            <label for="">Remarks</label>
+                                            <input type="text" class="form-control" name="" id="remarks">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="">&nbsp;</label>
+                                            <select style="height: 35px !important; width: 120px !important; "
+                                                class="form-control" id="adminStatus">
+                                                <option value="Pending">Pending</option>
+                                                <option value="Completed">Completed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="adminUseOnly2">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="dateValue" style="display:none">
+                                            <label for="">Due On</label><br>
+                                            <div class="btn-group" id="groupButtons" role="group"
+                                                aria-label="Basic example">
+                                                <button onclick="GetDates()" type="button" id="Today"
+                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Today</button>
+                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Tomorrow</button>
+                                                <button type="button" id="Date"
+                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
+                                                    class="btn "><input class="hello" onchange="customDate()"
+                                                        type="date"
+                                                        style="background: none !important; width:103px; border: none !important;"
+                                                        name="" id="date"></button>
+
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button onclick="updateAdminStatus()" type="button" id="updateAdminStatus"
+                                            class="btn primary ">Update</button>
+                                        <br>
+                                    </div>
+
+                                    <br>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
 
             <div class="container mainMarg">
@@ -639,103 +740,109 @@
 
             </button>
 
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
 
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="mainAbs">
-                                            <label for="">Task</label>
-                                            <input type="text" class="form-control" name="" id="taskSubject">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="mainAbs">
+                                                    <label for="">Task</label>
+                                                    <input type="text" class="form-control" name="" id="taskSubject">
 
-                                            <label for="">Assign To</label><br>
-                                            <select 
-                                                class="selectpicker form-control" data-live-search="true" id="assignTo">
+                                                    <label for="">Assign To</label><br>
+                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                        class="selectpicker form-control" data-live-search="true"
+                                                        id="assignTo">
 
-                                            </select>
-                                            <label for="">Details</label>
-                                            <table id="subTasks">
-                                                <tr>
-                                                    <td id="td-1">1</td>
-                                                    <td id="td-2"><input type="text" style="margin: 4px 0px;" class="form-control" name="" id="">
-                                                    </td>
+                                                    </select>
+                                                    <label for="">Details</label>
+                                                    <table id="subTasks">
+                                                        <tr>
+                                                            <td id="td-1">1</td>
+                                                            <td id="td-2"><input type="text" class="form-control"
+                                                                    name="" id=""></td>
 
-                                                </tr>
-                                            </table>
-                                            <div class="row">
-                                                <div class="col-md-12" style="margin-left:20px;">
-                                                    <div class="mainButtons">
-                                                        <button class="btn btn-info">Progress</button>
-                                                        <button onclick="getRowId()" class="btn btn-success">Add New
-                                                            List</button>
+                                                        </tr>
+                                                    </table>
+                                                    <div class="row">
+                                                        <div class="col-md-12" style="margin-left:20px;">
+                                                            <div class="mainButtons">
+                                                                <button class="btn btn-info">Progress</button>
+                                                                <button onclick="getRowId()" class="btn btn-success">Add
+                                                                    New
+                                                                    List</button>
 
-                                                        <button class="btn btn-success">Done</button>
+                                                                <button class="btn btn-success">Done</button>
+                                                            </div>
+
+
+                                                        </div>
                                                     </div>
+                                                    <label for="">Due On</label><br>
+                                                    <div class="btn-group" id="groupButtons" role="group"
+                                                        aria-label="Basic example">
+                                                        <button onclick="GetDates()" type="button" id="Today"
+                                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                            class="btn ">Today</button>
+                                                        <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                            class="btn ">Tomorrow</button>
+                                                        <button type="button" id="Date"
+                                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                            class="btn "><input class="hello" onchange="customDate()"
+                                                                type="date"
+                                                                style="background: none !important; width:103px; border: none !important;"
+                                                                name="" id="date"></button>
+                                                        <input type="text" class="form-control" name="" id="dateValue" style="display:none">
+                                                    </div>
+                                                    <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
+                                                    <br>
+                                                    <label for="">Priority</label><br>
 
+                                                    <div class="btn-group" id="myBtnGroup" role="group"
+                                                        aria-label="Basic example">
+                                                        <button type="button" id="Urgent"
+                                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                            class="btn " onclick="priority1()">Urgent</button>
+                                                        <button type="button" id="Normal"
+                                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                            class="btn " onclick="priority2()">Normal</button>
+                                                        <button type="button" id="Easily"
+                                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                            class="btn" onclick="priority3()">Easily</button>
+                                                        <input type="text" class="form-control" name="" id="priority" style="display:none">
+                                                    </div><br>
+                                                    <label for="">Category</label><br>
+                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                        class="selectpicker form-control" data-live-search="true"
+                                                        id="category">
+
+                                                    </select>
 
                                                 </div>
                                             </div>
-                                            <label for="">Due On</label><br>
-                                            <div class="btn-group" id="groupButtons" role="group"
-                                                aria-label="Basic example">
-                                                <button onclick="GetDates()" type="button" id="Today"
-                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                                    class="btn ">Today</button>
-                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
-                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                                    class="btn ">Tomorrow</button>
-                                                <button type="button" id="Date"
-                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                                    class="btn "><input class="hello" onchange="customDate()"
-                                                        type="date"
-                                                        style="background: none !important; width:103px; border: none !important;"
-                                                        name="" id="date"></button>
-                                            </div>
-                                            <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
-                                            <br>
-                                            <label for="">Priority</label><br>
-
-                                            <div class="btn-group" id="myBtnGroup" role="group"
-                                                aria-label="Basic example">
-                                                <button type="button" id="Urgent"
-                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                                    class="btn ">Urgent</button>
-                                                <button type="button" id="Normal"
-                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                                    class="btn ">Normal</button>
-                                                <button type="button" id="Easily"
-                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                                    class="btn">Easily</button>
-                                            </div><br>
-                                            <label for="">Category</label><br>
-                                            <select 
-                                                class="selectpicker form-control" data-live-search="true" id="category">
-
-                                            </select>
-
                                         </div>
+
                                     </div>
                                 </div>
-
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary-1"
+                                        data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary-1" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
-                        </div>
                     </div>
-                </div>
-            </div>
 
         </div>
 
@@ -769,6 +876,131 @@
 
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+
+
+        <script>
+        $(document).ready(function () {
+            $("#Today").click(function () {
+                $(this).css({
+                    "backgroundColor": "Green",
+                    "color": "#fff",
+
+                });
+                $("#Tomorrow").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+                $("#Date").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+                });
+
+            });
+            $("#Tomorrow").click(function () {
+                $(this).css({
+                    "backgroundColor": "Green",
+                    "color": "#fff",
+                });
+                $("#Today").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+                $("#Date").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+
+            });
+            $("#Date").click(function () {
+                $(this).css({
+                    "backgroundColor": "Green",
+                    "color": "#fff",
+
+
+                });
+                $("#Today").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+
+                });
+                $("#Tomorrow").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+
+                });
+
+            });
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#Urgent").click(function () {
+                $(this).css({
+                    "backgroundColor": "#e61d2f",
+                    "color": "#fff",
+
+                });
+                $("#Normal").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+                $("#Easily").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+                });
+
+            });
+            $("#Normal").click(function () {
+                $(this).css({
+                    "backgroundColor": "#e61d2f",
+                    "color": "#fff",
+                });
+                $("#Easily").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+                $("#Urgent").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+                });
+
+            });
+            $("#Easily").click(function () {
+                $(this).css({
+                    "backgroundColor": "#e61d2f",
+                    "color": "#fff",
+
+
+
+                });
+                $("#Urgent").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+
+                });
+                $("#Normal").css({
+                    "backgroundColor": "#fff",
+                    "color": "#333",
+
+
+                });
+
+            });
+        });
+
+    </script>
+
 
     <script>
         $(document).ready(function () {
@@ -830,8 +1062,7 @@
                 [status],
                 [date]
             ];
-            alert(adminStatus);
-
+            
             var status = JSON.stringify(adminStatus);
             alert(status);
             var xhttp = new XMLHttpRequest();
@@ -863,6 +1094,9 @@
                     document.getElementById("mainTask").value = a[0].Subject;
                     document.getElementById("mainTaskID").value = a[0].TaskID;
                     document.getElementById("employeeID").value = a[0].EID;
+                    document.getElementById("commentShow").value = a[0].Comment;
+                    document.getElementById("comment").value = a[0].Comment;
+                    
                     a[0].TaskID;
                     a[0].STaskID;
                     a[0].Subject;
@@ -884,7 +1118,8 @@
                     var st = "";
 
 
-
+                    var userCategory = ('{{ Session::get('Designation')}}');
+                    alert(userCategory);
                     $.each(a, function (i, item) {
                         if (a[i].Status == "Pending") {
                             // document.getElementById("AllSubTasks").innerHTML=;
@@ -917,14 +1152,14 @@
                                 </div>\
                                 </div>';
                         }
-                        var userCategory = ('{{ Session::get('
-                            EMPID ')}}');
-                        if (userCategory != 1) {
+                        
+                        if (userCategory == 'Admin') {
+                            document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
+                            document.getElementById("comment").style.display = "none";
+                        } else {
                             document.getElementById("adminUseOnly").style.visibility = "hidden";
                             document.getElementById("adminUseOnly2").style.visibility = "hidden";
-
-                        } else {
-                            document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
+                            document.getElementById("commentShow").style.display = "none";
                         }
                     });
                 }
@@ -993,6 +1228,8 @@
             xhttp.send();
             loadEmployees();
             displayOptions();
+            loadCategory();
+            loadEmployeesMainPage();
 
         }
 
@@ -1131,6 +1368,7 @@
 
                     document.getElementById("employee").innerHTML = this.response;
                     $('#employee').selectpicker('refresh');
+                    
                 }
             };
             //alert("ljd");
@@ -1175,93 +1413,189 @@
                             <div class="myshadow">
 
 
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12 text-center">
-                                            <h4>Tasks View</h4>
-                                        </div>
 
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="mainTask">
-                                            <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="mainTaskID" style="display:none">
-                                            <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="employeeID" style="display:none">
-                                        </div>
+<script>
+        function priority1() {
+            document.getElementById("priority").value = "Urgent"
+        }
 
-                                    </div>
-                                    <div id="AllSubTasks"></div>
+        function priority2() {
+            document.getElementById("priority").value = "Normal"
+        }
 
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="">Last Comment</label>
-                                            <textarea name="" placeholder="Last Comment" class="form-control"
-                                                style="height: 100%; width: 100%; resize: none;"
-                                                id="comment"></textarea>
+        function priority3() {
+            document.getElementById("priority").value = "Easily"
+        }
 
-                                        </div>
+        function GetDates() {
+            var dateFull = new Date();
+            y = dateFull.getFullYear();
+            m = dateFull.getMonth() + 1;
+            d = dateFull.getDate()
+            date = y + '-' + m + '-' + d;
+            alert(date);
+            document.getElementById("dateValue").value = date
+            var mainValue = document.getElementById("changeme");
+            mainValue.value = date;
 
-                                    </div>
-                                    <br> <br>
-                                    <button onclick="updateEmployeeStatus()" style="margin-left: 17px;" type="button" id="updateEmployeeStatus"
-                                        class="btn btn-primary  ">Update</button>
-                                    <br>
-                                    <div class="row" id="adminUseOnly">
-                                        <div class="col-md-8">
-                                            <label for="">Remarks</label>
-                                            <input type="text" class="form-control" name="" id="remarks">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="">&nbsp;</label>
-                                            <select style="height: 35px !important; width: 120px !important; "
-                                                class="form-control" id="adminStatus">
-                                                <option value="Pending">Pending</option>
-                                                <option value="Completed">Completed</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row" id="adminUseOnly2">
-                                        <div class="col-md-12">
-                                            <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="dateValue" style="display:none">
-                                            <label for="">Due On</label><br>
-                                            <div class="btn-group" id="groupButtons" role="group"
-                                                aria-label="Basic example">
-                                                <button onclick="GetDates()" type="button" id="Today"
-                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
-                                                    class="btn ">Today</button>
-                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
-                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
-                                                    class="btn ">Tomorrow</button>
-                                                <button type="button" id="Date"
-                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
-                                                    class="btn "><input class="hello" onchange="customDate()"
-                                                        type="date"
-                                                        style="background: none !important; width:103px; border: none !important;"
-                                                        name="" id="date"></button>
+            var mainValue = document.getElementById("changeme");
+            mainValue.value = tomorrow;
+        }
 
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <button onclick="updateAdminStatus()" type="button" id="updateAdminStatus"
-                                            class="btn primary ">Update</button>
-                                        <br>
-                                    </div>
-
-                                    <br>
+        function customDate() {
+            var custumDate = document.getElementById("date").value;
+            alert(custumDate);
+        }
 
 
-                                </div>
-                            </div>
-                        </div>
+        function TomorrowDate() {
+            const today = new Date()
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            y = tomorrow.getFullYear();
+            m = tomorrow.getMonth() + 1;
+            d = tomorrow.getDate()
+            date = y + '-' + m + '-' + d;
+            alert(date);
+            document.getElementById("dateValue").value = date;
+            var mainValue = document.getElementById("changeme");
+            mainValue.value = date;
 
-                    </div>
-                </div>
-            </div>
+        }
+
+        function customDate() {
+            var custumDate = document.getElementById("date").value;
+            document.getElementById("dateValue").value = custumDate;
+            alert(custumDate);
+
+        }
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#MainSpan").click(function () {
+                $('#exampleModal').modal('show')
+            })
+        })
+
+    </script>
+    <script>
+        function RemoveThisRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            //alert(i);
+            document.getElementById("subTasks").deleteRow(i);
+        }
+
+
+        function getRowId() {
+            var t = document.getElementById("subTasks");
+            var x = document.getElementById("subTasks").rows.length;
+            var totalRow = 0;
+            for (var i = 0; i < x; i++) {
+                totalRow = Number(t.rows[i].cells[0].innerText);
+                totalRow++;
+
+            }
+
+
+            var cell2 = document.getElementById("td-2").innerHTML;
+
+            var row = t.insertRow(-1);
+            var mcell1 = row.insertCell(0);
+            var mcell2 = row.insertCell(1);
+            var mcell3 = row.insertCell(2);
+
+            mcell1.innerHTML = totalRow;
+            mcell2.innerHTML = cell2;
+            mcell3.innerHTML =
+                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>";
+        }
+
+        function loadHeads() {
+            document.getElementById("dateValue").style.display = "none";
+            document.getElementById("priority").style.display = "none";
+            loadEmployees();
+            
+            loadCategory();
+        }
+
+        function addTasks() {
+
+            var taskSubject = document.getElementById("taskSubject").value;
+            var assignedTo = document.getElementById("assignTo").value;
+            var dueDate = document.getElementById("dateValue").value;
+            var category = document.getElementById("category").value;
+            //var taskSubject = document.getElementById("taskSubject").value;
+            var priority = document.getElementById("priority").value;
+
+            var taskDetails = [];
+            var OverallTask = [];
+
+            //alert(sp);
+            $('#subTasks tr').each(function (row, tr) {
+                taskDetails[row] = [
+                    $(tr).find('td:eq(1) input[type="text"]').val(), //Amount
+                ];
+            });
+
+
+            OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority];
+            var taskTable = JSON.stringify(OverallTask);
+            alert(taskTable);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert("Expense number " + this.responseText + " is added");
+
+
+                }
+            };
+            
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addTasks/" + taskTable, true);
+            xhttp.send();
+        }
+
+        function loadEmployeesMainPage() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("assignTo").innerHTML = this.response;
+                    $('#assignTo').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployees/", true);
+
+            xhttp.send();
+
+
+        }
+
+        function loadCategory() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("category").innerHTML = this.response;
+                    $('#category').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getCategory/", true);
+
+            xhttp.send();
+
+
+        }
+
+    </script>
+
 </body>
 
 </html>

@@ -7,18 +7,6 @@
             <div class="myshadow">
 
 
-<<<<<<< HEAD
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h4>Tasks View</h4>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="text" placeholder="Task" class="form-control" name="" id="">
-=======
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
@@ -168,15 +156,11 @@
                                     <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
                                 </div>
                             </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                         </div>
                     </div>
-<<<<<<< HEAD
-=======
 
         
                 <div class="container">
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                     <div class="row">
                         <div class="col-md-8 ">
                             <input type="text" class="form-control" name="" id="">
@@ -237,8 +221,6 @@
                                     id="employeeID" style="display:none">
                             </div>
 
-<<<<<<< HEAD
-=======
                 <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
                
                     <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Development</h4>
@@ -265,7 +247,6 @@
                                 </div>
            
                             </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                         </div>
                         <div id="AllSubTasks"></div>
 
@@ -402,6 +383,8 @@
                 </button>
             </div>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             <div class="modal-body">
 
                 <div class="container">
@@ -477,6 +460,7 @@
                                 </select>
 
 =======
+>>>>>>> 6adf7c8d005864e067eddd55a4709ab0889e42c8
             <button id="movetop" data-toggle="modal" data-target="#exampleModal" title="Go to top">
                 <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
@@ -582,21 +566,11 @@
                                         data-dismiss="modal">Cancel</button>
                                     <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
                                 </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                             </div>
                         </div>
                     </div>
 
-<<<<<<< HEAD
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary-1" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
-            </div>
-=======
         </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
         </div>
     </div>
 </div>

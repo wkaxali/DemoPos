@@ -1971,7 +1971,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated here");
-                        window.open("./testpdf/as");
+                        window.open("./testpdf/ss");
 
                     }
                 };
@@ -1983,7 +1983,7 @@
         }
 
         function print(){
-            window.open("./testpdf/as");
+            window.open("./testpdf/ss");
         }
 
         function UpdateSaleInvoice() {

@@ -477,14 +477,14 @@ Route::get('/ev', function () {
 });
 Route::get('/etv', function () {
     $UN = session()->get('Designation');
-    session(['EmpID' => '1']);
 
     if($UN=="Admin"){
-        
+
         return view('EmployeeTaskView');
   
    }else{
-       return "Invalid Username Or Password";
+        
+        return view('EmployeeTaskView');
    }
 
 });
