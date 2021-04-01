@@ -174,8 +174,7 @@
             var unitPrice = document.getElementById("unitPrice").value;
             var quantity = document.getElementById("quantity").value;
             var totalPrice = document.getElementById("totalPrice").value;
-            var model = document.getElementById("model").value;
-            alert(model);
+            var model = $('#model').find(":selected").text();
             var det = document.getElementById("dt").value;
             var qvt = document.getElementById("qvt").value;
             var payTo = document.getElementById("paymentTo").value;
