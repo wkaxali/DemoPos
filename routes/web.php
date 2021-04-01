@@ -18,6 +18,7 @@ use App\Http\Controllers\assesoriesController;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\printDocuments;
 use App\Http\Controllers\userAccountController;
+use App\Http\Controllers\printMonthlySaleController;
 
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
@@ -222,6 +223,7 @@ Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 Route::post('/Checkout/{token}',[StripeController::class, 'postCheckout']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
+Route::get('/monthlyReport',[printMonthlySaleController::class, 'PrintMonthlySale']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
