@@ -61,7 +61,7 @@
                                         alt="new">
                                 </div>
                                 <div class="headings mt-2">
-                                    <label class="btn btn-default" style="text-decoration: underline; color: #0abf53;">
+                                    <label class="btn btn-default" style="text-decoration: underline; color: #f0e580;">
                                         Upload Image <input type="file" hidden>
                                     </label> </div> -->
                                     <br>

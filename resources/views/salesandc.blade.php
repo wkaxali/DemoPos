@@ -89,7 +89,7 @@
         }
 
         .unit {
-            background-color: #fec73c;
+            background-color: #000;
             color: #ffffff;
             width: 163px;
             margin-top: 28px;
@@ -188,8 +188,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0abf53;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
+            border-color: #f0e580;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #f0e580;
             outline: 0 none;
         }
 
@@ -211,8 +211,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0abf53;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
+            border-color: #f0e580;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #f0e580;
             outline: 0 none;
         }
 
@@ -232,11 +232,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0abf53;
+            background-color: #f0e580;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #fec73c;
+            background-color: #000;
         }
 
         .fa-bars {
@@ -543,7 +543,7 @@
                                                     <div class="col-md-12" style="padding: 0px !important;">
 
                                                         <h3 class="additional"
-                                                            style="text-align: center; color:#fec73c; font-weight: 600;">
+                                                            style="text-align: center; color:#000; font-weight: 600;">
                                                             Additional Cost</h3>
 
                                                         <div class="myflex">
@@ -706,7 +706,7 @@
                                                     <div class="col-md-12" style="padding: 0px !important;">
 
                                                         <h3 class="additional"
-                                                            style="text-align: center; color:#fec73c; font-weight: 600;">
+                                                            style="text-align: center; color:#000; font-weight: 600;">
                                                             Comission & Taxes</h3>
                                                         <div class="myflex">
 
@@ -856,7 +856,7 @@
 
                         </div>
                         <div class="col-md-4">
-                            <button style="width: 100%; margin-top: 38px; background-color: #fec73c; color: #ffffff;"
+                            <button style="width: 100%; margin-top: 38px; background-color: #000; color: #ffffff;"
                                 onclick="addComissionP()" class="btn ">Update
                                 Profit</button>
                         </div>

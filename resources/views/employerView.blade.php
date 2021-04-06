@@ -115,7 +115,7 @@
             position: fixed;
             top: 70px;
             left: 10px;
-            background: #0abf53;
+            background: #f0e580;
             width: 200px;
             height: calc(100% - 80px);
             border-bottom-left-radius: 20px;
@@ -308,7 +308,7 @@
         }
 
         .card-header {
-            background-color: #fec73c;
+            background-color: #000;
             padding: 3px;
         }
 
@@ -325,7 +325,7 @@
             border-radius: 10px;
             width: 20rem;
             -webkit-box-shadow: 10px 10px 31px 0px #4360b5;
-            -moz-box-shadow: 10px 10px 31px 0px#fec73c;
+            -moz-box-shadow: 10px 10px 31px 0px#000;
             box-shadow: 10px 10px 31px 0px #4360b5;
             transition: .7s;
 
@@ -338,7 +338,7 @@
 
         .card {
             border-left: 10px solid #4360b5;
-            border-top: 10px solid #fec73c;
+            border-top: 10px solid #000;
             border-radius: 10px !important;
         }
 
@@ -382,14 +382,14 @@
         }
 
         .btn-secondary-1 {
-            background-color: #fec73c;
+            background-color: #000;
             outline: none !important;
             color: #ffffff;
 
         }
 
         .btn-secondary-1:hover {
-            background-color: #fec73c;
+            background-color: #000;
             outline: none !important;
             color: #ffffff;
 
@@ -398,7 +398,7 @@
         }
 
         .btn-dark-1 {
-            background-color: #0abf53;
+            background-color: #f0e580;
             border-color: #2e4ead;
             outline: none !important;
             color: #ffffff;
@@ -406,7 +406,7 @@
         }
 
         .btn-dark-1:hover {
-            background-color: #0abf53;
+            background-color: #f0e580;
             border-color: #2e4ead;
             color: #ffffff;
 

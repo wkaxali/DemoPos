@@ -104,8 +104,8 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4 mainButtons text-right offset-md-8">
-                    <button style="background-color: #fec73c;color: #fff;" class="btn">Close</button>
-                    <button onclick="personalDiv()" style="background-color: #0abf53; color: #fff;"
+                    <button style="background-color: #000;color: #fff;" class="btn">Close</button>
+                    <button onclick="personalDiv()" style="background-color: #f0e580; color: #fff;"
                         class="btn">Print</button>
 
                 </div>

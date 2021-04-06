@@ -127,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .page-container.sidebar-collapsed .sidebar-icon {
             transition: all 300ms ease-in-out;
             color: #fff;
-            background: #fec73c;
+            background: #000;
 
         }
 
@@ -332,7 +332,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             -o-border-radius: 3px;
             color: #FFF;
             background-clip: padding-box;
-            background: #fec73c;
+            background: #000;
         }
 
         .sidebar-icon:hover {
@@ -1057,7 +1057,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-1 {
-            background: #fec73c;
+            background: #000;
             margin-right: 0.8em;
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
@@ -1085,7 +1085,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .market-update-block.clr-block-1:hover {
-            background: #fec73c;
+            background: #000;
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1242,7 +1242,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             width: 0%;
             height: 5px;
             border-radius: 0px;
-            background: #fec73c;
+            background: #000;
             margin-bottom: 10px;
             -webkit-transition: width 1s;
             transition: width 1s;
@@ -6044,11 +6044,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0abf53;
+            background-color: #f0e580;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #fec73c;
+            background-color: #000;
         }
         
 
@@ -9413,7 +9413,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: #333333;
             background: none !important;
             font-size: 15px;
-            border: 1px solid #fec73c;
+            border: 1px solid #000;
             margin: 10px 5px;
             font-weight: bold;
 
@@ -9427,18 +9427,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .leftBtns .btn:hover {
             color: #ffffff;
             background: #e61d2f !important;
-            border: 1px solid #fec73c;
+            border: 1px solid #000;
             transition: .1s;
         }
 
         .leftBtns .btn-myPrimary-add {
-            background-color: #fec73c;
+            background-color: #000;
 
             width: 110px;
         }
 
         .leftBtns .btn-myPrimary {
-            background-color: #fec73c;
+            background-color: #000;
 
             /* width: 97px; */
             width: 110px;
@@ -9447,7 +9447,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .leftBtns .btn-mysecondary {
-            background-color: #0abf53;
+            background-color: #f0e580;
             /* width: 97px; */
             width: 110px;
 
@@ -9463,7 +9463,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin-left: 12px;
             font-weight: bold;
             font-size: 20px;
-            color: #0abf53;
+            color: #f0e580;
         }
 
         body {
@@ -9531,7 +9531,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .nav-pills {
             float: right !important;
-            background-color: #0abf53;
+            background-color: #f0e580;
             border-radius: 15px;
         }
         
@@ -9662,7 +9662,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .nav-pills .nav-link.active,
         .nav-pills .show>.nav-link {
             color: #fff;
-            background-color: #fec73c;
+            background-color: #000;
             border-radius: 15px;
             padding: 10px;
 
@@ -9858,7 +9858,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     src="https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-1.2.1&w=1000&q=80"
                                                     alt=""> </span>
                                             <div class="user-name">
-                                                <p style="color: #fec73c;">{{ Session::get('UserName')}}</p>
+                                                <p style="color: #000;">{{ Session::get('UserName')}}</p>
                                                 <span>Administrator</span>
                                             </div>
                                             <i class="fa fa-angle-down lnr"></i>
@@ -10281,11 +10281,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class='bar_group'>
                                         <div class='bar_group__bar thin' label='Rating' show_values='true'
                                             tooltip='true' value='343'></div>
-                                        <div class='bar_group__bar myBlueColor thin' style="background: #0abf53;"
+                                        <div class='bar_group__bar myBlueColor thin' style="background: #f0e580;"
                                             label='Quality' show_values='true' tooltip='true' value='235'></div>
                                         <div class='bar_group__bar thin' label='Amount' show_values='true'
                                             tooltip='true' value='550'></div>
-                                        <div class='bar_group__bar thin' style="background: #0abf53;" label='Farming'
+                                        <div class='bar_group__bar thin' style="background: #f0e580;" label='Farming'
                                             show_values='true' tooltip='true' value='456'></div>
                                     </div>
                                     <script src="js/bars.js"></script>

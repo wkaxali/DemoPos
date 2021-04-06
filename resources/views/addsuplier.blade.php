@@ -46,7 +46,7 @@
         }
 
         .Update {
-            background-color: #fec73c;
+            background-color: #000;
             color: #ffffff;
         }
 
@@ -83,12 +83,12 @@
         }
 
         .endButtons .update {
-            background-color: #fec73c;
+            background-color: #000;
             color: #ffffff;
         }
 
         .endButtons .save {
-            background-color: #0abf53;
+            background-color: #f0e580;
             color: #ffffff;
         }
 

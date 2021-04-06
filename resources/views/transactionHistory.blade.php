@@ -32,7 +32,7 @@
 
 
         .ThirdColor {
-            background-color: #0abf53;
+            background-color: #f0e580;
             height: 30px;
             border-radius: 10px;
         }
@@ -72,11 +72,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0abf53;
+            background-color: #f0e580;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #fec73c;
+            background-color: #000;
         }
 
         .fa-bars {

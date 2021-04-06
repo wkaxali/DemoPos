@@ -48,7 +48,7 @@
             padding: 10px 20px;
             font-size: 18px;
             font-weight: bold;
-            background-color: #0abf53;
+            background-color: #f0e580;
             border: none;
             color: white;
             margin-top: 20px;
@@ -105,7 +105,7 @@
         }
 
         .update {
-            background-color: #fec73c;
+            background-color: #000;
             color: #ffffff;
         }
 

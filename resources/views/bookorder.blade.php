@@ -46,8 +46,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0abf53;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
+            border-color: #f0e580;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #f0e580;
             outline: 0 none;
         }
 
@@ -78,28 +78,28 @@
         .printBtns {
 
             background-color: #ffffff;
-            border: 1px solid#0abf53;
-            color: #0abf53;
+            border: 1px solid#f0e580;
+            color: #f0e580;
             transition: .7s;
         }
 
         .placeBtns {
-            background-color: #fec73c;
+            background-color: #000;
             color: #ffffff;
 
 
         }
 
         .printBtns:hover {
-            background-color: #0abf53;
-            border-color: #0abf53;
+            background-color: #f0e580;
+            border-color: #f0e580;
             color: #ffffff;
             transition: .7s;
         }
 
         .successButtons button {
-            background-color: #0abf53;
-            border-color: #0abf53;
+            background-color: #f0e580;
+            border-color: #f0e580;
             color: #ffffff;
         }
 
@@ -262,11 +262,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0abf53;
+            background-color: #f0e580;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #fec73c;
+            background-color: #000;
         }
 
         .fa-bars {

@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
@@ -64,7 +63,7 @@
         .customBorder {
             border: 1px solid #333;
             border-radius: 10px;
-            background-color: #0abf53;
+            background-color: #f0e580;
             margin: 10px 0px;
         }
 
@@ -104,8 +103,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0abf53;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
+            border-color: #f0e580;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #f0e580;
             outline: 0 none;
         }
 
@@ -124,11 +123,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0abf53;
+            background-color: #f0e580;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #fec73c;
+            background-color: #000;
         }
 
         .fa-bars {

@@ -37,9 +37,9 @@
                             name="" id="">
                         <br>
                         <div class="loginButtons">
-                            <button class="btn" style="background-color: #fec73c; color: #ffffff;">View
+                            <button class="btn" style="background-color: #000; color: #ffffff;">View
                                 Previous </button>
-                            <button class="btn" style="background-color:  #0abf53; color: #ffffff;"
+                            <button class="btn" style="background-color:  #f0e580; color: #ffffff;"
                                 onclick="markAttendance()">Mark Attandance</button>
                         </div>
                     </div>

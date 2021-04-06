@@ -15,7 +15,7 @@
 
     <style>
         .print {
-            background-color: #0abf53;
+            background-color: #f0e580;
             color: aliceblue;
         }
 
@@ -39,28 +39,28 @@
         }
 
         .new {
-            background-color: #0abf53;
+            background-color: #f0e580;
             color: #fff;
         }
 
         .delete {
-            background-color: #fec73c;
+            background-color: #000;
             color: #fff;
         }
 
         .edit {
-            border: 1px solid #0abf53;
+            border: 1px solid #f0e580;
         }
 
         .edit:hover {
-            border: 1px solid #0abf53;
-            background-color: #0abf53;
+            border: 1px solid #f0e580;
+            background-color: #f0e580;
             color: #fff;
 
         }
 
         .add {
-            background-color: #0abf53;
+            background-color: #f0e580;
             color: #ffffff;
         }
 

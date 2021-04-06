@@ -44,7 +44,7 @@
         }
 
         .update {
-            background-color: #fec73c;
+            background-color: #000;
             color: #ffffff;
         }
 

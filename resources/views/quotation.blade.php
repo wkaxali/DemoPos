@@ -485,7 +485,7 @@
 
         span i {
             font-size: 30px !important;
-            color: #fec73c;
+            color: #000;
         }
 
         #myTable_length label {
@@ -657,20 +657,20 @@
             <div class="row" style="border-top: 1px solid #333;">
                 <div class="col-md-4 p-2 text-center">
                     <span><i style=" font-size: 30px !important;
-                        color: #fec73c;" class="fa fa-map-marker"></i></span>
+                        color: #000;" class="fa fa-map-marker"></i></span>
                     <h5 style="text-transform: uppercase;">BKM, {{ Session::get('UserName')}}Road,OM MILLAT Tractors,Lhr
                     </h5>
                 </div>
                 <div class="col-md-4 p-2 text-center">
                     <span><i style=" font-size: 30px !important;
-                        color: #fec73c;" class="fa fa-phone"></i></span>
+                        color: #000;" class="fa fa-phone"></i></span>
 
                     <h5>Mob: <a href="+92-300-0600061">+92-300-0600061</a></h5>
                     <h5>Tel: <a href="+92-300-0600061">+92-42-37925218/318</a></h5>
                 </div>
                 <div class="col-md-4 p-2 text-center">
                     <span><i style=" font-size: 30px !important;
-                        color: #fec73c;" class="fas fa-envelope"></i></span>
+                        color: #000;" class="fas fa-envelope"></i></span>
                     <h5>forlandmodernmotors@gmail.com</h5>
 
                 </div>

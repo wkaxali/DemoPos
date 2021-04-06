@@ -965,8 +965,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0abf53;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
+            border-color: #f0e580;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #f0e580;
             outline: 0 none;
         }
 
@@ -1110,11 +1110,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0abf53;
+            background-color: #f0e580;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #fec73c;
+            background-color: #000;
         }
 
         .fa-bars {
@@ -1227,7 +1227,7 @@
 
         .buttons-print {
             padding: 10px 25px;
-            background-color: #0abf53;
+            background-color: #f0e580;
             color: #ffffff;
         }
 
@@ -1261,7 +1261,7 @@
             }
 
             element.style {
-                background-color: #0abf53;
+                background-color: #f0e580;
             }
 
             .btn:not(:disabled):not(.disabled) {

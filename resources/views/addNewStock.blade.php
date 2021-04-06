@@ -20,7 +20,7 @@
             color: #333333;
             background: none !important;
             font-size: 15px;
-            border: 1px solid #fec73c;
+            border: 1px solid #000;
             margin: 10px 5px;
             font-weight: bold;
 
@@ -34,18 +34,18 @@
         .leftBtns .btn:hover {
             color: #ffffff;
             background: #e61d2f !important;
-            border: 1px solid #fec73c;
+            border: 1px solid #000;
             transition: .1s;
         }
 
         .leftBtns .btn-myPrimary-add {
-            background-color: #fec73c;
+            background-color: #000;
 
             width: 110px;
         }
 
         .leftBtns .btn-myPrimary {
-            background-color: #fec73c;
+            background-color: #000;
 
             /* width: 97px; */
             width: 110px;
@@ -54,7 +54,7 @@
         }
 
         .leftBtns .btn-mysecondary {
-            background-color: #0abf53;
+            background-color: #f0e580;
             /* width: 97px; */
             width: 110px;
 
@@ -70,7 +70,7 @@
             margin-left: 12px;
             font-weight: bold;
             font-size: 20px;
-            color: #0abf53;
+            color: #f0e580;
         }
 
         body {
@@ -123,7 +123,7 @@
 
         .nav-pills {
             float: right !important;
-            background-color: #0abf53;
+            background-color: #f0e580;
             border-radius: 15px;
         }
 
@@ -139,7 +139,7 @@
         .nav-pills .nav-link.active,
         .nav-pills .show>.nav-link {
             color: #fff;
-            background-color: #fec73c;
+            background-color: #000;
             border-radius: 15px;
             padding: 10px;
 
@@ -252,7 +252,7 @@
         .page-container.sidebar-collapsed .sidebar-icon {
             transition: all 300ms ease-in-out;
             color: #fff;
-            background: #fec73c;
+            background: #000;
 
         }
 
@@ -465,7 +465,7 @@
             -o-border-radius: 3px;
             color: #FFF;
             background-clip: padding-box;
-            background: #fec73c;
+            background: #000;
         }
 
         .sidebar-icon:hover {
@@ -1189,7 +1189,7 @@
         }
 
         .market-update-block.clr-block-1 {
-            background: #fec73c;
+            background: #000;
             margin-right: 0.8em;
             box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
             transition: 0.5s all;
@@ -1217,7 +1217,7 @@
         }
 
         .market-update-block.clr-block-1:hover {
-            background: #fec73c;
+            background: #000;
             transition: 0.5s all;
             -webkit-transition: 0.5s all;
             -moz-transition: 0.5s all;
@@ -1374,7 +1374,7 @@
             width: 0%;
             height: 5px;
             border-radius: 0px;
-            background: #fec73c;
+            background: #000;
             margin-bottom: 10px;
             -webkit-transition: width 1s;
             transition: width 1s;
@@ -6220,8 +6220,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0abf53;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
+            border-color: #f0e580;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #f0e580;
             outline: 0 none;
         }
 
@@ -6262,19 +6262,19 @@
 
         .btn-success {
             color: #fff;
-            background-color: #fec73c;
+            background-color: #000;
             border-color: #e61d2f
         }
 
         .btn-success:hover {
             color: #fff;
-            background-color: #fec73c;
-            border-color: #fec73c;
+            background-color: #000;
+            border-color: #000;
         }
 
         .btn-success.focus,
         .btn-success:focus {
-            box-shadow: 0 0 0 .2rem #fec73c;
+            box-shadow: 0 0 0 .2rem #000;
         }
 
         .btn-success.disabled,
@@ -6481,7 +6481,7 @@
         }
 
         /* tr:nth-child(1n++) {
-            background-color: #0abf53;
+            background-color: #f0e580;
         } */
 
         @media only screen and (max-width: 993px) {
@@ -6512,11 +6512,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0abf53;
+            background-color: #f0e580;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #fec73c;
+            background-color: #000;
         }
 
         .fa-bars {

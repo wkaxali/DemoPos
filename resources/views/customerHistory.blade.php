@@ -259,7 +259,7 @@
                             </div>
                             <div>
                                 <h6 style="color: #000; font-weight: bold;">Remaining</h6>
-                                <p style="color: #fec73c; font-weight: bold;">2,000</p>
+                                <p style="color: #000; font-weight: bold;">2,000</p>
                             </div>
                         </div>
                     </div>
@@ -409,7 +409,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">
@@ -511,7 +511,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">
@@ -562,7 +562,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">
@@ -664,7 +664,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">
@@ -766,7 +766,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
+                                    <div class="leftcard" style="color: #000; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">

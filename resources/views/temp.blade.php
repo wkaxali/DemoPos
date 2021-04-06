@@ -116,7 +116,7 @@
             position: fixed;
             top: 70px;
             left: 10px;
-            background: #0abf53;
+            background: #f0e580;
             width: 200px;
             height: calc(100% - 80px);
             border-bottom-left-radius: 20px;
@@ -217,7 +217,7 @@
             color: #fff;
             width: 40px;
             height: 40px;
-            background-color: #0abf53;
+            background-color: #f0e580;
             border-radius: 50px;
             -webkit-border-radius: 50px;
             -o-border-radius: 50px;
@@ -324,7 +324,7 @@
         }
 
         .card-header {
-            background-color: #fec73c;
+            background-color: #000;
             padding: 3px;
         }
 
@@ -363,8 +363,8 @@
 
 
         .card {
-            border-top: 10px solid #fec73c;
-            border-left: 10px solid #0abf53;
+            border-top: 10px solid #000;
+            border-left: 10px solid #f0e580;
             border-radius: 10px;
         }
 
@@ -436,7 +436,7 @@
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
                                     <button
-                                        style="border-radius: 20px; background-color: #fec73c; border-color: #fec73c; color: #fff;">Sales</button>
+                                        style="border-radius: 20px; background-color: #000; border-color: #000; color: #fff;">Sales</button>
                                 </div>
                                 <div class="rightCardBody">
                                     <span><i class="fa fa-fire"></i></span>
@@ -447,7 +447,7 @@
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: #fec73c; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #000; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -457,7 +457,7 @@
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #fec73c; display: inline-block;">
+                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #000; display: inline-block;">
                                         </div>
                                         <div
                                             style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
@@ -480,7 +480,7 @@
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
                                     <button
-                                        style="border-radius: 20px; background-color: #0abf53; border-color: #0abf53; color: #fff;">Urgent</button>
+                                        style="border-radius: 20px; background-color: #f0e580; border-color: #f0e580; color: #fff;">Urgent</button>
                                 </div>
                                 <div class="rightCardBody">
                                     <span><i class="fa fa-fire"></i></span>
@@ -491,7 +491,7 @@
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: #fec73c; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #000; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -502,7 +502,7 @@
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #fec73c; display: inline-block;">
+                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #000; display: inline-block;">
                                         </div>
                                         <div
                                             style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
@@ -537,7 +537,7 @@
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: #fec73c; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #000; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -548,7 +548,7 @@
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #fec73c; display: inline-block;">
+                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #000; display: inline-block;">
                                         </div>
                                         <div
                                             style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
@@ -574,7 +574,7 @@
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
                                     <button
-                                        style="border-radius: 20px; background-color: #0abf53; border-color: #0abf53; color: #fff;">Urgent</button>
+                                        style="border-radius: 20px; background-color: #f0e580; border-color: #f0e580; color: #fff;">Urgent</button>
                                 </div>
                                 <div class="rightCardBody">
                                     <span><i class="fa fa-fire"></i></span>
@@ -585,7 +585,7 @@
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: #fec73c; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #000; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -596,7 +596,7 @@
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #fec73c; display: inline-block;">
+                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #000; display: inline-block;">
                                         </div>
                                         <div
                                             style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
@@ -619,7 +619,7 @@
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
                                     <button
-                                        style="border-radius: 20px; background-color: #fec73c; border-color: #fec73c; color: #fff;">Sales</button>
+                                        style="border-radius: 20px; background-color: #000; border-color: #000; color: #fff;">Sales</button>
                                 </div>
                                 <div class="rightCardBody">
                                     <span><i class="fa fa-fire"></i></span>
@@ -630,7 +630,7 @@
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: #fec73c; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #000; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -641,7 +641,7 @@
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #fec73c; display: inline-block;">
+                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #000; display: inline-block;">
                                         </div>
                                         <div
                                             style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
@@ -675,7 +675,7 @@
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: #fec73c; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #000; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -686,7 +686,7 @@
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #fec73c; display: inline-block;">
+                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #000; display: inline-block;">
                                         </div>
                                         <div
                                             style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
@@ -712,7 +712,7 @@
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
                                     <button
-                                        style="border-radius: 20px; background-color: #fec73c; border-color: #fec73c; color: #fff;">Sales</button>
+                                        style="border-radius: 20px; background-color: #000; border-color: #000; color: #fff;">Sales</button>
                                 </div>
                                 <div class="rightCardBody">
                                     <span><i class="fa fa-fire"></i></span>
@@ -723,7 +723,7 @@
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: #fec73c; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #000; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -734,7 +734,7 @@
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #fec73c; display: inline-block;">
+                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #000; display: inline-block;">
                                         </div>
                                         <div
                                             style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
@@ -768,7 +768,7 @@
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: #fec73c; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #000; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -779,7 +779,7 @@
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #fec73c; display: inline-block;">
+                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #000; display: inline-block;">
                                         </div>
                                         <div
                                             style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
@@ -802,7 +802,7 @@
                             <div class="mainCardBody">
                                 <div class="leftCardBody">
                                     <button
-                                        style="border-radius: 20px; background-color: #0abf53; border-color: #0abf53; color: #fff;">Urgent</button>
+                                        style="border-radius: 20px; background-color: #f0e580; border-color: #f0e580; color: #fff;">Urgent</button>
                                 </div>
                                 <div class="rightCardBody">
                                     <span><i class="fa fa-fire"></i></span>
@@ -813,7 +813,7 @@
                             <div class="mainCardBody" style="padding-top: 20px;">
                                 <div class="leftCardBody">
                                     <div
-                                        style="background-color: #fec73c; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                                        style="background-color: #000; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
                                         W A</div>
 
                                     <span>Waqas Ali</span>
@@ -824,7 +824,7 @@
                                     <div>Overdue</div>
                                     <div class="mainDots text-center">
                                         <div
-                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #fec73c; display: inline-block;">
+                                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #000; display: inline-block;">
                                         </div>
                                         <div
                                             style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
