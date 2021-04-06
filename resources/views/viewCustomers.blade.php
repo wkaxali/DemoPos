@@ -35,14 +35,14 @@
          .printBtns {
 
              background-color: #ffffff;
-             border: 1px solid#0a549d;
-             color: #0a549d;
+             border: 1px solid#0abf53;
+             color: #0abf53;
              transition: .7s;
          }
 
          .printBtns:hover {
-             background-color: #0a549d;
-             border-color: #0a549d;
+             background-color: #0abf53;
+             border-color: #0abf53;
              color: #ffffff;
              transition: .7s;
          }
@@ -90,11 +90,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0a549d;
+            background-color: #0abf53;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background-color: #fec73c;
         }
 
         .fa-bars {

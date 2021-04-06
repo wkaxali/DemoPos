@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             color: #333333;
             background: none !important;
             font-size: 15px;
-            border: 1px solid #e61d2f;
+            border: 1px solid #fec73c;
             margin: 10px 5px;
             font-weight: bold;
 
@@ -62,18 +62,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .leftBtns .btn:hover {
             color: #ffffff;
             background: #e61d2f !important;
-            border: 1px solid #e61d2f;
+            border: 1px solid #fec73c;
             transition: .1s;
         }
 
         .leftBtns .btn-myPrimary-add {
-            background-color: #e61d2f;
+            background-color: #fec73c;
 
             width: 110px;
         }
 
         .leftBtns .btn-myPrimary {
-            background-color: #e61d2f;
+            background-color: #fec73c;
 
             /* width: 97px; */
             width: 110px;
@@ -82,7 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
         .leftBtns .btn-mysecondary {
-            background-color: #0a549d;
+            background-color: #0abf53;
             /* width: 97px; */
             width: 110px;
 
@@ -99,7 +99,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             margin-left: 12px;
             font-weight: bold;
             font-size: 20px;
-            color: #0a549d;
+            color: #0abf53;
         }
 
         body {
@@ -165,7 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         .nav-pills {
             float: right !important;
-            background-color: #0a549d;
+            background-color: #0abf53;
             border-radius: 15px;
         }
 
@@ -299,7 +299,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .nav-pills .nav-link.active,
         .nav-pills .show>.nav-link {
             color: #fff;
-            background-color: #e61d2f;
+            background-color: #fec73c;
             border-radius: 15px;
             padding: 10px;
 

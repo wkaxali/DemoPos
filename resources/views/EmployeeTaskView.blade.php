@@ -39,7 +39,7 @@
             color: #fff;
             width: 40px;
             height: 40px;
-            background-color: #0a549d;
+            background-color: #0abf53;
             border-radius: 50px;
             -webkit-border-radius: 50px;
             -o-border-radius: 50px;
@@ -136,7 +136,7 @@
         }
 
         .card-header {
-            background-color: #e61d2f;
+            background-color: #fec73c;
             padding: 3px;
         }
 
@@ -170,8 +170,8 @@
 
 
         .card {
-            border-top: 10px solid #e61d2f;
-            border-left: 10px solid #0a549d;
+            border-top: 10px solid #fec73c;
+            border-left: 10px solid #0abf53;
             border-radius: 10px;
         }
 
@@ -202,8 +202,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0a549d;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            border-color: #0abf53;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
             outline: 0 none;
         }
 
@@ -331,7 +331,7 @@
         }
 
         .card-header {
-            background-color: #e61d2f;
+            background-color: #fec73c;
             padding: 3px;
         }
 
@@ -356,7 +356,7 @@
 
         .card {
             border-left: 10px solid #4360b5;
-            border-top: 10px solid #e61d2f;
+            border-top: 10px solid #fec73c;
             border-radius: 10px !important;
         }
 
@@ -393,14 +393,14 @@
         }
 
         .btn-secondary-1 {
-            background-color: #e61d2f;
+            background-color: #fec73c;
             outline: none !important;
             color: #ffffff;
 
         }
 
         .btn-secondary-1:hover {
-            background-color: #e61d2f;
+            background-color: #fec73c;
             outline: none !important;
             color: #ffffff;
 
@@ -409,7 +409,7 @@
         }
 
         .btn-dark-1 {
-            background-color: #0a549d;
+            background-color: #0abf53;
             border-color: #2e4ead;
             outline: none !important;
             color: #ffffff;
@@ -417,7 +417,7 @@
         }
 
         .btn-dark-1:hover {
-            background-color: #0a549d;
+            background-color: #0abf53;
             border-color: #2e4ead;
             color: #ffffff;
 
@@ -453,8 +453,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0a549d;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            border-color: #0abf53;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
             outline: 0 none;
         }
 
@@ -464,11 +464,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0a549d;
+            background-color: #0abf53;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background-color: #fec73c;
         }
 
         .fa-bars {

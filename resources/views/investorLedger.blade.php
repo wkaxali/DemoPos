@@ -68,7 +68,7 @@
         .customBorder {
             border: 1px solid #333;
             border-radius: 10px;
-            background-color: #e61d2f;
+            background-color: #fec73c;
             margin: 10px 0px;
         }
 
@@ -126,8 +126,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0a549d;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            border-color: #0abf53;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
             outline: 0 none;
         }
 
@@ -158,11 +158,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0a549d;
+            background-color: #0abf53;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background-color: #fec73c;
         }
 
         .fa-bars {
@@ -254,7 +254,7 @@
 
                             <div class="col-md-1 msides" style="margin-left: -32px;margin-top: 2.5px; ">
                                 <button type="button"
-                                    style=" border-radius: 10px; height: 90px; background-color:#13579a; color: #ffffff; "
+                                    style=" border-radius: 10px; height: 90px; background-color:#0abf53 color: #ffffff; "
                                     class="btn " data-toggle="modal" data-target=".bd-example-modal-lg"
                                     onclick="getStock()">Assign
                                     Auto</button>
@@ -304,15 +304,15 @@
                                 <h4>SUMMARY</h4>
                             </div>
                             <div class="col-md-4 offset-md-4" style="margin: 5px 0px 5px auto;">
-                                <button class="btn" style="float: right;background-color:#13579a;color: #ffffff;"
+                                <button class="btn" style="float: right;background-color:#0abf53color: #ffffff;"
                                     onclick="profits()">Calculate</button>
                                     <button class="btn showMe"
-                                    style="width: 80px; background-color:#13579a;color: #ffffff;"
+                                    style="width: 80px; background-color:#0abf53color: #ffffff;"
                                     onclick="addInvestorProducts()">Update</button>
                             </div>
                             <div class="col-md-4 offset-md-4 myClass" style="margin: 5px 0px 5px auto;">
                                 <button class="btn"
-                                    style="float: right;width: 80px; background-color:#13579a;color: #ffffff;"
+                                    style="float: right;width: 80px; background-color:#0abf53color: #ffffff;"
                                     onclick="addInvestorProducts()">Update</button>
                             </div>
 

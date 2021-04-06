@@ -113,7 +113,7 @@
 
                         </div>
                         <br>
-                        <button type="button" class="btn" style="background-color: #e61d2f;color: #fff;" 
+                        <button type="button" class="btn" style="background-color: #fec73c;color: #fff;" 
                         onclick="addEmployee()">Add Employee</button>
                     </div>
                 </section>

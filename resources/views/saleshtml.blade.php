@@ -14,13 +14,13 @@
                         <label for="invo-1">Invoice Number</label>
                         <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                             name="invo-1" id="InvoiceID">
-                        <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;"
+                        <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0abf53;"
                             onclick="getInvoiceCustomer()"></button>
                         <br class="hideBr"> <label for="prod-1">Product Number</label>
                         <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                             name="invo-1" id="invo-1">
                         <button type="button" class="btn"
-                            style="height: 25px; margin-top: -5px; background-color: #e61d2f;" data-toggle="modal"
+                            style="height: 25px; margin-top: -5px; background-color: #fec73c;" data-toggle="modal"
                             data-target=".bd-example-modal-xl"></button>
 
                         </button>
@@ -89,9 +89,9 @@
                         <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
 
                         <div class="centhour">
-                            <button class="btn" style="background-color: #13579a;" onclick="pageReload()">New</button>
-                            <button class="btn" style="background-color: #e61d2f;">Edit</button>
-                            <button class="btn" style="background-color: #13579a;">Delete</button>
+                            <button class="btn" style="background-color: #0abf53" onclick="pageReload()">New</button>
+                            <button class="btn" style="background-color: #fec73c;">Edit</button>
+                            <button class="btn" style="background-color: #0abf53">Delete</button>
                         </div>
                         <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
                     </div>
@@ -102,13 +102,13 @@
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                                 name="invo-1" id="CID">
                             <button class="btn"
-                                style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
+                                style="height: 25px; margin-top: -5px; background-color: #fec73c;"></button>
                             <br>
                             <label for="prod-1">Last Balance</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                                 name="invo-1" id="LastBalance">
                             <button class="btn"
-                                style="height: 25px; margin-top: -5px;background-color: #13579a;"></button> <br>
+                                style="height: 25px; margin-top: -5px;background-color: #0abf53"></button> <br>
                             <label for="prod-1">Current Balance</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                                 name="invo-1" id="CurrentBalance">
@@ -141,7 +141,7 @@
 
                         </div>
                         <div class="inv-bor-btns">
-                            <button class="btn" style="background-color: #e61d2f;" data-toggle="modal"
+                            <button class="btn" style="background-color: #fec73c;" data-toggle="modal"
                                 data-target="#staticBackdrop">Add</button>
 
 
@@ -270,14 +270,14 @@
 
                         </select>
                         <div class="total-buttons" id="hideme">
-                            <button class="btn" style="background-color: #e61d2f;" id="saveBtn"
+                            <button class="btn" style="background-color: #fec73c;" id="saveBtn"
                                 onclick="insertInSales()">Save</button>
-                            <button class="btn" style="background-color: #0a549d;" onclick="print()">Print</button>
-                            <button class="btn" style="background-color: #e61d2f;">Edit</button>
-                            <button class="btn" style="background-color: #0a549d;">Hold</button>
-                            <button class="btn" style="background-color: #e61d2f;" id="updateBtn"
+                            <button class="btn" style="background-color: #0abf53;" onclick="print()">Print</button>
+                            <button class="btn" style="background-color: #fec73c;">Edit</button>
+                            <button class="btn" style="background-color: #0abf53;">Hold</button>
+                            <button class="btn" style="background-color: #fec73c;" id="updateBtn"
                                 onclick="UpdateSaleInvoice()">Update</button>
-                            <button class="btn" style="background-color: #0a549d;">Delete</button>
+                            <button class="btn" style="background-color: #0abf53;">Delete</button>
                         </div>
 
 

@@ -57,9 +57,9 @@
         .card {
 
             padding: 0px 0px 0px 0px;
-            -webkit-box-shadow: 10px 10px 29px -16px #13579a;
-            -moz-box-shadow: 10px 10px 29px -16px #13579a;
-            box-shadow: 10px 10px 29px -16px #13579a;
+            -webkit-box-shadow: 10px 10px 29px -16px #0abf53
+            -moz-box-shadow: 10px 10px 29px -16px #0abf53
+            box-shadow: 10px 10px 29px -16px #0abf53
 
             border-radius: 10px;
             border: 1px solid #aaa;
@@ -77,7 +77,7 @@
 
 
         .mainCards {
-            /* border: 1px solid #13579a; */
+            /* border: 1px solid #0abf53 */
             padding: 20px 50px;
 
 
@@ -223,7 +223,7 @@
             <div class="col-md-10 ownmargins" style="margin-left: 137px;">
                 <div class="row">
                     <div class="col-md-5">
-                        <div class="box-1" style=" background-color: #13579a; color: #fff; padding: 10px 20px;
+                        <div class="box-1" style=" background-color: #0abf53 color: #fff; padding: 10px 20px;
                     border-radius: 10px;">
 
                             <div style="display: flex; justify-content: space-between;">
@@ -259,7 +259,7 @@
                             </div>
                             <div>
                                 <h6 style="color: #000; font-weight: bold;">Remaining</h6>
-                                <p style="color: #e61d2f; font-weight: bold;">2,000</p>
+                                <p style="color: #fec73c; font-weight: bold;">2,000</p>
                             </div>
                         </div>
                     </div>
@@ -409,7 +409,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">
@@ -511,7 +511,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">
@@ -562,7 +562,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">
@@ -664,7 +664,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">
@@ -766,7 +766,7 @@
 
                                 </div>
                                 <div class="mainCard">
-                                    <div class="leftcard" style="color: #e61d2f; font-weight: bold;">
+                                    <div class="leftcard" style="color: #fec73c; font-weight: bold;">
                                         2000
                                     </div>
                                     <div class="rightCard" style="color: rgb(145, 143, 143);">

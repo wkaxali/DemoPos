@@ -92,7 +92,7 @@
       text-align: center;
       line-height: 55px;
 
-      color: #13579a;
+      color: #0abf53;
 
       
 
@@ -132,7 +132,7 @@
       justify-content: center;
       align-items: center;
       margin: 0 0.45rem;
-      color: #333;
+      color: #0abf53;
       border-radius: 50%;
       border: 1px solid #333;
       text-decoration: none;
@@ -141,14 +141,14 @@
     }
 
     .social-icon:hover {
-      color: #0a549d;
-      border-color: #0a549d;
+      color: #0abf53;
+      border-color: #0abf53;
     }
 
     .btn {
       width: 150px;
 
-      background-color: #13579a;
+      background-color: #0abf53;
 
       border: none;
       outline: none;
@@ -163,7 +163,7 @@
     }
 
     .btn:hover {
-      background-color: #0a549d;
+      background-color: #0abf53;
     }
 
     .panels-container {
@@ -185,7 +185,7 @@
       right: 48%;
       transform: translateY(-50%);
       /* background-image: linear-gradient(-45deg, rgb(231 172 61) 0%, rgb(231 172 61) 100%); */
-      background-image: linear-gradient(-45deg, #e61d2f 0%, #e61d2f 100%);
+      background-color: #fec73c;
       transition: 1.8s ease-in-out;
       border-radius: 50%;
       z-index: 6;

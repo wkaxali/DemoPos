@@ -70,7 +70,7 @@
         }
 
         .borderCustom {
-            background-color: #e61d2f;
+            background-color: #fec73c;
             border-radius: 10%;
             margin-top: 5px;
         }
@@ -103,7 +103,7 @@
             position: relative;
             float: right;
             margin-right: 50px !important;
-            background-color: #0a549d;
+            background-color: #0abf53;
             color: #ffffff;
         }
 
@@ -141,8 +141,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0a549d;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
+            border-color: #0abf53;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
             outline: 0 none;
         }
 
@@ -161,11 +161,11 @@
         }
 
         ::-webkit-scrollbar-track {
-            background-color: #0a549d;
+            background-color: #0abf53;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background-color: #fec73c;
         }
 
         .fa-bars {
@@ -212,9 +212,9 @@
                                 id="">
                             <br>
                             <div class="loginButtons">
-                                <button class="btn" style="background-color: #e61d2f; color: #ffffff;">View
+                                <button class="btn" style="background-color: #fec73c; color: #ffffff;">View
                                     Previous</button>
-                                <button class="btn" style="background-color:  #0a549d; color: #ffffff;">Mark
+                                <button class="btn" style="background-color:  #0abf53; color: #ffffff;">Mark
                                     Attandance</button>
                             </div>
                         </div>

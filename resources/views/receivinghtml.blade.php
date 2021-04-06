@@ -12,7 +12,7 @@
                             <div class="col-md-4">
                                 <label class="orderNOLabel" for="OrderNo">Order No</label>
                                 <input type="text" name="" value="" id="OrderId">
-                                <button class="btn" style="background-color: #e61d2f; height: 30px;"
+                                <button class="btn" style="background-color: #fec73c; height: 30px;"
                                     onclick="getOrderDetails()"></button>
 
                             </div>

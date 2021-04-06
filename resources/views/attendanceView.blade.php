@@ -261,8 +261,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 customButtons offset-md-6">
-                                <button style="background-color: #e61d2f;color: #ffffff;" class="btn ">Update</button>
-                                <button onclick="printWindow()" style="background-color: #0a549d;color: #ffffff;"
+                                <button style="background-color: #fec73c;color: #ffffff;" class="btn ">Update</button>
+                                <button onclick="printWindow()" style="background-color: #0abf53;color: #ffffff;"
                                     class="btn ">Print</button>
                             </div>
                         </div>

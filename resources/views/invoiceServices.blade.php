@@ -791,20 +791,20 @@
 
 
         .SecondColor {
-            background-color: #0a549d;
+            background-color: #0abf53;
             border-radius: 10px;
             height: 35px;
 
         }
 
         .firstColor {
-            background-color: #e61d2f;
+            background-color: #fec73c;
             border-radius: 10px;
 
         }
 
         .ThirdColor {
-            background-color: #e61d2f;
+            background-color: #fec73c;
             border-radius: 10px;
             height: 35px;
 
@@ -830,8 +830,8 @@
         }
 
         .btn-Search {
-            background-color: #e61d2f;
-            border-color: #e61d2f;
+            background-color: #fec73c;
+            border-color: #fec73c;
         }
 
         .head-right {
@@ -909,24 +909,24 @@
         }
 
         .myFooterButtons a:nth-child(1) {
-            background-color: #0a549d;
+            background-color: #0abf53;
             color: #fff;
         }
 
         .myFooterButtons a:nth-child(2) {
-            background-color: #0a549d;
+            background-color: #0abf53;
             color: #fff;
 
         }
 
         .myFooterButtons a:nth-child(3) {
-            background-color: #e61d2f;
+            background-color: #fec73c;
             color: #fff;
 
         }
 
         .myFooterButtons a:nth-child(4) {
-            background-color: #0a549d;
+            background-color: #0abf53;
             color: #fff;
 
         }
@@ -1323,7 +1323,7 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0a549d;
+            border-color: #0abf53;
             box-shadow: 0 10px 8px#0a549d inset, 0 13 15px #0a549d !important;
             outline: 0 none;
         }
@@ -1377,11 +1377,11 @@
 
         ::-webkit-scrollbar-track {
 
-            background-color: #0a549d;
+            background-color: #0abf53;
         }
 
         ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
+            background-color: #fec73c;
         }
 
         .fa-bars {

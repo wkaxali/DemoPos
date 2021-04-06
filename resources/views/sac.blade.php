@@ -29,7 +29,7 @@
         }
 
         .unit {
-            background-color: #e61d2f;
+            background-color: #fec73c;
             color: #ffffff;
         }
 
@@ -122,8 +122,8 @@
         .sales-1 input[type="tel"]:focus,
         .sales-1 input[type="color"]:focus,
         .sales-1 .uneditable-input:focus {
-            border-color: #e61d2f;
-            box-shadow: 0 1px 1px #e61d2f inset, 0 0 8px #e61d2f;
+            border-color: #fec73c;
+            box-shadow: 0 1px 1px #e61d2f inset, 0 0 8px #fec73c;
             outline: 0 none;
         }
 
