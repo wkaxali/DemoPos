@@ -14,7 +14,7 @@
 
     <style>
         .print {
-            background-color: #0abf53;
+            background-color: #f0e580;
             color: aliceblue;
         }
 

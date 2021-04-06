@@ -70,7 +70,7 @@
         }
 
         .unit {
-            background-color: #fec73c;
+            background-color: #000;
             color: #ffffff;
         }
 
@@ -165,8 +165,8 @@
         input[type="tel"]:focus,
         input[type="color"]:focus,
         .uneditable-input:focus {
-            border-color: #0abf53;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0abf53;
+            border-color: #f0e580;
+            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #f0e580;
             outline: 0 none;
         }
 <<<<<<< HEAD
