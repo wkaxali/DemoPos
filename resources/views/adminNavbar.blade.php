@@ -17,17 +17,9 @@
 
             </ul>
         </li>
-        <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-                    style="font-size: 14px;">Add Stock</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse list-unstyled firstULs ">
-                <li><a href="/rec">Vehicle</a></li>
-                <li><a href="/as">Parts</a></li>
-                <li><a href="/es">Edit Parts</a></li>
-                <li><a href="/vs">View Parts</a></li>
+      
+              
                 
-            </ul>
-        </li>
         <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
                     style="font-size: 14px;">Customer Information</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
@@ -153,6 +145,10 @@
             <ul class="collapse firstULs12" id="menu-academico-sub">
                 <li id="menu-academico-boletim"><a href="/as2">Add New Stock</a></li>
                 <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
+                <li><a href="/rec">Vehicle</a></li>
+                <li><a href="/as">Parts</a></li>
+                <li><a href="/es">Edit Parts</a></li>
+             
             </ul>
         </li>
 

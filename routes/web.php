@@ -934,3 +934,6 @@ route::get('/acc', function(){
 route::get('/aeh', function(){
     return view('addExpenseHeads');
 });
+route::get('/ch', function(){
+    return view('customerHistory');
+});
