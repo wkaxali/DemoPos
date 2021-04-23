@@ -63,14 +63,19 @@
                 </ul>
             </li>
             <li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
-                        style="font-size: 14px;">HR</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs5">
-                    <li><a href="/ae">Add Employee</a></li>
-                    <li><a href="ee">View/Edit Employee</a></li>
-
-                </ul>
-            </li>
+                    style="font-size: 14px;">HR</span><span class="fa fa-angle-right"
+                    style="float: right"></span></a>
+            <ul class="collapse firstULs5">
+                <li><a href="/ae">Add Employee</a></li>
+                <li><a href="ee">View/Edit Employee</a></li>
+                <li><a href="/atv">View Attendance</a></li>
+                <li><a href="/at">Mark Attendance</a></li>
+                <li><a href="/pr">View Employee Pay</a></li>
+                <li><a href="/SalarySlip">Salary Slip</a></li>
+                <!-- <li><a href="">Set Pay</a></li> -->
+                
+            </ul>
+        </li>
             <li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-vials"></i><span
                         style="font-size: 14px;">Account Settings</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
@@ -111,15 +116,7 @@
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
-                        style="font-size: 14px;">HR</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs10" id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
-                    <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
-                </ul>
-            </li>
-
+           
 
 
             <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
@@ -185,14 +182,7 @@
             </li>
 
 
-            <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
-                        style="font-size: 14px;">PayRoll</span><span class="fa fa-angle-right"
-                        style="float: right"></span></a>
-                <ul class="collapse firstULs15" id="menu-academico-sub">
-                    <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
-                    <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
-                    <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
-                </ul>
+          
             <li><a data-toggle="collapse" data-target=".firstULs16"><i class="fab fa-amazon-pay"></i><span
                         style="font-size: 14px;">Quotations</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
@@ -208,8 +198,8 @@
                 </ul>
             </li>
 
-            </li>
-            <li><a data-toggle="collapse" data-target=".firstULs18" href="/at"><i class="fas fa-guitar"></i><span
+          
+            <!-- <li><a data-toggle="collapse" data-target=".firstULs18" href="/at"><i class="fas fa-guitar"></i><span
                         style="font-size: 14px;">Attendance</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs18" id="menu-academico-sub">
@@ -217,7 +207,7 @@
                     <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
                 </ul>
 
-            </li>
+            </li> -->
             <li><a data-toggle="collapse" data-target=".firstULs19"><i class="fas fa-eye"></i><span
                         style="font-size: 14px;">Task View</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
