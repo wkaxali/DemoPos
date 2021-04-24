@@ -1051,7 +1051,15 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v8.33.1",
+=======
+<<<<<<< Updated upstream
+            "version": "v8.28.1",
+=======
+            "version": "v8.33.1",
+>>>>>>> Stashed changes
+>>>>>>> 5955cd9d129476aa66295b8254d4c9faf405491c
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
@@ -1059,8 +1067,18 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
                 "url": "https://api.github.com/repos/laravel/framework/zipball/354c57b8cb457549114074c500944455a288d6cc",
                 "reference": "354c57b8cb457549114074c500944455a288d6cc",
+=======
+<<<<<<< Updated upstream
+                "url": "https://api.github.com/repos/laravel/framework/zipball/73dd43d92fcde6c6abc00658ae33391397ca119d",
+                "reference": "73dd43d92fcde6c6abc00658ae33391397ca119d",
+=======
+                "url": "https://api.github.com/repos/laravel/framework/zipball/354c57b8cb457549114074c500944455a288d6cc",
+                "reference": "354c57b8cb457549114074c500944455a288d6cc",
+>>>>>>> Stashed changes
+>>>>>>> 5955cd9d129476aa66295b8254d4c9faf405491c
                 "shasum": ""
             },
             "require": {
@@ -1215,7 +1233,15 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2021-03-16T19:42:32+00:00"
+=======
+<<<<<<< Updated upstream
+            "time": "2021-02-16T18:07:44+00:00"
+=======
+            "time": "2021-03-16T19:42:32+00:00"
+>>>>>>> Stashed changes
+>>>>>>> 5955cd9d129476aa66295b8254d4c9faf405491c
         },
         {
             "name": "laravel/tinker",
