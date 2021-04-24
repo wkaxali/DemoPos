@@ -250,7 +250,7 @@ class TEST extends Controller
         <br>
         
         <td width="60%" border="0"></td>
-        <td width="40%" align="center" border="0">Sign and Signature</td>
+        <td width="40%" align="center" border="0">Sign and Stamp</td>
         
         
         
@@ -370,16 +370,17 @@ class TEST extends Controller
 
 </tr>
 
+
 <tr>
-<td width="30%" border="0">Dealer</td>
-<td width="55%" align="center" border="0">Forland Modern Motors</td>
+<td width="30%" border="0">Vehicle</td>
+<td width="55%" align="center" border="0">'.session()->get("productName").'</td>
 
 
 
 </tr>
 <tr>
-<td width="30%" border="0">Vehicle</td>
-<td width="55%" align="center" border="0">'.session()->get("productName").'</td>
+<td width="30%" border="0">Version</td>
+<td width="55%" align="center" border="0">  </td>
 
 
 
@@ -416,6 +417,13 @@ class TEST extends Controller
 
 
 </tr>
+<tr>
+<td width="30%" border="0">Invoice</td>
+<td width="55%" align="center" border="0">  </td>
+
+
+
+</tr>
 
 <tr>
 <td width="30%" border="0">Payment Detail</td>
@@ -430,6 +438,8 @@ class TEST extends Controller
 </tbody>
 </table>
     <br>
+
+
    
 <br><br> <br>
 <br>
@@ -447,7 +457,7 @@ class TEST extends Controller
     <tr>
     
        
-    <td align="right"> Sign & Signature
+    <td align="right"> Sign & Stamp
     </td>           
         
        
@@ -567,7 +577,7 @@ public function gatePass()
     
     
     <td width="60%" border="0"></td>
-    <td width="40%" align="center" border="0">Sign and Signature</td>
+    <td width="40%" align="center" border="0">Sign and Stamp</td>
     
     
     
@@ -584,7 +594,7 @@ public function gatePass()
     <tr>
     
     
-    <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+    <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
     
     
     
@@ -593,7 +603,7 @@ public function gatePass()
     <tr>
     
     
-    <td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotoprs@yahoo.com </h5></td>
+    <td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotors@yahoo.com </h5></td>
     
     
     
@@ -701,7 +711,7 @@ public function gatePass()
     <br>
     
     <td width="60%" border="0"></td>
-    <td width="40%" align="center" border="0">Sign and Signature</td>
+    <td width="40%" align="center" border="0">Sign and Stamp</td>
     
     
     
@@ -718,7 +728,7 @@ public function gatePass()
     <tr>
     
     
-    <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+    <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
     
     
     
@@ -727,7 +737,7 @@ public function gatePass()
     <tr>
     
     
-    <td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotoprs@yahoo.com </h5></td>
+    <td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotors@yahoo.com </h5></td>
     
     
     
@@ -768,7 +778,7 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
 <img src="/assets/img/forLogo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
 <tr>
 
-<td><label for="Bank">Choose a Bank:</label>
+<td width="80%" border="0" align="left"><label for="Bank">Choose a Bank:</label>
 
 <select name="Bank" id="bank">
   <option value="Bank Of Punjab">Bank Of Punjab</option>
@@ -782,10 +792,14 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
   <option value="audi">First Habib Modarba</option>
   <option value="audi">Al Baraka</option>
 </select>
-</td></tr>
+</td>
+<td >
+ Ref No: ________
+</td>
+
+</tr>
 <tr> 
 <td width="80%" border="0" align="left" >'.session()->get("customerName").'</td>
-<td width="80%" border="0" align="left" >'.session()->get("address").'</td>
 
 
 
@@ -802,9 +816,9 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
 <td  width="100%">
 
 
-<h4>
+<h3>
 
-Qoutation For '.session()->get("productName").'</h4>
+Qoutation For '.session()->get("productName").'</h3>
 
 
 
@@ -959,7 +973,7 @@ Qoutation For '.session()->get("productName").'</h4>
 <br>
 
 <td width="60%" border="0"></td>
-<td width="40%" align="center" border="0">Sign and Signature</td>
+<td width="40%" align="center" border="0">Sign and Stamp</td>
 
 
 
