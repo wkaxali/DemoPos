@@ -36,7 +36,7 @@
                 <ul class="collapse firstULs2">
                     <li><a href="/ex">Daily Expense</a></li>
                     <li><a href="/pay">Payments</a></li>
-                    <li><a href="/pr">Payroll</a></li>
+                  
                     <li><a href="/exv">Expense List</a></li>
                     <li><a href="/aeh">Add Expense Head</a></li>
 
