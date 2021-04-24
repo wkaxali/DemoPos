@@ -859,6 +859,15 @@ Route::get('/ds', function (){
     }
 });
 
+Route::get('/as2', function (){
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addNewStock'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
 Route::get('/au', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
