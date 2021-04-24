@@ -17,7 +17,9 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\assesoriesController;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\printDocuments;
+use App\Http\Controllers\AdminAccountController;
 use App\Http\Controllers\userAccountController;
+use App\Http\Controllers\printMonthlySaleController;
 
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
@@ -109,7 +111,7 @@ Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct']);
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails']);
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock']);
-Route::get('/addUser/{data}',[userController::class, 'addnewuser']);
+Route::get('/addAdmin/{data}',[AdminController::class, 'addnewAdmin']);
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
@@ -208,12 +210,12 @@ Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorSt
 Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
 Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 
-Route::get('/login/{un}/{pass}',[userAccountController::class, 'singIn']);
+Route::get('/login/{un}/{pass}',[userAccountController::class, 'signIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
-Route::get('/addUsers/{AU}',[userAccountController::class, 'addUsers']);
-Route::get('/editUsers/{AU}',[userAccountController::class, 'editUsers']);
-Route::get('/getUsers',[userAccountController::class, 'getUsers']);
+Route::get('/addAdmins/{AU}',[AdminAccountController::class, 'addAdmins']);
+Route::get('/editAdmins/{AU}',[AdminAccountController::class, 'editAdmins']);
+Route::get('/getAdmins',[AdminAccountController::class, 'getAdmins']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
@@ -222,6 +224,7 @@ Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 Route::post('/Checkout/{token}',[StripeController::class, 'postCheckout']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
+Route::get('/monthlyReport',[printMonthlySaleController::class, 'PrintMonthlySale']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
@@ -246,7 +249,7 @@ return view('signInSignUp');
 
 Route::get('/ed', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('EmpDashboard');
     }else{
     return view("signInSignUp");
@@ -301,7 +304,7 @@ $UN = session()->get('Designation');
 if($UN=="Admin"){
 return view('dashboard');
 }
-else if($UN=="User"){
+else if($UN=="Admin"){
 return view("EmployeeTaskView");
 }
 });
@@ -309,7 +312,7 @@ return view("EmployeeTaskView");
 
 Route::get('/ps', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('PurchaseStock'); 
     }else{
     return view("signInSignUp");
@@ -420,7 +423,7 @@ Route::get('/sp', function () {
 });
 Route::get('/vs', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('viewStock'); 
     }else{
     return view("signInSignUp");
@@ -459,7 +462,7 @@ Route::get('/s', function () {
 });
 Route::get('/ev', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('employerView'); 
     }else{
     return view("signInSignUp");
@@ -474,7 +477,7 @@ Route::get('/etv', function () {
         return view('EmployeeTaskView');
   
    }else{
-       return "Invalid Username Or Password";
+       return "Invalid Adminname Or Password";
    }
 
 });
@@ -488,7 +491,7 @@ Route::get('/emptv', function () {
 });
 Route::get('/e', function () {
     $UN = session()->get('Designation');
-    if($UN=="User"){
+    if($UN=="Admin"){
     return view('Employee'); 
     }else{
     return view("signInSignUp");
@@ -859,7 +862,7 @@ Route::get('/ds', function (){
 Route::get('/au', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('addusers'); 
+    return view('addAdmins'); 
     }else{
     return view("signInSignUp");
     }
@@ -886,7 +889,7 @@ Route::get('/aam', function () {
 Route::get('/eu', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('editUsers'); 
+    return view('editAdmins'); 
     }else{
     return view("signInSignUp");
     }
@@ -897,7 +900,7 @@ route::get('/pds', function(){
     if($UN=="Admin"){
    return view('printDocuments');
    }else{
-       return "Invalid Username Or Password";
+       return "Invalid Adminname Or Password";
    }
 });
 
@@ -913,7 +916,7 @@ Route::get('/aam', function () {
 });
 
 Route::get('/eu', function () {
-    return view('editUsers');
+    return view('editAdmins');
 });
 
 Route::get('/dls', function () {
@@ -931,4 +934,7 @@ route::get('/acc', function(){
 });
 route::get('/aeh', function(){
     return view('addExpenseHeads');
+});
+route::get('/ch', function(){
+    return view('customerHistory');
 });

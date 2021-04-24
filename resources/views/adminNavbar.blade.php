@@ -17,17 +17,9 @@
 
             </ul>
         </li>
-        <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-                    style="font-size: 14px;">Add Stock</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse list-unstyled firstULs ">
-                <li><a href="/rec">Vehicle</a></li>
-                <li><a href="/as">Parts</a></li>
-                <li><a href="/es">Edit Parts</a></li>
-                <li><a href="/vs">View Parts</a></li>
+      
+              
                 
-            </ul>
-        </li>
         <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
                     style="font-size: 14px;">Customer Information</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
@@ -46,7 +38,7 @@
             <ul class="collapse firstULs2">
                 <li><a href="/ex">Daily Expense</a></li>
                 <li><a href="/pay">Payments</a></li>
-                <li><a href="/pr">Payroll</a></li>
+                
                 <li><a href="/exv">Expense List</a></li>
                 <li><a href="/aeh">Add Expense Head</a></li>
 
@@ -79,6 +71,11 @@
             <ul class="collapse firstULs5">
                 <li><a href="/ae">Add Employee</a></li>
                 <li><a href="ee">View/Edit Employee</a></li>
+                <li><a href="/atv">View Attendance</a></li>
+                <li><a href="/at">Mark Attendance</a></li>
+                <li><a href="/pr">View Employee Pay</a></li>
+                <li><a href="/SalarySlip">Salary Slip</a></li>
+                <!-- <li><a href="">Set Pay</a></li> -->
                 
             </ul>
         </li>
@@ -122,14 +119,7 @@
 
             </ul>
         </li>
-        <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fab fa-accusoft"></i><span
-                    style="font-size: 14px;">HR</span><span class="fa fa-angle-right"
-                    style="float: right"></span></a>
-            <ul class="collapse firstULs10" id="menu-academico-sub">
-                <li id="menu-academico-avaliacoes"><a href="/">Add Employee</a></li>
-                <li id="menu-academico-boletim"><a href="/">View Employee</a></li>
-            </ul>
-        </li>
+        
 
 
 
@@ -153,6 +143,10 @@
             <ul class="collapse firstULs12" id="menu-academico-sub">
                 <li id="menu-academico-boletim"><a href="/as2">Add New Stock</a></li>
                 <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
+                <li><a href="/rec">Vehicle</a></li>
+                <li><a href="/as">Parts</a></li>
+                <li><a href="/es">Edit Parts</a></li>
+             
             </ul>
         </li>
 
@@ -191,14 +185,14 @@
         </li>
 
 
-        <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
+        <!-- <li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
                     style="font-size: 14px;">PayRoll</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
             <ul class="collapse firstULs15" id="menu-academico-sub">
                 <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
                 <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li>
                 <li id="menu-academico-boletim"><a href="">Set Pay</a></li>
-            </ul>
+            </ul> -->
             <li><a data-toggle="collapse" data-target=".firstULs16"><i class="fab fa-amazon-pay"></i><span
                     style="font-size: 14px;">Quotations</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>
@@ -215,7 +209,7 @@
         </li>
 
         </li>
-        <li><a data-toggle="collapse" data-target=".firstULs18" href="/at"><i
+        <!-- <li><a data-toggle="collapse" data-target=".firstULs18" href="/at"><i
                     class="fas fa-guitar"></i><span style="font-size: 14px;">Attendance</span><span
                     class="fa fa-angle-right" style="float: right"></span></a>
             <ul class="collapse firstULs18" id="menu-academico-sub">
@@ -223,7 +217,7 @@
                 <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
             </ul>
 
-        </li>
+        </li> -->
         <li><a data-toggle="collapse" data-target=".firstULs19"><i class="fas fa-eye"></i><span
                     style="font-size: 14px;">Task View</span><span class="fa fa-angle-right"
                     style="float: right"></span></a>

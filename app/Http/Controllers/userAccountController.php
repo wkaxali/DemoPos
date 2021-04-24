@@ -7,7 +7,7 @@ use DB;
 
 class userAccountController extends Controller
 {
- public static function singIn($userName,$passcode){
+ public static function signIn($userName,$passcode){
 
     $re = DB::table('userinfo')
     ->where([['UserName', '=', $userName ],['Password', '=', $passcode ]])
