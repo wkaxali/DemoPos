@@ -767,9 +767,25 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
 
 <img src="/assets/img/forLogo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
 <tr>
- 
-<td width="80%" border="0" align="left" >'.session()->get("customerName").'</td>
 
+<td><label for="Bank">Choose a Bank:</label>
+
+<select name="Bank" id="bank">
+  <option value="Bank Of Punjab">Bank Of Punjab</option>
+  <option value="saab">Bank Al-Habib LTd</option>
+  <option value="mercedes">Meezan Bank LTD</option>
+  <option value="audi">Habib Bank LTD</option>
+  <option value="audi">Askari Bank</option>
+  <option value="audi">MCB</option>
+  <option value="audi">Orix Modarba</option>
+  <option value="audi">JS Bank Limited</option>
+  <option value="audi">First Habib Modarba</option>
+  <option value="audi">Al Baraka</option>
+</select>
+</td></tr>
+<tr> 
+<td width="80%" border="0" align="left" >'.session()->get("customerName").'</td>
+<td width="80%" border="0" align="left" >'.session()->get("address").'</td>
 
 
 
@@ -781,16 +797,17 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
 </td>
 
 </tr>
+<tr><td width="100%" border="0" align="left" >'.session()->get("address").'</td></tr>
 <tr>
 <td  width="100%">
 
 
-<br><h1>
+<h4>
 
-Qoutation For '.session()->get("productName").'</h1>
-<br>
-<br>
-<br>
+Qoutation For '.session()->get("productName").'</h4>
+
+
+
 </td>
 </tr>
 
