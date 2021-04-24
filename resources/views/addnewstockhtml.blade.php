@@ -15,7 +15,7 @@
                     <div class="inputField-1">
                         <label for="prodName">Category</label> <br>
 
-                        <select style="height: 25px !important; width: 158px !important; "
+                        <select 
                             class="selectpicker form-control" data-live-search="true" id="category">
 
                         </select>

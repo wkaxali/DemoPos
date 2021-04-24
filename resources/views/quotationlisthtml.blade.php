@@ -120,7 +120,7 @@
                 </div>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-10 offset-md-1">
+                        <div class="col-md-12">
                             <div class="table-responsive">
                         <table class="table table-bordered table-hover" id="quotationsTable">
                             <thead>

@@ -103,7 +103,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <label style="width: 150px ;" for="OrderNo">Order No</label>
-                    <select style="height: 25px !important; width: 158px !important; "
+                    <select 
                     class="selectpicker form-control" data-live-search="true" id="category"
                     tabindex="null">
                     <option value=1>1242</option>
@@ -116,7 +116,7 @@
                 </div>
                 <div class="col-md-5 offset-md-2 ">
                     <label  style="width: 150px ;" for="OrderNo">Model</label>
-                    <select style="height: 25px !important; width: 158px !important; "
+                    <select 
                     class="selectpicker form-control" data-live-search="true" id="category"
                     tabindex="null">
                     <option value=1>Forland C13</option>

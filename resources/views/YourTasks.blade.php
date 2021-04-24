@@ -87,7 +87,7 @@
                     <input type="text" class="form-control" name="" id="">
                 </div>
                 <div class="rightTask" style="margin-top: 3px;">
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    <select  class="selectpicker form-control"
                         data-live-search="true" id="category" tabindex="null">
                         <option value=1>1242</option>
                         <option value=2>1279</option>
@@ -106,7 +106,7 @@
                     <input type="text" class="form-control" name="" id="">
                 </div>
                 <div class="rightTask" style="margin-top: 2px;">
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    <select  class="selectpicker form-control"
                         data-live-search="true" id="category" tabindex="null">
                         <option value=1>1242</option>
                         <option value=2>1279</option>
@@ -125,7 +125,7 @@
                     <input type="text" class="form-control" name="" id="">
                 </div>
                 <div class="rightTask" style="margin-top: 3px;">
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    <select  class="selectpicker form-control"
                         data-live-search="true" id="category" tabindex="null">
                         <option value=1>1242</option>
                         <option value=2>1279</option>

@@ -34,8 +34,8 @@ class expenseController extends Controller
 
         DB::table('tblexpanseflow')->insertGetId([
           
-          'ExpanseID'=>$expenseID,
-          'ExpanseHeadID'=>$amount,
+          'ExpanseHeadID'=>$expenseID,
+          // 'ExpanseHeadID'=>$amount,
           'Remarks'=>"$remarks",
           'DateStamp'=>$date,
           

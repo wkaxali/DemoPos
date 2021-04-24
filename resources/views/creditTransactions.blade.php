@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Transaction History</title>
+    <title>Purchase History</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -111,7 +111,7 @@
                     <div class="container">
                         <div class="row my-3">
                             <div class="col-md-12 text-center ">
-                                <h1 id="firsthello">Transaction History</h1>
+                                <h1 id="firsthello">Purhase History</h1>
                             </div>
                         </div>
                     </div>
@@ -336,9 +336,8 @@
                             $.each(a, function (i, item) {
 
                                 table.row.add(['',
-                                    a[i].TransactionID, a[i].InvoiceNo, 
-                                    a[i].TransactionCatogery, a[i].Amount,
-                                    a[i].DateStamp
+                                    a[i].SUM(Amount), a[i].DateStamp, 
+                                    a[i].TransactionCatogery, a[i].TransactionType
                                 ]);
                             });
                             table.draw();
@@ -346,7 +345,7 @@
                         }
                     };
                     //alert("ljd");
-                    xhttp.open("GET", "./transactionHistory/", true);
+                    xhttp.open("GET", "./creditTransactions/", true);
 
                     xhttp.send();
                 }
@@ -370,10 +369,9 @@
 
                             $.each(a, function (i, item) {
 
-                                table.row.add(['',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
-                                    a[i]
-                                    .Amount,
-                                    a[i].DateStamp
+                                table.row.add(['',
+                                    a[i].SUM(Amount), a[i].DateStamp, 
+                                    a[i].TransactionCatogery, a[i].TransactionType
                                 ]);
                             });
                             table.draw();
@@ -395,7 +393,7 @@
                         if (this.readyState == 4 && this.status == 200) {
 
                             var data = this.responseText;
-                            //alert(data);
+                            alert(data);
                             var table;
                             var a = JSON.parse(data);
                             //  alert(a[0].ProductSerial);
@@ -404,10 +402,9 @@
 
                             $.each(a, function (i, item) {
 
-                                table.row.add(['',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
-                                    a[i]
-                                    .Amount,
-                                    a[i].DateStamp
+                                table.row.add(['',
+                                    a[i].DailyAmount, a[i].DateStamp, 
+                                    a[i].TransactionCatogery, a[i].TransactionType
                                 ]);
                             });
                             table.draw();

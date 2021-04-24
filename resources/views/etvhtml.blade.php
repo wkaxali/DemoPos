@@ -7,18 +7,6 @@
             <div class="myshadow">
 
 
-<<<<<<< HEAD
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h4>Tasks View</h4>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input type="text" placeholder="Task" class="form-control" name="" id="">
-=======
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12 text-center">
@@ -39,7 +27,7 @@
 
                                     </div>
                                     <div class="col-md-4">
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="category">
 
                                         </select>
@@ -87,7 +75,7 @@
                                                     <input type="text" class="form-control" name="" id="taskSubject">
 
                                                     <label for="">Assign To</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="assignTo">
 
@@ -150,7 +138,7 @@
                                                         <input type="text" class="form-control" name="" id="priority">
                                                     </div><br>
                                                     <label for="">Category</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="category">
 
@@ -168,22 +156,18 @@
                                     <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
                                 </div>
                             </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                         </div>
                     </div>
-<<<<<<< HEAD
-=======
 
         
                 <div class="container">
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                     <div class="row">
                         <div class="col-md-8 ">
                             <input type="text" class="form-control" name="" id="">
 
                         </div>
                         <div class="col-md-4">
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select 
                                 class="selectpicker form-control" data-live-search="true" id="category">
 
                             </select>
@@ -237,8 +221,6 @@
                                     id="employeeID" style="display:none">
                             </div>
 
-<<<<<<< HEAD
-=======
                 <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
                
                     <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">Development</h4>
@@ -265,7 +247,6 @@
                                 </div>
            
                             </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                         </div>
                         <div id="AllSubTasks"></div>
 
@@ -343,7 +324,7 @@
         <div class="col-md-4">
 
             <label for="">Employee ID</label><br>
-            <select style="height: 25px !important; width: 158px !important; "
+            <select 
                 class="selectpicker form-control" data-live-search="true" id="employee"
                 onchange="searchEmployeeData()">
 
@@ -351,7 +332,7 @@
         </div>
         <div class="col-md-4 ">
             <label for="">Task Status</label><br>
-            <select style="height: 25px !important; width: 158px !important; "
+            <select 
                 class="selectpicker form-control" data-live-search="true" id="status"
                 onchange="searchTaskWithStatus()">
                 <option value=" "></option>
@@ -402,6 +383,8 @@
                 </button>
             </div>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             <div class="modal-body">
 
                 <div class="container">
@@ -412,7 +395,7 @@
                                 <input type="text" class="form-control" name="" id="taskSubject">
 
                                 <label for="">Assign To</label><br>
-                                <select style="height: 25px !important; width: 158px !important; "
+                                <select 
                                     class="selectpicker form-control" data-live-search="true" id="assignTo">
 
                                 </select>
@@ -471,12 +454,13 @@
                                         class="btn">Easily</button>
                                 </div><br>
                                 <label for="">Category</label><br>
-                                <select style="height: 25px !important; width: 158px !important; "
+                                <select 
                                     class="selectpicker form-control" data-live-search="true" id="category">
 
                                 </select>
 
 =======
+>>>>>>> 6adf7c8d005864e067eddd55a4709ab0889e42c8
             <button id="movetop" data-toggle="modal" data-target="#exampleModal" title="Go to top">
                 <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
@@ -502,7 +486,7 @@
                                                     <input type="text" class="form-control" name="" id="taskSubject">
 
                                                     <label for="">Assign To</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="assignTo">
 
@@ -565,7 +549,7 @@
                                                         <input type="text" class="form-control" name="" id="priority">
                                                     </div><br>
                                                     <label for="">Category</label><br>
-                                                    <select style="height: 25px !important; width: 158px !important; "
+                                                    <select 
                                                         class="selectpicker form-control" data-live-search="true"
                                                         id="category">
 
@@ -582,21 +566,11 @@
                                         data-dismiss="modal">Cancel</button>
                                     <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
                                 </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
                             </div>
                         </div>
                     </div>
 
-<<<<<<< HEAD
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary-1" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
-            </div>
-=======
         </div>
->>>>>>> 65181750dbf2f7f9aa2b0c25f8cd1f1ee5f7e7c7
         </div>
     </div>
 </div>

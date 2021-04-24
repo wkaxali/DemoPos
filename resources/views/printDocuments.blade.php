@@ -173,7 +173,7 @@
             if (this.readyState == 4 && this.status == 200) {
 
                 
-                window.open('/testpdf/2');
+                window.open('./testpdf/2');
 
                 }
             }

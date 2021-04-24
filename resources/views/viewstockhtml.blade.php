@@ -40,7 +40,7 @@
         </div>
     </div>
 </header>
-<script>
+<!-- <script>
         function getStock() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -71,4 +71,4 @@
             xhttp.send();
         }
 
-    </script>
+    </script> -->

@@ -132,7 +132,7 @@
                     </div>
 
             
-
+<br>
                     <button class="btn btn-success" onclick="editEmployee()">Update </button>
 
 

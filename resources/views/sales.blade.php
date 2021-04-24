@@ -1280,6 +1280,40 @@
         .okay-invo-1 input {
             width: 107px;
         }
+        @media print {
+            .left-content{
+                width: 100% !important;
+            }
+            .sidebar-menu{
+                display: none;
+            }
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #mainComapnyLedger{
+                visibility: visible !important;
+                margin: 10px 0px;
+            }
+            #DNone{
+                display: none !important;
+            }
+            table{
+                width: 900px !important;
+            }
+          
+       
+        }
 
     </style>
 </head>
@@ -1937,7 +1971,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated here");
-                        window.open("./testpdf/as");
+                        window.open("./testpdf/ss");
 
                     }
                 };
@@ -1949,7 +1983,7 @@
         }
 
         function print(){
-            window.open("./testpdf/as");
+            window.open("./testpdf/ss");
         }
 
         function UpdateSaleInvoice() {

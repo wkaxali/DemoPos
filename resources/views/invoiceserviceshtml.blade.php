@@ -253,7 +253,9 @@
                                                                 placeholder="Address" required />
                                                             <input type="text" name="phone_number" id="addProfession"
                                                                 placeholder="Profession" required />
-                                                 
+                                                            <input type="number" name="phone_number" id="addBalance"
+                                                                placeholder="Balance" required />
+
                                                             <input type="text" name="phone_number" id="addComments"
                                                                 placeholder="Comments" required />
 

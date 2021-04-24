@@ -764,6 +764,112 @@
 
     </style>
 </head>
+<div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg-1" style="margin-left:38px;" tabindex="-1"
+role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="container">
+
+
+            <div class="modal-header">
+                <h5 class="modal-title">Forland Modern Motors</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row p-2" style="border: 2px solid gray; border-radius: 10px;">
+
+
+                    {{ session()->put('CID','125')}}
+                    <div class="col-md-3 mainCol">
+                        <label class="labels" for="">Purchase</label>
+                        <div style="border-right: 2px solid gray;" class="leftBtns">
+                            <button class="btn btn-myPrimary-add"
+                                onclick="location.href = '/bo'">Book
+                                Order</button><br>
+                            <button class="btn btn-mysecondary"
+                                onclick="location.href = '/d'">Dilevery</button><br>
+                            <button data-toggle="modal" id="killme"
+                                data-target="#staticBackdrop"
+                                class="btn btn-mysecondary">Quotation</button><br>
+
+
+                            <button class="btn btn-mysecondary"
+                                onclick="location.href = '/dl'">Dilevery
+                                letter</button><br>
+                            <button class="btn btn-mysecondary"
+                                onclick="location.href = '/ct'">Comissions</button><br>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 mainCol">
+                        <label style="margin-left: 30px;" class="labels"
+                            for="">Sales</label>
+                        <div style="border-right: 2px solid gray;" class="leftBtns">
+                            <a href="/is"><button class="btn btn-myPrimary-add">invoice
+                                    services</button><br></a>
+                            <a href="/psi"><button class="btn btn-mysecondary">Print
+                                    Sale Invoice</button><br></a>
+                            <a href="/sc"><button class="btn btn-myPrimary">Sales&
+                                    comission</button><br></a>
+                            <a href="/ct"> <button
+                                    class="btn btn-myPrimary-add">taxes</button><br></a>
+                            <a href="/vc"><button class="btn btn-myPrimary-add">View
+                                    Customer</button><br></a>
+
+                        </div>
+                    </div>
+                    <div class="col-md-3 mainCol">
+                        <label style="margin-left: 30px;" class="labels"
+                            for="">Stock</label>
+                        <div style="border-right: 2px solid gray;" class="leftBtns">
+
+                            <a href="/as"> <button class="btn btn-myPrimary-add">Add
+                                    Stock</button><br></a>
+                            <a href="/ip"><button class="btn btn-mysecondary">Increase
+                                    In price</button><br></a>
+                            <a href="/stock"> <button
+                                    class="btn btn-myPrimary">Stock</button><br></a>
+                            <a href="/sp"> <button class="btn btn-mysecondary">View
+                                    Spare Parts</button><br></a>
+                            <a href="/vs"> <button class="btn btn-myPrimary">View
+                                    Stock</button><br></a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mainCol">
+                        <label style="margin-left: 22px;" class="labels"
+                            for="">Ledger</label>
+                        <div class="leftBtns">
+                            <button class="btn btn-myPrimary-add"
+                                onclick="location.href = '/cl'">Company
+                                ledger</button><br>
+                            <a href="/l"> <button
+                                    class="btn btn-mysecondary">ledger</button><br></a>
+                            <a href="/th"><button class="btn btn-myPrimary">Transaction
+                                    History</button><br></a>
+                            <a href="/ex"><button
+                                    class="btn btn-myPrimary-add">Expenses</button><br></a>
+
+                            <a href="/ads"><button
+                                    class="btn btn-myPrimary-add">Supplier</button><br></a>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
 <div class="page-container">
     <div class="left-content">
         <div class="mother-grid-inner">
@@ -843,115 +949,9 @@
                     <div class="profile_details_left">
 
 
-                        <button class="btn-my btn1" data-toggle="modal"
-                            data-target="#bd-example-modal-lg-1">Operations</button>
+                      
 
-                        <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg-1" style="margin-left:38px;" tabindex="-1"
-                            role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <div class="container">
-
-
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Forland Modern Motors</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container-fluid">
-                                            <div class="row p-2" style="border: 2px solid gray; border-radius: 10px;">
-
-
-                                                {{ session()->put('CID','125')}}
-                                                <div class="col-md-3 mainCol">
-                                                    <label class="labels" for="">Purchase</label>
-                                                    <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                        <button class="btn btn-myPrimary-add"
-                                                            onclick="location.href = '/bo'">Book
-                                                            Order</button><br>
-                                                        <button class="btn btn-mysecondary"
-                                                            onclick="location.href = '/d'">Dilevery</button><br>
-                                                        <button data-toggle="modal" id="killme"
-                                                            data-target="#staticBackdrop"
-                                                            class="btn btn-mysecondary">Quotation</button><br>
-
-
-                                                        <button class="btn btn-mysecondary"
-                                                            onclick="location.href = '/dl'">Dilevery
-                                                            letter</button><br>
-                                                        <button class="btn btn-mysecondary"
-                                                            onclick="location.href = '/ct'">Comissions</button><br>
-                                                    </div>
-
-                                                </div>
-                                                <div class="col-md-3 mainCol">
-                                                    <label style="margin-left: 30px;" class="labels"
-                                                        for="">Sales</label>
-                                                    <div style="border-right: 2px solid gray;" class="leftBtns">
-                                                        <a href="/is"><button class="btn btn-myPrimary-add">invoice
-                                                                services</button><br></a>
-                                                        <a href="/psi"><button class="btn btn-mysecondary">Print
-                                                                Sale Invoice</button><br></a>
-                                                        <a href="/sc"><button class="btn btn-myPrimary">Sales&
-                                                                comission</button><br></a>
-                                                        <a href="/ct"> <button
-                                                                class="btn btn-myPrimary-add">taxes</button><br></a>
-                                                        <a href="/vc"><button class="btn btn-myPrimary-add">View
-                                                                Customer</button><br></a>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 mainCol">
-                                                    <label style="margin-left: 30px;" class="labels"
-                                                        for="">Stock</label>
-                                                    <div style="border-right: 2px solid gray;" class="leftBtns">
-
-                                                        <a href="/as"> <button class="btn btn-myPrimary-add">Add
-                                                                Stock</button><br></a>
-                                                        <a href="/ip"><button class="btn btn-mysecondary">Increase
-                                                                In price</button><br></a>
-                                                        <a href="/stock"> <button
-                                                                class="btn btn-myPrimary">Stock</button><br></a>
-                                                        <a href="/sp"> <button class="btn btn-mysecondary">View
-                                                                Spare Parts</button><br></a>
-                                                        <a href="/vs"> <button class="btn btn-myPrimary">View
-                                                                Stock</button><br></a>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 mainCol">
-                                                    <label style="margin-left: 22px;" class="labels"
-                                                        for="">Ledger</label>
-                                                    <div class="leftBtns">
-                                                        <button class="btn btn-myPrimary-add"
-                                                            onclick="location.href = '/cl'">Company
-                                                            ledger</button><br>
-                                                        <a href="/l"> <button
-                                                                class="btn btn-mysecondary">ledger</button><br></a>
-                                                        <a href="/th"><button class="btn btn-myPrimary">Transaction
-                                                                History</button><br></a>
-                                                        <a href="/ex"><button
-                                                                class="btn btn-myPrimary-add">Expenses</button><br></a>
-
-                                                        <a href="/ads"><button
-                                                                class="btn btn-myPrimary-add">Supplier</button><br></a>
-
-                                                    </div>
-                                                </div>
-
-
-
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                  
                         <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" style="margin-left:38px;" tabindex="-1"
                         role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
@@ -981,8 +981,8 @@
                                                     <div class="receivingMain">
                                     
                                     
-                                                        <div class="receivingTable">
-                                                            <table id="stockTable" class=" table-striped display nowrap"
+                                                        <div class="receivingTable" style="height: 400px; overflow: auto;">
+                                                            <table id="stockTable" class=" table-striped wrap"
                                                                 style="width: 100%; text-align: center;">
                                                                 <thead>
                                                                     <tr>
@@ -1039,7 +1039,7 @@
 
             </script>
             <div class="inner-block">
-                <ul class="nav nav-pills   mb-3" style="justify-content: center;" id="pills-tab" role="tablist">
+                <!-- <ul class="nav nav-pills   mb-3" style="justify-content: center;" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
                             aria-controls="pills-home" aria-selected="true">Today</a>
@@ -1056,7 +1056,7 @@
                         <a class="nav-link" id="pills-year-tab" data-toggle="pill" href="#pills-year" role="tab"
                             aria-controls="pills-year" aria-selected="false">This Year</a>
                     </li>
-                </ul>
+                </ul> -->
                 <div class="clearmain"></div>
 
                 <div class="tab-content" id="pills-tabContent">

@@ -5,6 +5,7 @@ use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
+
 use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\CustomerViewController;
@@ -36,6 +37,7 @@ use App\Http\Controllers\AISessionController;
 use App\Http\Controllers\saleRequestController;
 use App\Http\Controllers\TEST;
 use App\Http\Controllers\printServiceInvoice;
+use App\Http\Controllers\deliverLetterPrintController;
 
 
 
@@ -74,9 +76,9 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
-Route::get('/addExpenseHead/{EH}',[expenseController::class, 'addExpenseHead']);
+Route::get('/addExpenseHead/{expTable}',[expenseController::class, 'insertExpense']);
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
-Route::get('/testpdf/2',[TEST::class, 'saleServiceInvoice1']);
+Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
@@ -97,6 +99,11 @@ Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDet
 Route::get('/getCustomers',[CustomerController::class, 'getCustomers']);
 
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail']);
+Route::get('/addSupplier/{empData}',[LedgerPartiesController::class, 'addSupplier']);
+Route::get('/viewAllSupplier',[LedgerPartiesController::class, 'viewAllSupplier']);
+Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']);
+
+
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 //getInvoiceCustomer/{data}
@@ -122,6 +129,8 @@ Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
 Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
 Route::get('/transactionHistoryAccounts/{AID}',[TransactionFlow::class, 'getTransactionsForAccounts']);
 Route::get('/transactionHistoryParties/{LID}',[TransactionFlow::class, 'getTransactionsForParties']);
+Route::get('/debitTransactions',[TransactionFlow::class, 'debitTransactions']);
+Route::get('/creditTransactions',[TransactionFlow::class, 'creditTransactions']);
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
 Route::get('/viewSales',[salesFlow::class, 'viewSales']);
@@ -191,6 +200,7 @@ Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendanc
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
 Route::get('/searchEmployeeData/{EID}/{name}',[taskController::class, 'searchEmployeeData']);
 Route::get('/searchTaskWithStatus/{EID}/{status}/{name}',[taskController::class, 'searchTaskWithStatus']);
+Route::get('/searchTaskWithStatus/{EID}/{date}/{name}',[taskController::class, 'searchTaskWithDate']);
 Route::get('/loadTaskDetails/{TID}',[taskController::class, 'loadTaskDetails']);
 Route::get('/getAttendance',[attendanceController::class, 'getAttendance']);
 Route::get('/getEmpbyID/{id}',[payController::class, 'getEmpbyID']);
@@ -202,6 +212,7 @@ Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategor
 Route::get('/getPartyNames',[expenseController::class, 'getPartyNames']);
 Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
+Route::get('/addcustomer/{AC}',[CustomerController::class, 'addcustomer']);
 
 Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
 
@@ -470,7 +481,6 @@ Route::get('/ev', function () {
 });
 Route::get('/etv', function () {
     $UN = session()->get('Designation');
-    session(['EmpID' => '1']);
 
     if($UN=="Admin"){
         
@@ -859,6 +869,15 @@ Route::get('/ds', function (){
     }
 });
 
+Route::get('/as2', function (){
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addNewStock'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
 Route::get('/au', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -914,6 +933,11 @@ Route::get('/logout', function(){
 Route::get('/aam', function () {
     return view('addAutoModels');
 });
+
+Route::get('/ans', function () {
+    return view('addNewStock');
+});
+
 
 Route::get('/eu', function () {
     return view('editAdmins');
