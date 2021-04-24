@@ -82,6 +82,7 @@ class quotationController extends Controller
 
                 ]);
 
+
             DB::table('customeinformation')->insertGetId([
                 'CustomerName'=>$customerName,
                 'FatherName'=>$fatherName,
@@ -101,7 +102,11 @@ class quotationController extends Controller
             return $data;
             }
 
-
+        // public function myQuotation(){
+        //         $record = DB:: select ('select * from');
+        //         return $record;
+        //     }
+ 
         public function  getQuotation($QID){
 
             $data = DB::table('tbl_quotations')

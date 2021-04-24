@@ -373,9 +373,7 @@
             background: #aaa;
         }
 
-        *::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
+
 
         .chat-footer {
             display: flex;
@@ -444,9 +442,6 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        body {
-            background: #e1ecf2;
-        }
 
         .container .row {
             margin: 5px 0px !important;
@@ -568,14 +563,14 @@
             background: none !important;
             border-radius: 10px;
             width: 20rem;
-            -webkit-box-shadow: 10px 10px 31px 0px #4360b5;
+            /* -webkit-box-shadow: 10px 10px 31px 0px #4360b5;
             -moz-box-shadow: 10px 10px 31px 0px#e61d2f;
-            box-shadow: 10px 10px 31px 0px #4360b5;
+            box-shadow: 10px 10px 31px 0px #4360b5; */
             transition: .7s;
 
         }
 
-    
+
 
         .card {
             border-left: 10px solid #4360b5;
@@ -698,423 +693,261 @@
             color: #fff;
         }
 
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 82% !important;
+            }
+        }
+
+        .colorcard {
+            border-left: 10px solid #FA5632;
+            border-top: 10px solid #FAB732;
+        }
+
+        .colorcard button {
+            border-radius: 20px;
+            background-color: #FA5632;
+            border-color: #FA5632;
+            color: #fff;
+        }
+
+        .colorcard .mainCardBody .leftCardBody .logo {
+            background-color: #FA5632;
+            color: #fff;
+            border-radius: 50%;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .colorcard .mainCardBody .mainDots div:nth-child(1) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #FA5632;
+            display: inline-block;
+        }
+
+        .colorcard .mainCardBody .mainDots div:nth-child(2) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #FAB732;
+            display: inline-block;
+        }
+
+        .colorcard .mainCardBody .mainDots div:nth-child(3) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: black;
+            display: inline-block;
+        }
+
+        .colorcard-1 {
+            border-left: 10px solid #8B45F1 !important;
+            border-top: 10px solid #634492 !important;
+        }
+
+        .colorcard-1 button {
+            border-radius: 20px;
+            background-color: #FA5632 !important;
+            border-color: #FA5632 !important;
+            color: #fff !important;
+        }
+
+        .colorcard-1 .mainCardBody .leftCardBody .logo {
+            background-color: #CF1D73 !important;
+            color: #fff !important;
+            border-radius: 50% !important;
+            padding: 10px !important;
+            display: inline-block;
+        }
+
+
+
+
+        .colorcard-1 .mainCardBody .mainDots div:nth-child(1) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #8B45F1;
+            display: inline-block;
+        }
+
+        .colorcard-1 .mainCardBody .mainDots div:nth-child(2) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: pink;
+            display: inline-block;
+        }
+
+        .colorcard-1 .mainCardBody .mainDots div:nth-child(3) {
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: #634492;
+            display: inline-block;
+
+        }
+
     </style>
 </head>
 
 <body onload="getEmployeeData()">
 
     <div class="page-container">
+        <div class="left-content">
+
+            <!-- Button trigger modal -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog mydialog" role="document">
+                    <div class="modal-content myshadow">
+
+                        <div class="modal-body">
+                            <div class="myshadow">
 
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-<div class="modal-dialog mydialog modal-dialog-centered" role="document">
-<div class="modal-content myshadow">
-<div class="myshadow">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <h4>Tasks View</h4>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="mainTask">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="mainTaskID" style="display:none">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="employeeID" style="display:none">
+                                        </div>
+
+                                    </div>
+                                    <div id="AllSubTasks"></div>
+
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="">Last Comment</label>
+                                            <textarea name="" placeholder="Last Comment" class="form-control"
+                                                style="height: 100%; width: 100%; resize: none;"
+                                                id="comment"></textarea>
+
+                                        </div>
+
+                                    </div>
+                                    <br> <br>
+                                    <button onclick="updateEmployeeStatus()" style="margin-left: 17px;" type="button" id="updateEmployeeStatus"
+                                        class="btn btn-primary  ">Update</button>
+                                    <br>
+                                    <div class="row" id="adminUseOnly">
+                                        <div class="col-md-8">
+                                            <label for="">Remarks</label>
+                                            <input type="text" class="form-control" name="" id="remarks">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="">&nbsp;</label>
+                                            <select style="height: 35px !important; width: 120px !important; "
+                                                class="form-control" id="adminStatus">
+                                                <option value="Pending">Pending</option>
+                                                <option value="Completed">Completed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="adminUseOnly2">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Task" class="form-control" name=""
+                                                id="dateValue" style="display:none">
+                                            <label for="">Due On</label><br>
+                                            <div class="btn-group" id="groupButtons" role="group"
+                                                aria-label="Basic example">
+                                                <button onclick="GetDates()" type="button" id="Today"
+                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Today</button>
+                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Tomorrow</button>
+                                                <button type="button" id="Date"
+                                                    style="background-color: #ffffff; border: 1px solid #aaa;"
+                                                    class="btn "><input class="hello" onchange="customDate()"
+                                                        type="date"
+                                                        style="background: none !important; width:103px; border: none !important;"
+                                                        name="" id="date"></button>
+
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button onclick="updateAdminStatus()" type="button" id="updateAdminStatus"
+                                            class="btn primary ">Update</button>
+                                        <br>
+                                    </div>
+
+                                    <br>
 
 
-<div class="container">
-<div class="row">
-<div class="col-md-12 text-center">
-<h4>Tasks View</h4>
-</div>
-
-</div>
-<div class="row">
-<div class="col-md-12">
-<input type="text" placeholder="Task" class="form-control" name="" id="">
-</div>
-
-</div>
-<div class="row">
-<div class="col-md-8 ">
-<input type="text" class="form-control" name="" id="">
-
-</div>
-<div class="col-md-4">
-<select style="height: 25px !important; width: 158px !important; "
-class="selectpicker form-control" data-live-search="true" id="category">
-
-</select>
-</div>
-</div>
-
-<br><br>
-<div class="row">
-
-<div class="col-md-12">
-<div class="rightButtons">
-<button class="btn">Update</button>
-<button class="btn">Ok</button>
-<button class="btn">History</button>
-</div>
-</div>
-</div>
-<br>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Button trigger modal -->
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog mydialog" role="document">
-<div class="modal-content myshadow">
-
-<div class="modal-body">
-<div class="myshadow">
-
-
-<div class="container">
-<div class="row">
-<div class="col-md-12 text-center">
-<h4>Tasks View</h4>
-</div>
-
-</div>
-<div class="row">
-<div class="col-md-12">
-<input type="text" placeholder="Task" class="form-control" name=""
-id="mainTask">
-<input type="text" placeholder="Task" class="form-control" name=""
-id="mainTaskID" style="display:none">
-<input type="text" placeholder="Task" class="form-control" name=""
-id="employeeID" style="display:none">
-</div>
-
-</div>
-<div id="AllSubTasks"></div>
-
-<br>
-<div class="row">
-<div class="col-md-12">
-<label for="">Last Comment</label>
-<textarea name="" placeholder="Last Comment" class="form-control"
-style="height: 100%; width: 100%; resize: none;" id="comment"></textarea>
-
-</div>
-
-</div>
-<br>
-<button onclick="updateEmployeeStatus()" type="button" id="updateEmployeeStatus"
-class="btn primary ">Update</button>
-<br>
-<div class="row" id="adminUseOnly">
-<div class="col-md-8">
-<label for="">Remarks</label>
-<input type="text" class="form-control" name="" id="remarks">
-</div> <div class="col-md-4">
-<label for="">&nbsp;</label>
-<select style="height: 35px !important; width: 120px !important; "
-    class="form-control" 
-    id="adminStatus">
-    <option value="Pending">Pending</option>
-    <option value="Completed">Completed</option>
-</select>
-</div>
-</div>
-<div class="row" id="adminUseOnly2">
-<div class="col-md-12">
-<input type="text" placeholder="Task" class="form-control" name=""
-id="dateValue" style="display:none">
-<label for="">Due On</label><br>
-<div class="btn-group" id="groupButtons" role="group"
-aria-label="Basic example">
-<button onclick="GetDates()" type="button" id="Today"
-style="background-color: #ffffff; border: 1px solid #aaa;"
-class="btn ">Today</button>
-<button onclick="TomorrowDate()" type="button" id="Tomorrow"
-style="background-color: #ffffff; border: 1px solid #aaa;"
-class="btn ">Tomorrow</button>
-<button type="button" id="Date"
-style="background-color: #ffffff; border: 1px solid #aaa;"
-class="btn "><input class="hello" onchange="customDate()"
-type="date"
-style="background: none !important; width:103px; border: none !important;"
-name="" id="date"></button>
-
-</div>
-</div>
-<br>
-<button onclick="updateAdminStatus()" type="button" id="updateAdminStatus"
-class="btn primary ">Update</button>
-<br>
-</div>
-
-<br>
-
-
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</div>
-
-                <div class="main_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4">
-                                
-                            <label for="">Employee ID</label><br>
-                                <select style="height: 25px !important; width: 158px !important; "
-                                    class="selectpicker form-control" data-live-search="true"
-                                    id="employee" onchange="searchEmployeeData()">
-
-                                </select>
-                            </div>
-                                <div class="col-md-4 ">
-                                <label for="">Task Status</label><br>
-                                    <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true"
-                                        id="status" onchange="searchTaskWithStatus()">
-                                            <option value=" "></option>
-                                            <option value="Pending">Pending</option>
-                                            <option value="Completed">Completed</option>
-                                    </select>
                                 </div>
-                                    <div class="col-md-3 ">
-                                    <label for="">Date</label><br>
-                                       <input type="date" name="" class="form-control" id=""></div>
-                                       <div class="col-md-1">
-                                           <button class="btn btn-primary">Search</button>
-                                       </div>
+                            </div>
                         </div>
-                 
-                    </div>
 
+                    </div>
                 </div>
-                <div class="mainContCards">
-                    <div class="mainCards-1" id="cardsCanvas">
+            </div>
 
 
+            <div class="container mainMarg">
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <label for="">Employee ID</label><br>
+                        <select 
+                            class="selectpicker form-control" data-live-search="true" id="employee"
+                            onchange="searchEmployeeData()">
+
+                        </select>
                     </div>
-
+                    <div class="col-md-4 ">
+                        <label for="">Task Status</label><br>
+                        <select 
+                            class="selectpicker form-control" data-live-search="true" id="status"
+                            onchange="searchTaskWithStatus()">
+                            <option value=" "></option>
+                            <option value="Pending">Pending</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 ">
+                        <label for="">Date</label><br>
+                        <input type="date" name="" class="form-control" id=""></div>
+                    <div class="col-md-1">
+                        <button class="btn btn-primary" style="margin-top: 31px;">Search</button>
+                    </div>
                 </div>
 
 
 
             </div>
 
+            <div class="mainContCards">
+                <div class="mainCards-1" id="cardsCanvas">
 
 
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Sales</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                 </div>
-                <div class="modal-body">
 
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4>Meet Rayan Naeem</h4>
-                                <label for="">Due Date</label>
-                                <input type="text" class="form-control" name="" id="">
-
-                                <label for="">Details</label>
-                                <table id="MainTables">
-                                    <tr>
-                                        <td>1</td>
-                                        <td><input type="text" class="form-control" name="" id=""></td>
-                                        <td> <input type="checkbox" class="form-control" name="" id="">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-
-                                        <td><input type="text" class="form-control" name="" id=""></td>
-                                        <td> <input type="checkbox" name="" id="">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td id="td-1">3</td>
-
-                                        <td><input type="text" class="form-control" name="" id=""></td>
-                                        <td id="td-3"> <input type="checkbox" name="" id="">
-                                        </td>
-                                    </tr>
-                                </table>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mainWords">
-                                    <div class="chat">
-                                        <div class="chat-header">
-                                            <div class="profile">
-                                                <div class="left">
-                                                    <img src="img/arrow.png" class="arrow">
-                                                    <img src="img/pp.png" class="pp">
-                                                    <h2>Waqas Ali </h2>
-                                                    <span>online</span>
-                                                </div>
-                                                <div class="right">
-                                                    <img src="img/phone.png" class="icon">
-
-                                                    <img src="img/phone.png" class="icon">
-                                                    <img src="img/more.png" class="icon">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="mainChats" class="chat-box">
-                                            <div class="chat-r">
-                                                <div class="sp"></div>
-                                                <div id="mess-r" class="mess mess-r">
-                                                    <p><img src="img/emoji-1.png" class="emoji">
-                                                        Hi, Elias
-                                                    </p>
-                                                    <div class="check">
-                                                        <span>4:00 PM</span>
-                                                        <img src="img/check-2.png">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="chat-l">
-                                                <div class="mess">
-                                                    <p>
-                                                        Oh! hi <img src="img/emoji-2.png" class="emoji">
-                                                    </p>
-                                                    <div class="check">
-                                                        <span>4:00 PM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="sp"></div>
-                                            </div>
-
-
-                                            <div class="chat-r">
-                                                <div class="sp"></div>
-                                                <div class="mess mess-r">
-                                                    <p>
-                                                        Not too bad. The weather is great isn't it?
-                                                    </p>
-                                                    <div class="check">
-                                                        <span>4:00 PM</span>
-                                                        <img src="img/check-2.png">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="chat-l">
-                                                <div class="mess">
-                                                    <p>
-                                                        Yes. It's absolutely beautiful today.
-                                                    </p>
-                                                    <div class="check">
-                                                        <span>4:00 PM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="sp"></div>
-                                            </div>
-
-                                            <div class="chat-r">
-                                                <div class="sp"></div>
-                                                <div class="mess mess-r">
-                                                    <img src="img/post2.jpg" class="img_chat">
-                                                    <div class="check">
-                                                        <span>4:00 PM</span>
-                                                        <img src="img/check-2.png">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="chat-r">
-                                                <div class="sp"></div>
-                                                <div class="mess mess-r">
-                                                    <p>I wish it was like this more frequently.</p>
-                                                    <div class="check">
-                                                        <span>4:00 PM</span>
-                                                        <img src="img/check-2.png">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="chat-l">
-                                                <div class="mess">
-                                                    <p>
-                                                        Me too. <img src="img/heart.png" class="emoji">
-                                                    </p>
-                                                    <div class="check">
-                                                        <span>4:00 PM</span>
-                                                    </div>
-                                                </div>
-                                                <div class="sp"></div>
-                                            </div>
-                                            <div class="chat-r">
-                                                <div class="sp"></div>
-                                                <div class="mess mess-r">
-                                                    <p>
-                                                        So where are you going now?
-                                                    </p>
-                                                    <div class="check">
-                                                        <span>4:00 PM</span>
-                                                        <img src="img/check-1.png">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="chat-footer">
-                                            <img src="img/emo.png" style="visibility: hidden;" class="emo">
-                                            <div class="input-group mb-3">
-                                                <input type="text" class="form-control" id="getValuesmsg"
-                                                    placeholder="Type A Message" aria-label="Recipient's username"
-                                                    aria-describedby="basic-addon2">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text" onclick="sendData()"
-                                                        id="basic-addon2">Send</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br><br><br>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="">History</label>
-                                <div class="card">
-                                    <div class="card-header">
-
-                                    </div>
-                                    <div class="card-body">
-                                        <label for="">ALi</label>
-                                        <input type="text" class="form-control" name="" id="">
-                                        <label for="">Mohsin</label>
-                                        <input type="text" class="form-control" name="" id="">
-                                        <label for="">Waqas</label>
-                                        <input type="text" class="form-control" name="" id="">
-                                    </div>
-                                    <div class="card-footer">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                     <button type="button" class="btn btn-primary">Save changes</button>
             </div>
-            </div>
-        </div>
-    </div>
+
+
+
+
+
+
+
+
             <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
                 <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
@@ -1148,7 +981,7 @@ class="btn primary ">Update</button>
                                             <table id="subTasks">
                                                 <tr>
                                                     <td id="td-1">1</td>
-                                                    <td id="td-2"><input type="text" class="form-control" name="" id="">
+                                                    <td id="td-2"><input type="text" style="margin: 4px 0px;" class="form-control" name="" id="">
                                                     </td>
 
                                                 </tr>
@@ -1219,11 +1052,44 @@ class="btn primary ">Update</button>
             </div>
 
         </div>
-    </div>
-    @include('sidenavbar')
-    <div class="clearfix"></div>
+
+        @include('sidenavbar')
+        <div class="clearfix"></div>
 
     </div>
+  
+
+
+
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+    <div class="leftCardBody">
+        <div>
+            &nbsp;</div>
+
+        <span>&nbsp;</span>
+    </div>
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1243,27 +1109,27 @@ class="btn primary ">Update</button>
             })
         })
 
-        function updateEmployeeStatus(){
+        function updateEmployeeStatus() {
             var employeeID = [document.getElementById("employeeID").value];
             var mainTaskID = [document.getElementById("mainTaskID").value];
             var comment = [document.getElementById("comment").value];
             var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
             var overallStatus = ["Pending"]
             var allSubTasks = [mainTaskID, comment, employeeID, overallStatus];
-            
-            for(i = 0; i < task.length; i++){
-                allSubTasks[3]=["Completed"];
-                var singleSubTaskDeatails=[];
+
+            for (i = 0; i < task.length; i++) {
+                allSubTasks[3] = ["Completed"];
+                var singleSubTaskDeatails = [];
                 var STaskID = task[i].value;
                 singleSubTaskDeatails.push(STaskID);
                 singleSubTaskDeatails.push(task[i].options[task[i].selectedIndex].text);
                 allSubTasks.push(singleSubTaskDeatails);
-                if (task[i].options[task[i].selectedIndex].text=="Pending"){
-                    allSubTasks[3]=["Pending"];
+                if (task[i].options[task[i].selectedIndex].text == "Pending") {
+                    allSubTasks[3] = ["Pending"];
                 }
             }
-            
-            
+
+
             var status = JSON.stringify(allSubTasks);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1276,22 +1142,28 @@ class="btn primary ">Update</button>
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./updateTaskStatus/"+ status, true);
+            xhttp.open("GET", "./updateTaskStatus/" + status, true);
 
             xhttp.send();
             loadEmployees();
         }
 
 
-        function updateAdminStatus(){
+        function updateAdminStatus() {
             var employeeID = document.getElementById("employeeID").value;
             var mainTaskID = document.getElementById("mainTaskID").value;
             var remarks = document.getElementById("remarks").value;
             var status = document.getElementById("adminStatus").value;
             var date = document.getElementById("dateValue").value;
-            var adminStatus = [[employeeID], [mainTaskID], [remarks], [status], [date]];
+            var adminStatus = [
+                [employeeID],
+                [mainTaskID],
+                [remarks],
+                [status],
+                [date]
+            ];
             alert(adminStatus);
-            
+
             var status = JSON.stringify(adminStatus);
             alert(status);
             var xhttp = new XMLHttpRequest();
@@ -1305,98 +1177,101 @@ class="btn primary ">Update</button>
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./updateAdminStatus/"+ status, true);
+            xhttp.open("GET", "./updateAdminStatus/" + status, true);
 
             xhttp.send();
         }
 
 
-        function loadTaskDetails(taskID){
+        function loadTaskDetails(taskID) {
 
-           // alert(taskID);
+            // alert(taskID);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
                     var data = this.responseText;
                     var a = JSON.parse(data);
-                    document.getElementById("mainTask").value=a[0].Subject;
-                    document.getElementById("mainTaskID").value=a[0].TaskID;
-                    document.getElementById("employeeID").value=a[0].EID;
-                        a[0].TaskID;
-                        a[0].STaskID;
-                        a[0].Subject;
-                        a[0].Status;
-                        a[0].DueDate;
-                        a[0].taskDetails;
-                        a[0].StockIn;
-                        a[0].AssignedBy;
-                        a[0].AssignedTo;
-                        a[0].DueDate;
-                        a[0].taskDetails;
-                        a[0].Priority;
-                        a[0].Remarks;
-                        a[0].EID;
-                        a[0].FirstName;
-                        a[0].LastName;
+                    document.getElementById("mainTask").value = a[0].Subject;
+                    document.getElementById("mainTaskID").value = a[0].TaskID;
+                    document.getElementById("employeeID").value = a[0].EID;
+                    a[0].TaskID;
+                    a[0].STaskID;
+                    a[0].Subject;
+                    a[0].Status;
+                    a[0].DueDate;
+                    a[0].taskDetails;
+                    a[0].StockIn;
+                    a[0].AssignedBy;
+                    a[0].AssignedTo;
+                    a[0].DueDate;
+                    a[0].taskDetails;
+                    a[0].Priority;
+                    a[0].Remarks;
+                    a[0].EID;
+                    a[0].FirstName;
+                    a[0].LastName;
 
-                        document.getElementById("AllSubTasks").innerHTML="";
-                        var st= "";
+                    document.getElementById("AllSubTasks").innerHTML = "";
+                    var st = "";
 
-                    
 
-                        $.each(a, function (i, item) {
-                            if (a[i].Status=="Pending"){
+
+                    $.each(a, function (i, item) {
+                        if (a[i].Status == "Pending") {
                             // document.getElementById("AllSubTasks").innerHTML=;
-                                st=st+'<div class="row">\
+                            st = st + '<div class="row">\
                                 <div class="col-md-8 ">\
-                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="' +
+                                item.taskDetails + '">\
                                 </div>\
                                 <div class="col-md-4">\
                                 <select style="height: 35px !important; width: 120px !important; "\
                                 class="form-control" \
                                 id="TaskStatus[]">\
-                                <option value="'+item.STaskID+'">Pending</option>\
-                                <option value="'+item.STaskID+'">Completed</option>\
+                                <option value="' + item.STaskID + '">Pending</option>\
+                                <option value="' + item.STaskID + '">Completed</option>\
                                 </select>\
                                 </div>\
                                 </div>';
-                            }
-                            if (a[i].Status!="Pending"){
+                        }
+                        if (a[i].Status != "Pending") {
 
-                                st=st+'<div class="row">\
+                            st = st + '<div class="row">\
                                 <div class="col-md-8 ">\
-                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="' +
+                                item.taskDetails + '">\
                                 </div>\
                                 <div class="col-md-4">\
                                 <input style="height: 35px !important; width: 120px !important; " readonly\
-                                class="form-control" value="'+item.Status+'">\
+                                class="form-control" value="' + item.Status + '">\
                                 </input>\
                                 </div>\
                                 </div>';
-                            }
-                            var userCategory=( '{{ Session::get('EMPID')}}');
-                            if(userCategory!=1){
-                                document.getElementById("adminUseOnly").style.visibility = "hidden"; 
-                                document.getElementById("adminUseOnly2").style.visibility = "hidden";
-                                
-                            }else{
-                                document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
-                            }
-                        });
-                    }
+                        }
+                        var userCategory = ('{{ Session::get('
+                            EMPID ')}}');
+                        if (userCategory != 1) {
+                            document.getElementById("adminUseOnly").style.visibility = "hidden";
+                            document.getElementById("adminUseOnly2").style.visibility = "hidden";
 
-                    document.getElementById("AllSubTasks").innerHTML=st;
-
-                    
+                        } else {
+                            document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
+                        }
+                    });
                 }
-            
+
+                document.getElementById("AllSubTasks").innerHTML = st;
+
+
+            }
+
             //alert("ljd");
-            xhttp.open("GET", "./loadTaskDetails/"+taskID, true);
+            xhttp.open("GET", "./loadTaskDetails/" + taskID, true);
 
             xhttp.send();
 
-            }
+        }
 
     </script>
     <script>
@@ -1450,16 +1325,18 @@ class="btn primary ">Update</button>
             xhttp.send();
             loadEmployees();
             displayOptions();
-            
+
         }
-        function displayOptions(){
-           var userCategor=( '{{ Session::get('EMPID')}}');
 
-           if(userCategor==2){
+        function displayOptions() {
+            var userCategor = ('{{ Session::get('
+                EMPID ')}}');
+
+            if (userCategor == 2) {
 
 
-           }
-          
+            }
+
 
         }
 
@@ -1487,7 +1364,7 @@ class="btn primary ">Update</button>
             var employeeID = document.getElementById("employee").value;
             var employeeName = $('#employee').find(":selected").text();
             var status = document.getElementById("status").value;
-            
+
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1501,7 +1378,7 @@ class="btn primary ">Update</button>
             };
             //alert("ljd");
             xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
-           
+
             xhttp.send();
         }
 
@@ -1555,8 +1432,8 @@ class="btn primary ">Update</button>
             date = y + '-' + m + '-' + d;
             alert(date);
             document.getElementById("dateValue").value = date
-            
-            }
+
+        }
 
         function TomorrowDate() {
             const today = new Date()
@@ -1569,13 +1446,13 @@ class="btn primary ">Update</button>
             alert(date);
             document.getElementById("dateValue").value = date;
 
-            }
+        }
 
         function customDate() {
             var custumDate = document.getElementById("date").value;
             document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
-            
+
         }
 
         function loadEmployees() {
@@ -1619,7 +1496,6 @@ class="btn primary ">Update</button>
             }
             toggle = !toggle;
         });
-
 
     </script>
 

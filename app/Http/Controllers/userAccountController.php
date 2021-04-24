@@ -14,21 +14,65 @@ class userAccountController extends Controller
         ->get();
      //->first()->UserName;
     if($re=="[]"){
+      
         session(['userName' =>null]);
+        session(['Designation' =>null]);
         return "Invalid Username";
     }else{
     
     session(['userName' => $re[0]->UserName]);
-    session(['userCategory' => $re[0]->Designation]);
+    session(['Designation' => $re[0]->Designation]);
       
         session(['userID' => $re[0]->UserID]);
      return $re;
     }
+ }
+    public static function addUsers(Request $request, $CO){
+        $ata=json_decode($CO);
+        $userName = $ata[0];
+        $password = $ata[1];
+        $designation = $ata[2];
+
+        $re = DB::table('userinfo')
+        ->insert([
+          
+          'UserName'=>$userName,
+          'Password'=>$password,
+          'Designation'=>$designation
+          ]);
+
+          return $userName;
+        }
+        
+        public static function getUsers(){
+            $data=DB:: select('select * from userinfo ');
+            return $data;
+          }
+          
+
+          public static function editUsers(Request $request, $CO){
+            $ata=json_decode($CO);
+            $UserID = $ata[0];
+            $UserName = $ata[1];
+            $Password = $ata[2];
+            $Designation = $ata[3];
+
+            $re = DB::table('userinfo')
+            ->where('UserID', $UserID)
+            ->update([
+              'UserName'=>$UserName,
+              'Password'=>$Password,
+              'Designation'=>$Designation
+              ]);
+    
+              return $re;
+            }
 
 
 
 
 
 
-    }
+
+    
 }

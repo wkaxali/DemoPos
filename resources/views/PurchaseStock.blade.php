@@ -22,7 +22,7 @@
 
 
     <style>
-           @media (max-width: 1366px) {
+        @media (max-width: 1366px) {
             .left-content {
                 width: 83%;
             }
@@ -31,7 +31,7 @@
         .page-container.sidebar-collapsed-back .left-content {
             width: 83% !important;
         }
-      
+
 
         @-moz-document url-prefix() {
 
@@ -809,9 +809,7 @@
             border-color: #007bff;
         }
 
-        @media only screen and (max-width: 768px) {
-          
-        }
+        @media only screen and (max-width: 768px) {}
 
         @media only screen and (max-width: 1024px) {
             .o-inv-2 {
@@ -1130,380 +1128,61 @@
             height: 30px !important;
 
         }
+
         @media only screen and (max-width: 768px) {
             .okay-invo input {
-    width: 179px;
-}
-.o-inv input {
-    width: 179px;
-}
-.o-inv-2 input {
-    width: 179px !important;
-}
+                width: 179px;
+            }
 
-.bootstrap-select .dropdown-toggle {
-    width: 179px;
-    height: 33px !important;
-    color: #ffffff !important;
-}
-.okay-invo-3 input {
-    width: 179px !important;
-}
-.total-buttons button {
-    height: 35px !important;
-    width: 60px !important;
-}
-        
-       
-.inner-block {
-    padding: .5em 1em 2em 1em;
-}
-.bootstrap-select .dropdown-toggle {
-    width: 179px !important;
-    height: 30px !important;
-}
-#payFrom{
-    display:block;
-}
-.okay-invo-3 label {
-    width: 80px;
-    margin:5px 0px;
-}
+            .o-inv input {
+                width: 179px;
+            }
+
+            .o-inv-2 input {
+                width: 179px !important;
+            }
+
+            .bootstrap-select .dropdown-toggle {
+                width: 179px;
+                height: 33px !important;
+                color: #ffffff !important;
+            }
+
+            .okay-invo-3 input {
+                width: 179px !important;
+            }
+
+            .total-buttons button {
+                height: 35px !important;
+                width: 60px !important;
+            }
+
+
+            .inner-block {
+                padding: .5em 1em 2em 1em;
+            }
+
+            .bootstrap-select .dropdown-toggle {
+                width: 179px !important;
+                height: 30px !important;
+            }
+
+            #payFrom {
+                display: block;
+            }
+
+            .okay-invo-3 label {
+                width: 80px;
+                margin: 5px 0px;
+            }
         }
+
     </style>
 </head>
 
 
 <body id="kt_bodys" onload="getPartsAndServices()">
-    <div class="page-container">
-        <div class="left-content">
-            <div class="inner-block">
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h1 style="margin-bottom:15px;">Purchase Stock</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-3  col-lg-6 col-md-6  okay-invo">
-                            <label for="invo-1">Invoice Number</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="InvoiceID">
-                            <button class="btn" style="height: 25px; margin-top: -5px;background-color: #e61d2f;"
-                                onclick="getInvoiceStock()"></button>
-                            <label for="prod-1">Product Number</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="invo-1">
-                            <button type="button" class="btn"
-                                style="height: 25px; margin-top: -5px;background-color:#0a549d;" data-toggle="modal"
-                                data-target=".bd-example-modal-xl"></button>
-
-                            </button>
-
-
-
-                            <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
-                                aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog  modal-xl">
-                                    <div class="modal-content">
-                                        <div class="container">
-                                            <div class="row">
-
-                                            </div>
-                                        </div>
-
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="overFlowingTable"
-                                                    style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
-
-
-                                                    <table class="table  table-bordered " id="searchProductTable">
-                                                        <thead>
-                                                            <tr>
-
-                                                                <th>Product Id</th>
-
-                                                                <th>Product Name</th>
-                                                                <th>Company</th>
-                                                                <th>Price</th>
-                                                                <th>Stock</th>
-
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
-                                                    <button type="button" class="btn btn-org-1"
-                                                        data-dismiss="modal">Close</button>
-                                                    <button type="submit" data-dismiss="modal"
-                                                        class="btn btn-org-1">Okay</button>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <label style="visibility: hidden;" for="prod-hour">Product Number</label>
-                            <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
-                            <br>
-                            <div class="centhour">
-                                <button class="btn btn-new" style="background-color: #e61d2f;">New</button>
-                                <button class="btn btn-edit" style="background-color: #13579a;">Edit</button>
-                                <button class="btn" style="background-color: #e61d2f;">Delete</button>
-                            </div>
-                            <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
-                        </div>
-
-                        <div class="col-md-6  okay-invo-1">
-                            <div class="o-inv">
-                                <label for="invo-1">Supplier Id</label>
-                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="SID">
-                                <button class="btn "
-                                    style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
-                                <br>
-                                <label for="prod-1">Last Balance</label>
-                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="LastBalance">
-                                <button class="btn "
-                                    style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
-                                <br>
-                                <label for="prod-1">Current Balance</label>
-                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="CurrentBalance">
-
-                            </div>
-                            <div class="o-inv-2">
-
-
-                                <label for="issue-3">Supplier Name</label>
-                                <select class="selectpicker" data-live-search="true" tabindex="null" id="SupplierName"
-                                    onchange="getCurrentSupplierInfo()">
-                                    <!-- from database -->
-                                </select>
-
-
-                                </button>
-
-                                <br>
-                                <label for="prod-1">Contact Number</label>
-                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="CNO">
-                                <br>
-                                <label for="prod-1">Category</label>
-                                <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="SupplierCategory">
-                                <br>
-                            </div>
-                            <div class="clear">
-
-                            </div>
-                            <div class="inv-bor-btns">
-                                <button class="btn " style="background-color:#0a549d;" data-toggle="modal"
-                                    data-target="#staticBackdrop">Add</button>
-
-
-
-                                <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content" style="background:none;">
-
-                                            <div class="modal-body">
-
-                                                <div class="registration-form">
-                                                    <form>
-                                                        <div class="SupplierAddition  mb-3"
-                                                            style="margin-top:-20px !important;">
-                                                            <h2>Add Supplier</h2>
-
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="username"
-                                                                placeholder="Supplier ID">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="password"
-                                                                placeholder="Supplier Name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="email" class="form-control item"
-                                                                autocomplete="OFF" id="email" placeholder="Email">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="number" class="form-control item"
-                                                                autocomplete="OFF" id="phone-number"
-                                                                placeholder="Phone Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="birth-date"
-                                                                placeholder="Birth Date">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="email" placeholder="Dummy">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="phone-number"
-                                                                placeholder="Phone Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="birth-date"
-                                                                placeholder="Birth Date">
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <button type="button"
-                                                                class="btn btn-block create-account">Add</button>
-                                                        </div>
-
-
-                                                    </form>
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <button class="btn " style="background-color: #e61d2f;">View</button>
-                                <button class="btn " style="background-color:#0a549d;">History</button>
-                                <button class="btn " style="background-color: #e61d2f;">Info</button>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 okay-invo okay-invo-hide">
-                            <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid"
-                                alt="">
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-                <br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-9 myGoggle" style="overflow-x: auto; overflow-y: auto;">
-                            <div>
-                                <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
-                                    id="ProductSaleTable">
-
-                                    <thead>
-                                        <tr>
-
-                                            <th>Product ID</th>
-
-                                            <th>Product Name</th>
-                                            <th>Company</th>
-                                            <th>Purchase Price</th>
-                                            <th>Quantity</th>
-                                            <th>Discount</th>
-                                            <th>Total</th>
-                                            <th>Action</th>
-
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <!-- this will be populated from database -->
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                        <div class="col-md-3 okay-invo-3">
-                            <label for="invo-1">Total</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="Total">
-
-                            <label for="prod-1">Discount</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="DiscountOverall" value="00" onchange="calc()">
-                            <label for="invo-1">Gross Total</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="grossTotal">
-                            <label for="prod-1"> Tax 17%</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="tax" onchange="calc()">
-                            <label for="prod-1">Net Total</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="NetTotal">
-                            <label for="invo-1" style=" font-weight: 500;">Amount Paid</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="AmountPaid" onchange="calcForBalance()">
-                            <label for="prod-1" style=" font-weight: 500;">Remaining Balance</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="RemainingBalance">
-                            <label id="payFrom" for="">Paid From</label>
-                            <select class="selectpicker form-control" data-live-search="true" id="accounts"
-                                tabindex="null">
-
-
-
-                            </select>
-
-                            <div class="total-buttons" id="hideme">
-                                <button class="btn" style="background-color: #0a549d;"
-                                    onclick="insertInOrder()">Save</button>
-                                <button class="btn" style="background-color: #e61d2f ;">Print</button>
-                                <button class="btn" style="background-color:#0a549d;">Edit</button>
-                            </div>
-                            <div class="total-buttons" id="hideme">
-                                <button class="btn" style="background-color: #e61d2f;">Hold</button>
-                                <button class="btn" style="background-color: #0a549d;">Update</button>
-                                <button class="btn" style="background-color: #e61d2f ;">Delete</button>
-                            </div>
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-                <section>
-                    <div class="total-buttons mb-5" id="holdPlz" style="text-align: center;">
-                        <button class="btn" style="background-color:#0a549d;">Save</button>
-                        <button class="btn btn-info">Hold</button>
-                        <button class="btn btn-info">Save</button>
-
-                        <button class="btn btn-info">Save</button>
-                        <button class="btn btn-info">Hold</button>
-                        <button class="btn btn-info">Save</button>
-                    </div>
-                </section>
-            </div>
-        </div>
-        @include('sidenavbar')
-        <div class="clearfix"></div>
-    </div>
+@include('purchasestockhtml')
 
 
 
@@ -1867,20 +1546,21 @@
 
 
     }
-    function loadAccounts(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("accounts").innerHTML = this.response;
-            $('#accounts').selectpicker('refresh');
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getAccountHeads/", true);
-    
-    xhttp.send();
+
+    function loadAccounts() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                document.getElementById("accounts").innerHTML = this.response;
+                $('#accounts').selectpicker('refresh');
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getAccountHeads/", true);
+
+        xhttp.send();
     }
 
     function IsItemExistInDataTable(item) {
@@ -1966,31 +1646,31 @@
 
 
         var array = JSON.stringify(myRow2);
-       // alert(array);
-       
+        // alert(array);
+
 
         var xhttp = new XMLHttpRequest();
-        
-        if(AID == ""){
+
+        if (AID == "") {
             alert("Payment Method not selected");
-        }else{
-            
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+        } else {
 
-                alert("Invoice =" + this.responseText + " is generated");
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
 
-            }
-        };
+                    alert("Invoice =" + this.responseText + " is generated");
 
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+                }
+            };
 
-        xhttp.send();
-    }
-    // }else{
-    //         alert("Payment Method is not selected");
-    //     }
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addPurchaseForSS/" + array, true);
+
+            xhttp.send();
+        }
+        // }else{
+        //         alert("Payment Method is not selected");
+        //     }
     }
 
     function validation() {
@@ -2000,30 +1680,30 @@
 </script>
 
 <script>
-    function getInvoiceStock(){
+    function getInvoiceStock() {
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        var data = this.responseText;
-        //alert(data);
-        var a = JSON.parse(data);
-        document.getElementById("SID").value = a[0].SID;
-        document.getElementById("LastBalance").value = a[0].Balance;
-        document.getElementById("CurrentBalance").value = a[0].Balance;
-        calc();
-        document.getElementById("CNO").value = a[0].Contect;
-        document.getElementById("SupplierCategory").value = a[0].Category;
-        //document.getElementById("SupplierName").value =;
-        $('#SupplierName').val( a[0].SupplierID);
-        $('#SupplierName').selectpicker('refresh');
-        // var e = document.getElementById("SupplierName");
-        //  e.options[e.selectedIndex].value=a[0].SID;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = this.responseText;
+                //alert(data);
+                var a = JSON.parse(data);
+                document.getElementById("SID").value = a[0].SID;
+                document.getElementById("LastBalance").value = a[0].Balance;
+                document.getElementById("CurrentBalance").value = a[0].Balance;
+                calc();
+                document.getElementById("CNO").value = a[0].Contect;
+                document.getElementById("SupplierCategory").value = a[0].Category;
+                //document.getElementById("SupplierName").value =;
+                $('#SupplierName').val(a[0].SupplierID);
+                $('#SupplierName').selectpicker('refresh');
+                // var e = document.getElementById("SupplierName");
+                //  e.options[e.selectedIndex].value=a[0].SID;
 
-        var i=0;
-        //alert(a.length);
-        var table = document.getElementById("ProductSaleTable");
-        table.innerHTML="<thead>\
+                var i = 0;
+                //alert(a.length);
+                var table = document.getElementById("ProductSaleTable");
+                table.innerHTML = "<thead>\
                             <tr>\
                                 <th>Product ID</th>\
                                 <th>Product Name</th>\
@@ -2036,36 +1716,36 @@ xhttp.onreadystatechange = function () {
                             </tr>\
                         </thead>";
 
-        for (i; i < a.length; i++) {
-            var PID = a[i].ProductSerial;
-            var discount = a[i].Discount;
-            var quantity = a[i].OrderedQuantiy;
-            var purchasePrice = a[i].PurchasePricePerUnit;
-            var company = a[i].Company;
-            var productName = a[i].ProductName;
-            var totalAmount = a[i].NetAmount;
+                for (i; i < a.length; i++) {
+                    var PID = a[i].ProductSerial;
+                    var discount = a[i].Discount;
+                    var quantity = a[i].OrderedQuantiy;
+                    var purchasePrice = a[i].PurchasePricePerUnit;
+                    var company = a[i].Company;
+                    var productName = a[i].ProductName;
+                    var totalAmount = a[i].NetAmount;
 
-            var row = table.insertRow(-1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-            var cell5 = row.insertCell(4);
-            var cell6 = row.insertCell(5);
-            var cell7 = row.insertCell(6);
-            var cell8 = row.insertCell(7);
+                    var row = table.insertRow(-1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+                    var cell5 = row.insertCell(4);
+                    var cell6 = row.insertCell(5);
+                    var cell7 = row.insertCell(6);
+                    var cell8 = row.insertCell(7);
 
-            cell1.innerHTML = PID;
-            cell2.innerHTML = productName;
-            cell3.innerHTML = company;
-            cell4.innerHTML = purchasePrice;
-            cell5.innerHTML = quantity;
-            cell6.innerHTML = discount;
-            cell7.innerHTML = totalAmount;
-            //calc();
-            cell8.innerHTML =
-                "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
-    }
+                    cell1.innerHTML = PID;
+                    cell2.innerHTML = productName;
+                    cell3.innerHTML = company;
+                    cell4.innerHTML = purchasePrice;
+                    cell5.innerHTML = quantity;
+                    cell6.innerHTML = discount;
+                    cell7.innerHTML = totalAmount;
+                    //calc();
+                    cell8.innerHTML =
+                        "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+                }
 
 
 
@@ -2076,40 +1756,41 @@ xhttp.onreadystatechange = function () {
         };
         var invoiceNumber = document.getElementById("InvoiceID").value;
 
-xhttp.open("GET", "./getInvoiceStock/" + invoiceNumber, true);
-xhttp.send();
-}
-</script>
-
-<script>
-function getInvoiceSupplier(){
-
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        var data = this.responseText;
-        //alert(data);
-        var a = JSON.parse(data);
-        
-        document.getElementById("CID").value = a[0].CustomerID;
-        document.getElementById("LastBalance").value = a[0].Balance;
-        document.getElementById("CurrentBalance").value = a[0].Balance;
-        calc();
-        document.getElementById("CNO").value = a[0].Contect;
-        document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
-        document.getElementById("CustomerName").value = a[0].CustomerID;
-        
-
-    }
-};
-var invoiceNumber = document.getElementById("InvoiceID").value;
-
-xhttp.open("GET", "./getInvoiceSupplier/" + invoiceNumber, true);
-xhttp.send();
-
-
+        xhttp.open("GET", "./getInvoiceStock/" + invoiceNumber, true);
+        xhttp.send();
     }
 
+    function pageReload() {
+        location.reload(); 
+    }
+
+    function getInvoiceSupplier() {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = this.responseText;
+                //alert(data);
+                var a = JSON.parse(data);
+
+                document.getElementById("CID").value = a[0].CustomerID;
+                document.getElementById("LastBalance").value = a[0].Balance;
+                document.getElementById("CurrentBalance").value = a[0].Balance;
+                calc();
+                document.getElementById("CNO").value = a[0].Contect;
+                document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+                document.getElementById("CustomerName").value = a[0].CustomerID;
+
+
+            }
+        };
+        var invoiceNumber = document.getElementById("InvoiceID").value;
+
+        xhttp.open("GET", "./getInvoiceSupplier/" + invoiceNumber, true);
+        xhttp.send();
+
+
+    }
 
 </script>
 

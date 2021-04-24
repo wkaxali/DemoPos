@@ -27,16 +27,13 @@
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
-            /* background-color:#0a549d !important; */
 
 
         }
 
         .receivingMain {
-            /* border: 1px solid #aaaaaa; */
             border-radius: 10px;
             height: 550px;
-            /* overflow: auto; */
         }
 
 
@@ -54,64 +51,15 @@
             overflow: auto !important;
         }
 
+        .inner-block {
+            padding: 1em 1em 2em 1em;
+        }
+
     </style>
 </head>
 
 <body onload="getStock()">
-    <div class="page-container">
-
-        <div class="left-content">
-            <div class="inner-block">
-
-
-                <header>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 mt-3 text-center">
-                                <h3>View Expenses</h3>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="receivingMain">
-
-
-                                    <div class="receivingTable">
-                                        <table id="stockTable" class=" table-striped"
-                                            style="width: 100%; text-align: center;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Transaction ID</th>
-                                                    <th>ExpenseHead</th>
-                                                    <th>Transaction Catogery</th>
-                                                    <th>Price</th>
-                                                    <th>Transaction Type</th>
-                                                    <th>Date</th>
-                                                    <th>Paid To</th>
-                                                    <th>Paid Via</th>
-                                                    <th>Account Number</th>
-                                                    <th>Remarks</th>
-                                                  
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-            </div>
-        </div>
-        @include('sidenavbar')
-        <div class="clearfix"></div>
-    </div>
+    @include('viewexpenseshtml')
 
 
 
@@ -148,9 +96,10 @@
                     table = $('#stockTable').DataTable();
 
                     $.each(a, function (i, item) {
-                      
+
                         table.row.add([a[i].TransactionID, a[i].ExpenseHead, a[i].TransactionCatogery, a[i]
-                            .Amount, a[i].TransactionType, a[i].DateStamp, a[i].FirstName, a[i].AccountName, a[i].AccountNumber, a[i].Remarks
+                            .Amount, a[i].TransactionType, a[i].DateStamp, a[i].FirstName, a[i]
+                            .AccountName, a[i].AccountNumber, a[i].Remarks
                         ]);
                     });
                     table.draw();

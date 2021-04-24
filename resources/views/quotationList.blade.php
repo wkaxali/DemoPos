@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <style>
@@ -16,6 +17,7 @@
             background-color: #0a549d;
             color: aliceblue;
         }
+
         @media print {
             body * {
                 visibility: hidden;
@@ -32,65 +34,41 @@
                 top: 0;
             }
         }
-.btn:hover{
-    color:#fff;
-}
+
+        .btn:hover {
+            color: #fff;
+        }
+
+        .myContentInputs {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .input-Btn-1 {
+            text-align: center;
+            margin: 10px 0px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .myContentInputs {
+                display: block !important;
+            }
+
+            .inner-block {
+                padding: .5em 1em 2em 1em;
+            }
+        }
+
+        .left-content {
+            width: 85% !important;
+        }
+
     </style>
     <title>Quotation List</title>
 </head>
 
 <body onload="getQuotations()">
-    <div class="page-container">
-        <div class="left-content">
-            <div class="inner-block">
-
-    <div class="container-fluid">
-        <div class="mains">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <h1>Quotation List</h1>
-            </div>
-        </div><br><br>
-        <div class="row">
-            <div class="col-md-8">
-                <table class="table table-bordered table-hover" id="quotationsTable">
-                    <thead>
-                        <th>QID</th>
-                        <th>CustomerName</th>
-                        
-                        <th>CNIC</th>
-                        <th>City</th>
-                        <th>Address</th>
-                        <th>Contact</th>
-                        
-                        
-                        <th>UnitPrice</th>
-                        <th>Quantity</th>
-                        <th>TotalPrice</th>
-                        <th>Model</th>
-                        <th>Date</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
-    </div>
-        <div class="row">
-            <div class="col-md-4 offset-md-6 text-right">
-                <button class="btn print ">Print</button>
-            </div>
-        </div>
-    </div>
-            </div>
-        </div>
-        @include('sidenavbar')
- 
-    <div class="clearfix"></div>
-    </div>
+    @include('quotationlisthtml')
 
 
 
@@ -142,11 +120,12 @@
 
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].QID,  a[i].CustomerName, a[i]
-                            .CNIC, a[i].City, a[i].Address, a[i]
+                        table.row.add([a[i].QID, a[i].CustomerName, a[i].Address, a[i]
                             .Contact, a[i]
                             .UnitPrice, a[i].Quantity, a[i].TotalPrice, a[i]
-                            .Model, a[i].Date, '<button class="btn print" onclick="printQuotation('+a[i].QID+')" >Print</button>'
+                            .Model, a[i].Date,
+                            '<button class="btn print" onclick="printQuotation(' + a[i].QID +
+                            ')" >Print</button>'
                         ]);
                     });
                     table.columns.adjust().draw();
@@ -157,17 +136,17 @@
             xhttp.open("GET", "./viewQuotations/", true);
 
             xhttp.send();
+            loadAutos();
         }
 
 
-        function printQuotation(QID){
+        function printQuotation(QID) {
             alert(QID);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                
-                window.open('/qt');
-                window.open('/testpdf/5');
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/testpdf/5');
 
                 }
             }
@@ -178,6 +157,99 @@
         }
 
 
+        function createQuotation() {
+            // <input type="text" name="phone_number" id="qvt" placeholder="Quotation Validity Time"
+            //                                     required />
+            //                                     <input type="text" name="phone_number" id="dt" placeholder="Delivery Time"
+            //                                     required />
+            //                                     <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
+            //                                     required />
+            var customerName = document.getElementById("customerName").value;
+            var fatherName = "";
+            var CNIC = "";
+            var city = "";
+            
+            var description = document.getElementById("description").value;
+            var color = document.getElementById("color").value;
+            var unitPrice = document.getElementById("unitPrice").value;
+            var quantity = document.getElementById("quantity").value;
+            var totalPrice = document.getElementById("totalPrice").value;
+            var model = document.getElementById("model").value;
+            var det = document.getElementById("dt").value;
+            var qvt = document.getElementById("qvt").value;
+            var payTo = document.getElementById("paymentTo").value;
+
+            var data = [customerName, fatherName, CNIC, city, "address", "contact", description, color, unitPrice, quantity,
+                totalPrice, model, det, qvt, payTo
+            ];
+
+            var quotationData = JSON.stringify(data);
+            alert(data);
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert("Quotation =" + this.responseText + " is generated");
+
+                    window.open("/qt");
+                    window.open("/testpdf/5");
+
+
+                }
+            };
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./createQuotation/" + quotationData, true);
+            xhttp.send();
+
+        }
+
+
+        function updateModelData() {
+            var AID = $('#model').find(":selected").val();
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var a = this.response;
+                    var data = JSON.parse(a);
+                    var price = data[0].Price;
+                    var description = data[0].Description;
+                    document.getElementById("unitPrice").value = price;
+                    document.getElementById("description").value = description;
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getAutoData/" + AID, true);
+
+            xhttp.send();
+        }
+
+        function loadAutos() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("model").innerHTML = this.response;
+                   // $('#model').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadAutos/", true);
+
+            xhttp.send();
+        }
+
+        function calculation() {
+            var price = document.getElementById("unitPrice").value;
+            var quantity = document.getElementById("quantity").value;
+
+            var total = price * quantity;
+            document.getElementById("totalPrice").value = total;
+        }
 
     </script>
 </body>

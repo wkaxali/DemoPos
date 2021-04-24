@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>Title Stock</title>
+    <title>Set Ideal Stock</title>
 
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -25,7 +25,6 @@
         }
 
         .stockLabels {
-            padding: 20px 10px;
             border-radius: 10px;
             border: 1px solid rgb(202, 202, 202);
         }
@@ -44,6 +43,8 @@
 </head>
 
 <body onload="searchRawMatirial()">
+<div class="container">
+
 
     <header class="idi">
         <div class="container">
@@ -55,13 +56,12 @@
 
         </div>
     </header>
-    <br>
     <section class="mt-5">
         <div class="containerMy">
             <div class="row">
                 <div class="col-md-8 ">
                     <div class="stock-table"
-                        style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
+                        style="height: 684px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
                         <table style="width: 100%;" id="stocktable">
                             <thead>
                                 <tr ondblclick="SetStockIdeal()">
@@ -88,56 +88,43 @@
                 <div class="col-md-4 stockLabels">
                     <label for="id">Product ID</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="productID"><br><br>
+                        name="id" id="productID">
                     <label for="id">Product Name</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="productName"><br><br>
+                        name="id" id="productName">
                     <label for="id">Company</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="company"><br><br>
+                        name="id" id="company">
                     <label for="id">Invoice Price</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="salePrice"><br><br>
+                        name="id" id="salePrice">
                     <label for="id">Purchase Price</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="purchasePrice"><br><br>
+                        name="id" id="purchasePrice">
                     <label for="id">StockIn</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="stockIn"><br><br>
+                        name="id" id="stockIn">
                     <label for="id">Color</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="color"><br><br>
+                        name="id" id="color">
                     <label for="id">EngineNumber</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="engineNumber"><br><br>
+                        name="id" id="engineNumber">
                     <label for="id">Chasis Number</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="chasisNumber"><br><br>
+                        name="id" id="chasisNumber">
                     <!-- <label for="id">Status</label> -->
                     <input type="text" class="form-control" style="display: none; width: 200px !important;"
-                        name="id" id="status"><br><br>
-                    <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
+                        name="id" id="status">
+                    <div class="st-button  " style="margin-top: 15px;">
                         <button class="btn btn-success" onclick="SetStockIdeal()">Update </button>
 
-                        <div class="col-md-4 ">
-                    <button type="button" class="btn btn-info btn-cp" style="margin-top:29px;" data-toggle="modal"
-                        data-target=".bd-example-modal-xl"></button>
-                    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
-                        aria-labelledby="myExtraLargeModalLabel" aria-hidden="true" id="searchModal">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                            
-                            
-
-
-
-
-
-
-
-    <!--end::Demo Panel-->
-
-    <!-- jQuery and JS bundle w/ Popper.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

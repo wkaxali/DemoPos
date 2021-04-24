@@ -8,6 +8,10 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+
   
     <title>Increase In Price</title>
     <style>
@@ -36,6 +40,7 @@
         .receivingTable {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
+            padding:10px;
         }
 
         .receivingMain {
@@ -130,9 +135,10 @@
 
 
                         <div class="receivingTable">
-                            <table class="table-striped " style="width: 100%; text-align: center;">
+                            <table class="table-striped " id="stockTable" style="width: 100%; text-align: center;">
                                 <thead>
                                     <tr>
+                                      
                                         <th>SR</th>
                                         <th>Name</th>
                                         <th>Chasis No</th>
@@ -242,8 +248,30 @@
 
         <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+    
+    </script>
+        <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script>
+    $(document).ready(function () {
+        $('#stockTable').DataTable({
+            responsive: {
+                details: {
+                    type: 'column',
+                    target: 'tr'
+                }
+            },
+            columnDefs: [{
+                className: 'control',
+                orderable: false,
+                targets: 0
+            }],
+            order: [1, 'asc']
+        });
+    });
 
+</script>
 </body>
 
 </html>

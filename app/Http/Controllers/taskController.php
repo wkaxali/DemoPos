@@ -45,15 +45,21 @@ class taskController extends Controller
 
 public static function employeeData(){
     $card="";
-    $data=DB:: select('select * from vw_tasks');
+    $ID = session()->get('EmpID');
+    if($ID == 1){
+        $data=DB:: select('select * from vw_tasks');
+    }else{
+        $data=DB:: select('select * from vw_tasks where EID ='.$ID);
+    }
+   
     foreach ($data as $obj){
-        $card=$card.'<div class="card" >
+        $card=$card.'<div class="card colorcard" >
 
         <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
             <div class="mainCardBody">
                 <div class="leftCardBody">
                     <button
-                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
+                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
                 </div>
                 <div class="rightCardBody">
                     <span><i class="fa fa-fire"></i></span>
@@ -138,7 +144,7 @@ public static function getEmployees(){
             <div class="mainCardBody">
                 <div class="leftCardBody">
                     <button
-                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
+                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
                 </div>
                 <div class="rightCardBody">
                     <span><i class="fa fa-fire"></i></span>
@@ -191,7 +197,7 @@ public static function searchTaskWithStatus($EID, $status, $name){
             <div class="mainCardBody">
                 <div class="leftCardBody">
                     <button
-                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">Sales</button>
+                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
                 </div>
                 <div class="rightCardBody">
                     <span><i class="fa fa-fire"></i></span>
@@ -296,7 +302,24 @@ public static function updateTaskStatus(Request $request, $CO){
     return $status;
   }
 
+  public static function addTaskCategory(Request $request, $category){
+        $ID=DB::table('tbl_taskcategory')
+            ->insertGetId(['Category'=>$category
+            ]);
+
+            return $ID;
 }
 
+
+
+public static function updateTaskCategory($ID, $newcategory){
+
+
+    DB::table('tbl_taskcategory')
+            ->where('CategoryID', '=', $ID)
+            ->update(['Category'=>$newcategory
+            ]);
+            return $newcategory;
+}
   
-  
+}

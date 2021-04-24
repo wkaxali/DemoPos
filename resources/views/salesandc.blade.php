@@ -258,35 +258,63 @@
             display: flex;
             justify-content: center;
         }
-        @media (max-width: 768px) {
-         .myflex{
-             display:block;
-         }
-         .myMainRow {
-                height:auto;
-            }
-            .myMainRow{
-                display:contents !important;
-            }
-.tableDiv table{
-    width: 100% !important;
 
-}
-.bookingRightTable {
-    border-radius: 10px;
-    height: 170px !important;
-    width: 64% !important;
-    border: 1px solid #aaaaaa;
-    padding: 10px;
-    margin-left: 10px;
-    /* border-radius: 10px; */
-}
-#act{
-    width: 66% !important;
-}
-.mCtrl{
-    width: 200px !important;
-}
+        @media (max-width: 768px) {
+            .additional {
+                margin-bottom: 20px;
+            }
+
+            #act {
+                width: 100% !important;
+            }
+
+            .inner-block {
+                padding: 0px !important;
+            }
+
+            .myOwnRow-left {
+                width: auto !important;
+            }
+
+            .myOwnRow-right {
+                width: auto !important;
+            }
+
+            .myflex {
+                display: block;
+            }
+
+            .myMainRow {
+                height: auto;
+            }
+
+            .myMainRow {
+                display: contents !important;
+            }
+
+            .tableDiv table {
+                width: 100% !important;
+
+            }
+
+            .form-control {
+                width: 232px !important;
+                height: auto !important;
+            }
+
+            .bookingRightTable {
+                border-radius: 10px;
+                height: 170px !important;
+                width: 96% !important;
+                border: 1px solid #aaaaaa;
+                padding: 10px;
+                margin-left: 10px;
+                /* border-radius: 10px; */
+            }
+
+            .mCtrl {
+                width: 200px !important;
+            }
 
         }
 
@@ -342,7 +370,7 @@
 
                                             </div>
                                             <div class="modal-body" style="overflow: auto;">
-                                                <div class="receivingTable" >
+                                                <div class="receivingTable">
                                                     <table id="productSearchTable" class=" table-striped"
                                                         style="width: 100%; text-align: center;">
                                                         <thead>
@@ -407,34 +435,34 @@
                                             <div class="mInputs">
                                                 <label for="status">Model</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 163px;"
+                                                    style="display: inline-block !important; height: 30px ; width: 163px;"
                                                     name="name" id="productName" value="Cash">
                                             </div>
                                             <div class="mInputs">
                                                 <label for="status">Product Id</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 163px;"
+                                                    style="display: inline-block !important; height: 30px; width: 163px;"
                                                     name="name" id="PID" value="Cash">
                                             </div>
 
                                             <div class="mInputs">
                                                 <label for="status">Chassis Number </label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 163px;"
+                                                    style="display: inline-block !important; height: 30px ; width: 163px;"
                                                     name="name" id="chassisNumber" value="137000">
 
                                             </div>
                                             <div class="mInputs">
                                                 <label for="status">Engine Number</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 163px;"
+                                                    style="display: inline-block !important; height: 30px ; width: 163px;"
                                                     name="name" id="engineNumber" value="10000">
 
                                             </div>
                                             <div class="mInputs">
                                                 <label for="status">Status</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 163px;"
+                                                    style="display: inline-block !important; height: 30px ; width: 163px;"
                                                     name="name" id="status" value="0">
 
                                             </div>
@@ -445,7 +473,7 @@
 
                                                 <label for="status">Purchase Price</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 163px;"
+                                                    style="display: inline-block !important; height: 30px ; width: 163px;"
                                                     name="name" id="PurchasePrice" value="">
                                             </div>
                                         </div>
@@ -456,7 +484,7 @@
                                             <div class="col-md-2">
                                                 <label for="status">Invoice Price</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 163px;"
+                                                    style="display: inline-block !important; height: 30px ; width: 163px;"
                                                     name="name" id="SalePrice" value="0">
 
                                             </div>
@@ -465,14 +493,14 @@
 
                                                 <label for="status">Total Cost+ tax</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 163px;"
+                                                    style="display: inline-block !important; height: 30px; width: 163px;"
                                                     name="name" id="totalCost" value="">
                                             </div>
                                             <div class="col-md-2">
 
                                                 <label for="status">Gross Sale Price</label>
                                                 <input type="text" class="form-control"
-                                                    style="display: inline-block !important; height: 30px !important; width: 163px;"
+                                                    style="display: inline-block !important; height: 30px; width: 163px;"
                                                     name="name" id="SPC" value="">
                                             </div>
 
@@ -514,7 +542,7 @@
                                                 <div class="row my-3">
                                                     <div class="col-md-12" style="padding: 0px !important;">
 
-                                                        <h3
+                                                        <h3 class="additional"
                                                             style="text-align: center; color:#e61d2f; font-weight: 600;">
                                                             Additional Cost</h3>
 
@@ -548,14 +576,14 @@
 
                                                                 <label style="width: 174px;" for="">Amount</label>
                                                                 <input class="form-control"
-                                                                    style="display: inline-block !important; width: 200px !important;"
+                                                                    style="display: inline-block !important; width: 200px"
                                                                     type="text" name="" id="amount">
                                                             </div>
                                                             <div class="mInputs">
                                                                 <label style="width: 174px;" for="remarks">Remarks
                                                                 </label>
                                                                 <input class="form-control"
-                                                                    style="display: inline-block !important; width: 200px !important;"
+                                                                    style="display: inline-block !important; width: 200px"
                                                                     type="text" name="" id="remarks">
 
                                                             </div>
@@ -583,7 +611,7 @@
                                                                         <th>Amount</th>
                                                                         <th>Remarks</th>
                                                                         <th>Delete</th>
-                                                                        
+
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -601,7 +629,7 @@
 
                                                         <div class="col-md-4 ">
                                                             <label for="">Cost (current)</label>
-                                                            <input type="text"  class="form-control mCtrl" name=""
+                                                            <input type="text" class="form-control mCtrl" name=""
                                                                 id="overallTotalCost">
 
                                                         </div>
@@ -677,7 +705,7 @@
                                                 <div class="row my-3">
                                                     <div class="col-md-12" style="padding: 0px !important;">
 
-                                                        <h3
+                                                        <h3 class="additional"
                                                             style="text-align: center; color:#e61d2f; font-weight: 600;">
                                                             Comission & Taxes</h3>
                                                         <div class="myflex">
@@ -712,14 +740,14 @@
 
                                                                 <label style="width: 180px;" for="">Amount</label>
                                                                 <input class="form-control"
-                                                                    style="display: inline-block !important; width: 200px !important;"
+                                                                    style="display: inline-block !important; width: 200px;"
                                                                     type="text" name="" id="amountd">
                                                             </div>
                                                             <div class="mInputs">
 
                                                                 <label style="width: 180px;" for="remarks">Remarks
                                                                 </label> <input class="form-control"
-                                                                    style="display: inline-block !important; width: 200px !important;"
+                                                                    style="display: inline-block !important; width: 200px;"
                                                                     type="text" name="" id="remarksd">
 
                                                             </div>
@@ -749,7 +777,7 @@
                                                                         <th>Amount</th>
                                                                         <th>Remarks</th>
                                                                         <th>Delete</th>
-                                                                        
+
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -841,10 +869,10 @@
         </div>
 
         @include('sidenavbar')
- 
-    <div class="clearfix"></div>
+
+        <div class="clearfix"></div>
     </div>
-</div>
+    </div>
 
 
 
@@ -976,11 +1004,11 @@
             commissionArray.shift();
 
 
-            
+
 
             var PID = document.getElementById("PID").value;
             var AID = 1;
-            
+
             var OverAllDetails = [PID, AID, commissionArray];
 
             var CA = JSON.stringify(OverAllDetails);
@@ -1021,21 +1049,21 @@
             commissionArray.shift();
 
 
-            
+
 
             var PID = document.getElementById("PID").value;
             var AID = 1;
-            
+
             var OverAllDetails = [PID, AID, commissionArray];
 
 
-           
+
 
 
 
             var CA = JSON.stringify(OverAllDetails);
 
-            
+
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {

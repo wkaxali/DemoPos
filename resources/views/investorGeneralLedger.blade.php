@@ -222,9 +222,16 @@
             }
         }
 
-        .ctrlTable {
-            overflow: auto;
+        @media only screen and (max-width: 600px) {
+            .summary-2 {
+            margin-top: 15px;
+            margin-left: 0px;
         }
+        footer{
+            margin-top:10px;
+        }
+     
+}
 
 
     </style>

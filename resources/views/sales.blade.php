@@ -789,11 +789,7 @@
             height: 2.5em !important;
         }
 
-        .total-buttons button {
-            width: 88px;
-            height: 80px;
-            margin: 5px 0px;
-        }
+
 
         .total-buttons {
             margin-top: 10px;
@@ -1240,402 +1236,57 @@
                 padding: .5em 1em 2em 1em !important;
             }
         }
+
         @media only screen and (max-width: 768px) {
             .okay-invo input {
-    width: 179px;
-}
-.o-inv input {
-    width: 179px;
-}
-.o-inv-2 input {
-    width: 179px !important;
-}
+                width: 179px;
+            }
 
-.bootstrap-select .dropdown-toggle {
-    width: 179px;
-    height: 33px !important;
-    color: #ffffff !important;
-}
-.okay-invo-3 input {
-    width: 179px !important;
-}
-.total-buttons button {
-    height: 35px !important;
-    width: 60px !important;
-}
+            .o-inv input {
+                width: 179px;
+            }
+
+            .o-inv-2 input {
+                width: 179px !important;
+            }
+
+            .bootstrap-select .dropdown-toggle {
+                width: 179px;
+                height: 33px !important;
+                color: #ffffff !important;
+            }
+
+            .okay-invo-3 input {
+                width: 179px !important;
+            }
+
+            element.style {
+                background-color: #0a549d;
+            }
+
+            .btn:not(:disabled):not(.disabled) {
+                cursor: pointer;
+            }
+
+
         }
+
+        .total-buttons button {
+            margin: 5px 0px;
+            width: 75px !important;
+            height: 35px !important;
+        }
+
+        .okay-invo-1 input {
+            width: 107px;
+        }
+
     </style>
 </head>
 
 
 <body id="kt_bodys" onload="getAllProducts()">
-    <div class="page-container">
-        <div class="left-content">
-            <div class="inner-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h1 class="mainHeadings">Sales</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row" id="selectFirst">
-                        <div class="col-xl-3  col-lg-6 col-md-6   okay-invo">
-                            <label for="invo-1">Invoice Number</label>
-                            <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="InvoiceID">
-                            <button class="btn" style="height: 25px; margin-top: -5px; background-color:#0a549d;"
-                                onclick="getInvoiceCustomer()"></button>
-                            <br class="hideBr"> <label for="prod-1">Product Number</label>
-                            <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="invo-1">
-                            <button type="button" class="btn"
-                                style="height: 25px; margin-top: -5px; background-color: #e61d2f;" data-toggle="modal"
-                                data-target=".bd-example-modal-xl"></button>
-
-                            </button>
-
-
-
-                            <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
-                                aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog  modal-xl">
-                                    <div class="modal-content">
-                                        <div class="container">
-                                            <div class="row">
-
-                                            </div>
-                                        </div>
-
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="overFlowingTable"
-                                                    style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
-
-
-                                                    <table class="table table-bordered " id="searchProductTable">
-                                                        <thead>
-                                                            <tr>
-
-                                                                <th>Product Id</th>
-
-                                                                <th>Product Name</th>
-                                                                <th>Company</th>
-                                                                <th>Price</th>
-                                                                <th>Stock</th>
-
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
-                                                    <button type="button" class="btn btn-org-1"
-                                                        data-dismiss="modal">Close</button>
-                                                    <button type="submit" data-dismiss="modal"
-                                                        class="btn btn-org-1">Okay</button>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                            <label style="visibility: hidden;" for="prod-hour">Product Number</label>
-                            <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
-
-                            <div class="centhour">
-                                <button class="btn" style="background-color: #13579a;">New</button>
-                                <button class="btn" style="background-color: #e61d2f;">Edit</button>
-                                <button class="btn" style="background-color: #13579a;">Delete</button>
-                            </div>
-                            <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
-                        </div>
-
-                        <div class="col-md-6  okay-invo-1">
-                            <div class="o-inv">
-                                <label for="invo-1">Customer Id</label>
-                                <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="CID">
-                                <button class="btn"
-                                    style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
-                                <br>
-                                <label for="prod-1">Last Balance</label>
-                                <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="LastBalance">
-                                <button class="btn"
-                                    style="height: 25px; margin-top: -5px;background-color: #13579a;"></button> <br>
-                                <label for="prod-1">Current Balance</label>
-                                <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="CurrentBalance">
-
-                            </div>
-                            <div class="o-inv-2">
-
-
-                                <label for="issue-3">Customer Name</label>
-                                <select class="selectpicker" data-live-search="true" tabindex="null" id="CustomerName"
-                                    onchange="getCurrentCustomerInfo()">
-                                    <!-- from database -->
-                                </select>
-
-
-                                </button>
-
-                                <br>
-                                <label for="prod-1">Contact Number</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block; width: 107px; height: 30px;" name="invo-1" id="CNO">
-                                <br>
-                                <label for="prod-1">Category</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block; width: 107px; height: 30px;" name="invo-1"
-                                    id="CustomerCategory">
-                                <br>
-                            </div>
-                            <div class="clear">
-
-                            </div>
-                            <div class="inv-bor-btns">
-                                <button class="btn" style="background-color: #e61d2f;" data-toggle="modal"
-                                    data-target="#staticBackdrop">Add</button>
-
-
-
-                                <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-                                    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content" style="background:none;">
-
-                                            <div class="modal-body">
-
-                                                <div class="registration-form">
-
-                                                    <form>
-
-                                                        <div class="CustomerAddition  mb-3"
-                                                            style="margin-top:-20px !important;">
-                                                            <h2>Add Customer</h2>
-
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="username"
-                                                                placeholder="Customer ID">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="password" class="form-control item"
-                                                                autocomplete="OFF" id="password"
-                                                                placeholder="Customer Name">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="email" placeholder="Email">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="phone-number"
-                                                                placeholder="Phone Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="birth-date"
-                                                                placeholder="Birth Date">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="email" placeholder="Email">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="phone-number"
-                                                                placeholder="Phone Number">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control item"
-                                                                autocomplete="OFF" id="birth-date"
-                                                                placeholder="Birth Date">
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <button type="button"
-                                                                class="btn btn-block create-account">Add</button>
-                                                        </div>
-
-
-                                                    </form>
-
-                                                </div>
-
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <button class="btn" style="background-color: #13579a;">View</button>
-                                <button class="btn" style="background-color: #e61d2f;">History</button>
-                                <button class="btn" style="background-color: #13579a;">Info</button>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 okay-invo okay-invo-hide">
-                            <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid"
-                                alt="">
-
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-                <br>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-9 myGoggle" style="overflow-x: auto; overflow-y: auto;">
-                            <div>
-                                <table style="border:1px solid rgb(196, 218, 243); width:100%;  margin-top:10px;  "
-                                    id="ProductSaleTable">
-
-                                    <thead>
-                                        <tr>
-
-                                            <th>Product ID</th>
-
-                                            <th>Product Name</th>
-                                            <th>Company</th>
-                                            <th>Sale Price</th>
-                                            <th>Quantity</th>
-                                            <th>Discount</th>
-                                            <th>Total</th>
-                                            <th>Action</th>
-
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        <!-- this will be populated from database -->
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                        <div class="col-md-3 okay-invo-3">
-                            <label for="invo-1" style="width: 130px;">Total</label>
-                            <input type="text" class="form-control"
-                                style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="Total">
-
-                            <label for="prod-1" style="width: 130px;">Discount</label>
-                            <input type="text" class="form-control"
-                                style="display: inline-block; width: 177px; height: 30px;" name="invo-1"
-                                id="DiscountOverall" onchange="calc()">
-                            <label for="invo-1" style="width: 130px;">Gross Total</label>
-                            <input type="text" class="form-control"
-                                style="display: inline-block; width: 177px; height: 30px;" name="invo-1"
-                                id="grossTotal">
-                            <label for="prod-1" style="width: 130px;"> Tax 17%</label>
-                            <input type="text" class="form-control"
-                                style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="tax"
-                                onchange="calc()">
-                            <label for="prod-1" style="width: 130px;">Net Total</label>
-                            <input type="text" class="form-control"
-                                style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="NetTotal">
-                            <label for="invo-1" style="width: 130px; font-weight: 500;">Amount Paid</label>
-                            <input type="text" class="form-control"
-                                style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="AmountPaid"
-                                onchange="calcForBalance()">
-                            <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
-                            <input type="text" class="form-control"
-                                style="display: inline-block; width: 177px; height: 30px;" name="invo-1"
-                                id="RemainingBalance">
-
-                            <label id="paidme" for="">Paid From</label>
-                            <select class="selectpicker form-control" data-live-search="true" id="accounts">
-
-                            </select>
-                            <div class="total-buttons" id="hideme">
-                                <button class="btn" style="background-color: #e61d2f;"
-                                    onclick="insertInSales()">Save</button>
-                                <button class="btn" style="background-color: #0a549d;">Print</button>
-                                <button class="btn" style="background-color: #e61d2f;">Edit</button>
-                                <button class="btn" style="background-color: #0a549d;">Hold</button>
-                                <button class="btn" style="background-color: #e61d2f;">Update</button>
-                                <button class="btn" style="background-color: #0a549d;">Delete</button>
-                            </div>
-                           
-
-
-
-
-                        </div>
-                    </div>
-                </div>
-
-                <section>
-                    <div class="total-buttons mb-5" id="holdPlz" style="text-align: center;">
-                        <button class="btn btn-info">Save</button>
-                        <button class="btn btn-info">Hold</button>
-                        <button class="btn btn-info">Save</button>
-
-                        <button class="btn btn-info">Save</button>
-                        <button class="btn btn-info">Hold</button>
-                        <button class="btn btn-info">Save</button>
-                    </div>
-                </section>
-            </div>
-        </div>
-        @include('sidenavbar')
-        <div class="clearfix"></div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @include('saleshtml')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -1746,8 +1397,12 @@
                         cell2.innerHTML = productName;
                         cell3.innerHTML = company;
                         cell4.innerHTML = salePrice;
-                        cell5.innerHTML = quantity;
-                        cell6.innerHTML = discount;
+                    //     cell5.innerHTML =
+                    //     '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
+                    // cell6.innerHTML =
+                    //     '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
+                        cell5.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+quantity+'>';
+                        cell6.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+discount+'>';
                         cell7.innerHTML = totalAmount;
                         //calc();
                         cell8.innerHTML =
@@ -1763,6 +1418,8 @@
         }
 
         function getInvoiceCustomer() {
+            document.getElementById("saveBtn").disabled = true; 
+            document.getElementById("updateBtn").disabled = false; 
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1773,12 +1430,23 @@
                     document.getElementById("CID").value = a[0].CustomerID;
                     document.getElementById("LastBalance").value = a[0].Balance;
                     document.getElementById("CurrentBalance").value = a[0].Balance;
-                    calc();
                     document.getElementById("CNO").value = a[0].Contect;
                     document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
+
+                    document.getElementById("Total").value = a[0].TotalAmount;
+                    document.getElementById("DiscountOverall").value = a[0].Discount;
+                     grossTotal = Number(a[0].TotalAmount)-Number(a[0].Discount);
+                    document.getElementById("grossTotal").value = grossTotal;
+                    document.getElementById("tax").value = a[0].VAT;
+                    document.getElementById("NetTotal").value = a[0].NetTotal;
+                    document.getElementById("AmountPaid").value = a[0].AmountPaid;
+                    document.getElementById("RemainingBalance").value = a[0].Balance;
+                    //document.getElementById("accounts").value = a[0].CustomerCatogery;
                     //document.getElementById("CustomerName").innerHTML = a[0].CustomerID;
                     $('#CustomerName').val(a[0].CustomerID);
                     $('#CustomerName').selectpicker('refresh');
+                    $('#accounts').val(a[0].AID);
+                    $('#accounts').selectpicker('refresh');
 
                     var i = 0;
                     //alert(a.length);
@@ -1819,13 +1487,14 @@
                         cell2.innerHTML = productName;
                         cell3.innerHTML = company;
                         cell4.innerHTML = PerUnitSalePrice;
-                        cell5.innerHTML = quantity;
-                        cell6.innerHTML = discount;
+                        cell5.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+quantity+'>';
+                        cell6.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+discount+'>';
+                        // cell5.innerHTML = "<input type='Text' value='"+quantity+"'>";
+                        // cell6.innerHTML = "<input type='Text' value='"+discount+"'>";
                         cell7.innerHTML = totalAmount;
                         //calc();
                         cell8.innerHTML =
                             "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
-
 
                     }
                 }
@@ -1838,10 +1507,12 @@
 
         }
 
-    </script>
+        function pageReload(){
+            location.reload(); 
+        }
 
-    <script>
         function getAllProducts() {
+            document.getElementById("updateBtn").disabled = true; 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -1972,12 +1643,14 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     //  alert( this.responseText);
+                    
+                    
                 }
             };
             var EC = JSON.stringify(Customer);
             xhttp.open("GET", "./addCustomer/" + EC, true);
             xhttp.send();
-
+            
 
         };
 
@@ -2066,11 +1739,7 @@
 
         function taxCalculation() {
 
-
-
-
-
-            var taxRate = 17.00;
+            var taxRate = document.getElementById('tax').value;
             var grosstotal = document.getElementById('grossTotal').value;
             //alert(taxRate/100);
             var tax = Number(grosstotal) * (taxRate / 100);
@@ -2204,6 +1873,7 @@
 
         function insertInSales() {
 
+           
             var myTrows = [];
             var table = document.getElementById("ProductSaleTable");
             var myRow2 = [];
@@ -2266,8 +1936,8 @@
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
 
-                        alert("Invoice =" + this.responseText + " is generated");
-                        window.open("./testpdf/6");
+                        alert("Invoice =" + this.responseText + " is generated here");
+                        window.open("./testpdf/as");
 
                     }
                 };
@@ -2276,6 +1946,10 @@
                 // var MenuID=$('#Menus').find(":selected").val();
                 xhttp.send();
             }
+        }
+
+        function print(){
+            window.open("./testpdf/as");
         }
 
         function UpdateSaleInvoice() {
@@ -2349,7 +2023,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated");
-                        window.open("/ssi");
+                        
 
                     }
                 };
@@ -2359,6 +2033,42 @@
                 xhttp.send();
             }
         }
+
+    function addCustomer() {
+
+        var customerName = document.getElementById("addCustomerName").value;
+        //	alert("It is working"+CustomerName);
+        var fatherName = document.getElementById("addFatherName").value;
+        //	alert("It is working"+password);
+        var contact = document.getElementById("addContact").value;
+        //alert("It is working"+CustomerContact);
+        var profession = document.getElementById("addProfession").value;
+        //alert("It is working"+CustomerProfession);
+        var address = document.getElementById("addAddress").value;
+        //alert("It is working"+CustomerAddress);
+        var comments = document.getElementById("addComments").value;
+        //alert("It is working"+CustomerComments);
+        var cnic = document.getElementById("addCNIC").value;
+        //alert("It is working"+CustomerComments);
+
+        var newCustomer = [customerName, fatherName, contact, profession, address,
+            comments, cnic
+        ];
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(this.responseText);
+                loadAllCustomers();
+            }
+        };
+        var EC = JSON.stringify(newCustomer);
+        alert(EC);
+        xhttp.open("GET", "./insertCustomer/" + EC, true);
+        xhttp.send();
+
+
+}
 
     </script>
 </body>

@@ -54,64 +54,15 @@
             overflow: auto !important;
         }
 
+        .inner-block {
+            padding: 1em 1em 2em 1em;
+        }
+
     </style>
 </head>
 
 <body onload="getStock()">
-    <div class="page-container">
-
-        <div class="left-content">
-            <div class="inner-block">
-
-
-                <header>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 mt-3 text-center">
-                                <h3>View Sales</h3>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="receivingMain">
-
-
-                                    <div class="receivingTable">
-                                        <table id="stockTable" class=" table-striped"
-                                            style="width: 100%; text-align: center;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Product Id</th>
-                                                    <th>Product Name</th>
-                                                    <th>Invoice Price</th>
-                                                    <th>Purchase Price</th>
-                                                    <th>Quantity</th>
-                                                    <th>Stock In</th>
-                                                    <th>Engine Number</th>
-                                                    <th>Chasis Number</th>
-                                                    <th>Color</th>
-                                                    <th>Date</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                            </tbody>
-
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-            </div>
-        </div>
-        @include('sidenavbar')
-        <div class="clearfix"></div>
-    </div>
-
+    @include('viewsaleshtml')
 
 
 
@@ -149,7 +100,8 @@
                     $.each(a, function (i, item) {
 
                         table.row.add([a[i].ProductSerial, a[i].ProductName, a[i]
-                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].Quantity, a[i].StockIn, a[i]
+                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].Quantity, a[i]
+                            .StockIn, a[i]
                             .EngineNumber, a[i].ChasisNumber, a[i].color, a[i].DateStamp
                         ]);
                     });

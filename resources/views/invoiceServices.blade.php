@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
@@ -1793,26 +1795,7 @@
 
 
 
-
-
-
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @include('sidenavbar')
-    </div>
+    @include('invoiceserviceshtml')
 
 
 
@@ -1823,6 +1806,26 @@
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#searchProductTable').DataTable({
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: 'tr'
+                    }
+                },
+                columnDefs: [{
+                    className: 'control',
+                    orderable: false,
+                    targets: 0
+                }],
+                order: [1, 'asc']
+            });
+        });
+
+    </script>
     <!-- <script src="js/bootstrap.min.js"></script> -->
     <script>
         (function ($) {
@@ -1943,6 +1946,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 alert("Printed");
                 window.open("./testpdf/3");
+                window.open("./testpdf/4");
 
             }
         };
@@ -2285,8 +2289,6 @@
         //alert("It is working"+CustomerContact);
         var profession = document.getElementById("addProfession").value;
         //alert("It is working"+CustomerProfession);
-        var balance = document.getElementById("addBalance").value;
-        //alert("It is working"+CustomerBalance);
         var address = document.getElementById("addAddress").value;
         //alert("It is working"+CustomerAddress);
         var comments = document.getElementById("addComments").value;
@@ -2294,7 +2296,7 @@
         var cnic = document.getElementById("addCNIC").value;
         //alert("It is working"+CustomerComments);
 
-        var newCustomer = [customerName, fatherName, contact, profession, balance, address,
+        var newCustomer = [customerName, fatherName, contact, profession, address,
             comments, cnic
         ];
 

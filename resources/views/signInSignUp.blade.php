@@ -91,15 +91,11 @@
     .input-field i {
       text-align: center;
       line-height: 55px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-      color: #0a549d;
-=======
+
       color: #13579a;
->>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
-=======
-      color: #13579a;
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
+
+      
+
       transition: 0.5s;
       font-size: 1.1rem;
     }
@@ -151,15 +147,9 @@
 
     .btn {
       width: 150px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-      background-color: #0a549d;
-=======
+
       background-color: #13579a;
->>>>>>> 11aeb2dc3a94d11079fd132d65863bcf345ada4c
-=======
-      background-color: #13579a;
->>>>>>> cf351a058479b326e61140f47f357086aa9ad199
+
       border: none;
       outline: none;
       height: 49px;
@@ -448,7 +438,7 @@
             <i class="fas fa-lock"></i>
             <input type="password" placeholder="Password" id="password"/>
           </div>
-          <input type="submit" value="Login" onclick="AdminLogin()" class="btn solid" />
+          <input type="Button" value="Login" onclick="AdminLogin()" class="btn solid" />
           <p class="social-text">Or Sign in with social platforms</p>
           <div class="social-media">
             <a href="#" class="social-icon">
@@ -543,9 +533,9 @@
 
  function RegisAdmin(){
 
-var Username=document.getElementById("UserName").value;
+var Username=document.getElementById("username").value;
 alert("working"+Username);
-var UserPassword=document.getElementById("UserPaswd").value;
+var UserPassword=document.getElementById("password").value;
 alert("working"+UserPassword);
 
 var Insert=[Username,UserPassword]
@@ -568,15 +558,15 @@ function AdminLogin(){
 
   var xhttp = new XMLHttpRequest();
 
-  var UserName=  document.getElementById("adminUser").value ;
-  var Password=  document.getElementById("adminPass").value ;
+  var UserName=  document.getElementById("username").value ;
+  var Password=  document.getElementById("password").value ;
              xhttp.onreadystatechange = function () {
 
                  if (this.readyState == 4 && this.status == 200) {
 
                   //alert(this.responseText);
                   if(this.responseText!="Invalid Username"){
-                  window.location.href = "./db";
+                    location.replace("./db")
                   }
                   else{
                     alert("Invalid user");
