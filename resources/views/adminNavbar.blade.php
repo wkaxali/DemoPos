@@ -1,8 +1,8 @@
 <div class="sidebar-menu">
 
 <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
-        <span id="logo"></span>
-    </a> </div>
+<span id="logo"></span>
+</a> </div>
 <div class="menu">
     <ul id="menu">
         <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
@@ -236,5 +236,4 @@
             </ul>
         </li>
     </ul>
-</div>
 </div>

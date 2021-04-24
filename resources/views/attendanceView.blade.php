@@ -162,8 +162,7 @@
                             <div class="row">
                                 <div class="col-md-5 offset-md-1">
                                     <label for="">Employee ID</label>
-                                    <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="employeeID">
+                                    <select class="selectpicker form-control" data-live-search="true" id="employeeID">
 
                                     </select>
 
@@ -171,8 +170,7 @@
 
                                 <div class="col-md-5 ">
                                     <label for="">Employee Name</label>
-                                    <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="employeeName">
+                                    <select class="selectpicker form-control" data-live-search="true" id="employeeName">
 
                                     </select>
 
@@ -234,7 +232,7 @@
                                             style="width: 100%; text-align: center;" id="attendanceTable">
                                             <thead>
                                                 <tr>
-                                                    
+
                                                     <th>First Name</th>
                                                     <th>Last Name</th>
                                                     <th>Employee ID</th>
@@ -246,16 +244,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <!-- <tr>
-                                        <td>First Name</t>
-                                        <td>Last Name</th>
-                                        <td>Employee ID</th>
-                                        <td>Date</th>
-                                        <td>Time In</th>
-                                        <td>Time Out</th>
-                                        <td>Status</th>
-                                        <td>Edit</th>
-                                    </tr> -->
+
 
                                             </tbody>
 
@@ -287,7 +276,6 @@
     </div>
 
 
-@include('attendanceViewhtml')
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

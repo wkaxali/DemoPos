@@ -22,9 +22,10 @@ class userAccountController extends Controller
     
     session(['userName' => $re[0]->UserName]);
     session(['Designation' => $re[0]->Designation]);
-      
-        session(['userID' => $re[0]->UserID]);
-     return $re;
+    session(['EmpID' => $re[0]->EmpID]);
+    session(['userID' => $re[0]->UserID]);
+
+    return $re;
     }
  }
     public static function addUsers(Request $request, $CO){

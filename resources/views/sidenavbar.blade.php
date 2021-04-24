@@ -1,3 +1,10 @@
+<head>
+    <style>
+        ul li a i{
+            width:25px !important;
+        }
+    </style>
+</head>
 <div class="sidebar-menu">
 
     <div class="logo"> <a class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a>
@@ -8,29 +15,41 @@
             <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i><span
                         style="font-size: 14px;">Dashboard</span></a>
             </li>
-            <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
+            <li><a data-toggle="collapse" data-target=".new"><i class="fas fa-address-book"></i><span
                         style="font-size:14px;">Book Order</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse list-unstyled new">
                     <li><a href="/bo">Vehicle</a></li>
-                    <li><a href="/ps">Parts</a></li>
+                    <li><a href="/sp">Parts</a></li>
 
                 </ul>
             </li>
            
             <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs"><i class="fas fa-business-time"></i><span
+                        style="font-size: 14px;">Add Stock</span><span class="fa fa-angle-right"
+                        style="float: right"></span></a>
+                <ul class="collapse list-unstyled firstULs ">
+                    <li><a href="/rec">Vehicle</a></li>
+                    <li><a href="/sp">Parts</a></li>
+                    <li><a href="/es">Edit Parts</a></li>
+                    <li><a href="/vs">View Parts</a></li>
+
+                </ul>
+            </li>
+            <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fas fa-users"></i><span
                         style="font-size: 14px;">Customer Info</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs1">
                     <li><a href="/adc">Add Customer</a></li>
                     <li><a href="/ec">Edit Customer</a></li>
-                    <li><a href="/vs">View Customer List</a></li>
+                    <li><a href="/ec">View Customer List</a></li>
                     <li><a href="/ads">Add Supplier</a></li>
-                    <li><a href="/eds">Edit Supplier</a></li>
+                    <li><a href="/esp">Edit Supplier</a></li>
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs2"><i class="fas fa-snowboarding"></i><span
                         style="font-size: 14px;">Expenses</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs2">
@@ -42,8 +61,8 @@
 
                 </ul>
             </li>
-            <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i class="fab fa-alipay"></i>
-                    <span style="font-size: 14px;">Sales</span><span class="fa fa-angle-right"
+            <li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i class="fas fa-poo"></i>
+                    <span style="font-size: 14px; margin-left:-5px;">Sales</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs3">
                     <li id="menu-mensagens" style="width: 201px"><a href="/is">Sales Invoice</a>
@@ -52,7 +71,7 @@
 
                 </ul>
             </li>
-            <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
+            <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-suse"></i><span
                         style="font-size: 14px;">Investor</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs4">
@@ -90,9 +109,9 @@
                         style="float: right"></span></a>
                 <ul class="collapse firstULs7">
                     <li><a href="/ex">Add Expense</a></li>
-                    <li><a href="">Expense List</a></li>
-                    <li><a href="">Expense Head</a></li>
-                    <li><a href="">Expense Category</a></li>
+                    <li><a href="exv">Expense List</a></li>
+                    <li><a href="aeh">Expense Head</a></li>
+                    <!-- <li><a href="">Expense Category</a></li> -->
                 </ul>
             </li> -->
             <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-vials"></i><span
@@ -100,9 +119,9 @@
                         style="float: right"></span></a>
                 <ul class="collapse firstULs8">
                     <li><a href="/ex">Add Expense</a></li>
-                    <li><a href="">Expense List</a></li>
-                    <li><a href="">Expense Head</a></li>
-                    <li><a href="">Expense Category</a></li>
+                    <li><a href="exv">Expense List</a></li>
+                    <li><a href="aeh">Expense Head</a></li>
+                    <!-- <li><a href="">Expense Category</a></li> -->
                 </ul>
             </li>
 
@@ -119,7 +138,7 @@
            
 
 
-            <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
+            <!-- <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-people-carry"></i><span
                         style="font-size: 14px;">People</span><span class="fa fa-angle-right"
                         style="float: right"></span></a>
                 <ul class="collapse firstULs11" id="menu-academico-sub">
@@ -128,7 +147,7 @@
 
 
                 </ul>
-            </li>
+            </li> -->
 
 
 

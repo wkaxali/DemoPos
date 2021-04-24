@@ -33,7 +33,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <style>
         :not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
             width: 100%;
-            z-index: 0;
+            z-index: 1;
         }
 
         .dataTables_length {
@@ -414,7 +414,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input type="text" class="form-control" name="" id="taskSubject">
 
                                     <label for="">Assign To</label><br>
-                                    <select style="height: 25px !important; width: 158px !important; "
+                                    <select 
                                         class="selectpicker form-control" data-live-search="true" id="assignTo">
 
                                     </select>
@@ -471,7 +471,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             class="btn">Easily</button>
                                     </div><br>
                                     <label for="">Category</label><br>
-                                    <select style="height: 25px !important; width: 158px !important; "
+                                    <select 
                                         class="selectpicker form-control" data-live-search="true" id="category">
 
                                     </select>

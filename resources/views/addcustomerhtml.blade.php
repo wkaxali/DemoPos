@@ -15,41 +15,40 @@
 
                                     </div>
 
+                                    
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="username"
-                                            placeholder="Customer ID">
+                                        <input type="text" class="form-control item" autocomplete="OFF"
+                                            id="name" placeholder="Customer Name">
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF"
-                                            id="password" placeholder="Customer Name">
+                                            id="fName" placeholder="Father Name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control item" autocomplete="OFF" id="email"
-                                            placeholder="Email">
+                                        <input type="text" class="form-control item" autocomplete="OFF" id="address"
+                                            placeholder="Address">
                                     </div>
                                     <div class="form-group">
                                         <input type="tel" class="form-control item" autocomplete="OFF"
-                                            id="phone-number" placeholder="Phone Number">
+                                            id="number" placeholder="Phone Number">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="birth-date"
-                                            placeholder="Birth Date">
+                                        <input type="text" class="form-control item" autocomplete="OFF" id="cnic"
+                                            placeholder="CNIC">
                                     </div>
+                                   
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id=""
-                                            placeholder="">
+                                        <input type="text" class="form-control item" autocomplete="OFF"
+                                            id="email" placeholder="Email ID">
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF"
-                                            id="phone-number" placeholder="Phone Number">
+                                            id="profession" placeholder="Profession">
                                     </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="birth-date"
-                                            placeholder="Birth Date">
-                                    </div>
+                                    
 
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" class="btn  create-account">Add</button>
+                                        <button type="button" class="btn  create-account" onclick="addcustomer()">Add</button>
                                     </div>
 
 

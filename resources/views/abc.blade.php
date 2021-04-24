@@ -1,3 +1,4 @@
+@include('adminNavbar')
 <h1>Hello World<h1>
 
 <link rel='stylesheet' type='text/css' href='.../css/abc.css'/>

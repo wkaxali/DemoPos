@@ -554,7 +554,7 @@
                                                                     for="Comission Head">Comission
                                                                     Head</label>
                                                                 <select
-                                                                    style="height: 25px !important; width: 158px !important; "
+                                                                    
                                                                     class="selectpicker form-control"
                                                                     data-live-search="true" id="costComissionHeads">
                                                                 </select>
@@ -563,7 +563,7 @@
                                                                 <label style="width: 170px;" for="">Select
                                                                     Account</label>
                                                                 <select
-                                                                    style="height: 25px !important; width: 158px !important; "
+                                                                    
                                                                     class="selectpicker form-control"
                                                                     data-live-search="true" id="accountForCost">
 
@@ -717,7 +717,7 @@
                                                                     Head</label>
 
                                                                 <select
-                                                                    style="height: 25px !important; width: 158px !important; "
+                                                                    
                                                                     class="selectpicker form-control"
                                                                     data-live-search="true" id="comissionHeads">
 

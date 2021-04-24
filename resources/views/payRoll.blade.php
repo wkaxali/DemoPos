@@ -247,7 +247,7 @@
                                     <div class="col-md-5 ">
 
                                         <label for="">Employee ID</label>
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="id"
                                             onchange="getByID()">
 
@@ -255,7 +255,7 @@
                                     </div>
                                     <div class="col-md-5 offset-md-2" id="divName">
                                         <label for="">Name</label>
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="name"
                                             onchange="getByName()">
 
@@ -263,14 +263,14 @@
                                     </div>
                                     <div class="col-md-5  ">
                                         <label for="">Contact</label>
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="contact">
 
                                         </select>
                                     </div>
                                     <div class="col-md-5 offset-md-2">
                                         <label for="">CNIC</label>
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="cnic">
 
                                         </select>
@@ -282,7 +282,7 @@
                                     </div>
                                     <div class="col-md-5 ">
                                         <label for="">Status</label>
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="category"
                                             tabindex="null">
                                             <option value=1>Probatum</option>
@@ -669,7 +669,6 @@
             xhttp.open("GET", "./getEmployeeContact/", true);
 
             xhttp.send();
-
 
         }
 

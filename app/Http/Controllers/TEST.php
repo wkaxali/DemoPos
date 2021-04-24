@@ -49,7 +49,7 @@ class TEST extends Controller
         
         
         </tr>
-        <tr><td align="center"><h1>Sales Invoice</h1></td></tr>
+        <tr><td align="center"><h1>Sales wf3efeanvoice</h1></td></tr>
         
         
         
@@ -121,6 +121,7 @@ class TEST extends Controller
         </thead>
         <tbody >
         <tr>
+        
         <td>'.session()->get("description").'</td>
         <td>'.session()->get("color").'</td>
         <td>'.session()->get("engineNo").'</td>
@@ -787,7 +788,7 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
 
 <br><h1>
 
-Qoutation For '.session()->get("productName").'</h1>
+Qoutation For<br> '.session()->get("productName").'</h1>
 <br>
 <br>
 <br>
@@ -799,11 +800,11 @@ Qoutation For '.session()->get("productName").'</h1>
 <table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
 <thead>
 <tr>
-<th>Description</th>
+<th width="186">Description</th>
 <th>Color</th>
 <th>Unit Price</th>
-<th width="40">Qty</th>
-<th width="173">Total Price</th>
+<th width="20">Qty</th>
+<th width="113">Total Price</th>
 </tr>
 </thead>
 
@@ -814,11 +815,11 @@ Qoutation For '.session()->get("productName").'</h1>
 <td rowspan="2">'.session()->get("color").'</td>
 <td >Rs</td>
 <td rowspan="2" width="40">'.session()->get("quantity").'</td>
-<td width="173">Rs</td></tr>
-<tr><td >'.session()->get("description").'</td>
+<td width="73">Rs</td></tr>
+<tr><td width="213" >'.session()->get("description").'</td>
 
 <td>'.session()->get("price").'</td>
-<td width="173">'.session()->get("total").'</td>
+<td width="73">'.session()->get("total").'</td>
 </tr>
 
 

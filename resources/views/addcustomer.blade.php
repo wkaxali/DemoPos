@@ -141,7 +141,7 @@ margin-bottom: 50px;
         }
 
     </style>
-    <title>Generate Barcode</title>
+    <title>Add Customer</title>
 </head>
 
 <body>
@@ -183,6 +183,39 @@ margin-bottom: 50px;
             }
             toggle = !toggle;
         });
+
+    </script>
+    <script>
+        function addcustomer() {
+
+
+            var username = document.getElementById("name").value;
+            var fathername = document.getElementById("fName").value;
+            var address = document.getElementById("address").value;
+            var pNumber = document.getElementById("number").value;
+            var cnic = document.getElementById("cnic").value;
+            var email = document.getElementById("email").value;
+            var profession = document.getElementById("profession").value;
+            
+            var addUsers = [username, fathername, address,pNumber,cnic,email,profession];
+
+            var AC = JSON.stringify(addUsers);
+            alert(AC);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert("Customer " + this.responseText + " is Added");
+
+
+                }
+            };
+
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addcustomer/" + AC, true);
+            xhttp.send();
+
+        }
 
     </script>
 </body>

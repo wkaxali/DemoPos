@@ -29,7 +29,7 @@
                                         </div>
                                         <div class="col-md-2">
                                             <label for="Model">Model</label>
-                                            <select style="height: 25px !important; width: 158px !important; "
+                                            <select 
                                                 class="selectpicker form-control" data-live-search="true" id="category">
 
                                             </select>

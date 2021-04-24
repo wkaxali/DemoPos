@@ -1051,11 +1051,15 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             "version": "v8.28.1",
 =======
             "version": "v8.33.1",
 >>>>>>> Stashed changes
+=======
+            "version": "v8.33.1",
+>>>>>>> e5c58b5ecb75f8617c2443e9255c02748376b11e
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
@@ -1063,6 +1067,7 @@
             },
             "dist": {
                 "type": "zip",
+<<<<<<< HEAD
 <<<<<<< Updated upstream
                 "url": "https://api.github.com/repos/laravel/framework/zipball/73dd43d92fcde6c6abc00658ae33391397ca119d",
                 "reference": "73dd43d92fcde6c6abc00658ae33391397ca119d",
@@ -1070,6 +1075,10 @@
                 "url": "https://api.github.com/repos/laravel/framework/zipball/354c57b8cb457549114074c500944455a288d6cc",
                 "reference": "354c57b8cb457549114074c500944455a288d6cc",
 >>>>>>> Stashed changes
+=======
+                "url": "https://api.github.com/repos/laravel/framework/zipball/354c57b8cb457549114074c500944455a288d6cc",
+                "reference": "354c57b8cb457549114074c500944455a288d6cc",
+>>>>>>> e5c58b5ecb75f8617c2443e9255c02748376b11e
                 "shasum": ""
             },
             "require": {
@@ -1224,11 +1233,15 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             "time": "2021-02-16T18:07:44+00:00"
 =======
             "time": "2021-03-16T19:42:32+00:00"
 >>>>>>> Stashed changes
+=======
+            "time": "2021-03-16T19:42:32+00:00"
+>>>>>>> e5c58b5ecb75f8617c2443e9255c02748376b11e
         },
         {
             "name": "laravel/tinker",
@@ -2524,16 +2537,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.74.0",
+            "version": "v7.75.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "e45b12ff0b47746b646f51c8249210303fb076f5"
+                "reference": "d377a667cd789b99ccab768441a5a2160cc4ea80"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/e45b12ff0b47746b646f51c8249210303fb076f5",
-                "reference": "e45b12ff0b47746b646f51c8249210303fb076f5",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/d377a667cd789b99ccab768441a5a2160cc4ea80",
+                "reference": "d377a667cd789b99ccab768441a5a2160cc4ea80",
                 "shasum": ""
             },
             "require": {
@@ -2579,9 +2592,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v7.74.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v7.75.0"
             },
-            "time": "2021-02-18T00:17:33+00:00"
+            "time": "2021-02-22T14:31:21+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

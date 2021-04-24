@@ -153,7 +153,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <label for="">Status</label>
-                    <select style="height: 25px !important; width: 158px !important; " class="selectpicker form-control"
+                    <select  class="selectpicker form-control"
                         data-live-search="true" id="category" tabindex="null">
                         <option value=1>1242</option>
                         <option value=2>1279</option>

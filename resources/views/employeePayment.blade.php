@@ -134,14 +134,14 @@
                             <input type="text" class="form-control" style="display: inline-block; width: 192px;"
                                 value="" name=""  onclick="calculatonInTable()" id="amount"><br>
                             <label for="">Paid To</label>
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select 
                                 class="selectpicker form-control"  data-live-search="true"  id="paidTo" onchange="getAmount()">
                             
                             </select>
                             <!-- <button class="btn btn-info">+</button> -->
                             <br>
                             <label for="">Paid by</label>
-                            <select style="height: 25px !important; width: 158px !important; "
+                            <select 
                                 class="selectpicker form-control"  data-live-search="true"  id="paidBy" >
                             
                             </select>

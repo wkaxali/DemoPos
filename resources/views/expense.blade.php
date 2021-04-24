@@ -230,14 +230,14 @@
                                             onclick="calculatonInTable()" id="amount"><br>
                             
                                         <label for="">Paid by</label>
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="paidBy">
 
                                         </select>
                                     </div>
                                     <div class="col-md-4 offset-md-2">
                                         <label for="">Expense Head</label>
-                                        <select style="height: 25px !important; width: 158px !important; "
+                                        <select 
                                             class="selectpicker form-control" data-live-search="true" id="expense">
 
                                         </select>
@@ -282,7 +282,7 @@
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Amount</th>
-                                                <th>Expense ID</th>
+                                                <th>Expense </th>
                                                 <th>Paid By</th>
                                                 <th>Remarks</th>
                                                 <th>Action</th>
