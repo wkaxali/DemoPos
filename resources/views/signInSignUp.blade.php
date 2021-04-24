@@ -423,7 +423,7 @@
   <title>Forland</title>
 </head>
 
-<body>
+<body id="signBody">
 <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
@@ -552,6 +552,15 @@ var xhttp = new XMLHttpRequest();
 
  }
 
+ var body = document.getElementById("signBody");
+
+body.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    AdminLogin();
+    
+  }
+});
 
 
 function AdminLogin(){
@@ -566,7 +575,7 @@ function AdminLogin(){
 
                   //alert(this.responseText);
                   if(this.responseText!="Invalid Username"){
-                    location.replace("./db")
+                    location.replace("./")
                   }
                   else{
                     alert("Invalid user");

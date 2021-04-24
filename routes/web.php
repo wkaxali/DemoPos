@@ -139,7 +139,7 @@ Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
-Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo']);
+Route::get('/customer/{EC}',[CustomerViewcontroller::class, 'customerinfo']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
@@ -657,14 +657,14 @@ Route::get('/sheet', function (){
     return view("signInSignUp");
     }
 });
-Route::get('/vd', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"||$UN=="User"){
-    return view('vehicleDetails'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
+// Route::get('/vd', function () {
+//     $UN = session()->get('Designation');
+//     if($UN=="Admin"||$UN=="User"){
+//     return view('vehicleDetails'); 
+//     }else{
+//     return view("signInSignUp");
+//     }
+// });
 Route::get('/sir', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -786,7 +786,7 @@ return $pdf->download('pdf_file.pdf');
 Route::get('/vd', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('vehicleDetails'); 
+    return view('vehicleDetail'); 
     }else{
     return view("signInSignUp");
     }

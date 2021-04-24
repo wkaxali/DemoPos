@@ -190,7 +190,7 @@ public function UpdateInStock(Request $request,$CO){
   $chasisNumber=$obj[8];
   $status=$obj[5];
   
-  self :: updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status);
+  DB :: updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status);
   return $obj;
  //return "Getting from controller".$obj[0];
 

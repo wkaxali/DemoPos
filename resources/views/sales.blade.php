@@ -1280,6 +1280,40 @@
         .okay-invo-1 input {
             width: 107px;
         }
+        @media print {
+            .left-content{
+                width: 100% !important;
+            }
+            .sidebar-menu{
+                display: none;
+            }
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            #mainComapnyLedger{
+                visibility: visible !important;
+                margin: 10px 0px;
+            }
+            #DNone{
+                display: none !important;
+            }
+            table{
+                width: 900px !important;
+            }
+          
+       
+        }
 
     </style>
 </head>

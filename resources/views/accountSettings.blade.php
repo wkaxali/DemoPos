@@ -71,10 +71,7 @@
                                 <label for="">First Name</label>
                                 <input type="text" class="form-control" name="" id="">
                             </div>
-                            <div class="col-md-4 offset-md-1">
-                                <label for="">Last Name</label>
-                                <input type="text" class="form-control" name="" id="">
-                            </div>
+                            
                         </div>
                         <div class="row">
                             <div class="col-md-10 offset-md-1">
@@ -191,6 +188,37 @@
             toggle = !toggle;
         });
 
+    </script>
+    <script>
+    
+    function editUsers() {
+            var UID = document.getElementById("UserID").value;
+            var username = document.getElementById("UserName").value;
+            var pass = document.getElementById("Password").value;
+            var desgination = document.getElementById("Designation").value;
+            var enable = document.getElementById("Enable").value;
+            var lastlogin = document.getElementById("LastLogin").value;
+
+            var edituser = [UID, username, pass, desgination, enable, lastlogin];
+
+            var EU = JSON.stringify(edituser);
+            alert(EU);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert("User " + this.responseText + " is Updated");
+
+                }
+            };
+
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./editUsers/" + EU, true);
+            xhttp.send();
+
+        }
+
+    </script>
     </script>
 
 </body>

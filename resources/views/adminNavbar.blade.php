@@ -13,7 +13,7 @@ style="font-size:14px;">Book Order</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse list-unstyled new">
 <li><a href="/bo">Vehicle</a></li>
-<li><a href="/sp">Parts</a></li>
+<li><a href="/acc">Parts</a></li>
 
 </ul>
 </li>
@@ -206,8 +206,8 @@ style="float: right"></span></a>
 style="font-size: 14px;">Account Settings</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs20" id="menu-academico-sub">
-<li id="menu-academico-avaliacoes"><a href="product.html">Change Username</a></li>
-<li id="menu-academico-boletim"><a href="price.html">Password Settings</a></li>
+
+<li id="menu-academico-boletim"><a href="eu">Change Username Password </a></li>
 </ul>
 </li> -->
 </ul>
