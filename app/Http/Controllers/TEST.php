@@ -769,7 +769,7 @@ $newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:ce
 <tr>
  
 <td width="80%" border="0" align="left" >'.session()->get("customerName").'</td>
-
+<td width="80%" border="0" align="left" >'.session()->get("address").'</td>
 
 
 
