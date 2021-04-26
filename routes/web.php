@@ -594,6 +594,16 @@ Route::get('/d', function () {
     return view("signInSignUp");
     }
 });
+
+Route::get('/esp', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editSupplier'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
 Route::get('/nd', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
