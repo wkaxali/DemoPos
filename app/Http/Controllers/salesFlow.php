@@ -97,7 +97,7 @@ class salesFlow extends Controller
        $LID=2;
         $paidVia=$AID;
         $selfBalance=$oldSelfBalance+$amp;
-        TransactionFlow::addTransaction($invoiceNumber,"Debit","Sales",
+        TransactionFlow::addTransaction($invoiceNumber,"Credit","Sales",
         $amp,$dateNow,"1",$oldSelfBalance,$selfBalance,NULL,NULL,$LID,"0",$CID,"0",$paidVia,NULL);
        
         LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);

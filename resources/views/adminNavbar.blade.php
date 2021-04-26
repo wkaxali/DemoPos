@@ -13,7 +13,7 @@ style="font-size:14px;">Book Order</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse list-unstyled new">
 <li><a href="/bo">Vehicle</a></li>
-<li><a href="/sp">Parts</a></li>
+<li><a href="/ps">Parts</a></li>
 
 </ul>
 </li>

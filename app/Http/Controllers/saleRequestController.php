@@ -27,8 +27,8 @@ class saleRequestController extends Controller
         $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
         $re = DB::table('vw_customersale_invoice')
         ->where('InvoiceNumber', '=', $InvoiceNo)
-         ->first();
-
+        ->first();
+        //return "aaa ".$re;
         session(['invoiceNo' => $InvoiceNo]);
         session(['customerID' => $re->CustomerID]);
         session(['itemNo' => $re->ProductSerial]);
