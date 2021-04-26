@@ -48,6 +48,7 @@ class salesFlow extends Controller
       $city=$Array[19];
       $receivedBy=$Array[20];
       $totalCost=$Array[21];
+      
 
        //return $TransactionMode;
          
@@ -84,7 +85,8 @@ class salesFlow extends Controller
         'CashNote'=>NULL,
         'Remarks'=>NULL,
         'dliveryDate'=>NULL,
-        'returnDate' =>NULL
+        'returnDate' =>NULL,
+        'salesPerson'=>$receivedBy
         
         ]);
        // $TransactionMode='2';

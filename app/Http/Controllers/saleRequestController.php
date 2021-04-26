@@ -45,10 +45,12 @@ class saleRequestController extends Controller
         session(['color' => $re->color]);
         session(['fatherName' => $re->FatherName]);
         session(['invoiceDate' => $re->DateStamp]);
+       
         
         session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
         session(['amountPaid' => number_format($re->AmountPaid)]);
         session(['description' => $re->description]);
+        session(['salesPerson' => $re->salesPerson]);
         
         session(['balance' => number_format($re->Balance)]);
         session(['totalCost' => number_format($re->TotalCost)]);
@@ -59,7 +61,7 @@ class saleRequestController extends Controller
         $a= $numberTransformer->toWords($re->AmountPaid);
         session(['amountInWords' => ucwords($a)]);
 
-        session(['receiptNumber' => 'FMM-'.$dateNow.'-'.$InvoiceNo]);
+        session(['receiptNumber' => 'FMM-'.$re->DateStamp.'-'.$InvoiceNo]);
         
         //session(['vehRegNo' => '']);
         //session(['distanceTraveled' => '']);

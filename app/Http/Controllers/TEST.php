@@ -365,7 +365,7 @@ class TEST extends Controller
 
 <tr>
 <td width="30%" border="0">SalesPerson</td>
-<td width="55%" align="center" border="0">Forland Modern Motors</td>
+<td width="55%" align="center" border="0">'.session()->get("salesPerson").'</td>
 
 
 
@@ -413,6 +413,14 @@ class TEST extends Controller
 <tr>
 <td width="30%" border="0">Amount</td>
 <td width="55%" align="center" border="0">'.session()->get("amountPaid").'</td>
+
+
+
+</tr>
+
+<tr>
+<td width="30%" border="0">Invoice Price</td>
+<td width="55%" align="center" border="0">'.session()->get("unitPrice").'</td>
 
 
 
