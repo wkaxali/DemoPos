@@ -22,7 +22,7 @@ class userAccountController extends Controller
     
     session(['userName' => $re[0]->UserName]);
     session(['Designation' => $re[0]->Designation]);
-    session(['EmpID' => $re[0]->EmpID]);
+    //session(['EmpID' => $re[0]->EmpID]);
     session(['userID' => $re[0]->UserID]);
 
     return $re;
