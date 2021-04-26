@@ -18,16 +18,28 @@ style="float: right"></span></a>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
-style="font-size: 14px;">Add Stock</span><span class="fa fa-angle-right"
+style="font-size: 14px;">Vehicles & Parts</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse list-unstyled firstULs ">
 <li><a href="/rec">Vehicle</a></li>
 <li><a href="/sp">Parts</a></li>
 <li><a href="/es">Edit Parts</a></li>
 <li><a href="/vs">View Parts</a></li>
+<li><a href="/ip">Increase in Price</a></li>
 
 </ul>
 </li>
+
+<li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+style="font-size: 14px;">Auto Models</span><span class="fa fa-angle-right"
+style="float: right"></span></a>
+<ul class="collapse list-unstyled firstULs ">
+<li><a href="/aam">Add Auto Model</a></li>
+<li><a href="/eam">Edit Auto Model</a></li>
+<li><a href="/acc">Accesories With Autos </a></li>
+</ul>
+</li>
+
 <li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
 style="font-size: 14px;">Customer Info</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
@@ -59,9 +71,25 @@ style="float: right"></span></a>
 <li id="menu-mensagens" style="width: 201px"><a href="/is">Sales Invoice</a>
 </li>
 <li><a href="/ss">Service Sales Invoice</a></li>
+<li><a href="/th">Transaction History</a></li>
 
 </ul>
 </li>
+
+<li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
+class="fab fa-alipay"></i>
+<span style="font-size: 14px;">Payments</span><span class="fa fa-angle-right"
+style="float: right"></span></a>
+<ul class="collapse firstULs3">
+<li id="menu-mensagens" style="width: 201px"><a href="/pay">Add Payments</a>
+</li>
+<li id="menu-mensagens" style="width: 201px"><a href="/ep">Employee Payments</a>
+</li>
+
+
+</ul>
+
+
 <li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
 style="font-size: 14px;">Investor</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
@@ -129,6 +157,7 @@ style="float: right"></span></a>
 <ul class="collapse firstULs12" id="menu-academico-sub">
 <li id="menu-academico-boletim"><a href="/ans">Add New Stock</a></li>
 <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
+
 </ul>
 </li>
 
@@ -143,6 +172,16 @@ class="fa fa-angle-right" style="float: right"></span></a>
 <!-- <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li> -->
 
 
+</ul>
+</li>
+
+
+
+<li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
+class="fas fa-flag-checkered"></i><span style="font-size: 14px;">comission And Sales</span><span
+class="fa fa-angle-right" style="float: right"></span></a>
+<ul class="collapse firstULs13" id="menu-academico-sub">
+<li id="menu-academico-boletim"><a href="/sc">Taxes</a></li>
 </ul>
 </li>
 <!-- <li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs14"><i
