@@ -48,6 +48,7 @@ class salesFlow extends Controller
       $city=$Array[19];
       $receivedBy=$Array[20];
       $totalCost=$Array[21];
+      
 
        //return $TransactionMode;
          
@@ -84,7 +85,8 @@ class salesFlow extends Controller
         'CashNote'=>NULL,
         'Remarks'=>NULL,
         'dliveryDate'=>NULL,
-        'returnDate' =>NULL
+        'returnDate' =>NULL,
+        'salesPerson'=>$receivedBy
         
         ]);
        // $TransactionMode='2';
@@ -97,7 +99,7 @@ class salesFlow extends Controller
        $LID=2;
         $paidVia=$AID;
         $selfBalance=$oldSelfBalance+$amp;
-        TransactionFlow::addTransaction($invoiceNumber,"Debit","Sales",
+        TransactionFlow::addTransaction($invoiceNumber,"Credit","Sales",
         $amp,$dateNow,"1",$oldSelfBalance,$selfBalance,NULL,NULL,$LID,"0",$CID,"0",$paidVia,NULL);
        
         LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);

@@ -27,8 +27,8 @@ class saleRequestController extends Controller
         $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
         $re = DB::table('vw_customersale_invoice')
         ->where('InvoiceNumber', '=', $InvoiceNo)
-         ->first();
-
+        ->first();
+        //return "aaa ".$re;
         session(['invoiceNo' => $InvoiceNo]);
         session(['customerID' => $re->CustomerID]);
         session(['itemNo' => $re->ProductSerial]);
@@ -45,10 +45,12 @@ class saleRequestController extends Controller
         session(['color' => $re->color]);
         session(['fatherName' => $re->FatherName]);
         session(['invoiceDate' => $re->DateStamp]);
+       
         
         session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
         session(['amountPaid' => number_format($re->AmountPaid)]);
-        session(['description' => $re->ProductName]);
+        session(['description' => $re->description]);
+        session(['salesPerson' => $re->salesPerson]);
         
         session(['balance' => number_format($re->Balance)]);
         session(['totalCost' => number_format($re->TotalCost)]);
@@ -59,7 +61,7 @@ class saleRequestController extends Controller
         $a= $numberTransformer->toWords($re->AmountPaid);
         session(['amountInWords' => ucwords($a)]);
 
-        session(['receiptNumber' => 'FMM-'.$dateNow.'-'.$InvoiceNo]);
+        session(['receiptNumber' => 'FMM-'.$re->DateStamp.'-'.$InvoiceNo]);
         
         //session(['vehRegNo' => '']);
         //session(['distanceTraveled' => '']);
