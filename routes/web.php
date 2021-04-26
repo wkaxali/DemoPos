@@ -36,6 +36,7 @@ use App\Http\Controllers\saleRequestController;
 use App\Http\Controllers\TEST;
 use App\Http\Controllers\printServiceInvoice;
 use App\Http\Controllers\deliverLetterPrintController;
+use App\Http\Controllers\summaryReportController;
 
 
 
@@ -50,11 +51,14 @@ use App\Http\Controllers\deliverLetterPrintController;
 |
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
+
+Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
+Route::get('/transactions/{dates}',[summaryReportController::class, 'transactions']);
+
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
 Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliveryLetter']);
-
 
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
 Route::get('/getDocuments',[printDocuments::class, 'getDocuments']);
@@ -967,3 +971,4 @@ route::get('/acs', function(){
 route::get('/ch', function(){
     return view('customerHistory');
 });
+

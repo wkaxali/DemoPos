@@ -1073,7 +1073,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-2">
+                                    <div class="market-update-block clr-block-2" href="/ac">
                                         <div class="col-md-8 market-update-left">
                                             <h3>135</h3>
                                             <h4>Leads</h4>
