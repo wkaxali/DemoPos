@@ -378,7 +378,7 @@ Route::get('/is', function () {
 });
 Route::get('/psi', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('printSaleInvoice'); 
     }else{
     return view("signInSignUp");
@@ -778,14 +778,14 @@ $pdf = PDF::loadView('viewExpenses', $data);
 // download PDF file with download method
 return $pdf->download('pdf_file.pdf');
 });
-Route::get('/vd', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('vehicleDetails'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
+// Route::get('/vd', function () {
+//     $UN = session()->get('Designation');
+//     if($UN=="Admin"){
+//     return view('vehicleDetails'); 
+//     }else{
+//     return view("signInSignUp");
+//     }
+// });
 
 Route::get('/ssi2', function () {
     $UN = session()->get('Designation');
@@ -939,7 +939,7 @@ Route::get('/eu', function () {
 
 Route::get('/dls', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('deliveryletters'); 
     }else{
     return view("signInSignUp");
