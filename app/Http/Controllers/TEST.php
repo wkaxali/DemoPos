@@ -372,15 +372,15 @@ class TEST extends Controller
 </tr>
 
 <tr>
-<td width="30%" border="0">Dealer</td>
-<td width="55%" align="center" border="0">Forland Modern Motors</td>
+<td width="30%" border="0">Vehicle</td>
+<td width="55%" align="center" border="0">'.session()->get("productName").'</td>
 
 
 
 </tr>
 <tr>
-<td width="30%" border="0">Vehicle</td>
-<td width="55%" align="center" border="0">'.session()->get("productName").'</td>
+<td width="30%" border="0">Version</td>
+<td width="55%" align="center" border="0">'.session()->get("description").'</td>
 
 
 

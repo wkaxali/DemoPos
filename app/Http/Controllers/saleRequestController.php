@@ -48,7 +48,7 @@ class saleRequestController extends Controller
         
         session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
         session(['amountPaid' => number_format($re->AmountPaid)]);
-        session(['description' => $re->ProductName]);
+        session(['description' => $re->description]);
         
         session(['balance' => number_format($re->Balance)]);
         session(['totalCost' => number_format($re->TotalCost)]);
