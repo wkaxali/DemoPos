@@ -48,6 +48,7 @@ class salesFlow extends Controller
       $city=$Array[19];
       $receivedBy=$Array[20];
       $totalCost=$Array[21];
+      
 
        //return $TransactionMode;
          
@@ -68,7 +69,8 @@ class salesFlow extends Controller
         else{
           $invoiceStatus="CLEARED";
         }
-        $invoiceNumber=DB::table('tblsaleinvoice')->insertGetId(['CustomerID'=>$CID,
+        $invoiceNumber=DB::table('tblsaleinvoice')->insertGetId([
+        'CustomerID'=>$CID,
         'TotalAmount'=>$tot,
         'Discount'=>$OverAllDiscount,
         'DateStamp'=>$dateNow,
@@ -84,7 +86,8 @@ class salesFlow extends Controller
         'CashNote'=>NULL,
         'Remarks'=>NULL,
         'dliveryDate'=>NULL,
-        'returnDate' =>NULL
+        'returnDate' =>NULL,
+        'salesPerson'=>$receivedBy
         
         ]);
        // $TransactionMode='2';
@@ -97,7 +100,7 @@ class salesFlow extends Controller
        $LID=2;
         $paidVia=$AID;
         $selfBalance=$oldSelfBalance+$amp;
-        TransactionFlow::addTransaction($invoiceNumber,"Debit","Sales",
+        TransactionFlow::addTransaction($invoiceNumber,"Credit","Sales",
         $amp,$dateNow,"1",$oldSelfBalance,$selfBalance,NULL,NULL,$LID,"0",$CID,"0",$paidVia,NULL);
        
         LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
@@ -121,10 +124,12 @@ class salesFlow extends Controller
         $newAccountBalance=floatval($OldAccBalance)-floatval($amp);
        // accountsController::getAccountBalance($AID);
         accountsController::UpdateNewBalance($AID,$newAccountBalance);
-         
           
         }
-        
+        $oldCustomerBalance = CustomerController::getCustomerBalance($CID);
+        $newCustomerBalance = $oldCustomerBalance + $rmb;
+        $updateBalance = CustomerController::UpdateCustomerBalance($CID, $newCustomerBalance);
+
         UpdateStocksController::UpdateStockStatus($pid,"Sold");
 
         saleRequestController::getInvoiceSaleRequest($invoiceNumber);

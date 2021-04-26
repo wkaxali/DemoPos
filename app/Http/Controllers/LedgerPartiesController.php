@@ -20,9 +20,9 @@ class LedgerPartiesController extends Controller
         // $currentBalance=floatval ($OldBalance)+floatval ($amount);
         DB::table('tblledgerparties')
         ->where('LID', $LID)
-        ->update(['Balance' =>$amount
-       
-        ]);
+        ->update([
+            'Balance' =>$amount,
+            ]);
         return 'update New Balance';
 
 

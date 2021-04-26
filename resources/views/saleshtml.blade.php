@@ -249,7 +249,7 @@
                         <label for="invo-1" style="width: 130px;">Gross Total</label>
                         <input type="text" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="grossTotal">
-                        <label for="prod-1" style="width: 130px;"> Tax 17%</label>
+                        <label for="prod-1" style="width: 130px;"> Tax %</label>
                         <input type="text" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="tax"
                             onchange="calc()">

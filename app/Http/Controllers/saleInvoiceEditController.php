@@ -106,7 +106,7 @@ class saleInvoiceEditController extends Controller
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
        
         //_________________//
-        $dateNow= Carbon::now()->toDateTimeString();
+        $dateNow= Carbon::now()->toDateString();
    
      self::insertInDetailedOrder($Array[0],$InvoiceID,$dateNow);
     
