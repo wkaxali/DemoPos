@@ -342,7 +342,7 @@
     <script>
         function valid() {
             var OrderID = document.getElementById("OrderId").value;
-            var category = document.getElementById("category");
+            var category = document.getElementById("category".options[category.selectedIndex].text);
             var bookingPrice = document.getElementById("bookingPrice").value;
             var invoicePrice = document.getElementById("invoice").value;
             var description = document.getElementById("description").value;
@@ -367,7 +367,7 @@
                 add();
                 // document.getElementById("OrderId").value = "";
 
-                document.getElementById("category");
+                document.getElementById("category").options[category.selectedIndex].text;
 
                 document.getElementById("invoice").value = "";
                 document.getElementById("bookingPrice").value = "";
@@ -392,7 +392,7 @@
         function add() {
 
             var OrderID = document.getElementById("OrderId").value;
-            var category = document.getElementById("category");
+            var category = document.getElementById("category").options[category.selectedIndex].text;
             var invoicePrice = document.getElementById("invoice").value;
             var bookingPrice = document.getElementById("bookingPrice").value;
             var description = document.getElementById("description").value;

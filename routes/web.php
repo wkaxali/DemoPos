@@ -86,6 +86,8 @@ Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 
 Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
+Route::get('/sum',[TEST::class, 'summary']);
+
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 
 //---------------------------//LedgerPartiesController
