@@ -342,7 +342,7 @@
     <script>
         function valid() {
             var OrderID = document.getElementById("OrderId").value;
-            var category = document.getElementById("category".options[category.selectedIndex].text);
+            var category = document.getElementById("category");
             var bookingPrice = document.getElementById("bookingPrice").value;
             var invoicePrice = document.getElementById("invoice").value;
             var description = document.getElementById("description").value;
@@ -392,7 +392,7 @@
         function add() {
 
             var OrderID = document.getElementById("OrderId").value;
-            var category = document.getElementById("category").options[category.selectedIndex].text;
+            var category = document.getElementById("category");
             var invoicePrice = document.getElementById("invoice").value;
             var bookingPrice = document.getElementById("bookingPrice").value;
             var description = document.getElementById("description").value;
