@@ -33,7 +33,7 @@ style="float: right"></span></a>
 <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
 style="font-size: 14px;">Auto Models</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse list-unstyled firstULs ">
+<ul class="collapse list-unstyled firstULs12 ">
 <li><a href="/aam">Add Auto Model</a></li>
 <li><a href="/eam">Edit Auto Model</a></li>
 <li><a href="/acc">Accesories With Autos </a></li>
