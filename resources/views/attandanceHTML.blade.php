@@ -228,9 +228,9 @@
                                     name="" id="">
                                 <br>
                                 <div class="loginButtons">
-                                    <button class="btn" style="background-color: #e61d2f; color: #ffffff;">View
-                                        Previous </button>
-                                    <button class="btn" style="background-color:  #0a549d; color: #ffffff;"
+                                    <!-- <button class="btn" style="background-color: #e61d2f; color: #ffffff;">View
+                                        Previous </button> -->
+                                    <button class="btn" style="background-color:  #0a549d; color: #ffffff;  "
                                         onclick="markAttendance()">Mark Attandance</button>
                                 </div>
                             </div>

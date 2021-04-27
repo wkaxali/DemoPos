@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="mt-3">Set Ideal Stock</h3>
+                    <h3 class="mt-3">Edit Auto Models</h3>
                 </div>
             </div>
 
@@ -94,7 +94,7 @@
                         name="id" id="Price"><br><br>
                     
                         <br>
-                   <button id="addUsers" class="btn btn-warning"  onclick="addAutoModels()">Add AutoModel</button>
+                   <!-- <button id="addUsers" class="btn btn-warning"  onclick="addAutoModels()">Add AutoModel</button> -->
 
                 
                         <button class="btn btn-success" onclick="editAutoModels()">Update </button>
@@ -183,7 +183,7 @@ function editAutoModels() {
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Auto Model " + this.responseText + " is added");
+                    alert("Auto Model " + this.responseText + " is Updated");
 
 
                 }

@@ -92,7 +92,7 @@
 
             var employeeID = [document.getElementById("employeeID").value];
 
-            alert(employeeID);
+            
 
             //var taskTable = JSON.stringify(OverallTask);
 
@@ -104,7 +104,7 @@
 
                 }
             };
-            alert(employeeID);
+            
             xhttp.open("GET", "./markAttendance/" + employeeID, true);
             xhttp.send();
         }

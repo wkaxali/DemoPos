@@ -69,7 +69,8 @@ class salesFlow extends Controller
         else{
           $invoiceStatus="CLEARED";
         }
-        $invoiceNumber=DB::table('tblsaleinvoice')->insertGetId(['CustomerID'=>$CID,
+        $invoiceNumber=DB::table('tblsaleinvoice')->insertGetId([
+        'CustomerID'=>$CID,
         'TotalAmount'=>$tot,
         'Discount'=>$OverAllDiscount,
         'DateStamp'=>$dateNow,
@@ -123,10 +124,12 @@ class salesFlow extends Controller
         $newAccountBalance=floatval($OldAccBalance)-floatval($amp);
        // accountsController::getAccountBalance($AID);
         accountsController::UpdateNewBalance($AID,$newAccountBalance);
-         
           
         }
-        
+        $oldCustomerBalance = CustomerController::getCustomerBalance($CID);
+        $newCustomerBalance = $oldCustomerBalance + $rmb;
+        $updateBalance = CustomerController::UpdateCustomerBalance($CID, $newCustomerBalance);
+
         UpdateStocksController::UpdateStockStatus($pid,"Sold");
 
         saleRequestController::getInvoiceSaleRequest($invoiceNumber);

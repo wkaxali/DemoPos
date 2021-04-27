@@ -38,6 +38,7 @@ use App\Http\Controllers\saleRequestController;
 use App\Http\Controllers\TEST;
 use App\Http\Controllers\printServiceInvoice;
 use App\Http\Controllers\deliverLetterPrintController;
+use App\Http\Controllers\summaryReportController;
 
 
 
@@ -52,11 +53,14 @@ use App\Http\Controllers\deliverLetterPrintController;
 |
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
+
+Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
+Route::get('/transactions/{dates}',[summaryReportController::class, 'transactions']);
+
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
 Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliveryLetter']);
-
 
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
 Route::get('/getDocuments',[printDocuments::class, 'getDocuments']);
@@ -262,7 +266,7 @@ return view('signInSignUp');
 
 Route::get('/ed', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('EmpDashboard');
     }else{
     return view("signInSignUp");
@@ -312,6 +316,7 @@ session(['Designation' =>null]);
 
 return view('signInSignUp');
 });
+
 Route::get('/db', function () {
 $UN = session()->get('Designation');
 if($UN=="Admin"){
@@ -351,7 +356,7 @@ Route::get('/cl', function () {
 });
 Route::get('/dl', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('deliveryLetter'); 
     }else{
     return view("signInSignUp");
@@ -375,7 +380,7 @@ Route::get('/is', function () {
 });
 Route::get('/psi', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('printSaleInvoice'); 
     }else{
     return view("signInSignUp");
@@ -420,7 +425,7 @@ Route::get('/th', function () {
 
 Route::get('/vc', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('viewCustomers'); 
     }else{
     return view("signInSignUp");
@@ -428,7 +433,7 @@ Route::get('/vc', function () {
 });
 Route::get('/sp', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('viewSpareParts'); 
     }else{
     return view("signInSignUp");
@@ -436,7 +441,7 @@ Route::get('/sp', function () {
 });
 Route::get('/vs', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('viewStock'); 
     }else{
     return view("signInSignUp");
@@ -484,7 +489,7 @@ Route::get('/ev', function () {
 Route::get('/etv', function () {
     $UN = session()->get('Designation');
 
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
         
         return view('EmployeeTaskView');
   
@@ -493,25 +498,25 @@ Route::get('/etv', function () {
    }
 
 });
-Route::get('/emptv', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('employertaskViews'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
-Route::get('/e', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('Employee'); 
-    }else{
-    return view("signInSignUp");
-    };
-});
+// Route::get('/emptv', function () {
+//     $UN = session()->get('Designation');
+//     if($UN=="Admin"){
+//     return view('employertaskViews'); 
+//     }else{
+//     return view("signInSignUp");
+//     }
+// });
+// Route::get('/e', function () {
+//     $UN = session()->get('Designation');
+//     if($UN=="Admin"){
+//     return view('Employee'); 
+//     }else{
+//     return view("signInSignUp");
+//     };
+// });
 Route::get('/at', function (){
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('attendance'); 
     }else{
     return view("signInSignUp");
@@ -543,14 +548,7 @@ Route::get('/igl', function () {
     return view("signInSignUp");
     }
 });
-Route::get('/pr', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('payRoll'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
+
 Route::get('/inv', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -592,14 +590,17 @@ Route::get('/d', function () {
     return view("signInSignUp");
     }
 });
-Route::get('/nd', function () {
+
+Route::get('/esp', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('newdashboard'); 
+    return view('editSupplier'); 
     }else{
     return view("signInSignUp");
     }
 });
+
+
 
 Route::get('/SalarySlip', function () {
     $UN = session()->get('Designation');
@@ -638,7 +639,7 @@ Route::get('/prc', function () {
 
 Route::get('/fgp', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('ForlandGatePass'); 
     }else{
     return view("signInSignUp");
@@ -660,14 +661,7 @@ Route::get('/sheet', function (){
     return view("signInSignUp");
     }
 });
-Route::get('/vd', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"||$UN=="User"){
-    return view('vehicleDetails'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
+
 Route::get('/sir', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -786,14 +780,14 @@ $pdf = PDF::loadView('viewExpenses', $data);
 // download PDF file with download method
 return $pdf->download('pdf_file.pdf');
 });
-Route::get('/vd', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('vehicleDetails'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
+// Route::get('/vd', function () {
+//     $UN = session()->get('Designation');
+//     if($UN=="Admin"){
+//     return view('vehicleDetails'); 
+//     }else{
+//     return view("signInSignUp");
+//     }
+// });
 
 Route::get('/ssi2', function () {
     $UN = session()->get('Designation');
@@ -871,7 +865,7 @@ Route::get('/ds', function (){
     }
 });
 
-Route::get('/as2', function (){
+Route::get('/ans', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('addNewStock'); 
@@ -947,7 +941,7 @@ Route::get('/eu', function () {
 
 Route::get('/dls', function () {
     $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    if($UN=="Admin"||$UN=="User"){
     return view('deliveryletters'); 
     }else{
     return view("signInSignUp");
@@ -964,3 +958,4 @@ route::get('/aeh', function(){
 route::get('/ch', function(){
     return view('customerHistory');
 });
+
