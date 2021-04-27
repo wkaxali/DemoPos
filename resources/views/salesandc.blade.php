@@ -330,7 +330,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-12 mb-2 text-center">
-                                <h2 style="font-weight: 700;">Comission & Taxes</h2>
+                                <h2 style="font-weight: 700;">Sales &Comissions</h2>
                             </div>
                         </div>
 
