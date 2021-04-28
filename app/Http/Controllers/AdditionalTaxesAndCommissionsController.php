@@ -136,4 +136,9 @@ return $CID;
         }
         return $option;
       }
+
+      public static function getComission($PID){
+        $data=DB:: select('select * from tbladditionalcostandprofits where PID ='.$PID);
+        return $data;
+      }
 }
