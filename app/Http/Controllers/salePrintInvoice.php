@@ -118,11 +118,11 @@ class salePrintInvoice extends Controller
         </thead>
         <tbody >
         <tr>
-        <td align="center">'.session()->get("model").'</td>
+        <td align="center">'.session()->get("description").'</td>
         <td align="center">'.session()->get("color").'</td>
         <td align="center">'.session()->get("engineNo").'</td>
         <td align="center">'.session()->get("chassisNo").'</td>
-        <td align="center">'.session()->get("netTotal").'</td>
+        <td align="center">'.session()->get("unitPrice").'</td>
         </tR>
         
         <tr>

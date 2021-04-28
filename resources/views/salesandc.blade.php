@@ -946,8 +946,6 @@
 
         function addInProfit() {
 
-
-
             var CH = document.getElementById("comissionHeads");
             var amountd = document.getElementById("amountd").value;
             var remarksd = document.getElementById("remarksd").value;
@@ -1007,12 +1005,12 @@
 
 
             var PID = document.getElementById("PID").value;
-            var AID = 1;
+            var AID = $('#accountForCost').find(":selected").val();
 
             var OverAllDetails = [PID, AID, commissionArray];
 
             var CA = JSON.stringify(OverAllDetails);
-
+            alert(CA);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -1052,7 +1050,7 @@
 
 
             var PID = document.getElementById("PID").value;
-            var AID = 1;
+            var AID = $('#accountForProfit').find(":selected").val();
 
             var OverAllDetails = [PID, AID, commissionArray];
 
@@ -1090,20 +1088,46 @@
         }
 
         $("#productSearchTable").on('click', 'tr', function () {
-
             document.getElementById("PID").value = this.cells[0].innerText;
-            document.getElementById("productName").value = this.cells[1]
-                .innerText; // get current row 1st TD value PurchasePrice
-            document.getElementById("chassisNumber").value = this.cells[3]
-                .innerText;
+            document.getElementById("productName").value = this.cells[1].innerText; // get current row 1st TD value PurchasePrice
+            document.getElementById("chassisNumber").value = this.cells[3].innerText;
             document.getElementById("engineNumber").value = this.cells[2].innerText;
-            document.getElementById("totalCost").value = this.cells[5].innerText;
-            document.getElementById("overallTotalCost").value = this.cells[5].innerText;
-            document.getElementById("SalePrice").value = this.cells[6].innerText;
-            document.getElementById("PurchasePrice").value = this.cells[4].innerText;
-            document.getElementById("SPC").value = this.cells[7].innerText;
-            document.getElementById("currentSPC").value = this.cells[7].innerText;
+            
             CalcProfit();
+
+            var i = 0;
+                    //alert(a.length);
+                    var table = document.getElementById("comissionTable");
+                    table.innerHTML = "<thead>\
+                            <tr>\
+                                <th>Head</th>\
+                                <th>Amount</th>\
+                                <th>Remarks</th>\
+                                <th>Delete</th>\
+                            </tr>\
+                        </thead>";
+
+                    for (i; i < a.length; i++) {
+                        var PID = a[i].ProductSerial;
+                        var discount = a[i].Discount;
+                        var quantity = a[i].Quantity;
+                        var PerUnitSalePrice = a[i].PerUnitSalePrice;
+
+                        var row = table.insertRow(-1);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+                        var cell4 = row.insertCell(3);
+
+                        cell1.innerHTML = PID;
+                        cell2.innerHTML = productName;
+                        cell3.innerHTML = company;
+                        cell4.innerHTML =
+                            "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
+
+                    }
+
+
         });
 
 
