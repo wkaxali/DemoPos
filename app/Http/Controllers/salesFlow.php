@@ -29,7 +29,7 @@ class salesFlow extends Controller
       $pid=$Array[0];
       $tot=$Array[1];
       $OverAllDiscount= $Array[2];
-      $AmountAfterDiscount=$Array[3];
+      
       $amp =$Array[4];
       $rmb=$Array[5];
       $CID=$Array[6];
@@ -47,8 +47,9 @@ class salesFlow extends Controller
       $productName=$Array[18];
       $city=$Array[19];
       $receivedBy=$Array[20];
-      $totalCost=$Array[21];
-      
+      $totalCost= $tot-$OverAllDiscount;
+      $vat= $tot*17/100;
+      $AmountAfterDiscount=$totalCost+$vat;
 
        //return $TransactionMode;
          
@@ -74,7 +75,7 @@ class salesFlow extends Controller
         'TotalAmount'=>$tot,
         'Discount'=>$OverAllDiscount,
         'DateStamp'=>$dateNow,
-        'VAT'=>NULL,
+        'VAT'=>$vat,
         'NetTotal'=>$AmountAfterDiscount,
         'AmountPaid'=>$amp,
         'Balance'=>$rmb,
@@ -233,33 +234,33 @@ class salesFlow extends Controller
       <tbody>
           <tr>
               <td><br><span style="font-size: medium;">Customer Name</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               <td><br><span style="font-size: medium;">Booking No</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               
              
           </tr>
           <tr>
               <td><br><span style="font-size: medium;">Address</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               <td><br><span style="font-size: medium;">Invoice Number</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               
              
           </tr>
           <tr>
               <td><br><span style="font-size: medium;">CNIC/NTN</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               <td><br><span style="font-size: medium;">Invoice Date</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               
              
           </tr>
           <tr>
               <td><br><span style="font-size: medium;">Contact</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               <td><br><span style="font-size: medium;"></span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               
              
           </tr>
@@ -412,7 +413,7 @@ class salesFlow extends Controller
       <br>
       <tr>
       <td width="60%" border="0"></td>
-      <td width="40%" align="center" border="0">_______________________</td>
+      <td width="40%" align="center" border="0">_________</td>
       
      
     
