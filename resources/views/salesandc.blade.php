@@ -1007,12 +1007,12 @@
 
 
             var PID = document.getElementById("PID").value;
-            var AID = 1;
+            var AID = $('#accountForCost').find(":selected").val();
 
             var OverAllDetails = [PID, AID, commissionArray];
 
             var CA = JSON.stringify(OverAllDetails);
-
+            alert(CA);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -1052,7 +1052,7 @@
 
 
             var PID = document.getElementById("PID").value;
-            var AID = 1;
+            var AID = $('#accountForProfit').find(":selected").val();
 
             var OverAllDetails = [PID, AID, commissionArray];
 
