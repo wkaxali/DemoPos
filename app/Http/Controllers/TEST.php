@@ -418,13 +418,7 @@ class TEST extends Controller
 
 
 </tr>
-<tr>
-<td width="30%" border="0">Invoice</td>
-<td width="55%" align="center" border="0">  </td>
 
-
-
-</tr>
 
 <tr>
 <td width="30%" border="0">Invoice Price</td>
