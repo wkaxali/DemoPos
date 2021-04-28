@@ -73,7 +73,7 @@ class salePrintInvoice extends Controller
         <td><br><span style="font-size: medium;">Address:</span></td>
         <td align="center"><br>'.session()->get("address").'</td>
         <td><br><span style="font-size: medium;">Invoice Number:</span></td>
-        <td align="center"><br>'.session()->get("iu").'</td>
+        <td align="center"><br>'.session()->get("invoiceNo").'</td>
         
         
         </tr>
@@ -123,18 +123,25 @@ class salePrintInvoice extends Controller
         <td align="center">'.session()->get("engineNo").'</td>
         <td align="center">'.session()->get("chassisNo").'</td>
         <td align="center">'.session()->get("unitPrice").'</td>
+        
         </tR>
         
         <tr>
+        
+        
         <td></td>
         <td></td>
+       
+        <td></td>
+        
+        </tr> 
+        <tr>
+        <td align="center" >Discount</td>
+        <td></td>
+        
         <td></td>
         <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td align="center">'.session()->get("Discount").'</td>
         <td></td>
         <td></td>
         </tr> <tr>
@@ -212,21 +219,33 @@ class salePrintInvoice extends Controller
         
         <table border="0">
         <thead>
-        <tr>
-        <th width="70%" border="1" align="center">
+    <tr>
+        <th width="40%" border="1" align="center">
         Total in Word </th>
+        <th width="30%" border="1" align="center" style="line-height: 100%;"> Value Exclusive of Sales Tax</th>
+        <th width="30%" border="1" align="center" style="line-height: 100%;">  PKR '.session()->get("amountPaid").' </th>
         
-        <th width="30%" border="1" align="center" style="line-height: 100%;"> Total PKR</th>
         
-        </tr>
+      
+    </tr>
         </thead>
         <tbody>
+    <tr>
+        <td width="40%" border="1" align="center">'.session()->get("amountInWords").'/-Only.</td>
+        
+        <td width="30%" border="1" align="center">17% GST </td>
+        <td width="30%" border="1" align="center"> '.session()->get("tax").'</td>
+        
+    </tr>
         <tr>
-        <td width="70%" border="1" align="center">'.session()->get("amountInWords").'/-Only.</td>
-        <td width="30%" border="1" align="center">'.session()->get("amountPaid").'</td>
-        
-        
+            <td width="40%" border="1" align="center"></td>
+            <td width="30%" border="1" align="center">Total</td>
+
+            <td width="30%" border="1" align="center"> '.session()->get("endTotal").'</td>
+       
         </tr>
+        
+      
         <br>
         <br>
         <br>
@@ -236,22 +255,22 @@ class salePrintInvoice extends Controller
         
         
         <br>
-        <tr>
+    <tr>
         <td width="60%" border="0"></td>
         <td width="40%" align="center" border="0">_______________________</td>
         
         
         
-        </tr>
-        <tr>
+    </tr>
+    <tr>
         <br>
         
         <td width="60%" border="0"></td>
-        <td width="40%" align="center" border="0">Sign and Signature</td>
+        <td width="40%" align="center" border="0">Sign and Stamp</td>
         
         
         
-        </tr>
+    </tr>
         
         
         

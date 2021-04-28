@@ -29,7 +29,7 @@ class salesFlow extends Controller
       $pid=$Array[0];
       $tot=$Array[1];
       $OverAllDiscount= $Array[2];
-      $AmountAfterDiscount=$Array[3];
+      
       $amp =$Array[4];
       $rmb=$Array[5];
       $CID=$Array[6];
@@ -47,8 +47,9 @@ class salesFlow extends Controller
       $productName=$Array[18];
       $city=$Array[19];
       $receivedBy=$Array[20];
-      $totalCost=$Array[21];
-      
+      $totalCost= $tot-$OverAllDiscount;
+      $vat= $tot*17/100;
+      $AmountAfterDiscount=$totalCost+$vat;
 
        //return $TransactionMode;
          
@@ -74,7 +75,7 @@ class salesFlow extends Controller
         'TotalAmount'=>$tot,
         'Discount'=>$OverAllDiscount,
         'DateStamp'=>$dateNow,
-        'VAT'=>NULL,
+        'VAT'=>$vat,
         'NetTotal'=>$AmountAfterDiscount,
         'AmountPaid'=>$amp,
         'Balance'=>$rmb,
