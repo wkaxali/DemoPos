@@ -68,20 +68,20 @@ public function deliveryLetter($InvoiceNo){
     
     <table border="1" width="100%" >
     <tr>
-    <td width="20%" >Name</td>
-    <td width="30%">'.session()->get("name").'</td>
-    <td width="25%">Father Name:</td>
-    <td width="25%">'.session()->get("fatherName").'</td>
+    <td width="20%" align="center" >Name</td>
+    <td width="30%" align="center">'.session()->get("name").'</td>
+    <td width="25%" align="center">Father Name:</td>
+    <td width="25%" align="center">'.session()->get("fatherName").'</td>
     </tr>
     <tr>
-    <td width="20%">CNIC/NTN</td>
-    <td width="30%">'.session()->get("cnic").'</td>
-    <td width="25%">Contact:</td>
-    <td width="25%">'.session()->get("contact").'</td>
+    <td width="20%" align="center">CNIC/NTN</td>
+    <td width="30%" align="center">'.session()->get("cnic").'</td>
+    <td width="25%" align="center">Contact:</td>
+    <td width="25%" align="center">'.session()->get("contact").'</td>
     </tr>
     <tr>
-    <td width="20%">Address</td>
-    <td width="50%">'.session()->get("address").'</td>
+    <td width="20%" align="center">Address</td>
+    <td width="50%" align="center">'.session()->get("address").'</td>
     </tr>
     
     
@@ -92,20 +92,18 @@ public function deliveryLetter($InvoiceNo){
     <h3>Vehicle Detail :</h3>
     <table border="1" width="100%" >
     <tr>
-    <th>SR#</th>
-    <th>Product Description</th>
-    <th>Model</th>
-    <th>Engine Number</th>
-    <th>Chassis Number</th>
-    <th>Description</th>
+    <th align="center">SR#</th>
+    <th align="center">Product Description</th>
+    <th align="center">Engine Number</th>
+    <th align="center">Chassis Number</th>
+    <th align="center">Description</th>
     </tr>
     <tr>
-    <td>01</td>
-    <td >'.session()->get("productName").'</td>
-    <td >2021</td>
-    <td>'.session()->get("engineNo").'</td>
-    <td>'.session()->get("chassisNo").'</td>
-    <td>'.session()->get("description").'</td>
+    <td align="center">01</td>
+    <td align="center">'.session()->get("productName").'</td>
+    <td align="center">'.session()->get("engineNo").'</td>
+    <td align="center">'.session()->get("chassisNo").'</td>
+    <td align="center">'.session()->get("description").'</td>
     </tr>
     </table>
     

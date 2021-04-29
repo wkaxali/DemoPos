@@ -298,122 +298,83 @@ class TEST extends Controller
     }
 
     public function saleInvoiceRequest()
-    {
-        
-        $newHTML='<table border="0" cellpadding="2">
-        <thead>
-            <tr>
-               
-                 <th align="center"><br><h1>FORLAND MODREN MOTORS</h1></th>
-               
-            </tr>
-        </thead>
-        
-        <tbody>
-        <tr>
-        <br>
-        <td>
-       
-        To, <br>
+{
 
-        Foton JW Auto Park (Pvt.) <br>
-    
-        </td>
+$newHTML='<table border="0" cellpadding="2" >
+<thead>
+<tr>
 
-        </tr>
-        <tr>
-   
-        <td width="30%" border="0" align="left" >Subject</td>
-        <td width="70%" border="0" align="right"><h4>Date: '.session()->get("invoiceDate").'</h4></td>
-       
-    </tr>
-        </tbody>
-            
-    </table>
-    <br>
-    <br>
-        <br>
-        <br>
-<table border="1" cellpadding="9">
-    <tbody>
-    <tr>
-   
-        <td width="30%" border="0" align="left" >Customer Name</td>
-        <td width="55%" border="0" align="center">'.session()->get("customerName").'</td>
-       
-    </tr>
-    
-    <tr>
-    <td width="30%" border="0">Address</td>
-    <td width="55%" align="center" border="0">'.session()->get("address").'</td>
+
+<th align="center"><br><h1>FORLAND MODREN MOTORS</h1></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<br>
+<td>
+
+To, <br>
+
+Foton JW Auto Park (PVT) <br>
+
+</td>
 
 </tr>
 <tr>
 
-   
-    <td width="30%" border="0">Contact Details</td>
-    <td width="55%" align="center" border="0">'.session()->get("contact").'</td>
-    
-</tr>
-<tr>
-<td width="30%" border="0">NTN/CNIC #</td>
-<td width="55%" align="center" border="0">'.session()->get("CNIC").'</td>
-
-
+<td width="30%" border="0" align="left" >Subject</td>
+<td width="70%" border="0" align="right"><h4>Date: '.session()->get("invoiceDate").'</h4></td>
 
 </tr>
+</tbody>
 
-<tr>
-<td width="30%" border="0">Sales Person</td>
-<td width="55%" align="center" border="0">'.session()->get("salesPerson").'</td>
+</table>
+<br>
+<br>
+<br>
+<br>
+<table border="0" cellpadding="9" >
 
+<tbody>
+<tr >
+<td width="8%" border="0" align="left" ></td>
 
+<td width="30%" border="1" align="left" >Customer Name</td>
+<td width="55%" border="1" align="center">'.session()->get("customerName").'</td>
 
 </tr>
 
-
 <tr>
-<td width="30%" border="0">Vehicle</td>
-<td width="55%" align="center" border="0">'.session()->get("productName").'</td>
+<td width="8%" border="0" align="left" ></td>
 
-
+<td width="30%" border="1">Address</td>
+<td width="55%" align="center" border="1">'.session()->get("address").'</td>
 
 </tr>
 <tr>
-<td width="30%" border="0">Version</td>
-<td width="55%" align="center" border="0">'.session()->get("description").'</td>
+
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Contact Details</td>
+<td width="55%" align="center" border="1">'.session()->get("contact").'</td>
+
+</tr>
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">NTN/CNIC #</td>
+<td width="55%" align="center" border="1">'.session()->get("CNIC").'</td>
 
 
 
 </tr>
 
 <tr>
-<td width="30%" border="0">Chassis No</td>
-<td width="55%" align="center" border="0">'.session()->get("chassisNo").'</td>
+<td width="8%" border="0" align="left" ></td>
 
-
-
-</tr>
-
-<tr>
-<td width="30%" border="0">Engine NO</td>
-<td width="55%" align="center" border="0">'.session()->get("engineNo").'</td>
-
-
-
-</tr>
-
-<tr>
-<td width="30%" border="0">Color</td>
-<td width="55%" align="center" border="0">'.session()->get("color").'</td>
-
-
-
-</tr>
-
-<tr>
-<td width="30%" border="0">Amount</td>
-<td width="55%" align="center" border="0">'.session()->get("amountPaid").'</td>
+<td width="30%" border="1">SalesPerson</td>
+<td width="55%" align="center" border="1">'.session()->get("salesPerson").'</td>
 
 
 
@@ -421,63 +382,127 @@ class TEST extends Controller
 
 
 <tr>
-<td width="30%" border="0">Invoice Price</td>
-<td width="55%" align="center" border="0">'.session()->get("unitPrice").'</td>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Vehicle</td>
+<td width="55%" align="center" border="1">'.session()->get("productName").'</td>
+
+
+
+</tr>
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Version</td>
+<td width="55%" align="center" border="1">'.session()->get("description").'</td>
 
 
 
 </tr>
 
 <tr>
-<td width="30%" border="0">Payment Detail</td>
-<td width="55%" align="center" border="0">Payment Details Attached</td>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Chassis No</td>
+<td width="55%" align="center" border="1">'.session()->get("chassisNo").'</td>
 
 
 
 </tr>
 
- 
- 
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Engine NO</td>
+<td width="55%" align="center" border="1">'.session()->get("engineNo").'</td>
+
+
+
+</tr>
+
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Color</td>
+<td width="55%" align="center" border="1">'.session()->get("color").'</td>
+
+
+
+</tr>
+
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Amount</td>
+<td width="55%" align="center" border="1">'.session()->get("amountPaid").'</td>
+
+
+
+</tr>
+
+
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Invoice Price</td>
+<td width="55%" align="center" border="1">'.session()->get("unitPrice").'</td>
+
+
+
+</tr>
+
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Payment Detail</td>
+<td width="55%" align="center" border="1">Payment Details Attached</td>
+
+
+
+</tr>
+
+
+
 </tbody>
 </table>
-    <br>
+<br>
 
 
-   
+
 <br><br> <br>
 <br>
 <table border="0">
 
 <tr>
-    
- <td  align="right">      
- _______________________</td>
 
-        
-       
-      
-    </tr>
-    <tr>
-    
-       
-    <td align="right"> Sign & Stamp
-    </td>           
-        
-       
-      
-    </tr>
-    
+<td align="right">
+_______________________</td>
+
+
+
+
+</tr>
+<tr>
+
+
+<td align="right"> Sign & Stamp
+</td>
+
+
+
+</tr>
+
 </table>
 
-    ';     // $html= $htmldata;
-  
-        
-        PDF::SetTitle('Request for Invoice');
-        PDF::AddPage();
-        PDF::writeHTML($newHTML, true, false, true, false, '');
+'; // $html= $htmldata;
 
-        PDF::Output('invoiceRequest.pdf');
-    }
+
+PDF::SetTitle('Request for Invoice');
+PDF::AddPage();
+PDF::writeHTML($newHTML, true, false, true, false, '');
+
+PDF::Output('invoiceRequest.pdf');
+}
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

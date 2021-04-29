@@ -168,7 +168,7 @@
             var fatherName = "";
             var CNIC = "";
             var city = "";
-            
+            var address = document.getElementById("address").value;
             var description = document.getElementById("description").value;
             var color = document.getElementById("color").value;
             var unitPrice = document.getElementById("unitPrice").value;
@@ -179,7 +179,7 @@
             var qvt = document.getElementById("qvt").value;
             var payTo = document.getElementById("paymentTo").value;
 
-            var data = [customerName, fatherName, CNIC, city, "address", "contact", description, color, unitPrice, quantity,
+            var data = [customerName, fatherName, CNIC, city, address, "contact", description, color, unitPrice, quantity,
                 totalPrice, model, det, qvt, payTo
             ];
 
@@ -193,7 +193,7 @@
                     alert("Quotation =" + this.responseText + " is generated");
 
                     
-                    window.open("/testpdf/5");
+                    window.open("/printq");
 
 
                 }

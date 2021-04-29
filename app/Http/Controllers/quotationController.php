@@ -140,203 +140,241 @@ class quotationController extends Controller
             }
 
             public function qoutationToPDF()
-            {
-                
-                $html = '<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
-                <tr><td>
-                
-                
-                
-                
-                <img src="/assets/img/logo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
-                <tr>
-                <td align="Left">
-                '.session()->get("customerName").'
-                </td>
-                </tr>
+{
 
-                <tr>
-                <td align="right">Date:
-                '.session()->get("Date").'
-                </td>
-                </tr>
+$html = '<table cellpadding="1" cellspacing="1" border="0" style="text-align:center;">
+<tr><td>
 
-                <tr>
-                <td >
-                Qoutation For '.session()->get("productName").'
-                </td>
-                </tr>
-                
-                </table>
-                <br>
-                <table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
-                <thead>
-                <tr>
-                <th>Description</th>
-                <th>Color</th>
-                <th>Unit Price</th>
-                <th width="40">Qty</th>
-                <th width="173">Total Price</th>
-                </tr>
-                </thead>
-                
-                
-                <tbody>
-                <tr><td>'.session()->get("description").'</td>
-                <td rowspan="2">'.session()->get("color").'</td>
-                <td >Rs</td>
-                <td rowspan="2" width="40">'.session()->get("quantity").'</td>
-                <td width="173">Rs</td></tr>
-                <tr><td >'.session()->get("city").'</td>
-                
-                <td>'.session()->get("price").'</td>
-                <td width="173">'.session()->get("total").'</td>
-                </tr>
-                
-                
-                <tr><td colspan="5">'.session()->get("amountInWords").' </td></tr>
-                
-                </tbody>
-                </table>
-                
-                
-                <br><br>
-                <table border="0">
-                
-                <tr ><td colspan="5" align ="left" ><h3>Terms & Conditions<br><br>
-                
-                </h3> </td></tr>
-                </table>
-                
-                
-                
-                <table>
-                
-                </table>
-                
-                
-                
-                <table border="1" cellpadding="3">
-                    <tbody>
-                    <tr>
-                   
-                        <td width="30%" border="0" align="left" >Delivery Time</td>
-                        <td width="70%" border="0" align="left">'.session()->get("DeliveryTime").'Days after recipt of 100% advance payment</td>
-                       
-                    </tr>
-                    
-                    <tr>
-                    <td width="30%" border="0">Validity</td>
-                    <td width="70%" align="left" border="0">This Qoutation is valid for '.session()->get("ValidityPeriod").'days only</td>
-                
-                </tr>
-                <tr>
-                
-                   
-                    <td width="30%" border="0">Payment</td>
-                    <td width="70%" align="left" border="0">100% Advance payment in shape of DD/PO in favor of '.session()->get("PayTo").'</td>
-                    
-                </tr>
-                <tr>
-                <td width="30%" border="0">Duty/Taxes #</td>
-                <td width="70%" align="left" border="0">Any change in Govt.faisal Policies,RGST/VAT and tariff structures will be on coustumer accounts</td>
-                
-                
-                
-                </tr>
-                
-                <tr>
-                <td width="30%" border="0">Force Majeure</td>
-                <td width="70%" align="left" border="0">Manufacture will will not be responsible for any delay in delivery due to force majeure circumstance </td>
-                
-                
-                
-                </tr>
-                
-                <tr>
-                <td width="30%" border="0">Warranty</td>
-                <td width="70%" align="left" border="0"> Manufacture will not br responsible for any delay in delivery due to forcemajor circumstance</td>
-                
-                
-                
-                </tr>
-                <tr>
-                <td width="30%" border="0">Model</td>
-                <td width="70%" align="left" border="0">'.session()->get("Model").'</td>
-                
-                
-                
-                </tr>
-                
-                
-                
-                 
-                 
-                </tbody>
-                </table>
-                
-                
-                
-                
-                  
-                <table border="0">
-                <thead>
-                <br>
-                <br>
-                
-                
-                <br>
-                
-                
-                <br><br>
-                <br>
-                
-                
-                <br>
-                <br>
-                <br>
-                
-                
-                <br>
-                
-                <br>
-                
-                
-                <br>
-                <tr>
-                <td width="60%" border="0"></td>
-                <td width="40%" align="center" border="0">_______________________</td>
-                
-                
-                
-                </tr>
-                <tr>
-                <br>
-                
-                <td width="60%" border="0"></td>
-                <td width="40%" align="center" border="0">Sign and Signature</td>
-                
-                
-                
-                </tr>
-                
-                
-                
-                
-                </tbody>
-                </table>
-                
-                
-                
-                
-                ';
-               
-                PDF::SetTitle('Hello World');
-                PDF::AddPage();
-                PDF::writeHTML($html, true, false, true, false, '');
-        
-                PDF::Output('hello_world.pdf');
-            }
+
+
+
+<img src="/assets/img/logo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
+<tr>
+<td align="Left" width="180" >
+'.session()->get("customerName").'
+</td>
+<td align="right" width="0" >Date:
+'.session()->get("invoiceDate").'
+</td>
+</tr>
+<tr>
+<td align="Left" widht="200">
+'.session()->get("address").'
+</td>
+<td align="right">
+
+NTN:82588676-6 <br>
+
+STRN:3277876204764 <br>
+
+</td>
+</tr>
+
+
+
+
+
+<tr>
+<td width="150" ><h3>
+
+</h3></td>
+<td width="290" ><h1>
+Qoutation For '.session()->get("productName").'
+</h1></td>
+<td width="150" ><h3>
+
+</h3></td>
+</tr>
+
+</table>
+<br>
+<br><br><br>
+<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
+<thead>
+<tr>
+<th>Description</th>
+<th>Color</th>
+<th>Unit Price</th>
+<th width="40">Qty</th>
+<th width="173">Total Price</th>
+</tr>
+</thead>
+
+
+<tbody>
+<tr><td>'.session()->get("description").'</td>
+<td rowspan="2">'.session()->get("color").'</td>
+<td >Rs</td>
+<td rowspan="2" width="40">'.session()->get("quantity").'</td>
+<td width="173">Rs</td></tr>
+<tr><td >'.session()->get("city").'</td>
+
+<td>'.session()->get("price").'</td>
+<td width="173">'.session()->get("total").'</td>
+</tr>
+
+
+<tr><td colspan="5">'.session()->get("amountInWords").' </td></tr>
+
+</tbody>
+</table>
+
+
+
+<table border="0">
+
+<tr ><td colspan="5" align ="left" ><h3>Terms & Conditions<br>
+
+</h3> </td></tr>
+</table>
+
+
+
+<table>
+
+</table>
+
+
+
+<table border="1" cellpadding="3">
+<tbody>
+<tr>
+<td width="5%" border="0">1</td>
+<td width="30%" border="0" align="left" >Delivery Time</td>
+<td width="65%" border="0" align="left">'.session()->get("DeliveryTime").' days after recipt of 100% advance payment.</td>
+
+</tr>
+
+<tr>
+<td width="5%" border="0">2</td>
+<td width="30%" border="0">Validity</td>
+<td width="65%" align="left" border="0">This Qoutation is valid for '.session()->get("ValidityPeriod").' days only.</td>
+
+</tr>
+<tr>
+
+<td width="5%" border="0">3</td>
+<td width="30%" border="0">Payment</td>
+<td width="65%" align="left" border="0">100% Advance payment in shape of DD/PO in favor of <b><u>'.session()->get("PayTo").'</u></b>.</td>
+
+</tr>
+<tr>
+<td width="5%" border="0">4</td>
+<td width="30%" border="0">Duty/Taxes #</td>
+<td width="65%" align="left" border="0">Any change in Govt.faisal Policies,RGST/VAT and tariff structures will be on coustumer accounts.</td>
+
+
+
+</tr>
+
+<tr>
+<td width="5%" border="0">5</td>
+<td width="30%" border="0">Force Majeure</td>
+<td width="65%" align="left" border="0">Manufacture will will not be responsible for any delay in delivery due to force majeure circumstance.</td>
+
+
+
+</tr>
+
+<tr>
+<td width="5%" border="0">6</td>
+<td width="30%" border="0">Warranty</td>
+<td width="65%" align="left" border="0"> Manufacturer\'s standard warrenty of 1,20,000 kms or 02 years whichever is occurs first.</td>
+
+
+
+</tr>
+
+
+</tbody>
+</table>
+
+
+
+
+
+<table border="0">
+<thead>
+<br>
+<br>
+
+
+<br>
+
+
+
+
+
+<br>
+<br>
+<br> <br>
+
+<br>
+
+
+<br>
+<tr>
+<td width="60%" border="0"></td>
+<td width="40%" align="center" border="0">_______________________</td>
+
+
+
+</tr>
+<tr>
+<br>
+
+<td width="60%" border="0"></td>
+<td width="40%" align="center" border="0">Sign and stamp</td>
+
+
+
+</tr>
+
+
+
+
+</tbody>
+</table>
+
+
+<table border="0">
+<br>
+<br>
+
+
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotors@yahoo.com </h5></td>
+
+
+
+
+</tr>
+
+</table>
+
+
+';
+
+PDF::SetTitle('Hello World');
+PDF::AddPage();
+PDF::writeHTML($html, true, false, true, false, '');
+
+PDF::Output('hello_world.pdf');
+}
+
 
             
             

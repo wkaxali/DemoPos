@@ -20,6 +20,12 @@
                                             style="height: 40px !important; width: 200px !important; ">
                                     </div>
 
+                                    <div class="inputField-1">
+                                        <label for="prodName">Customer Address</label>
+                                        <input type="text" id="address" class="form-control"
+                                            style="height: 40px !important; width: 200px !important; ">
+                                    </div>
+
                             
 
                                     <div class="inputField-1">
@@ -42,6 +48,7 @@
                                         <input type="text" id="description" class="form-control"
                                             style="height: 40px !important; width: 200px !important; ">
                                     </div>
+                                    
 
                                     <div class="inputField-1">
                                         <label for="cost">Color</label>
