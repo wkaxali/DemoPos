@@ -316,7 +316,7 @@ class TEST extends Controller
        
         To, <br>
 
-        Foton JW Auto Park (Pvt.) Ltd<br>
+        Foton JW Auto Park (Pvt.) <br>
     
         </td>
 
