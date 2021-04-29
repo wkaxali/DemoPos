@@ -8,14 +8,43 @@ use PDF;
 
 class deliverLetterPrintController extends Controller
 {
-public function deliveryLetter($id){
+    public static function deliveryLetterData($InvoiceNo){
+        $vw = DB::table('vw_customersale_invoice')
+        ->where('InvoiceNumber', '=', $InvoiceNo)
+        ->first();
+
+        $tbl = DB::table('tbl_invoice_assesories')
+        ->where('InvoiceNumber', '=', $InvoiceNo)
+        ->first();
+        
+        session(['productName' => $vw->ProductName]);
+        session(['name' => $vw->CustomerName]);
+        session(['fatherName' => $vw->FatherName]);
+        session(['cnic' => $vw->CNIC]);
+        session(['contact' => $vw->Contect]);
+        session(['address' => $vw->Address]);
+        session(['description' => $vw->description]);
+        session(['engineNo' => $vw->EngineNumber]);
+        session(['chassisNo' => $vw->ChasisNumber]);
+        session(['refNo' => 'FMM-GDP-'.$InvoiceNo]); //not added '.session()->get("refNo").'
+        session(['date' => $vw->DateStamp]); //not added '.session()->get("date").'
+
+        session(['toolKit' => $tbl->ToolKit]);
+        session(['spareTyre' => $tbl->SpareTyre]);
+        session(['originalKeys' => $tbl->OrignalKeys]);
+        session(['warrantyBook' => $tbl->WarrantyBook]);
+        
+    }
+public function deliveryLetter($InvoiceNo){
+    self::deliveryLetterData($InvoiceNo);
 $newHTML= '
 <table width="100%">
 <thead>
 <tr>
-<td>
-<h1 align="center">FORLAND MODERN MOTORS DELIVERY LETTER</h1></td>
-
+<td><h1 align="center">FORLAND MODERN MOTORS</h1></td>
+</tr>
+<tr>
+<td><h1 align="center">DELIVERY LETTER</h1></td>
 </tr>
 
 
@@ -30,19 +59,19 @@ $newHTML= '
 <table border="1" width="100%" >
 <tr>
 <td width="20%">Name</td>
-<td width="30%">Asif Jah</td>
+<td width="30%">'.session()->get("name").'</td>
 <td width="25%">Father Name:</td>
-<td width="25%">Malik Arfi Jah</td>
+<td width="25%">'.session()->get("fatherName").'</td>
 </tr>
 <tr>
 <td width="20%">CNIC/NTN</td>
-<td width="30%">35201-343444322-1</td>
+<td width="30%">'.session()->get("cnic").'</td>
 <td width="25%">Contact:</td>
-<td width="25%">0300-3235234235</td>
+<td width="25%">'.session()->get("contact").'</td>
 </tr>
 <tr>
 <td width="20%">address</td>
-<td width="50%">Phase 1, House No 27, usamsnankdskjaiudjBlock V.I.P, Lahore Medical Housing Scheme, Lahore </td>
+<td width="50%">'.session()->get("address").'</td>
 </tr>
 
 
@@ -55,18 +84,16 @@ $newHTML= '
 <tr>
 <th>SR#</th>
 <th>Product Description</th>
-<th>Model</th>
 <th>Engine Number</th>
 <th>Chassis Number</th>
-<th>Engine Power</th>
+<th>Description</th>
 </tr>
 <tr>
 <td align="center">01</td>
-<td align="center">Forland C19</td>
-<td align="center">202</td>
-<td align="center">L7582828B</td>
-<td align="center">NFJ3JA000872A</td>
-<td align="center">1809 cc</td>
+<td align="center">'.session()->get("productName").'</td>
+<td align="center">'.session()->get("engineNo").'</td>
+<td align="center">'.session()->get("chassisNo").'</td>
+<td align="center">'.session()->get("description").'</td>
 </tr>
 </table>
 

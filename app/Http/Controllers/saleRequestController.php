@@ -26,7 +26,7 @@ class saleRequestController extends Controller
 
 
     public static function getInvoiceSaleRequest($InvoiceNo){
-        $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
+        
         $re = DB::table('vw_customersale_invoice')
         ->where('InvoiceNumber', '=', $InvoiceNo)
         ->first();
