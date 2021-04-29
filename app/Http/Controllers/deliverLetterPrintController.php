@@ -14,7 +14,7 @@ $newHTML= '
 <thead>
 <tr>
 <td>
-<h1 align="center">FORLAND MODERN MOTORS DELIVERY LETTER</h1></td>
+<h1 align="center">FORLAND MODERN MOTORS <br>DELIVERY LETTER</h1></td>
 
 </tr>
 
@@ -22,14 +22,27 @@ $newHTML= '
 </thead>
 </table>
 <br>
-<br>
-<br>
+<table>
+<thead>
+<tr><br>
+<td><b>Reference Number:</b></td>
+<td></td>
+<td><b>Date:</b></td>
+<td></td>
+</tr>
+<tr><br><br>
+<td><b>Purchaser Detail:</b></td>
+</tr>
+</thead>
+</table>
+
+
 <br>
 <br>
 
 <table border="1" width="100%" >
 <tr>
-<td width="20%">Name</td>
+<td width="20%" >Name</td>
 <td width="30%">Asif Jah</td>
 <td width="25%">Father Name:</td>
 <td width="25%">Malik Arfi Jah</td>
@@ -61,22 +74,22 @@ $newHTML= '
 <th>Engine Power</th>
 </tr>
 <tr>
-<td align="center">01</td>
-<td align="center">Forland C19</td>
-<td align="center">202</td>
-<td align="center">L7582828B</td>
-<td align="center">NFJ3JA000872A</td>
-<td align="center">1809 cc</td>
+<td>01</td>
+<td >Forland C19</td>
+<td >202</td>
+<td>L7582828B</td>
+<td>NFJ3JA000872A</td>
+<td>1809 cc</td>
 </tr>
 </table>
 
 <h3>Accessories Along With :</h3>
 <table border="1" width="100%">
 <tr>
-<th>Tool Kit</th>
-<th>Spare Tyre</th>
-<th>Orignal Keys</th>
-<th>Warrenty Book </th>
+<th align="center">Tool Kit</th>
+<th align="center">Spare Tyre</th>
+<th align="center">Orignal Keys</th>
+<th align="center">Warrenty Book </th>
 
 </tr>
 <tr>
@@ -90,11 +103,8 @@ $newHTML= '
 
 
 <table width="100%">
-<br>
-<br>
 
-<br>
-<br>
+
 <ul>
 <li>To my entire satisfaction, I have taken possession of the above mentioned vehicle, I do hereby declared that i shall be fully responsible for all accidents , tokens , machine defects and the legal proceedings regarding this vehicle from now onwards</li><br>
 
@@ -104,8 +114,7 @@ $newHTML= '
 <table width="100%">
 <br>
 <br>
-<br>
-<br>
+
 <br>
 <br>
 <br>

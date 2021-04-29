@@ -142,7 +142,7 @@ class quotationController extends Controller
             public function qoutationToPDF()
             {
                 
-                $html = '<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
+                $html = '<table cellpadding="1" cellspacing="1" border="0" style="text-align:center;">
                 <tr><td>
                 
                 
@@ -150,21 +150,37 @@ class quotationController extends Controller
                 
                 <img src="/assets/img/logo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
                 <tr>
+                <td align="right">Date:
+                '.session()->get("invoiceDate").'
+                </td>
+                </tr>
+                <tr>
+                <td align="Left">
+        
+                NTN:82588676-6 <br>
+                
+                STRN:3277876204764 
+                <h3>Customer\'s Copy</h3>
+                </td>
+                </tr>
+                <tr>
                 <td align="Left">
                 '.session()->get("customerName").'
                 </td>
                 </tr>
 
                 <tr>
-                <td align="right">Date:
-                '.session()->get("Date").'
+                <td align="Left">
+                '.session()->get("address").'
                 </td>
                 </tr>
 
+               
+
                 <tr>
-                <td >
+                <td ><h3>
                 Qoutation For '.session()->get("productName").'
-                </td>
+                </h3></td>
                 </tr>
                 
                 </table>
@@ -200,10 +216,10 @@ class quotationController extends Controller
                 </table>
                 
                 
-                <br><br>
+               
                 <table border="0">
                 
-                <tr ><td colspan="5" align ="left" ><h3>Terms & Conditions<br><br>
+                <tr ><td colspan="5" align ="left" ><h3>Terms & Conditions<br>
                 
                 </h3> </td></tr>
                 </table>
@@ -255,14 +271,14 @@ class quotationController extends Controller
                 
                 <tr>
                 <td width="30%" border="0">Warranty</td>
-                <td width="70%" align="left" border="0"> Manufacture will not br responsible for any delay in delivery due to forcemajor circumstance</td>
+                <td width="70%" align="left" border="0"> Manufacturer\'s standard warrenty of 1,20,000 kms or 02 years whichever is occurs first.  </td>
                 
                 
                 
                 </tr>
                 <tr>
                 <td width="30%" border="0">Model</td>
-                <td width="70%" align="left" border="0">'.session()->get("Model").'</td>
+                <td width="70%" align="left" border="0">'.session()->get("productName").'</td>
                 
                 
                 
@@ -288,13 +304,7 @@ class quotationController extends Controller
                 <br>
                 
                 
-                <br><br>
-                <br>
-                
-                
-                <br>
-                <br>
-                <br>
+             
                 
                 
                 <br>
@@ -314,7 +324,7 @@ class quotationController extends Controller
                 <br>
                 
                 <td width="60%" border="0"></td>
-                <td width="40%" align="center" border="0">Sign and Signature</td>
+                <td width="40%" align="center" border="0">Sign and stamp</td>
                 
                 
                 
@@ -326,7 +336,29 @@ class quotationController extends Controller
                 </tbody>
                 </table>
                 
+                <table border="0">
+        <br>
+        <br>
+                <tr>
                 
+                
+                <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+                
+                
+                
+                
+                </tr>
+                <tr>
+                
+                
+                <td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotors@yahoo.com </h5></td>
+                
+                
+                
+                
+                </tr>
+                
+                </table>                
                 
                 
                 ';
