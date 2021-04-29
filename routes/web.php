@@ -6,7 +6,7 @@ use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 
-use App\Http\Controllers\CustomerViewcotroller;
+#use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\printServiceSaleInvoice;
@@ -18,7 +18,7 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\assesoriesController;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\printDocuments;
-use App\Http\Controllers\AdminAccountController;
+//use App\Http\Controllers\AdminAccountController;
 use App\Http\Controllers\userAccountController;
 use App\Http\Controllers\printMonthlySaleController;
 
@@ -120,7 +120,7 @@ Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct']);
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails']);
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock']);
-Route::get('/addAdmin/{data}',[AdminController::class, 'addnewAdmin']);
+#Route::get('/addAdmin/{data}',[AdminController::class, 'addnewAdmin']);
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
@@ -142,7 +142,7 @@ Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
-Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo']);
+Route::get('/customer/{data}',[CustomerViewController::class, 'customerinfo']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
@@ -226,9 +226,9 @@ Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'signIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
-Route::get('/addAdmins/{AU}',[AdminAccountController::class, 'addAdmins']);
-Route::get('/editAdmins/{AU}',[AdminAccountController::class, 'editAdmins']);
-Route::get('/getAdmins',[AdminAccountController::class, 'getAdmins']);
+// Route::get('/addAdmins/{AU}',[AdminAccountController::class, 'addAdmins']);
+// Route::get('/editAdmins/{AU}',[AdminAccountController::class, 'editAdmins']);
+// Route::get('/getAdmins',[AdminAccountController::class, 'getAdmins']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
@@ -619,12 +619,12 @@ Route::get('/l', function () {
 });
 
 Route::get('/ql', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    // $UN = session()->get('Designation');
+    // if($UN=="Admin"){
     return view('quotation'); 
-    }else{
-    return view("signInSignUp");
-    }
+    // }else{
+    // return view("signInSignUp");
+    // }
 });
 Route::get('/prc', function () {
     $UN = session()->get('Designation');

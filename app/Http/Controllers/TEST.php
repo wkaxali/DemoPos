@@ -418,13 +418,7 @@ class TEST extends Controller
 
 
 </tr>
-<tr>
-<td width="30%" border="0">Invoice</td>
-<td width="55%" align="center" border="0">  </td>
 
-
-
-</tr>
 
 <tr>
 <td width="30%" border="0">Invoice Price</td>
@@ -568,8 +562,9 @@ public function gatePass()
     
     <table border="0">
     <thead>
- 
-   
+    
+    </thead>
+   <tbody>
     <br>
     <br>
     
@@ -673,6 +668,7 @@ public function gatePass()
     <br>
     <table border="1" >
     <tr >
+    <td>
     <table border="0">
     <thead>
     <tr>
@@ -702,6 +698,8 @@ public function gatePass()
     
     <table border="0">
     <thead>
+    </thead>
+    <tbody>
  
    
     <br>
@@ -750,7 +748,7 @@ public function gatePass()
     
     
     
-    
+    </td>
     </tr>
     
     </table>
@@ -778,227 +776,7 @@ public function gatePass()
 public function qutationRequestFinal(){
 
 
-$newHTML='<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
-<tr><td>
-
-
-
-
-<img src="/assets/img/forLogo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
-<tr>
-
-<td width="80%" border="0" align="left"><label for="Bank">Choose a Bank:</label>
-
-<select name="Bank" id="bank">
-  <option value="Bank Of Punjab">Bank Of Punjab</option>
-  <option value="saab">Bank Al-Habib LTd</option>
-  <option value="mercedes">Meezan Bank LTD</option>
-  <option value="audi">Habib Bank LTD</option>
-  <option value="audi">Askari Bank</option>
-  <option value="audi">MCB</option>
-  <option value="audi">Orix Modarba</option>
-  <option value="audi">JS Bank Limited</option>
-  <option value="audi">First Habib Modarba</option>
-  <option value="audi">Al Baraka</option>
-</select>
-</td>
-<td >
- Ref No: ________
-</td>
-
-</tr>
-<tr> 
-<td width="80%" border="0" align="left" >'.session()->get("customerName").'</td>
-
-
-
-
-
-
-<td align="right">
- Date: '.session()->get("invoiceDate").'
-</td>
-
-</tr>
-<tr><td width="100%" border="0" align="left" >'.session()->get("address").'</td></tr>
-<tr>
-<td  width="100%">
-
-
-<h3>
-
-Qoutation For '.session()->get("productName").'</h3>
-
-
-
-Qoutation For<br> '.session()->get("productName").'</h1>
-<br>
-<br>
-<br>
-</td>
-</tr>
-
-</table>
-<br>
-<table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
-<thead>
-<tr>
-<th width="186">Description</th>
-<th>Color</th>
-<th>Unit Price</th>
-<th width="20">Qty</th>
-<th width="113">Total Price</th>
-</tr>
-</thead>
-
-
-<tbody>
-<tr>
-<td>'.session()->get("productName").'</td>
-<td rowspan="2">'.session()->get("color").'</td>
-<td >Rs</td>
-<td rowspan="2" width="40">'.session()->get("quantity").'</td>
-<td width="73">Rs</td></tr>
-<tr><td width="213" >'.session()->get("description").'</td>
-
-<td>'.session()->get("price").'</td>
-<td width="73">'.session()->get("total").'</td>
-</tr>
-
-
-<tr><td colspan="5">('.session()->get("amountInWords").'/-Only).</td></tr>
-
-</tbody>
-</table>
-
-
-<br><br>
-<table border="0">
-
-<tr ><td colspan="5" align ="left" ><h3>Terms & Conditions<br><br>
-
-</h3> </td></tr>
-</table>
-
-
-
-<table>
-
-</table>
-
-
-
-<table border="1" cellpadding="3">
-    <tbody>
-    <tr>
-   
-        <td width="30%" border="0" align="left" >Delivery Time</td>
-        <td width="70%" border="0" align="left">'.session()->get("DeliveryTime").' days after recipt of 100% advance payment</td>
-       
-    </tr>
-    
-    <tr>
-    <td width="30%" border="0">Validity</td>
-    <td width="70%" align="left" border="0">This Qoutation is valid for '.session()->get("ValidityPeriod").' days only</td>
-
-</tr>
-<tr>
-
-   
-    <td width="30%" border="0">Payment</td>
-    <td width="70%" align="left" border="0">100% Advance payment in shape of DD/PO in favor of '.session()->get("PayTo").'</td>
-    
-</tr>
-<tr>
-<td width="30%" border="0">Duty/Taxes #</td>
-<td width="70%" align="left" border="0">Any change in Govt.faisal Policies,RGST/VAT and tariff structures will be on coustumer accounts</td>
-
-
-
-</tr>
-
-<tr>
-<td width="30%" border="0">Force Majeure</td>
-<td width="70%" align="left" border="0">Manufacture will will not be responsible for any delay in delivery due to force majeure circumstance </td>
-
-
-
-</tr>
-
-<tr>
-<td width="30%" border="0">Warranty</td>
-<td width="70%" align="left" border="0"></td>
-
-
-
-</tr>
-<tr>
-<td width="30%" border="0">Model</td>
-<td width="70%" align="left" border="0">'.session()->get("productName").'(2021)</td>
-
-
-
-</tr>
-
-
-
- 
- 
-</tbody>
-</table>
-
-
-
-
-  
-<table border="0">
-<thead>
-<br>
-<br>
-
-
-<br>
-
-
-<br><br>
-<br>
-
-
-<br>
-<br>
-<br>
-
-
-<br>
-
-<br>
-
-
-<br>
-<tr>
-<td width="60%" border="0"></td>
-<td width="40%" align="center" border="0">_______________________</td>
-
-
-
-</tr>
-<tr>
-<br>
-
-<td width="60%" border="0"></td>
-<td width="40%" align="center" border="0">Sign and Stamp</td>
-
-
-
-</tr>
-
-
-
-
-</tbody>
-</table>
-
-';
+$newHTML='';
  
     PDF::SetTitle('Qoutation');
     PDF::AddPage();
@@ -1012,7 +790,43 @@ Qoutation For<br> '.session()->get("productName").'</h1>
   
 public function InvoiceRequest(){
 
-
+    $newHTML='<table border="1">
+    <thead>
+    <tr>
+    <th><br><h1>FORLAND MODREN MOTORS</h1></th>
+    
+    
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <br>
+    <td>
+    
+    NTN:82588676-6 <br>
+    
+    STRN:3277876204764 <br>
+    Customer\'s Copy
+    </td>
+    
+    
+    
+    
+    
+    
+    </tr>
+    <tr><td align="center"><h1>Sales wf3efeanvoice</h1></td></tr>
+    
+    
+    
+    </tbody>
+    
+    
+    
+    </table>
+    
+';
 }
 
 public function summary()
