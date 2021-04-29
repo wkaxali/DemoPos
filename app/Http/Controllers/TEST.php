@@ -561,8 +561,9 @@ public function gatePass($InvoiceNumber)
     
     <table border="0">
     <thead>
- 
-   
+    
+    </thead>
+   <tbody>
     <br>
     <br>
     
@@ -666,6 +667,7 @@ public function gatePass($InvoiceNumber)
     <br>
     <table border="1" >
     <tr >
+    <td>
     <table border="0">
     <thead>
     <tr>
@@ -695,6 +697,8 @@ public function gatePass($InvoiceNumber)
     
     <table border="0">
     <thead>
+    </thead>
+    <tbody>
  
    
     <br>
@@ -743,7 +747,7 @@ public function gatePass($InvoiceNumber)
     
     
     
-    
+    </td>
     </tr>
     
     </table>
@@ -987,7 +991,7 @@ Qoutation For<br> '.session()->get("productName").'</h1>
 
 
 
-
+</thead>
 </tbody>
 </table>
 
@@ -1005,7 +1009,43 @@ Qoutation For<br> '.session()->get("productName").'</h1>
   
 public function InvoiceRequest(){
 
-
+    $newHTML='<table border="1">
+    <thead>
+    <tr>
+    <th><br><h1>FORLAND MODREN MOTORS</h1></th>
+    
+    
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <br>
+    <td>
+    
+    NTN:82588676-6 <br>
+    
+    STRN:3277876204764 <br>
+    Customer\'s Copy
+    </td>
+    
+    
+    
+    
+    
+    
+    </tr>
+    <tr><td align="center"><h1>Sales wf3efeanvoice</h1></td></tr>
+    
+    
+    
+    </tbody>
+    
+    
+    
+    </table>
+    
+';
 }
 
 public function summary()

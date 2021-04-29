@@ -6,8 +6,10 @@ use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 
-use App\Http\Controllers\CustomerViewController;
+#use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
+use App\Http\Controllers\CustomerViewController;
+
 
 use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
@@ -624,12 +626,12 @@ Route::get('/l', function () {
 });
 
 Route::get('/ql', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    // $UN = session()->get('Designation');
+    // if($UN=="Admin"){
     return view('quotation'); 
-    }else{
-    return view("signInSignUp");
-    }
+    // }else{
+    // return view("signInSignUp");
+    // }
 });
 Route::get('/prc', function () {
     $UN = session()->get('Designation');
