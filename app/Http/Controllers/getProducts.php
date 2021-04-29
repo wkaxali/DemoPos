@@ -8,11 +8,17 @@ use DB;
 class getProducts extends Controller
 {
     
+    public static function getAllProductsByID($ID){
+        $results=DB::select('select * from  vw_stockdetails where category ='.$ID);
+   
+        return $results;
+
+    }
 
 
 
     public static function getAllProducts(){
-        $results=DB::select('select * from  vw_stockdetails where category = 21');
+        $results=DB::select('select * from  vw_stockdetails where category <>1');
         
             
         return $results;
@@ -26,7 +32,7 @@ class getProducts extends Controller
 
     }
     public static function getPartsAndServices(){
-        $results=DB::select('select * from  vw_stockdetails where Category=21 or Category=22' );
+        $results=DB::select('select * from  vw_stockdetails where category <>1' );
         
             
         return $results;

@@ -137,7 +137,7 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID,$description,$invoicePrice);
+       $productSerial= self::addProductOnlyForAutos($Pname,"1",NULL,NULL,$purchasePrice,$InvoiceID,$description,$invoicePrice);
        print ($productSerial);
       
   
@@ -261,12 +261,12 @@ class OrderFlowController extends Controller
       }
 
       function spareParts(){
-        $data=DB:: select('select * from vw_stockdetails where Category = 21');
+        $data=DB:: select('select * from vw_stockdetails where Category = 2');
         return $data;
       }
 
       function viewStock(){
-        $data=DB:: select('select * from vw_stockdetails where Category = 20');
+        $data=DB:: select('select * from vw_stockdetails where Category = 1');
         return $data;
       }
 
