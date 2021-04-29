@@ -6,7 +6,7 @@ use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 
-use App\Http\Controllers\CustomerViewcotroller;
+use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\OrderFlowController;
 
 use App\Http\Controllers\printServiceSaleInvoice;
@@ -88,11 +88,12 @@ Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 
-Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
+//Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
 Route::get('/sum',[TEST::class, 'summary']);
 
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
+//Route::get('/getqoute/{id}',[quotationController::class, 'getQuotation']);
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
@@ -150,7 +151,7 @@ Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
-Route::get('/customer/{data}',[CustomerViewcotroller::class, 'customerinfo']);
+Route::get('/customer/{data}',[CustomerViewController::class, 'customerinfo']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
@@ -234,9 +235,9 @@ Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'signIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
-Route::get('/addAdmins/{AU}',[AdminAccountController::class, 'addAdmins']);
-Route::get('/editAdmins/{AU}',[AdminAccountController::class, 'editAdmins']);
-Route::get('/getAdmins',[AdminAccountController::class, 'getAdmins']);
+// Route::get('/addAdmins/{AU}',[AdminAccountController::class, 'addAdmins']);
+// Route::get('/editAdmins/{AU}',[AdminAccountController::class, 'editAdmins']);
+// Route::get('/getAdmins',[AdminAccountController::class, 'getAdmins']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
@@ -254,8 +255,8 @@ Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
 Route::get('/printGatePass',[TEST::class, 'gatePass']);
 
-Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
-
+//Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
+Route::get('/printq',[quotationController::class, 'qoutationToPDF']);
 Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
 
 

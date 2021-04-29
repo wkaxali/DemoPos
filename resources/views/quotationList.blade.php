@@ -146,7 +146,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/testpdf/5');
+                    window.open('/printq');
 
                 }
             }

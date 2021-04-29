@@ -134,6 +134,7 @@ class quotationController extends Controller
             session(['DeliveryTime' => $data->DeliveryTime]);
             session(['ValidityPeriod' => $data->ValidityPeriod]);
             session(['PayTo' => $data->PayTo]);
+             self::qoutationToPDF();
 
             
             }
