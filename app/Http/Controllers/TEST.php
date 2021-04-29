@@ -418,13 +418,7 @@ class TEST extends Controller
 
 
 </tr>
-<tr>
-<td width="30%" border="0">Invoice</td>
-<td width="55%" align="center" border="0">  </td>
 
-
-
-</tr>
 
 <tr>
 <td width="30%" border="0">Invoice Price</td>
@@ -568,8 +562,9 @@ public function gatePass()
     
     <table border="0">
     <thead>
- 
-   
+    
+    </thead>
+   <tbody>
     <br>
     <br>
     
@@ -673,6 +668,7 @@ public function gatePass()
     <br>
     <table border="1" >
     <tr >
+    <td>
     <table border="0">
     <thead>
     <tr>
@@ -702,6 +698,8 @@ public function gatePass()
     
     <table border="0">
     <thead>
+    </thead>
+    <tbody>
  
    
     <br>
@@ -750,7 +748,7 @@ public function gatePass()
     
     
     
-    
+    </td>
     </tr>
     
     </table>
@@ -994,7 +992,7 @@ Qoutation For<br> '.session()->get("productName").'</h1>
 
 
 
-
+</thead>
 </tbody>
 </table>
 

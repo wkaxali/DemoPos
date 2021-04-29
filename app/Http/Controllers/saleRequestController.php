@@ -45,12 +45,12 @@ class saleRequestController extends Controller
         session(['color' => $re->color]);
         session(['fatherName' => $re->FatherName]);
         session(['invoiceDate' => $re->DateStamp]);
-       
+        session(['invoiceDate' => $re->DateStamp]);
         
         session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
         session(['amountPaid' => number_format($re->AmountPaid)]);
         session(['description' => $re->description]);
-        // session(['salesPerson' => $re->salesPerson]);
+        session(['Discount' => $re->Discount]);
         
         session(['balance' => number_format($re->Balance)]);
         session(['totalCost' => number_format($re->TotalCost)]);
@@ -67,7 +67,7 @@ class saleRequestController extends Controller
         //session(['distanceTraveled' => '']);
         session(['Amount' =>'']);
         session(['receivedBy' => '']);
-        session(['tax' => '0']);
+        
         session(['total' => '']);
         session(['S&H' => '-']);
         session(['others' => '-']);
