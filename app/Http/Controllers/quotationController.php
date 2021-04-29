@@ -147,7 +147,7 @@ class quotationController extends Controller
                 
                 
                 
-                
+                //logo
                 <img src="/assets/img/logo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
                 <tr>
                 <td align="right">Date:
