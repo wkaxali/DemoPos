@@ -32,144 +32,152 @@ class deliverLetterPrintController extends Controller
         session(['toolKit' => $tbl->ToolKit]);
         session(['spareTyre' => $tbl->SpareTyre]);
         session(['originalKeys' => $tbl->OrignalKeys]);
-        session(['warrantyBook' => $tbl->WarrantyBook]);
+        session(['warrentyBook' => $tbl->WarrantyBook]);
         
     }
 public function deliveryLetter($InvoiceNo){
     self::deliveryLetterData($InvoiceNo);
-$newHTML= '
-<table width="100%">
-<thead>
-<tr>
-<td><h1 align="center">FORLAND MODERN MOTORS</h1></td>
-</tr>
-<tr>
-<td><h1 align="center">DELIVERY LETTER</h1></td>
-</tr>
-
-
-</thead>
-</table>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<table border="1" width="100%" >
-<tr>
-<td width="20%">Name</td>
-<td width="30%">'.session()->get("name").'</td>
-<td width="25%">Father Name:</td>
-<td width="25%">'.session()->get("fatherName").'</td>
-</tr>
-<tr>
-<td width="20%">CNIC/NTN</td>
-<td width="30%">'.session()->get("cnic").'</td>
-<td width="25%">Contact:</td>
-<td width="25%">'.session()->get("contact").'</td>
-</tr>
-<tr>
-<td width="20%">address</td>
-<td width="50%">'.session()->get("address").'</td>
-</tr>
-
-
-</table>
-
-
-
-<h3>Vehicle Detail :</h3>
-<table border="1" width="100%" >
-<tr>
-<th>SR#</th>
-<th>Product Description</th>
-<th>Engine Number</th>
-<th>Chassis Number</th>
-<th>Description</th>
-</tr>
-<tr>
-<td align="center">01</td>
-<td align="center">'.session()->get("productName").'</td>
-<td align="center">'.session()->get("engineNo").'</td>
-<td align="center">'.session()->get("chassisNo").'</td>
-<td align="center">'.session()->get("description").'</td>
-</tr>
-</table>
-
-<h3>Accessories Along With :</h3>
-<table border="1" width="100%">
-<tr>
-<th>Tool Kit</th>
-<th>Spare Tyre</th>
-<th>Orignal Keys</th>
-<th>Warrenty Book </th>
-
-</tr>
-<tr>
-<td align="center">YES</td>
-<td align="center"> YES</td>
-<td align="center">2</td>
-<td align="center">YES</td>
-</tr>
-</table>
-<h3>Note:</h3>
-
-
-<table width="100%">
-<br>
-<br>
-
-<br>
-<br>
-<ul>
-<li>To my entire satisfaction, I have taken possession of the above mentioned vehicle, I do hereby declared that i shall be fully responsible for all accidents , tokens , machine defects and the legal proceedings regarding this vehicle from now onwards</li><br>
-
-<li >I also hereby undertake to get the ownership of this vehicle transferred in my name from the concerned Registration Authority within the stipultated period of 15 days from today.</li>
-</ul>
-</table>
-<table width="100%">
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<tbody>
-
-<tr>
-<td width="60%">____________________</td>
-<td width="40%" align="right">____________________</td>
-</tr>
-
-<tr>
-
-<td width="60%">Authorised Signature</td>
-<td width="40%" align="right">Purchaser Signature</td>
-</tr>
-</tbody>
-</table>
-
-<p align="center">
-8-KM, Sheikhupura Road, Opposite Millat Tractors Limited , Lahore. Tel: 0300-0600061 Email Address: forlandmodernmotors@yahoo.com
-</p>
-';
-
-PDF::SetTitle('Delivery Letter');
-PDF::AddPage();
-PDF::writeHTML($newHTML, true, false, true, false, '');
-
-PDF::Output('deliveryLetter.pdf');
-
-
-
-
-
-
-}
-
-}
+    $newHTML= '
+    <table width="100%">
+    <thead>
+    <tr>
+    <td>
+    <h1 align="center">FORLAND MODERN MOTORS <br>DELIVERY LETTER</h1></td>
+    
+    </tr>
+    
+    
+    </thead>
+    </table>
+    <br>
+    <table>
+    <thead>
+    <tr><br>
+    <td><b>Reference Number:</b></td>
+    <td>'.session()->get("refNo").'</td>
+    <td><b>Date:</b></td>
+    <td>'.session()->get("date").'</td>
+    </tr>
+    <tr><br><br>
+    <td><b><h3>Purchaser Detail:</h3></b></td>
+    </tr>
+    </thead>
+    </table>
+    
+    
+    
+    <table border="1" width="100%" >
+    <tr>
+    <td width="20%" >Name</td>
+    <td width="30%">'.session()->get("name").'</td>
+    <td width="25%">Father Name:</td>
+    <td width="25%">'.session()->get("fatherName").'</td>
+    </tr>
+    <tr>
+    <td width="20%">CNIC/NTN</td>
+    <td width="30%">'.session()->get("cnic").'</td>
+    <td width="25%">Contact:</td>
+    <td width="25%">'.session()->get("contact").'</td>
+    </tr>
+    <tr>
+    <td width="20%">Address</td>
+    <td width="50%">'.session()->get("address").'</td>
+    </tr>
+    
+    
+    </table>
+    
+    
+    
+    <h3>Vehicle Detail :</h3>
+    <table border="1" width="100%" >
+    <tr>
+    <th>SR#</th>
+    <th>Product Description</th>
+    <th>Model</th>
+    <th>Engine Number</th>
+    <th>Chassis Number</th>
+    <th>Description</th>
+    </tr>
+    <tr>
+    <td>01</td>
+    <td >'.session()->get("productName").'</td>
+    <td >2021</td>
+    <td>'.session()->get("engineNo").'</td>
+    <td>'.session()->get("chassisNo").'</td>
+    <td>'.session()->get("description").'</td>
+    </tr>
+    </table>
+    
+    <h3>Accessories Along With :</h3>
+    <table border="1" width="100%">
+    <tr>
+    <th align="center">Tool Kit</th>
+    <th align="center">Spare Tyre</th>
+    <th align="center">Orignal Keys</th>
+    <th align="center">Warrenty Book </th>
+    
+    </tr>
+    <tr>
+    <td align="center">'.session()->get("toolKit").'</td>
+    <td align="center"> '.session()->get("spareTyre").'</td>
+    <td align="center">'.session()->get("originalKeys").'</td>
+    <td align="center">'.session()->get("warrentyBook").'</td>
+    </tr>
+    </table>
+    <h3>Note:</h3>
+    
+    
+    <table width="100%">
+    
+    
+    <ul>
+    <li>To my entire satisfaction, I have taken possession of the above mentioned vehicle, I do hereby declared that i shall be fully responsible for all accidents , tokens , machine defects and the legal proceedings regarding this vehicle from now onwards</li><br>
+    
+    <li >I also hereby undertake to get the ownership of this vehicle transferred in my name from the concerned Registration Authority within the stipultated period of 15 days from today.</li>
+    </ul>
+    </table>
+    <table width="100%">
+    <br>
+    <br>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <tbody>
+    
+    <tr>
+    <td width="60%">____________________</td>
+    <td width="40%" align="right">____________________</td>
+    </tr>
+    
+    <tr>
+    
+    <td width="60%">Authorised Signature</td>
+    <td width="40%" align="right">Purchaser Signature</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    <p align="center">
+    8-KM, Sheikhupura Road, Opposite Millat Tractors Limited , Lahore. Tel: 0300-0600061 Email Address: forlandmodernmotors@yahoo.com
+    </p>
+    ';
+    
+    PDF::SetTitle('Delivery Letter');
+    PDF::AddPage();
+    PDF::writeHTML($newHTML, true, false, true, false, '');
+    
+    PDF::Output('deliveryLetter.pdf');
+    
+    
+    
+    
+    
+    
+    }
+    
+    }
