@@ -8,7 +8,7 @@ use App\Http\Controllers\AddMenucontroller;
 
 use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
-use App\Http\Controllers\CustomerViewController;
+
 use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
@@ -18,7 +18,7 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\assesoriesController;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\printDocuments;
-use App\Http\Controllers\AdminAccountController;
+//use App\Http\Controllers\AdminAccountController;
 use App\Http\Controllers\userAccountController;
 use App\Http\Controllers\printMonthlySaleController;
 
@@ -128,7 +128,7 @@ Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct']);
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails']);
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock']);
-Route::get('/addAdmin/{data}',[AdminController::class, 'addnewAdmin']);
+//Route::get('/addAdmin/{data}',[AdminController::class, 'addnewAdmin']);
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
