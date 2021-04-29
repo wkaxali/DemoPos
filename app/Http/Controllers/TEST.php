@@ -316,16 +316,23 @@ $newHTML='<table border="0" cellpadding="2" >
 
 To, <br>
 
-Foton JW Auto Park (PVT) <br>
-
 </td>
 
 </tr>
+
+<tr>
+<td width="50%">
+Foton JW Auto Park (PVT) 
+</td>
+
+<td width="50%">
+<h4 align="right">Date: '.session()->get("invoiceDate").'</h4>
+</td>
+</tr>
+
 <tr>
 
-<td width="30%" border="0" align="left" >Subject</td>
-<td width="70%" border="0" align="right"><h4>Date: '.session()->get("invoiceDate").'</h4></td>
-
+<td width="100%" border="0" align="center" ><h4>INVOICE REQUEST</h4></td>
 </tr>
 </tbody>
 
@@ -475,7 +482,7 @@ Foton JW Auto Park (PVT) <br>
 
 <tr>
 
-<td align="right">
+<td width="90%" align="right">
 _______________________</td>
 
 
@@ -485,7 +492,7 @@ _______________________</td>
 <tr>
 
 
-<td align="right"> Sign & Stamp
+<td width="83%" align="right"> Sign & Stamp
 </td>
 
 
@@ -560,7 +567,7 @@ public function gatePass($InvoiceNumber)
     <table border="0">
     <thead>
     <tr>
-    <td align="left" bgcolor="#C0C0C0" width="60" > Sr# </td>
+    <td align="center" bgcolor="#C0C0C0" width="60" > Sr# </td>
     <td align="center" bgcolor="#C0C0C0" width="140">Product Description</td>
     <td align="center"bgcolor="#C0C0C0" >Engine No</td>
     <td align="center" bgcolor=" #C0C0C0">Chassis No</td>
@@ -571,10 +578,10 @@ public function gatePass($InvoiceNumber)
     <tbody >
     <tr >
     <td >1</td>
-    <td>'.session()->get("description").'</td>
-    <td>'.session()->get("engineNo").'</td>
-    <td>'.session()->get("chassisNo").'</td>
-    <td>'.session()->get("color").'</td>
+    <td align="center">'.session()->get("description").'</td>
+    <td align="center">'.session()->get("engineNo").'</td>
+    <td align="center">'.session()->get("chassisNo").'</td>
+    <td align="center">'.session()->get("color").'</td>
     </tr>
     </tbody>
     </table>
@@ -694,23 +701,23 @@ public function gatePass($InvoiceNumber)
     <table border="0">
     <thead>
     <tr>
-    <td align="left" bgcolor="#C0C0C0" width="60" >
+    <td align="center" bgcolor="#C0C0C0" width="60" >
     Sr# </td>
     <td align="center" bgcolor="#C0C0C0" width="140">Product Description</td>
     <td align="center"bgcolor="#C0C0C0" >Engine No</td>
     <td align="center" bgcolor=" #C0C0C0">Chassis No</td>
-    <td align="center" bgcolor=" #C0C0C0">City/Area</td>
+    <td align="center" bgcolor=" #C0C0C0">Color</td>
     
     
     </tr>
     </thead>
     <tbody >
     <tr >
-    <td >1</td>
-    <td>'.session()->get("description").'</td>
-    <td>'.session()->get("engineNo").'</td>
-    <td>'.session()->get("chassisNo").'</td>
-    <td>'.session()->get("color").'</td>
+    <td align="left">1</td>
+    <td align="center">'.session()->get("description").'</td>
+    <td align="center">'.session()->get("engineNo").'</td>
+    <td align="center">'.session()->get("chassisNo").'</td>
+    <td align="center">'.session()->get("color").'</td>
     </tr>
      
  </tbody>

@@ -329,20 +329,30 @@ class serviceSalesFlow extends Controller
     $invoiceDetails=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
    
     foreach($invoiceDetails as $product){
+        session(['invoicePrice' => $product->PerUnitSalePrice]);
+        session(['netAmount' => number_format($product->NetAmount)]);
+        session(['discount' => $product->Discount]);
+        
+        
+        session(['customerName' => $product->CustomerName]);
+        session(['address' => $product->Address]);
+        session(['invoiceNo' => $product->InvoiceNumber]);
+        session(['cnic' => $product->CNIC]);
         
         session(['engineNo' => $product->EngineNumber]);
         session(['chassisNo' => $product->ChasisNumber]);
         session(['ivd' => $product->DateStamp]);
         session(['iu' => $product->InvoiceNumber]);
         session(['color' => $product->color]);
-       
-        session(['customerName' => $product->CustomerName]);
-        session(['contact' => $product->ProductSerial]);
+        session(['invoiceDate' => $product->DateStamp]);
+        session(['description' => $product->description]);
+        
+        session(['contact' => $product->Contect]);
         session(['model' => $product->ProductName]);
         session(['referenceNumber' => $product->ProductName]);
         
         session(['CNIC' => $product->CNIC]);
-        session(['tax' => $product->VAT]);
+        session(['tax' => number_format($product->VAT)]);
         session(['total' => $product->TotalAmount]);
         session(['netTotal' => $product->NetTotal]);
         session(['InvBalance' => $product->Balance]);
@@ -353,7 +363,10 @@ class serviceSalesFlow extends Controller
         $numberToWords = new NumberToWords();
         $numberTransformer = $numberToWords->getNumberTransformer('en');
         $a= $numberTransformer->toWords($product->AmountPaid);
+        $b= $numberTransformer->toWords($product->NetAmount);
         session(['amountInWords' => ucwords($a)]);
+        session(['netAmountInWords' => ucwords($b)]);
+        
 
     }
     return $invoiceDetails;

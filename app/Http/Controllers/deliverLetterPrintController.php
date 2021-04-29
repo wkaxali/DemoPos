@@ -81,7 +81,7 @@ public function deliveryLetter($InvoiceNo){
     </tr>
     <tr>
     <td width="20%" align="center">Address</td>
-    <td width="50%" align="center">'.session()->get("address").'</td>
+    <td width="80%" align="center">'.session()->get("address").'</td>
     </tr>
     
     
