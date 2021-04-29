@@ -126,7 +126,7 @@ class salePrintInvoice extends Controller
         </tR>
         
         <tr>
-        <td></td>
+        <td>Discount</td>
         <td></td>
         <td></td>
         <td></td>
@@ -247,7 +247,7 @@ class salePrintInvoice extends Controller
         <br>
         
         <td width="60%" border="0"></td>
-        <td width="40%" align="center" border="0">Sign and Signature</td>
+        <td width="40%" align="center" border="0">Sign and Stamp</td>
         
         
         
