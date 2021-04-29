@@ -329,51 +329,30 @@ class serviceSalesFlow extends Controller
     $invoiceDetails=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
    
     foreach($invoiceDetails as $product){
-        $qty=$product->Quantity;
-        $contact=$product->ProductSerial;
-        $customerName=$product->CustomerName;
-        $PID=$product->ProductSerial;
-        $productName=$product->ProductName;
-        $IN=$product->InvoiceNumber;
-        $tax=$product->VAT;
-        $vColor=$product->color;
-        $Pt =$product->NetAmount;
-        $engineNo =$product->EngineNumber;
-        $unitPrice=$product->PerUnitSalePrice;
-        $CNIC=$product->CNIC;
-        $productName=$product->ProductName;
-        $contact=$product->Contect;
-        $TotalAmount=$product->TotalAmount;
-        $tax=$product->VAT;
-        $Discount=$product->Discount;
-        $netTotal=$product->NetTotal;
-        $AmountPaid=$product->AmountPaid;
-        $Balance=$product->Balance;
-        $dat=$product->DateStamp;
-        $BillStatus=$product->BillStatus;
-    
-        $InvoiceBalance=$product->Balance;
-        session(['engineNo' => $engineNo]);
         
-        session(['ivd' => $dat]);
-        session(['iu' => $IN]);
-        session(['color' => $vColor]);
+        session(['engineNo' => $product->EngineNumber]);
+        session(['chassisNo' => $product->ChasisNumber]);
+        session(['ivd' => $product->DateStamp]);
+        session(['iu' => $product->InvoiceNumber]);
+        session(['color' => $product->color]);
        
-        session(['customerName' => $customerName]);
-        session(['contact' => $contact]);
-        session(['model' => $productName]);
+        session(['customerName' => $product->CustomerName]);
+        session(['contact' => $product->ProductSerial]);
+        session(['model' => $product->ProductName]);
+        session(['referenceNumber' => $product->ProductName]);
         
-        session(['CNIC' => $CNIC]);
-        session(['tax' => $tax]);
-        session(['total' => $TotalAmount]);
-        session(['netTotal' => $netTotal]);
-        session(['InvBalance' => $InvoiceBalance]);
-        session(['amountPaid' =>  number_format($AmountPaid)]);
-        session(['overallDiscount' => $Discount]);
+        session(['CNIC' => $product->CNIC]);
+        session(['tax' => $product->VAT]);
+        session(['total' => $product->TotalAmount]);
+        session(['netTotal' => $product->NetTotal]);
+        session(['InvBalance' => $product->Balance]);
+        session(['amountPaid' =>  number_format($product->AmountPaid)]);
+        session(['overallDiscount' => $product->Discount]);
+        session(['description' => $product->description]);
 
         $numberToWords = new NumberToWords();
         $numberTransformer = $numberToWords->getNumberTransformer('en');
-        $a= $numberTransformer->toWords($AmountPaid);
+        $a= $numberTransformer->toWords($product->AmountPaid);
         session(['amountInWords' => ucwords($a)]);
 
     }

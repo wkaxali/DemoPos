@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use DB;
 
+use PDF;
+
 use Carbon\Carbon;
 
 use NumberToWords\NumberToWords;
@@ -30,6 +32,7 @@ class saleRequestController extends Controller
         ->first();
         //return "aaa ".$re;
         session(['invoiceNo' => $InvoiceNo]);
+        session(['salesPerson' => $re->salesPerson]);
         session(['customerID' => $re->CustomerID]);
         session(['itemNo' => $re->ProductSerial]);
         session(['quantity' => $re->Quantity]);
@@ -44,7 +47,6 @@ class saleRequestController extends Controller
         session(['chassisNo' => $re->ChasisNumber]);
         session(['color' => $re->color]);
         session(['fatherName' => $re->FatherName]);
-        session(['invoiceDate' => $re->DateStamp]);
         session(['invoiceDate' => $re->DateStamp]);
         
         session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
@@ -74,8 +76,9 @@ class saleRequestController extends Controller
         session(['city' => '']);
         session(['province' => '']);
         
-        
         //return $results;
 
     }
+
+    
 }

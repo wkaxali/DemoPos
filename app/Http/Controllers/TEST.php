@@ -364,7 +364,7 @@ class TEST extends Controller
 </tr>
 
 <tr>
-<td width="30%" border="0">SalesPerson</td>
+<td width="30%" border="0">Sales Person</td>
 <td width="55%" align="center" border="0">'.session()->get("salesPerson").'</td>
 
 
@@ -481,10 +481,9 @@ class TEST extends Controller
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-public function gatePass()
+public function gatePass($InvoiceNumber)
 {
-   // dd($InvoiceID);
-    //serviceSalesFlow::getAllInvoiceDetails($InvoiceID);
+    serviceSalesFlow::getAllInvoiceDetails($InvoiceNumber);
     $newHTML='<table border="0">
     <thead>
     <tr>
@@ -509,7 +508,7 @@ public function gatePass()
     <tbody>
     <tr>
     <td><br><span style="font-size: medium;">Refrence Number</span></td>
-    <td align="center"><br>'.session()->get("referenceNumber").'</td>
+    <td align="center"><br>FMM-GDP-'.session()->get("iu").'</td>
     <td><br><span style="font-size: medium;">Customer Name</span></td>
     <td align="center"><br>'.session()->get("customerName").'</td>
     
@@ -517,7 +516,7 @@ public function gatePass()
     </tr>
     <tr>
     <td><br><span style="font-size: medium;">Date</span></td>
-    <td align="center"><br>'.session()->get("invoiceDate").'</td>
+    <td align="center"><br>'.session()->get("ivd").'</td>
     <td><br><span style="font-size: medium;">CNIC/NTN</span></td>
     <td align="center"><br>'.session()->get("CNIC").'</td>
     
@@ -642,7 +641,7 @@ public function gatePass()
     <tbody>
     <tr>
     <td><br><span style="font-size: medium;">Refrence Number</span></td>
-    <td align="center"><br>'.session()->get("referenceNumber").'</td>
+    <td align="center"><br>FMM-GDP-'.session()->get("iu").'</td>
     <td><br><span style="font-size: medium;">Customer Name</span></td>
     <td align="center"><br>'.session()->get("customerName").'</td>
     
@@ -650,7 +649,7 @@ public function gatePass()
     </tr>
     <tr>
     <td><br><span style="font-size: medium;">Date</span></td>
-    <td align="center"><br>'.session()->get("invoiceDate").'</td>
+    <td align="center"><br>'.session()->get("ivd").'</td>
     <td><br><span style="font-size: medium;">CNIC/NTN</span></td>
     <td align="center"><br>'.session()->get("CNIC").'</td>
     
