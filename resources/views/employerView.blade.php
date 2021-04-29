@@ -740,17 +740,17 @@
 
             OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority];
             var taskTable = JSON.stringify(OverallTask);
-            alert(taskTable);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Expense number " + this.responseText + " is added");
+                    alert("Task " + this.responseText + " is added");
 
 
                 }
             };
-            alert(taskTable);
+            
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./addTasks/" + taskTable, true);
             xhttp.send();

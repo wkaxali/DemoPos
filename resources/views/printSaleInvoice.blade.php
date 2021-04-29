@@ -11568,7 +11568,6 @@
 </head>
 
 <body>
-    <br><br>
     <header>
         <div class="container-fluid">
             <div class="row">
@@ -11577,7 +11576,7 @@
                     <h5 class="primeFont">NTN: <span class="smallFont">82588676-6</span> </h5>
                     <h5>STRN: <span class="smallFont">3277876204764</span> </h5>
 
-                    <h6 style="font-weight: 700;" class="compCopy">Customer's Copy</h6>
+                    <h6 style="font-weight: 700;" class="compCopy">Dealer's Copy</h6>
                 </div>
                 <!-- <div class="col-md-4 offset-md-3 text-right ">
                     <img src="img/dC6u20tK.png" class="img-fluid" alt="">
@@ -11589,7 +11588,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 style="font-size: 30px; color: red; font-weight: 900;">SALES INVOICE</h3>
+                    <h3 style="font-size: 30px; color: black; font-weight: 700;">SALES INVOICE</h3>
                 </div>
             </div>
             <div class="row">
@@ -11622,7 +11621,7 @@
                                 {{ Session::get('address')}} &nbsp;
                             </div>
                         </div>
-                    </div>
+                    </div><br>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="spec">
@@ -11639,23 +11638,7 @@
                         </div>
                     </div>
 
-                    <div class="row mt-3">
-                        <div class="col-md-4">
-                            <div class="spec">
-                                <h6>Contact :</h6>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-8">
-                            <div class="customerName-1">
-
-                                <div class="my" style="visibility: hidden;">
-                                    visibility hidden
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                   
 
                 </div>
                 <div class="col-md-6 myRightForland">
@@ -11740,14 +11723,14 @@
                         <table class="fwTable text-center" style="width: 100%;">
                             <thead>
                                 <tr>
-                                    <td style="font-weight: 800; border-bottom: none !important;padding-right: 15px;">
+                                    <td style="font-weight: 800; border-bottom: none !important;padding-right: 1px;">
                                         Total
                                         In Words</td>
-                                    <td style="font-weight: 800; border-bottom: none !important; width: 290px;">Total
+                                    <td style="font-weight: 800; border-bottom: none !important; width: 290px;">Value Exclusive of Sales Tax
                                         &nbsp;
                                     </td>
                                     <td style="padding-left: 102px; border-bottom: none !important; font-weight: 800;">
-                                        PKR
+                                        PKR 
                                         {{ Session::get('amountPaid')}}</td>
 
                                 </tr>
@@ -11779,13 +11762,13 @@
 
         </div>
     </section>
-    <br><br><br><br>
+    <br>
     <footer class="my-3">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="footerMain">
-                        <h4>8-Km, Sheikhupura Road, Opposite Millat Tractors Limited, Lahore, Tel: 0300-0600061
+                        <h4 style="background-color: black;">8-Km, Sheikhupura Road, Opposite Millat Tractors Limited, Lahore, Tel: 0300-0600061
                             <br> Email Address: forlandmodernmotors@yahoo.com</h4>
                     </div>
                 </div>

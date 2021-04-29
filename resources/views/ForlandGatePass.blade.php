@@ -11575,16 +11575,16 @@
                                     <label style="width: 170px; !important" for="">Reference Number:</label>
                                     <input type="text" style="border: none !important;"
                                         value="{{ Session::get('referenceNumber')}}" name="" id="">
-                                    <label style="width: 170px; !important; text-align:right; margin-left:40px;" for="">Customer Name</label>
+                                        <label style="width: 170px; !important" for="">Customer Name:</label>
                                     <input type="text" style="border: none !important;"
                                         value="{{ Session::get('customerName')}}" name="" id="">
                                 </div>
                                 <div class="col-md-4 offset-md-4">
                                     <div class="leftmg">
-                                        <label style="width: 170px; !important" for="">Date:</label>
+                                    <label style="width: 170px; !important;text-align:right;" for="">Date:</label>
                                         <input type="text" style="border: none !important;"
                                             value="{{ Session::get('invoiceDate')}}" name="" id="">
-                                        <label style="width: 170px; !important;text-align:right;" for="">CNIC/NTN</label>
+                                        <label style="width: 170px; !important;text-align:right;" for="">CNIC/NTN:</label>
                                         <input type="text" style="border: none !important;"
                                             value="{{ Session::get('CNIC')}}" name="" id="">
                                     </div>

@@ -1482,7 +1482,7 @@
 
 
 
-        var taxRate = 17.00;
+        var taxRate = document.getElementById('tax').value;
         var grosstotal = document.getElementById('grossTotal').value;
         //alert(taxRate/100);
         var tax = Number(grosstotal) * (taxRate / 100);

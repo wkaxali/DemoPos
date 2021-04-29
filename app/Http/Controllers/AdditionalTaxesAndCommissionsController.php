@@ -76,7 +76,7 @@ return $CID;
         UpdateStocksController::setTotalCost($PID,$newCost);
 
 
-        return "HOLA";
+        return "Cost";
 
     }
     public function AddTaxOrCommissionPositive(Request $request,$data){

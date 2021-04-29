@@ -11696,7 +11696,7 @@
                                     <br>
                                     <div class="row" id="mainMarginRow">
                                         <div class="col-md-4">
-                                            <h3>Purchaser Detail :</h3>
+                                            <h4>Purchaser Detail :</h4>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -11728,7 +11728,7 @@
                                     </div>
                                     <div class="row" id="mainMarginRow">
                                         <div class="col-md-4">
-                                            <h3>Vehicle Detail :</h3>
+                                            <h4>Vehicle Detail :</h4>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -11759,7 +11759,7 @@
                                     </div>
                                     <div class="row" id="mainMarginRow">
                                         <div class="col-md-4">
-                                            <h3>Accessories Along With :</h3>
+                                            <h4>Accessories Along With :</h4>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -11786,13 +11786,13 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <br>
+                                    
                                     <div class="row">
                                         <div class="col-md-3">
                                             <h5>Note</h5>
                                         </div>
                                     </div>
-                                    <br>
+                                    
                                     <div class="row">
                                         <div class="col-md-12">
                                             <ul>
