@@ -253,7 +253,6 @@ Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
 Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
-Route::get('/printGatePass',[TEST::class, 'gatePass']);
 
 //Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 Route::get('/printq',[quotationController::class, 'qoutationToPDF']);

@@ -249,9 +249,6 @@ class salePrintInvoice extends Controller
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
         
         
         <br>
