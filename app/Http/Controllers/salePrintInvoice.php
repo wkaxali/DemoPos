@@ -65,7 +65,7 @@ class salePrintInvoice extends Controller
         <td><br><span style="font-size: medium;">Customer Name:</span></td>
         <td align="center"><br>'.session()->get("customerName").'</td>
         <td><br><span style="font-size: medium;">Booking No:</span></td>
-        <td align="center"><br>BO-FMM-'.session()->get("iu").'</td>
+        <td align="center"><br>BO-FMM-'.session()->get("invoiceNo").'</td>
         
         
         </tr>
@@ -249,15 +249,12 @@ class salePrintInvoice extends Controller
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
         
         
         <br>
     <tr>
         <td width="60%" border="0"></td>
-        <td width="40%" align="center" border="0">_______________________</td>
+        <td width="40%" align="center" border="0">_________</td>
         
         
         

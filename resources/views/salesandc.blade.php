@@ -1086,7 +1086,6 @@
             a.remove();
 
         }
-
         $("#productSearchTable").on('click', 'tr', function () {
             document.getElementById("PID").value = this.cells[0].innerText;
             document.getElementById("productName").value = this.cells[1].innerText; // get current row 1st TD value PurchasePrice
@@ -1096,36 +1095,39 @@
             CalcProfit();
 
             var i = 0;
-                    //alert(a.length);
-                    var table = document.getElementById("comissionTable");
-                    table.innerHTML = "<thead>\
-                            <tr>\
-                                <th>Head</th>\
-                                <th>Amount</th>\
-                                <th>Remarks</th>\
-                                <th>Delete</th>\
-                            </tr>\
-                        </thead>";
-
-                    for (i; i < a.length; i++) {
-                        var PID = a[i].ProductSerial;
-                        var discount = a[i].Discount;
-                        var quantity = a[i].Quantity;
-                        var PerUnitSalePrice = a[i].PerUnitSalePrice;
-
-                        var row = table.insertRow(-1);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
-                        var cell4 = row.insertCell(3);
-
-                        cell1.innerHTML = PID;
-                        cell2.innerHTML = productName;
-                        cell3.innerHTML = company;
-                        cell4.innerHTML =
-                            "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>"
-
+            var PID = document.getElementById("PID").value = this.cells[0].innerText; 
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    var a = JSON.parse(data);
+                    var comissionTable = $('#comissionTable').DataTable();
+                    var profitTable = $('#profitTable').DataTable();
+                    $.each(a, function (i, item) {
+                    if(a[i].TType=="Profit"){
+                       
+                        profitTable.row.add([a[i].TType, a[i].Amount, a[i].Remarks, '<button  calss="" onclick="deleteRow(this)">X</button>'
+                        ]);
+           
+                        
                     }
+                    else{
+                       
+                        comissionTable.row.add([a[i].TType, a[i].Amount, a[i].Remarks, '<button  calss="" onclick="deleteRow(this)">X</button>'
+                        ]);
+                   
+                        
+                    }
+                });
+                    
+                    comissionTable.draw();
+                    profitTable.draw();
+                }
+            };
+            
+            xhttp.open("GET", "./getComission/" + PID, true);
+            xhttp.send();
+                    
 
 
         });

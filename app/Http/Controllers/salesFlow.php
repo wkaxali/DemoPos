@@ -234,33 +234,33 @@ class salesFlow extends Controller
       <tbody>
           <tr>
               <td><br><span style="font-size: medium;">Customer Name</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               <td><br><span style="font-size: medium;">Booking No</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               
              
           </tr>
           <tr>
               <td><br><span style="font-size: medium;">Address</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               <td><br><span style="font-size: medium;">Invoice Number</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               
              
           </tr>
           <tr>
               <td><br><span style="font-size: medium;">CNIC/NTN</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               <td><br><span style="font-size: medium;">Invoice Date</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               
              
           </tr>
           <tr>
               <td><br><span style="font-size: medium;">Contact</span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               <td><br><span style="font-size: medium;"></span></td>
-              <td align="center"><br>____________</td>
+              <td align="center"><br>____</td>
               
              
           </tr>
@@ -413,7 +413,7 @@ class salesFlow extends Controller
       <br>
       <tr>
       <td width="60%" border="0"></td>
-      <td width="40%" align="center" border="0">_______________________</td>
+      <td width="40%" align="center" border="0">_________</td>
       
      
     
