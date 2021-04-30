@@ -1,3 +1,4 @@
+<body onload="myFunction()">
 <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -14,6 +15,9 @@
 
                             <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
                                 style="height: 25px;" onclick="loadStock()"></button>
+                                <div class="col-md-7 ">
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -23,7 +27,8 @@
                             <div class="col-md-12 ">
                                 <div class="firstColor my-4">
                                     <div class="date text-right">
-                                        <h6> <strong>Date :</strong> 27/11/2020</h6>
+                                    <h5 id="demo"></h5>
+                                
                                     </div>
                                 </div>
                             </div>
