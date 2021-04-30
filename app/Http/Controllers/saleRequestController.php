@@ -32,7 +32,7 @@ class saleRequestController extends Controller
         ->first();
         //return "aaa ".$re;
         session(['invoiceNo' => $InvoiceNo]);
-        session(['salesPerson' => $re->salesPerson]);
+        // session(['salesPerson' => $re->salesPerson]);
         session(['customerID' => $re->CustomerID]);
         session(['itemNo' => $re->ProductSerial]);
         session(['quantity' => $re->Quantity]);

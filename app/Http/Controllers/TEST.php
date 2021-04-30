@@ -334,7 +334,7 @@ class TEST extends Controller
     <br>
         <br>
         <br>
-<table border="1" cellpadding="9">
+<table border="1" cellpadding="9" style="float:right">
     <tbody>
     <tr>
    
