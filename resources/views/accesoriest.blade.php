@@ -101,9 +101,10 @@
 
                                                         $.each(a, function (i, item) {
 
-                                                            table.row.add([a[i].InvoiceNumber, a[i].ToolKit,
-                                                                a[i].SpareTyre,  a[i]
-                                                                .OrignalKeys, a[i].WarrantyBook
+                                                            table.row.add([a[i].InvoiceNumber, a[i].EngineNumber,
+                                                                a[i].ChasisNumber,  a[i]
+                                                                .color, a[i].NetTotal, a[i]
+                                                                .NetTotal, 
                                                             ]);
                                                         });
                                                         table.draw();
