@@ -10,7 +10,7 @@
             </div>
             <div class="container">
                 <div class="row" id="selectFirst">
-                    <div class="col-xl-3  col-lg-6 col-md-6   okay-invo">
+                    <div class="col-xl-4  col-lg-7 col-md-7   okay-invo">
                         <label for="invo-1">Invoice Number</label>
                         <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                             name="invo-1" id="InvoiceID">
