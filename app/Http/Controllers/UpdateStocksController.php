@@ -246,15 +246,15 @@ public static function editAutoModels(Request $request, $CO){
   $MID = $ata[0];
   $company = $ata[1];
   $modelname = $ata[2];
-  $productcategory = $ata[3];
+  $description = $ata[3];
   $price = $ata[4];
-
+  
   $re = DB::table('tbl_auto_models')
   ->where('ModelID', $MID)
   ->update([
    'Company'=>$company,
     'ModelName'=>$modelname,
-    'ProductCategory'=>$productcategory,
+    'Description'=>$description,
     'Price'=>$price 
     ]);
 
@@ -266,14 +266,15 @@ public static function editAutoModels(Request $request, $CO){
     $ata=json_decode($CO);
     $company = $ata[0];
     $modelname = $ata[1];
-    $productcategory = $ata[2];
-    $price = $ata[3];
-
+    $price = $ata[2];
+    $description = $ata[3];
+    
     $tid=DB::table('tbl_auto_models')->insertGetId([
       'Company'=>$company,
       'ModelName'=>$modelname,
-      'ProductCategory'=>$productcategory,
-      'Price'=>$price
+      'ProductCategory'=>1,
+      'Price'=>$price,
+      'Description'=>$description
       ]);       
   return $tid;
   }

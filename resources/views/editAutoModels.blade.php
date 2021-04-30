@@ -64,7 +64,7 @@
                                         <th>Model ID</th>
                                         <th>Company</th>
                                         <th>Model Name</th>
-                                        <th>ProductCategory</th>
+                                        <th>Description</th>
                                         <th>Price</th>
                                         
                                 </tr>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="id">Model ID</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
+                    <input type="text" class="form-control" readonly style="display: inline-block; width: 200px !important;"
                         name="id" id="ModelID"><br><br>
                     <label for="id">Company</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
@@ -86,9 +86,9 @@
                     <label for="id">Model Name</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="ModelName"><br><br>
-                    <label for="id">Product Category</label>
+                    <label for="id">Description</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="ProductCategory"><br><br>
+                        name="id" id="description"><br><br>
                     <label for="id">Price</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="Price"><br><br>
@@ -136,7 +136,7 @@ function getAutoModel() {
         
         $.each(a, function (i, item) {
 
-            table.row.add([a[i].ModelID, a[i].Company, a[i].ModelName, a[i].ProductCategory, a[i].Price
+            table.row.add([a[i].ModelID, a[i].Company, a[i].ModelName, a[i].Description, a[i].Price
             ]);
             });   
          table.draw();          
@@ -153,7 +153,7 @@ $("#stocktable").on('click','tr',function(){
      document.getElementById("Company").value=this.cells[1].innerText;
      document.getElementById("ModelName").value=this.cells[2].innerText;
      
-     document.getElementById("ProductCategory").value=this.cells[3].innerText;
+     document.getElementById("description").value=this.cells[3].innerText;
      document.getElementById("Price").value=this.cells[4].innerText;
      
 }
@@ -167,14 +167,14 @@ function editAutoModels() {
     //alert("updated  "+productName);
     var ModelName = document.getElementById("ModelName").value;
     //alert("updated  "+company);
-    var ProductCategory = document.getElementById("ProductCategory").value;
+    var description = document.getElementById("description").value;
     //alert("updated "+salePrice);
     var Price = document.getElementById("Price").value;
     
     
     
        
-    var edit = [ModelID, Company, ModelName, ProductCategory, Price];
+    var edit = [ModelID, Company, ModelName, description, Price];
     
 
     var UC = JSON.stringify(edit);
