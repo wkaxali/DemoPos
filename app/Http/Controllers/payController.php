@@ -30,7 +30,7 @@ class payController extends Controller
         'EID'=>$expenseID,
         'PaidTo'=>$paidTo,
         'PaidVia'=>$paidVia,
-        'TransactionType'=>"Credit"
+        'TransactionType'=>"Debit"
         ]);
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);

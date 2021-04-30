@@ -60,7 +60,7 @@ class OrderFlowController extends Controller
      
       $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
       LedgerPartiesController::UpdatePartiesBalance(1,$currentCompanyBalance);
-      TransactionFlow::addTransaction($invoiceNumber,"Credit","Booking Order",
+      TransactionFlow::addTransaction($invoiceNumber,"Debit","Booking Order",
       $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,NULL,NULL,$LID,"0",NULL,'1',$paidVia,NULL);
       $OldAccBalance=accountsController::getAccountBalance($AID);
       $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
@@ -490,7 +490,7 @@ class OrderFlowController extends Controller
        LedgerPartiesController::UpdatePartiesBalance($SID,$currentCompanyBalance);
        $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
        LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
-       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock Purchased",
+       TransactionFlow::addTransaction($invoiceNumber,"Debit","Stock Purchased",
        $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$SID,$paidVia,NULL);
        $OldAccBalance=accountsController::getAccountBalance($AID);
        $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
