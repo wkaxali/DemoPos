@@ -6,8 +6,10 @@ use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 
-use App\Http\Controllers\CustomerViewController;
+#use App\Http\Controllers\CustomerViewcotroller;
 use App\Http\Controllers\OrderFlowController;
+use App\Http\Controllers\CustomerViewController;
+
 
 use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
@@ -129,6 +131,7 @@ Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDeta
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock']);
 //Route::get('/addAdmin/{data}',[AdminController::class, 'addnewAdmin']);
+#Route::get('/addAdmin/{data}',[AdminController::class, 'addnewAdmin']);
 
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
@@ -623,12 +626,12 @@ Route::get('/l', function () {
 });
 
 Route::get('/ql', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
+    // $UN = session()->get('Designation');
+    // if($UN=="Admin"){
     return view('quotation'); 
-    }else{
-    return view("signInSignUp");
-    }
+    // }else{
+    // return view("signInSignUp");
+    // }
 });
 Route::get('/prc', function () {
     $UN = session()->get('Designation');

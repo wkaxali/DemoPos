@@ -1009,7 +1009,43 @@ Qoutation For<br> '.session()->get("productName").'</h1>
   
 public function InvoiceRequest(){
 
-
+    $newHTML='<table border="1">
+    <thead>
+    <tr>
+    <th><br><h1>FORLAND MODREN MOTORS</h1></th>
+    
+    
+    </tr>
+    </thead>
+    
+    <tbody>
+    <tr>
+    <br>
+    <td>
+    
+    NTN:82588676-6 <br>
+    
+    STRN:3277876204764 <br>
+    Customer\'s Copy
+    </td>
+    
+    
+    
+    
+    
+    
+    </tr>
+    <tr><td align="center"><h1>Sales wf3efeanvoice</h1></td></tr>
+    
+    
+    
+    </tbody>
+    
+    
+    
+    </table>
+    
+';
 }
 
 public function summary()
