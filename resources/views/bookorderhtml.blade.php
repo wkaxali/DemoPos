@@ -175,9 +175,9 @@
                         </main>
                         <div class="clear"></div>
 
-
+<br>
                         <div class="footerBtn">
-                            <a href="#" onclick="window.print()" class="printBtns btn">Print Order</a>
+                            
                             <button class="placeBtns btn" onclick="placeOrder()">Place Order</button>
                         </div>
                     </div>
