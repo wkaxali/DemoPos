@@ -194,8 +194,8 @@ class saleInvoiceEditController extends Controller
           ]);
           //Balance before this transaction and ater this transaction will be edited there
           DB::table('tbltransactionflow')
-          ->where([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Stock and Service']]) ->where([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Stock and Service']])
-          //->orwhere(['TransactionCatogery', '=', 'Sales'])
+          ->where([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Stock and Service']])
+          ->orwhere(['TransactionCatogery', '=', 'Sales'])
           ->update([
             'Amount'=>$tot,
             'PaidTo'=>$CID,
