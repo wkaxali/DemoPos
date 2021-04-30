@@ -74,6 +74,7 @@ class saleInvoiceEditController extends Controller
        // Account is changed
        $OldAID = DB::table('tbltransactionflow')
        ->where([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Stock and Service']])
+       ->orwhere([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Sales']])
         ->first()->PaidVia;
 
        $OldAccBalance=accountsController::getAccountBalance($OldAID);
@@ -195,7 +196,6 @@ class saleInvoiceEditController extends Controller
           //Balance before this transaction and ater this transaction will be edited there
           DB::table('tbltransactionflow')
           ->where([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Stock and Service']])
-          ->orwhere(['TransactionCatogery', '=', 'Sales'])
           ->update([
             'Amount'=>$tot,
             'PaidTo'=>$CID,
