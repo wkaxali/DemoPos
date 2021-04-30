@@ -79,7 +79,7 @@ class salePrintInvoice extends Controller
         </tr>
         <tr>
         <td><br><span style="font-size: medium;">CNIC/NTN:</span></td>
-        <td align="center"><br>'.session()->get("CNIC").'</td>
+        <td align="center"><br>'.session()->get("cnic").'</td>
         <td><br><span style="font-size: medium;">Invoice Date:</span></td>
         <td align="center"><br>'.session()->get("invoiceDate").'</td>
         
@@ -107,8 +107,7 @@ class salePrintInvoice extends Controller
         <table border="0">
         <thead>
         <tr>
-        <td align="center" bgcolor="#C0C0C0" >
-        Description </td>
+        <td align="center" bgcolor="#C0C0C0" >Description </td>
         <td align="center" bgcolor="#C0C0C0" >color</td>
         <td align="center"bgcolor="#C0C0C0" >Engine No</td>
         <td align="center" bgcolor=" #C0C0C0">Chassis No</td>
@@ -122,7 +121,7 @@ class salePrintInvoice extends Controller
         <td align="center">'.session()->get("color").'</td>
         <td align="center">'.session()->get("engineNo").'</td>
         <td align="center">'.session()->get("chassisNo").'</td>
-        <td align="center">'.session()->get("unitPrice").'</td>
+        <td align="center">'.session()->get("invoicePrice").'</td>
         
         </tR>
         
@@ -141,7 +140,7 @@ class salePrintInvoice extends Controller
         
         <td></td>
         <td></td>
-        <td align="center">'.session()->get("Discount").'</td>
+        <td align="center">'.session()->get("discount").'</td>
         <td></td>
         <td></td>
         </tr> <tr>
@@ -231,17 +230,17 @@ class salePrintInvoice extends Controller
         </thead>
         <tbody>
     <tr>
-        <td width="40%" border="1" align="center">'.session()->get("amountInWords").'/-Only.</td>
+        <td width="40%" border="1" align="center"></td>
         
         <td width="30%" border="1" align="center">17% GST </td>
-        <td width="30%" border="1" align="center"> '.session()->get("tax").'</td>
+        <td width="30%" border="1" align="center">PKR '.session()->get("tax").'</td>
         
     </tr>
         <tr>
-            <td width="40%" border="1" align="center"></td>
+            <td width="40%" border="1" align="center">'.session()->get("netAmountInWords").'/-Only.</td>
             <td width="30%" border="1" align="center">Total</td>
 
-            <td width="30%" border="1" align="center"> '.session()->get("endTotal").'</td>
+            <td width="30%" border="1" align="center">PKR '.session()->get("netAmount").'</td>
        
         </tr>
         

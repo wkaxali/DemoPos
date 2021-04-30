@@ -1669,6 +1669,8 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert("Invoice =" + this.responseText + " is generated");
+                    
+                    document.getElementById("InvoiceID").value=this.responseText;
 
 
 
@@ -1685,9 +1687,13 @@
 
 <script>
     function printDocs() {
-        window.open("/testpdf/2");
-        window.open("/testpdf/3");
-        window.open("/testpdf/4");
+// var id=document.getElementById("InvoiceID").value;
+//         window.open("./InvoiceDetails/"+id)
+//         window.open("/testpdf/2");
+//         window.open("./getSaleInvReq/"+id)
+//         window.open("/testpdf/3");
+//         window.open("/printGatePass/"+id);
+window.open("./pds")
     }
 
     function fetchAccounts() {

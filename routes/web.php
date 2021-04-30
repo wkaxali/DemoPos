@@ -88,11 +88,12 @@ Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 
-Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
+//Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
 Route::get('/sum',[TEST::class, 'summary']);
 
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
+//Route::get('/getqoute/{id}',[quotationController::class, 'getQuotation']);
 
 //---------------------------//LedgerPartiesController
 Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
@@ -253,8 +254,8 @@ Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
 
-Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
-
+//Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
+Route::get('/printq',[quotationController::class, 'qoutationToPDF']);
 Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
 
 

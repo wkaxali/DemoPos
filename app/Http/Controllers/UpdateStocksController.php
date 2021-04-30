@@ -36,7 +36,7 @@ class UpdateStocksController extends Controller
             $paidVia=$AID;
        $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
         $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
-            TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Transportation Charges',$TransportCharges,$dateNow,
+            TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
             "1",null,null,NULL,null,NULL,NULL,NULL,NULL,$paidVia,$CID);
             $AID=$paidVia;//This needs o be changed in production
             $OldAccBalance=accountsController::getAccountBalance($AID);

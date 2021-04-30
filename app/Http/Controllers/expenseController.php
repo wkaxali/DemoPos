@@ -29,7 +29,7 @@ class expenseController extends Controller
         'EID'=>$expenseID,
         
         'PaidVia'=>$paidVia,
-        'TransactionType'=>"Credit"
+        'TransactionType'=>"Debit"
         ]);
 
         DB::table('tblexpanseflow')->insertGetId([
