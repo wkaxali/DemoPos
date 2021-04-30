@@ -1983,7 +1983,7 @@
         }
 
         function print(){
-            window.open("./testpdf/ss");
+            window.open("./testpdf/as");
         }
 
         function UpdateSaleInvoice() {
