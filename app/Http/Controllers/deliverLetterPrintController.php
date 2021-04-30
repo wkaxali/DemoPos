@@ -31,7 +31,7 @@ $newHTML= '
 <td></td>
 </tr>
 <tr><br><br>
-<td><b>Purchaser Detail:</b></td>
+<td><b><h3>Purchaser Detail:</h3></b></td>
 </tr>
 </thead>
 </table>
