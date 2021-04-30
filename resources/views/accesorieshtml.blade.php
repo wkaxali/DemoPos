@@ -21,10 +21,11 @@
                                 <tr ondblclick="SetStockIdeal()">
 
                                     <th>Invoice Number</th>
-                                    <th>Engine Number</th>
-                                    <th>Chasis Number</th>
+                                    <th>Tool Kit</th>
+                                    <th>Spare Parts</th>
+                                    <th>Original Keys</th>
                                     <th>Warranty Book</th>
-                                    <th>Net Total</th>
+                                    
                                   
                                 </tr>
                             </thead>
@@ -37,10 +38,10 @@
                 </div>
                 <div class="col-md-4 stockLabels">
 
-                <label for="id">Invoice Number</label>
+                <label for="id" >Invoice Number</label>
                     
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="invoicenumber"><br><br>
+                        name="id" id="invoicenumber" readonly><br><br>
                     <label for="id">Tool Kit</label>
                     <select  class="selectpicker form-control"
                         data-live-search="true" id="toolkit">

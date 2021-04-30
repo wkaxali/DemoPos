@@ -8,7 +8,7 @@ use PDF;
 class printDocuments extends Controller
 {
     public static function getDocuments(){
-        $results=DB::select('select * from  vw_customersale_invoice' );
+        $results=DB::select('select * from  tbl_invoice_assesories' );
         return $results;
 
     }
