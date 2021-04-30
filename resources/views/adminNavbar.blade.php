@@ -33,7 +33,7 @@ style="float: right"></span></a>
 <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
 style="font-size: 14px;">Auto Models</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse list-unstyled firstULs ">
+<ul class="collapse list-unstyled firstULs12 ">
 <li><a href="/aam">Add Auto Model</a></li>
 <li><a href="/eam">Edit Auto Model</a></li>
 <li><a href="/acc">Accesories With Autos </a></li>
@@ -63,11 +63,11 @@ style="float: right"></span></a>
 
 </ul>
 </li>
-<li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
+<li><a data-toggle="collapse" data-target=".firstULs3"><i
 class="fab fa-alipay"></i>
 <span style="font-size: 14px;">Sales</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs3">
+<ul class="collapse firstULs13">
 <li id="menu-mensagens" style="width: 201px"><a href="/is">Sales Invoice</a>
 </li>
 <li><a href="/ss">Service Sales Invoice</a></li>

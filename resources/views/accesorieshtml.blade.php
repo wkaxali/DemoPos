@@ -23,7 +23,7 @@
                                     <th>Invoice Number</th>
                                     <th>Engine Number</th>
                                     <th>Chasis Number</th>
-                                    <th>Warranty Book</th>
+                                    <th>Color</th>
                                     <th>Net Total</th>
                                   
                                 </tr>
