@@ -241,7 +241,7 @@ Qoutation For '.session()->get("productName").'
 <tr>
 <td width="5%" border="0">1</td>
 <td width="30%" border="0" align="left" >Delivery Time</td>
-<td width="65%" border="0" align="left">'.session()->get("DeliveryTime").' days after recipt of 100% advance payment.</td>
+<td width="65%" border="0" align="left">'.session()->get("DeliveryTime").' days after receipt of 100% advance payment.</td>
 
 </tr>
 
@@ -261,7 +261,7 @@ Qoutation For '.session()->get("productName").'
 <tr>
 <td width="5%" border="0">4</td>
 <td width="30%" border="0">Duty/Taxes #</td>
-<td width="65%" align="left" border="0">Any change in Govt.faisal Policies,RGST/VAT and tariff structures will be on coustumer accounts.</td>
+<td width="65%" align="left" border="0">Any change in Govt.Fiscal Policies,RGST/VAT and tariff structures will be on coustumer accounts.</td>
 
 
 
