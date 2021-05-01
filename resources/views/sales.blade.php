@@ -2076,13 +2076,16 @@
         //	alert("It is working"+password);
         var contact = document.getElementById("addContact").value;
         //alert("It is working"+CustomerContact);
+        var cnic = document.getElementById("addCNIC").value;
+
+        var address = document.getElementById("addAddress").value;
         var profession = document.getElementById("addProfession").value;
         //alert("It is working"+CustomerProfession);
-        var address = document.getElementById("addAddress").value;
+        
         //alert("It is working"+CustomerAddress);
         var comments = document.getElementById("addComments").value;
         //alert("It is working"+CustomerComments);
-        var cnic = document.getElementById("addCNIC").value;
+        
         //alert("It is working"+CustomerComments);
 
         var newCustomer = [customerName, fatherName, contact, profession, address,
