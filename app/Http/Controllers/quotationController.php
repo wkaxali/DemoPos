@@ -371,11 +371,11 @@ Quotation For '.session()->get("productName").'
 
 ';
 
-PDF::SetTitle('Hello World');
+PDF::SetTitle('Quotation');
 PDF::AddPage();
 PDF::writeHTML($html, true, false, true, false, '');
 
-PDF::Output('hello_world.pdf');
+PDF::Output('Quotation-'.session()->get("refNo").'.pdf');
 }
 
 
