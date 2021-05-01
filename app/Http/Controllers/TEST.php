@@ -602,7 +602,7 @@ $newHTML='<table border="0">
 <br>
 <tr>
 <td width="60%" border="0">_______________________</td>
-<td width="40%" align="center" border="0">_______________________</td>
+<td width="40%" align="center" border="0">______________________________</td>
 
 
 
@@ -611,8 +611,8 @@ $newHTML='<table border="0">
 
 
 
-<td width="50%" align="left" border="0">Authorized Sign and Stamp</td>
-<td width="50%" align="center" border="0">Sign and Stamp</td>
+<td width="60%" align="left" border="0">Authorized Sign and Stamp</td>
+<td width="40%" align="center" border="0">Security Incharge Sign and Stamp</td>
 
 
 
@@ -735,7 +735,7 @@ Sr# </td>
 <br>
 <tr>
 <td width="60%" border="0">_______________________</td>
-<td width="40%" align="center" border="0">_______________________</td>
+<td width="40%" align="center" border="0">______________________________</td>
 
 
 
@@ -744,8 +744,8 @@ Sr# </td>
 
 
 
-<td width="50%" align="left" border="0">Authorized Sign and Stamp</td>
-<td width="50%" align="center" border="0">Sign and Stamp</td>
+<td width="60%" align="left" border="0">Authorized Sign and Stamp</td>
+<td width="40%" align="center" border="0">Security Incharge Sign and Stamp</td>
 
 </tr>
 <br>
