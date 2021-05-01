@@ -217,7 +217,7 @@ Quotation For '.session()->get("productName").'
 </tr>
 
 
-<tr><td colspan="5">'.session()->get("amountInWords").'/-Only</td></tr>
+<tr><td colspan="5">'.session()->get("amountInWords").' Only</td></tr>
 
 </tbody>
 </table>
@@ -359,7 +359,7 @@ Quotation For '.session()->get("productName").'
 <tr>
 
 
-<td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotors@yahoo.com </h5></td>
+<td bgcolor="crimson" align="center" border="0"><h5> Email: forlandmodernmotors@yahoo.com </h5></td>
 
 
 
