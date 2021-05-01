@@ -771,8 +771,6 @@ Sr# </td>
 <td bgcolor="crimson" align="center" border="0"><h5> Email: forlandmodernmotors@yahoo.com </h5></td>
 
 
-
-
 </tr>
 
 </table>
@@ -781,7 +779,7 @@ Sr# </td>
 
 
 
-'; // $html= $htmldata;
+'; // $html= $allhtmldata;
 
 
 PDF::SetTitle('Request for Invoice');
