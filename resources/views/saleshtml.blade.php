@@ -10,7 +10,7 @@
             </div>
             <div class="container">
                 <div class="row" id="selectFirst">
-                    <div class="col-xl-3  col-lg-6 col-md-6   okay-invo">
+                    <div class="col-xl-4  col-lg-7 col-md-7   okay-invo">
                         <label for="invo-1">Invoice Number</label>
                         <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                             name="invo-1" id="InvoiceID">
@@ -46,7 +46,7 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="overFlowingTable"
-                                                style="padding: 20px; overflow: auto !important; width: 908px !important; margin: 15px auto !important; ">
+                                            style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
 
 
                                                 <table class="table table-bordered " id="searchProductTable">
@@ -87,14 +87,15 @@
                         </div>
                         <label style="visibility: hidden;" for="prod-hour">Product Number</label>
                         <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
+<br>
 
                         <div class="centhour">
-                            <button class="btn" style="background-color: #13579a;" onclick="pageReload()">New</button>
-                            <button class="btn" style="background-color: #e61d2f;">Edit</button>
-                            <button class="btn" style="background-color: #13579a;">Delete</button>
+                                <button class="btn btn-new" style="background-color: #e61d2f;" onclick="pageReload()">New</button>
+                                <button class="btn btn-edit" style="background-color: #13579a;">Edit</button>
+                                <button class="btn" style="background-color: #e61d2f;">Delete</button>
+                            </div>
+                            <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
                         </div>
-                        <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
-                    </div>
 
                     <div class="col-md-6  okay-invo-1">
                         <div class="o-inv">
