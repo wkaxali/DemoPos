@@ -214,7 +214,7 @@ Qoutation For '.session()->get("productName").'
 </tr>
 
 
-<tr><td colspan="5">'.session()->get("amountInWords").' </td></tr>
+<tr><td colspan="5">'.session()->get("amountInWords").'/-Only</td></tr>
 
 </tbody>
 </table>
