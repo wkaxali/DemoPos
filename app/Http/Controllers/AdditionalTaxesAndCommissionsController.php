@@ -21,8 +21,8 @@ class AdditionalTaxesAndCommissionsController extends Controller
         'DateStamp'=>$dateHere,
         'Remarks'=>$Remarks,
         'CPercent'=>$CPercent,
-        'percentOfAmount'=>$POA,
-        'LID'=>2
+        'percentOfAmount'=>$POA
+
         ]);
        
         // TransactionFlow:: addTransaction(NULL,"Credit",$CPName,$amount,$dateHere,
