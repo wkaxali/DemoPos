@@ -147,7 +147,7 @@ class deliverLetterPrintController extends Controller
         <br>
         <br>
         <br>
-        <br>
+
         <tbody>
         
         <tr>
