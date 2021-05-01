@@ -169,8 +169,8 @@
                                                         placeholder="Address" required />
                                                     <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addProfession"
                                                         placeholder="Profession" required />
-                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addComments"
-                                                        placeholder="Comments" required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="email"
+                                                        placeholder="Email" required />
                                                         </form>
                                                 </div>
 

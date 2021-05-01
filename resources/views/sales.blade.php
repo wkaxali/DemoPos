@@ -2080,13 +2080,13 @@
         //alert("It is working"+CustomerProfession);
         var address = document.getElementById("addAddress").value;
         //alert("It is working"+CustomerAddress);
-        var comments = document.getElementById("addComments").value;
+        var email = document.getElementById("email").value;
         //alert("It is working"+CustomerComments);
         var cnic = document.getElementById("addCNIC").value;
         //alert("It is working"+CustomerComments);
 
         var newCustomer = [customerName, fatherName, contact, profession, address,
-            comments, cnic
+        email, cnic
         ];
 
         var xhttp = new XMLHttpRequest();
