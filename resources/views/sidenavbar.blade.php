@@ -23,6 +23,7 @@ style="float: right"></span></a>
 <ul class="collapse list-unstyled firstULs ">
 <li><a href="/rec">Vehicle</a></li>
 <li><a href="/sp">Parts</a></li>
+<li><a href="/acc">Accesories</a></li>
 <li><a href="/es">Edit Parts</a></li>
 <li><a href="/vs">View Parts</a></li>
 <li><a href="/ip">Increase in Price</a></li>
