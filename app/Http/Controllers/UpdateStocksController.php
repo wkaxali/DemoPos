@@ -185,12 +185,8 @@ public function UpdateInStock(Request $request,$CO){
   $salePrice=$obj[3];
   $purchasePrice=$obj[4];
   $stockIn=$obj[5];
-  $color=$obj[6];
-  $engineNumber=$obj[7];
-  $chasisNumber=$obj[8];
-  $status=$obj[5];
   
-  self :: updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status);
+  self :: updateProducts($PID, $company, $productName, $stockIn, $salePrice, $purchasePrice);
   return $obj;
  //return "Getting from controller".$obj[0];
 
@@ -204,15 +200,12 @@ public function UpdateInStock(Request $request,$CO){
 
 }
 
-public static function updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status){
+public static function updateProducts($PID, $company, $productName, $stockIn, $salePrice, $purchasePrice){
 
   DB::table('productdefination')
   ->where('ProductSerial', $PID)
   ->update([
     'Company'=>$company,
-    'color'=>$color,
-    'EngineNumber'=>$engineNumber,
-    'ChasisNumber'=>$chasisNumber,
     'ProductName'=>$productName
     ]);
 
@@ -220,7 +213,6 @@ public static function updateProducts($PID, $company, $engineNumber, $chasisNumb
   ->where('StockID', $PID)
   ->update([
     'StockIn'=>$stockIn,
-    // 'Status'=>$status,
     'PerUnitSalePrice'=>$salePrice,
     'PerUnitPurchasePrice'=>$purchasePrice
     ]);
