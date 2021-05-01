@@ -58,8 +58,8 @@ class deliverLetterPrintController extends Controller
         <tr><br>
         <td><b>Reference Number:</b></td>
         <td>'.session()->get("refNo").'</td>
-        <td><b>Date:</b></td>
-        <td>'.session()->get("date").'</td>
+        <td align="right"><b>Date:</b></td>
+        <td> '.session()->get("date").'</td>
         </tr>
         <tr><br><br>
         <td><b><h3>Purchaser Detail:</h3></b></td>
@@ -136,7 +136,7 @@ class deliverLetterPrintController extends Controller
         <li>To my entire satisfaction, I have taken possession of the above mentioned vehicle. I do hereby declared that i shall be fully responsible for all accidents , tokens , machine defects and the legal proceedings regarding this vehicle from now onwards</li><br>
         
         <li >I also hereby undertake to get the ownership of this vehicle transferred in my name from the concerned Registration Authority within the stipultated period of 15 days from today.</li><br>
-        <li >I have thoroghly checked and inspected the vehicle including body. Engine and chassis number and no tempering in found.</li>
+        <li >I have thoroughly checked and inspected the vehicle including body, Engine and Chassis number and no tempering is found.</li>
         
         </ul>
         </table>
