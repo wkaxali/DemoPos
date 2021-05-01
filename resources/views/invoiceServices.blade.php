@@ -1899,7 +1899,7 @@ window.open("./pds")
         //alert("It is working"+CustomerContact);
         var profession = document.getElementById("addProfession").value;
         //alert("It is working"+CustomerProfession);
-        var balance = document.getElementById("addBalance").value;
+        var email = document.getElementById("email").value;
         //alert("It is working"+CustomerBalance);
         var address = document.getElementById("addAddress").value;
         //alert("It is working"+CustomerAddress);
@@ -1908,8 +1908,8 @@ window.open("./pds")
         var cnic = document.getElementById("addCNIC").value;
         //alert("It is working"+CustomerComments);
 
-        var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-            comments, cnic
+        var newCustomer = [customerName, fatherName, contact, profession, address, email,
+            cnic
         ];
 
         var xhttp = new XMLHttpRequest();
