@@ -540,7 +540,7 @@
 
             });
             orderDetails.shift();
-            alert(orderDetails);
+            
             var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
             var totalpaid = document.getElementById("totalPaid").value;
@@ -576,7 +576,7 @@
                     document.getElementById("OrderId").value = this.response;
                 }
             };
-            //alert("ljd");
+          
             xhttp.open("GET", "./getOrderId/", true);
             xhttp.send();
         }
@@ -608,7 +608,7 @@
                     $('#accounts').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getAccountHeads/", true);
 
             xhttp.send();
