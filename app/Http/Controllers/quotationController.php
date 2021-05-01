@@ -119,6 +119,7 @@ class quotationController extends Controller
             
             session(['amountInWords' => ucwords($a)]);
             session(['customerName' => $data->CustomerName]);
+            session(['refNo' => 'FMM-Q-'.$data->QID]);
             session(['fatherName' => $data->FatherName]);
             session(['CNIC' => $data->CNIC]);
             session(['address' => $data->Address]);
@@ -163,6 +164,8 @@ $html = '<table cellpadding="1" cellspacing="1" border="0" style="text-align:cen
 </td>
 <td align="right">
 
+Ref No: '.session()->get("refNo").'<br>
+
 NTN:82588676-6 <br>
 
 STRN:3277876204764 <br>
@@ -178,9 +181,9 @@ STRN:3277876204764 <br>
 <td width="150" ><h3>
 
 </h3></td>
-<td width="290" ><h1>
-Qoutation For '.session()->get("productName").'
-</h1></td>
+<td width="290" ><h3>
+Quotation For '.session()->get("productName").'
+</h3></td>
 <td width="150" ><h3>
 
 </h3></td>
@@ -188,7 +191,7 @@ Qoutation For '.session()->get("productName").'
 
 </table>
 <br>
-<br><br><br>
+
 <table cellpadding="1" cellspacing="1" border="1" style="text-align:center;">
 <thead>
 <tr>
@@ -214,7 +217,7 @@ Qoutation For '.session()->get("productName").'
 </tr>
 
 
-<tr><td colspan="5">'.session()->get("amountInWords").' </td></tr>
+<tr><td colspan="5">'.session()->get("amountInWords").' Only</td></tr>
 
 </tbody>
 </table>
@@ -261,7 +264,7 @@ Qoutation For '.session()->get("productName").'
 <tr>
 <td width="5%" border="0">4</td>
 <td width="30%" border="0">Duty/Taxes #</td>
-<td width="65%" align="left" border="0">Any change in Govt.Fiscal Policies,RGST/VAT and tariff structures will be on coustumer accounts.</td>
+<td width="65%" align="left" border="0">Any change in Govt.fiscal Policies,RGST/VAT and tariff structures will be on coustumer accounts.</td>
 
 
 
@@ -270,7 +273,7 @@ Qoutation For '.session()->get("productName").'
 <tr>
 <td width="5%" border="0">5</td>
 <td width="30%" border="0">Force Majeure</td>
-<td width="65%" align="left" border="0">Manufacture will will not be responsible for any delay in delivery due to force majeure circumstance.</td>
+<td width="65%" align="left" border="0">Manufacture will will not be responsible for any delay in delivery due to force majeure circumstances.</td>
 
 
 
@@ -299,7 +302,7 @@ Qoutation For '.session()->get("productName").'
 <br>
 
 
-<br>
+
 
 
 
@@ -356,7 +359,7 @@ Qoutation For '.session()->get("productName").'
 <tr>
 
 
-<td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotors@yahoo.com </h5></td>
+<td bgcolor="crimson" align="center" border="0"><h5> Email: forlandmodernmotors@yahoo.com </h5></td>
 
 
 

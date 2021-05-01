@@ -301,10 +301,10 @@ class salePrintInvoice extends Controller
     ';     // $html= $htmldata;
   
         
-        PDF::SetTitle('Request for Invoice');
+        PDF::SetTitle('Sale Invoice');
         PDF::AddPage();
         PDF::writeHTML($newHTML, true, false, true, false, '');
 
-        PDF::Output('invoiceRequest.pdf');
+        PDF::Output('saleInvoice.pdf');
     }
 }
