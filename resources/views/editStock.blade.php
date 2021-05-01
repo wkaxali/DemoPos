@@ -163,7 +163,7 @@ function searchRawMatirial() {
     }
   };
   
-  xhttp.open("GET", "./viewAllStock/", true);
+  xhttp.open("GET", "./spareParts/", true);
   xhttp.send();
 }
 $("#stocktable").on('click','tr',function(){
