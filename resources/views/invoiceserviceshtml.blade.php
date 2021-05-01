@@ -258,7 +258,7 @@
                                                                 placeholder="Address" required />
                                                             <input type="text" name="phone_number" id="addProfession"
                                                                 placeholder="Profession" required />
-                                                            <input type="number" name="phone_number" id="email"
+                                                            <input type="email" name="phone_number" id="email"
                                                                 placeholder="Email" required />
 
                                                             <input type="text" name="phone_number" id="addComments"
