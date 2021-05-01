@@ -190,7 +190,7 @@ function SetStockIdeal() {
                     alert("Stock number " + this.responseText + " is Updated");
                 }
             };
-            alert(UC);
+            
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./setStockIdeal/" + UC, true);
             xhttp.send();
