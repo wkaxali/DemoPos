@@ -27,14 +27,15 @@ class deliverLetterPrintController extends Controller
         session(['description' => $vw->description]);
         session(['engineNo' => $vw->EngineNumber]);
         session(['chassisNo' => $vw->ChasisNumber]);
-        session(['refNo' => 'FMM-GDP-'.$InvoiceNo]); //not added '.session()->get("refNo").'
-        session(['date' => $vw->DateStamp]); //not added '.session()->get("date").'
-if($tbl!=null){
-        session(['toolKit' => $tbl->ToolKit]);
-        session(['spareTyre' => $tbl->SpareTyre]);
-        session(['originalKeys' => $tbl->OrignalKeys]);
-        session(['warrentyBook' => $tbl->WarrantyBook]);
-}
+        session(['refNo' => 'FMM-GDP-'.$InvoiceNo]);
+        session(['date' => $vw->DateStamp]);
+        
+        if($tbl!=null){
+            session(['toolKit' => $tbl->ToolKit]);
+            session(['spareTyre' => $tbl->SpareTyre]);
+            session(['originalKeys' => $tbl->OrignalKeys]);
+            session(['warrentyBook' => $tbl->WarrantyBook]);
+        }
         
     }
 public function deliveryLetter($InvoiceNo){
