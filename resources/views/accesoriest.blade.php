@@ -93,7 +93,7 @@
                                                 xhttp.onreadystatechange = function () {
                                                     if (this.readyState == 4 && this.status == 200) {
                                                         var data = this.responseText;
-                                                        //alert(data);
+                                               
                                                         var table;
                                                         var a = JSON.parse(data);
 
@@ -139,15 +139,15 @@
 
                                             function setStock() {
                                                 var invoicenumber = document.getElementById("invoicenumber").value;
-                                                //alert("updated  "+purchasePrice);
+                                                
                                                 
                                                 var t = document.getElementById("toolkit");
                                                 var toolkit = t.options[t.selectedIndex].text;
-                                                //alert("updated  "+PID);
+                                               
                                                 
                                                 var s = document.getElementById("sparetyre");
                                                 var sparetyre = s.options[s.selectedIndex].text;
-                                                //alert("updated  "+company);
+                                            
                                                 
                                                 var orignalkeys = document.getElementById("orignalkeys").value;
                                                 var w = document.getElementById("warrentybook");
@@ -156,7 +156,7 @@
                                                 var UpdateStock = [invoicenumber,toolkit, sparetyre, orignalkeys, warrentybook, 
                                             
                                                 ];
-                                                alert(UpdateStock);
+                                             
 
                                                 var UC = JSON.stringify(UpdateStock);
 
@@ -169,7 +169,7 @@
 
                                                     }
                                                 };
-                                                alert(UC);
+                                            
                                                 // var MenuID=$('#Menus').find(":selected").val();
                                                 xhttp.open("GET", "./AddAcessories/" + UC, true);
                                                 xhttp.send();

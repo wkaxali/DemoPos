@@ -1502,7 +1502,7 @@
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./addNewEmployee/" + empData, true);
 
             xhttp.send();

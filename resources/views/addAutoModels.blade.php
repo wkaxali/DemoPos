@@ -223,7 +223,7 @@
             var add = [comp, model, price, description];
 
             var AA = JSON.stringify(add);
-            alert(AA);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {

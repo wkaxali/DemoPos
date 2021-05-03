@@ -418,7 +418,7 @@
             var table = document.getElementById("expenseTable");
 
 
-            //alert(sp);
+            
             $('#expenseTable tr').each(function (row, tr) {
 
                 expenseDetails[row] = [
@@ -443,7 +443,7 @@
             });
             expenseDetails.shift();
             var expTable = JSON.stringify(expenseDetails);
-            alert(expTable);
+            
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function () {
@@ -480,7 +480,7 @@
                     $('#expense').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getExpenseHeads/", true);
 
             xhttp.send();
@@ -525,7 +525,7 @@
                     $('#paidBy').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getAccounts/", true);
 
             xhttp.send();

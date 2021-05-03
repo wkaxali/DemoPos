@@ -132,7 +132,7 @@ function searchRawMatirial() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        var data =   this.responseText;
-       //alert(data);
+       
        var table;
        var a=JSON.parse(data);
        
@@ -167,17 +167,17 @@ $("#stocktable").on('click','tr',function(){
 function SetStockIdeal() {
     
     var PID = document.getElementById("productID").value;
-    //alert("updated  "+PID);
+    
     var productName = document.getElementById("productName").value;
-    //alert("updated  "+productName);
+    
     var company = document.getElementById("company").value;
-    //alert("updated  "+company);
+    
     var salePrice = document.getElementById("salePrice").value;
-    //alert("updated "+salePrice);
+    
     var purchasePrice = document.getElementById("purchasePrice").value;
-    //alert("updated  "+purchasePrice);
+    
     var stockIn = document.getElementById("stockIn").value;
-    //alert("updated "+stockIn);
+   
        
     var UpdateStock = [PID, productName, company, salePrice, purchasePrice, stockIn];
 
