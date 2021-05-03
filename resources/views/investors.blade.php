@@ -534,7 +534,7 @@
       var address=      document.getElementById("address").value;
       var selfRatio=      document.getElementById("selfRatio").value;
       var investorRatio=      document.getElementById("investorRatio").value;
-        //   alert(mainTotal);
+        
         var investorData=[name, category, investment, contactNo, address, selfRatio, investorRatio];
         var iA = JSON.stringify(investorData);
         var xhttp = new XMLHttpRequest();

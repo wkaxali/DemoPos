@@ -169,7 +169,7 @@
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./addSupplier/" + empData, true);
 
             xhttp.send();

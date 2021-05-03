@@ -316,7 +316,7 @@ document.getElementById("mainTotal").value=tot;
         var table = document.getElementById("expenseTable");
 
 
-        //alert(sp);
+       
         $('#expenseTable tr').each(function (row, tr) {
 
             expenseDetails[row] = [
@@ -378,7 +378,7 @@ function loadEmployees(){
             $('#paidTo').selectpicker('refresh');
         }
     };
-    //alert("ljd");
+    
     xhttp.open("GET", "./getEmployeeName/", true);
     
     xhttp.send();
@@ -396,7 +396,7 @@ function loadAccounts(){
             $('#paidBy').selectpicker('refresh');
         }
     };
-    //alert("ljd");
+    
     xhttp.open("GET", "./getAccounts/", true);
     
     xhttp.send();
@@ -413,7 +413,7 @@ function loadAccounts(){
                 document.getElementById("amount").value = this.response;
             }
         };
-    //alert("ljd");
+    
     xhttp.open("GET", "./getTotalPay/" + EmpID, true);
     
     xhttp.send();

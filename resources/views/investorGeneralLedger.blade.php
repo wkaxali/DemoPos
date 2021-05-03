@@ -426,10 +426,10 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     var data = this.responseText;
-                    //alert(data);
+                    
                     var table;
                     var a = JSON.parse(data);
-                    //  alert(a[0].ProductSerial);
+                    
                     table = $('#myTable').DataTable();
 
                     $.each(a, function (i, item) {
@@ -443,7 +443,7 @@
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getInvestorData/", true);
 
             xhttp.send();
