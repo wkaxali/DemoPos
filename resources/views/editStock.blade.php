@@ -197,14 +197,6 @@ function SetStockIdeal() {
             
         }
 
-
-
-
-
-
-
-
-
 </script>
     
 </body>
