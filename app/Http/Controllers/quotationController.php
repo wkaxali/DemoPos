@@ -149,7 +149,8 @@ $html = '<table cellpadding="1" cellspacing="1" border="0" style="text-align:cen
 
 
 
-<img src="/assets/img/logo.jpg" border="0" height="100" width="300" align="center" /></td></tr>
+<img src="/assets/img/logo.jpg" border="0" height="100" width="300" align="center" /></td>
+</tr>
 <tr>
 <td align="Left" width="180" >
 '.session()->get("customerName").'
