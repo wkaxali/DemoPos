@@ -54,6 +54,7 @@ use App\Http\Controllers\summaryReportController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/sd',[summaryReportController::class, 'stockDetails']);
 Route::get('/sum',[summaryReportController::class, 'summaryReport']);
 Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
 Route::get('/transactions/{dates}',[summaryReportController::class, 'transactions']);
