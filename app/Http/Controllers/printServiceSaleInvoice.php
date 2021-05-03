@@ -172,7 +172,7 @@ Total in Word </th>
 </thead>
 <tbody>
 <tr>
-<td width="70%" border="1" align="center"><b><u>'.session()->get("amountInWords").'</u></b>/-Only.</td>
+<td width="70%" border="1" align="center"><b><u>'.session()->get("amountInWords").' Only.</u></b></td>
 <td width="30%" border="1" align="center"><b>'.session()->get("amountPaid").'</b></td>
 
 

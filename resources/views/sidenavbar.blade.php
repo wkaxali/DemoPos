@@ -25,7 +25,7 @@ style="float: right"></span></a>
 <li><a href="/sp">Parts</a></li>
 <li><a href="/acc">Accesories</a></li>
 <li><a href="/es">Edit Parts</a></li>
-<li><a href="/vs">View Parts</a></li>
+<li><a href="/sp">View Parts</a></li>
 <li><a href="/ip">Increase in Price</a></li>
 
 </ul>

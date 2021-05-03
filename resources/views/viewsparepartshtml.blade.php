@@ -26,9 +26,8 @@
                                             <th>Company</th>
                                             <th>Unit Sale Price</th>
                                             <th>Unit Purchase Price</th>
-                                            <th>Stock</th>
-                                            <th>Engine Number</th>
-                                            <th>Chasis Number</th>
+                                            <th>Stock In</th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>

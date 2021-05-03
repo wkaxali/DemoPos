@@ -1520,10 +1520,10 @@
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var data = this.responseText;
-                //alert(data);
+                
                 var table;
                 var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
+                
                 table = $('#searchProductTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
@@ -1554,7 +1554,7 @@
 
             }
         };
-        //alert("ljd");
+        
         xhttp.open("GET", "./getSaleInvReq/" + id, true);
         xhttp.send();
 
@@ -1588,6 +1588,7 @@
             alert(this.cells[0].innerText);
             calc();
         });
+    
         calc();
     });
 
@@ -1706,7 +1707,7 @@ window.open("./pds")
                 $('#slctAccounts').selectpicker('refresh');
             }
         };
-        //alert("ljd");
+       
         xhttp.open("GET", "./getAccountHeads/", true);
 
         xhttp.send();
@@ -1899,7 +1900,7 @@ window.open("./pds")
         //alert("It is working"+CustomerContact);
         var profession = document.getElementById("addProfession").value;
         //alert("It is working"+CustomerProfession);
-        var balance = document.getElementById("addBalance").value;
+        var email = document.getElementById("email").value;
         //alert("It is working"+CustomerBalance);
         var address = document.getElementById("addAddress").value;
         //alert("It is working"+CustomerAddress);
@@ -1908,10 +1909,10 @@ window.open("./pds")
         var cnic = document.getElementById("addCNIC").value;
         //alert("It is working"+CustomerComments);
 
-        var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-            comments, cnic
+        var newCustomer = [customerName, fatherName, contact, profession, address, email,
+            cnic
         ];
-
+        
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -1919,7 +1920,7 @@ window.open("./pds")
             }
         };
         var EC = JSON.stringify(newCustomer);
-        alert(EC);
+        
         xhttp.open("GET", "./insertCustomer/" + EC, true);
         xhttp.send();
 
@@ -1977,7 +1978,7 @@ window.open("./pds")
                 $('#employees').selectpicker('refresh');
             }
         };
-        //alert("ljd");
+        
         xhttp.open("GET", "./getEmployeeName/", true);
 
         xhttp.send();
@@ -1992,7 +1993,7 @@ window.open("./pds")
                 document.getElementById("InvoiceID").value = this.response;
             }
         };
-        //alert("ljd");
+        
         xhttp.open("GET", "./getInvoiceID", true);
 
         xhttp.send();

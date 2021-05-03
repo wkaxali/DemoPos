@@ -98,8 +98,8 @@
                     $.each(a, function (i, item) {
 
                         table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
-                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StatusInStock, a[i]
-                            .EngineNumber, a[i].ChasisNumber
+                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice,
+                            a[i].StockIn
                         ]);
                     });
                     table.draw();

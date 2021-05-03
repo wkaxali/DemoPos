@@ -160,7 +160,6 @@ Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']
 Route::get('/dailySaleAmount',[AISessionController::class, 'dailySaleAmount']);
 Route::get('/loadAutos',[getProducts::class, 'getAutosNames']);
 
-// Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
 Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
 Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStock']);
