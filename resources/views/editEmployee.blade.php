@@ -198,7 +198,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     var data = this.responseText;
-                    //alert(data);
+                    
                     var table;
                     var a = JSON.parse(data);
 
@@ -253,7 +253,7 @@
             var updateEmployee = [EID, firstName, lastName, CNIC, contact, address, email, designation, date];
 
             var UE = JSON.stringify(updateEmployee);
-            alert(UE);
+           
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
