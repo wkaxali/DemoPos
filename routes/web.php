@@ -640,6 +640,16 @@ Route::get('/prc', function () {
 });
 
 
+
+Route::get('/fgp', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"||$UN=="User"){
+    return view('ForlandGatePass'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
 Route::get('/fgp', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"||$UN=="User"){
