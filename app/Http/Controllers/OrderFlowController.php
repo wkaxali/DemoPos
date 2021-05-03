@@ -486,7 +486,7 @@ class OrderFlowController extends Controller
        $oldCompanyBalance=LedgerPartiesController::getPartyBalance($SID);
        $paidVia=$AID;
      
-       $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
+       $currentCompanyBalance=floatval($oldCompanyBalance)-floatval($totRemaining);
        LedgerPartiesController::UpdatePartiesBalance($SID,$currentCompanyBalance);
        $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
        LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);

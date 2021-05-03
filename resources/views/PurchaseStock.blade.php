@@ -1572,7 +1572,7 @@
         RBForInvoice = (Number(tot) - Number(Ap)).toFixed(2);
         document.getElementById('RemainingBalance').value = RBForInvoice;
         var SupplierLastBalance = document.getElementById('LastBalance').value;
-        var newBalance = Number(SupplierLastBalance) + Number(RBForInvoice);
+        var newBalance = Number(SupplierLastBalance) - Number(RBForInvoice);
         document.getElementById("CurrentBalance").value = newBalance;
 
 
