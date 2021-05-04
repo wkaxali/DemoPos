@@ -56,7 +56,8 @@ class expenseController extends Controller
 }
 
 public static function getPartyNames(){
-    $data=DB:: select('select * from tblledgerparties');
+    $LID=globalVarriablesController::selfLedgerID();
+    $data=DB:: select('select * from tblledgerparties where LID <>'.$LID);
     
     $option='<option value=" "></option>';
 
