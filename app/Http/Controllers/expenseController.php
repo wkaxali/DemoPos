@@ -123,4 +123,13 @@ public static function getPartyNames(){
     return $ex;
   }
   
+  public function getExpenses(){
+    $results=DB::select('select * from tblexpanseflow');
+   // mysql_insert_id()
+    return $results;
+
+}
+
+    // deleteExpense
+
 }

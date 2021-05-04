@@ -83,6 +83,9 @@ Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/addExpenseHead/{expTable}',[expenseController::class, 'insertExpense']);
+Route::get('/getExpenses',[expenseController::class, 'getExpenses']);
+Route::get('/editExpense',[expenseController::class, 'editExpense']);
+
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
 Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 
@@ -902,6 +905,15 @@ Route::get('/eam', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('editAutoModels'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/dex', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('deleteExpense'); 
     }else{
     return view("signInSignUp");
     }
