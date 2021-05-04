@@ -18,29 +18,27 @@ class expenseController extends Controller
         $LID=2;
         $amount=$obj[1];
         $expenseName=$obj[2];
-        $expenseID=$obj[3];
+        $expenseHeadID=$obj[3];
         $paidVia=$obj[4];
         $remarks=$obj[5];
+
+        $EID = DB::table('tblexpanseflow')->insertGetId([
+          
+          'ExpanseHeadID'=>$expenseHeadID,
+          'Remarks'=>"$remarks",
+          'DateStamp'=>$date,
+          'Amount'=>$amount,
+          ]);
         
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
         'TransactionCatogery'=>"Expense",
-        'EID'=>$expenseID,
+        'EID'=>$EID,
         
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Debit"
         ]);
-
-        DB::table('tblexpanseflow')->insertGetId([
-          
-          'ExpanseHeadID'=>$expenseID,
-          // 'ExpanseHeadID'=>$amount,
-          'Remarks'=>"$remarks",
-          'DateStamp'=>$date,
-          
-          'Amount'=>$amount,
-          ]);
 
         $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
         $newBalance = $oldSelfBalance - $amount;
@@ -54,7 +52,7 @@ class expenseController extends Controller
         accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
         
         }
-        return $id;
+        return $EID;
 }
 
 public static function getPartyNames(){

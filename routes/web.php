@@ -18,10 +18,8 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\assesoriesController;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\printDocuments;
-//use App\Http\Controllers\AdminAccountController;
 use App\Http\Controllers\userAccountController;
 use App\Http\Controllers\printMonthlySaleController;
-
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
@@ -39,8 +37,6 @@ use App\Http\Controllers\TEST;
 use App\Http\Controllers\printServiceInvoice;
 use App\Http\Controllers\deliverLetterPrintController;
 use App\Http\Controllers\summaryReportController;
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -115,7 +111,6 @@ Route::get('/addSupplier/{empData}',[LedgerPartiesController::class, 'addSupplie
 Route::get('/viewAllSupplier',[LedgerPartiesController::class, 'viewAllSupplier']);
 Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']);
 
-
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 //getInvoiceCustomer/{data}
@@ -172,9 +167,7 @@ Route::get('/AddAcessories/{UC}',[assesoriesController::class, 'AddAcessories'])
 
 Route::get('/editAutoModels/{UC}',[UpdateStocksController::class, 'editAutoModels']);
 Route::get('/getAutoModel',[UpdateStocksController::class, 'getAutoModel']);
-
 Route::get('/addAutoModels/{AA}',[UpdateStocksController::class, 'addAutoModels']);
-
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
@@ -201,7 +194,6 @@ Route::get('/getTotalPay/{EID}',[payController::class, 'getTotalPay']);
 Route::get('/getTaskcatagory',[payController::class, 'getTaskcatagory']);
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
-
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
@@ -239,9 +231,6 @@ Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'signIn']);
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
-// Route::get('/addAdmins/{AU}',[AdminAccountController::class, 'addAdmins']);
-// Route::get('/editAdmins/{AU}',[AdminAccountController::class, 'editAdmins']);
-// Route::get('/getAdmins',[AdminAccountController::class, 'getAdmins']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
@@ -256,12 +245,9 @@ Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrin
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
 Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
-//qutationRequest
 
-//Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 Route::get('/printq',[quotationController::class, 'qoutationToPDF']);
 Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
-
 
 Route::get('/', function () {
 
@@ -270,7 +256,6 @@ return view('signInSignUp');
 // Route::get('/stripe', function () {
 // return view('stripe');
 // });
-
 
 Route::get('/ed', function () {
     $UN = session()->get('Designation');
