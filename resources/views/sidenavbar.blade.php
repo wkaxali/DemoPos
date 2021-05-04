@@ -59,6 +59,7 @@ style="float: right"></span></a>
 <li><a href="/ex">Daily Expense</a></li>
 <li><a href="/pay">Payments</a></li>
 <li><a href="/ex">Add Expense</a></li>
+<li><a href="/dex">Delete Expense</a></li>
 <li><a href="/exv">Expense List</a></li>
 <li><a href="/aeh">Add Expense Head</a></li>
 

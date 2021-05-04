@@ -31,6 +31,9 @@
 
 
         }
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
 
         .receivingMain {
             /* border: 1px solid #aaaaaa; */
@@ -58,6 +61,7 @@
     </style>
 </head>
 <body onload="getExpenses()">
+<div class="page-container">
 <div class="container">
 
     <header class="idi">
@@ -76,7 +80,7 @@
             <div class="row">
                 <div class="col-lg-11 ">
                     <div class="stock-table"
-                        style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
+                        style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto; margin-left: 80px;">
                         <table style="width: 100%;" id="stocktable">
                             <thead>
 
@@ -99,8 +103,9 @@
             </div>
         </div>
     </section>
+    
 </div>
-
+@include('sidenavbar')<div class="clearfix"></div>
 
 
 
