@@ -161,15 +161,17 @@
         }
         function deleteExpense(expanseID){
             var EID = expanseID;
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                   alert(this.responseText);
-                   location.reload();
-                }
-            };
-            xhttp.open("GET", "./deleteExpense/" + EID, true);
-            xhttp.send();
+            if (confirm("Do you want to permanently delete record "+EID)){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+                    location.reload();
+                    }
+                };
+                xhttp.open("GET", "./deleteExpense/" + EID, true);
+                xhttp.send();
+            }
         }
         
 
