@@ -7,7 +7,9 @@ use Illuminate\Http\Request;
 class globalVarriablesController extends Controller
 {
     public static function selfLedgerID(){
-        return 2;
+        $LID = 2;
+        return $LID;
     }
+
 }
 
