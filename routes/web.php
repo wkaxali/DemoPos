@@ -5,6 +5,7 @@ use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
+use App\Http\Controllers\deleteExpenseController;
 
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\OrderFlowController;
@@ -199,6 +200,7 @@ Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
+Route::get('/deleteExpense/{data}',[deleteExpenseController::class, 'deleteExpense']);
 
 Route::get('/editCustomer/{data}',[CustomerController::class, 'editCustomer']);
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);

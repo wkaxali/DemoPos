@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+
 class deleteExpenseController extends Controller
 {
     public static function deleteExpense($EID){
-        $expense = DB::select("select * from tblexpanseflow where ExpanseID =".$EID);
-        $expenseTransaction = DB::select("select * from tbltransactionflow where ExpanseID =".$EID);
 
-        $amount = $expense->Amount;
-        $AID = $expenseTransaction->PaidVia;
+        $expenseFlow = DB::table('tblexpanseflow')
+            ->where('ExpanseID', '=', $EID);
+             
+        $expenseTransaction = DB::table('tbltransactionflow')
+            ->where('EID', '=', $EID);
+
+        $amount = $expenseFlow->first()->Amount;
+        $AID = $expenseTransaction->first()->PaidVia;
 
         $oldAccBalance=accountsController::getAccountBalance($AID);
         $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
@@ -22,6 +28,8 @@ class deleteExpenseController extends Controller
         accountsController::UpdateNewBalance($AID,$newAccountBalance);
         
         $deleteExpense = DB::delete("delete from tblexpanseflow where ExpanseID=".$EID);
-        $deleteTransaction = DB::delete("delete from tbltransactionflow where ExpanseID=".$EID);
+        $deleteTransaction = DB::delete("delete from tbltransactionflow where EID=".$EID);
+
+        return "Expense number $EID is deleted";
     }
 }

@@ -114,91 +114,71 @@
 
 
 
-                    <!--end::Demo Panel-->
+    <!--end::Demo Panel-->
 
-                    <!-- jQuery and JS bundle w/ Popper.js -->
-                    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-                        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-                        crossorigin="anonymous">
-                    </script>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-                        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-                        crossorigin="anonymous">
-                    </script>
-                    <script type="text/javascript" charset="utf8"
-                        src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-                    </script>
-                    <script>
-                        $(document).ready(function () {
-                            $('#stocktable').DataTable();
-                        });
-
-                    </script>
-                    <!--end::Global Theme Bundle-->
-
-                    <script>
-                        function getExpenses() {
-                            var xhttp = new XMLHttpRequest();
-                            xhttp.onreadystatechange = function () {
-                                if (this.readyState == 4 && this.status == 200) {
-                                    var data = this.responseText;
-                                   
-                                    var table;
-                                    var a = JSON.parse(data);
-
-                                    table = $('#stocktable').DataTable();
-
-                                    $.each(a, function (i, item) {
-                                        expanseID=a[i].ExpanseID;
-                                        table.row.add([a[i].ExpanseID, a[i].ExpanseHeadID, a[i].Remarks, a[i].DateStamp,
-                                            a[i].Amount,
-                                            '<button class="btn print" onclick="deleteExpense('+expanseID+')" >Delete</button>'
-                                            
-                                            ]);
-                                    });
-                                    table.draw();
-                                //     <th>Customer ID</th>
-                                // <th>Customer Name</th>
-                                // <th>Father Name</th>
-                                // <th>Address</th>
-                                // <th>Contact</th>
-                                // <th>CNIC</th>
-                                // <th>Balance</th>
-                                // <th>Comments</th>
-
-                                }
-                            };
-
-                            xhttp.open("GET", "./getExpenses/", true);
-                            xhttp.send();
-                        }
-                        function deleteExpense(expanseID){
-                            alert(expanseID);
-                        }
-                        
-
-                    </script>
-                    <script>
-        var toggle = true;
-
-        $(".sidebar-icon").click(function () {
-            if (toggle) {
-                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-                $("#menu span").css({
-                    "position": "absolute",
-
-                });
-            } else {
-                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-                setTimeout(function () {
-                    $("#menu span").css({
-                        "position": "relative",
-
-                    });
-                }, 400);
-            }
-            toggle = !toggle;
+    <!-- jQuery and JS bundle w/ Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#stocktable').DataTable();
         });
+
+    </script>
+    <!--end::Global Theme Bundle-->
+
+    <script>
+        function getExpenses() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    
+                    var table;
+                    var a = JSON.parse(data);
+
+                    table = $('#stocktable').DataTable();
+
+                    $.each(a, function (i, item) {
+                        expanseID=a[i].ExpanseID;
+                        table.row.add([a[i].ExpanseID, a[i].ExpanseHeadID, a[i].Remarks, a[i].DateStamp,
+                            a[i].Amount,
+                            '<button class="btn print" onclick="deleteExpense('+expanseID+')" >Delete</button>'
+                            
+                            ]);
+                    });
+                    table.draw();
+
+                }
+            };
+
+            xhttp.open("GET", "./getExpenses/", true);
+            xhttp.send();
+        }
+        function deleteExpense(expanseID){
+            var EID = expanseID;
+            if (confirm("Do you want to permanently delete record "+EID)){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+                    location.reload();
+                    }
+                };
+                xhttp.open("GET", "./deleteExpense/" + EID, true);
+                xhttp.send();
+            }
+        }
+        
 
     </script>
 
