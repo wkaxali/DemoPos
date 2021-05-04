@@ -377,8 +377,8 @@
                         <div class="modal-content">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <h4 class="text-center my-4">Products Table</h4>
+                                    <div class="col-lg-12">
+                                        <h4 class="text-center my-3">Products Table</h4>
                                         <table class="table  table-bordered mb-5 " id="searchProductTable">
                                             <thead>
                                                 <tr>
