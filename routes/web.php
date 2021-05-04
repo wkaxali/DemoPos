@@ -99,7 +99,7 @@ Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 //Route::get('/getqoute/{id}',[quotationController::class, 'getQuotation']);
 
 //---------------------------//LedgerPartiesController
-Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
+
 Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer']);
 
 Route::get('/getAllCustomers/',[CustomerController::class, 'getAllCustomers']);
@@ -222,7 +222,6 @@ Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategor
 Route::get('/getPartyNames',[expenseController::class, 'getPartyNames']);
 Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
-Route::get('/addcustomer/{AC}',[CustomerController::class, 'addcustomer']);
 
 Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
 
