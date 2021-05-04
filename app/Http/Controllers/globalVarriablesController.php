@@ -10,3 +10,4 @@ class globalVarriablesController extends Controller
         return 2;
     }
 }
+
