@@ -51,9 +51,10 @@ return $CID;
             $amp=$item[1];
        self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Cost",$PID,NULL,NULL,
     $dateNow);
-        $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+        $LID=globalVarriablesController::selfLedgerID();
+        $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
         $selfBalance=$oldSelfBalance-$item[1];
-        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+        LedgerPartiesController::UpdatePartiesBalance($LID, $selfBalance);
         $totCostHere=floatval($totCostHere)+floatval($item[1]);
          TransactionFlow:: addTransaction(NULL,"Debit",$item[0],$item[1],$dateNow,
         "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null);
@@ -92,9 +93,10 @@ return $CID;
             $amp=$item[1];
        self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Profit",$PID,NULL,NULL,
     $dateNow);
-        $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+        $LID=globalVarriablesController::selfLedgerID();
+        $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
         $selfBalance=$oldSelfBalance+$item[1];
-        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+        LedgerPartiesController::UpdatePartiesBalance($LID, $selfBalance);
         $TotalSaleAmount=floatval($TotalSaleAmount)+floatval($item[1]);
          TransactionFlow:: addTransaction(NULL,"Credit",$item[0],$item[1],$dateNow,
         "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null);

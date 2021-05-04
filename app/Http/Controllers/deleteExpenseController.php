@@ -19,12 +19,13 @@ class deleteExpenseController extends Controller
         $amount = $expenseFlow->first()->Amount;
         $AID = $expenseTransaction->first()->PaidVia;
 
+        $LID=globalVarriablesController::selfLedgerID();
         $oldAccBalance=accountsController::getAccountBalance($AID);
-        $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+        $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
         $newAccountBalance = floatval($oldAccBalance) + floatval($amount);
         $newSelfBalance = floatval($oldSelfBalance) + floatval($amount);
 
-        LedgerPartiesController::UpdatePartiesBalance(2, $newSelfBalance);
+        LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
         accountsController::UpdateNewBalance($AID,$newAccountBalance);
         
         $deleteExpense = DB::delete("delete from tblexpanseflow where ExpanseID=".$EID);

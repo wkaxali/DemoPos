@@ -28,7 +28,7 @@ class UpdateStocksController extends Controller
    
 
 
-      $LID=2;
+      $LID=globalVarriablesController::selfLedgerID();
       $oldBalance= LedgerPartiesController::getPartyBalance($LID);
       $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
       LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);

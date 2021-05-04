@@ -60,15 +60,15 @@ class serviceSalesFlow extends Controller
 
         $totlpaid=$AP;
         self::insertInDetailedOrder($Array[0],$invoiceNumber,$dateNow);
-      $LID=2;
-       $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
+        $LID=globalVarriablesController::selfLedgerID();
+       $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
        $oldCustomerBalance=CustomerController::getCustomerBalance($CID);
        $paidVia=$AID;
        
        $currentCustomerBalance=floatval($oldCustomerBalance)+floatval($RBI);
        CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
        $selfBalance=floatval($oldSelfBalance)+floatval($totlpaid);
-       LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
+       LedgerPartiesController::UpdatePartiesBalance($LID,$selfBalance);
        TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock and Service",
        $totlpaid,$dateNow,"1",$oldCustomerBalance,$currentCustomerBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$CID,$paidVia,NULL);
        $OldAccBalance=accountsController::getAccountBalance($AID);

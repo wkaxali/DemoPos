@@ -6,8 +6,8 @@ use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\deleteExpenseController;
-
 use App\Http\Controllers\CustomerViewController;
+use App\Http\Controllers\globalVarriablesController;
 use App\Http\Controllers\OrderFlowController;
 
 use App\Http\Controllers\printServiceSaleInvoice;

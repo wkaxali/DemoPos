@@ -15,7 +15,7 @@ class expenseController extends Controller
         $ata=json_decode($CO);
         foreach ($ata as $obj){
         $date=$obj[0];
-        $LID=2;
+        $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
         $expenseName=$obj[2];
         $expenseHeadID=$obj[3];
