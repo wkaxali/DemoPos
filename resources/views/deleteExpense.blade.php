@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Print Documents</title>
+    <title>Delete Expenses</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
