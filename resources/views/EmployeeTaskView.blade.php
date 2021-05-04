@@ -1036,7 +1036,7 @@
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./updateTaskStatus/" + status, true);
 
             xhttp.send();
@@ -1046,7 +1046,7 @@
 
         function updateAdminStatus() {
             var employeeID = ('{{ Session::get('EmpID')}}');
-            alert(employeeID);
+           
             var mainTaskID = document.getElementById("mainTaskID").value;
             var comment = document.getElementById("comment").value;
             var status = document.getElementById("adminStatus").value;
@@ -1060,7 +1060,7 @@
             ];
             
             var status = JSON.stringify(adminStatus);
-            alert(status);
+           
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1071,7 +1071,7 @@
 
                 }
             };
-            //alert("ljd");
+           
             xhttp.open("GET", "./updateAdminStatus/" + status, true);
 
             xhttp.send();
@@ -1080,7 +1080,7 @@
 
         function loadTaskDetails(taskID) {
 
-            // alert(taskID);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1164,7 +1164,7 @@
 
             }
 
-            //alert("ljd");
+           
             xhttp.open("GET", "./loadTaskDetails/" + taskID, true);
 
             xhttp.send();
@@ -1217,7 +1217,7 @@
 
                 }
             };
-            //alert("ljd");
+           
             xhttp.open("GET", "./getEmployeeData/", true);
 
             xhttp.send();
@@ -1263,7 +1263,7 @@
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
 
             xhttp.send();
@@ -1285,7 +1285,7 @@
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
 
             xhttp.send();
@@ -1295,7 +1295,7 @@
             var employeeID = document.getElementById("employee").value;
             var employeeName = $('#employee').find(":selected").text();
             var date = document.getElementById("taskDate").value;
-            alert(date);
+            
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1308,7 +1308,7 @@
 
                 }
             };
-            //alert("ljd");
+           
             xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + date + "/" + employeeName, true);
 
             xhttp.send();
@@ -1327,7 +1327,7 @@
 
 
             document.getElementById("mess-r").appendChild(newDiv);
-            //   alert(msg);
+       
 
         }
 
@@ -1362,7 +1362,7 @@
             m = dateFull.getMonth() + 1;
             d = dateFull.getDate()
             date = y + '-' + m + '-' + d;
-            alert(date);
+            
             document.getElementById("dateValue").value = date
 
         }
@@ -1375,7 +1375,7 @@
             m = tomorrow.getMonth() + 1;
             d = tomorrow.getDate()
             date = y + '-' + m + '-' + d;
-            alert(date);
+            
             document.getElementById("dateValue").value = date;
 
         }
@@ -1383,7 +1383,7 @@
         function customDate() {
             var custumDate = document.getElementById("customDate").value;
             document.getElementById("dateValue").value = custumDate;
-            alert(custumDate);
+            
 
         }
 
@@ -1398,7 +1398,7 @@
                     
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployees/", true);
 
             xhttp.send();
@@ -1460,7 +1460,7 @@
             m = dateFull.getMonth() + 1;
             d = dateFull.getDate()
             date = y + '-' + m + '-' + d;
-            alert(date);
+           
             document.getElementById("dateValue").value = date
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
@@ -1471,7 +1471,7 @@
 
         function customDate() {
             var custumDate = document.getElementById("customDate").value;
-            alert(custumDate);
+           
         }
 
 
@@ -1483,7 +1483,7 @@
             m = tomorrow.getMonth() + 1;
             d = tomorrow.getDate()
             date = y + '-' + m + '-' + d;
-            alert(date);
+           
             document.getElementById("dateValue").value = date;
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
@@ -1493,7 +1493,7 @@
         function customDate() {
             var custumDate = document.getElementById("customDate").value;
             document.getElementById("dateValue").value = custumDate;
-            alert(custumDate);
+          
 
         }
 
@@ -1510,7 +1510,7 @@
     <script>
         function RemoveThisRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
-            //alert(i);
+            
             document.getElementById("subTasks").deleteRow(i);
         }
 
@@ -1559,7 +1559,7 @@
             var taskDetails = [];
             var OverallTask = [];
 
-            //alert(sp);
+           
             $('#subTasks tr').each(function (row, tr) {
                 taskDetails[row] = [
                     $(tr).find('td:eq(1) input[type="text"]').val(), //Amount
@@ -1569,7 +1569,7 @@
 
             OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority];
             var taskTable = JSON.stringify(OverallTask);
-            alert(taskTable);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -1595,7 +1595,7 @@
                     $('#assignTo').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployees/", true);
 
             xhttp.send();
@@ -1613,7 +1613,7 @@
                     $('#category').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+         
             xhttp.open("GET", "./getCategory/", true);
 
             xhttp.send();

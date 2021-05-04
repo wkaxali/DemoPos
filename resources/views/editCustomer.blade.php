@@ -178,7 +178,7 @@
                             xhttp.onreadystatechange = function () {
                                 if (this.readyState == 4 && this.status == 200) {
                                     var data = this.responseText;
-                                    //alert(data);
+                                   
                                     var table;
                                     var a = JSON.parse(data);
 
@@ -241,7 +241,7 @@
                             ]};
 
                             var UC = JSON.stringify(updateCustomer);
-                            alert(UC);
+                            
                             var xhttp = new XMLHttpRequest();
                             xhttp.onreadystatechange = function () {
                                 if (this.readyState == 4 && this.status == 200) {

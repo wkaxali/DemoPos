@@ -6681,7 +6681,7 @@
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("pills-tabContent").innerHTML = this.responseText;
-                // alert();
+                
                 calculation();
 
 
@@ -6757,7 +6757,7 @@
                 $('#category').selectpicker('refresh');
             }
         };
-        //alert("ljd");
+      
         xhttp.open("GET", "./loadProductCategory/", true);
 
         xhttp.send();

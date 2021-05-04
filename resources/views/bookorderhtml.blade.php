@@ -175,7 +175,7 @@
                         </main>
                         <div class="clear"></div>
 
-<br>
+                <br>
                         <div class="footerBtn">
                             
                             <button class="placeBtns btn" onclick="placeOrder()">Place Order</button>

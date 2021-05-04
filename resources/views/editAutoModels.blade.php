@@ -128,7 +128,7 @@ function getAutoModel() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        var data =   this.responseText;
-       //alert(data);
+       
        var table;
        var a=JSON.parse(data);
        
@@ -162,13 +162,13 @@ $("#stocktable").on('click','tr',function(){
 function editAutoModels() {
     
     var ModelID = document.getElementById("ModelID").value;
-    //alert("updated  "+PID);
+    
     var Company = document.getElementById("Company").value;
-    //alert("updated  "+productName);
+    
     var ModelName = document.getElementById("ModelName").value;
-    //alert("updated  "+company);
+    
     var description = document.getElementById("description").value;
-    //alert("updated "+salePrice);
+    
     var Price = document.getElementById("Price").value;
     
     
@@ -188,7 +188,7 @@ function editAutoModels() {
 
                 }
             };
-            alert(UC);
+            
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./editAutoModels/" + UC, true);
             xhttp.send();
@@ -207,7 +207,7 @@ function editAutoModels() {
     var add = [ comp, model, product, price];
 
     var AA = JSON.stringify(add);
-    alert(AA);
+  
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {

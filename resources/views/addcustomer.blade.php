@@ -200,7 +200,7 @@ margin-bottom: 50px;
             var addUsers = [username, fathername, address,pNumber,cnic,email,profession];
 
             var AC = JSON.stringify(addUsers);
-            alert(AC);
+           
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {

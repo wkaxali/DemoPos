@@ -100,18 +100,18 @@
                         <div class="o-inv">
                             <label for="invo-1">Customer Id</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="CID">
+                                name="invo-1" id="CID" readonly>
                             <button class="btn"
                                 style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
                             <br>
                             <label for="prod-1">Last Balance</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="LastBalance">
+                                name="invo-1" id="LastBalance" readonly>
                             <button class="btn"
                                 style="height: 25px; margin-top: -5px;background-color: #13579a;"></button> <br>
                             <label for="prod-1">Current Balance</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="CurrentBalance">
+                                name="invo-1" id="CurrentBalance" readonly>
 
                         </div>
                         <div class="o-inv-2">
@@ -129,12 +129,12 @@
                             <br>
                             <label for="prod-1">Contact Number</label>
                             <input type="text" class="form-control"
-                                style="display: inline-block; width: 107px; height: 30px;" name="invo-1" id="CNO">
+                                style="display: inline-block; width: 107px; height: 30px;" name="invo-1" id="CNO" readonly>
                             <br>
                             <label for="prod-1">Category</label>
                             <input type="text" class="form-control"
                                 style="display: inline-block; width: 107px; height: 30px;" name="invo-1"
-                                id="CustomerCategory">
+                                id="CustomerCategory" readonly>
                             <br>
                         </div>
                         <div class="clear">
@@ -273,11 +273,11 @@
                             <button class="btn" style="background-color: #e61d2f;" id="saveBtn"
                                 onclick="insertInSales()">Save</button>
                             <button class="btn" style="background-color: #0a549d;" onclick="print()">Print</button>
-                            <button class="btn" style="background-color: #e61d2f;">Edit</button>
-                            <button class="btn" style="background-color: #0a549d;">Hold</button>
+                            <!-- <button class="btn" style="background-color: #e61d2f;">Edit</button>
+                            <button class="btn" style="background-color: #0a549d;">Hold</button> -->
                             <button class="btn" style="background-color: #e61d2f;" id="updateBtn"
                                 onclick="UpdateSaleInvoice()">Update</button>
-                            <button class="btn" style="background-color: #0a549d;">Delete</button>
+                            <!-- <button class="btn" style="background-color: #0a549d;">Delete</button> -->
                         </div>
 
 

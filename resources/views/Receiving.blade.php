@@ -274,7 +274,7 @@
             var table = document.getElementById("autoTableBody");
 
 
-            //alert(sp);
+            
             $('#autoTableBody tr').each(function (row, tr) {
 
                 products[row] = [
@@ -334,7 +334,7 @@
                     $('#accounts').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getAccountHeads/", true);
 
             xhttp.send();

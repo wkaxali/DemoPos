@@ -95,19 +95,19 @@
                             <div class="o-inv">
                                 <label for="invo-1">Supplier Id</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="SID">
+                                    name="invo-1" id="SID" readonly>
                                 <button class="btn "
                                     style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
                                 <br>
                                 <label for="prod-1">Last Balance</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="LastBalance">
+                                    name="invo-1" id="LastBalance" readonly>
                                 <button class="btn "
                                     style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
                                 <br>
                                 <label for="prod-1">Current Balance</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="CurrentBalance">
+                                    name="invo-1" id="CurrentBalance" readonly>
 
                             </div>
                             <div class="o-inv-2">
@@ -125,11 +125,11 @@
                                 <br>
                                 <label for="prod-1">Contact Number</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="CNO">
+                                    name="invo-1" id="CNO" readonly>
                                 <br>
                                 <label for="prod-1">Category</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                    name="invo-1" id="SupplierCategory">
+                                    name="invo-1" id="SupplierCategory" readonly>
                                 <br>
                             </div>
                             <div class="clear">
