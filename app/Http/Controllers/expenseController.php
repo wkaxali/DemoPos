@@ -15,7 +15,7 @@ class expenseController extends Controller
         $ata=json_decode($CO);
         foreach ($ata as $obj){
         $date=$obj[0];
-        $LID=2;
+        $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
         $expenseName=$obj[2];
         $expenseHeadID=$obj[3];
@@ -56,7 +56,8 @@ class expenseController extends Controller
 }
 
 public static function getPartyNames(){
-    $data=DB:: select('select * from tblledgerparties');
+    $LID=globalVarriablesController::selfLedgerID();
+    $data=DB:: select('select * from tblledgerparties where LID <>'.$LID);
     
     $option='<option value=" "></option>';
 

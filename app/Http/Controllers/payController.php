@@ -16,7 +16,7 @@ class payController extends Controller
     $ata=json_decode($CO);
         foreach ($ata as $obj){
         $date=$obj[0];
-        $LID=2;
+        $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
         $expenseName=$obj[2];
         $expenseID=$obj[3];

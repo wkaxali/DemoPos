@@ -53,8 +53,8 @@ class OrderFlowController extends Controller
 
         
       self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
-      $LID=2;
-      $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
+      $LID=globalVarriablesController::selfLedgerID();
+      $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
       $oldCompanyBalance=LedgerPartiesController::getPartyBalance(1);
       $paidVia=$AID;
      
@@ -67,7 +67,7 @@ class OrderFlowController extends Controller
       
       accountsController::UpdateNewBalance($AID,$newAccountBalance);
       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
-      LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
+      LedgerPartiesController::UpdatePartiesBalance($LID,$selfBalance);
      // $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
    
     
@@ -481,15 +481,15 @@ class OrderFlowController extends Controller
  
          
        self::insertInDetailedPurchaseOrderForSP($orderDetails,$invoiceNumber,$dateNow);
-       $LID=2;
-       $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
+       $LID=globalVarriablesController::selfLedgerID();
+       $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
        $oldCompanyBalance=LedgerPartiesController::getPartyBalance($SID);
        $paidVia=$AID;
      
-       $currentCompanyBalance=floatval($oldCompanyBalance)-floatval($totRemaining);
+       $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
        LedgerPartiesController::UpdatePartiesBalance($SID,$currentCompanyBalance);
        $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
-       LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
+       LedgerPartiesController::UpdatePartiesBalance($LID,$selfBalance);
        TransactionFlow::addTransaction($invoiceNumber,"Debit","Stock Purchased",
        $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$SID,$paidVia,NULL);
        $OldAccBalance=accountsController::getAccountBalance($AID);

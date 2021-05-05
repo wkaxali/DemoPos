@@ -5,8 +5,9 @@ use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
-
+use App\Http\Controllers\deleteExpenseController;
 use App\Http\Controllers\CustomerViewController;
+use App\Http\Controllers\globalVarriablesController;
 use App\Http\Controllers\OrderFlowController;
 
 use App\Http\Controllers\printServiceSaleInvoice;
@@ -23,7 +24,7 @@ use App\Http\Controllers\printMonthlySaleController;
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
-use App\Http\Controllers\deleteExpenseController;
+
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\attendanceController;
 use App\Http\Controllers\accountsController;
@@ -98,7 +99,7 @@ Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 //Route::get('/getqoute/{id}',[quotationController::class, 'getQuotation']);
 
 //---------------------------//LedgerPartiesController
-Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
+
 Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer']);
 
 Route::get('/getAllCustomers/',[CustomerController::class, 'getAllCustomers']);
@@ -221,7 +222,6 @@ Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategor
 Route::get('/getPartyNames',[expenseController::class, 'getPartyNames']);
 Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
-Route::get('/addcustomer/{AC}',[CustomerController::class, 'addcustomer']);
 
 Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
 
