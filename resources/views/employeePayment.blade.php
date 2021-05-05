@@ -352,8 +352,8 @@ document.getElementById("mainTotal").value=tot;
 
             }
         };
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addPayment/" + expTable, true);
+        var paidTo = "Employee";
+        xhttp.open("GET", "./addPayment/" + expTable + "/" + paidTo, true);
         xhttp.send();
     }
 </script>

@@ -180,7 +180,7 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
-Route::get('/addPayment/{data}',[payController::class, 'insertPayment']);
+Route::get('/addPayment/{data}/{paidTo}',[payController::class, 'insertPayment']);
 Route::get('/getPaymentHistory/{data}',[payController::class, 'getPayRecivingHistory']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/updateAdminStatus/{data}',[taskController::class, 'updateAdminTaskStatus']);

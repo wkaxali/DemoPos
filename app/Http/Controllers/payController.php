@@ -11,9 +11,10 @@ use DB;
 class payController extends Controller
 {
 
-  public static function insertPayment(Request $request, $CO){
+  public static function insertPayment(Request $request, $CO, $PT){
 
     $ata=json_decode($CO);
+      
         foreach ($ata as $obj){
         $date=$obj[0];
         $LID=globalVarriablesController::selfLedgerID();
@@ -24,18 +25,28 @@ class payController extends Controller
         $paidVia=$obj[4];
         $remarks=$obj[5];
 
-
-        
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
-        'TransactionCatogery'=>"Payment",
-        'EID'=>'',
-        'PaidTo'=>$paidTo,
         'PaidVia'=>$paidVia,
-        'TransactionType'=>"Debit"
-        ]);
-
+        'TransactionType'=>"Debit",
+        'TransactionCatogery'=>"Payment"
+        ]);  
+        
+        if($PT=="Party"){
+          $re = DB::table('tbltransactionflow')
+            ->where('TransactionID', $id)
+            ->update([
+              'PaidTo'=>$paidTo,
+          ]);
+        }
+        if($PT=="Employee"){
+          $re = DB::table('tbltransactionflow')
+            ->where('TransactionID', $id)
+            ->update([
+              'EmpID'=>$paidTo,
+          ]);
+        }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance - $amount;
