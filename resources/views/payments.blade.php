@@ -268,7 +268,6 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Amount</th>
-                                    <th>Expense ID</th>
                                     <th>Paid To</th>
                                     <th>Paid By</th>
                                     <th>Remarks</th>
@@ -343,22 +342,22 @@
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
             var cell9 = row.insertCell(8);
-            var cell10 = row.insertCell(9);
+            
 
             cell1.innerHTML = date;
             cell2.innerHTML = amount;
             cell3.innerHTML = expense;
-            cell4.innerHTML = expense;
-            cell5.innerHTML = paidto.options[paidto.selectedIndex].text;
-            cell6.innerHTML = paidby.options[paidby.selectedIndex].text;
-            cell7.innerHTML = paidto.options[paidto.selectedIndex].value;
-            cell8.innerHTML = paidby.options[paidby.selectedIndex].value;
-            cell9.innerHTML = remarks;
-            cell10.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+            //cell4.innerHTML = expense;
+            cell4.innerHTML = paidto.options[paidto.selectedIndex].text;
+            cell5.innerHTML = paidby.options[paidby.selectedIndex].text;
+            cell6.innerHTML = paidto.options[paidto.selectedIndex].value;
+            cell7.innerHTML = paidby.options[paidby.selectedIndex].value;
+            cell8.innerHTML = remarks;
+            cell9.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
 
-            cell4.style.display = "none";
+            cell3.style.display = "none";
+            cell6.style.display = "none";
             cell7.style.display = "none";
-            cell8.style.display = "none";
 
 
 
@@ -405,17 +404,17 @@
                     $(tr).find('td:eq(0)').text(), //Date
                     $(tr).find('td:eq(1)').text(), //Amount
                     $(tr).find('td:eq(2)').text(), //Expense Name
-                    $(tr).find('td:eq(3)').text(), //Expense ID
+                    //$(tr).find('td:eq(3)').text(), //Expense ID
 
 
                     //$(tr).find('td:eq(4)').text(), //Paid To
                     //$(tr).find('td:eq(5)').text(), //Paid By
 
-                    $(tr).find('td:eq(6)').text(), //Paid To ID
-                    $(tr).find('td:eq(7)').text(), //Paid By ID
+                    $(tr).find('td:eq(5)').text(), //Paid To ID
+                    $(tr).find('td:eq(6)').text(), //Paid By ID
 
-                    $(tr).find('td:eq(8)').text(), //Remarks
-                    $(tr).find('td:eq(9)').text()
+                    $(tr).find('td:eq(7)').text(), //Remarks
+                    $(tr).find('td:eq(8)').text()
                 ];
 
 
