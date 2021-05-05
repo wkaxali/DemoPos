@@ -177,6 +177,15 @@ public static function getEmployeeName(){
 
   }
 
+
+   public function getPayment(){
+    $results=DB::select('select * from tbltransactionflow');
+   // mysql_insert_id()
+    return $results;
+
+}
+
+
 }
 
   

@@ -6,6 +6,7 @@ use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
 use App\Http\Controllers\deleteExpenseController;
+use App\Http\Controllers\deletePaymentController;
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\globalVarriablesController;
 use App\Http\Controllers\OrderFlowController;
@@ -82,6 +83,8 @@ Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierPart
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/addExpenseHead/{expTable}',[expenseController::class, 'insertExpense']);
 Route::get('/getExpenses',[expenseController::class, 'getExpenses']);
+Route::get('/getPayment',[payController::class, 'getPayment']);
+
 Route::get('/editExpense',[expenseController::class, 'editExpense']);
 
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
@@ -201,7 +204,7 @@ Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 Route::get('/deleteExpense/{data}',[deleteExpenseController::class, 'deleteExpense']);
-
+Route::get('/deletePayment/{data}',[deletePaymentController::class, 'deletePayment']);
 Route::get('/editCustomer/{data}',[CustomerController::class, 'editCustomer']);
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
@@ -539,6 +542,15 @@ Route::get('/igl', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('investorGeneralLedger'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/dpay', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('deletePayments'); 
     }else{
     return view("signInSignUp");
     }
