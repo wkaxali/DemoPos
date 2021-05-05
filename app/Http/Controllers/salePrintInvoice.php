@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use DB;
 
 use PDF;
+
 use NumberToWords\NumberToWords;
 
 class salePrintInvoice extends Controller
