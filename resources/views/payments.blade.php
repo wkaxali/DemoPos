@@ -420,6 +420,7 @@
 
             });
             expenseDetails.shift();
+            expenseDetails.push("Party Payment"); 
             var expTable = JSON.stringify(expenseDetails);
            
             var xhttp = new XMLHttpRequest();

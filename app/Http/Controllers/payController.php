@@ -23,6 +23,7 @@ class payController extends Controller
         $paidTo=$obj[3];
         $paidVia=$obj[4];
         $remarks=$obj[5];
+
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
