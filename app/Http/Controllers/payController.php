@@ -23,15 +23,26 @@ class payController extends Controller
         $paidTo=$obj[3];
         $paidVia=$obj[4];
         $remarks=$obj[5];
+
+        $pid=DB::table('tbl_paymentsflow')->insertGetId([
+          'Date'=>$date,
+          'Amount'=>$amount,
+          'PaidTo'=>$paidTo,
+          'PaidVia'=>$paidVia,
+          'Remarks'=>$remarks
+          ]);
+  
+
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
         'TransactionCatogery'=>"Payment",
-        'EID'=>'',
+        'EID'=>$pid,
         'PaidTo'=>$paidTo,
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Debit"
         ]);
+
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance - $amount;
