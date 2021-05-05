@@ -215,7 +215,7 @@
     class="selectpicker form-control" data-live-search="true" id="paidTo">
 
     </select>
-    <button class="btn btn-info">+</button><br>
+   <br>
     <label for="">Paid by</label>
     <select
     class="selectpicker form-control" data-live-search="true" id="paidBy">
@@ -284,7 +284,7 @@
     <div class="col-md-6 offset-md-6">
     <div class="mainTableEnd">
     <label for="">Total Expense</label>
-    <input type="text" onclick="calculatonInTable()" value="" name="" id="mainTotal">
+    <input type="text" onclick="calculatonInTable()" value="" name="" id="mainTotal" readonly>
     </div>
     </div>
     </div>
@@ -295,7 +295,7 @@
     <div class="row">
     <div class="col-md-5 offset-md-7">
     <div class="footerBtns">
-    <button class="btn">Close</button>
+   
     <button onclick="window.print()" class="btn">Print</button>
     <button class="btn" onclick="addExpenses()">Update</button>
     </div>

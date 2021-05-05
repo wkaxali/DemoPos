@@ -85,6 +85,8 @@ style="float: right"></span></a>
 <ul class="collapse firstULs3">
 <li id="menu-mensagens" style="width: 201px"><a href="/pay">Add Payments</a>
 </li>
+<li id="menu-mensagens" style="width: 201px"><a href="/dpay">Delete Payments</a>
+</li>
 <li id="menu-mensagens" style="width: 201px"><a href="/ep">Employee Payments</a>
 </li>
 
