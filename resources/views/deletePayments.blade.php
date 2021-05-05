@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Delete Expenses</title>
+    <title>Delete Payments</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -60,7 +60,7 @@
 
     </style>
 </head>
-<body onload="getExpenses()">
+<body onload="getPayment()">
 <div class="page-container">
 <div class="container">
 
@@ -68,7 +68,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="mt-3">Delete Expense</h3>
+                    <h3 class="mt-3">Delete Payments</h3>
                 </div>
             </div>
 
@@ -83,13 +83,13 @@
                         style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto; margin-left: 80px;">
                         <table style="width: 100%;" id="stocktable">
                             <thead>
-
-                                <th>Expanse ID</th>
-                                <th>Expanse Head ID</th>
-                                <th>Remarks</th>
-                                <th>DateStamp</>
+                            <th>Transaction ID</>
+                                <th>Date</th>
                                 <th>Amount</th>
+                                <th>Paid To</th>
+                                <th>Paid BY</th>
                                 <th></th>
+                                
                                 </tr>
                             </thead>
                             <tbody id="stocktableBody">
@@ -137,7 +137,7 @@
     <!--end::Global Theme Bundle-->
 
     <script>
-        function getExpenses() {
+        function getPayment() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -149,10 +149,10 @@
                     table = $('#stocktable').DataTable();
 
                     $.each(a, function (i, item) {
-                        expanseID=a[i].ExpanseID;
-                        table.row.add([a[i].ExpanseID, a[i].ExpanseHeadID, a[i].Remarks, a[i].DateStamp,
-                            a[i].Amount,
-                            '<button class="btn print" onclick="deleteExpense('+expanseID+')" >Delete</button>'
+                        transactionID=a[i].TransactionID;
+                        table.row.add([a[i].TransactionID,a[i].DateStamp, a[i].Amount,  a[i].PaidTo,
+                            a[i].PaidVia,
+                            '<button class="btn print" onclick="deletePayment('+transactionID+')" >Delete</button>'
                             
                             ]);
                     });
@@ -161,11 +161,13 @@
                 }
             };
 
-            xhttp.open("GET", "./getExpenses/", true);
+            xhttp.open("GET", "./getPayment/", true);
             xhttp.send();
         }
-        function deleteExpense(expanseID){
-            var EID = expanseID;
+
+
+        function deletePayment(transactionID){
+            var EID = transactionID;
             if (confirm("Do you want to permanently delete record "+EID)){
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
@@ -174,7 +176,7 @@
                     location.reload();
                     }
                 };
-                xhttp.open("GET", "./deleteExpense/" + EID, true);
+                xhttp.open("GET", "./deletePayment/" + EID, true);
                 xhttp.send();
             }
         }

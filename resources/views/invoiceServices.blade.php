@@ -1104,7 +1104,9 @@
         .appointment-form {
             padding: 10px 60px 0px 60px;
         }
-
+        table.dataTable tbody td {
+             padding: 0px 0px;
+                 }
         .appointment-form input,
         select {
             width: 100%;

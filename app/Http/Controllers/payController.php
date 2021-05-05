@@ -14,7 +14,8 @@ class payController extends Controller
   public static function insertPayment(Request $request, $CO){
 
     $ata=json_decode($CO);
-        foreach ($ata as $obj){
+        $paymentTo=$CO[1];
+        foreach ($ata[0] as $obj){
         $date=$obj[0];
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
@@ -24,15 +25,26 @@ class payController extends Controller
         $paidVia=$obj[4];
         $remarks=$obj[5];
 
+        $pid=DB::table('tbl_paymentsflow')->insertGetId([
+          'Date'=>$date,
+          'Amount'=>$amount,
+          'PaidTo'=>$paidTo,
+          'PaidVia'=>$paidVia,
+          'Remarks'=>$remarks,
+          'PaymentTo'=>$paymentTo
+          ]);
+  
+
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
         'TransactionCatogery'=>"Payment",
-        'EID'=>'',
+        'EID'=>$pid,
         'PaidTo'=>$paidTo,
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Debit"
         ]);
+
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance - $amount;
@@ -177,6 +189,15 @@ public static function getEmployeeName(){
     return $totatlPay;
 
   }
+
+
+   public function getPayment(){
+    $results=DB::select('select * from tbltransactionflow where TransactionCatogery="Payment"');
+   // mysql_insert_id()
+    return $results;
+
+}
+
 
 }
 
