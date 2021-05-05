@@ -11,11 +11,11 @@ use DB;
 class payController extends Controller
 {
 
-  public static function insertPayment(Request $request, $CO){
+  public static function insertPayment(Request $request, $CO, $PT){
 
     $ata=json_decode($CO);
-        $paymentTo=$CO[1];
-        foreach ($ata[0] as $obj){
+      
+        foreach ($ata as $obj){
         $date=$obj[0];
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
@@ -25,26 +25,28 @@ class payController extends Controller
         $paidVia=$obj[4];
         $remarks=$obj[5];
 
-        $pid=DB::table('tbl_paymentsflow')->insertGetId([
-          'Date'=>$date,
-          'Amount'=>$amount,
-          'PaidTo'=>$paidTo,
-          'PaidVia'=>$paidVia,
-          'Remarks'=>$remarks,
-          'PaymentTo'=>$paymentTo
-          ]);
-  
-
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
-        'TransactionCatogery'=>"Payment",
-        'EID'=>$pid,
-        'PaidTo'=>$paidTo,
         'PaidVia'=>$paidVia,
-        'TransactionType'=>"Debit"
-        ]);
-
+        'TransactionType'=>"Debit",
+        'TransactionCatogery'=>"Payment"
+        ]);  
+        
+        if($PT=="Party"){
+          $re = DB::table('tbltransactionflow')
+            ->where('TransactionID', $id)
+            ->update([
+              'PaidTo'=>$paidTo,
+          ]);
+        }
+        if($PT=="Employee"){
+          $re = DB::table('tbltransactionflow')
+            ->where('TransactionID', $id)
+            ->update([
+              'EmpID'=>$paidTo,
+          ]);
+        }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance - $amount;
