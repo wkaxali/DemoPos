@@ -83,10 +83,9 @@
                         style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto; margin-left: 80px;">
                         <table style="width: 100%;" id="stocktable">
                             <thead>
-
+                            <th>Transaction ID</>
                                 <th>Date</th>
                                 <th>Amount</th>
-                                <th>Expense ID</>
                                 <th>Paid To</th>
                                 <th>Paid BY</th>
                                 <th></th>
@@ -151,9 +150,9 @@
 
                     $.each(a, function (i, item) {
                         transactionID=a[i].TransactionID;
-                        table.row.add([a[i].DateStamp, a[i].Amount, a[i].TransactionID, a[i].PaidTo,
+                        table.row.add([a[i].TransactionID,a[i].DateStamp, a[i].Amount,  a[i].PaidTo,
                             a[i].PaidVia,
-                            '<button class="btn print" onclick="deleteExpense('+transactionID+')" >Delete</button>'
+                            '<button class="btn print" onclick="deletePayment('+transactionID+')" >Delete</button>'
                             
                             ]);
                     });

@@ -8,29 +8,36 @@ use DB;
 
 class deletePaymentController extends Controller
 {
-    public static function deletePayment($EID){
+    public static function deletePayment($TID){
 
-        $payFlow = DB::table('tbltransactionflow')
-            ->where('TransactionID', '=', $EID);
+        $transaction = DB::table('tbltransactionflow')
+            ->where('TransactionID', '=', $TID);
              
-        $expenseTransaction = DB::table('tbltransactionflow')
-            ->where('EID', '=', $EID);
 
-        $amount = $expenseFlow->first()->Amount;
-        $AID = $expenseTransaction->first()->PaidVia;
+        $amount = $transaction->first()->Amount;
+        $AID = $transaction->first()->PaidVia;
+        $PartyLID = $transaction->first()->PaidTo;
 
-        $LID=globalVarriablesController::selfLedgerID();
-        $oldAccBalance=accountsController::getAccountBalance($AID);
-        $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
-        $newAccountBalance = floatval($oldAccBalance) + floatval($amount);
+        $transaction = DB::table('tblledgerparties')
+            ->where('LID', '=', $AID);
+
+        $ledgerID=globalVarriablesController::selfLedgerID();
+        $oldSelfBalance= LedgerPartiesController::getPartyBalance($ledgerID);
         $newSelfBalance = floatval($oldSelfBalance) + floatval($amount);
 
-        LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
+        $oldAccBalance=accountsController::getAccountBalance($AID);
+        $newAccountBalance = floatval($oldAccBalance) + floatval($amount);
+
+        $oldPartyBalance= LedgerPartiesController::getPartyBalance($PartyLID);
+        $newPartyBalance = floatval($oldSelfBalance) + floatval($amount);
+        LedgerPartiesController::UpdatePartiesBalance($PartyLID, $newPartyBalance);
+
+        LedgerPartiesController::UpdatePartiesBalance($ledgerID, $newSelfBalance);
         accountsController::UpdateNewBalance($AID,$newAccountBalance);
         
-        $deleteExpense = DB::delete("delete from tbltransactionflow where ExpanseID=".$EID);
-        $deleteTransaction = DB::delete("delete from tbltransactionflow where EID=".$EID);
+        
+        $deleteTransaction = DB::delete("delete from tbltransactionflow where TransactionID=".$TID);
 
-        return "Pay number $EID is deleted";
+        return "Pay number $TID is deleted";
     }
 }

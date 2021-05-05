@@ -179,7 +179,7 @@ public static function getEmployeeName(){
 
 
    public function getPayment(){
-    $results=DB::select('select * from tbltransactionflow');
+    $results=DB::select('select * from tbltransactionflow where TransactionCatogery="Payment"');
    // mysql_insert_id()
     return $results;
 
