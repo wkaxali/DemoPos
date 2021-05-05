@@ -16,10 +16,6 @@ class deletePaymentController extends Controller
 
         $amount = $transaction->first()->Amount;
         $AID = $transaction->first()->PaidVia;
-        $PartyLID = $transaction->first()->PaidTo;
-
-        $transaction = DB::table('tblledgerparties')
-            ->where('LID', '=', $AID);
 
         $ledgerID=globalVarriablesController::selfLedgerID();
         $oldSelfBalance= LedgerPartiesController::getPartyBalance($ledgerID);
@@ -27,12 +23,14 @@ class deletePaymentController extends Controller
 
         $oldAccBalance=accountsController::getAccountBalance($AID);
         $newAccountBalance = floatval($oldAccBalance) + floatval($amount);
-
-        $oldPartyBalance= LedgerPartiesController::getPartyBalance($PartyLID);
-        $newPartyBalance = floatval($oldSelfBalance) + floatval($amount);
-        LedgerPartiesController::UpdatePartiesBalance($PartyLID, $newPartyBalance);
-
-        LedgerPartiesController::UpdatePartiesBalance($ledgerID, $newSelfBalance);
+        $PartyLID = $transaction->first()->PaidTo;
+        if($PartyLID!=NULL){
+            $oldPartyBalance= LedgerPartiesController::getPartyBalance($PartyLID);
+            $newPartyBalance = floatval($oldSelfBalance) + floatval($amount);
+            LedgerPartiesController::UpdatePartiesBalance($PartyLID, $newPartyBalance);
+            LedgerPartiesController::UpdatePartiesBalance($ledgerID, $newSelfBalance);
+        }
+        
         accountsController::UpdateNewBalance($AID,$newAccountBalance);
         
         
