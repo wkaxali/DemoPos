@@ -214,8 +214,8 @@
                             <select 
                                 class="selectpicker form-control" data-live-search="true" id="paidTo">
 
-                            </select>
-                            <button class="btn btn-info">+</button><br>
+                            </select><br>
+                            <!-- <button class="btn btn-info">+</button><br> -->
                             <label for="">Paid by</label>
                             <select 
                                 class="selectpicker form-control" data-live-search="true" id="paidBy">
