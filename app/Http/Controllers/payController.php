@@ -51,10 +51,11 @@ class payController extends Controller
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance - $amount;
     LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
-    $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
-    $newBalanceOfParty=$balanceForParty-$amount;
-    LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
-
+    if($PT=="Party"){
+      $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
+      $newBalanceOfParty=$balanceForParty-$amount;
+      LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
+    }
     $oldAccountBalance = accountsController::getAccountBalance($paidVia);
     $newAccountBalance = $oldAccountBalance - $amount;
     accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
