@@ -40,7 +40,7 @@ class autoStockDetails extends Controller
     </table>
     
     
-    <table border="1" cellpadding="3">
+    <table border="1" cellpadding="5">
     <thead>
     <tr>
     <th width="30%" border="2" align="left" >Autos</th>
@@ -138,8 +138,21 @@ class autoStockDetails extends Controller
      
     </tbody>
     </table>
-    
-    
+    <table border="1" cellpadding="9">
+ <br>
+ <br>
+ <br>
+
+    <thead>
+    <tr>
+    <th width="30%" border="2" align="left" >Total</th>
+    <th width="30%" border="2" align="left" > 1500</th>    
+    <th width="20%" border="2" align="left" >124</th>    
+    <th width="20%" border="2" align="left" > 500</th>    
+
+    </tr>
+    </thead>    
+    </table>
     
     
     ';
