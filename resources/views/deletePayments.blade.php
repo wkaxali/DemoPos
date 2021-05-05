@@ -153,7 +153,7 @@
                         transactionID=a[i].TransactionID;
                         table.row.add([a[i].DateStamp, a[i].Amount, a[i].TransactionID, a[i].PaidTo,
                             a[i].PaidVia,
-                            '<button class="btn print" onclick="deleteExpense('+TransactionID+')" >Delete</button>'
+                            '<button class="btn print" onclick="deleteExpense('+transactionID+')" >Delete</button>'
                             
                             ]);
                     });
@@ -167,7 +167,7 @@
         }
 
 
-        function deleteExpense(transactionID){
+        function deletePayment(transactionID){
             var EID = transactionID;
             if (confirm("Do you want to permanently delete record "+EID)){
                 var xhttp = new XMLHttpRequest();

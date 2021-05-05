@@ -97,7 +97,7 @@
 
                                     <div class="inputField-1">
                                         <label for="prodName">Total Price</label>
-                                        <input type="text" class="form-control" id="totalPrice"
+                                        <input type="text" class="form-control" id="totalPrice" readonly
                                             style="height: 40px !important; width: 200px !important; ">
 
                                     </div>

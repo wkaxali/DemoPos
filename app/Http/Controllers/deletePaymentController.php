@@ -9,9 +9,9 @@ use DB;
 class deletePaymentController extends Controller
 {
     public static function deletePayment($EID){
-        
-        $expenseFlow = DB::table('tblexpanseflow')
-            ->where('ExpanseID', '=', $EID);
+
+        $payFlow = DB::table('tbltransactionflow')
+            ->where('TransactionID', '=', $EID);
              
         $expenseTransaction = DB::table('tbltransactionflow')
             ->where('EID', '=', $EID);
@@ -28,9 +28,9 @@ class deletePaymentController extends Controller
         LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
         accountsController::UpdateNewBalance($AID,$newAccountBalance);
         
-        $deleteExpense = DB::delete("delete from tblexpanseflow where ExpanseID=".$EID);
+        $deleteExpense = DB::delete("delete from tbltransactionflow where ExpanseID=".$EID);
         $deleteTransaction = DB::delete("delete from tbltransactionflow where EID=".$EID);
 
-        return "Expense number $EID is deleted";
+        return "Pay number $EID is deleted";
     }
 }

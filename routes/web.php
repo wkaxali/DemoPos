@@ -204,7 +204,7 @@ Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 Route::get('/deleteExpense/{data}',[deleteExpenseController::class, 'deleteExpense']);
-Route::get('/deletePayment/{data}',[deletePaymentController::class, 'deletePayment']);
+Route::get('/deletePayment/{EID}',[deletePaymentController::class, 'deletePayment']);
 Route::get('/editCustomer/{data}',[CustomerController::class, 'editCustomer']);
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
