@@ -57,7 +57,9 @@ Route::get('/sd',[summaryReportController::class, 'stockDetails']);
 Route::get('/sum',[summaryReportController::class, 'summaryReport']);
 Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
 Route::get('/transactions/{dates}',[summaryReportController::class, 'transactions']);
-
+Route::get('/getUsers',[userAccountController::class, 'getUsers']);
+Route::get('/editUsers/{data}',[userAccountController::class, 'editUsers']);
+Route::get('/addUsers/{data}',[userAccountController::class, 'addUsers']);
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
@@ -901,7 +903,14 @@ Route::get('/ans', function (){
     }
 });
 
-
+Route::get('/au', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addUsers'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
 
 Route::get('/eam', function () {
     $UN = session()->get('Designation');
@@ -962,8 +971,6 @@ Route::get('/aam', function () {
 Route::get('/ans', function () {
     return view('addNewStock');
 });
-
-
 
 Route::get('/dls', function () {
     $UN = session()->get('Designation');

@@ -176,15 +176,15 @@
                                     <div class="form-group">
 
                                         <select name="" class="form-control item" id="designation">
-                                            <option value="0">Admin</option>
-                                            <option value="1">Manager</option>
-                                            <option value="1">Employee</option>
+                                            <option value="1">Admin</option>
+                                            <option value="2">Manager</option>
+                                            <option value="3">Employee</option>
                                         </select>
                                     </div>
 
 
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" id="addUser" onclick="addNewUsers()"
+                                        <button type="button" id="addUsers" onclick="addNewUser()"
                                             class="btn  create-account">Add</button>
                                     </div>
 
@@ -207,19 +207,18 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function addNewUsers() {
+    function addNewUser() {
+        var Username = document.getElementById("UserName").value;
 
+        var password = document.getElementById("Password").value;
+        
+        var designation = $('#designation').find(":selected").val();
 
-            var Username = document.getElementById("UserName").value;
-            var password = document.getElementById("Password").value;
-            var designation = document.getElementById("designation").value;
-            var designationBoxValue= designation.options[designation.selectedIndex].text;
+        var addUsers = [Username, password, designation];
 
-            var addUser = [Username, password, designationBoxValue];
-
-            var AU = JSON.stringify(addUser);
-         
-            var xhttp = new XMLHttpRequest();
+        var AU = JSON.stringify(addUsers);
+        alert(AU)
+        var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
@@ -230,11 +229,11 @@
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addNewUsers/" + AU, true);
-            xhttp.send();
+            xhttp.open("GET", "./addUsers/" + AU, true)
+            xhttp.send()
 
         }
-
+    
     </script>
 </body>
 
