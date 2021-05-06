@@ -216,6 +216,9 @@
 
         var addUsers = [Username, password, designation];
 
+        if(Username=="" || password==""){
+            alert("Fill in all Fields")
+        }else{
         var AU = JSON.stringify(addUsers);
         alert(AU)
         var xhttp = new XMLHttpRequest();
@@ -233,6 +236,8 @@
             xhttp.send()
 
         }
+    }
+
     
     </script>
 </body>
