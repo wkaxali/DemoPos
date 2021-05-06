@@ -184,7 +184,7 @@
 
 
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" id="addUsers" onclick="addUsers()"
+                                        <button type="button" id="addUser" onclick="addNewUsers()"
                                             class="btn  create-account">Add</button>
                                     </div>
 
@@ -207,16 +207,17 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function addUsers() {
+        function addNewUsers() {
 
 
             var Username = document.getElementById("UserName").value;
             var password = document.getElementById("Password").value;
             var designation = document.getElementById("designation").value;
+            var designationBoxValue= designation.options[designation.selectedIndex].text;
 
-            var addUsers = [Username, password, designation];
+            var addUser = [Username, password, designationBoxValue];
 
-            var AU = JSON.stringify(addUsers);
+            var AU = JSON.stringify(addUser);
          
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -229,7 +230,7 @@
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addUsers/" + AU, true);
+            xhttp.open("GET", "./addNewUsers/" + AU, true);
             xhttp.send();
 
         }

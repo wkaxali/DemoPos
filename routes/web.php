@@ -234,6 +234,9 @@ Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotati
 Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'signIn']);
+Route::get('/addNewUsers/{AU}',[userAccountController::class, 'addUsers']);
+
+
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
 
@@ -607,7 +610,14 @@ Route::get('/esp', function () {
     }
 });
 
-
+Route::get('/au', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addUsers'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
 
 Route::get('/SalarySlip', function () {
     $UN = session()->get('Designation');
@@ -891,14 +901,7 @@ Route::get('/ans', function (){
     }
 });
 
-Route::get('/au', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('addAdmins'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
+
 
 Route::get('/eam', function () {
     $UN = session()->get('Designation');
@@ -930,7 +933,7 @@ Route::get('/aam', function () {
 Route::get('/eu', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('editAdmins'); 
+    return view('editUsers'); 
     }else{
     return view("signInSignUp");
     }
@@ -961,9 +964,6 @@ Route::get('/ans', function () {
 });
 
 
-Route::get('/eu', function () {
-    return view('editAdmins');
-});
 
 Route::get('/dls', function () {
     $UN = session()->get('Designation');

@@ -166,7 +166,7 @@
                                             placeholder="Task Categorey">
                                     </div>
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" class="btn  create-account" onclick="addTaskCategory()">Add Expense Head</button>
+                                        <button type="button" class="btn  create-account" onclick="addTaskCategory()">Add Category</button>
                                     </div>
 
 
