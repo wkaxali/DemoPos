@@ -169,7 +169,35 @@ public static function getEmployeeName(){
 
   return "Pay Updated";
   }
+  
 
+  public static function addEmpPay($data){
+    
+    $obj=json_decode($data);
+    $eid=$obj[0];
+    $basicPay=$obj[1];
+    $allownces=$obj[2];
+    $total=$obj[3];
+    $allowedHolidays=$obj[4];
+    $saleTarget=$obj[5];
+    $workingHours=$obj[6];
+    
+  
+ 
+    $id=DB::table('tblemployeepay')->insertGetId([
+     
+                'BasicPay' =>$basicPay,
+                'AllowedHolidays' =>$allowedHolidays,
+                'SaleTarget' =>$saleTarget,
+                'Alownces' =>$allownces,
+                'TotalPay' =>$total,
+                'WorkingHours' =>$workingHours,
+                'EID' =>$eid
+                
+              ]);
+
+  return $id;
+  }
 
   public static function getCalculatedPay($EMPID)
   {

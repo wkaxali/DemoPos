@@ -10,6 +10,7 @@ use App\Http\Controllers\deletePaymentController;
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\globalVarriablesController;
 use App\Http\Controllers\OrderFlowController;
+use App\Http\Controllers\productCategoryController;
 
 use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
@@ -236,6 +237,15 @@ Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotati
 Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'signIn']);
+Route::get('/addNewUsers/{AU}',[userAccountController::class, 'addUsers']);
+
+Route::get('/addCategory/{Category}',[productCategoryController::class, 'addCategory']);
+
+Route::get('/getPCategory',[productCategoryController::class, 'getCategory']);
+Route::get('/editCategory/{EC}',[productCategoryController::class, 'editCategory']);
+
+Route::get('/addEmpPay/{AP}',[payController::class, 'addEmpPay']);
+
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
 
@@ -304,6 +314,16 @@ Route::get('/qt', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('quotation'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+
+Route::get('/aep', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addEmployeePay'); 
     }else{
     return view("signInSignUp");
     }
@@ -609,7 +629,14 @@ Route::get('/esp', function () {
     }
 });
 
-
+Route::get('/au', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addUsers'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
 
 Route::get('/SalarySlip', function () {
     $UN = session()->get('Designation');

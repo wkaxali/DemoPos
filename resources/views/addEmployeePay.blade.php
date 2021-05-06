@@ -8,9 +8,10 @@
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
 
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <style>
@@ -128,65 +129,28 @@
                 width: 180px !important;
             }
 
-            .addCut {
-                font-size: 25px;
-                margin-bottom: 50px;
+            .addCut{
+font-size: 25px;
+margin-bottom: 50px;
             }
-
             .registration-form {
-                padding: 60px 0;
-                /* background-color: #fff; */
+            padding: 60px 0;
+            /* background-color: #fff; */
 
-            }
+        }
         }
 
     </style>
+    <title>Add Employee Pay</title>
+</head>
 
-<body>
-
-    <div class="page-container">
-        <div class="left-content">
-            <div class="inner-block">
-
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-8 offset-md-2">
-                            <div class="registration-form">
-
-                                <form>
-
-                                    <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
-                                        <h2 class="text-center addCut">Task Category</h2>
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" id="taskCategorey" required
-                                            placeholder="Task Categorey">
-                                    </div>
-                                    <div class="form-group" style="text-align: center;">
-                                        <button type="button" class="btn  create-account" onclick="addTaskCategory()">Add Category</button>
-                                    </div>
+<body onload="loadEmployees()">
+@include('addEmployeePayhtml')
 
 
-                                </form>
-
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
 
 
-            </div>
-        </div>
 
-        @include('sidenavbar')
-
-
-        <div class="clearfix"></div>
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
@@ -196,28 +160,81 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function addTaskCategory() {
+        $(document).ready(function () {
+            $('#myTables').DataTable();
+        });
+        var toggle = true;
 
-            var data = document.getElementById("taskCategorey").value;
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute",
+
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
+
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+
+    </script>
+    <script>
+        function addEmpPay() {
+
+
+            var BasicPay = document.getElementById("BasicPay").value;
+            var Allowance = document.getElementById("Allowance").value;
+            var TotalPay = document.getElementById("TotalPay").value;
+            var eid = $('#paidTo').find(":selected").val();
+            var AllowedHolidays = document.getElementById("AllowedHolidays").value;
+            var SaleTarget = document.getElementById("SaleTarget").value;
+            var WorkingHours = document.getElementById("WorkingHours").value;
             
-    
+            var addPay = [eid,BasicPay, Allowance, TotalPay, AllowedHolidays,SaleTarget,WorkingHours];
+
+            var AP = JSON.stringify(addPay);
+           
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Task Category " + this.responseText + " is Added");
+                    alert("Employee  " + this.responseText + "Pay is Added");
 
 
                 }
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addTaskCategory/" + data, true);
+            xhttp.open("GET", "./addEmpPay/" + AP, true);
             xhttp.send();
 
         }
 
     </script>
+<script>
+function loadEmployees(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("paidTo").innerHTML = this.response;
+            $('#paidTo').selectpicker('refresh');
+        }
+    };
+    
+    xhttp.open("GET", "./getEmployeeName/", true);
+    
+    xhttp.send();
+    }
+</script>
 
 </body>
 
