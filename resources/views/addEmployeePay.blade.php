@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,17 +8,13 @@
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
-<title>Add Users</title>
-    <style>
-        @media (max-width: 1366px) {
-            .left-content {
-                width: 83% !important;
-            }
-        }
 
+    <style>
         .registration-form {
             padding: 0px 0;
             /* background-color: #fff; */
@@ -132,109 +129,113 @@
                 width: 180px !important;
             }
 
-            .addCut {
-                font-size: 25px;
-                margin-bottom: 50px;
+            .addCut{
+font-size: 25px;
+margin-bottom: 50px;
             }
-
             .registration-form {
-                padding: 60px 0;
-                /* background-color: #fff; */
+            padding: 60px 0;
+            /* background-color: #fff; */
 
-            }
+        }
         }
 
     </style>
+    <title>Add Employee Pay</title>
 </head>
 
-<body>
-    <div class="page-container">
-
-        <div class="left-content">
-            <div class="inner-block">
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-8 offset-md-2">
-                            <div class="registration-form">
-
-                                <form>
-
-                                    <div class="CustomerAddition  mb-3" style="margin:20px !important;">
-                                        <h2 class="text-center addCut">Add User</h2>
-
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="UserName"
-                                            placeholder="User Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="Password"
-                                            placeholder="Password" >
-                                    </div>
-                                    <div class="form-group">
-
-                                        <select name="" class="form-control item" id="designation">
-                                            <option value="1">Admin</option>
-                                            <option value="2">Manager</option>
-                                            <option value="3">Employee</option>
-                                        </select>
-                                    </div>
+<body onload="loadEmployees()">
+@include('addEmployeePayhtml')
 
 
-                                    <div class="form-group" style="text-align: center;">
-                                        <button type="button" id="addUsers" onclick="addNewUser()"
-                                            class="btn  create-account">Add</button>
-                                    </div>
 
 
-                                </form>
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @include('adminNavbar')
-    <div class="clearfix"></div>
-    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
+    </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-    function addNewUser() {
-        var Username = document.getElementById("UserName").value;
+        $(document).ready(function () {
+            $('#myTables').DataTable();
+        });
+        var toggle = true;
 
-        var password = document.getElementById("Password").value;
-        
-        var designation = $('#designation').find(":selected").text();
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute",
 
-        var addUsers = [Username, password, designation];
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
 
-        var AU = JSON.stringify(addUsers);
-        alert(AU)
-        var xhttp = new XMLHttpRequest();
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+
+    </script>
+    <script>
+        function addEmpPay() {
+
+
+            var BasicPay = document.getElementById("BasicPay").value;
+            var Allowance = document.getElementById("Allowance").value;
+            var TotalPay = document.getElementById("TotalPay").value;
+            var eid = $('#paidTo').find(":selected").val();
+            var AllowedHolidays = document.getElementById("AllowedHolidays").value;
+            var SaleTarget = document.getElementById("SaleTarget").value;
+            var WorkingHours = document.getElementById("WorkingHours").value;
+            
+            var addPay = [eid,BasicPay, Allowance, TotalPay, AllowedHolidays,SaleTarget,WorkingHours];
+
+            var AP = JSON.stringify(addPay);
+           
+            var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("User " + this.responseText + " is Added");
+                    alert("Employee  " + this.responseText + "Pay is Added");
 
 
                 }
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addUsers/" + AU, true)
-            xhttp.send()
+            xhttp.open("GET", "./addEmpPay/" + AP, true);
+            xhttp.send();
 
         }
-    
+
     </script>
+<script>
+function loadEmployees(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("paidTo").innerHTML = this.response;
+            $('#paidTo').selectpicker('refresh');
+        }
+    };
+    
+    xhttp.open("GET", "./getEmployeeName/", true);
+    
+    xhttp.send();
+    }
+</script>
+
 </body>
 
 </html>
