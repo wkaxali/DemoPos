@@ -201,6 +201,29 @@ class CustomerController extends Controller
 
           return $CID;
         }
+        public function getCustomersusa(){
+            $results=DB::select('select * from tbl_taskcategory');
+            return $results;
+        }
+    
+    
+        public static function editCustomerusa(Request $request, $CO){
+            $ata=json_decode($CO);
+            $CID = $ata[0];
+            $Category = $ata[1];
+          
+    
+            $re = DB::table('tbl_taskcategory')
+            ->where('CategoryID', $CID)
+            ->update([
+            
+              'Category'=>$Category,
+            
+         
+              ]);
+    
+              return $CID;
+            }
     
 }
 

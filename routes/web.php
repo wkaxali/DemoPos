@@ -228,6 +228,14 @@ Route::get('/getPartyNames',[expenseController::class, 'getPartyNames']);
 Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
 
+
+Route::get('/editCustomerusa/{data}',[CustomerController::class, 'editCustomerusa']);
+
+Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail']);
+Route::get('/getCustomersusa',[CustomerController::class, 'getCustomersusa']);
+
+
+
 Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
 
 Route::get('/getEmployees',[taskController::class, 'getEmployees']);
@@ -967,6 +975,11 @@ Route::get('/logout', function(){
 Route::get('/aam', function () {
     return view('addAutoModels');
 });
+Route::get('/us', function () {
+    return view('edittaskcategery');
+});
+
+
 
 Route::get('/ans', function () {
     return view('addNewStock');
