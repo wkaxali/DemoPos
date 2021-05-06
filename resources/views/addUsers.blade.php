@@ -212,7 +212,7 @@
 
         var password = document.getElementById("Password").value;
         
-        var designation = $('#designation').find(":selected").val();
+        var designation = $('#designation').find(":selected").text();
 
         var addUsers = [Username, password, designation];
 
