@@ -270,6 +270,8 @@ Route::get('/monthlyReport',[printMonthlySaleController::class, 'PrintMonthlySal
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
 Route::get('/addAllowance/{allowName}',[employeeAllowanceController::class, 'addAllowance']);
+Route::get('/getAllowance',[employeeAllowanceController::class, 'getAllowance']);
+Route::get('/editAllowance/{UA}',[employeeAllowanceController::class, 'editAllowance']);
 
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
@@ -774,12 +776,19 @@ Route::get('/gb', function () {
 Route::get('/adl', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('addAllowance'); 
+    return view('addAllowance');
     }else{
     return view("signInSignUp");
     }
 });
-
+Route::get('/edal', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAllowance'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
 
 Route::get('/adc', function () {
     $UN = session()->get('Designation');
