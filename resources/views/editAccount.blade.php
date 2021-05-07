@@ -170,15 +170,6 @@
                                         ]);
                                     });
                                     table.draw();
-                                //     <th>Customer ID</th>
-                                // <th>Customer Name</th>
-                                // <th>Father Name</th>
-                                // <th>Address</th>
-                                // <th>Contact</th>
-                                // <th>CNIC</th>
-                                // <th>Balance</th>
-                                // <th>Comments</th>
-
                                 }
                             };
 
