@@ -41,6 +41,9 @@ use App\Http\Controllers\TEST;
 use App\Http\Controllers\printServiceInvoice;
 use App\Http\Controllers\deliverLetterPrintController;
 use App\Http\Controllers\summaryReportController;
+use App\Http\Controllers\employeeAllowanceController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +57,7 @@ use App\Http\Controllers\summaryReportController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
-Route::get('/showAccountsSum',[accountsController::class, 'showAccounts']);
+Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
 Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
 Route::get('/sd',[summaryReportController::class, 'stockDetails']);
 Route::get('/sum',[summaryReportController::class, 'summaryReport']);
@@ -265,6 +268,8 @@ Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/monthlyReport',[printMonthlySaleController::class, 'PrintMonthlySale']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
+
+Route::get('/addAllowance/{allowName}',[employeeAllowanceController::class, 'addAllowance']);
 
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
@@ -765,6 +770,16 @@ Route::get('/gb', function () {
     return view("signInSignUp");
     }
 });
+
+Route::get('/adl', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addAllowance'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
 
 Route::get('/adc', function () {
     $UN = session()->get('Designation');
