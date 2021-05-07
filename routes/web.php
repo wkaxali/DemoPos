@@ -132,6 +132,9 @@ Route::get('/getComission/{PID}',[AdditionalTaxesAndCommissionsController::class
 Route::get('/getProfit/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
 
 Route::get('/addAccount/{accData}',[accountsController::class, 'addAccount']);
+Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
+// Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
+Route::get('/editAccounts{EA}',[accountsController::class, 'editAccounts']);
 
 
 Route::get('/getInvoiceCustomer/{data}',[serviceSalesFlow::class, 'printSaleRequestOnInvoiceNumber']);
