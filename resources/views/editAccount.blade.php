@@ -115,7 +115,7 @@
 
             
 <br>
-                    <button class="btn btn-success" onclick="editAccount()">Update </button>
+                    <button class="btn btn-success" onclick="editAccounts()">Update </button>
 
 
                 </div>
