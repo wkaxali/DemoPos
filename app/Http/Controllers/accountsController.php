@@ -48,4 +48,43 @@ class accountsController extends Controller
 
 
     }
+     public function addAccount(Request $request, $CO){
+        
+        $obj=json_decode($CO);
+        $AccountName=$obj[0];
+        $AccountNumber=$obj[1];
+        $Balance=$obj[2];
+      
+        
+        $CID=DB::table('tblaccounts')->insertGetId([
+            'AccountName'=>$AccountName,
+            'AccountNumber'=>$AccountNumber,
+            'Balance'=>$Balance
+            
+            ]);
+        return $CID." ID Account added";
+    }
+
+    public static function editCustomer(Request $request, $CO){
+        $ata=json_decode($CO);
+        $CID = $ata[0];
+        $customerName = $ata[1];
+        $contact = $ata[2];
+        $address = $ata[3];
+        $CNIC = $ata[4];
+        $balance = $ata[5];
+
+        $re = DB::table('customeinformation')
+        ->where('CustomerID', $CID)
+        ->update([
+          'CustomerName'=>$customerName,
+          'Contect'=>$contact,
+          'Address'=>$address,
+          'CNIC'=>$CNIC,
+          'Balance'=>$balance,
+          ]);
+
+          return $CID;
+        }
+
 }

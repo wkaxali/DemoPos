@@ -131,6 +131,9 @@ Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class
 Route::get('/getComission/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
 Route::get('/getProfit/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
 
+Route::get('/addAccount/{accData}',[accountsController::class, 'addAccount']);
+
+
 Route::get('/getInvoiceCustomer/{data}',[serviceSalesFlow::class, 'printSaleRequestOnInvoiceNumber']);
 Route::get('/getQuotation/{data}',[quotationController::class, 'getQuotation']);
 Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct']);
@@ -324,6 +327,24 @@ Route::get('/aep', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('addEmployeePay'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/ana', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addAccount'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/ena', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAccount'); 
     }else{
     return view("signInSignUp");
     }
