@@ -64,7 +64,7 @@
                 <div class="col-md-8 ">
                     <div class="stock-table"
                         style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
-                        <table style="width: 100%;" id="stocktable text-align:center;" >
+                        <table style="width: 100%; text-align:center;" id="stocktable" >
                             <thead>
 
                                 <th>Account ID</th>
@@ -158,7 +158,7 @@
                             xhttp.onreadystatechange = function () {
                                 if (this.readyState == 4 && this.status == 200) {
                                     var data = this.responseText;
-                                   alert(data);
+                                   
                                     var table;
                                     var a = JSON.parse(data);
 
@@ -171,15 +171,7 @@
                                     });
                                     
                                     table.draw();
-                                //     <th>Customer ID</th>
-                                // <th>Customer Name</th>
-                                // <th>Father Name</th>
-                                // <th>Address</th>
-                                // <th>Contact</th>
-                                // <th>CNIC</th>
-                                // <th>Balance</th>
-                                // <th>Comments</th>
-
+                           
                                 }
                             };
 
