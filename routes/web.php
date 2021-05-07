@@ -336,7 +336,7 @@ Route::get('/aep', function () {
     }
 });
 
-Route::get('/ana', function () {
+Route::get('/aa', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('addAccount'); 
@@ -345,7 +345,7 @@ Route::get('/ana', function () {
     }
 });
 
-Route::get('/ena', function () {
+Route::get('/ea', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('editAccount'); 
