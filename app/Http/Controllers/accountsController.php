@@ -65,28 +65,6 @@ class accountsController extends Controller
         return $AID." ID Account added";
     }
 
-    public static function editCustomer(Request $request, $CO){
-        $ata=json_decode($CO);
-        $CID = $ata[0];
-        $customerName = $ata[1];
-        $contact = $ata[2];
-        $address = $ata[3];
-        $CNIC = $ata[4];
-        $balance = $ata[5];
-
-        $re = DB::table('customeinformation')
-        ->where('CustomerID', $CID)
-        ->update([
-          'CustomerName'=>$customerName,
-          'Contect'=>$contact,
-          'Address'=>$address,
-          'CNIC'=>$CNIC,
-          'Balance'=>$balance,
-          ]);
-
-          return $CID;
-
-        }
           public  function getAccountsData(){ 
         $data = DB::select('select * from tblaccounts');
         return $data;
@@ -120,5 +98,5 @@ class accountsController extends Controller
                 </table>';
             return $table;
         }
-        }
+        
 }
