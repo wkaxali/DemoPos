@@ -83,8 +83,8 @@ class accountsController extends Controller
 
           return $AID;
 
-
-          public static function getAccounts(Request $request, $CO){ 
+        }
+          public  function getAccountsData(){ 
         $data = DB::select('select * from tblaccounts');
         return $data;
             }
@@ -101,7 +101,7 @@ class accountsController extends Controller
                         <td>Balance: '.$d->Balance.'</td>
                     </tr>';
                     $total =
-            }
+            
             $table=$table.'
                     <tr>
                         <th>Total Balance</th>
@@ -112,5 +112,5 @@ class accountsController extends Controller
                 </table>';
             return $table;
         }
-
+        }
 }
