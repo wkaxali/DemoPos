@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>Edit Customer</title>
+    <title>Update Accounts</title>
 
 
-    <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
         table th,
@@ -44,14 +43,14 @@
     </style>
 </head>
 
-<body onload="getCustomers()">
+<body onload="accounts()">
 <div class="container">
 
     <header class="idi">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="mt-3">Edit Customer</h3>
+                    <h3 class="mt-3">Update Accounts</h3>
                 </div>
             </div>
 
@@ -68,11 +67,8 @@
                             <thead>
 
                                 <th>Customer ID</th>
-                                <th>Customer Name</th>
-                                <th>Contact</th>
-                                <th>Address</>
-                                
-                                <th>CNIC</th>
+                                <th>Account Name</th>
+                                <th>Account Number</th>
                                 <th>Balance</th>
                                 
 
@@ -94,7 +90,7 @@
                             id="CID">
                     </div>
                     <div class="input-field">
-                        <label for="status">CustomerName</label>
+                        <label for="status">Account Name</label>
                         <input type="text" autocomplete="OFF" class="form-control"
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
                             id="customerName">
@@ -103,13 +99,13 @@
             
 
                     <div class="input-field">
-                        <label for="status">Contact</label>
+                        <label for="status">Account Number</label>
                         <input type="text" autocomplete="OFF" class="form-control"
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
                             id="Contact" required>
                     </div>
 
-                    <div class="input-field">
+                    <!-- <div class="input-field">
                         <label for="status">Address</label>
                         <input type="text" autocomplete="OFF" class="form-control"
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
@@ -122,7 +118,7 @@
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
                             value="" id="CNIC" required>
                     </div>
-
+ -->
 
                     <div class="input-field">
                         <label for="status">Balance</label>
@@ -133,7 +129,7 @@
 
             
 <br>
-                    <button class="btn btn-success" onclick="editEmployee()">Update </button>
+                    <button class="btn btn-success" onclick="update()">Update </button>
 
 
                 </div>
@@ -173,7 +169,7 @@
                     <!--end::Global Theme Bundle-->
 
                     <script>
-                        function getCustomers() {
+                        function accounts() {
                             var xhttp = new XMLHttpRequest();
                             xhttp.onreadystatechange = function () {
                                 if (this.readyState == 4 && this.status == 200) {
@@ -186,8 +182,7 @@
 
                                     $.each(a, function (i, item) {
 
-                                        table.row.add([a[i].CustomerID, a[i].CustomerName, a[i].Contect, a[i].Address,
-                                            a[i].CNIC, a[i].Balance
+                                        table.row.add([a[i].AID, a[i].AccountName, a[i].AccountNumber, a[i].Balance
                                         ]);
                                     });
                                     table.draw();
@@ -195,17 +190,15 @@
                                 }
                             };
 
-                            xhttp.open("GET", "./getCustomers/", true);
+                            xhttp.open("GET", "./showAccounts/", true);
                             xhttp.send();
                         }
                         $("#stocktable").on('click', 'tr', function () {
                             document.getElementById("CID").value = this.cells[0].innerText;
                             document.getElementById("customerName").value = this.cells[1].innerText;
                             document.getElementById("Contact").value = this.cells[2].innerText;
-                            document.getElementById("Address").value = this.cells[3].innerText;
-                            
-                            document.getElementById("CNIC").value = this.cells[4].innerText;
-                            document.getElementById("balance").value = this.cells[5].innerText;
+                          
+                            document.getElementById("balance").value = this.cells[3].innerText;
                          
 
 
@@ -216,20 +209,17 @@
 
                         });
 
-                        function editEmployee() {
+                        function update() {
                             var CID = document.getElementById("CID").value;
                             var customerName = document.getElementById("customerName").value;
                             var contact = document.getElementById("Contact").value;
-                            var address = document.getElementById("Address").value;
-                           
-                            var CNIC = document.getElementById("CNIC").value;
                             var balance = document.getElementById("balance").value;
                           
-                            if (customerName == "" || contact == "" || address == "" || CNIC == "" || balance == "") {      
+                            if (customerName == "" || contact == "" ||  balance == "") {      
 
                             alert("please fill all fields");
                                 }  else{
-                            var updateCustomer = [CID, customerName, contact, address, CNIC, balance,
+                            var updateCustomer = [CID, customerName, contact, balance,
                             ]};
 
                             var UC = JSON.stringify(updateCustomer);
@@ -245,7 +235,7 @@
                             };
 
                             // var MenuID=$('#Menus').find(":selected").val();
-                            xhttp.open("GET", "./editCustomer/" + UC, true);
+                            xhttp.open("GET", "./updateAccounts/" + UC, true);
                             xhttp.send();
 
                         }

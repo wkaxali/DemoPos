@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\employeeController;
@@ -10,7 +11,7 @@ use App\Http\Controllers\deletePaymentController;
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\globalVarriablesController;
 use App\Http\Controllers\OrderFlowController;
-
+use App\Http\Controllers\accounts;
 use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
@@ -230,10 +231,18 @@ Route::get('/getCategory',[taskController::class, 'getCategory']);
 
 
 Route::get('/editCustomerusa/{data}',[CustomerController::class, 'editCustomerusa']);
-
 Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail']);
 Route::get('/getCustomersusa',[CustomerController::class, 'getCustomersusa']);
 
+
+
+
+Route::get('/getCustomersInfo/{CID}',[accounts::class, 'getCustomerDetail']);
+
+Route::get('/showAccounts',[accounts::class, 'showAccounts']);
+Route::get('/updateAccounts/{data}',[accounts::class, 'updateAccounts']);
+
+Route::get('/AddAccounts/{UC}',[accounts::class, 'AddAccounts']);
 
 
 Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
@@ -977,6 +986,12 @@ Route::get('/aam', function () {
 });
 Route::get('/us', function () {
     return view('edittaskcategery');
+});
+Route::get('/usa', function () {
+    return view('updatetblaccounts');
+});
+Route::get('/usam', function () {
+    return view('addtblaccounts');
 });
 
 
