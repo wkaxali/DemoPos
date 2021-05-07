@@ -997,4 +997,6 @@ route::get('/aeh', function(){
 route::get('/ch', function(){
     return view('customerHistory');
 });
-
+route::get('/dk', function(){
+    return view('dontKnow');
+});
