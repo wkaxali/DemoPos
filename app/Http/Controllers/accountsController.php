@@ -65,27 +65,29 @@ class accountsController extends Controller
         return $CID." ID Account added";
     }
 
-    public static function editCustomer(Request $request, $CO){
+    public static function editAccounts(Request $request, $CO){
         $ata=json_decode($CO);
-        $CID = $ata[0];
-        $customerName = $ata[1];
-        $contact = $ata[2];
-        $address = $ata[3];
-        $CNIC = $ata[4];
-        $balance = $ata[5];
+        $AID = $ata[0];
+        $accName = $ata[1];
+        $accNumber = $ata[2];
+        $Balance = $ata[3];
+       
 
-        $re = DB::table('customeinformation')
-        ->where('CustomerID', $CID)
-        ->update([
-          'CustomerName'=>$customerName,
-          'Contect'=>$contact,
-          'Address'=>$address,
-          'CNIC'=>$CNIC,
-          'Balance'=>$balance,
+        $re = DB::table('tblaccounts')
+        ->where('AID', $AID)
+        ->update([    
+          'AccountName'=>$accName,
+          'AccountNumber'=>$accNumber,
+          'Balance'=>$Balance,
           ]);
 
-          return $CID;
-        }
+          return $AID;
+
+
+          public static function getAccounts(Request $request, $CO){ 
+        $data = DB::select('select * from tblaccounts');
+        return $data;
+            }
 
         public static function showAccounts(){
             $data=DB:: select('select * from tblaccounts');
