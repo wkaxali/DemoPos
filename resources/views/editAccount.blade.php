@@ -205,7 +205,7 @@
                             xhttp.onreadystatechange = function () {
                                 if (this.readyState == 4 && this.status == 200) {
 
-                                    alert("Customer " + this.responseText + " is Updated");
+                                    alert("Account " + this.responseText + " is Updated");
 
 
                                 }
