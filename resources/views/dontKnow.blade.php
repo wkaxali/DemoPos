@@ -206,7 +206,7 @@
     </style>
 </head>
 
-<body>
+<body onload="getAccounts()">
     <main>
         <div class="container">
             <div class="row">
@@ -241,14 +241,9 @@
                         <div class="container">
                             <div class="myRow">
                                 <div class="mainDiv">
-                                    <div class="child" style="width: 30%;">
-                                        <div class="lastChild-1" style="width: 100%;">
-                                            <table>
-                                                <tr>
-                                                    <td>Account Name:</td>
-                                                    <td>Balance</td>
-                                                </tr>
-                                            </table>
+                                    <div class="child" style="width: 40%;">
+                                        <div class="lastChild-1" style="width: 100%;" id="accountsTable">
+                                            
                                         </div>
                                         <div class="lastChild-2"
                                             style="width: 20%; font-size: 20px; color: #fff; background-color: #e76f51;">
@@ -292,6 +287,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     alert(this.responseText);
+                    document.getElementById("accountsTable").innerHTML = this.responseText;
                 }
             };
             xhttp.open("GET", "./showAccounts/", true);
