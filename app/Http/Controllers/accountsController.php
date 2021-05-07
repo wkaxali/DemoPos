@@ -89,4 +89,28 @@ class accountsController extends Controller
         return $data;
             }
 
+        public static function showAccounts(){
+            $data=DB:: select('select * from tblaccounts');
+            $table='<table>';
+            foreach ($data as $d){
+                $table=$table.'
+                    <tr>
+                        <th>'.$d->AccountName.'('.$d->AccountNumber.'):</th>
+                    </tr>
+                    <tr>
+                        <td>Balance: '.$d->Balance.'</td>
+                    </tr>';
+                    $total =
+            }
+            $table=$table.'
+                    <tr>
+                        <th>Total Balance</th>
+                    </tr>
+                    <tr>
+                        <td>8788</td>
+                    </tr>
+                </table>';
+            return $table;
+        }
+
 }

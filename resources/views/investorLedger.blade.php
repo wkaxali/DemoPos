@@ -450,9 +450,6 @@
             document.getElementById("totalProfit").value = totalProfit;
             document.getElementById("capital").value = capital;
             document.getElementById("netTotal").value = parseFloat(totalProfit) + parseFloat(capital);
-            var MoneyTook = parseFloat(document.getElementById("netTotal").value) - parseFloat(document.getElementById(
-                "remaining").value);
-            document.getElementById("RecievedMoney").value = MoneyTook;
 
         }
 
@@ -522,7 +519,7 @@
                     table.clear();
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].TotalSaleAmount, a[i]
+                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].PerUnitSalePrice, a[i]
                             .TotalCost,
                             a[i].StockIn, a[i].EngineNumber, a[i].ChasisNumber
                         ]);
@@ -601,6 +598,7 @@
 
             };
             var LID = $('#investors').find(":selected").val();
+            getReceivedAmount(LID);
 
             xhttp.open("GET", "./invetorDetails/" + LID, true);
             xhttp.send();
@@ -703,6 +701,23 @@
             }
             toggle = !toggle;
         });
+
+        function getReceivedAmount(LID){
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var data=this.responseText;
+                    a=JSON.parse(data);
+                    var sum = a[0].SUM;
+                    document.getElementById("RecievedMoney").value = sum;
+
+                }
+            };
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./investorReceivedAmount/" + LID, true);
+            xhttp.send();
+        }
 
     </script>
 

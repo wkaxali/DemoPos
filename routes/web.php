@@ -54,6 +54,8 @@ use App\Http\Controllers\summaryReportController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/showAccounts',[accountsController::class, 'showAccounts']);
+Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
 Route::get('/sd',[summaryReportController::class, 'stockDetails']);
 Route::get('/sum',[summaryReportController::class, 'summaryReport']);
 Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
@@ -215,7 +217,6 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 Route::get('/deleteExpense/{data}',[deleteExpenseController::class, 'deleteExpense']);
 Route::get('/deletePayment/{EID}',[deletePaymentController::class, 'deletePayment']);
 Route::get('/editCustomer/{data}',[CustomerController::class, 'editCustomer']);
-Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
@@ -696,17 +697,6 @@ Route::get('/prc', function () {
     }
 });
 
-
-
-Route::get('/fgp', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"||$UN=="User"){
-    return view('ForlandGatePass'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
-
 Route::get('/fgp', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"||$UN=="User"){
@@ -1032,4 +1022,6 @@ route::get('/aeh', function(){
 route::get('/ch', function(){
     return view('customerHistory');
 });
-
+route::get('/dk', function(){
+    return view('dontKnow');
+});
