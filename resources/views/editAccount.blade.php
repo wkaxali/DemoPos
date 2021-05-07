@@ -111,8 +111,6 @@
                             id="Balance" required>
                     </div>
 
-                   
-
             
 <br>
                     <button class="btn btn-success" onclick="editAccounts()">Update </button>
@@ -162,13 +160,13 @@
                                     var data = this.responseText;
                                    
                                     var table;
-                                  
+                                    var a = JSON.parse(data);
 
                                     table = $('#stocktable').DataTable();
 
                                     $.each(a, function (i, item) {
 
-                                        table.row.add([data[i].AID, data[i].AccountName, data[i].AccountNumber, data[i].Balance
+                                        table.row.add([a[i].AID, a[i].AccountName, a[i].AccountNumber, a[i].Balance
                                         ]);
                                     });
                                     table.draw();
