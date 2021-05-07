@@ -65,49 +65,52 @@ class accountsController extends Controller
         return $CID." ID Account added";
     }
 
-    public static function editAccounts(Request $request, $CO){
+    public static function editCustomer(Request $request, $CO){
         $ata=json_decode($CO);
-        $AID = $ata[0];
-        $accName = $ata[1];
-        $accNumber = $ata[2];
-        $Balance = $ata[3];
-       
+        $CID = $ata[0];
+        $customerName = $ata[1];
+        $contact = $ata[2];
+        $address = $ata[3];
+        $CNIC = $ata[4];
+        $balance = $ata[5];
 
-        $re = DB::table('tblaccounts')
-        ->where('AID', $AID)
-        ->update([    
-          'AccountName'=>$accName,
-          'AccountNumber'=>$accNumber,
-          'Balance'=>$Balance,
+        $re = DB::table('customeinformation')
+        ->where('CustomerID', $CID)
+        ->update([
+          'CustomerName'=>$customerName,
+          'Contect'=>$contact,
+          'Address'=>$address,
+          'CNIC'=>$CNIC,
+          'Balance'=>$balance,
           ]);
 
-          return $AID;
+          return $CID;
+        }
 
-
-          public static function getAccounts(Request $request, $CO){ 
-        $data = DB::select('select * from tblaccounts');
-        return $data;
-            }
-
-        public static function showAccounts(){
+        public static function showAccountsSum(){
             $data=DB:: select('select * from tblaccounts');
             $table='<table>';
+            $total=0;
             foreach ($data as $d){
+
+                $total=$total+($d->Balance);
+
                 $table=$table.'
                     <tr>
-                        <th>'.$d->AccountName.'('.$d->AccountNumber.'):</th>
+                        <th>'.$d->AccountName.'<br>('.$d->AccountNumber.'):</th>
+                        <th>Balance: '.$d->Balance.'</th>
                     </tr>
                     <tr>
-                        <td>Balance: '.$d->Balance.'</td>
+                    <th>&nbsp</th>
+                    <th>&nbsp</th>
                     </tr>';
-                    $total =
             }
             $table=$table.'
                     <tr>
-                        <th>Total Balance</th>
+                        <th>Net Balance</th>
                     </tr>
                     <tr>
-                        <td>8788</td>
+                        <td>'.$total.'</td>
                     </tr>
                 </table>';
             return $table;

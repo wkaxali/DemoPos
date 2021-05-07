@@ -290,7 +290,7 @@
                     document.getElementById("accountsTable").innerHTML = this.responseText;
                 }
             };
-            xhttp.open("GET", "./showAccounts/", true);
+            xhttp.open("GET", "./showAccountsSum/", true);
             xhttp.send();
             }
  

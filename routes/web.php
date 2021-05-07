@@ -54,7 +54,7 @@ use App\Http\Controllers\summaryReportController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
-Route::get('/showAccounts',[accountsController::class, 'showAccounts']);
+Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
 Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
 Route::get('/sd',[summaryReportController::class, 'stockDetails']);
 Route::get('/sum',[summaryReportController::class, 'summaryReport']);
