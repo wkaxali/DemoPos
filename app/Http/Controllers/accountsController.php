@@ -56,13 +56,13 @@ class accountsController extends Controller
         $Balance=$obj[2];
       
         
-        $CID=DB::table('tblaccounts')->insertGetId([
+        $AID=DB::table('tblaccounts')->insertGetId([
             'AccountName'=>$AccountName,
             'AccountNumber'=>$AccountNumber,
             'Balance'=>$Balance
             
             ]);
-        return $CID." ID Account added";
+        return $AID." ID Account added";
     }
 
     public static function editCustomer(Request $request, $CO){
@@ -85,7 +85,12 @@ class accountsController extends Controller
           ]);
 
           return $CID;
+
         }
+          public  function getAccountsData(){ 
+        $data = DB::select('select * from tblaccounts');
+        return $data;
+            }
 
         public static function showAccountsSum(){
             $data=DB:: select('select * from tblaccounts');
@@ -115,5 +120,5 @@ class accountsController extends Controller
                 </table>';
             return $table;
         }
-
+        }
 }

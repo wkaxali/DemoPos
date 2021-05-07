@@ -44,7 +44,7 @@
     </style>
 </head>
 
-<body onload="getAccounts()">
+<body onload="getAccountsData()">
 <div class="container">
 
     <header class="idi">
@@ -153,12 +153,12 @@
                     <!--end::Global Theme Bundle-->
 
                     <script>
-                        function getAccounts() {
+                        function getAccountsData() {
                             var xhttp = new XMLHttpRequest();
                             xhttp.onreadystatechange = function () {
                                 if (this.readyState == 4 && this.status == 200) {
                                     var data = this.responseText;
-                                   
+                                   alert(data);
                                     var table;
                                     var a = JSON.parse(data);
 
@@ -169,11 +169,12 @@
                                         table.row.add([a[i].AID, a[i].AccountName, a[i].AccountNumber, a[i].Balance
                                         ]);
                                     });
+                                    
                                     table.draw();
                                 }
                             };
 
-                            xhttp.open("GET", "./getAccounts/", true);
+                            xhttp.open("GET", "./getAccountsData/", true);
                             xhttp.send();
                         }
                         $("#stocktable").on('click', 'tr', function () {
