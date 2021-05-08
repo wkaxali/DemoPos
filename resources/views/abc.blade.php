@@ -275,15 +275,10 @@
     <label for="">Amount</label>
     <input type="text" class="form-control" style="display: inline-block; width: 192px;"
     value="" name="" onclick="calculatonInTable()" id="amount"><br>
-    <label for="">Paid To</label>
-    <select
-    class="selectpicker form-control" data-live-search="true" id="paidTo">
 
-    </select>
-   <br>
-    <label for="">Paid by</label>
+    <label for="">Allownce Head</label>
     <select
-    class="selectpicker form-control" data-live-search="true" id="allownceHead">
+    class="selectpicker form-control" data-live-search="true" id="allownceHeads">
 
     </select>
     </div>
@@ -292,20 +287,8 @@
     <input style="height: 25px !important; width: 158px !important; display:none" id="expense"
     value=1>
 
-    </input>
-    <!-- <button class="btn">+</button> -->
-    <br>
-    <div class="expenseButtons">
-    <label style="width: 100px !important;" for="">Date</label>
-    <input type="date" style="display: inline-block !important; width: 200px;"
-    class="form-control" name="" id="date"><br>
 
-    </div>
     <div class="expenseButtons">
-    <label for="">Remarks</label>
-    <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-    value="" name="" id="remarks">
-    <br>
     <button class="btn" onclick="add(), calculatonInTable()">Add</button>
     </div>
 
@@ -331,11 +314,9 @@
     style="width: 100%;">
     <thead>
     <tr>
-    <th>Date</th>
+    <th>ID</th>
     <th>Amount</th>
-    <th>Paid To</th>
-    <th>Paid By</th>
-    <th>Remarks</th>
+    <th>Allownce</th>
     <th>Action</th>
     </tr>
     </thead>
@@ -387,42 +368,21 @@
     <script>
     function add() {
 
-    var date = document.getElementById("basicPay").value;
+    var allownceHeads = document.getElementById("allownceHeads").text;
     var amount = document.getElementById("amount").value;
-    var expense = document.getElementById("expense").value;
-    var paidto = document.getElementById("paidTo");
-    var paidby = document.getElementById("paidBy");
-    var remarks = document.getElementById("remarks").value;
-
-
 
     var table = document.getElementById("expenseTable");
     var row = table.insertRow(-1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-    var cell9 = row.insertCell(8);
 
-
-    cell1.innerHTML = date;
+    cell1.innerHTML = allownceHeads.options[allownceHeads.selectedIndex].value;
     cell2.innerHTML = amount;
-    cell3.innerHTML = expense;
-    //cell4.innerHTML = expense;
-    cell4.innerHTML = paidto.options[paidto.selectedIndex].text;
-    cell5.innerHTML = paidby.options[paidby.selectedIndex].text;
-    cell6.innerHTML = paidto.options[paidto.selectedIndex].value;
-    cell7.innerHTML = paidby.options[paidby.selectedIndex].value;
-    cell8.innerHTML = remarks;
-    cell9.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
+    cell3.innerHTML = allownceHeads.options[allownceHeads.selectedIndex].text
+    
+    cell4.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
 
-    cell3.style.display = "none";
-    cell6.style.display = "none";
-    cell7.style.display = "none";
 
 
 
@@ -539,8 +499,8 @@
 
     if (this.readyState == 4 && this.status == 200) {
 
-    document.getElementById("allownceHead").innerHTML = this.response;
-    $('#allownceHead').selectpicker('refresh');
+    document.getElementById("allownceHeads").innerHTML = this.response;
+    $('#allownceHeads').selectpicker('refresh');
     }
     };
 
