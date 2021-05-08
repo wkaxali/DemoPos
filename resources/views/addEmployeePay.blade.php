@@ -386,8 +386,8 @@
         ];
     });
     allowanceDetails.shift();
-    var allowancTable = JSON.stringify(allowanceDetails);
-    alert(allowancTable);
+    var allowanceData = JSON.stringify(allowanceDetails);
+    alert(allowanceData);
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
@@ -398,6 +398,8 @@
 
         }
     }
+    xhttp.open("GET", "./addAllowances/" + allowanceData, true);
+xhttp.send();
     }
     </script>
 <script>

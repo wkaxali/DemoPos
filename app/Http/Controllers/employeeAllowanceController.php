@@ -61,51 +61,49 @@ class employeeAllowanceController extends Controller
             $ata=json_decode($CO);
               
                 foreach ($ata as $obj){
-                $date=$obj[0];
-                $LID=globalVarriablesController::selfLedgerID();
-                $amount=$obj[1];
-                $expenseName=$obj[2];
-                //$expenseID=$obj[3];
-                $paidTo=$obj[3];
-                $paidVia=$obj[4];
-                $remarks=$obj[5];
-        
-                $id=DB::table('tbltransactionflow')->insertGetId([
-                'DateStamp'=>$date,
+                  $LID=globalVarriablesController::selfLedgerID();
+                  $allowanceID=$obj[0];
+                  $amount=$obj[1];
+                  $allowanceName=$obj[2];
+                  $EID=$obj[3];
+   
+                $id=DB::table('tblalownces')->insertGetId([
+               
                 'Amount'=>$amount,
-                'PaidVia'=>$paidVia,
-                'TransactionType'=>"Debit",
-                'TransactionCatogery'=>"Payment"
-                ]);  
+                'EID'=>$EID,
+                'AlownceName'=>$allowanceName
+                ]); 
                 
-                if($PT=="Party"){
-                  $re = DB::table('tbltransactionflow')
-                    ->where('TransactionID', $id)
-                    ->update([
-                      'PaidTo'=>$paidTo,
-                  ]);
-                }
-                if($PT=="Employee"){
-                  $re = DB::table('tbltransactionflow')
-                    ->where('TransactionID', $id)
-                    ->update([
-                      'EmpID'=>$paidTo,
-                  ]);
-                }
+                
+            //     if($PT=="Party"){
+            //       $re = DB::table('tbltransactionflow')
+            //         ->where('TransactionID', $id)
+            //         ->update([
+            //           'PaidTo'=>$paidTo,
+            //       ]);
+            //     }
+            //     if($PT=="Employee"){
+            //       $re = DB::table('tbltransactionflow')
+            //         ->where('TransactionID', $id)
+            //         ->update([
+            //           'EmpID'=>$paidTo,
+            //       ]);
+            //     }
         
-            $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
-            $newBalance = $oldSelfBalance - $amount;
-            LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
-            if($PT=="Party"){
-              $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
-              $newBalanceOfParty=$balanceForParty-$amount;
-              LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
-            }
-            $oldAccountBalance = accountsController::getAccountBalance($paidVia);
-            $newAccountBalance = $oldAccountBalance - $amount;
-            accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
+            // $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
+            // $newBalance = $oldSelfBalance - $amount;
+            // LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
+            // if($PT=="Party"){
+            //   $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
+            //   $newBalanceOfParty=$balanceForParty-$amount;
+            //   LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
+            // }
+            // $oldAccountBalance = accountsController::getAccountBalance($paidVia);
+            // $newAccountBalance = $oldAccountBalance - $amount;
+            // accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
             
-            }
-            return $id;
+             }
+             return $id;
+            
         }
 }
