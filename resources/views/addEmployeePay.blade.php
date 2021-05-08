@@ -73,7 +73,7 @@
     margin-top: 10px;
     }
 
-    .expenseTable {
+    .allowanceTable {
     border: 1px solid #333;
     height: 400px;
     overflow: auto !important;
@@ -276,8 +276,8 @@
     </div>
     <div class="row">
     <div class="col-md-12">
-    <div class="expenseTable">
-    <table id="expenseTable" class="table-bordered table-striped table-hover meExTable"
+    <div class="allowanceTable">
+    <table id="allowanceTable" class="table-bordered table-striped table-hover meExTable"
     style="width: 100%;">
     <thead>
     <tr>
@@ -311,7 +311,7 @@
     <div class="footerBtns">
    
     <button onclick="window.print()" class="btn">Print</button>
-    <button class="btn" onclick="addExpenses()">Update</button>
+    <button class="btn" onclick="addAllowances()">Update</button>
     </div>
     </div>
     </div>
@@ -366,6 +366,39 @@
         }
 
     </script>
+
+
+    <script>
+    function addAllowances() {
+    var allowanceDetails = [];
+    var table = document.getElementById("allowanceTable");
+
+
+    $('#allowanceTable tr').each(function (row, tr) {
+
+        allowanceDetails[row] = [
+
+        $(tr).find('td:eq(0)').text(), //AllowanceID
+        $(tr).find('td:eq(1)').text(), //Amount
+        $(tr).find('td:eq(2)').text(), //Allowance Name
+
+        ];
+    });
+    allowanceDetails.shift();
+    var allowancTable = JSON.stringify(allowanceDetails);
+    alert(allowancTable);
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+        alert("Allowance " + this.responseText + " is added");
+
+
+        }
+    }
+    }
+    </script>
 <script>
 function loadEmployees(){
     var xhttp = new XMLHttpRequest();
@@ -391,7 +424,7 @@ var allownceHead = $('#allownceHeads').find(":selected").text();
 var allownceHeadID = $('#allownceHeads').find(":selected").val();
 var amount = document.getElementById("amount").value;
 
-var table = document.getElementById("expenseTable");
+var table = document.getElementById("allowanceTable");
 var row = table.insertRow(-1);
 var cell1 = row.insertCell(0);
 var cell2 = row.insertCell(1);
@@ -422,10 +455,10 @@ cell4.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
 
     function calculatonInTable() {
 
-    var t = document.getElementById("expenseTable");
+    var t = document.getElementById("allowanceTable");
     var tot = 0;
 
-    var x = document.getElementById("expenseTable").rows.length;
+    var x = document.getElementById("allowanceTable").rows.length;
 
     for (var i = 1; i < x; i++) {
     tot = tot + Number(t.rows[i].cells[1].innerText);
@@ -439,11 +472,11 @@ cell4.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
     <script>
     function addExpenses() {
     var expenseDetails = [];
-    var table = document.getElementById("expenseTable");
+    var table = document.getElementById("allowanceTable");
 
 
 
-    $('#expenseTable tr').each(function (row, tr) {
+    $('#allowanceTable tr').each(function (row, tr) {
 
     expenseDetails[row] = [
 
