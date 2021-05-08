@@ -281,7 +281,8 @@
     style="width: 100%;">
     <thead>
     <tr>
-    <th>Id</th>
+    <th>Emp ID</th>
+    <th>Emp Name</th>
     <th>Amount</th>
     <th>Allowance Name</th>
     
@@ -379,10 +380,11 @@
 
         allowanceDetails[row] = [
 
-        $(tr).find('td:eq(0)').text(), //AllowanceID
-        $(tr).find('td:eq(1)').text(), //Amount
-        $(tr).find('td:eq(2)').text(), //Allowance Name
-        $(tr).find('td:eq(4)').text(),
+        $(tr).find('td:eq(0)').text(), //Employee ID
+        $(tr).find('td:eq(1)').text(), //Employee Name
+        $(tr).find('td:eq(2)').text(), //Amount Name
+        $(tr).find('td:eq(3)').text(), //Allowance Name
+        $(tr).find('td:eq(5)').text(), //Allowance ID
         ];
     });
     allowanceDetails.shift();
@@ -423,10 +425,12 @@ function loadEmployees(){
     <script>
     function add() {
 
-var allownceHead = $('#allownceHeads').find(":selected").text();
-var allownceHeadID = $('#allownceHeads').find(":selected").val();
+
+var empName = $('#paidTo').find(":selected").text();
 var EID = $('#paidTo').find(":selected").val();
 var amount = document.getElementById("amount").value;
+var allowncehead = $('#allownceHeads').find(":selected").text();
+var allownceheadID = $('#allownceHeads').find(":selected").val();
 
 var table = document.getElementById("allowanceTable");
 var row = table.insertRow(-1);
@@ -435,13 +439,15 @@ var cell2 = row.insertCell(1);
 var cell3 = row.insertCell(2);
 var cell4 = row.insertCell(3);
 var cell5 = row.insertCell(4);
+var cell6 = row.insertCell(5);
 
-cell1.innerHTML = allownceHeadID;
-cell2.innerHTML = amount;
-cell3.innerHTML = allownceHead;
-cell4.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
-cell5.innerHTML = EID;
-cell5.style.display = "none";
+cell1.innerHTML = EID;
+cell2.innerHTML = empName;
+cell3.innerHTML = amount;
+cell4.innerHTML = allowncehead;
+cell5.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
+cell6.innerHTML = allownceheadID;
+cell6.style.display="none";
 
 }
 

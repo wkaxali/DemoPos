@@ -62,16 +62,17 @@ class employeeAllowanceController extends Controller
               
                 foreach ($ata as $obj){
                   $LID=globalVarriablesController::selfLedgerID();
-                  $allowanceID=$obj[0];
-                  $amount=$obj[1];
-                  $allowanceName=$obj[2];
-                  $EID=$obj[3];
+                  $EID=$obj[0];
+                  //$empName=$obj[1];
+                  $amount=$obj[2];
+                  $allowanceName=$obj[3];
+                  $allowanceHeadID=$obj[4];
    
                 $id=DB::table('tblalownces')->insertGetId([
                
                 'Amount'=>$amount,
                 'EID'=>$EID,
-                'AlownceName'=>$allowanceName
+                'AlownceHeadID'=>$allowanceHeadID
                 ]); 
                 
                 
