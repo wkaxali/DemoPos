@@ -213,7 +213,7 @@
        <br><br>
     <label for="">Basic Pay</label>
     <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-    value="" name=""  id="amount"  style=" margin-left: 150px;"><br><br>
+    value="" name=""  id="basicPay"  style=" margin-left: 150px;"><br><br>
     
     <label for="">Allowed Holidays</label>
     <input type="text" class="form-control" style="display: inline-block; width: 192px;"
@@ -256,7 +256,22 @@
     <div class="container">
     <div class="row mt-2">
     <div class="col-md-12">
-    <h4>Today's Expense</h4>
+    <div class="row customBorder">
+    <div class="col-md-4">
+    <h4>Add Employee Allowances</h4>
+    </div>
+    </div>
+    <div class="expenseButtons">
+    <label for="" >Allowance</label>
+    <select class="selectpicker form-control" style="display: inline-block; width: 192px;" data-live-search="true"  id="allownceHeads" >                   
+     </select>
+       
+    <label for="">Amount</label>
+    <input type="text" class="form-control" style="display: inline-block; width: 192px;"
+    value="" name=""  id="amount" >
+
+  <button type="button" class="btn  create-account"  onclick="add()">Add</button>
+    </div>
     </div>
     </div>
     <div class="row">
@@ -266,11 +281,10 @@
     style="width: 100%;">
     <thead>
     <tr>
-    <th>Date</th>
+    <th>Id</th>
     <th>Amount</th>
-    <th>Paid To</th>
-    <th>Paid By</th>
-    <th>Remarks</th>
+    <th>Allowance Name</th>
+    
     <th>Action</th>
     </tr>
     </thead>
@@ -329,7 +343,7 @@
             var eid = $('#paidTo').find(":selected").val();
             var AllowedHolidays = document.getElementById("allowedHolidays").value;
             var SaleTarget = document.getElementById("saleTarget").value;
-            var WorkingHours = document.getElementById("WwrkingHours").value;
+            var WorkingHours = document.getElementById("workingHours").value;
             
             var addPay = [eid,BasicPay, AllowedHolidays,SaleTarget,WorkingHours];
 
@@ -371,49 +385,30 @@ function loadEmployees(){
 </script>
 
     <script>
-    function add() {
+    function add(){
 
-    var date = document.getElementById("date").value;
-    var amount = document.getElementById("amount").value;
-    var expense = document.getElementById("expense").value;
-    var paidto = document.getElementById("paidTo");
-    var paidby = document.getElementById("paidBy");
-    var remarks = document.getElementById("remarks").value;
+var allownceHead = $('#allownceHeads').find(":selected").text();
+var allownceHeadID = $('#allownceHeads').find(":selected").val();
+var amount = document.getElementById("amount").value;
 
+var table = document.getElementById("expenseTable");
+var row = table.insertRow(-1);
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
 
-
-    var table = document.getElementById("expenseTable");
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-    var cell9 = row.insertCell(8);
-
-
-    cell1.innerHTML = date;
-    cell2.innerHTML = amount;
-    cell3.innerHTML = expense;
-    //cell4.innerHTML = expense;
-    cell4.innerHTML = paidto.options[paidto.selectedIndex].text;
-    cell5.innerHTML = paidby.options[paidby.selectedIndex].text;
-    cell6.innerHTML = paidto.options[paidto.selectedIndex].value;
-    cell7.innerHTML = paidby.options[paidby.selectedIndex].value;
-    cell8.innerHTML = remarks;
-    cell9.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
-
-    cell3.style.display = "none";
-    cell6.style.display = "none";
-    cell7.style.display = "none";
+cell1.innerHTML = allownceHeadID;
+cell2.innerHTML = amount;
+cell3.innerHTML = allownceHead;
+cell4.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
 
 
 
 
-    }
+
+}
+
+
 
 
 
@@ -492,8 +487,8 @@ function loadEmployees(){
 
     <script>
     function loadFunctions() {
-    loadParties();
-    loadAccounts();
+    loadEmployees();
+    loadAllownceHeads();
     }
 
     </script>
@@ -536,7 +531,25 @@ function loadEmployees(){
     }
 
     </script>
+    <script>
 
+        function loadAllownceHeads() {
+        var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById("allownceHeads").innerHTML = this.response;
+            $('#allownceHeads').selectpicker('refresh');
+        }
+            };
+
+        xhttp.open("GET", "./getAllownceHeads/", true);
+
+            xhttp.send();
+            }
+
+        </script>
     </body>
 
     </html>
