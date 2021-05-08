@@ -41,6 +41,9 @@ use App\Http\Controllers\TEST;
 use App\Http\Controllers\printServiceInvoice;
 use App\Http\Controllers\deliverLetterPrintController;
 use App\Http\Controllers\summaryReportController;
+use App\Http\Controllers\employeeAllowanceController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -265,6 +268,10 @@ Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/monthlyReport',[printMonthlySaleController::class, 'PrintMonthlySale']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
+
+Route::get('/addAllowance/{allowName}',[employeeAllowanceController::class, 'addAllowance']);
+Route::get('/getAllowance',[employeeAllowanceController::class, 'getAllowance']);
+Route::get('/editAllowance/{UA}',[employeeAllowanceController::class, 'editAllowance']);
 
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
@@ -761,6 +768,23 @@ Route::get('/gb', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('generateBarcode'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/adl', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addAllowance');
+    }else{
+    return view("signInSignUp");
+    }
+});
+Route::get('/edal', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAllowance'); 
     }else{
     return view("signInSignUp");
     }
