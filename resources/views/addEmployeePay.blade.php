@@ -286,6 +286,7 @@
     <th>Allowance Name</th>
     
     <th>Action</th>
+    
     </tr>
     </thead>
     <tbody>
@@ -381,7 +382,7 @@
         $(tr).find('td:eq(0)').text(), //AllowanceID
         $(tr).find('td:eq(1)').text(), //Amount
         $(tr).find('td:eq(2)').text(), //Allowance Name
-
+        $(tr).find('td:eq(4)').text(),
         ];
     });
     allowanceDetails.shift();
@@ -418,10 +419,11 @@ function loadEmployees(){
 </script>
 
     <script>
-    function add(){
+    function add() {
 
 var allownceHead = $('#allownceHeads').find(":selected").text();
 var allownceHeadID = $('#allownceHeads').find(":selected").val();
+var EID = $('#paidTo').find(":selected").val();
 var amount = document.getElementById("amount").value;
 
 var table = document.getElementById("allowanceTable");
@@ -430,14 +432,14 @@ var cell1 = row.insertCell(0);
 var cell2 = row.insertCell(1);
 var cell3 = row.insertCell(2);
 var cell4 = row.insertCell(3);
+var cell5 = row.insertCell(4);
+
 cell1.innerHTML = allownceHeadID;
 cell2.innerHTML = amount;
 cell3.innerHTML = allownceHead;
-cell4.innerHTML = '<button class="" onclick="deleteRow(this)">X</button>';
-
-
-
-
+cell4.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
+cell5.innerHTML = EID;
+cell5.style.display = "none";
 
 }
 
@@ -466,105 +468,11 @@ cell4.innerHTML = '<button class="" onclick="deleteRow(this)">X</button>';
     document.getElementById("mainTotal").value = tot;
     }
 
-    </script>
 
-
-    <script>
-    function addExpenses() {
-    var expenseDetails = [];
-    var table = document.getElementById("allowanceTable");
-
-
-
-    $('#allowanceTable tr').each(function (row, tr) {
-
-    expenseDetails[row] = [
-
-    $(tr).find('td:eq(0)').text(), //Date
-    $(tr).find('td:eq(1)').text(), //Amount
-    $(tr).find('td:eq(2)').text(), //Expense Name
-    //$(tr).find('td:eq(3)').text(), //Expense ID
-
-
-    //$(tr).find('td:eq(4)').text(), //Paid To
-    //$(tr).find('td:eq(5)').text(), //Paid By
-
-    $(tr).find('td:eq(5)').text(), //Paid To ID
-    $(tr).find('td:eq(6)').text(), //Paid By ID
-
-    $(tr).find('td:eq(7)').text(), //Remarks
-    $(tr).find('td:eq(8)').text()
-    ];
-
-
-    });
-    expenseDetails.shift();
-    var expTable = JSON.stringify(expenseDetails);
-
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-
-    alert("Payment " + this.responseText + " is added");
-
-
-    }
-    };
-    var paidTo = "Party";
-            xhttp.open("GET", "./addPayment/" + expTable + "/" + paidTo, true);
-    xhttp.send();
-    }
-
-    </script>
-
-    <script>
     function loadFunctions() {
     loadEmployees();
     loadAllownceHeads();
     }
-
-    </script>
-
-
-    <script>
-    function loadParties() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-
-    if (this.readyState == 4 && this.status == 200) {
-
-    document.getElementById("paidTo").innerHTML = this.response;
-    $('#paidTo').selectpicker('refresh');
-    }
-    };
-
-    xhttp.open("GET", "./getPartyNames/", true);
-
-    xhttp.send();
-    }
-
-    </script>
-
-    <script>
-    function loadAccounts() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-
-    if (this.readyState == 4 && this.status == 200) {
-
-    document.getElementById("paidBy").innerHTML = this.response;
-    $('#paidBy').selectpicker('refresh');
-    }
-    };
-
-    xhttp.open("GET", "./getAccounts/", true);
-
-    xhttp.send();
-    }
-
-    </script>
-    <script>
 
         function loadAllownceHeads() {
         var xhttp = new XMLHttpRequest();
