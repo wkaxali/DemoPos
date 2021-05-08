@@ -8,7 +8,7 @@
                         <div class="col-md-8 offset-md-2">
                             <div class="registration-form">
 
-                                <form>
+                                
 
                                     <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
                                         <h2 class="text-center addCut">Add Employee Pay</h2>
@@ -23,9 +23,9 @@
                                         <input type="text" class="form-control item" autocomplete="OFF"
                                             id="BasicPay" placeholder="Basic Pay">
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" >
                                         <input type="text" class="form-control item" autocomplete="OFF"
-                                            id="Allowance" placeholder="Allowance">
+                                            id="Allowance" placeholder="Allowance" >
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF" id="TotalPay"
@@ -49,7 +49,7 @@
                                     </div>
 
 
-                                </form>
+                                
 
                             </div>
                         </div>
