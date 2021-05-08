@@ -176,11 +176,9 @@ public static function getEmployeeName(){
     $obj=json_decode($data);
     $eid=$obj[0];
     $basicPay=$obj[1];
-    $allownces=$obj[2];
-    $total=$obj[3];
-    $allowedHolidays=$obj[4];
-    $saleTarget=$obj[5];
-    $workingHours=$obj[6];
+    $allowedHolidays=$obj[2];
+    $saleTarget=$obj[3];
+    $workingHours=$obj[4];
     
   
  
@@ -189,8 +187,6 @@ public static function getEmployeeName(){
                 'BasicPay' =>$basicPay,
                 'AllowedHolidays' =>$allowedHolidays,
                 'SaleTarget' =>$saleTarget,
-                'Alownces' =>$allownces,
-                'TotalPay' =>$total,
                 'WorkingHours' =>$workingHours,
                 'EID' =>$eid
                 

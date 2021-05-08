@@ -57,6 +57,7 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/getAllownceHeads',[employeeAllowanceController::class, 'getAllownceHeads']);
 Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
 Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
 Route::get('/sd',[summaryReportController::class, 'stockDetails']);
@@ -1048,4 +1049,7 @@ route::get('/ch', function(){
 });
 route::get('/dk', function(){
     return view('dontKnow');
+});
+route::get('/abc', function(){
+    return view('abc');
 });
