@@ -60,8 +60,5 @@
             </div>
         </div>
 
-        @include('sidenavbar')
-
-
         <div class="clearfix"></div>
     </div>

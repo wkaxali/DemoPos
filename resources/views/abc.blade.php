@@ -191,6 +191,71 @@
     </div>
     </main>
 
+    <div class="page-container">
+        <div class="left-content">
+            <div class="inner-block">
+
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="registration-form">
+
+                                <form>
+
+                                    <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
+                                        <h2 class="text-center addCut">Add Employee Pay</h2>
+
+                                    </div>
+                                    <label for="" >Employee</label>
+                                    <select class="selectpicker form-control"  data-live-search="true"  id="paidTo" onchange="getAmount()">
+                            
+                                        </select>
+                                    <br><br>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control item" autocomplete="OFF"
+                                            id="BasicPay" placeholder="Basic Pay">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control item" autocomplete="OFF"
+                                            id="Allowance" placeholder="Allowance">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control item" autocomplete="OFF" id="TotalPay"
+                                            placeholder="Total Pay">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control item" autocomplete="OFF"
+                                            id="AllowedHolidays" placeholder="Allowed Holidays">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control item" autocomplete="OFF" id="SaleTarget"
+                                            placeholder="Sale Target">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control item" autocomplete="OFF" id="WorkingHours"
+                                            placeholder="Working Hours">
+                                    </div>
+                                
+                                    <div class="form-group" style="text-align: center;">
+                                        <button type="button" class="btn  create-account" onclick="addEmpPay()">Add</button>
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+
     <section>
     <div class="container">
 
@@ -210,15 +275,10 @@
     <label for="">Amount</label>
     <input type="text" class="form-control" style="display: inline-block; width: 192px;"
     value="" name="" onclick="calculatonInTable()" id="amount"><br>
-    <label for="">Paid To</label>
-    <select
-    class="selectpicker form-control" data-live-search="true" id="paidTo">
 
-    </select>
-   <br>
-    <label for="">Paid by</label>
+    <label for="">Allownce Head</label>
     <select
-    class="selectpicker form-control" data-live-search="true" id="allownceHead">
+    class="selectpicker form-control" data-live-search="true" id="allownceHeads">
 
     </select>
     </div>
@@ -227,20 +287,8 @@
     <input style="height: 25px !important; width: 158px !important; display:none" id="expense"
     value=1>
 
-    </input>
-    <!-- <button class="btn">+</button> -->
-    <br>
-    <div class="expenseButtons">
-    <label style="width: 100px !important;" for="">Date</label>
-    <input type="date" style="display: inline-block !important; width: 200px;"
-    class="form-control" name="" id="date"><br>
 
-    </div>
     <div class="expenseButtons">
-    <label for="">Remarks</label>
-    <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-    value="" name="" id="remarks">
-    <br>
     <button class="btn" onclick="add(), calculatonInTable()">Add</button>
     </div>
 
@@ -266,11 +314,9 @@
     style="width: 100%;">
     <thead>
     <tr>
-    <th>Date</th>
+    <th>ID</th>
     <th>Amount</th>
-    <th>Paid To</th>
-    <th>Paid By</th>
-    <th>Remarks</th>
+    <th>Allownce</th>
     <th>Action</th>
     </tr>
     </thead>
@@ -322,14 +368,10 @@
     <script>
     function add() {
 
-    var date = document.getElementById("basicPay").value;
+    var allownceHead = $('#allownceHeads').find(":selected").text();
+    var allownceHeadID = $('#allownceHeads').find(":selected").val();
+    var EID = $('#paidTo').find(":selected").val();
     var amount = document.getElementById("amount").value;
-    var expense = document.getElementById("expense").value;
-    var paidto = document.getElementById("paidTo");
-    var paidby = document.getElementById("paidBy");
-    var remarks = document.getElementById("remarks").value;
-
-
 
     var table = document.getElementById("expenseTable");
     var row = table.insertRow(-1);
@@ -337,30 +379,13 @@
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-    var cell9 = row.insertCell(8);
 
-
-    cell1.innerHTML = date;
+    cell1.innerHTML = allownceHeadID;
     cell2.innerHTML = amount;
-    cell3.innerHTML = expense;
-    //cell4.innerHTML = expense;
-    cell4.innerHTML = paidto.options[paidto.selectedIndex].text;
-    cell5.innerHTML = paidby.options[paidby.selectedIndex].text;
-    cell6.innerHTML = paidto.options[paidto.selectedIndex].value;
-    cell7.innerHTML = paidby.options[paidby.selectedIndex].value;
-    cell8.innerHTML = remarks;
-    cell9.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
-
-    cell3.style.display = "none";
-    cell6.style.display = "none";
-    cell7.style.display = "none";
-
-
-
+    cell3.innerHTML = allownceHead;
+    cell4.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
+    cell5.innerHTML = EID;
+    //cell5.style.display = "none";
 
     }
 
@@ -371,7 +396,7 @@
     var a = ele.parentNode.parentNode;
 
     a.remove();
-    calculatonInTable(5);
+
     }
 
     function calculatonInTable() {
@@ -391,49 +416,39 @@
 
 
     <script>
-    function addExpenses() {
-    var expenseDetails = [];
+    function addAllowances() {
+    var allowanceDetails = [];
     var table = document.getElementById("expenseTable");
 
 
 
     $('#expenseTable tr').each(function (row, tr) {
 
-    expenseDetails[row] = [
+        allowanceDetails[row] = [
 
-    $(tr).find('td:eq(0)').text(), //Date
+    $(tr).find('td:eq(0)').text(), //AllowanceID
     $(tr).find('td:eq(1)').text(), //Amount
-    $(tr).find('td:eq(2)').text(), //Expense Name
-    //$(tr).find('td:eq(3)').text(), //Expense ID
-
-
-    //$(tr).find('td:eq(4)').text(), //Paid To
-    //$(tr).find('td:eq(5)').text(), //Paid By
-
-    $(tr).find('td:eq(5)').text(), //Paid To ID
-    $(tr).find('td:eq(6)').text(), //Paid By ID
-
-    $(tr).find('td:eq(7)').text(), //Remarks
-    $(tr).find('td:eq(8)').text()
+    $(tr).find('td:eq(2)').text(), //Allowance Name
+    
     ];
 
 
     });
-    expenseDetails.shift();
-    var expTable = JSON.stringify(expenseDetails);
+    allowanceDetails.shift();
+    var allowancTable = JSON.stringify(allowanceDetails);
 
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
 
-    alert("Payment " + this.responseText + " is added");
+    alert("Allowance " + this.responseText + " is added");
 
 
     }
     };
     var paidTo = "Party";
-            xhttp.open("GET", "./addPayment/" + expTable + "/" + paidTo, true);
+            xhttp.open("GET", "./addPayment/" + allowancTable + "/" + paidTo, true);
     xhttp.send();
     }
 
@@ -474,8 +489,8 @@
 
     if (this.readyState == 4 && this.status == 200) {
 
-    document.getElementById("allownceHead").innerHTML = this.response;
-    $('#allownceHead').selectpicker('refresh');
+    document.getElementById("allownceHeads").innerHTML = this.response;
+    $('#allownceHeads').selectpicker('refresh');
     }
     };
 
