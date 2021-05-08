@@ -368,7 +368,9 @@
     <script>
     function add() {
 
-    var allownceHeads = document.getElementById("allownceHeads").text;
+    var allownceHead = $('#allownceHeads').find(":selected").text();
+    var allownceHeadID = $('#allownceHeads').find(":selected").val();
+    var EID = $('#paidTo').find(":selected").val();
     var amount = document.getElementById("amount").value;
 
     var table = document.getElementById("expenseTable");
@@ -376,16 +378,14 @@
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
+    var cell4 = row.insertCell(3);
 
-    cell1.innerHTML = allownceHeads.options[allownceHeads.selectedIndex].value;
+    cell1.innerHTML = allownceHeadID;
     cell2.innerHTML = amount;
-    cell3.innerHTML = allownceHeads.options[allownceHeads.selectedIndex].text
-    
+    cell3.innerHTML = allownceHead;
     cell4.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
-
-
-
-
+    cell5.innerHTML = EID;
+    //cell5.style.display = "none";
 
     }
 
@@ -396,7 +396,7 @@
     var a = ele.parentNode.parentNode;
 
     a.remove();
-    calculatonInTable(5);
+
     }
 
     function calculatonInTable() {
@@ -416,49 +416,39 @@
 
 
     <script>
-    function addExpenses() {
-    var expenseDetails = [];
+    function addAllowances() {
+    var allowanceDetails = [];
     var table = document.getElementById("expenseTable");
 
 
 
     $('#expenseTable tr').each(function (row, tr) {
 
-    expenseDetails[row] = [
+        allowanceDetails[row] = [
 
-    $(tr).find('td:eq(0)').text(), //Date
+    $(tr).find('td:eq(0)').text(), //AllowanceID
     $(tr).find('td:eq(1)').text(), //Amount
-    $(tr).find('td:eq(2)').text(), //Expense Name
-    //$(tr).find('td:eq(3)').text(), //Expense ID
-
-
-    //$(tr).find('td:eq(4)').text(), //Paid To
-    //$(tr).find('td:eq(5)').text(), //Paid By
-
-    $(tr).find('td:eq(5)').text(), //Paid To ID
-    $(tr).find('td:eq(6)').text(), //Paid By ID
-
-    $(tr).find('td:eq(7)').text(), //Remarks
-    $(tr).find('td:eq(8)').text()
+    $(tr).find('td:eq(2)').text(), //Allowance Name
+    
     ];
 
 
     });
-    expenseDetails.shift();
-    var expTable = JSON.stringify(expenseDetails);
+    allowanceDetails.shift();
+    var allowancTable = JSON.stringify(allowanceDetails);
 
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
 
-    alert("Payment " + this.responseText + " is added");
+    alert("Allowance " + this.responseText + " is added");
 
 
     }
     };
     var paidTo = "Party";
-            xhttp.open("GET", "./addPayment/" + expTable + "/" + paidTo, true);
+            xhttp.open("GET", "./addPayment/" + allowancTable + "/" + paidTo, true);
     xhttp.send();
     }
 

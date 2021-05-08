@@ -57,6 +57,7 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/addAllowances/{data}',[employeeAllowanceController::class, 'addAllowances']);
 Route::get('/getAllownceHeads',[employeeAllowanceController::class, 'getAllownceHeads']);
 Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
 Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
@@ -270,7 +271,7 @@ Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/monthlyReport',[printMonthlySaleController::class, 'PrintMonthlySale']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
-Route::get('/addAllowance/{allowName}',[employeeAllowanceController::class, 'addAllowance']);
+Route::get('/addAllowanceHead/{allowName}',[employeeAllowanceController::class, 'addAllowanceHead']);
 Route::get('/getAllowance',[employeeAllowanceController::class, 'getAllowance']);
 Route::get('/editAllowance/{UA}',[employeeAllowanceController::class, 'editAllowance']);
 

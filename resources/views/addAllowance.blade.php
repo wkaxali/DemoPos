@@ -214,7 +214,7 @@
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addAllowance/" + allowName, true);
+            xhttp.open("GET", "./addAllowanceHead/" + allowName, true);
             xhttp.send();
 
         }
