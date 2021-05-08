@@ -26,7 +26,7 @@ class employeeController extends Controller
             'ContactNo'=>$contact,
             'HomeAddress'=>$address,
             'EmailID'=>$email,
-            'Designation'=>$designation,
+            'DesignationID'=>$designation,
             'JoiningDate'=>$date
             ]);  
 

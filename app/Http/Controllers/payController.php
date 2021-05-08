@@ -20,7 +20,6 @@ class payController extends Controller
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
         $expenseName=$obj[2];
-        //$expenseID=$obj[3];
         $paidTo=$obj[3];
         $paidVia=$obj[4];
         $remarks=$obj[5];
@@ -74,7 +73,7 @@ public static function getEmployeeName(){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->EID.'>'.$d->FirstName.'</option>';
+        <option value= '.$d->EID.'>('.$d->EID.') '.$d->FirstName.'</option>';
       
     }
     return $option;
@@ -180,19 +179,28 @@ public static function getEmployeeName(){
     $saleTarget=$obj[3];
     $workingHours=$obj[4];
     
-  
- 
-    $id=DB::table('tblemployeepay')->insertGetId([
-     
-                'BasicPay' =>$basicPay,
-                'AllowedHolidays' =>$allowedHolidays,
-                'SaleTarget' =>$saleTarget,
-                'WorkingHours' =>$workingHours,
-                'EID' =>$eid
-                
-              ]);
+    $empCheck = DB::table('tblemployeepay')
+                ->where('EID', '=', $eid)
+                ->first()->EID;
+    //return $empCheck;
+    //if($empCheck==NULL){ 
 
-  return $id;
+        $id=DB::table('tblemployeepay')->insertGetId([
+        
+                    'BasicPay' =>$basicPay,
+                    'AllowedHolidays' =>$allowedHolidays,
+                    'SaleTarget' =>$saleTarget,
+                    'WorkingHours' =>$workingHours,
+                    'EID' =>$eid
+                    
+                  ]);
+
+      return "employee $eid Pay is Assigned at $id";
+      
+    //}else{
+      //return "Pay Already Assigned to $eid";
+    //}
+ 
   }
 
   public static function getCalculatedPay($EMPID)

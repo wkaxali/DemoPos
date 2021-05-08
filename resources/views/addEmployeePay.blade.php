@@ -352,7 +352,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Employee  " + this.responseText + "Pay is Added");
+                    alert(this.responseText);
 
 
                 }
