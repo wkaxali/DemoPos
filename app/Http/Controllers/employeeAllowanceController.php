@@ -74,6 +74,25 @@ class employeeAllowanceController extends Controller
                 'EID'=>$EID,
                 'AlownceHeadID'=>$allowanceHeadID
                 ]); 
+
+                $basicPay = DB::table('tblemployeepay')
+                ->where('EID', '=', $EID)
+                    ->first()->BasicPay;
+
+                $allowanceTableData = DB::select('select * from tblalownces where EID ='.$EID);
+                $totalAllowances = 0;
+                foreach($allowanceTableData as $d){
+                        $totalAllowances = $totalAllowances + ($d->Amount);
+                }
+
+                $totalPay = $basicPay + $totalAllowances;
+
+                $up = DB::table('tblemployeepay')
+                ->where('EID', $EID)
+                ->update([
+                  'TotalPay'=>$totalPay,
+                  'Alownces'=>$totalAllowances
+                  ]);
                 
                 
             //     if($PT=="Party"){
