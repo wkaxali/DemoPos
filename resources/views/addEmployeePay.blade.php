@@ -14,7 +14,7 @@
 
 
 
-    <title>Payments</title>
+    <title>Add Employee Pay</title>
     <style>
     .footerBtns {
     float: right !important;
@@ -73,7 +73,7 @@
     margin-top: 10px;
     }
 
-    .expenseTable {
+    .allowanceTable {
     border: 1px solid #333;
     height: 400px;
     overflow: auto !important;
@@ -185,7 +185,7 @@
     <div class="container">
     <div class="row">
     <div class="col-md-12 text-center">
-    <h4>Payments</h4>
+    
     </div>
     </div>
     </div>
@@ -196,7 +196,7 @@
 
     <div class="row customBorder">
     <div class="col-md-4">
-    <h4>Add Payments</h4>
+    <h4>Add Employee Payments</h4>
     </div>
     </div>
     </div>
@@ -207,21 +207,20 @@
     <div class="col-md-12">
     <div class="row">
     <div class="col-md-6">
-    <label for="">Amount</label>
+    <label for="" >Employee</label>
+    <select class="selectpicker form-control"  data-live-search="true"  id="paidTo" onchange="getAmount()">                   
+     </select>
+       <br><br>
+    <label for="">Basic Pay</label>
     <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-    value="" name="" onclick="calculatonInTable()" id="amount"><br>
-    <label for="">Paid To</label>
-    <select
-    class="selectpicker form-control" data-live-search="true" id="paidTo">
-
-    </select>
-   <br>
-    <label for="">Paid by</label>
-    <select
-    class="selectpicker form-control" data-live-search="true" id="allownceHead">
-
-    </select>
+    value="" name=""  id="basicPay"  style=" margin-left: 150px;"><br><br>
+    
+    <label for="">Allowed Holidays</label>
+    <input type="text" class="form-control" style="display: inline-block; width: 192px;"
+    value="" name=""  id="allowedHolidays"><br>
     </div>
+
+    
     <div class="col-md-4 offset-md-2">
 
     <input style="height: 25px !important; width: 158px !important; display:none" id="expense"
@@ -231,19 +230,20 @@
     <!-- <button class="btn">+</button> -->
     <br>
     <div class="expenseButtons">
-    <label style="width: 100px !important;" for="">Date</label>
-    <input type="date" style="display: inline-block !important; width: 200px;"
-    class="form-control" name="" id="date"><br>
+    <label style="width: 100px !important;" for="">SaleTarget</label>
+    <input type="text" style="display: inline-block !important; width: 200px;"
+    class="form-control" name="" id="saleTarget"><br>
 
     </div>
     <div class="expenseButtons">
-    <label for="">Remarks</label>
+    <label for="">WorkingHours</label>
     <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-    value="" name="" id="remarks">
-    <br>
-    <button class="btn" onclick="add(), calculatonInTable()">Add</button>
+    value="" name="" id="workingHours">
+    
     </div>
-
+    <div class="form-group" style="text-align: center;">
+                                        <button type="button" class="btn  create-account" onclick="addEmpPay()">Add</button>
+                                    </div>
 
 
     </div>
@@ -256,21 +256,35 @@
     <div class="container">
     <div class="row mt-2">
     <div class="col-md-12">
-    <h4>Today's Expense</h4>
+    <div class="row customBorder">
+    <div class="col-md-4">
+    <h4>Add Employee Allowances</h4>
+    </div>
+    </div>
+    <div class="expenseButtons">
+    <label for="" >Allowance</label>
+    <select class="selectpicker form-control" style="display: inline-block; width: 192px;" data-live-search="true"  id="allownceHeads" >                   
+     </select>
+       
+    <label for="">Amount</label>
+    <input type="text" class="form-control" style="display: inline-block; width: 192px;"
+    value="" name=""  id="amount" >
+
+  <button type="button" class="btn  create-account"  onclick="add()">Add</button>
+    </div>
     </div>
     </div>
     <div class="row">
     <div class="col-md-12">
-    <div class="expenseTable">
-    <table id="expenseTable" class="table-bordered table-striped table-hover meExTable"
+    <div class="allowanceTable">
+    <table id="allowanceTable" class="table-bordered table-striped table-hover meExTable"
     style="width: 100%;">
     <thead>
     <tr>
-    <th>Date</th>
+    <th>Id</th>
     <th>Amount</th>
-    <th>Paid To</th>
-    <th>Paid By</th>
-    <th>Remarks</th>
+    <th>Allowance Name</th>
+    
     <th>Action</th>
     </tr>
     </thead>
@@ -297,7 +311,7 @@
     <div class="footerBtns">
    
     <button onclick="window.print()" class="btn">Print</button>
-    <button class="btn" onclick="addExpenses()">Update</button>
+    <button class="btn" onclick="addAllowances()">Update</button>
     </div>
     </div>
     </div>
@@ -319,50 +333,115 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
 
+
+
+<script>
+        function addEmpPay() {
+
+
+            var BasicPay = document.getElementById("basicPay").value;
+            var eid = $('#paidTo').find(":selected").val();
+            var AllowedHolidays = document.getElementById("allowedHolidays").value;
+            var SaleTarget = document.getElementById("saleTarget").value;
+            var WorkingHours = document.getElementById("workingHours").value;
+            
+            var addPay = [eid,BasicPay, AllowedHolidays,SaleTarget,WorkingHours];
+
+            var AP = JSON.stringify(addPay);
+           
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert("Employee  " + this.responseText + "Pay is Added");
+
+
+                }
+            };
+
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addEmpPay/" + AP, true);
+            xhttp.send();
+
+        }
+
+    </script>
+
+
     <script>
-    function add() {
-
-    var date = document.getElementById("basicPay").value;
-    var amount = document.getElementById("amount").value;
-    var expense = document.getElementById("expense").value;
-    var paidto = document.getElementById("paidTo");
-    var paidby = document.getElementById("paidBy");
-    var remarks = document.getElementById("remarks").value;
+    function addAllowances() {
+    var allowanceDetails = [];
+    var table = document.getElementById("allowanceTable");
 
 
+    $('#allowanceTable tr').each(function (row, tr) {
 
-    var table = document.getElementById("expenseTable");
-    var row = table.insertRow(-1);
-    var cell1 = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
-    var cell6 = row.insertCell(5);
-    var cell7 = row.insertCell(6);
-    var cell8 = row.insertCell(7);
-    var cell9 = row.insertCell(8);
+        allowanceDetails[row] = [
 
+        $(tr).find('td:eq(0)').text(), //AllowanceID
+        $(tr).find('td:eq(1)').text(), //Amount
+        $(tr).find('td:eq(2)').text(), //Allowance Name
 
-    cell1.innerHTML = date;
-    cell2.innerHTML = amount;
-    cell3.innerHTML = expense;
-    //cell4.innerHTML = expense;
-    cell4.innerHTML = paidto.options[paidto.selectedIndex].text;
-    cell5.innerHTML = paidby.options[paidby.selectedIndex].text;
-    cell6.innerHTML = paidto.options[paidto.selectedIndex].value;
-    cell7.innerHTML = paidby.options[paidby.selectedIndex].value;
-    cell8.innerHTML = remarks;
-    cell9.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
+        ];
+    });
+    allowanceDetails.shift();
+    var allowancTable = JSON.stringify(allowanceDetails);
+    alert(allowancTable);
+    var xhttp = new XMLHttpRequest();
 
-    cell3.style.display = "none";
-    cell6.style.display = "none";
-    cell7.style.display = "none";
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+        alert("Allowance " + this.responseText + " is added");
 
 
-
-
+        }
     }
+    }
+    </script>
+<script>
+function loadEmployees(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("paidTo").innerHTML = this.response;
+            $('#paidTo').selectpicker('refresh');
+        }
+    };
+    
+    xhttp.open("GET", "./getEmployeeName/", true);
+    
+    xhttp.send();
+    }
+</script>
+
+    <script>
+    function add(){
+
+var allownceHead = $('#allownceHeads').find(":selected").text();
+var allownceHeadID = $('#allownceHeads').find(":selected").val();
+var amount = document.getElementById("amount").value;
+
+var table = document.getElementById("allowanceTable");
+var row = table.insertRow(-1);
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+var cell4 = row.insertCell(3);
+cell1.innerHTML = allownceHeadID;
+cell2.innerHTML = amount;
+cell3.innerHTML = allownceHead;
+cell4.innerHTML = '<button class="" onclick="deleteRow(this)">X</button>';
+
+
+
+
+
+}
+
+
 
 
 
@@ -376,10 +455,10 @@
 
     function calculatonInTable() {
 
-    var t = document.getElementById("expenseTable");
+    var t = document.getElementById("allowanceTable");
     var tot = 0;
 
-    var x = document.getElementById("expenseTable").rows.length;
+    var x = document.getElementById("allowanceTable").rows.length;
 
     for (var i = 1; i < x; i++) {
     tot = tot + Number(t.rows[i].cells[1].innerText);
@@ -393,11 +472,11 @@
     <script>
     function addExpenses() {
     var expenseDetails = [];
-    var table = document.getElementById("expenseTable");
+    var table = document.getElementById("allowanceTable");
 
 
 
-    $('#expenseTable tr').each(function (row, tr) {
+    $('#allowanceTable tr').each(function (row, tr) {
 
     expenseDetails[row] = [
 
@@ -441,7 +520,7 @@
 
     <script>
     function loadFunctions() {
-    loadParties();
+    loadEmployees();
     loadAllownceHeads();
     }
 
@@ -468,24 +547,42 @@
     </script>
 
     <script>
-    function loadAllownceHeads() {
+    function loadAccounts() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
 
     if (this.readyState == 4 && this.status == 200) {
 
-    document.getElementById("allownceHead").innerHTML = this.response;
-    $('#allownceHead').selectpicker('refresh');
+    document.getElementById("paidBy").innerHTML = this.response;
+    $('#paidBy').selectpicker('refresh');
     }
     };
 
-    xhttp.open("GET", "./getAllownceHeads/", true);
+    xhttp.open("GET", "./getAccounts/", true);
 
     xhttp.send();
     }
 
     </script>
+    <script>
 
+        function loadAllownceHeads() {
+        var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById("allownceHeads").innerHTML = this.response;
+            $('#allownceHeads').selectpicker('refresh');
+        }
+            };
+
+        xhttp.open("GET", "./getAllownceHeads/", true);
+
+            xhttp.send();
+            }
+
+        </script>
     </body>
 
     </html>

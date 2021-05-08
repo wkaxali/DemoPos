@@ -157,16 +157,18 @@
                                 <form>
 
                                     <div class="CustomerAddition  mb-3" style="margin-top:-20px !important;">
-                                        <h2 class="text-center addCut">Task Category</h2>
+                                        <h2 class="text-center addCut">Add Allowance</h2>
 
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" id="taskCategorey" required
-                                            placeholder="Task Categorey">
+                                        <input type="text" class="form-control item" id="Name" required
+                                            placeholder="Allowance Name">
                                     </div>
+                      
+
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" class="btn  create-account" onclick="addTaskCategory()">Add Category</button>
+                                        <button type="button" class="btn  create-account" onclick="addAllowance()">Add Allowance</button>
                                     </div>
 
 
@@ -174,7 +176,6 @@
 
                             </div>
                         </div>
-                        
                     </div>
                 </div>
 
@@ -196,23 +197,24 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function addTaskCategory() {
+        function addAllowance() {
 
-            var data = document.getElementById("taskCategorey").value;
-            
-    
+            var allowName = document.getElementById("Name").value;
+
+
+           
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Task Category " + this.responseText + " is Added");
+                    alert("Allowance " + this.responseText + " is Added");
 
 
                 }
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addTaskCategory/" + data, true);
+            xhttp.open("GET", "./addAllowance/" + allowName, true);
             xhttp.send();
 
         }

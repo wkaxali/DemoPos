@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
-
+<title>Add Users</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -171,7 +171,7 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF" id="Password"
-                                            placeholder="Password">
+                                            placeholder="Password" >
                                     </div>
                                     <div class="form-group">
 
@@ -216,6 +216,9 @@
 
         var addUsers = [Username, password, designation];
 
+        if(Username=="" || password==""){
+            alert("Fill in all Fields")
+        }else{
         var AU = JSON.stringify(addUsers);
         alert(AU)
         var xhttp = new XMLHttpRequest();
@@ -233,6 +236,8 @@
             xhttp.send()
 
         }
+    }
+
     
     </script>
 </body>

@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-<title>Edit Customer</title>
+<title>Edit Allowance</title>
 
 
 <link rel="stylesheet" href="assets/css/style.css">
@@ -44,14 +44,14 @@ margin: 0 auto;
 </style>
 </head>
 
-<body onload="getCustomers()">
+<body onload="getAllowance()">
 <div class="container">
 
 <header class="idi">
 <div class="container">
 <div class="row">
 <div class="col-md-12 text-center">
-<h3 class="mt-3">Edit Customer</h3>
+<h3 class="mt-3">Edit Allowance</h3>
 </div>
 </div>
 
@@ -67,16 +67,8 @@ style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
 <table style="width: 100%;" id="stocktable">
 <thead>
 
-<th>Customer ID</th>
-<th>Customer Name</th>
-<th>Contact</th>
-<th>Address</>
-
-<th>CNIC</th>
-<th>Balance</th>
-
-
-
+<th>Allowance ID</th>
+<th>Allowance Name</th>
 </tr>
 </thead>
 <tbody id="stocktableBody">
@@ -88,52 +80,20 @@ style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
 </div>
 <div class="col-md-4 stockLabels">
 <div class="input-field">
-<label for="status">CustomerID</label>
+<label for="status">AllowanceID</label>
 <input type="text" autocomplete="OFF" class="form-control"
 style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="CID">
+id="AID" readonly>
 </div>
 <div class="input-field">
-<label for="status">CustomerName</label>
+<label for="status">AllowanceName</label>
 <input type="text" autocomplete="OFF" class="form-control"
 style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="customerName">
+id="AllowanceName">
 </div>
-
-
-
-<div class="input-field">
-<label for="status">Contact</label>
-<input type="text" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="Contact" required>
-</div>
-
-<div class="input-field">
-<label for="status">Address</label>
-<input type="text" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="Address" required>
-</div>
-
-<div class="input-field">
-<label for="status">CNIC</label>
-<input type="text" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-value="" id="CNIC" required>
-</div>
-
-
-<div class="input-field">
-<label for="status">Balance</label>
-<input type="email" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="balance" required>
-</div>
-
 
 <br>
-<button class="btn btn-success" onclick="editEmployee()">Update </button>
+<button class="btn btn-success" onclick="editAllowance()">Update </button>
 
 
 </div>
@@ -174,7 +134,7 @@ $('#stocktable').DataTable();
 <!--end::Global Theme Bundle-->
 
 <script>
-function getCustomers() {
+function getAllowance() {
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
 if (this.readyState == 4 && this.status == 200) {
@@ -187,8 +147,7 @@ table = $('#stocktable').DataTable();
 
 $.each(a, function (i, item) {
 
-table.row.add([a[i].CustomerID, a[i].CustomerName, a[i].Contect, a[i].Address,
-a[i].CNIC, a[i].Balance
+table.row.add([a[i].AllowanceID, a[i].AllowanceName
 ]);
 });
 table.draw();
@@ -204,57 +163,41 @@ table.draw();
 }
 };
 
-xhttp.open("GET", "./getCustomers/", true);
+xhttp.open("GET", "./getAllowance/", true);
 xhttp.send();
 }
 $("#stocktable").on('click', 'tr', function () {
-document.getElementById("CID").value = this.cells[0].innerText;
-document.getElementById("customerName").value = this.cells[1].innerText;
-document.getElementById("Contact").value = this.cells[2].innerText;
-document.getElementById("Address").value = this.cells[3].innerText;
-
-document.getElementById("CNIC").value = this.cells[4].innerText;
-document.getElementById("balance").value = this.cells[5].innerText;
-
-
-
-
-
-
-
+document.getElementById("AID").value = this.cells[0].innerText;
+document.getElementById("AllowanceName").value = this.cells[1].innerText;
 
 });
 
-function editEmployee() {
-var CID = document.getElementById("CID").value;
-var customerName = document.getElementById("customerName").value;
-var contact = document.getElementById("Contact").value;
-var address = document.getElementById("Address").value;
+function editAllowance() {
+var AID = document.getElementById("AID").value;
+var AllowanceName = document.getElementById("AllowanceName").value;
 
-var CNIC = document.getElementById("CNIC").value;
-var balance = document.getElementById("balance").value;
 
-if (customerName == "" || contact == "" || address == "" || CNIC == "" || balance == "") {
+if (AllowanceName == "" ) {
 
-alert("please fill all fields");
+alert("please fill the field");
 } else{
-var updateCustomer = [CID, customerName, contact, address, CNIC, balance,
+var updateAllowance = [AID, AllowanceName
 ]};
 
-var UC = JSON.stringify(updateCustomer);
+var UA = JSON.stringify(updateAllowance);
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
 if (this.readyState == 4 && this.status == 200) {
 
-alert("Customer " + this.responseText + " is Updated");
+alert("Allowance " + this.responseText + " is Updated");
 
 
 }
 };
 
 // var MenuID=$('#Menus').find(":selected").val();
-xhttp.open("GET", "./editCustomer/" + UC, true);
+xhttp.open("GET", "./editAllowance/" + UA, true);
 xhttp.send();
 
 }

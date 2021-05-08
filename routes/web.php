@@ -11,7 +11,8 @@ use App\Http\Controllers\deletePaymentController;
 use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\globalVarriablesController;
 use App\Http\Controllers\OrderFlowController;
-use App\Http\Controllers\accounts;
+use App\Http\Controllers\productCategoryController;
+
 use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
@@ -41,6 +42,9 @@ use App\Http\Controllers\TEST;
 use App\Http\Controllers\printServiceInvoice;
 use App\Http\Controllers\deliverLetterPrintController;
 use App\Http\Controllers\summaryReportController;
+use App\Http\Controllers\employeeAllowanceController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +58,9 @@ use App\Http\Controllers\summaryReportController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/getAllownceHeads',[employeeAllowanceController::class, 'getAllownceHeads']);
+Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
+Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
 Route::get('/sd',[summaryReportController::class, 'stockDetails']);
 Route::get('/sum',[summaryReportController::class, 'summaryReport']);
 Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
@@ -130,6 +137,12 @@ Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID']);
 Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads']);
 Route::get('/getComission/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
 Route::get('/getProfit/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
+
+Route::get('/addAccount/{accData}',[accountsController::class, 'addAccount']);
+Route::get('/getAccountsData',[accountsController::class, 'getAccountsData']);
+// Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
+Route::get('/editAccounts/{EA}',[accountsController::class, 'editAccounts']);
+
 
 Route::get('/getInvoiceCustomer/{data}',[serviceSalesFlow::class, 'printSaleRequestOnInvoiceNumber']);
 Route::get('/getQuotation/{data}',[quotationController::class, 'getQuotation']);
@@ -209,7 +222,6 @@ Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
 Route::get('/deleteExpense/{data}',[deleteExpenseController::class, 'deleteExpense']);
 Route::get('/deletePayment/{EID}',[deletePaymentController::class, 'deletePayment']);
 Route::get('/editCustomer/{data}',[CustomerController::class, 'editCustomer']);
-Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
@@ -255,6 +267,12 @@ Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'signIn']);
 Route::get('/addNewUsers/{AU}',[userAccountController::class, 'addUsers']);
 
+Route::get('/addCategory/{Category}',[productCategoryController::class, 'addCategory']);
+
+Route::get('/getPCategory',[productCategoryController::class, 'getCategory']);
+Route::get('/editCategory/{EC}',[productCategoryController::class, 'editCategory']);
+
+Route::get('/addEmpPay/{AP}',[payController::class, 'addEmpPay']);
 
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
@@ -268,6 +286,10 @@ Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/monthlyReport',[printMonthlySaleController::class, 'PrintMonthlySale']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
+
+Route::get('/addAllowance/{allowName}',[employeeAllowanceController::class, 'addAllowance']);
+Route::get('/getAllowance',[employeeAllowanceController::class, 'getAllowance']);
+Route::get('/editAllowance/{UA}',[employeeAllowanceController::class, 'editAllowance']);
 
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
@@ -324,6 +346,34 @@ Route::get('/qt', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('quotation'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+
+Route::get('/aep', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addEmployeePay'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/aa', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addAccount'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/ea', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAccount'); 
     }else{
     return view("signInSignUp");
     }
@@ -672,17 +722,6 @@ Route::get('/prc', function () {
     }
 });
 
-
-
-Route::get('/fgp', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"||$UN=="User"){
-    return view('ForlandGatePass'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
-
 Route::get('/fgp', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"||$UN=="User"){
@@ -747,6 +786,23 @@ Route::get('/gb', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('generateBarcode'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/adal', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addAllowance');
+    }else{
+    return view("signInSignUp");
+    }
+});
+Route::get('/edal', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAllowance'); 
     }else{
     return view("signInSignUp");
     }
@@ -1019,4 +1075,9 @@ route::get('/aeh', function(){
 route::get('/ch', function(){
     return view('customerHistory');
 });
-
+route::get('/dk', function(){
+    return view('dontKnow');
+});
+route::get('/abc', function(){
+    return view('abc');
+});
