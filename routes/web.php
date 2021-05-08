@@ -773,7 +773,7 @@ Route::get('/gb', function () {
     }
 });
 
-Route::get('/adl', function () {
+Route::get('/adal', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('addAllowance');
