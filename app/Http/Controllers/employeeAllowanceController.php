@@ -40,5 +40,18 @@ class employeeAllowanceController extends Controller
             $results=DB::select('select * from tbl_allowancehead');
             return $results;
         }
+        
+        public static function getAllownceHeads(){
+            $data=DB:: select('select * from tbl_allowancehead');       
+            $option='<option value=""></option>';
+            foreach ($data as $d){
     
+                $option=$option.'
+                <option value= '.$d->AllowanceID.'>'.$d->AllowanceName.'</option>';
+              
+            }
+            return $option;
+    
+    
+        }
 }
