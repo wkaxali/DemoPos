@@ -181,9 +181,9 @@ public static function getEmployeeName(){
     
     $empCheck = DB::table('tblemployeepay')
                 ->where('EID', '=', $eid)
-                ->first()->BasicPay;
-    // return $empCheck;
-    if($empCheck==NULL){ 
+                ->first();
+    
+    if(is_null($empCheck)){ 
 
         $id=DB::table('tblemployeepay')->insertGetId([
         
