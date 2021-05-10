@@ -181,9 +181,9 @@ public static function getEmployeeName(){
     
     $empCheck = DB::table('tblemployeepay')
                 ->where('EID', '=', $eid)
-                ->first()->EID;
-    //return $empCheck;
-    //if($empCheck==NULL){ 
+                ->first()->BasicPay;
+    // return $empCheck;
+    if($empCheck==NULL){ 
 
         $id=DB::table('tblemployeepay')->insertGetId([
         
@@ -197,12 +197,12 @@ public static function getEmployeeName(){
 
       return "employee $eid Pay is Assigned at $id";
       
-    //}else{
-      //return "Pay Already Assigned to $eid";
-    //}
+    
  
+  }else{
+    return "Pay Already Assigned to $eid";
   }
-
+  }
   public static function getCalculatedPay($EMPID)
   {
     
