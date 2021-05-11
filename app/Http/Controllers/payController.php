@@ -178,10 +178,12 @@ public static function getEmployeeName(){
     $allowedHolidays=$obj[2];
     $saleTarget=$obj[3];
     $workingHours=$obj[4];
+
+    $empCheck = DB::table('tblemployeepay')
+            ->where('EID', '=', $eid);
+            
     
-    $empCheck = DB::select('select * from tblemployeepay where EID ='.$eid);
-    
-    if($empCheck->exist()){ 
+    if($empCheck->exists()){ 
       return "Pay Already Assigned to $eid";
     }else{
       $id=DB::table('tblemployeepay')->insertGetId([
