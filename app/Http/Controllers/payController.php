@@ -179,30 +179,25 @@ public static function getEmployeeName(){
     $saleTarget=$obj[3];
     $workingHours=$obj[4];
     
-    $empCheck = DB::table('tblemployeepay')
-                ->where('EID', '=', $eid)
-                ->first();
+    $empCheck = DB::select('select * from tblemployeepay where EID ='.$eid);
     
-    if(is_null($empCheck)){ 
-
-        $id=DB::table('tblemployeepay')->insertGetId([
+    if($empCheck->exist()){ 
+      return "Pay Already Assigned to $eid";
+    }else{
+      $id=DB::table('tblemployeepay')->insertGetId([
         
-                    'BasicPay' =>$basicPay,
-                    'AllowedHolidays' =>$allowedHolidays,
-                    'SaleTarget' =>$saleTarget,
-                    'WorkingHours' =>$workingHours,
-                    'EID' =>$eid
-                    
-                  ]);
+        'BasicPay' =>$basicPay,
+        'AllowedHolidays' =>$allowedHolidays,
+        'SaleTarget' =>$saleTarget,
+        'WorkingHours' =>$workingHours,
+        'EID' =>$eid
+        
+      ]);
 
       return "employee $eid Pay is Assigned at $id";
-      
-    
- 
-  }else{
-    return "Pay Already Assigned to $eid";
+    }
   }
-  }
+
   public static function getCalculatedPay($EMPID)
   {
     
