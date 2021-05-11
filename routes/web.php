@@ -628,6 +628,15 @@ Route::get('/pr', function () {
     return view("signInSignUp");
     }
 });
+Route::get('/eat', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAttendance'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
 Route::get('/es', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
