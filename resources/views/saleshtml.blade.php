@@ -101,14 +101,12 @@
                             <label for="invo-1">Customer Id</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                                 name="invo-1" id="CID" readonly>
-                            <button class="btn"
-                                style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
+                            
                             <br>
                             <label for="prod-1">Last Balance</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                                 name="invo-1" id="LastBalance" readonly>
-                            <button class="btn"
-                                style="height: 25px; margin-top: -5px;background-color: #13579a;"></button> <br>
+                           
                             <label for="prod-1">Current Balance</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                                 name="invo-1" id="CurrentBalance" readonly>
