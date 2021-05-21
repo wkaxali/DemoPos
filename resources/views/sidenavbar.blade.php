@@ -20,7 +20,7 @@ style="float: right"></span></a>
 <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
 style="font-size: 14px;">Vehicles & Parts</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse list-unstyled firstULs ">
+<ul class="collapse  firstULs ">
 <li><a href="/rec">Vehicle</a></li>
 <li><a href="/sp">Parts</a></li>
 <li><a href="/acc">Accesories</a></li>
@@ -31,20 +31,20 @@ style="float: right"></span></a>
 </ul>
 </li>
 
-<li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
+<li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
 style="font-size: 14px;">Auto Models</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse list-unstyled firstULs ">
+<ul class="collapse firstULs1 ">
 <li><a href="/aam">Add Auto Model</a></li>
 <li><a href="/eam">Edit Auto Model</a></li>
 <li><a href="/acc">Accesories With Autos </a></li>
 </ul>
 </li>
 
-<li><a data-toggle="collapse" data-target=".firstULs1"><i class="fab fa-salesforce"></i><span
+<li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
 style="font-size: 14px;">Customer Info</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs1">
+<ul class="collapse firstULs2">
 <li><a href="/adc">Add Customer</a></li>
 <li><a href="/ec">View/Edit Customer List</a></li>
 <li><a href="/ads">Add Supplier</a></li>
@@ -52,10 +52,10 @@ style="float: right"></span></a>
 
 </ul>
 </li>
-<li><a data-toggle="collapse" data-target=".firstULs2"><i class="fab fa-salesforce"></i><span
+<li><a data-toggle="collapse" data-target=".firstULs3"><i class="fab fa-salesforce"></i><span
 style="font-size: 14px;">Expenses</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs2">
+<ul class="collapse firstULs3">
 <li><a href="/ex">Daily Expense</a></li>
 <li><a href="/pay">Payments</a></li>
 <li><a href="/ex">Add Expense</a></li>
@@ -65,11 +65,11 @@ style="float: right"></span></a>
 
 </ul>
 </li>
-<li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
+<li><a data-toggle="collapse" data-target=".firstULs4"><i
 class="fab fa-alipay"></i>
 <span style="font-size: 14px;">Sales</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs3">
+<ul class="collapse firstULs4">
 <li id="menu-mensagens" style="width: 201px"><a href="/is">Sales Invoice</a>
 </li>
 <li><a href="/ss">Service Sales Invoice</a></li>
@@ -78,11 +78,11 @@ style="float: right"></span></a>
 </ul>
 </li>
 
-<li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs3"><i
+<li id="menu-comunicacao"><a data-toggle="collapse" data-target=".firstULs5"><i
 class="fab fa-alipay"></i>
 <span style="font-size: 14px;">Payments</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs3">
+<ul class="collapse firstULs5">
 <li id="menu-mensagens" style="width: 201px"><a href="/pay">Add Payments</a>
 </li>
 <li id="menu-mensagens" style="width: 201px"><a href="/dpay">Delete Payments</a>
@@ -94,20 +94,20 @@ style="float: right"></span></a>
 </ul>
 
 
-<li><a data-toggle="collapse" data-target=".firstULs4"><i class="fab fa-salesforce"></i><span
+<li><a data-toggle="collapse" data-target=".firstULs6"><i class="fab fa-salesforce"></i><span
 style="font-size: 14px;">Investor</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs4">
+<ul class="collapse firstULs6">
 <li><a href="/l">Investor Sales Ledger</a></li>
 <li><a href="/igl">Investor General Ledger</a></li>
 <li><a href="cl">FJW Ledger</a></li>
 
 </ul>
 </li>
-<li><a data-toggle="collapse" data-target=".firstULs5"><i class="fas fa-vials"></i><span
+<li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-vials"></i><span
 style="font-size: 14px;">HR</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs5">
+<ul class="collapse firstULs7">
 <li><a href="/ae">Add Employee</a></li>
 <li><a href="ee">View/Edit Employee</a></li>
 <li><a href="/pr">Payroll</a></li>
@@ -116,10 +116,10 @@ style="float: right"></span></a>
 
 </ul>
 </li>
-<li><a data-toggle="collapse" data-target=".firstULs6"><i class="fas fa-vials"></i><span
+<li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-vials"></i><span
 style="font-size: 14px;">Account Settings</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs6">
+<ul class="collapse firstULs8">
 <li><a href="/au">Add User</a></li>
 <li><a href="eu">Edit User</a></li>
 
@@ -154,11 +154,11 @@ style="float: right"></span></a>
 
 
 
-<li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs12"><i
+<li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs9"><i
 style="font-size: 20px;" class="fab fa-stack-overflow"></i><span
 style="font-size: 14px;">Stock</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs12" id="menu-academico-sub">
+<ul class="collapse firstULs9" id="menu-academico-sub">
 <li id="menu-academico-boletim"><a href="/ans">Add New Stock</a></li>
 <li id="menu-academico-avaliacoes"><a href="/vs">View Stock</a></li>
 
@@ -167,10 +167,10 @@ style="float: right"></span></a>
 
 
 
-<li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
+<li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs10"><i
 class="fas fa-flag-checkered"></i><span style="font-size: 14px;">Reports</span><span
 class="fa fa-angle-right" style="float: right"></span></a>
-<ul class="collapse firstULs13" id="menu-academico-sub">
+<ul class="collapse firstULs10" id="menu-academico-sub">
 <li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
 
 <!-- <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li> -->
@@ -181,10 +181,10 @@ class="fa fa-angle-right" style="float: right"></span></a>
 
 
 
-<li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs13"><i
+<li id="menu-academico"><a data-toggle="collapse" data-target=".firstULs11"><i
 class="fas fa-flag-checkered"></i><span style="font-size: 14px;">comission And Sales</span><span
 class="fa fa-angle-right" style="float: right"></span></a>
-<ul class="collapse firstULs13" id="menu-academico-sub">
+<ul class="collapse firstULs11" id="menu-academico-sub">
 <li id="menu-academico-boletim"><a href="/sc">Taxes</a></li>
 </ul>
 </li>
@@ -198,10 +198,10 @@ Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
 </li> -->
 
 
-<li><a data-toggle="collapse" data-target=".firstULs15"><i class="fab fa-amazon-pay"></i><span
+<li><a data-toggle="collapse" data-target=".firstULs12"><i class="fab fa-amazon-pay"></i><span
 style="font-size: 14px;">PayRoll</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
-<ul class="collapse firstULs15" id="menu-academico-sub">
+<ul class="collapse firstULs12" id="menu-academico-sub">
 <li id="menu-academico-avaliacoes"><a href="/pr">View Employee Pay</a></li>
 <!-- <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li> -->
 
