@@ -211,10 +211,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3 okay-invo okay-invo-hide">
-                            <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid"
-                                alt="">
-                        </div>
+                      
 
 
 
