@@ -95,6 +95,7 @@
                                 <label for="invo-1">Supplier Id</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
                                     name="invo-1" id="SID" readonly>
+
                                 <br>
                                 <label for="prod-1">Last Balance</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"

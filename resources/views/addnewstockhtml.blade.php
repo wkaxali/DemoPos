@@ -41,8 +41,7 @@
                     </div>
                     <div class="input-Btn-1">
                         <button class="btn btn-success" style="margin-top: 30px !important;"
-                            onclick="AddItemInGrid()">Add
-                            Stock</button>
+                            onclick="AddItemInGrid()">Add Stock</button>
 
                     </div>
                 </div>
