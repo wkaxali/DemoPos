@@ -265,7 +265,7 @@ Quotation For '.session()->get("productName").'
 <tr>
 <td width="5%" border="0">4</td>
 <td width="30%" border="0">Duty/Taxes #</td>
-<td width="65%" align="left" border="0">Any change in Govt.fiscal Policies,RGST/VAT and tariff structures will be on coustumer accounts.</td>
+<td width="65%" align="left" border="0">Any change in Govt.fiscal Policies,RGST/VAT and tariff structures will be on customer accounts.</td>
 
 
 
