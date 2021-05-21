@@ -866,15 +866,6 @@ $pdf = PDF::loadView('viewExpenses', $data);
 // download PDF file with download method
 return $pdf->download('pdf_file.pdf');
 });
-// Route::get('/vd', function () {
-//     $UN = session()->get('Designation');
-//     if($UN=="Admin"){
-//     return view('vehicleDetails'); 
-//     }else{
-//     return view("signInSignUp");
-//     }
-// });
-
 Route::get('/ssi2', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
