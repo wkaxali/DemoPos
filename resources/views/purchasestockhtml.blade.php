@@ -85,8 +85,7 @@
                             <br>
                             <div class="centhour">
                                 <button class="btn btn-new" style="background-color: #e61d2f;" onclick="pageReload()">New</button>
-                                <button class="btn btn-edit" style="background-color: #13579a;">Edit</button>
-                                <button class="btn" style="background-color: #e61d2f;">Delete</button>
+                               
                             </div>
                             <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
                         </div>
@@ -96,14 +95,10 @@
                                 <label for="invo-1">Supplier Id</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
                                     name="invo-1" id="SID" readonly>
-                                <button class="btn "
-                                    style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
                                 <br>
                                 <label for="prod-1">Last Balance</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
                                     name="invo-1" id="LastBalance" readonly>
-                                <button class="btn "
-                                    style="height: 25px; margin-top: -5px; background-color:#0a549d;"></button>
                                 <br>
                                 <label for="prod-1">Current Balance</label>
                                 <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
@@ -212,9 +207,7 @@
 
                                     </div>
                                 </div>
-                                <button class="btn " style="background-color: #e61d2f;">View</button>
-                                <button class="btn " style="background-color:#0a549d;">History</button>
-                                <button class="btn " style="background-color: #e61d2f;">Info</button>
+                                
                             </div>
                         </div>
 
