@@ -251,7 +251,7 @@
                             </div>
 
                         </div>
-                        <div class="col-md-3 okay-invo-3">
+                        <div class="col-md-3 okay-invo-2">
                             <label for="invo-1">Total</label>
                             <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
                                 name="invo-1" id="Total">
