@@ -13,7 +13,7 @@
                                 <label class="orderNOLabel" for="OrderNo">Order No</label>
                                 <input type="text" name="" value="" id="OrderId">
                                 <button class="btn" style="background-color: #e61d2f; height: 30px;"
-                                    onclick="getOrderDetails()"></button>
+                                    onclick="getOrderDetails()">Add</button>
 
                             </div>
                             <div class="col-md-4 offset-md-4">

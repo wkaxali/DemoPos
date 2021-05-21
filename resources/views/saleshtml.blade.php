@@ -10,7 +10,7 @@
             </div>
             <div class="container">
                 <div class="row" id="selectFirst">
-                    <div class="col-xl-4  col-lg-7 col-md-7   okay-invo">
+                    <div class="col-xl-3  col-lg-6 col-md-6   okay-invo">
                         <label for="invo-1">Invoice Number</label>
                         <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
                             name="invo-1" id="InvoiceID">
@@ -190,11 +190,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 okay-invo okay-invo-hide">
-                        <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid"
-                            alt="">
-
-                    </div>
+                   
 
 
 
@@ -234,7 +230,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-3 okay-invo-3">
+                    <div class="col-md-3 okay-invo-2">
                         <label for="invo-1" style="width: 130px;">Total</label>
                         <input type="text" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="Total">

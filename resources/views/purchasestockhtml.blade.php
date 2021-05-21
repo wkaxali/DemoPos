@@ -212,10 +212,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3 okay-invo okay-invo-hide">
-                            <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid"
-                                alt="">
-                        </div>
+                      
 
 
 
@@ -255,10 +252,10 @@
                             </div>
 
                         </div>
-                        <div class="col-md-3 okay-invo-3">
+                        <div class="col-md-3 okay-invo-2">
                             <label for="invo-1">Total</label>
                             <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="Total">
+                                name="invo-1" id="Total" >
 
                             <label for="prod-1">Discount</label>
                             <input type="number" class="form-control" style="display: inline-block;  height: 30px;"

@@ -356,7 +356,7 @@
                     <div class="container">
                         <div class="row ">
                             <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
-                                
+                                <a class="btn" onclick="window.location.href='/acc'">Add Accessories</a>
                                 <a class="btn" onclick="printDocs()">Print Docs</a>
                                 <a class="btn" onclick="validPlz()">Generate Sale</a>
                                 
