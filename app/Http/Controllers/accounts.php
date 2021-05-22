@@ -26,17 +26,7 @@ class accounts extends Controller
           'AccountName'=>$customerName,
           'AccountNumber'=>$contact,
       
-          'Balance'=>$balance,
-          ]);
-
-          return $CID;
-        }
-
-
-  
-
-
-public function AddAccounts(Request $request, $CO){
+          'Balance'=>$balance,ddAccounts(Request $request, $CO){
     
     $ata=json_decode($CO);
         $CID = $ata[0];

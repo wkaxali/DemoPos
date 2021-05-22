@@ -16,6 +16,8 @@ use App\Http\Controllers\productCategoryController;
 use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
+use App\Http\Controllers\printSalarySlip;
+
 use App\Http\Controllers\payController;
 use App\Http\Controllers\salePrintInvoice;
 use App\Http\Controllers\StripeController;
@@ -103,6 +105,7 @@ Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 //qutationRequest
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
+Route::get('/g',[printSalarySlip::class, 'pss']);
 
 //Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
@@ -1049,7 +1052,9 @@ Route::get('/usa', function () {
 Route::get('/usam', function () {
     return view('addtblaccounts');
 });
-
+Route::get('/sumrep', function () {
+    return view('summaryreport');
+});
 
 
 Route::get('/ans', function () {

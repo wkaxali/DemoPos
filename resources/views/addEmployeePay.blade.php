@@ -196,7 +196,7 @@
 
     <div class="row customBorder">
     <div class="col-md-4">
-    <h4>Add Employee Payments</h4>
+    <h4>Add Employee Pay</h4>
     </div>
     </div>
     </div>
@@ -212,8 +212,8 @@
      </select>
        <br><br>
     <label for="">Basic Pay</label>
-    <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-    value="" name=""  id="basicPay"  style=" margin-left: 150px;"><br><br>
+    <input type="text" class="form-control" style="display: inline-block; width: 192px; margin-left: 60px;"
+    value="" name=""  id="basicPay"  ><br><br>
     
     <label for="">Allowed Holidays</label>
     <input type="text" class="form-control" style="display: inline-block; width: 192px;"
@@ -231,18 +231,18 @@
     <br>
     <div class="expenseButtons">
     <label style="width: 100px !important;" for="">SaleTarget</label>
-    <input type="text" style="display: inline-block !important; width: 200px;"
+    <input type="text" style="display: inline-block !important; width: 200px; margin-left: 40px;"
     class="form-control" name="" id="saleTarget"><br>
 
     </div>
     <div class="expenseButtons">
     <label for="">WorkingHours</label>
-    <input type="text" class="form-control" style="display: inline-block; width: 192px;"
+    <input type="text" class="form-control" style="display: inline-block; width: 202px; margin-left: 20px;"
     value="" name="" id="workingHours">
     
     </div>
     <div class="form-group" style="text-align: center;">
-                                        <button type="button" class="btn  create-account" onclick="addEmpPay()">Add</button>
+                                        <button style=" margin-top: 10px; margin-left: 240px; " type="button" class="btn  create-account" onclick="addEmpPay()" >Update Pay</button>
                                     </div>
 
 
@@ -263,14 +263,14 @@
     </div>
     <div class="expenseButtons">
     <label for="" >Allowance</label>
-    <select class="selectpicker form-control" style="display: inline-block; width: 192px;" data-live-search="true"  id="allownceHeads" >                   
+    <select class="selectpicker form-control" data-live-search="true"  id="allownceHeads" >                   
      </select>
        
-    <label for="">Amount</label>
-    <input type="text" class="form-control" style="display: inline-block; width: 192px;"
+    <label for="" style=" margin-left: 380px;">Amount</label>
+    <input type="text" class="form-control" style="display: inline-block; width: 192px; "
     value="" name=""  id="amount" >
 
-  <button type="button" class="btn  create-account"  onclick="add()">Add</button>
+  <button type="button" class="btn  create-account"  onclick="add()" style=" margin-left: 80px;">Add</button>
     </div>
     </div>
     </div>
@@ -281,10 +281,10 @@
     style="width: 100%;">
     <thead>
     <tr>
-    <th>Id</th>
+    <th>Emp ID</th>
+    <th>Emp Name</th>
     <th>Amount</th>
     <th>Allowance Name</th>
-    
     <th>Action</th>
     </tr>
     </thead>
@@ -297,7 +297,7 @@
     <div class="row">
     <div class="col-md-6 offset-md-6">
     <div class="mainTableEnd">
-    <label for="">Total Expense</label>
+    <label for="">Total Pay</label>
     <input type="text" onclick="calculatonInTable()" value="" name="" id="mainTotal" readonly>
     </div>
     </div>
@@ -310,12 +310,14 @@
     <div class="col-md-5 offset-md-7">
     <div class="footerBtns">
    
-    <button onclick="window.print()" class="btn">Print</button>
     <button class="btn" onclick="addAllowances()">Update</button>
     </div>
     </div>
     </div>
-    </div>
+    </div>]
+
+
+
     </footer>
 
 
