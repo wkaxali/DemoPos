@@ -285,6 +285,12 @@ class OrderFlowController extends Controller
         return $data;
       }
       
+         
+      function transactionHistoryforExpance(){
+        $data=DB:: select('select * from tbltransactionflow where TransactionType=Credit');
+        return $data;
+      }
+      
       function companyLedger(){
         $data=DB:: select('select * from vw_purchase_transactions where paidTo = 1');
         return $data;

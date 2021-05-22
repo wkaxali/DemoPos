@@ -159,6 +159,7 @@ Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem']);
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID']);
 Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
 Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
+Route::get('/transactionHistoryfe',[OrderFlowController::class, 'transactionHistoryforExpance']);
 Route::get('/transactionHistoryAccounts/{AID}',[TransactionFlow::class, 'getTransactionsForAccounts']);
 Route::get('/transactionHistoryParties/{LID}',[TransactionFlow::class, 'getTransactionsForParties']);
 Route::get('/debitTransactions',[TransactionFlow::class, 'debitTransactions']);
@@ -1023,6 +1024,10 @@ Route::get('/logout', function(){
 
 Route::get('/aam', function () {
     return view('addAutoModels');
+});
+
+Route::get('/sumrep', function () {
+    return view('summaryreport');
 });
 
 Route::get('/ans', function () {
