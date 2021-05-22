@@ -64,6 +64,7 @@ Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
 Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
 Route::get('/sd',[summaryReportController::class, 'stockDetails']);
 Route::get('/sum',[summaryReportController::class, 'summaryReport']);
+Route::get('/sum2',[summaryReportController::class, 'summaryReportTabularBase']);
 Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
 Route::get('/transactions/{dates}',[summaryReportController::class, 'transactions']);
 Route::get('/getUsers',[userAccountController::class, 'getUsers']);
@@ -107,7 +108,7 @@ Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 
 //Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
-Route::get('/sum',[TEST::class, 'summary']);
+//Route::get('/sum',[TEST::class, 'summary']);
 
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 //Route::get('/getqoute/{id}',[quotationController::class, 'getQuotation']);
