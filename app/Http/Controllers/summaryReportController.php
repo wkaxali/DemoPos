@@ -61,6 +61,143 @@ class summaryReportController extends Controller
     
 
 
+    public static function summaryReportTabularBase(){
+       
+    //dd($creditHtml);
+
+    $newHTML='
+    <table border="0">
+ 
+    <tr><td>
+    <table border="0"cellpadding="7">
+    <thead>
+    <tr>
+    <th align="center"><h1><br><br><br>Summary Report</h1></th>
+    </tr>
+  
+
+    </thead>
+    
+    <tbody>
+   
+    
+    </tbody>
+    
+    
+    
+    </table>
+    <br>
+ 
+    
+    <table border="0">
+    <tbody>
+  
+    <tr>
+    <td  align="right"><br><span style="font-size: medium;">Date From:    </span></td>
+    <td  align="left"><br><span style="font-size: medium;">From:</span></td>
+  
+    
+    
+    </tr>
+        </tbody>
+    </table>
+    
+    
+    
+    <br>
+    <br>
+  
+ 
+    <table border="1" cellpadding="3">
+    <thead>
+    <tr >
+    <td  align="left" bgcolor="#C0C0C0" > Credit </td>
+    <td align="center" bgcolor=" #C0C0C0"></td>
+    
+     </tr>
+    </thead>
+    <tbody >
+    <table>
+    <tr>
+    <td>s
+    </td>
+    <td>d
+    </td>
+    </tr>
+    </table>
+   
+    
+  
+   
+
+    
+    
+    </tbody>
+    </table>
+   
+    <table border="1" cellpadding="5">
+    <thead>
+    <tr>
+    <td align="left" bgcolor="#C0C0C0" >Debit </td>
+    <td align="center" bgcolor=" #C0C0C0"></td>
+    
+    </tr>
+    </thead>
+    <tbody >
+   
+    
+    </tbody>
+    </table>
+
+    
+ 
+    
+    <table border="0"cellpadding="7">
+    <thead>
+ 
+   
+    <br>
+    <br>
+    
+    
+    <br>
+    <tr>
+    <td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Total</td>
+    <td width="40%" align="center" border="0"  bgcolor=" #C0C0C0"></td>
+    
+    
+    
+    </tr>
+    <tr>
+    <br>
+    
+    <td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Profit/Loss</td>
+    <td width="40%" align="center" border="0" bgcolor=" #C0C0C0"></td>
+    
+    
+    
+    </tr>
+    
+    
+    
+    
+    </tbody>
+    </table>
+       
+    </td>
+    </tr>
+    </table>
+
+    ';     // $html= $htmldata;
+
+    
+    PDF::SetTitle('Request for Invoice');
+    PDF::AddPage();
+    PDF::writeHTML($newHTML, true, false, true, false, '');
+
+    PDF::Output('invoiceRequest.pdf');
+
+    }
     public static function summaryReport(){
         $data= self::transactions(null,null);
      //dd($data);
@@ -86,18 +223,25 @@ class summaryReportController extends Controller
         $creditHtml=$creditHtml.' <tr >    
          <td >'.$row->TransactionCatogery.'</td>
          <td align="center">'.number_format($row->TotalAmount).'</td>
+         
          </tr>';
          $creditAmountSum=floatval($creditAmountSum)  + floatval($row->TotalAmount);
         }
 
 
     }
+    $remarks="Loss";
     $total=floatval($creditAmountSum)-floatval($debitAmountSum);
-    
+    if(floatval($total)>0){
+
+        $remarks="Profit";
+
+    }
+
     //dd($creditHtml);
 
     $newHTML='
-    <table border="1">
+    <table border="0">
  
     <tr><td>
     <table border="0"cellpadding="7">
@@ -195,7 +339,7 @@ class summaryReportController extends Controller
     <br>
     
     <td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Profit/Loss</td>
-    <td width="40%" align="center" border="0" bgcolor=" #C0C0C0">______________________</td>
+    <td width="40%" align="center" border="0" bgcolor=" #C0C0C0">'.$remarks.'</td>
     
     
     
@@ -221,6 +365,7 @@ class summaryReportController extends Controller
     PDF::Output('invoiceRequest.pdf');
 
     }
+   
    
 public static function stockDetails(){
     
