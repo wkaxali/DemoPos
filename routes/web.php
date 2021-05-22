@@ -57,6 +57,7 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/partyData',[LedgerPartiesController::class, 'partyData']);
 Route::get('/addAllowances/{data}',[employeeAllowanceController::class, 'addAllowances']);
 Route::get('/getAllownceHeads',[employeeAllowanceController::class, 'getAllownceHeads']);
 Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
@@ -106,7 +107,7 @@ Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 
 //Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
-Route::get('/sum',[TEST::class, 'summary']);
+//Route::get('/sum',[TEST::class, 'summary']);
 
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 //Route::get('/getqoute/{id}',[quotationController::class, 'getQuotation']);
