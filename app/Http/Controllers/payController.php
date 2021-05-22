@@ -29,6 +29,7 @@ class payController extends Controller
         'Amount'=>$amount,
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Debit",
+        'Remarks'=>$remarks,
         
         ]);  
         
@@ -225,12 +226,18 @@ public static function getEmployeeName(){
   }
 
 
-   public function getPayment(){
-    $results=DB::select('select * from tbltransactionflow where TransactionCatogery="Salary Payment" or TransactionCatogery= "Party Payment"');
+   public function getPartyPayment(){
+    $results=DB::select('select * from vw_party_transactions');
    // mysql_insert_id()
     return $results;
 
-}
+} 
+public function getEmployeePayment(){
+  $results=DB::select('select * from vw_employee_transactions');
+ // mysql_insert_id()
+  return $results;
+
+} 
 
 
 }

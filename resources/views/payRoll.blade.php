@@ -244,20 +244,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row EmpRow">
-                                    <div class="col-md-5 ">
-
-                                        <label for="">Employee ID</label>
-                                        <select 
-                                            class="selectpicker form-control" data-live-search="true" id="id"
-                                            onchange="getByID()">
-
-                                        </select>
-                                    </div>
+                                    
                                     <div class="col-md-5 offset-md-2" id="divName">
                                         <label for="">Name</label>
                                         <select 
                                             class="selectpicker form-control" data-live-search="true" id="name"
-                                            onchange="getByName()">
+                                            onchange="getByID()">
 
                                         </select>
                                     </div>
@@ -418,7 +410,6 @@
             clearAll();
             loadEmployeeNames();
             loadEmployeeCNIC();
-            loadEmployeeID();
             loadEmployeeContact();;
         }
 
@@ -441,9 +432,9 @@
     <script>
         function getByID() {
             var xhttp = new XMLHttpRequest();
-            var id = $('#id').find(":selected").val();
+            var id = $('#name').find(":selected").val();
             //alert(id);
-            $("#name").val(id);
+            $("#id").val(id);
 
             $('#contact').val(id);
             $('#cnic').val(id);
@@ -522,28 +513,6 @@
             };
             //alert("ljd");
             xhttp.open("GET", "./getEmployeeCNIC/", true);
-
-            xhttp.send();
-
-
-        }
-
-    </script>
-
-
-    <script>
-        function loadEmployeeID() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("id").innerHTML = this.response;
-                    $('#id').selectpicker('refresh');
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./getEmployeeID/", true);
 
             xhttp.send();
 

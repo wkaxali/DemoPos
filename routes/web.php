@@ -94,8 +94,8 @@ Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierPart
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/addExpenseHead/{expTable}',[expenseController::class, 'insertExpense']);
 Route::get('/getExpenses',[expenseController::class, 'getExpenses']);
-Route::get('/getPayment',[payController::class, 'getPayment']);
-
+Route::get('/getEmployeePayment',[payController::class, 'getEmployeePayment']);
+Route::get('/getPartyPayment',[payController::class, 'getPartyPayment']);
 Route::get('/editExpense',[expenseController::class, 'editExpense']);
 
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
@@ -1061,4 +1061,7 @@ route::get('/abc', function(){
 });
 route::get('/ssr', function(){
     return view('saleSummaryReport');
+});
+route::get('/dEPay', function(){
+    return view('deleteEmployeePayments');
 });

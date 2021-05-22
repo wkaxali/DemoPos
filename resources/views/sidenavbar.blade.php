@@ -202,11 +202,13 @@ Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
 style="font-size: 14px;">PayRoll</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs12" id="menu-academico-sub">
-<li id="menu-academico-avaliacoes"><a href="/pr">View/Adit Pay</a></li>
+
 <li id="menu-academico-avaliacoes"><a href="/aep">Assign Pay</a></li>
 <li id="menu-academico-avaliacoes"><a href="/pay">Add Employee Pay</a></li>
 <li id="menu-academico-avaliacoes"><a href="/adal">Add Allowance Head </a></li>
 <li id="menu-academico-avaliacoes"><a href="/edal">Edit Allowance Head</a></li>
+<li id="menu-academico-avaliacoes"><a href="/dEPay">Delete Employee Pay</a></li>
+<li id="menu-academico-avaliacoes"><a href="/pr">View/Edit Pay</a></li>
 
 <!-- <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li> -->
 
