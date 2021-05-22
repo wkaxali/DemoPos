@@ -1053,3 +1053,6 @@ route::get('/dk', function(){
 route::get('/abc', function(){
     return view('abc');
 });
+route::get('/ssr', function(){
+    return view('saleSummaryReport');
+});
