@@ -560,6 +560,8 @@
                 padding: 4px 7px 7px 7px;
             }
         }
+        .modal-content {
+        width:130%;}
 
         .modal-backdrop {
             position: fixed;
