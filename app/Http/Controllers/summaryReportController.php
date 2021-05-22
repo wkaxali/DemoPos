@@ -86,18 +86,25 @@ class summaryReportController extends Controller
         $creditHtml=$creditHtml.' <tr >    
          <td >'.$row->TransactionCatogery.'</td>
          <td align="center">'.number_format($row->TotalAmount).'</td>
+         
          </tr>';
          $creditAmountSum=floatval($creditAmountSum)  + floatval($row->TotalAmount);
         }
 
 
     }
+    $remarks="Loss";
     $total=floatval($creditAmountSum)-floatval($debitAmountSum);
-    
+    if(floatval($total)>0){
+
+        $remarks="Profit";
+
+    }
+
     //dd($creditHtml);
 
     $newHTML='
-    <table border="1">
+    <table border="0">
  
     <tr><td>
     <table border="0"cellpadding="7">
@@ -195,7 +202,7 @@ class summaryReportController extends Controller
     <br>
     
     <td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Profit/Loss</td>
-    <td width="40%" align="center" border="0" bgcolor=" #C0C0C0">______________________</td>
+    <td width="40%" align="center" border="0" bgcolor=" #C0C0C0">'.$remarks.'</td>
     
     
     
