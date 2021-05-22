@@ -57,6 +57,7 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/partyData',[LedgerPartiesController::class, 'partyData']);
 Route::get('/addAllowances/{data}',[employeeAllowanceController::class, 'addAllowances']);
 Route::get('/getAllownceHeads',[employeeAllowanceController::class, 'getAllownceHeads']);
 Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
@@ -1057,4 +1058,7 @@ route::get('/dk', function(){
 });
 route::get('/abc', function(){
     return view('abc');
+});
+route::get('/scratch', function(){
+    return view('scratch');
 });

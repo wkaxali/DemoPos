@@ -8,8 +8,10 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
-   
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <title>Delete Payments</title>
@@ -86,7 +88,8 @@
                             <th>Transaction ID</>
                                 <th>Date</th>
                                 <th>Amount</th>
-                                <th>Paid To</th>
+                                <th>Investor ID</th>
+                                <th>Employee ID</th>
                                 <th>Paid BY</th>
                                 <th></th>
                                 
@@ -117,17 +120,18 @@
     <!--end::Demo Panel-->
 
     <!-- jQuery and JS bundle w/ Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
+    
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-    </script>
+        <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+
     <script>
         $(document).ready(function () {
             $('#stocktable').DataTable();
@@ -150,7 +154,7 @@
 
                     $.each(a, function (i, item) {
                         transactionID=a[i].TransactionID;
-                        table.row.add([a[i].TransactionID,a[i].DateStamp, a[i].Amount,  a[i].PaidTo,
+                        table.row.add([a[i].TransactionID,a[i].DateStamp, a[i].Amount,  a[i].PaidTo, a[i].EmpID,
                             a[i].PaidVia,
                             '<button class="btn print" onclick="deletePayment('+transactionID+')" >Delete</button>'
                             
