@@ -85,7 +85,7 @@
                             <thead>
 
                                 <th>Expanse ID</th>
-                                <th>Expanse Head ID</th>
+                                <th>Expanse Head</th>
                                 <th>Remarks</th>
                                 <th>DateStamp</>
                                 <th>Amount</th>
@@ -150,7 +150,7 @@
 
                     $.each(a, function (i, item) {
                         expanseID=a[i].ExpanseID;
-                        table.row.add([a[i].ExpanseID, a[i].ExpanseHeadID, a[i].Remarks, a[i].DateStamp,
+                        table.row.add([a[i].ExpanseID, a[i].ExpenseHead, a[i].Remarks, a[i].DateStamp,
                             a[i].Amount,
                             '<button class="btn print" onclick="deleteExpense('+expanseID+')" >Delete</button>'
                             

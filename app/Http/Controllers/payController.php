@@ -226,7 +226,7 @@ public static function getEmployeeName(){
 
 
    public function getPayment(){
-    $results=DB::select('select * from tbltransactionflow where TransactionCatogery="Payment"');
+    $results=DB::select('select * from tbltransactionflow where TransactionCatogery="Salary Payment" or TransactionCatogery= "Party Payment"');
    // mysql_insert_id()
     return $results;
 
