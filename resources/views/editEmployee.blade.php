@@ -101,7 +101,7 @@
                 <div class="col-md-4 stockLabels">
                     <div class="input-field">
                         <label for="status">Employee ID</label>
-                        <input type="text" autocomplete="OFF" class="form-control"
+                        <input readonly autocomplete="OFF" class="form-control"
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
                             id="EID">
                     </div>

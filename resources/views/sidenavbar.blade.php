@@ -110,7 +110,7 @@ style="float: right"></span></a>
 <ul class="collapse firstULs7">
 <li><a href="/ae">Add Employee</a></li>
 <li><a href="ee">View/Edit Employee</a></li>
-<li><a href="/pr">Payroll</a></li>
+<!-- <li><a href="/pr">Payroll</a></li> -->
 <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
 <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
 

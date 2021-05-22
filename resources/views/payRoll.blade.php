@@ -299,11 +299,7 @@
                                             style="display: inline-block; width: 200px;margin-top: 3px;" name=""
                                             id="date">
                                     </div>
-                                    <div class="col-md-12 ">
-                                        <div class="payButtons text-right">
-                                            <button class="btn">Add Now</button>
-                                        </div>
-                                    </div>
+                                  
                                 </div>
                             </div>
 

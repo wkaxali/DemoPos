@@ -300,6 +300,7 @@
     <button class="btn" onclick="addExpenses()">Update</button>
     </div>
     </div>
+    @include('sidenavbar')
     </div>
     </div>
     </footer>
