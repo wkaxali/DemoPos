@@ -45,24 +45,56 @@ class summaryReportController extends Controller
         return $data;
     }
 
-    public static function transactions(Request $request,$CO){
-        $obj=json_decode($CO);
-        $date1=$obj[0];
-        $date2=$obj[1];
+    public static function transactions($date1,$date2){
+        
 
         $date1='"2020-01-24 13:18:16"';
         $date2='"2021-05-24 13:18:16"';
 
-        $data=DB:: select('SELECT DateStamp,TransactionCatogery,sum(Amount) as TotalAmount FROM fmm.tbltransactionflow 
+        $data=DB:: select('SELECT TransactionType, DateStamp,TransactionCatogery,sum(Amount) as TotalAmount FROM fmm.tbltransactionflow 
         where DateStamp between '.$date1.' and '.$date2.'
        group by
         TransactionCatogery');
-        
+        session(['TransactionGroupData' => $data]);
         return $data;
     }
+    
 
 
     public static function summaryReport(){
+        $data= self::transactions(null,null);
+     //dd($data);
+    // return $data;
+    $creditHtml='';
+    $debitHtml='';
+    $dateFrom="2019-01-24";
+    $dateTo="2020-01-24";
+    $debitAmountSum=0;
+    $creditAmountSum=0;
+    $total=0;
+    foreach($data as $row){
+       // dd($row);
+       if($row->TransactionType=='Debit'){
+       $debitHtml=$debitHtml.' <tr >    
+        <td >'.$row->TransactionCatogery.'</td>
+        <td align="center">'.number_format($row->TotalAmount).'</td>
+        </tr>';
+        $debitAmountSum=floatval($debitAmountSum)  +floatval($row->TotalAmount);
+
+       }
+       else if($row->TransactionType=='Credit'){
+        $creditHtml=$creditHtml.' <tr >    
+         <td >'.$row->TransactionCatogery.'</td>
+         <td align="center">'.number_format($row->TotalAmount).'</td>
+         </tr>';
+         $creditAmountSum=floatval($creditAmountSum)  + floatval($row->TotalAmount);
+        }
+
+
+    }
+    $total=floatval($creditAmountSum)-floatval($debitAmountSum);
+    
+    //dd($creditHtml);
 
     $newHTML='
     <table border="1">
@@ -92,8 +124,8 @@ class summaryReportController extends Controller
     <tbody>
   
     <tr>
-    <td  align="center"><br><span style="font-size: medium;">Date</span></td>
-
+    <td  align="right"><br><span style="font-size: medium;">Date From:    '.$dateFrom.'</span></td>
+    <td  align="left"><br><span style="font-size: medium;">From:'.$dateTo.'</span></td>
   
     
     
@@ -111,39 +143,15 @@ class summaryReportController extends Controller
     <thead>
     <tr >
     <td  align="left" bgcolor="#C0C0C0" > Credit </td>
-    <td align="center" bgcolor=" #C0C0C0">1300000</td>
+    <td align="center" bgcolor=" #C0C0C0">'.number_format($creditAmountSum).'</td>
     
      </tr>
     </thead>
     <tbody >
-    <tr >
-    <td >Sales Vicheels</td>
-    <td align="center">10039840</td>
-    </tr>
-    <tr >
-    <td >Parts</td>
-    <td align="center">10040</td>
-    </tr>
-    <tr >
-    <td >Services</td>
-    <td align="center">19840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
+   
+    
+  '.$creditHtml.'
+   
 
     
     
@@ -154,35 +162,12 @@ class summaryReportController extends Controller
     <thead>
     <tr>
     <td align="left" bgcolor="#C0C0C0" >Debit </td>
-    <td align="center" bgcolor=" #C0C0C0">1300000</td>
+    <td align="center" bgcolor=" #C0C0C0">'.number_format($debitAmountSum).'</td>
     
     </tr>
     </thead>
     <tbody >
-    <tr >
-    <td >Payments</td>
-    <td align="center">10039840</td>
-    </tr>
-    <tr >
-    <td >Pay</td>
-    <td align="center">10040</td>
-    </tr>
-    <tr >
-    <td >Expense</td>
-    <td align="center">19840</td>
-    </tr>
-    <tr >
-    <td >Heads</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
+   '.$debitHtml.'
     
     </tbody>
     </table>
@@ -201,7 +186,7 @@ class summaryReportController extends Controller
     <br>
     <tr>
     <td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Total</td>
-    <td width="40%" align="center" border="0"  bgcolor=" #C0C0C0">_______________________</td>
+    <td width="40%" align="center" border="0"  bgcolor=" #C0C0C0">'.number_format($total).'</td>
     
     
     
@@ -238,6 +223,7 @@ class summaryReportController extends Controller
     }
    
 public static function stockDetails(){
+    
 
     $newHTML='<table border="0">
     <thead>
