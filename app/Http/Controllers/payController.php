@@ -29,7 +29,7 @@ class payController extends Controller
         'Amount'=>$amount,
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Debit",
-        'TransactionCatogery'=>"Payment"
+        
         ]);  
         
         if($PT=="Party"){
@@ -37,6 +37,7 @@ class payController extends Controller
             ->where('TransactionID', $id)
             ->update([
               'PaidTo'=>$paidTo,
+              'TransactionCatogery'=>"Party Payment"
           ]);
         }
         if($PT=="Employee"){
@@ -44,6 +45,7 @@ class payController extends Controller
             ->where('TransactionID', $id)
             ->update([
               'EmpID'=>$paidTo,
+              'TransactionCatogery'=>"Salary Payment"
           ]);
         }
 
