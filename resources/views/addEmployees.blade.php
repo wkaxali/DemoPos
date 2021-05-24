@@ -1488,11 +1488,12 @@
             var contact = document.getElementById("contact").value;
             var address = document.getElementById("address").value;
             var email = document.getElementById("email").value;
-            var designation = document.getElementById("designation").value;
+            var des = document.getElementById("designation");
+            var designation = des.options[des.selectedIndex].text;
             var date = document.getElementById("date").value;
             var array = [firstName, lastName, CNIC, contact, address, email, designation, date];
             var empData = JSON.stringify(array);
-
+            // alert(empData);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
