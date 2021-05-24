@@ -232,12 +232,17 @@ public static function getEmployeeName(){
     return $results;
 
 } 
-public function getEmployeePayment(){
+public static function getEmployeePayment(){
   $results=DB::select('select * from vw_employee_transactions');
  // mysql_insert_id()
   return $results;
 
 } 
+
+public static function getEmpPay($eid){
+  $pay=DB::select('select * from tblemployeepay where EID ='.$eid);
+  return $pay;
+}
 
 
 }
