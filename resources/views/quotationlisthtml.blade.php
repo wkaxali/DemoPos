@@ -13,7 +13,7 @@
                             <div class="container">
 
                                 <div class="myContentInputs" style="display: flex">
-
+                                
                                     <div class="inputField-1">
                                         <label for="prodName">Customer Name</label>
                                         <input type="text" id="customerName" class="form-control"
