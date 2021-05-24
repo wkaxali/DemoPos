@@ -26,7 +26,7 @@ class employeeController extends Controller
             'ContactNo'=>$contact,
             'HomeAddress'=>$address,
             'EmailID'=>$email,
-            'DesignationID'=>$designation,
+            'Designation'=>$designation,
             'JoiningDate'=>$date
             ]);  
 
@@ -59,7 +59,7 @@ class employeeController extends Controller
           'ContactNo'=>$contact,
           'HomeAddress'=>$address,
           'EmailID'=>$email,
-          'DesignationID'=>$designation,
+          'Designation'=>$designation,
           'JoiningDate'=>$date
           ]);
 
