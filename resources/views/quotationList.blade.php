@@ -165,6 +165,7 @@
             //                                     <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
             //                                     required />
             var customerName = document.getElementById("customerName").value;
+            customerName = customerName.replace("/", '|'); 
             var fatherName = "";
             var CNIC = "";
             var city = "";

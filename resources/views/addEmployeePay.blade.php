@@ -208,7 +208,7 @@
     <div class="row">
     <div class="col-md-6">
     <label for="" >Employee</label>
-    <select class="selectpicker form-control"  data-live-search="true"  id="paidTo" onchange="getAmount()">                   
+    <select class="selectpicker form-control"  data-live-search="true"  id="paidTo" onchange="getEmployeePay()">                   
      </select>
        <br><br>
     <label for="">Basic Pay</label>
@@ -298,7 +298,8 @@
     <div class="col-md-6 offset-md-6">
     <div class="mainTableEnd">
     <label for="">Total Pay</label>
-    <input type="text" onclick="calculatonInTable()" value="" name="" id="mainTotal" readonly>
+    <input type="text" value="" name="" id="mainTotal" readonly>
+    <input type="text" value="" name="" id="val" style="display:none">
     </div>
     </div>
     </div>
@@ -364,10 +365,25 @@
 
         }
 
-    </script>
+    function getEmployeePay(){
+        var eid = $('#paidTo').find(":selected").val();
+        var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    data=this.responseText;
+                    a=JSON.parse(data);
+                    basicPay=a[0].BasicPay;
+                    allowance=a[0].Alownces;
+                    totalPay=basicPay+allowance;
+                    //alert(totalPay);
+                    document.getElementById("mainTotal").value=totalPay;
+                    document.getElementById("val").value=totalPay;
+                }
+            };
+            xhttp.open("GET", "./getEmpPay/" + eid, true);
+            xhttp.send();
+    }
 
-
-    <script>
     function addAllowances() {
     var allowanceDetails = [];
     var table = document.getElementById("allowanceTable");
@@ -445,7 +461,7 @@ cell4.innerHTML = allowncehead;
 cell5.innerHTML = '<button calss="" onclick="deleteRow(this)">X</button>';
 cell6.innerHTML = allownceheadID;
 cell6.style.display="none";
-
+calculatonInTable()
 }
 
 
@@ -468,9 +484,10 @@ cell6.style.display="none";
     var x = document.getElementById("allowanceTable").rows.length;
 
     for (var i = 1; i < x; i++) {
-    tot = tot + Number(t.rows[i].cells[1].innerText);
+    tot = tot + Number(t.rows[i].cells[2].innerText);
     }
-    document.getElementById("mainTotal").value = tot;
+    val = document.getElementById("val").value;
+    document.getElementById("mainTotal").value=tot+Number(val);
     }
 
 
