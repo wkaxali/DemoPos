@@ -18,6 +18,10 @@ class payController extends Controller
         foreach ($ata as $obj){
         $dateRaw=$obj[0];
         $date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+
+        $dateRaw=$obj[0];
+        $monthyear =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('F-Y');
+        
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
         $expenseName=$obj[2];
@@ -33,7 +37,19 @@ class payController extends Controller
         'Remarks'=>$remarks,
         
         ]);  
+
+
+        // $datecheck = DB::table('tbl_employee_sale_commission')
+        // ->where('date', $monthyear)
+        // ->update([
+        //   'CommissionStatus'=>"Paid",
+          
+        //   ]);
         
+
+
+
+
         if($PT=="Party"){
           $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $id)
