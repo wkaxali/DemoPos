@@ -101,7 +101,7 @@ class salesFlow extends Controller
         $com=DB::table('tbl_employee_sale_commission')->insertGetId([
         'InvoiceNumber'=>$invoiceNumber,
         'EID'=>$EID,
-        'totalCommission'=>$commission*$amp/100,
+        'totalCommission'=>$commission*$AmountAfterDiscount/100,
         'date'=>$dateNow,
         ]);
 
