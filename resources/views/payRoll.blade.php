@@ -245,7 +245,7 @@
                             <div class="col-md-12">
                                 <div class="row EmpRow">
                                     
-                                    <div class="col-md-5 offset-md-2" id="divName">
+                                    <div class="col-md-5" id="divName">
                                         <label for="">Name</label>
                                         <select 
                                             class="selectpicker form-control" data-live-search="true" id="name"
@@ -260,7 +260,7 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-5 offset-md-2">
+                                    <div class="col-md-5">
                                         <label for="">CNIC</label>
                                         <select 
                                             class="selectpicker form-control" data-live-search="true" id="cnic">
@@ -320,7 +320,7 @@
                                 <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="workingHours" onchange="payCalculation()">
                                 <br>
-                                <label for="">Total</label>
+                                <label for="">Total Pay</label>
                                 <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="total" readonly >
                                 
@@ -329,15 +329,18 @@
                                 </div>
                             </div>
                             <div class="col-md-6 payRow-1 ">
-                                <h4 class="blueBg">Current Status</h4>
+                                <h4 class="blueBg">Commission</h4>
                                 <div class="common">
 
-                                    <h4 class="smallFont">Until 25 December</h4>
-                                    <label for="">With 4 Sales</label> <input type="number" class="form-control"
-                                        style="display: inline-block; width: 200px;" value="21,500" name="" id="">
-                                    <h4 class="smallFont leftMrg">Under Performance</h4>
-                                    <h4 class="smallFont" style="display: inline-block; width: 153px;">and 3 Leaves</h4>
-                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control">
+                                <label for="">Month</label>
+                                    <input type="date" style="display: inline-block;width: 200px;" class="form-control" id="month">
+
+                                    <label for="">Total Sales</label>
+                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalSales">
+
+                                    <label for="">Total Commission</label>
+                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalCommission">
+
                                     <div class="updateButtons-1 ">
                                         <button class="btn">Update</button>
                                     </div>
