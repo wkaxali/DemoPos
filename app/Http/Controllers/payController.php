@@ -16,7 +16,8 @@ class payController extends Controller
     $ata=json_decode($CO);
       
         foreach ($ata as $obj){
-        $date=$obj[0];
+        $dateRaw=$obj[0];
+        $date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
         $expenseName=$obj[2];

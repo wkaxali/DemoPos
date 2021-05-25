@@ -154,7 +154,7 @@
                             <!-- <button class="btn">+</button> -->
                             <br>
                             <label style="width: 100px !important;" for="">Date</label>
-                            <input type="date" style="width: 240px;" name="" id="date"><br>
+                            <input type="date" style="width: 210px;" name="" id="date"><br>
                             <div class="expenseButtons">
                             <label for="">Remarks</label>
                             <input type="text" class="form-control" style="display: inline-block; width: 192px;"
