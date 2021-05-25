@@ -55,8 +55,8 @@ class salesFlow extends Controller
 
        //return $TransactionMode;
          
-      $dateRaw = Carbon::now()->toDateString();
-      $dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+      $dateNow = Carbon::now()->toDateString();
+      //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
       
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
          //return $dateNow;
@@ -101,6 +101,7 @@ class salesFlow extends Controller
         $com=DB::table('tbl_employee_sale_commission')->insertGetId([
         'InvoiceNumber'=>$invoiceNumber,
         'EID'=>$EID,
+        'CommissionStatus'=>'Due',
         'totalCommission'=>$commission*$AmountAfterDiscount/100,
         'date'=>$dateNow,
         ]);
