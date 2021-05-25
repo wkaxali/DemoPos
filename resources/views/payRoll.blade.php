@@ -245,7 +245,7 @@
                             <div class="col-md-12">
                                 <div class="row EmpRow">
                                     
-                                    <div class="col-md-5 offset-md-2" id="divName">
+                                    <div class="col-md-5" id="divName">
                                         <label for="">Name</label>
                                         <select 
                                             class="selectpicker form-control" data-live-search="true" id="name"
@@ -260,38 +260,25 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-5 offset-md-2">
+                                    <div class="col-md-5">
                                         <label for="">CNIC</label>
                                         <select 
                                             class="selectpicker form-control" data-live-search="true" id="cnic">
 
                                         </select>
                                     </div>
-                                    <div class="col-md-12 ">
-                                        <label for="">Address</label>
-                                        <input type="text" style="display: inline-block; width: 810px;"
-                                            class="form-control" name="" id="address">
-                                    </div>
-                                    <div class="col-md-5 ">
-                                        <label for="">Status</label>
-                                        <select 
-                                            class="selectpicker form-control" data-live-search="true" id="category"
-                                            tabindex="null">
-                                            <option value=1>Probatum</option>
-                                            <option value=2>1279</option>
-                                            <option value=3>1342</option>
-                                            <option value=4>9754</option>
-
-
-                                        </select>
-                                    </div>
-                                    <div class="col-md-5 offset-md-2">
+                                    <div class="col-md-5  ">
                                         <label for="">Joining</label>
                                         <input type="text" value="date" class="form-control"
                                             style="display: inline-block; width: 200px;margin-top: 3px;" name=""
                                             id="date">
                                     </div>
-                                  
+                                    <div class="col-md-12 ">
+                                        <label for="">Address</label>
+                                        <input type="text" style="display: inline-block; width: 810px;"
+                                            class="form-control" name="" id="address">
+                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -310,31 +297,31 @@
                             <div class="col-md-6 payRow ">
                                 <h4 class="redBg">Pay Details</h4>
                                 <label for="">Basic Pay</label>
-                                <input type="text" class="form-control" value="13,000"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="basicPay" onchange="payCalculation()">
                                 <br>
                                 <label for="">Total Allowances</label>
-                                <input type="text" class="form-control" value="50,000"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="allownces" readonly>
                                 <br>
                                 <label for="">Comission %</label>
-                                <input type="text" class="form-control" value="50,000"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="comission" onchange="payCalculation()">
                                 <br>
                                 <label for="">Allowed Holidays</label>
-                                <input type="text" class="form-control" value="5"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="allowedHolidays" onchange="payCalculation()">
                                 <br>
                                 <label for="">Target Sales</label>
-                                <input type="text" class="form-control" value="10"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="saleTarget" onchange="payCalculation()">
                                 <br>
                                 <label for="">Working Hours</label>
-                                <input type="text" class="form-control" value="10"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="workingHours" onchange="payCalculation()">
                                 <br>
-                                <label for="">Total</label>
-                                <input type="number" class="form-control" value="48000"
+                                <label for="">Total Pay</label>
+                                <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="total" readonly >
                                 
                                 <div class="updateButtons">
@@ -342,15 +329,18 @@
                                 </div>
                             </div>
                             <div class="col-md-6 payRow-1 ">
-                                <h4 class="blueBg">Current Status</h4>
+                                <h4 class="blueBg">Commission</h4>
                                 <div class="common">
 
-                                    <h4 class="smallFont">Until 25 December</h4>
-                                    <label for="">With 4 Sales</label> <input type="number" class="form-control"
-                                        style="display: inline-block; width: 200px;" value="21,500" name="" id="">
-                                    <h4 class="smallFont leftMrg">Under Performance</h4>
-                                    <h4 class="smallFont" style="display: inline-block; width: 153px;">and 3 Leaves</h4>
-                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control">
+                                <label for="">Month</label>
+                                    <input type="date" style="display: inline-block;width: 200px;" class="form-control" id="month">
+
+                                    <label for="">Total Sales</label>
+                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalSales">
+
+                                    <label for="">Total Commission</label>
+                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalCommission">
+
                                     <div class="updateButtons-1 ">
                                         <button class="btn">Update</button>
                                     </div>
