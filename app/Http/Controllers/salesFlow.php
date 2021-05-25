@@ -98,15 +98,8 @@ class salesFlow extends Controller
         ->where('EID', '=', $EID)
          ->first()->commission;
 
-
-
-         
-
-
         $com=DB::table('tbl_employee_sale_commission')->insertGetId([
         'InvoiceNumber'=>$invoiceNumber,
-        
-        'commission%'=>$commission,
         'EID'=>$EID,
         'totalCommission'=>$commission*$amp/100,
         'date'=>$dateNow,
