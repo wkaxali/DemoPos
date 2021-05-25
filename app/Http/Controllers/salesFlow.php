@@ -53,8 +53,8 @@ class salesFlow extends Controller
 
        //return $TransactionMode;
          
-      $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
-
+      $dateRaw = Carbon::now()->toDateString();
+      $dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
       
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
          //return $dateNow;

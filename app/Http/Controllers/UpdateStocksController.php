@@ -23,7 +23,9 @@ class UpdateStocksController extends Controller
          $EngineNumber=$oneProduct[3];
         $TransportCharges =$oneProduct[4];
          $status=$oneProduct[5];
-         $dateNow= Carbon::now()->toDateTimeString();
+         $dateRaw = Carbon::now()->toDateString();
+      $dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+   
         
    
 
