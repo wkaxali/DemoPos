@@ -228,7 +228,11 @@
 
     </input>
     <!-- <button class="btn">+</button> -->
-    <br>
+    <div class="expenseButtons">
+    <label style="width: 80px !important;" for="">Commission-%</label>
+    <input type="text" style="display: inline-block !important; width: 200px; margin-left: 40px;"
+    class="form-control" name="" id="commission">
+
     <div class="expenseButtons">
     <label style="width: 100px !important;" for="">SaleTarget</label>
     <input type="text" style="display: inline-block !important; width: 200px; margin-left: 40px;"
@@ -344,8 +348,9 @@
             var AllowedHolidays = document.getElementById("allowedHolidays").value;
             var SaleTarget = document.getElementById("saleTarget").value;
             var WorkingHours = document.getElementById("workingHours").value;
+            var commission = document.getElementById("commission").value;
             
-            var addPay = [eid,BasicPay, AllowedHolidays,SaleTarget,WorkingHours];
+            var addPay = [eid,BasicPay, AllowedHolidays,SaleTarget,WorkingHours,commission];
 
             var AP = JSON.stringify(addPay);
            
