@@ -20,8 +20,7 @@ class quotationController extends Controller
         public function createQuotation(Request $request,$data){
      
             $Array=json_decode($data);
-            $customerNameRaw = $Array[0];
-            $customerName = str_replace("|","/",$customerNameRaw);
+            $customerName = $Array[0];
             $fatherName = $Array[1];
             $CNIC = $Array[2];
             $city = $Array[3];

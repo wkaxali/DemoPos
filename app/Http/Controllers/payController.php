@@ -181,7 +181,7 @@ public static function getEmployeeName(){
     $allowedHolidays=$obj[2];
     $saleTarget=$obj[3];
     $workingHours=$obj[4];
-
+    $commission=$obj[5];
     $empCheck = DB::table('tblemployeepay')
             ->where('EID', '=', $eid);
             
@@ -195,11 +195,13 @@ public static function getEmployeeName(){
         'AllowedHolidays' =>$allowedHolidays,
         'SaleTarget' =>$saleTarget,
         'WorkingHours' =>$workingHours,
-        'EID' =>$eid
+        'EID' =>$eid,
+        'commission' =>$commission
+        
         
       ]);
 
-      return "employee $eid Pay is Assigned at $id";
+      return "employee $eid Pay is Assigned at ID:  $id";
     }
   }
 
