@@ -435,7 +435,6 @@
             var id = $('#name').find(":selected").val();
             //alert(id);
             $("#id").val(id);
-
             $('#contact').val(id);
             $('#cnic').val(id);
             xhttp.onreadystatechange = function () {
@@ -599,8 +598,8 @@
             var allownces = document.getElementById("allownces").value;
             var total = document.getElementById("total").value;
             var workingHours = document.getElementById("workingHours").value;
-            var EID = $('#id').find(":selected").val();
-
+            var EID = $('#name').find(":selected").val();
+            alert(EID);
             data = [basicPay, allowedHolidays, comission, saleTarget, allownces, total, workingHours, EID]
             payData = JSON.stringify(data);
             var xhttp = new XMLHttpRequest();
