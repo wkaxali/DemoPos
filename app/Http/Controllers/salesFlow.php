@@ -50,6 +50,8 @@ class salesFlow extends Controller
       $totalCost= $tot-$OverAllDiscount;
       $vat= $tot*17/100;
       $AmountAfterDiscount=$totalCost+$vat;
+      $EID=$Array[22];
+    
 
        //return $TransactionMode;
          
@@ -88,9 +90,28 @@ class salesFlow extends Controller
         'Remarks'=>NULL,
         'dliveryDate'=>NULL,
         'returnDate' =>NULL,
-        'salesPerson'=>$receivedBy
+        'salesPerson'=>$receivedBy,
+        'EID'=>$EID
         
         ]);
+        $commission =DB::table('tblemployeepay')
+        ->where('EID', '=', $EID)
+         ->first()->commission;
+
+
+
+         
+
+
+        $com=DB::table('tbl_commission')->insertGetId([
+        'InvoiceNumber'=>$invoiceNumber,
+        
+        'commission%'=>$commission,
+        'EID'=>$EID,
+        'totalCommission'=>$commission*$amp/100,
+        'date'=>$dateNow,
+        ]);
+
         $LID=globalVarriablesController::selfLedgerID();
        // $TransactionMode='2';
         $detailedOrder=array($pid,$tot,"1",$OverAllDiscount,$AmountAfterDiscount,$tot);
