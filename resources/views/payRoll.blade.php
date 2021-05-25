@@ -267,31 +267,18 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-12 ">
-                                        <label for="">Address</label>
-                                        <input type="text" style="display: inline-block; width: 810px;"
-                                            class="form-control" name="" id="address">
-                                    </div>
-                                    <div class="col-md-5 ">
-                                        <label for="">Status</label>
-                                        <select 
-                                            class="selectpicker form-control" data-live-search="true" id="category"
-                                            tabindex="null">
-                                            <option value=1>Probatum</option>
-                                            <option value=2>1279</option>
-                                            <option value=3>1342</option>
-                                            <option value=4>9754</option>
-
-
-                                        </select>
-                                    </div>
-                                    <div class="col-md-5 offset-md-2">
+                                    <div class="col-md-5  ">
                                         <label for="">Joining</label>
                                         <input type="text" value="date" class="form-control"
                                             style="display: inline-block; width: 200px;margin-top: 3px;" name=""
                                             id="date">
                                     </div>
-                                  
+                                    <div class="col-md-12 ">
+                                        <label for="">Address</label>
+                                        <input type="text" style="display: inline-block; width: 810px;"
+                                            class="form-control" name="" id="address">
+                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -310,31 +297,31 @@
                             <div class="col-md-6 payRow ">
                                 <h4 class="redBg">Pay Details</h4>
                                 <label for="">Basic Pay</label>
-                                <input type="text" class="form-control" value="13,000"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="basicPay" onchange="payCalculation()">
                                 <br>
                                 <label for="">Total Allowances</label>
-                                <input type="text" class="form-control" value="50,000"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="allownces" readonly>
                                 <br>
                                 <label for="">Comission %</label>
-                                <input type="text" class="form-control" value="50,000"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="comission" onchange="payCalculation()">
                                 <br>
                                 <label for="">Allowed Holidays</label>
-                                <input type="text" class="form-control" value="5"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="allowedHolidays" onchange="payCalculation()">
                                 <br>
                                 <label for="">Target Sales</label>
-                                <input type="text" class="form-control" value="10"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="saleTarget" onchange="payCalculation()">
                                 <br>
                                 <label for="">Working Hours</label>
-                                <input type="text" class="form-control" value="10"
+                                <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="workingHours" onchange="payCalculation()">
                                 <br>
                                 <label for="">Total</label>
-                                <input type="number" class="form-control" value="48000"
+                                <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="total" readonly >
                                 
                                 <div class="updateButtons">
