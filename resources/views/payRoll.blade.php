@@ -311,34 +311,34 @@
                                 <h4 class="redBg">Pay Details</h4>
                                 <label for="">Basic Pay</label>
                                 <input type="text" class="form-control" value="13,000"
-                                    style="display: inline-block; width: 200px;" name="" id="basicPay">
+                                    style="display: inline-block; width: 200px;" name="" id="basicPay" onchange="payCalculation()">
                                 <br>
-                                <label for="">Allows Rent/+</label>
+                                <label for="">Total Allowances</label>
                                 <input type="text" class="form-control" value="50,000"
-                                    style="display: inline-block; width: 200px;" name="" id="allownces">
+                                    style="display: inline-block; width: 200px;" name="" id="allownces" readonly>
                                 <br>
-                                <label for="">Comission On Sale (%)</label>
+                                <label for="">Comission %</label>
                                 <input type="text" class="form-control" value="50,000"
-                                    style="display: inline-block; width: 200px;" name="" id="comission">
+                                    style="display: inline-block; width: 200px;" name="" id="comission" onchange="payCalculation()">
                                 <br>
                                 <label for="">Allowed Holidays</label>
                                 <input type="text" class="form-control" value="5"
-                                    style="display: inline-block; width: 200px;" name="" id="allowedHolidays">
+                                    style="display: inline-block; width: 200px;" name="" id="allowedHolidays" onchange="payCalculation()">
                                 <br>
                                 <label for="">Target Sales</label>
                                 <input type="text" class="form-control" value="10"
-                                    style="display: inline-block; width: 200px;" name="" id="saleTarget">
+                                    style="display: inline-block; width: 200px;" name="" id="saleTarget" onchange="payCalculation()">
                                 <br>
                                 <label for="">Working Hours</label>
                                 <input type="text" class="form-control" value="10"
-                                    style="display: inline-block; width: 200px;" name="" id="workingHours">
+                                    style="display: inline-block; width: 200px;" name="" id="workingHours" onchange="payCalculation()">
                                 <br>
                                 <label for="">Total</label>
                                 <input type="number" class="form-control" value="48000"
-                                    style="display: inline-block; width: 200px;" name="" id="total">
-                                <span>+ 5%</span>
+                                    style="display: inline-block; width: 200px;" name="" id="total" readonly >
+                                
                                 <div class="updateButtons">
-                                    <button class="btn" onclick="payCalculation()">Update</button>
+                                    <button class="btn" onclick="updatePay()">Update</button>
                                 </div>
                             </div>
                             <div class="col-md-6 payRow-1 ">
@@ -599,7 +599,7 @@
             var total = document.getElementById("total").value;
             var workingHours = document.getElementById("workingHours").value;
             var EID = $('#name').find(":selected").val();
-            alert(EID);
+            // alert(EID);
             data = [basicPay, allowedHolidays, comission, saleTarget, allownces, total, workingHours, EID]
             payData = JSON.stringify(data);
             var xhttp = new XMLHttpRequest();
@@ -643,7 +643,6 @@
             var alounsec = document.getElementById("allownces").value;
             tot = Number(alounsec) + Number(bp);
             document.getElementById("total").value = tot;
-            updatePay();
 
         }
 
