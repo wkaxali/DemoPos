@@ -452,6 +452,8 @@
                     document.getElementById("allownces").value = a[0].Alownces;
                     document.getElementById("saleTarget").value = a[0].SaleTarget;
                     document.getElementById("total").value = a[0].TotalPay;
+                    document.getElementById("workingHours").value = a[0].WorkingHours;
+                    document.getElementById("comission").value = a[0].commission;
                     $('#contact').val(a[0].EID);
                     $("#contact").selectpicker('refresh');
                     $('#cnic').val(a[0].EID);

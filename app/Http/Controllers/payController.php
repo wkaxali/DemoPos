@@ -160,7 +160,7 @@ public static function getEmployeeName(){
               ->update([
                 'BasicPay' =>$basicPay,
                 'AllowedHolidays' =>$allowedHolidays,
-                'CommisionOnSale' =>$comission,
+                'commission' =>$comission,
                 'SaleTarget' =>$saleTarget,
                 'Alownces' =>$allownces,
                 'TotalPay' =>$total,
