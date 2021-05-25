@@ -1642,6 +1642,8 @@
         var customerName = $('#CustomerName').find(":selected").text();
 
         var receivedBy = $('#employees').find(":selected").text();
+        var EID = $('#employees').find(":selected").val();
+        // alert(EID);
         var CNIC = document.getElementById("CNIC").value;
         var address = document.getElementById('Address').value;
         var contact = document.getElementById('contact').value;
@@ -1659,7 +1661,7 @@
             CID, paidTo, AID, customerName, CNIC, address,
             contact, fatherName, engineNo, chassisNo, color,
             description, productName, city, receivedBy,
-            totalCost
+            totalCost,EID
 
         ];
 

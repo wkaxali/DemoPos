@@ -59,6 +59,7 @@ class serviceSalesFlow extends Controller
         
         ]);
 
+        
         $totlpaid=$AP;
         self::insertInDetailedOrder($Array[0],$invoiceNumber,$dateNow);
         $LID=globalVarriablesController::selfLedgerID();
@@ -133,8 +134,10 @@ class serviceSalesFlow extends Controller
             $numberTransformer = $numberToWords->getNumberTransformer('en');
             $a= $numberTransformer->toWords($AmountPaid);
           session(['amountInWords' => ucwords($a)]);
+
       }
 
+      
       
   
     }
