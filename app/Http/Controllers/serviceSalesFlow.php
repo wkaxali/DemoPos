@@ -115,7 +115,8 @@ array_push($ProductDetailsArray,$oneProductInInvoice);
 $oneProductInInvoice=array();
 
 session(['ProductNames' => $ProductDetailsArray]);
-session(['ivd' => $dat]);
+$fullDate =  Carbon::createFromFormat('Y-m-d', $dat)->format('d-F-Y');
+session(['ivd' => $fullDate]);
 session(['iu' => $IN]);
 session(['customerID' => $CID]);
 session(['customerName' => $customerName]);
@@ -222,7 +223,10 @@ array_push($ProductDetailsArray,$oneProductInInvoice);
 $oneProductInInvoice=array();
 
 session(['ProductNames' => $ProductDetailsArray]);
-session(['ivd' => $dat]);
+
+$fullDate =  Carbon::createFromFormat('Y-m-d', $dat)->format('d-F-Y');
+session(['ivd' => $fullDate]);
+
 session(['iu' => $IN]);
 session(['customerID' => $CID]);
 session(['customerName' => $customerName]);
@@ -345,10 +349,16 @@ session(['cnic' => $product->CNIC]);
 
 session(['engineNo' => $product->EngineNumber]);
 session(['chassisNo' => $product->ChasisNumber]);
-session(['ivd' => $product->DateStamp]);
+
+$dat=$product->DateStamp;
+$fullDate =  Carbon::createFromFormat('Y-m-d', $dat)->format('d-F-Y');
+session(['ivd' => $fullDate]);
+session(['invoiceDate' => $fullDate]);
+
 session(['iu' => $product->InvoiceNumber]);
 session(['color' => $product->color]);
-session(['invoiceDate' => $product->DateStamp]);
+
+
 session(['description' => $product->description]);
 
 session(['contact' => $product->Contect]);
