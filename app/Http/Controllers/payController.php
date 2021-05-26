@@ -265,9 +265,16 @@ public static function getEmpPay($eid){
   return $pay;
 }
 
-public static function getCommissionData($month){
-  $pay=DB::select('select * from vw_employee_sale_commission where date ='.$month);
-  return $pay;
+public static function getCommissionData($month, $EID){
+  $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$month.' AND EID ='.$EID);
+  $commission=0;
+  $No=0;
+  foreach($pay as $d){
+    $No=$No+1;
+    $commission=$commission+$d->totalCommission;
+  }
+  $data=[$No,$commission];
+  return $data;
 }
 
 }
