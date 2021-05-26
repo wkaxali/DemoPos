@@ -656,20 +656,20 @@
         });
 
         function searchMonthlyCommission(){
-            var month = $('#month').find(":selected").text();
+            var month = $('#month').find(":selected").val();
+            var EID = $('#name').find(":selected").val();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
                     date=this.responseText;
                     a=JSON.parse(date);
-                    document.getElementById("totalSales").value = a[0].;
-                    document.getElementById("totalCommission").value = a[0].;
-
+                    document.getElementById("totalSales").value = a[0];
+                    document.getElementById("totalCommission").value = a[1];
                 }
             };
             //alert("ljd");
-            xhttp.open("GET", "./getCommissionData/"+month, true);
+            xhttp.open("GET", "./getCommissionData/"+month+"/"+EID, true);
 
             xhttp.send();
         } 
