@@ -8,296 +8,296 @@ use PDF;
 
 class TEST extends Controller
 {
-    public function index()
-    {
-        $html = '<h1>Hello World</h1>';
-        
-        PDF::SetTitle('Hello World');
-        PDF::AddPage();
-        PDF::writeHTML($html, true, false, true, false, '');
+public function index()
+{
+$html = '<h1>Hello World</h1>';
 
-        PDF::Output('hello_world.pdf');
-    }
+PDF::SetTitle('Hello World');
+PDF::AddPage();
+PDF::writeHTML($html, true, false, true, false, '');
+
+PDF::Output('hello_world.pdf');
+}
 
 
-    public function saleServiceInvoice1()
-    {
-        
-        $newHTML='<table border="0">
-        <thead>
-        <tr>
-        <th><br><h1>FORLAND MODREN MOTORS</h1></th>
-        
-        
-        </tr>
-        </thead>
-        
-        <tbody>
-        <tr>
-        <br>
-        <td>
-        
-        NTN:82588676-6 <br>
-        
-        STRN:3277876204764 <br>
-        Customer\'s Copy
-        </td>
-        
-        
-        
-        
-        
-        
-        </tr>
-        <tr><td align="center"><h1>Sales wf3efeanvoice</h1></td></tr>
-        
-        
-        
-        </tbody>
-        
-        
-        
-        </table>
-        <br>
-        <br>
-        <br>
-        
-        <table border="0">
-        <tbody>
-        <tr>
-        <td><br><span style="font-size: medium;">Customer Name:</span></td>
-        <td align="center"><br>'.session()->get("customerName").'</td>
-        <td><br><span style="font-size: medium;">Booking No:</span></td>
-        <td align="center"><br>BO-FMM-'.session()->get("invoiceNo").'</td>
-        
-        
-        </tr>
-        <tr>
-        <td><br><span style="font-size: medium;">Address:</span></td>
-        <td align="center"><br>'.session()->get("address").'</td>
-        <td><br><span style="font-size: medium;">Invoice Number:</span></td>
-        <td align="center"><br>'.session()->get("invoiceNo").'</td>
-        
-        
-        </tr>
-        <tr>
-        <td><br><span style="font-size: medium;">CNIC/NTN:</span></td>
-        <td align="center"><br>'.session()->get("CNIC").'</td>
-        <td><br><span style="font-size: medium;">Invoice Date:</span></td>
-        <td align="center"><br>'.session()->get("invoiceDate").'</td>
-        
-        
-        </tr>
-        <tr>
-        <td><br><span style="font-size: medium;">Contact:</span></td>
-        <td align="center"><br>'.session()->get("contact").'</td>
-        <td><br><span style="font-size: medium;"></span></td>
-        <td align="center"><br></td>
-        
-        
-        </tr>
-        </tbody>
-        </table>
-        
-        
-        
-        <br>
-        <br>
-        <br>
-        <br>
-        <table border="1" >
-        <tr ><td>
-        <table border="0">
-        <thead>
-        <tr>
-        <td align="left" bgcolor="#C0C0C0" >
-        Description </td>
-        <td align="center" bgcolor="#C0C0C0" >color</td>
-        <td align="center"bgcolor="#C0C0C0" >Engine No</td>
-        <td align="center" bgcolor=" #C0C0C0">Chassis No</td>
-        <td align="center" bgcolor=" #C0C0C0">Amount</td>
-        
-        </tr>
-        </thead>
-        <tbody >
-        <tr>
-        
-        <td>'.session()->get("description").'</td>
-        <td>'.session()->get("color").'</td>
-        <td>'.session()->get("engineNo").'</td>
-        <td>'.session()->get("chassisNo").'</td>
-        <td>'.session()->get("unitPrice").'</td>
-        </tr>
-        
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr> <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        </tr>
-        </tbody>
-        </table>
-        </td>
-        </tr>
-        </table>
-        
-        
-        
-        <table border="0">
-        <thead>
-        <tr>
-        <th width="60%" border="1" align="center">
-        Total in Word </th>
-        
-        <th width="40%" border="1" align="center" style="line-height: 100%;"> Total PKR</th>
-        
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td width="60%" border="1" align="center">'.session()->get("amountInWords").'/-Only.</td>
-        <td width="40%" border="1" align="center">'.session()->get("amountPaid").'</td>
-        
-        
-        </tr>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        
-        
-        <br>
-        <tr>
-        <td width="60%" border="0"></td>
-        <td width="40%" align="center" border="0">_______________________</td>
-        
-        
-        
-        </tr>
-        <tr>
-        <br>
-        
-        <td width="60%" border="0"></td>
-        <td width="40%" align="center" border="0">Sign and Stamp</td>
-        
-        
-        
-        </tr>
-        
-        
-        
-        
-        </tbody>
-        </table>
-        <br><br> <br>
-        <br>
-        <table border="0">
-        
-        <tr>
-        
-        
-        <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
-        
-        
-        
-        
-        </tr>
-        <tr>
-        
-        
-        <td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotoprs@yahoo.com </h5></td>
-        
-        
-        
-        
-        </tr>
-        
-        </table>
+public function saleServiceInvoice1()
+{
 
-    ';     // $html= $htmldata;
-  
-        
-        PDF::SetTitle('Request for Invoice');
-        PDF::AddPage();
-        PDF::writeHTML($newHTML, true, false, true, false, '');
+$newHTML='<table border="0">
+<thead>
+<tr>
+<th><br><h1>FORLAND MODREN MOTORS</h1></th>
 
-        PDF::Output('invoiceRequest.pdf');
-    }
 
-    public function saleInvoiceRequest()
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<br>
+<td>
+
+NTN:82588676-6 <br>
+
+STRN:3277876204764 <br>
+Customer\'s Copy
+</td>
+
+
+
+
+
+
+</tr>
+<tr><td align="center"><h1>Sales wf3efeanvoice</h1></td></tr>
+
+
+
+</tbody>
+
+
+
+</table>
+<br>
+<br>
+<br>
+
+<table border="0">
+<tbody>
+<tr>
+<td><br><span style="font-size: medium;">Customer Name:</span></td>
+<td align="center"><br>'.session()->get("customerName").'</td>
+<td><br><span style="font-size: medium;">Booking No:</span></td>
+<td align="center"><br>BO-FMM-'.session()->get("invoiceNo").'</td>
+
+
+</tr>
+<tr>
+<td><br><span style="font-size: medium;">Address:</span></td>
+<td align="center"><br>'.session()->get("address").'</td>
+<td><br><span style="font-size: medium;">Invoice Number:</span></td>
+<td align="center"><br>'.session()->get("invoiceNo").'</td>
+
+
+</tr>
+<tr>
+<td><br><span style="font-size: medium;">CNIC/NTN:</span></td>
+<td align="center"><br>'.session()->get("CNIC").'</td>
+<td><br><span style="font-size: medium;">Invoice Date:</span></td>
+<td align="center"><br>'.session()->get("invoiceDate").'</td>
+
+
+</tr>
+<tr>
+<td><br><span style="font-size: medium;">Contact:</span></td>
+<td align="center"><br>'.session()->get("contact").'</td>
+<td><br><span style="font-size: medium;"></span></td>
+<td align="center"><br></td>
+
+
+</tr>
+</tbody>
+</table>
+
+
+
+<br>
+<br>
+<br>
+<br>
+<table border="1" >
+<tr ><td>
+<table border="0">
+<thead>
+<tr>
+<td align="left" bgcolor="#C0C0C0" >
+Description </td>
+<td align="center" bgcolor="#C0C0C0" >color</td>
+<td align="center"bgcolor="#C0C0C0" >Engine No</td>
+<td align="center" bgcolor=" #C0C0C0">Chassis No</td>
+<td align="center" bgcolor=" #C0C0C0">Amount</td>
+
+</tr>
+</thead>
+<tbody >
+<tr>
+
+<td>'.session()->get("description").'</td>
+<td>'.session()->get("color").'</td>
+<td>'.session()->get("engineNo").'</td>
+<td>'.session()->get("chassisNo").'</td>
+<td>'.session()->get("unitPrice").'</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr> <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr> <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr> <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr> <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr> <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr> <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr> <tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+
+
+
+<table border="0">
+<thead>
+<tr>
+<th width="60%" border="1" align="center">
+Total in Word </th>
+
+<th width="40%" border="1" align="center" style="line-height: 100%;"> Total PKR</th>
+
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="60%" border="1" align="center">'.session()->get("amountInWords").'/-Only.</td>
+<td width="40%" border="1" align="center">'.session()->get("amountPaid").'</td>
+
+
+</tr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<br>
+<tr>
+<td width="60%" border="0"></td>
+<td width="40%" align="center" border="0">_______________________</td>
+
+
+
+</tr>
+<tr>
+<br>
+
+<td width="60%" border="0"></td>
+<td width="40%" align="center" border="0">Sign and Stamp</td>
+
+
+
+</tr>
+
+
+
+
+</tbody>
+</table>
+<br><br> <br>
+<br>
+<table border="0">
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+
+
+
+
+</tr>
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotoprs@yahoo.com </h5></td>
+
+
+
+
+</tr>
+
+</table>
+
+'; // $html= $htmldata;
+
+
+PDF::SetTitle('Request for Invoice');
+PDF::AddPage();
+PDF::writeHTML($newHTML, true, false, true, false, '');
+
+PDF::Output('invoiceRequest.pdf');
+}
+
+public function saleInvoiceRequest()
 {
 
 $newHTML='<table border="0" cellpadding="2" >
@@ -322,7 +322,7 @@ To, <br>
 
 <tr>
 <td width="50%">
-Foton JW Auto Park (PVT) 
+Foton JW Auto Park (PVT)
 </td>
 
 <td width="50%">
@@ -789,7 +789,7 @@ PDF::writeHTML($newHTML, true, false, true, false, '');
 PDF::Output('invoiceRequest.pdf');
 
 }
-  
+
 public function InvoiceRequest(){
 
 
@@ -797,181 +797,181 @@ public function InvoiceRequest(){
 
 public function summary()
 {
-  
-    $newHTML='
-    <table border="1">
- 
-    <tr><td>
-    <table border="0"cellpadding="7">
-    <thead>
-    <tr>
-    <th align="center"><h1><br><br><br>Summary Report</h1></th>
-    </tr>
-  
 
-    </thead>
-    
-    <tbody>
-   
-    
-    </tbody>
-    
-    
-    
-    </table>
-    <br>
- 
-    
-    <table border="0">
-    <tbody>
-  
-    <tr>
-    <td  align="center"><br><span style="font-size: medium;">Date</span></td>
+$newHTML='
+<table border="1">
 
-  
-    
-    
-    </tr>
-        </tbody>
-    </table>
-    
-    
-    
-    <br>
-    <br>
-  
- 
-    <table border="1" cellpadding="3">
-    <thead>
-    <tr >
-    <td  align="left" bgcolor="#C0C0C0" > Credit </td>
-    <td align="center" bgcolor=" #C0C0C0">1300000</td>
-    
-     </tr>
-    </thead>
-    <tbody >
-    <tr >
-    <td >Sales Vicheels</td>
-    <td align="center">10039840</td>
-    </tr>
-    <tr >
-    <td >Parts</td>
-    <td align="center">10040</td>
-    </tr>
-    <tr >
-    <td >Services</td>
-    <td align="center">19840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
+<tr><td>
+<table border="0"cellpadding="7">
+<thead>
+<tr>
+<th align="center"><h1><br><br><br>Summary Report</h1></th>
+</tr>
 
-    
-    
-    </tbody>
-    </table>
-   
-    <table border="1" cellpadding="5">
-    <thead>
-    <tr>
-    <td align="left" bgcolor="#C0C0C0" >Debit </td>
-    <td align="center" bgcolor=" #C0C0C0">1300000</td>
-    
-    </tr>
-    </thead>
-    <tbody >
-    <tr >
-    <td >Payments</td>
-    <td align="center">10039840</td>
-    </tr>
-    <tr >
-    <td >Pay</td>
-    <td align="center">10040</td>
-    </tr>
-    <tr >
-    <td >Expense</td>
-    <td align="center">19840</td>
-    </tr>
-    <tr >
-    <td >Heads</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
-    <tr >
-    <td >Other</td>
-    <td align="center">9840</td>
-    </tr>
-    
-    </tbody>
-    </table>
 
-    
- 
-    
-    <table border="0"cellpadding="7">
-    <thead>
- 
-   
-    <br>
-    <br>
-    
-    
-    <br>
-    <tr>
-    <td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Total</td>
-    <td width="40%" align="center" border="0"  bgcolor=" #C0C0C0">_______________________</td>
-    
-    
-    
-    </tr>
-    <tr>
-    <br>
-    
-    <td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Profit/Loss</td>
-    <td width="40%" align="center" border="0" bgcolor=" #C0C0C0">______________________</td>
-    
-    
-    
-    </tr>
-    
-    
-    
-    
-    </tbody>
-    </table>
-       
-    </td>
-    </tr>
-    </table>
- 
-  
-    
-    
-    
-    ';     // $html= $htmldata;
+</thead>
 
-    
-    PDF::SetTitle('Request for Invoice');
-    PDF::AddPage();
-    PDF::writeHTML($newHTML, true, false, true, false, '');
+<tbody>
 
-    PDF::Output('invoiceRequest.pdf');
+
+</tbody>
+
+
+
+</table>
+<br>
+
+
+<table border="0">
+<tbody>
+
+<tr>
+<td align="center"><br><span style="font-size: medium;">Date</span></td>
+
+
+
+
+</tr>
+</tbody>
+</table>
+
+
+
+<br>
+<br>
+
+
+<table border="1" cellpadding="3">
+<thead>
+<tr >
+<td align="left" bgcolor="#C0C0C0" > Credit </td>
+<td align="center" bgcolor=" #C0C0C0">1300000</td>
+
+</tr>
+</thead>
+<tbody >
+<tr >
+<td >Sales Vicheels</td>
+<td align="center">10039840</td>
+</tr>
+<tr >
+<td >Parts</td>
+<td align="center">10040</td>
+</tr>
+<tr >
+<td >Services</td>
+<td align="center">19840</td>
+</tr>
+<tr >
+<td >Other</td>
+<td align="center">9840</td>
+</tr>
+<tr >
+<td >Other</td>
+<td align="center">9840</td>
+</tr>
+<tr >
+<td >Other</td>
+<td align="center">9840</td>
+</tr>
+<tr >
+<td >Other</td>
+<td align="center">9840</td>
+</tr>
+
+
+
+</tbody>
+</table>
+
+<table border="1" cellpadding="5">
+<thead>
+<tr>
+<td align="left" bgcolor="#C0C0C0" >Debit </td>
+<td align="center" bgcolor=" #C0C0C0">1300000</td>
+
+</tr>
+</thead>
+<tbody >
+<tr >
+<td >Payments</td>
+<td align="center">10039840</td>
+</tr>
+<tr >
+<td >Pay</td>
+<td align="center">10040</td>
+</tr>
+<tr >
+<td >Expense</td>
+<td align="center">19840</td>
+</tr>
+<tr >
+<td >Heads</td>
+<td align="center">9840</td>
+</tr>
+<tr >
+<td >Other</td>
+<td align="center">9840</td>
+</tr>
+<tr >
+<td >Other</td>
+<td align="center">9840</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+<table border="0"cellpadding="7">
+<thead>
+
+
+<br>
+<br>
+
+
+<br>
+<tr>
+<td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Total</td>
+<td width="40%" align="center" border="0" bgcolor=" #C0C0C0">_______________________</td>
+
+
+
+</tr>
+<tr>
+<br>
+
+<td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Profit/Loss</td>
+<td width="40%" align="center" border="0" bgcolor=" #C0C0C0">______________________</td>
+
+
+
+</tr>
+
+
+
+
+</tbody>
+</table>
+
+</td>
+</tr>
+</table>
+
+
+
+
+
+'; // $html= $htmldata;
+
+
+PDF::SetTitle('Request for Invoice');
+PDF::AddPage();
+PDF::writeHTML($newHTML, true, false, true, false, '');
+
+PDF::Output('invoiceRequest.pdf');
 
 }
 
