@@ -322,11 +322,6 @@
     </div>
     </footer>
 
-
-
-
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -341,7 +336,6 @@
 
 <script>
         function addEmpPay() {
-
 
             var BasicPay = document.getElementById("basicPay").value;
             var eid = $('#paidTo').find(":selected").val();
@@ -359,7 +353,6 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert(this.responseText);
-
 
                 }
             };

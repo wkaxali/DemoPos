@@ -93,7 +93,7 @@ public static function getEmployeeName(){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->EID.'> '.$d->FirstName.'</option>';
+        <option value= '.$d->EID.'> '.$d->FirstName.' '.$d->LastName.'</option>';
       
     }
     return $option;
