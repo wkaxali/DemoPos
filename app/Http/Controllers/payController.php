@@ -16,12 +16,12 @@ class payController extends Controller
     $ata=json_decode($CO);
       
         foreach ($ata as $obj){
-        $dateRaw=$obj[0];
-        $date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+        $date=$obj[0];
+        // $date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-m-Y');
 
-        $dateRaw=$obj[0];
-        $monthyear =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('F-Y');
         
+        $month =  Carbon::createFromFormat('Y-m-d', $date)->format('m');
+        $year =  Carbon::createFromFormat('Y-m-d', $date)->format('Y');
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
         $expenseName=$obj[2];
@@ -39,12 +39,12 @@ class payController extends Controller
         ]);  
 
 
-        // $datecheck = DB::table('tbl_employee_sale_commission')
-        // ->where('date', $monthyear)
-        // ->update([
-        //   'CommissionStatus'=>"Paid",
+        $updateStatus = DB::select('UPDATE tbl_employee_sale_commission 
+        Set CommissionStatus = "Paid"
+        where month(date)='.$month.' AND year(date)='.$year);
+        
           
-        //   ]);
+    
         
 
 
