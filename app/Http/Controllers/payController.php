@@ -38,18 +38,6 @@ class payController extends Controller
         
         ]);  
 
-
-        $updateStatus = DB::select('UPDATE tbl_employee_sale_commission 
-        Set CommissionStatus = "Paid"
-        where month(date)='.$month.' AND year(date)='.$year);
-        
-          
-    
-        
-
-
-
-
         if($PT=="Party"){
           $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $id)
@@ -65,6 +53,10 @@ class payController extends Controller
               'EmpID'=>$paidTo,
               'TransactionCatogery'=>"Salary Payment"
           ]);
+
+          $updateStatus = DB::select('UPDATE tbl_employee_sale_commission 
+          Set CommissionStatus = "Paid"
+          where month(date)='.$month.' AND year(date)='.$year.' AND EID ='.$paidTo);
         }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
