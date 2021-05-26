@@ -244,20 +244,12 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row EmpRow">
-                                    <div class="col-md-5 ">
-
-                                        <label for="">Employee ID</label>
-                                        <select 
-                                            class="selectpicker form-control" data-live-search="true" id="id"
-                                            onchange="getByID()">
-
-                                        </select>
-                                    </div>
-                                    <div class="col-md-5 offset-md-2" id="divName">
+                                    
+                                    <div class="col-md-5" id="divName">
                                         <label for="">Name</label>
                                         <select 
                                             class="selectpicker form-control" data-live-search="true" id="name"
-                                            onchange="getByName()">
+                                            onchange="getByID()">
 
                                         </select>
                                     </div>
@@ -268,38 +260,25 @@
 
                                         </select>
                                     </div>
-                                    <div class="col-md-5 offset-md-2">
+                                    <div class="col-md-5">
                                         <label for="">CNIC</label>
                                         <select 
                                             class="selectpicker form-control" data-live-search="true" id="cnic">
 
                                         </select>
                                     </div>
-                                    <div class="col-md-12 ">
-                                        <label for="">Address</label>
-                                        <input type="text" style="display: inline-block; width: 810px;"
-                                            class="form-control" name="" id="address">
-                                    </div>
-                                    <div class="col-md-5 ">
-                                        <label for="">Status</label>
-                                        <select 
-                                            class="selectpicker form-control" data-live-search="true" id="category"
-                                            tabindex="null">
-                                            <option value=1>Probatum</option>
-                                            <option value=2>1279</option>
-                                            <option value=3>1342</option>
-                                            <option value=4>9754</option>
-
-
-                                        </select>
-                                    </div>
-                                    <div class="col-md-5 offset-md-2">
+                                    <div class="col-md-5  ">
                                         <label for="">Joining</label>
                                         <input type="text" value="date" class="form-control"
                                             style="display: inline-block; width: 200px;margin-top: 3px;" name=""
                                             id="date">
                                     </div>
-                                  
+                                    <div class="col-md-12 ">
+                                        <label for="">Address</label>
+                                        <input type="text" style="display: inline-block; width: 810px;"
+                                            class="form-control" name="" id="address">
+                                    </div>
+                                    
                                 </div>
                             </div>
 
@@ -318,47 +297,64 @@
                             <div class="col-md-6 payRow ">
                                 <h4 class="redBg">Pay Details</h4>
                                 <label for="">Basic Pay</label>
-                                <input type="text" class="form-control" value="13,000"
-                                    style="display: inline-block; width: 200px;" name="" id="basicPay">
+                                <input type="text" class="form-control" value=""
+                                    style="display: inline-block; width: 200px;" name="" id="basicPay" onchange="payCalculation()">
                                 <br>
-                                <label for="">Allows Rent/+</label>
-                                <input type="text" class="form-control" value="50,000"
-                                    style="display: inline-block; width: 200px;" name="" id="allownces">
+                                <label for="">Total Allowances</label>
+                                <input type="text" class="form-control" value=""
+                                    style="display: inline-block; width: 200px;" name="" id="allownces" readonly>
                                 <br>
-                                <label for="">Comission On Sale (%)</label>
-                                <input type="text" class="form-control" value="50,000"
-                                    style="display: inline-block; width: 200px;" name="" id="comission">
+                                <label for="">Comission %</label>
+                                <input type="text" class="form-control" value=""
+                                    style="display: inline-block; width: 200px;" name="" id="comission" onchange="payCalculation()">
                                 <br>
                                 <label for="">Allowed Holidays</label>
-                                <input type="text" class="form-control" value="5"
-                                    style="display: inline-block; width: 200px;" name="" id="allowedHolidays">
+                                <input type="text" class="form-control" value=""
+                                    style="display: inline-block; width: 200px;" name="" id="allowedHolidays" onchange="payCalculation()">
                                 <br>
                                 <label for="">Target Sales</label>
-                                <input type="text" class="form-control" value="10"
-                                    style="display: inline-block; width: 200px;" name="" id="saleTarget">
+                                <input type="text" class="form-control" value=""
+                                    style="display: inline-block; width: 200px;" name="" id="saleTarget" onchange="payCalculation()">
                                 <br>
                                 <label for="">Working Hours</label>
-                                <input type="text" class="form-control" value="10"
-                                    style="display: inline-block; width: 200px;" name="" id="workingHours">
+                                <input type="text" class="form-control" value=""
+                                    style="display: inline-block; width: 200px;" name="" id="workingHours" onchange="payCalculation()">
                                 <br>
-                                <label for="">Total</label>
-                                <input type="number" class="form-control" value="48000"
-                                    style="display: inline-block; width: 200px;" name="" id="total">
-                                <span>+ 5%</span>
+                                <label for="">Total Pay</label>
+                                <input type="number" class="form-control" value=""
+                                    style="display: inline-block; width: 200px;" name="" id="total" readonly >
+                                
                                 <div class="updateButtons">
-                                    <button class="btn" onclick="payCalculation()">Update</button>
+                                    <button class="btn" onclick="updatePay()">Update</button>
                                 </div>
                             </div>
                             <div class="col-md-6 payRow-1 ">
-                                <h4 class="blueBg">Current Status</h4>
+                                <h4 class="blueBg">Commission</h4>
                                 <div class="common">
 
-                                    <h4 class="smallFont">Until 25 December</h4>
-                                    <label for="">With 4 Sales</label> <input type="number" class="form-control"
-                                        style="display: inline-block; width: 200px;" value="21,500" name="" id="">
-                                    <h4 class="smallFont leftMrg">Under Performance</h4>
-                                    <h4 class="smallFont" style="display: inline-block; width: 153px;">and 3 Leaves</h4>
-                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control">
+                                <label for="">Month</label>
+                                        <select id='month' onchange="searchMonthlyCommission()" style="display: inline-block;width: 200px;">
+                                            <option selected value=''>--Select Month--</option>
+                                            <option value='1'>Janaury</option>
+                                            <option value='2'>February</option>
+                                            <option value='3'>March</option>
+                                            <option value='4'>April</option>
+                                            <option value='5'>May</option>
+                                            <option value='6'>June</option>
+                                            <option value='7'>July</option>
+                                            <option value='8'>August</option>
+                                            <option value='9'>September</option>
+                                            <option value='10'>October</option>
+                                            <option value='11'>November</option>
+                                            <option value='12'>December</option>
+                                        </select> 
+                                    
+                                    <label for="">Total Sales</label>
+                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalSales">
+
+                                    <label for="">Total Commission</label>
+                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalCommission">
+
                                     <div class="updateButtons-1 ">
                                         <button class="btn">Update</button>
                                     </div>
@@ -418,7 +414,6 @@
             clearAll();
             loadEmployeeNames();
             loadEmployeeCNIC();
-            loadEmployeeID();
             loadEmployeeContact();;
         }
 
@@ -441,10 +436,9 @@
     <script>
         function getByID() {
             var xhttp = new XMLHttpRequest();
-            var id = $('#id').find(":selected").val();
+            var id = $('#name').find(":selected").val();
             //alert(id);
-            $("#name").val(id);
-
+            $("#id").val(id);
             $('#contact').val(id);
             $('#cnic').val(id);
             xhttp.onreadystatechange = function () {
@@ -461,6 +455,8 @@
                     document.getElementById("allownces").value = a[0].Alownces;
                     document.getElementById("saleTarget").value = a[0].SaleTarget;
                     document.getElementById("total").value = a[0].TotalPay;
+                    document.getElementById("workingHours").value = a[0].WorkingHours;
+                    document.getElementById("comission").value = a[0].commission;
                     $('#contact').val(a[0].EID);
                     $("#contact").selectpicker('refresh');
                     $('#cnic').val(a[0].EID);
@@ -522,28 +518,6 @@
             };
             //alert("ljd");
             xhttp.open("GET", "./getEmployeeCNIC/", true);
-
-            xhttp.send();
-
-
-        }
-
-    </script>
-
-
-    <script>
-        function loadEmployeeID() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("id").innerHTML = this.response;
-                    $('#id').selectpicker('refresh');
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./getEmployeeID/", true);
 
             xhttp.send();
 
@@ -628,8 +602,8 @@
             var allownces = document.getElementById("allownces").value;
             var total = document.getElementById("total").value;
             var workingHours = document.getElementById("workingHours").value;
-            var EID = $('#id').find(":selected").val();
-
+            var EID = $('#name').find(":selected").val();
+            // alert(EID);
             data = [basicPay, allowedHolidays, comission, saleTarget, allownces, total, workingHours, EID]
             payData = JSON.stringify(data);
             var xhttp = new XMLHttpRequest();
@@ -673,16 +647,32 @@
             var alounsec = document.getElementById("allownces").value;
             tot = Number(alounsec) + Number(bp);
             document.getElementById("total").value = tot;
-            updatePay();
 
         }
 
-    </script>
-
-    <script>
+   
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+
+        function searchMonthlyCommission(){
+            var month = $('#month').find(":selected").val();
+            var EID = $('#name').find(":selected").val();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    date=this.responseText;
+                    a=JSON.parse(date);
+                    document.getElementById("totalSales").value = a[0];
+                    document.getElementById("totalCommission").value = a[1];
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getCommissionData/"+month+"/"+EID, true);
+
+            xhttp.send();
+        } 
 
     </script>
     

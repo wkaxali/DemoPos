@@ -86,7 +86,7 @@ class employeeAllowanceController extends Controller
                 }
 
                 $totalPay = $basicPay + $totalAllowances;
-                        if ( $totalPay==NULL){
+                        
                 $up = DB::table('tblemployeepay')
                 ->where('EID', $EID)
                 ->update([
@@ -94,7 +94,7 @@ class employeeAllowanceController extends Controller
                   'Alownces'=>$totalAllowances
                   ]);
                 
-                        }
+                        
             //     if($PT=="Party"){
             //       $re = DB::table('tbltransactionflow')
             //         ->where('TransactionID', $id)

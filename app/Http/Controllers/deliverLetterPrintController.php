@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use PDF;
-
+use Carbon\Carbon;
 class deliverLetterPrintController extends Controller
 {
     public static function deliveryLetterData($InvoiceNo){
@@ -29,7 +29,11 @@ class deliverLetterPrintController extends Controller
         session(['chassisNo' => $vw->ChasisNumber]);
         session(['refNo' => 'FMM-GDP-'.$InvoiceNo]);
         session(['date' => $vw->DateStamp]);
-        
+        $date =  Carbon::createFromFormat('Y-m-d', $vw->DateStamp)->format('d-F-Y');
+
+        session(['date' =>$date]);
+
+
         if($tbl!=null){
             session(['toolKit' => $tbl->ToolKit]);
             session(['spareTyre' => $tbl->SpareTyre]);
@@ -39,6 +43,9 @@ class deliverLetterPrintController extends Controller
         
     }
     public function deliveryLetter($InvoiceNo){
+
+
+        
         self::deliveryLetterData($InvoiceNo);
         $newHTML= '
         <table width="100%">

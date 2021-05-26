@@ -243,6 +243,7 @@
       function add() {
 
          var date = document.getElementById("date").value;
+        
          var amount = document.getElementById("amount").value;
          var expense = document.getElementById("expense").value;
          var paidto = document.getElementById("paidTo");

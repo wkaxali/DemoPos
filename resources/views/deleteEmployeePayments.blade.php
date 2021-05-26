@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Delete Payments</title>
+    <title>Delete Employee Payments</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -88,8 +88,8 @@
                             <th>Transaction ID</>
                                 <th>Date</th>
                                 <th>Amount</th>
-                                <th>Investor</th>
-                                <th>Paid BY</th>
+                                <th>Employee</th>
+                                <th>Paid Via</th>
                                 <th>Remarks</th>
                                 <th>Delete</th>
                                 
@@ -154,7 +154,7 @@
 
                     $.each(a, function (i, item) {
                         transactionID=a[i].TransactionID;
-                        table.row.add([a[i].TransactionID,a[i].DateStamp, a[i].Amount,  a[i].PartyName, 
+                        table.row.add([a[i].TransactionID,a[i].DateStamp, a[i].Amount,  a[i].FirstName+' '+a[i].LastName,
                             a[i].AccountName, a[i].Remarks,
                             '<button class="btn print" onclick="deletePayment('+transactionID+')" >Delete</button>'
                             
@@ -165,7 +165,7 @@
                 }
             };
 
-            xhttp.open("GET", "./getPartyPayment/", true);
+            xhttp.open("GET", "./getEmployeePayment/", true);
             xhttp.send();
         }
 

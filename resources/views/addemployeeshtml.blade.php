@@ -89,13 +89,17 @@
                                                         name="name" id="email">
                                                 </div>
 
-                                                <div class="input-field">
-                                                    <label for="status">Designation</label>
-                                                    <input type="text" autocomplete="OFF" class="form-control"
-                                                        style="display: inline-block !important; height: 30px !important; width: 183px;"
-                                                        name="name" id="designation">
-                                                </div>
-                                                    
+                                                
+                                                <label>Designation:</label>
+
+                                                <select  class="selectpicker form-control"
+                                                        data-live-search="true" id="designation">
+                                                        <option value="Accountant">Accountant</option>
+                                                        <option value="Employee">Employee</option>
+                                                        <option value="Admin">Admin</option>
+                                                        
+                                                        </select> 
+                                                
                                                 <div class="input-field">
                                                 <label for="status">Joining Date</label>
                                                     <input type="date" autocomplete="OFF" class="form-control"

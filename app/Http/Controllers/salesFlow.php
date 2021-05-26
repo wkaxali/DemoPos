@@ -50,11 +50,13 @@ class salesFlow extends Controller
       $totalCost= $tot-$OverAllDiscount;
       $vat= $tot*17/100;
       $AmountAfterDiscount=$totalCost+$vat;
+      $EID=$Array[22];
+    
 
        //return $TransactionMode;
          
-      $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
-
+      $dateNow = Carbon::now()->toDateString();
+      //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
       
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
          //return $dateNow;
@@ -88,9 +90,22 @@ class salesFlow extends Controller
         'Remarks'=>NULL,
         'dliveryDate'=>NULL,
         'returnDate' =>NULL,
-        'salesPerson'=>$receivedBy
+        'salesPerson'=>$receivedBy,
+        'EID'=>$EID
         
         ]);
+        $commission =DB::table('tblemployeepay')
+        ->where('EID', '=', $EID)
+         ->first()->commission;
+
+        $com=DB::table('tbl_employee_sale_commission')->insertGetId([
+        'InvoiceNumber'=>$invoiceNumber,
+        'EID'=>$EID,
+        'CommissionStatus'=>'Due',
+        'totalCommission'=>$commission*$AmountAfterDiscount/100,
+        'date'=>$dateNow,
+        ]);
+
         $LID=globalVarriablesController::selfLedgerID();
        // $TransactionMode='2';
         $detailedOrder=array($pid,$tot,"1",$OverAllDiscount,$AmountAfterDiscount,$tot);

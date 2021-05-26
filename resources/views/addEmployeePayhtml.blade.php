@@ -35,6 +35,7 @@
                                         <input type="tel" class="form-control item" autocomplete="OFF"
                                             id="AllowedHolidays" placeholder="Allowed Holidays">
                                     </div>
+                                    
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF" id="SaleTarget"
                                             placeholder="Sale Target">

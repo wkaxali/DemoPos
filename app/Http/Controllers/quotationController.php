@@ -36,7 +36,8 @@ class quotationController extends Controller
             $qoutationValidityTime = $Array[13];
             $payTo = $Array[14];
             $date = Carbon::now()->toDateString();
-
+            //$date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+            
             $numberToWords = new NumberToWords();
             $numberTransformer = $numberToWords->getNumberTransformer('en');
             $a= $numberTransformer->toWords($totalPrice);

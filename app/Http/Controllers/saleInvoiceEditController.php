@@ -107,7 +107,9 @@ class saleInvoiceEditController extends Controller
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
        
         //_________________//
-        $dateNow= Carbon::now()->toDateString();
+        
+      $dateNow = Carbon::now()->toDateString();
+      //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
    
      self::insertInDetailedOrder($Array[0],$InvoiceID,$dateNow);
     

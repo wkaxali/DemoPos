@@ -57,6 +57,9 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+
+Route::get('/getCommissionData/{month}/{EID}',[payController::class, 'getCommissionData']);
+Route::get('/getEmpPay/{eid}',[payController::class, 'getEmpPay']);
 Route::get('/partyData',[LedgerPartiesController::class, 'partyData']);
 Route::get('/addAllowances/{data}',[employeeAllowanceController::class, 'addAllowances']);
 Route::get('/getAllownceHeads',[employeeAllowanceController::class, 'getAllownceHeads']);
@@ -95,8 +98,8 @@ Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierPart
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/addExpenseHead/{expTable}',[expenseController::class, 'insertExpense']);
 Route::get('/getExpenses',[expenseController::class, 'getExpenses']);
-Route::get('/getPayment',[payController::class, 'getPayment']);
-
+Route::get('/getEmployeePayment',[payController::class, 'getEmployeePayment']);
+Route::get('/getPartyPayment',[payController::class, 'getPartyPayment']);
 Route::get('/editExpense',[expenseController::class, 'editExpense']);
 
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
@@ -1060,6 +1063,9 @@ route::get('/dk', function(){
 route::get('/abc', function(){
     return view('abc');
 });
-route::get('/scratch', function(){
-    return view('scratch');
+route::get('/ssr', function(){
+    return view('saleSummaryReport');
+});
+route::get('/dEPay', function(){
+    return view('deleteEmployeePayments');
 });

@@ -22,9 +22,9 @@ class OrderFlowController extends Controller
        $AID=$Array[4];
        
        
-        
          
-         $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
+    $dateNow = Carbon::now()->toDateString();
+    //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
 
 
@@ -458,7 +458,9 @@ class OrderFlowController extends Controller
         
          
           
-          $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
+          
+    $dateNow = Carbon::now()->toDateString();
+    //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
         // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
  
  

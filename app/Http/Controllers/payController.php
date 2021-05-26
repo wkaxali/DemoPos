@@ -17,6 +17,11 @@ class payController extends Controller
       
         foreach ($ata as $obj){
         $date=$obj[0];
+        // $date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-m-Y');
+
+        
+        $month =  Carbon::createFromFormat('Y-m-d', $date)->format('m');
+        $year =  Carbon::createFromFormat('Y-m-d', $date)->format('Y');
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
         $expenseName=$obj[2];
@@ -29,9 +34,10 @@ class payController extends Controller
         'Amount'=>$amount,
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Debit",
+        'Remarks'=>$remarks,
         
         ]);  
-        
+
         if($PT=="Party"){
           $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $id)
@@ -47,6 +53,10 @@ class payController extends Controller
               'EmpID'=>$paidTo,
               'TransactionCatogery'=>"Salary Payment"
           ]);
+
+          $updateStatus = DB::select('UPDATE tbl_employee_sale_commission 
+          Set CommissionStatus = "Paid"
+          where month(date)='.$month.' AND year(date)='.$year.' AND EID ='.$paidTo);
         }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
@@ -75,7 +85,7 @@ public static function getEmployeeName(){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->EID.'>('.$d->EID.') '.$d->FirstName.'</option>';
+        <option value= '.$d->EID.'> '.$d->FirstName.'</option>';
       
     }
     return $option;
@@ -159,7 +169,7 @@ public static function getEmployeeName(){
               ->update([
                 'BasicPay' =>$basicPay,
                 'AllowedHolidays' =>$allowedHolidays,
-                'CommisionOnSale' =>$comission,
+                'commission' =>$comission,
                 'SaleTarget' =>$saleTarget,
                 'Alownces' =>$allownces,
                 'TotalPay' =>$total,
@@ -180,7 +190,7 @@ public static function getEmployeeName(){
     $allowedHolidays=$obj[2];
     $saleTarget=$obj[3];
     $workingHours=$obj[4];
-
+    $commission=$obj[5];
     $empCheck = DB::table('tblemployeepay')
             ->where('EID', '=', $eid);
             
@@ -191,14 +201,18 @@ public static function getEmployeeName(){
       $id=DB::table('tblemployeepay')->insertGetId([
         
         'BasicPay' =>$basicPay,
+        'TotalPay' =>0,
+        'Alownces' =>0,
         'AllowedHolidays' =>$allowedHolidays,
         'SaleTarget' =>$saleTarget,
         'WorkingHours' =>$workingHours,
-        'EID' =>$eid
+        'EID' =>$eid,
+        'commission' =>$commission
+        
         
       ]);
 
-      return "employee $eid Pay is Assigned at $id";
+      return "employee $eid Pay is Assigned at ID:  $id";
     }
   }
 
@@ -225,13 +239,35 @@ public static function getEmployeeName(){
   }
 
 
-   public function getPayment(){
-    $results=DB::select('select * from tbltransactionflow where TransactionCatogery="Salary Payment" or TransactionCatogery= "Party Payment"');
+   public function getPartyPayment(){
+    $results=DB::select('select * from vw_party_transactions');
    // mysql_insert_id()
     return $results;
 
+} 
+public static function getEmployeePayment(){
+  $results=DB::select('select * from vw_employee_transactions');
+ // mysql_insert_id()
+  return $results;
+
+} 
+
+public static function getEmpPay($eid){
+  $pay=DB::select('select * from tblemployeepay where EID ='.$eid);
+  return $pay;
 }
 
+public static function getCommissionData($month, $EID){
+  $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$month.' AND EID ='.$EID);
+  $commission=0;
+  $No=0;
+  foreach($pay as $d){
+    $No=$No+1;
+    $commission=$commission+$d->totalCommission;
+  }
+  $data=[$No,$commission];
+  return $data;
+}
 
 }
 
