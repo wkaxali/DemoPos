@@ -24,8 +24,8 @@ class TransactionFlow extends Controller
         // PaidBy varchar(50) 
         // PaidVia
     
-        $dateRaw = Carbon::now()->toDateString();
-      $dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+        $dateNow = Carbon::now()->toDateString();
+      //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
    
         $TID=DB::table('tbltransactionflow')->insertGetId(['InvoiceNo'=> $InvoiceNo, 
         'TransactionType' =>$TType,

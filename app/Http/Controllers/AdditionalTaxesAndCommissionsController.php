@@ -42,8 +42,8 @@ return $CID;
         // $(tr).find('td:eq(2)').text(), //Remarks
         // $(tr).find('td:eq(4)').text() //ComID
         
-    $dateRaw = Carbon::now()->toDateTimeString();
-    $dateNow =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
+    $dateNow = Carbon::now()->toDateTimeString();
+    //$dateNow =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
         $Array=json_decode($data);
         $PID=$Array[0];
         $AID=$Array[1];
@@ -85,8 +85,8 @@ return $CID;
     }
     public function AddTaxOrCommissionPositive(Request $request,$data){
         
-    $dateRaw = Carbon::now()->toDateTimeString();
-    $dateNow =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
+    $dateNow = Carbon::now()->toDateTimeString();
+    //$dateNow =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
         $Array=json_decode($data);
         $PID=$Array[0];
         $TotalSaleAmount=0;

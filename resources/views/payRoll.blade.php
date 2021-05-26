@@ -333,8 +333,22 @@
                                 <div class="common">
 
                                 <label for="">Month</label>
-                                    <input type="date" style="display: inline-block;width: 200px;" class="form-control" id="month">
-
+                                        <select id='month' onchange="searchMonthlyCommission()" style="display: inline-block;width: 200px;">
+                                            <option selected value=''>--Select Month--</option>
+                                            <option value='1'>Janaury</option>
+                                            <option value='2'>February</option>
+                                            <option value='3'>March</option>
+                                            <option value='4'>April</option>
+                                            <option value='5'>May</option>
+                                            <option value='6'>June</option>
+                                            <option value='7'>July</option>
+                                            <option value='8'>August</option>
+                                            <option value='9'>September</option>
+                                            <option value='10'>October</option>
+                                            <option value='11'>November</option>
+                                            <option value='12'>December</option>
+                                        </select> 
+                                    
                                     <label for="">Total Sales</label>
                                     <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalSales">
 
@@ -636,12 +650,29 @@
 
         }
 
-    </script>
-
-    <script>
+   
         $(document).ready(function () {
             $('#myTable').DataTable();
         });
+
+        function searchMonthlyCommission(){
+            var month = $('#month').find(":selected").text();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    date=this.responseText;
+                    a=JSON.parse(date);
+                    document.getElementById("totalSales").value = a[0].;
+                    document.getElementById("totalCommission").value = a[0].;
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getCommissionData/"+month, true);
+
+            xhttp.send();
+        } 
 
     </script>
     

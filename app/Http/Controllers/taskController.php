@@ -19,8 +19,8 @@ class taskController extends Controller
         $category=$ata[4];
         $priority=$ata[5];
         // $remarks=$ata[6];
-        $dateRaw = Carbon::now()->toDateString();
-      $assignedDate =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+        $assignedDate = Carbon::now()->toDateString();
+      //$assignedDate =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
    
         $st=$ata[0];
         $tid=DB::table('tbl_tasks')->insertGetId([
@@ -325,8 +325,8 @@ public static function updateTaskStatus(Request $request, $CO){
   
     } 
 
-    $dateRaw = Carbon::now()->toDateTimeString();
-    $dateTime =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
+    $dateTime = Carbon::now()->toDateTimeString();
+    //$dateTime =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
     $chat=DB::table('tbl_chatbox')->insertGetId([
         'TaskID'=>$mainTaskID,
         'Comment'=>$comment,
@@ -356,8 +356,8 @@ public static function updateTaskStatus(Request $request, $CO){
                 'DueDate'=>$date
             ]);
 
-    $dateRaw = Carbon::now()->toDateTimeString();
-    $dateTime =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
+    $dateTime = Carbon::now()->toDateTimeString();
+    //$dateTime =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
     $chat=DB::table('tbl_chatbox')->insertGetId([
         'TaskID'=>$mainTaskID,
         'Comment'=>$comment,
