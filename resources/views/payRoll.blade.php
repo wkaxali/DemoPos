@@ -354,7 +354,9 @@
 
                                     <label for="">Total Commission</label>
                                     <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalCommission">
-
+                                    <br><br>
+                                    <label for="">Total Payable</label>
+                                    <h1 id="payable">0</h1>
                                     <div class="updateButtons-1 ">
                                         <button class="btn">Update</button>
                                     </div>
@@ -455,6 +457,7 @@
                     document.getElementById("allownces").value = a[0].Alownces;
                     document.getElementById("saleTarget").value = a[0].SaleTarget;
                     document.getElementById("total").value = a[0].TotalPay;
+                    document.getElementById("payable").innerHTML = a[0].TotalPay;
                     document.getElementById("workingHours").value = a[0].WorkingHours;
                     document.getElementById("comission").value = a[0].commission;
                     $('#contact').val(a[0].EID);
@@ -666,6 +669,8 @@
                     a=JSON.parse(date);
                     document.getElementById("totalSales").value = a[0];
                     document.getElementById("totalCommission").value = a[1];
+                    totalPay = document.getElementById("total").value;
+                    document.getElementById("payable").innerHTML = Number(a[1])+Number(totalPay);
                 }
             };
             //alert("ljd");

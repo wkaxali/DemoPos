@@ -17,8 +17,7 @@ class payController extends Controller
       
         foreach ($ata as $obj){
         $date=$obj[0];
-        // $date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-m-Y');
-
+        //$date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
         
         $month =  Carbon::createFromFormat('Y-m-d', $date)->format('m');
         $year =  Carbon::createFromFormat('Y-m-d', $date)->format('Y');
@@ -85,7 +84,7 @@ public static function getEmployeeName(){
       //print $option;
 
         $option=$option.'
-        <option value= '.$d->EID.'> '.$d->FirstName.'</option>';
+        <option value= '.$d->EID.'> '.$d->FirstName.' '.$d->LastName.'</option>';
       
     }
     return $option;
