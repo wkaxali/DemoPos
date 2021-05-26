@@ -381,7 +381,7 @@
                                     <label for="">Amount Remaining</label>
                                     <input readonly type="text" style="display: inline-block;width: 170px;" class="form-control" id="amountRemaining">
                                     
-                                        <button class="btn">Update</button>
+                                        <button onclick="paySalary()" class="btn">Update</button>
                                 
                                 </div>
                             </div>
@@ -709,6 +709,19 @@
             amountRemaining=Number(payable)-amountPaid;
             document.getElementById("amountRemaining").value=amountRemaining;
 
+        }
+
+        function paySalary(){
+            amountPaid=document.getElementById("amountPaid").value;
+            payable=document.getElementById("payable").innerHTML;
+            amountRemaining=document.getElementById("amountRemaining").value;
+            date=document.getElementById("date").value;
+            var month = $('#month').find(":selected").val();
+            var year = $('#year').find(":selected").text();
+            var EID = $('#name').find(":selected").val();
+
+            payData=[amountPaid, payable, amountRemaining, date, month, year, EID];
+            alert(payData);
         }
 
     </script>
