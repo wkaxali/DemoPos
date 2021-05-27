@@ -67,126 +67,165 @@ class summaryReportController extends Controller
 
     $newHTML='
     <table border="0">
- 
-    <tr><td>
-    <table border="0"cellpadding="7">
-    <thead>
     <tr>
-    <th align="center"><h1><br><br><br>Summary Report</h1></th>
+    <td colspan=2>
+    <h1 align="center">Summary</h1>
+    </td>
+    
     </tr>
-  
+    <tr>
+    <td >
+    <h5  align="center">From_______________________To From_______________________________</h5>
+    </td>
+    
+    
+    
+    </tr>
+ </table>
+ <br>
+ <br><br><br><br><br>
 
-    </thead>
-    
-    <tbody>
-   
-    
-    </tbody>
-    
-    
-    
-    </table>
-    <br>
+ <table>
+ <tr>
+ <td>
+ <h2>
+ Credit</h2>
+ </td>
+ <td>
+ <h2>
+
+ Debit</h2>
+ </td>
+ </tr>
+ </table>
+ <table border="1" CELLSPACING="10">
+
  
-    
-    <table border="0">
-    <tbody>
-  
-    <tr>
-    <td  align="right"><br><span style="font-size: medium;">Date From:    </span></td>
-    <td  align="left"><br><span style="font-size: medium;">From:</span></td>
-  
-    
-    
-    </tr>
-        </tbody>
-    </table>
-    
-    
-    
-    <br>
-    <br>
-  
+ <tr>
+ <td>
  
-    <table border="1" cellpadding="3">
-    <thead>
-    <tr >
-    <td  align="left" bgcolor="#C0C0C0" > Credit </td>
-    <td align="center" bgcolor=" #C0C0C0"></td>
-    
-     </tr>
-    </thead>
-    <tbody >
+ <table border="0" CELLSPACING="10" CELLPADDING="10" >
+
+
+ <thead  border="0">
+ 
+ </thead>
+
+
+
+ <tr>
+ <td>
+ Sales
+ </td>
+ <td>
+ 100000
+ </td>
+ </tr>
+ <tr>
+ <td>
+ service & Stock
+ </td>
+ <td>
+ 30000
+ </td>
+ </tr><tr>
+ <td>
+ Nothing
+ </td>
+ <td>
+ o
+ </td>
+ </tr><tr>
+ <td>
+ Nothing
+ </td>
+ <td>
+ 0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ Total
+ </td>
+ <td>
+ 300000
+ </td>
+ </tr>
+
+ </table>
+
+
+
+
+
+
+
+ </td>
+ <td>
+ <table border="0" CELLSPACING="10" CELLPADDING="10">
+ 
+ <tr>
+ <td>
+ Expence
+ </td>
+ <td>
+ 10000
+ </td>
+ </tr><tr>
+ <td>
+ Payments
+ </td>
+ <td>
+ 500000
+ </td>
+ </tr><tr>
+ <td>
+ Saleries
+ </td>
+ <td>
+ 200000
+ </td>
+ </tr><tr>
+ <td>
+ Purchases
+ </td>
+ <td>
+ 300000
+ </td>
+ </tr>
+ <tr>
+ <td>
+ ToTal
+ </td>
+ <td>
+ 3000000
+ </td>
+ </tr>
+
+ </table>
+
+
+
+
+
+
+ </td>
+ 
+ </tr>
+
+ </table>
+ <br>
+ <br>
+ <br>
+ <br>
     <table>
-    <tr>
-    <td>s
-    </td>
-    <td>d
-    </td>
-    </tr>
-    </table>
-   
-    
-  
-   
+<tr>
+<td><h3>
+Blance (profit/loss)_________________________
+</h3></td>
+</tr>
+</table>
 
-    
-    
-    </tbody>
-    </table>
-   
-    <table border="1" cellpadding="5">
-    <thead>
-    <tr>
-    <td align="left" bgcolor="#C0C0C0" >Debit </td>
-    <td align="center" bgcolor=" #C0C0C0"></td>
-    
-    </tr>
-    </thead>
-    <tbody >
-   
-    
-    </tbody>
-    </table>
-
-    
- 
-    
-    <table border="0"cellpadding="7">
-    <thead>
- 
-   
-    <br>
-    <br>
-    
-    
-    <br>
-    <tr>
-    <td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Total</td>
-    <td width="40%" align="center" border="0"  bgcolor=" #C0C0C0"></td>
-    
-    
-    
-    </tr>
-    <tr>
-    <br>
-    
-    <td width="60%" border="0" align="center" bgcolor=" #C0C0C0">Profit/Loss</td>
-    <td width="40%" align="center" border="0" bgcolor=" #C0C0C0"></td>
-    
-    
-    
-    </tr>
-    
-    
-    
-    
-    </tbody>
-    </table>
-       
-    </td>
-    </tr>
-    </table>
 
     ';     // $html= $htmldata;
 
