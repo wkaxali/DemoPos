@@ -57,8 +57,8 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
-
-Route::get('/getCommissionData/{month}/{EID}',[payController::class, 'getCommissionData']);
+Route::get('/paySalary/{data}',[payController::class, 'paySalary']);
+Route::get('/getCommissionData/{year}/{month}/{EID}',[payController::class, 'getCommissionData']);
 Route::get('/getEmpPay/{eid}',[payController::class, 'getEmpPay']);
 Route::get('/partyData',[LedgerPartiesController::class, 'partyData']);
 Route::get('/addAllowances/{data}',[employeeAllowanceController::class, 'addAllowances']);

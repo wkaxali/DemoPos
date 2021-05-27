@@ -19,8 +19,6 @@ class payController extends Controller
         $date=$obj[0];
         //$date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
         
-        $month =  Carbon::createFromFormat('Y-m-d', $date)->format('m');
-        $year =  Carbon::createFromFormat('Y-m-d', $date)->format('Y');
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
         $expenseName=$obj[2];
@@ -53,9 +51,6 @@ class payController extends Controller
               'TransactionCatogery'=>"Salary Payment"
           ]);
 
-          $updateStatus = DB::select('UPDATE tbl_employee_sale_commission 
-          Set CommissionStatus = "Paid"
-          where month(date)='.$month.' AND year(date)='.$year.' AND EID ='.$paidTo);
         }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
@@ -190,6 +185,8 @@ public static function getEmployeeName(){
     $saleTarget=$obj[3];
     $workingHours=$obj[4];
     $commission=$obj[5];
+    $perDayPay=floatval($basicPay)/floatval(30);
+    $perHourPay=$perDayPay/floatval($workingHours);
     $empCheck = DB::table('tblemployeepay')
             ->where('EID', '=', $eid);
             
@@ -206,7 +203,9 @@ public static function getEmployeeName(){
         'SaleTarget' =>$saleTarget,
         'WorkingHours' =>$workingHours,
         'EID' =>$eid,
-        'commission' =>$commission
+        'commission' =>$commission,
+        'PerHourPay'=>$perHourPay,
+        'PayPerDay'=>$perDayPay
         
         
       ]);
@@ -256,8 +255,8 @@ public static function getEmpPay($eid){
   return $pay;
 }
 
-public static function getCommissionData($month, $EID){
-  $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$month.' AND EID ='.$EID);
+public static function getCommissionData($year, $month, $EID){
+  $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$month.' AND EID ='.$EID.' AND year(date) ='.$year);
   $commission=0;
   $No=0;
   foreach($pay as $d){
@@ -266,6 +265,67 @@ public static function getCommissionData($month, $EID){
   }
   $data=[$No,$commission];
   return $data;
+}
+
+public static function paySalary($data){
+  $obj=json_decode($data);
+  $amountPaid = $obj[0];
+  $payable = $obj[1];
+  $amountRemaining = $obj[2];
+  $date = $obj[3];
+  $month = $obj[4];
+  $year = $obj[5];
+  $EID = $obj[6];
+  $AID = $obj[7];
+  $remarks = $obj[8];
+
+    $id=DB::table('tbltransactionflow')->insertGetId([
+      'DateStamp'=>$date,
+      'Amount'=>$amountPaid,
+      'PaidVia'=>$AID,
+      'TransactionType'=>"Debit",
+      'Remarks'=>$remarks,
+      
+    ]);
+
+    $id=DB::table('tbl_employee_payments_flow')->insertGetId([
+      'EmployeeID'=>$EID,
+      'TotalPay'=>$payable,
+      'AmountPaid'=>$amountPaid,
+      'AmountRemaining'=>$amountRemaining,
+      'Date'=>$date,
+      
+    ]);  
+    
+    $re = DB::table('tbltransactionflow')
+      ->where('TransactionID', $id)
+      ->update([
+        'EmpID'=>$EID,
+        'TransactionCatogery'=>"Salary Payment"
+    ]);
+    
+    $employeeOldBalance=employeeController::getEmployeeBalance($EID);
+    $employeeNewBalance=$employeeOldBalance+$amountRemaining;
+    $eb = DB::table('tblemployees')
+    ->where('EID', $EID)
+    ->update([
+      'Balance'=>$employeeNewBalance
+    ]);
+
+    $updateStatus = DB::select('UPDATE tbl_employee_sale_commission 
+    Set CommissionStatus = "Paid"
+    where month(date)='.$month.' AND year(date)='.$year.' AND EID ='.$EID);
+
+    $LID=globalVarriablesController::selfLedgerID();
+    $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
+    $newBalance = $oldSelfBalance - $amountPaid;
+    LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
+
+    $oldAccountBalance = accountsController::getAccountBalance($AID);
+    $newAccountBalance = $oldAccountBalance - $amountPaid;
+    accountsController::UpdateNewBalance($AID, $newAccountBalance);
+
+  return $id;
 }
 
 }

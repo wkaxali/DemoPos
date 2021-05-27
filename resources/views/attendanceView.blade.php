@@ -232,10 +232,8 @@
                                             style="width: 100%; text-align: center;" id="attendanceTable">
                                             <thead>
                                                 <tr>
-
-                                                    <th>First Name</th>
-                                                    <th>Last Name</th>
                                                     <th>Employee ID</th>
+                                                    <th>Employee Name</th>
                                                     <th>Date</th>
                                                     <th>Time In</th>
                                                     <th>Time Out</th>
@@ -311,7 +309,7 @@
 
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].EID, a[i].FirstName, a[i].LastName, a[i].Date, a[i]
+                        table.row.add([a[i].EID, a[i].FirstName+" "+a[i].LastName, a[i].Date, a[i]
                             .ReportingTime, a[i].TimeIn, a[i].Status, a[i].Remarks
                         ]);
 

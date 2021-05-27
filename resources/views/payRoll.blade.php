@@ -332,8 +332,8 @@
                                 <h4 class="blueBg">Commission</h4>
                                 <div class="common">
 
-                                <label for="">Month</label>
-                                        <select id='month' onchange="searchMonthlyCommission()" style="display: inline-block;width: 200px;">
+                                <label for="">Salary of</label>
+                                        <select id='month' onchange="searchMonthlyCommission()" style="display: inline-block;width: 170px;">
                                             <option selected value=''>--Select Month--</option>
                                             <option value='1'>Janaury</option>
                                             <option value='2'>February</option>
@@ -347,19 +347,52 @@
                                             <option value='10'>October</option>
                                             <option value='11'>November</option>
                                             <option value='12'>December</option>
+                                        </select>
+                                        <select id='year' onchange="searchMonthlyCommission()" style="display: inline-block;width: 100px;">
+                                            <option selected value=''>--Year--</option>
+                                            <option value='1'>2016</option>
+                                            <option value='2'>2017</option>
+                                            <option value='3'>2018</option>
+                                            <option value='4'>2019</option>
+                                            <option value='5'>2020</option>
+                                            <option selected value='6'>2021</option>
+                                            <option value='7'>2022</option>
+                                            <option value='8'>2023</option>
+                                            <option value='9'>2024</option>
+                                            <option value='10'>2025</option>
+                                            <option value='11'>2026</option>
+                                            <option value='12'>2027</option>
                                         </select> 
                                     
                                     <label for="">Total Sales</label>
-                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalSales">
+                                    <input readonly type="text" style="display: inline-block;width: 170px;" class="form-control" id="totalSales">
 
                                     <label for="">Total Commission</label>
-                                    <input type="text" style="display: inline-block;width: 200px;" class="form-control" id="totalCommission">
+                                    <input readonly type="text" style="display: inline-block;width: 170px;" class="form-control" id="totalCommission">
                                     <br><br>
                                     <label for="">Total Payable</label>
                                     <h1 id="payable">0</h1>
-                                    <div class="updateButtons-1 ">
-                                        <button class="btn">Update</button>
-                                    </div>
+                                    <br>
+                                 
+                                    <label for="">Date</label>
+                                    <input type="date" style="display: inline-block;width: 170px;" class="form-control" id="paymentDate">
+                                    <label for="">Amount Paid</label>
+                                    <input onchange="calRemaining()" type="text" style="display: inline-block;width: 170px;" class="form-control" id="amountPaid">
+                                    
+                                    <label for="">Paid by</label>
+                                    <select
+                                    class="form-control" data-live-search="true" id="paidBy" style="width: 170px;">
+
+                                    </select>
+
+                                    <label for="">Amount Remaining</label>
+                                    <input readonly type="text" style="display: inline-block;width: 170px;" class="form-control" id="amountRemaining">
+                                    
+                                    <label for="">Remarks</label>
+                                    <input type="text" style="display: inline-block;width: 170px;" class="form-control" id="remarks">
+                                    
+                                        <button onclick="paySalary()" class="btn">Update</button>
+                                
                                 </div>
                             </div>
                         </div>
@@ -416,7 +449,8 @@
             clearAll();
             loadEmployeeNames();
             loadEmployeeCNIC();
-            loadEmployeeContact();;
+            loadEmployeeContact();
+            loadAccounts();
         }
 
     </script>
@@ -660,6 +694,7 @@
 
         function searchMonthlyCommission(){
             var month = $('#month').find(":selected").val();
+            var year = $('#year').find(":selected").text();
             var EID = $('#name').find(":selected").val();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -673,11 +708,62 @@
                     document.getElementById("payable").innerHTML = Number(a[1])+Number(totalPay);
                 }
             };
-            //alert("ljd");
-            xhttp.open("GET", "./getCommissionData/"+month+"/"+EID, true);
+            
+            xhttp.open("GET", "./getCommissionData/"+year+"/"+month+"/"+EID, true);
 
             xhttp.send();
         } 
+
+        function calRemaining(){
+            amountPaid=document.getElementById("amountPaid").value;
+            payable=document.getElementById("payable").innerHTML;
+            amountRemaining=Number(payable)-amountPaid;
+            document.getElementById("amountRemaining").value=amountRemaining;
+
+        }
+
+        function paySalary(){
+            amountPaid=document.getElementById("amountPaid").value;
+            payable=document.getElementById("payable").innerHTML;
+            amountRemaining=document.getElementById("amountRemaining").value;
+            date=document.getElementById("date").value;
+            remarks=document.getElementById("remarks").value;
+            var month = $('#month').find(":selected").val();
+            var year = $('#year').find(":selected").text();
+            var EID = $('#name').find(":selected").val();
+            var AID = $('#paidBy').find(":selected").val();
+
+            payData=[amountPaid, payable, amountRemaining, date, month, year, EID, AID, remarks];
+            data=JSON.stringify(payData);
+            alert(data);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("Payment "+this.responseText+" added!");
+                }
+            };
+            
+            xhttp.open("GET", "./paySalary/"+data, true);
+
+            xhttp.send();
+        }
+
+        function loadAccounts() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById("paidBy").innerHTML = this.response;
+            $('#paidBy').selectpicker('refresh');
+            }
+            };
+
+            xhttp.open("GET", "./getAccounts/", true);
+
+            xhttp.send();
+            }
 
     </script>
     

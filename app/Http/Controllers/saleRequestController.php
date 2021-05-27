@@ -47,8 +47,11 @@ class saleRequestController extends Controller
         session(['chassisNo' => $re->ChasisNumber]);
         session(['color' => $re->color]);
         session(['fatherName' => $re->FatherName]);
-        session(['invoiceDate' => $re->DateStamp]);
-        
+
+        $dat=$re->DateStamp;
+        $fullDate =  Carbon::createFromFormat('Y-m-d', $dat)->format('d-F-Y');
+        session(['invoiceDate' => $fullDate]);
+       
         session(['referenceNumber' => 'FMM-GDP-'.$InvoiceNo]);
         session(['amountPaid' => number_format($re->AmountPaid)]);
         session(['description' => $re->description]);
