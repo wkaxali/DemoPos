@@ -22,6 +22,7 @@
     @include('attandanceHTML')
 
 
+ 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
@@ -90,11 +91,7 @@
     <script>
         function markAttendance() {
 
-            var employeeID = [document.getElementById("employeeID").value];
-
-            
-
-            //var taskTable = JSON.stringify(OverallTask);
+            var EID = $('#name').find(":selected").val();
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -105,8 +102,26 @@
                 }
             };
             
-            xhttp.open("GET", "./markAttendance/" + employeeID, true);
+            xhttp.open("GET", "./markAttendance/" + EID, true);
             xhttp.send();
+        }
+
+        function loadEmployeeNames() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("name").innerHTML = this.response;
+                    $('#name').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployeeName/", true);
+
+            xhttp.send();
+
+
         }
 
     </script>

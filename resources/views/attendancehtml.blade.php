@@ -1,3 +1,4 @@
+<body onload="loadAccounts()">
 <div class="page-container">
 
 <div class="left-content">
@@ -27,10 +28,11 @@
                         </div>
                     </div>
                     <div class="col-md-6 offset-md-3">
-                        <label style="width: 200px;" for="">Employee ID</label>
-                        <input type="text" class="form-control"
-                            style="display: inline-block; width: 200px; margin: 5px 0px;" name=""
-                            id="employeeID">
+                        <label style="width: 200px;" for="">Employees</label>
+                        <select
+                        class="form-control" data-live-search="true" id="paidBy" style="width: 170px;">
+
+                        </select>
                         <br>
                         <label style="width: 200px;" for="">Password</label>
                         <input type="text" class="form-control" style="display: inline-block; width: 200px;"
