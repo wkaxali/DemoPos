@@ -179,7 +179,7 @@
                             <br>
                             <div class="row customClassBorder my-3">
                                 <div class="col-md-5 offset-md-1">
-                                    <h4>Mohsin Jabbar</h4>
+                                    <h4> </h4>
                                 </div>
                                 <div class="col-md-5">
                                     <label for="">Month</label>
@@ -235,8 +235,8 @@
                                                     <th>Employee ID</th>
                                                     <th>Employee Name</th>
                                                     <th>Date</th>
+                                                    <th>Reporting Time</th>
                                                     <th>Time In</th>
-                                                    <th>Time Out</th>
                                                     <th>Status</th>
                                                     <th>Edit</th>
                                                 </tr>
@@ -333,7 +333,7 @@
         function setColors() {
             $('#attendanceTable tbody tr').each(function (row, tr) {
 
-                var status = $(tr).find('td:eq(6)').html();
+                var status = $(tr).find('td:eq(5)').html();
                 // alert(status);
                 if (status == "Late") {
 

@@ -217,8 +217,12 @@
     
     <label for="">Allowed Holidays</label>
     <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-    value="" name=""  id="allowedHolidays"><br>
+    value="" name=""  id="allowedHolidays"><br><br>
+    <label for="">Reporting Time</label>
+    <input type="time" class="form-control" style="display: inline-block; width: 192px;"
+    value="" name=""  id="reportingTime"><br>
     </div>
+    
 
     
     <div class="col-md-4 offset-md-2">
@@ -240,11 +244,12 @@
 
     </div>
     <div class="expenseButtons">
-    <label for="">WorkingHours</label>
+    <label for="">Working Hours</label>
     <input type="text" class="form-control" style="display: inline-block; width: 202px; margin-left: 20px;"
     value="" name="" id="workingHours">
     
     </div>
+    
     <div class="form-group" style="text-align: center;">
                                         <button style=" margin-top: 10px; margin-left: 240px; " type="button" class="btn  create-account" onclick="addEmpPay()" >Update Pay</button>
                                     </div>
@@ -343,8 +348,8 @@
             var SaleTarget = document.getElementById("saleTarget").value;
             var WorkingHours = document.getElementById("workingHours").value;
             var commission = document.getElementById("commission").value;
-            
-            var addPay = [eid,BasicPay, AllowedHolidays,SaleTarget,WorkingHours,commission];
+            var reportingTime = document.getElementById("reportingTime").value;
+            var addPay = [eid,BasicPay, AllowedHolidays,SaleTarget,WorkingHours,commission, reportingTime];
 
             var AP = JSON.stringify(addPay);
            

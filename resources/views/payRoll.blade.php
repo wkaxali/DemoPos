@@ -320,6 +320,10 @@
                                 <input type="text" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="workingHours" onchange="payCalculation()">
                                 <br>
+                                <label for="">Reporting Time</label>
+                                <input type="time" class="form-control" value=""
+                                    style="display: inline-block; width: 200px;" name="" id="reportingTime" onchange="payCalculation()">
+                                <br>
                                 <label for="">Total Pay</label>
                                 <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="total" readonly >
@@ -638,10 +642,10 @@
             var saleTarget = document.getElementById("saleTarget").value;
             var allownces = document.getElementById("allownces").value;
             var total = document.getElementById("total").value;
+            var reportingTime = document.getElementById("reportingTime").value ;
             var workingHours = document.getElementById("workingHours").value;
             var EID = $('#name').find(":selected").val();
-            // alert(EID);
-            data = [basicPay, allowedHolidays, comission, saleTarget, allownces, total, workingHours, EID]
+            data = [basicPay, allowedHolidays, comission, saleTarget, allownces, total, workingHours, EID, reportingTime]
             payData = JSON.stringify(data);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {

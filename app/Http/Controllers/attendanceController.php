@@ -13,19 +13,19 @@ class attendanceController extends Controller
     public static function markAttendance(Request $request, $CO){
 
         $EID=json_decode($CO);
-       //->format('Y-m-d h:iA');
-       $date=Carbon::now();
+        //->format('Y-m-d h:iA');
+        $date=Carbon::now();
         $dateToday = Carbon::now()->toDateString();
         $timeToday = Carbon::now();
 
         
-       $reportingTime =Carbon::parse( DB::table('tblemployeepay')
+        $reportingTime = Carbon::parse( DB::table('tblemployeepay')
                     ->where('EID', '=', $EID)
                      ->first()->ReportingTime);
         
-            // return $reportingTime;
+        //$reportingTime = '8:00:00';
       
-        $status = 'LATE';
+        $status = '';
         print("Today Time ".$timeToday."\n");
         print("Reporting Time ".$reportingTime."\n");
        $minLate= $timeToday->diffInMinutes($reportingTime);
@@ -41,7 +41,7 @@ class attendanceController extends Controller
           }
         $tid=DB::table('tbl_employeeattendance')->insertGetId([
             'EID'=>$EID,
-            'Date'=>$date,
+            'Date'=>$dateToday,
             'TimeIn'=>$timeToday,
             'ReportingTime'=>$reportingTime,
             'Status'=>$status,

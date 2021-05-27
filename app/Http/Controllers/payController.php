@@ -154,6 +154,7 @@ public static function getEmployeeName(){
     $total=$obj[5];
     $workingHours=$obj[6];
     $EID=$obj[7];
+    $reportingTime=$obj[8];
     $perDayPay=floatval($total)/floatval(30);
     $perHourPay=$perDayPay/floatval($workingHours);
   
@@ -169,7 +170,8 @@ public static function getEmployeeName(){
                 'TotalPay' =>$total,
                 'WorkingHours' =>$workingHours,
                 'PerHourPay'=>$perHourPay,
-                'PayPerDay'=>$perDayPay
+                'PayPerDay'=>$perDayPay,
+                'ReportingTime'=>$reportingTime
               ]);
 
   return "Pay Updated";
@@ -185,6 +187,7 @@ public static function getEmployeeName(){
     $saleTarget=$obj[3];
     $workingHours=$obj[4];
     $commission=$obj[5];
+    $reportingTime=$obj[6];
     $perDayPay=floatval($basicPay)/floatval(30);
     $perHourPay=$perDayPay/floatval($workingHours);
     $empCheck = DB::table('tblemployeepay')
@@ -205,7 +208,8 @@ public static function getEmployeeName(){
         'EID' =>$eid,
         'commission' =>$commission,
         'PerHourPay'=>$perHourPay,
-        'PayPerDay'=>$perDayPay
+        'PayPerDay'=>$perDayPay,
+        'ReportingTime'=>$reportingTime
         
         
       ]);
