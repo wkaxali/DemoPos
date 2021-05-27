@@ -11,7 +11,7 @@ use App\Http\Controllers\CustomerViewController;
 use App\Http\Controllers\globalVarriablesController;
 use App\Http\Controllers\OrderFlowController;
 use App\Http\Controllers\productCategoryController;
-
+use App\Http\Controllers\printSalarySlip;
 use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
@@ -79,6 +79,8 @@ Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
 Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliveryLetter']);
 
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
+
+Route::get('/printsse',[printSalarySlip::class, 'printsalarySlip']);
 Route::get('/getDocuments',[printDocuments::class, 'getDocuments']);
 Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
