@@ -378,8 +378,18 @@
                                     <input type="date" style="display: inline-block;width: 170px;" class="form-control" id="paymentDate">
                                     <label for="">Amount Paid</label>
                                     <input onchange="calRemaining()" type="text" style="display: inline-block;width: 170px;" class="form-control" id="amountPaid">
+                                    
+                                    <label for="">Paid by</label>
+                                    <select
+                                    class="form-control" data-live-search="true" id="paidBy" style="width: 170px;">
+
+                                    </select>
+
                                     <label for="">Amount Remaining</label>
                                     <input readonly type="text" style="display: inline-block;width: 170px;" class="form-control" id="amountRemaining">
+                                    
+                                    <label for="">Remarks</label>
+                                    <input type="text" style="display: inline-block;width: 170px;" class="form-control" id="remarks">
                                     
                                         <button onclick="paySalary()" class="btn">Update</button>
                                 
@@ -439,7 +449,8 @@
             clearAll();
             loadEmployeeNames();
             loadEmployeeCNIC();
-            loadEmployeeContact();;
+            loadEmployeeContact();
+            loadAccounts();
         }
 
     </script>
@@ -716,13 +727,43 @@
             payable=document.getElementById("payable").innerHTML;
             amountRemaining=document.getElementById("amountRemaining").value;
             date=document.getElementById("date").value;
+            remarks=document.getElementById("remarks").value;
             var month = $('#month').find(":selected").val();
             var year = $('#year').find(":selected").text();
             var EID = $('#name').find(":selected").val();
+            var AID = $('#paidBy').find(":selected").val();
 
-            payData=[amountPaid, payable, amountRemaining, date, month, year, EID];
-            alert(payData);
+            payData=[amountPaid, payable, amountRemaining, date, month, year, EID, AID, remarks];
+            data=JSON.stringify(payData);
+            alert(data);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    alert("Payment "+this.responseText+" added!");
+                }
+            };
+            
+            xhttp.open("GET", "./paySalary/"+data, true);
+
+            xhttp.send();
         }
+
+        function loadAccounts() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+            document.getElementById("paidBy").innerHTML = this.response;
+            $('#paidBy').selectpicker('refresh');
+            }
+            };
+
+            xhttp.open("GET", "./getAccounts/", true);
+
+            xhttp.send();
+            }
 
     </script>
     

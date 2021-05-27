@@ -65,5 +65,12 @@ class employeeController extends Controller
 
           return $EID;
         }
+
+        public static function getEmployeeBalance($EID){
+            $re = DB::table('tblemployees')
+            ->where('EID', '=', $EID)
+            ->first()->Balance;
+            return $re;
+        }
         
 }
