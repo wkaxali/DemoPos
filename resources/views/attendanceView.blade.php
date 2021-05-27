@@ -184,19 +184,19 @@
                                 <div class="col-md-5">
                                     <label for="">Month</label>
                                     <select class="selectpicker form-control-1 form-control" data-live-search="true"
-                                        id="category" tabindex="null">
+                                        id="month" tabindex="null" onchange="searchAttendance()">
                                         <option value=1>January</option>
                                         <option value=2>Febraury</option>
                                         <option value=3>March</option>
                                         <option value=4>April</option>
-                                        <option value=1>May</option>
-                                        <option value=2>June</option>
-                                        <option value=3>July</option>
-                                        <option value=4>August</option>
-                                        <option value=1>Sepetember</option>
-                                        <option value=2>October</option>
-                                        <option value=3>November</option>
-                                        <option value=4>December</option>
+                                        <option value=5>May</option>
+                                        <option value=6>June</option>
+                                        <option value=7>July</option>
+                                        <option value=8>August</option>
+                                        <option value=9>Sepetember</option>
+                                        <option value=10>October</option>
+                                        <option value=11>November</option>
+                                        <option value=12>December</option>
 
 
 
@@ -206,15 +206,23 @@
                                     &nbsp;
                                     <label for="">Year</label>
                                     <select class="selectpicker form-control-1 form-control" data-live-search="true"
-                                        id="category" tabindex="null">
-                                        <option value=1>2020</option>
-                                        <option value=2>2019</option>
-                                        <option value=3>2018</option>
-                                        <option value=4>2017</option>
+                                        id="year" tabindex="null" onchange="searchAttendance()">
+                                        <option value=1>2024</option>
+                                        <option value=2>2023</option>
+                                        <option value=3>2022</option>
+                                        <option value=4 selected>2021</option>
+                                        <option value=5>2020</option>
+                                        <option value=6>2019</option>
+                                        <option value=7>2018</option>
+                                        <option value=8>2017</option>
+                                        <option value=9>2016</option>
+                                        <option value=10>2015</option>
+                                        <option value=11>2014</option>
+                                        <option value=12>2013</option>
 
 
                                     </select>
-                                    <button style="height: 25px; margin-top: -5px;" class="btn btn-info"></button>
+                                   
 
                                 </div>
 
@@ -232,7 +240,7 @@
                                             style="width: 100%; text-align: center;" id="attendanceTable">
                                             <thead>
                                                 <tr>
-                                                    <th>Employee ID</th>
+                                                    <th> ID</th>
                                                     <th>Employee Name</th>
                                                     <th>Date</th>
                                                     <th>Time In</th>
@@ -448,7 +456,43 @@
         }
 
     </script>
+    <script>
+    function searchAttendance(){
+        var month = $('#month').find(":selected").val();
+            var year = $('#year').find(":selected").text();
+            // alert (month);
+            // alert (year);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
 
+                if (this.readyState == 4 && this.status == 200) {
+                    //document.getElementById("attendanceTable").innerHTML = this.responseText;
+                    //alert(data);
+                    var table;
+
+                    var a = JSON.parse(this.responseText);
+                    //  alert(a[0].ProductSerial);
+                    table = $('#attendanceTable').DataTable();
+                    table.clear();
+                    $.each(a, function (i, item) {
+
+                        table.row.add([a[i].EID, a[i].FirstName+" "+a[i].LastName, a[i].Date, a[i]
+                            .ReportingTime, a[i].TimeIn, a[i].Status, a[i].Remarks
+                        ]);
+                        
+                    });
+                    //$('#attendanceTable').DataTable({ "order": []});
+                    table.columns.adjust().draw();
+                    setColors();
+                    
+                }
+            };
+            
+            xhttp.open("GET", "./searchAttendance/"+year+"/"+month, true);
+
+            xhttp.send();
+    }
+    </script>
 </body>
 
 </html>

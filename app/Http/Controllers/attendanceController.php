@@ -55,7 +55,10 @@ public static function getAttendance(){
     return $data;
   }
 
-
+  public static function searchAttendance($year, $month){
+    $attendance=DB::select('select * from vw_emoloyeeattendance where month(date) ='.$month.'  AND year(date) ='.$year);
+    return $attendance;
+  }
 }
 
   
