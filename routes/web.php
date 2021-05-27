@@ -289,6 +289,10 @@ Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
 Route::get('/printq',[quotationController::class, 'qoutationToPDF']);
 Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
 
+Route::get('/searchAttendance/{month}/{year}',[attendanceController::class, 'searchAttendance']);
+
+
+
 Route::get('/', function () {
 
 return view('signInSignUp');
