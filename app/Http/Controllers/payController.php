@@ -185,6 +185,8 @@ public static function getEmployeeName(){
     $saleTarget=$obj[3];
     $workingHours=$obj[4];
     $commission=$obj[5];
+    $perDayPay=floatval($basicPay)/floatval(30);
+    $perHourPay=$perDayPay/floatval($workingHours);
     $empCheck = DB::table('tblemployeepay')
             ->where('EID', '=', $eid);
             
@@ -201,7 +203,9 @@ public static function getEmployeeName(){
         'SaleTarget' =>$saleTarget,
         'WorkingHours' =>$workingHours,
         'EID' =>$eid,
-        'commission' =>$commission
+        'commission' =>$commission,
+        'PerHourPay'=>$perHourPay,
+        'PayPerDay'=>$perDayPay
         
         
       ]);
