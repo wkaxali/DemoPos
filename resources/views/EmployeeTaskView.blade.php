@@ -1205,9 +1205,9 @@
 
     </script>
     <script>
-    window.onload = function dd() {
-    function getEmployeeData();
-    function searchEmployeeData();
+    function dd() {
+     getEmployeeData();
+     searchEmployeeData();
 };
     </script>
     <script>
