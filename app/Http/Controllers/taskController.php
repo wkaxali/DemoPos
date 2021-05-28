@@ -349,12 +349,12 @@ public static function updateTaskStatus(Request $request, $CO){
     $status = $obj[3][0];
     $date = $obj[4][0];
     $data = DB::table('tbl_tasks')
-            ->where('TaskID', '=', $mainTaskID)
-            ->update([
-                'Status'=>$status,
-                'Comment'=>$comment,
-                'DueDate'=>$date
-            ]);
+        ->where('TaskID', '=', $mainTaskID)
+        ->update([
+            'Status'=>$status,
+            'Comment'=>$comment,
+            'DueDate'=>$date
+        ]);
 
     $dateTime = Carbon::now()->toDateTimeString();
     //$dateTime =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');

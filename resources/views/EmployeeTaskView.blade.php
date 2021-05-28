@@ -1232,14 +1232,15 @@
         function adminUserFunctions(){
             var userCategory = ('{{ Session::get('Designation')}}');
             var EmpID=('{{ Session::get('EmpID')}}');
+            alert(userCategory);
+            alert(EmpID);
             if(userCategory=="User"){
             document.getElementById("movetop").style.display = "none";
             }
         }
 
         function displayOptions() {
-            var userCategor = ('{{ Session::get('
-                EMPID ')}}');
+            var userCategor = ('{{ Session::get('EMPID ')}}');
 
             if (userCategor == 2) {
 
