@@ -698,7 +698,7 @@
                         <select 
                             class="selectpicker form-control" data-live-search="true" id="status"
                             onchange="searchTaskWithStatus()">
-                            <option value=" "></option>
+                            <option value="0"></option>
                             <option value="Pending">Pending</option>
                             <option value="Completed">Completed</option>
                         </select>
@@ -1252,29 +1252,31 @@
 
         function searchEmployeeData() {
             var employeeID = document.getElementById("employee").value;
+            //alert(employeeID);
             var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
-
                     document.getElementById("cardsCanvas").innerHTML = "";
                     document.getElementById("cardsCanvas").innerHTML = this.responseText;
-
-
                 }
+                //alert(employeeID);
             };
+            if(employeeID==""){
+                getEmployeeData();
+                
+            }else{
+                xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
+                xhttp.send();
+            }
             
-            xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
-
-            xhttp.send();
         }
 
         function searchTaskWithStatus() {
             var employeeID = document.getElementById("employee").value;
             var employeeName = $('#employee').find(":selected").text();
             var status = document.getElementById("status").value;
-
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1287,9 +1289,18 @@
                 }
             };
             
-            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
-
-            xhttp.send();
+            if(employeeID==""){
+                employeeID="All";
+                employeeName="AllNames";
+            }
+            if(status=="0" && employeeID=="All"){
+                getEmployeeData();
+                //alert("Hola!")
+            }else{
+                xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
+                xhttp.send();
+            }
+            
         }
 
         function searchTaskWithDate() {

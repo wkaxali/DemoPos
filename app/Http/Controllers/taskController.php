@@ -47,7 +47,7 @@ class taskController extends Controller
 
 public static function employeeData(){
     $card="";
-    $ID = session()->get('EmpID');
+    $ID = 1; //session()->get('EmpID');
     if($ID == 1){
         $data=DB:: select('select * from vw_tasks');
     }else{
@@ -79,7 +79,7 @@ public static function employeeData(){
                 </div>
                 <div class="rightCardBody">
    
-                    <div>Overdue</div>
+               
                     <div class="mainDots text-center">
                         <div
                             style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
@@ -106,7 +106,7 @@ public static function employeeData(){
 public static function getEmployees(){
     $data=DB:: select('select * from tblemployees');
     
-    $option='<option value=" "></option>';
+    $option='<option value=""></option>';
 
 
     foreach ($data as $d){
@@ -138,7 +138,12 @@ public static function getEmployees(){
 
   public static function searchEmployeeData($EID, $name){
     $card="";
-    $data=DB:: select('select * from vw_tasks where EID='.$EID);
+    if($EID=="All"){
+        $data=DB::select('select * from vw_tasks');
+    }else{
+        $data=DB::select('select * from vw_tasks where EID='.$EID);
+    }
+    
     foreach ($data as $obj){
         $card=$card.'<div class="card" >
 
@@ -164,7 +169,7 @@ public static function getEmployees(){
                 </div>
                 <div class="rightCardBody">
    
-                    <div>Overdue</div>
+                    
                     <div class="mainDots text-center">
                         <div
                             style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
@@ -191,52 +196,103 @@ public static function getEmployees(){
 
 public static function searchTaskWithStatus($EID, $status, $name){
     $card="";
-    $data=DB:: select('select * from vw_tasks where EID='.$EID.' AND Status="'.$status.'"');
-    foreach ($data as $obj){
-        $card=$card.'<div class="card" >
+  
+    if($EID=="All"){
+        $data=DB::select('select * from vw_tasks where Status = "'.$status.'"');
 
-        <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
-            <div class="mainCardBody">
-                <div class="leftCardBody">
-                    <button
-                        style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
-                </div>
-                <div class="rightCardBody">
-                    <span><i class="fa fa-fire"></i></span>
-                    <span><i class="fa fa-wifi"></i></span>
-                </div>
-            </div>
-            <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">'.$obj->Subject.'</h4>
-            <div class="mainCardBody" style="padding-top: 20px;">
-                <div class="leftCardBody">
-                    <div
-                        style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
-                        W A</div>
-   
-                    <span>'.$name.'</span>
-                </div>
-                <div class="rightCardBody">
-   
-                    <div>Overdue</div>
-                    <div class="mainDots text-center">
-                        <div
-                            style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
-                        </div>
-                        <div
-                            style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
-                        </div>
-                        <div
-                            style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
-                        </div>
-   
+        foreach ($data as $obj){
+            $card=$card.'<div class="card" >
+    
+            <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
+                <div class="mainCardBody">
+                    <div class="leftCardBody">
+                        <button
+                            style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
+                    </div>
+                    <div class="rightCardBody">
+                        <span><i class="fa fa-fire"></i></span>
+                        <span><i class="fa fa-wifi"></i></span>
                     </div>
                 </div>
-            </div>
-        </div></div>';
+                <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">'.$obj->Subject.'</h4>
+                <div class="mainCardBody" style="padding-top: 20px;">
+                    <div class="leftCardBody">
+                        <div
+                            style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                            W A</div>
+       
+                        <span>'.$obj->FirstName.' '.$obj->LastName.'</span>
+                    </div>
+                    <div class="rightCardBody">
+       
+                       
+                        <div class="mainDots text-center">
+                            <div
+                                style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
+                            </div>
+                            <div
+                                style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
+                            </div>
+                            <div
+                                style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
+                            </div>
+       
+                        </div>
+                    </div>
+                </div>
+            </div></div>';
+    
+        }
 
+        return $card;
+
+    }else{
+        $data=DB:: select('select * from vw_tasks where EID='.$EID.' AND Status="'.$status.'"');
+        foreach ($data as $obj){
+            $card=$card.'<div class="card" >
+    
+            <div class="card-body" data-toggle="modal" data-target="#exampleModal" onclick="loadTaskDetails('.$obj->TaskID.')">
+                <div class="mainCardBody">
+                    <div class="leftCardBody">
+                        <button
+                            style="border-radius: 20px; background-color: #e61d2f; border-color: #e61d2f; color: #fff;">'.$obj->CategoryName.'</button>
+                    </div>
+                    <div class="rightCardBody">
+                        <span><i class="fa fa-fire"></i></span>
+                        <span><i class="fa fa-wifi"></i></span>
+                    </div>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 600px;" class="text-left mt-5">'.$obj->Subject.'</h4>
+                <div class="mainCardBody" style="padding-top: 20px;">
+                    <div class="leftCardBody">
+                        <div
+                            style="background-color: #e61d2f; color: #fff; border-radius: 50%; padding: 10px; display: inline-block;">
+                            W A</div>
+       
+                        <span>'.$name.'</span>
+                    </div>
+                    <div class="rightCardBody">
+       
+                        
+                        <div class="mainDots text-center">
+                            <div
+                                style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
+                            </div>
+                            <div
+                                style="height: 10px;width: 10px;border-radius: 50%; background-color: pink; display: inline-block;">
+                            </div>
+                            <div
+                                style="height: 10px;width: 10px;border-radius: 50%; background-color: black; display: inline-block;">
+                            </div>
+       
+                        </div>
+                    </div>
+                </div>
+            </div></div>';
+    
+        }
+        return $card;
     }
-
-    return $card;
      
 }
 
@@ -269,7 +325,7 @@ public static function searchTaskWithDate($EID, $date, $name){
                 </div>
                 <div class="rightCardBody">
    
-                    <div>Overdue</div>
+                    
                     <div class="mainDots text-center">
                         <div
                             style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
