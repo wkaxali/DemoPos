@@ -337,7 +337,7 @@
                                 <div class="common">
 
                                 <label for="">Salary of</label>
-                                        <select id='month' onchange="searchMonthlyCommission()" style="display: inline-block;width: 170px;">
+                                        <select id='month' onchange="searchMonthlyCommission()" style="display: inline-block;width: 150px;">
                                             <option selected value=''>--Select Month--</option>
                                             <option value='1'>Janaury</option>
                                             <option value='2'>February</option>
@@ -367,33 +367,34 @@
                                             <option value='11'>2026</option>
                                             <option value='12'>2027</option>
                                         </select> 
-                                    
+                                    <br>
                                     <label for="">Total Sales</label>
-                                    <input readonly type="text" style="display: inline-block;width: 170px;" class="form-control" id="totalSales">
-
+                                    <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="totalSales">
+                                    <br>
                                     <label for="">Total Commission</label>
-                                    <input readonly type="text" style="display: inline-block;width: 170px;" class="form-control" id="totalCommission">
+                                    <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="totalCommission">
                                     <br><br>
                                     <label for="">Total Payable</label>
                                     <h1 id="payable">0</h1>
                                     <br>
                                  
                                     <label for="">Date</label>
-                                    <input type="date" style="display: inline-block;width: 170px;" class="form-control" id="paymentDate">
+                                    <input type="date" style="display: inline-block;width: 150px;" class="form-control" id="paymentDate">
+                                    <br>
                                     <label for="">Amount Paid</label>
-                                    <input onchange="calRemaining()" type="text" style="display: inline-block;width: 170px;" class="form-control" id="amountPaid">
-                                    
+                                    <input onchange="calRemaining()" type="text" style="display: inline-block;width: 150px;" class="form-control" id="amountPaid">
+                                    <br>
                                     <label for="">Paid by</label>
                                     <select
-                                    class="form-control" data-live-search="true" id="paidBy" style="width: 170px;">
+                                    class="form-control" data-live-search="true" id="paidBy" style="width: 150px;">
 
                                     </select>
-
+                                    <br>
                                     <label for="">Amount Remaining</label>
-                                    <input readonly type="text" style="display: inline-block;width: 170px;" class="form-control" id="amountRemaining">
-                                    
+                                    <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="amountRemaining">
+                                    <br>
                                     <label for="">Remarks</label>
-                                    <input type="text" style="display: inline-block;width: 170px;" class="form-control" id="remarks">
+                                    <input type="text" style="display: inline-block;width: 150px;" class="form-control" id="remarks">
                                     
                                         <button onclick="paySalary()" class="btn">Update</button>
                                 
@@ -484,8 +485,7 @@
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
-
-                    //  alert(this.response);
+                    
                     var a = JSON.parse(this.response);
 
                     document.getElementById("date").value = a[0].JoiningDate;
@@ -498,27 +498,16 @@
                     document.getElementById("payable").innerHTML = a[0].TotalPay;
                     document.getElementById("workingHours").value = a[0].WorkingHours;
                     document.getElementById("comission").value = a[0].commission;
+                    document.getElementById("reportingTime").value = a[0].ReportingTime;
                     $('#contact').val(a[0].EID);
                     $("#contact").selectpicker('refresh');
                     $('#cnic').val(a[0].EID);
                     $("#cnic").selectpicker('refresh');
                     $('#name').val(a[0].EID);
                     $("#name").selectpicker('refresh');
-                    //alert();
-                    //payCalculation();
-
-
-                    //     // alert(a[0].FirstName);
-                    //     // alert(a[0].LastName);
-                    // alert(a[0].CNIC);
-                    // alert(a[0].ContactNo);
-                    // alert(a[0].HomeAddress);
-                    // alert(a[0].EmailID);
-                    // alert(a[0].DesignationID);
 
                 }
             };
-            //alert("ljd");
             xhttp.open("GET", "./getEmpbyID/" + id, true);
 
             xhttp.send();
