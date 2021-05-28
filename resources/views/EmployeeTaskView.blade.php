@@ -576,7 +576,7 @@
     </style>
 </head>
 
-<body onload="function dd()">
+<body onload="getEmployeeData()">
 
 
     <div class="page-container">
@@ -698,7 +698,7 @@
                         <select 
                             class="selectpicker form-control" data-live-search="true" id="status"
                             onchange="searchTaskWithStatus()">
-                            <option value=" "></option>
+                            <option value="0"></option>
                             <option value="Pending">Pending</option>
                             <option value="Completed">Completed</option>
                         </select>
@@ -1205,12 +1205,6 @@
 
     </script>
     <script>
-    function dd() {
-     getEmployeeData();
-     searchEmployeeData();
-};
-    </script>
-    <script>
         function getEmployeeData() {
             var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
@@ -1232,7 +1226,7 @@
             loadCategory();
             loadEmployeesMainPage();
             adminUserFunctions();
-            
+
         }
 
         function adminUserFunctions(){
@@ -1257,6 +1251,7 @@
 
         function searchEmployeeData() {
             var employeeID = document.getElementById("employee").value;
+            //alert(employeeID);
             var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1267,21 +1262,20 @@
                 }
                 //alert(employeeID);
             };
-            if(employeeID==" "){
-                employeeID = "AllID";
-                employeeName = "AllName";
+            if(employeeID==""){
+                getEmployeeData();
+                
+            }else{
+                xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
+                xhttp.send();
             }
-            // alert(employeeID);
-            xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
-
-            xhttp.send();
+            
         }
 
         function searchTaskWithStatus() {
             var employeeID = document.getElementById("employee").value;
             var employeeName = $('#employee').find(":selected").text();
             var status = document.getElementById("status").value;
-
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1294,9 +1288,18 @@
                 }
             };
             
-            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
-
-            xhttp.send();
+            if(employeeID==""){
+                employeeID="All";
+                employeeName="AllNames";
+            }
+            if(status=="0" && employeeID=="All"){
+                getEmployeeData();
+                //alert("Hola!")
+            }else{
+                xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
+                xhttp.send();
+            }
+            
         }
 
         function searchTaskWithDate() {
