@@ -79,7 +79,7 @@ public static function employeeData(){
                 </div>
                 <div class="rightCardBody">
    
-                    <div>Overdue</div>
+               
                     <div class="mainDots text-center">
                         <div
                             style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
@@ -169,7 +169,7 @@ public static function getEmployees(){
                 </div>
                 <div class="rightCardBody">
    
-                    <div>Overdue</div>
+                    
                     <div class="mainDots text-center">
                         <div
                             style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
@@ -225,7 +225,7 @@ public static function searchTaskWithStatus($EID, $status, $name){
                     </div>
                     <div class="rightCardBody">
        
-                        <div>Overdue</div>
+                       
                         <div class="mainDots text-center">
                             <div
                                 style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
@@ -273,7 +273,7 @@ public static function searchTaskWithStatus($EID, $status, $name){
                     </div>
                     <div class="rightCardBody">
        
-                        <div>Overdue</div>
+                        
                         <div class="mainDots text-center">
                             <div
                                 style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
@@ -325,7 +325,7 @@ public static function searchTaskWithDate($EID, $date, $name){
                 </div>
                 <div class="rightCardBody">
    
-                    <div>Overdue</div>
+                    
                     <div class="mainDots text-center">
                         <div
                             style="height: 10px;width: 10px;border-radius: 50%; background-color: #e61d2f; display: inline-block;">
