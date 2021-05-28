@@ -576,7 +576,7 @@
     </style>
 </head>
 
-<body onload="getEmployeeData()">
+<body onload="function dd()">
 
 
     <div class="page-container">
@@ -1205,6 +1205,12 @@
 
     </script>
     <script>
+    window.onload = function dd() {
+    function getEmployeeData();
+    function searchEmployeeData();
+};
+    </script>
+    <script>
         function getEmployeeData() {
             var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
@@ -1226,7 +1232,7 @@
             loadCategory();
             loadEmployeesMainPage();
             adminUserFunctions();
-
+            
         }
 
         function adminUserFunctions(){
@@ -1256,14 +1262,16 @@
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
-
                     document.getElementById("cardsCanvas").innerHTML = "";
                     document.getElementById("cardsCanvas").innerHTML = this.responseText;
-
-
                 }
+                //alert(employeeID);
             };
-            
+            if(employeeID==" "){
+                employeeID = "AllID";
+                employeeName = "AllName";
+            }
+            // alert(employeeID);
             xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
 
             xhttp.send();

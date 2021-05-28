@@ -138,7 +138,12 @@ public static function getEmployees(){
 
   public static function searchEmployeeData($EID, $name){
     $card="";
-    $data=DB:: select('select * from vw_tasks where EID='.$EID);
+    if($EID=="AllID" && $name=="AllName"){
+        $data=DB::select('select * from vw_tasks');
+    }else{
+        $data=DB::select('select * from vw_tasks where EID='.$EID);
+    }
+    
     foreach ($data as $obj){
         $card=$card.'<div class="card" >
 
