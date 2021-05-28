@@ -998,11 +998,6 @@
 
 
     <script>
-        $(document).ready(function () {
-            $(".card").click(function () {
-                $('#myModal').modal('show')
-            })
-        })
 
         function updateEmployeeStatus() {
             var employeeID = [document.getElementById("employeeID").value];
