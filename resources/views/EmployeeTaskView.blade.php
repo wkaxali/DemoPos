@@ -1291,6 +1291,8 @@
             if(status=="0" && employeeID=="All"){
                 getEmployeeData();
                 //alert("Hola!")
+            }if(status=="0" && employeeID!="All"){
+                searchEmployeeData();
             }else{
                 xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
                 xhttp.send();
