@@ -82,7 +82,7 @@ class userAccountController extends Controller
     ->where([['UserName', '=', $contact]]);
 
     if($UserCheck->exists()){
-        return "Already have user on this Email";
+        return "Already have user on this Contact";
     }else{
         $newUser=DB::table('userinfo')
         ->insertGetId([

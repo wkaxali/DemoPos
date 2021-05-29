@@ -120,7 +120,7 @@ style="float: right"></span></a>
 style="font-size: 14px;">Account Settings</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs8">
-<li><a href="/au">Add User</a></li>
+<li><a href="/suu">Add User</a></li>
 <li><a href="eu">Edit User</a></li>
 
 </ul>

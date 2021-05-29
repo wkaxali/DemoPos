@@ -693,8 +693,8 @@
 
             <div class="container mainMarg">
                 <div class="row">
-                    <div class="col-md-4">
-
+                    <div class="col-md-4" id= "hideEmp">
+                        
                         <label for="" id="employeeLabel">Employees</label><br>
                         <select 
                             class="selectpicker form-control" data-live-search="true" id="employee" onchange="searchEmployeeData()">
@@ -1251,6 +1251,7 @@
                 // document.getElementById("employeeLabel").style.display="none";
                 $('#employee').val(EID);
                 $('#employee').selectpicker('refresh');
+                document.getElementById("hideEmp").style.display = "none";
                 searchEmployeeData(EID);
                 
             }if (userCategor == "Admin") {
