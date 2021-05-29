@@ -74,11 +74,12 @@ class userAccountController extends Controller
     $EID=$obj[0];
     $contact=$obj[1];
     $password=$obj[2];
-    $rePassword=$obj[3];
+    // $rePassword=$obj[3];
+    $Designation=$obj[3];
 
 
     $UserCheck = DB::table('userinfo')
-    ->where([['Contect', '=', $contact]]);
+    ->where([['UserName', '=', $contact]]);
 
     if($UserCheck->exists()){
         return "Already have user on this Email";
@@ -88,7 +89,7 @@ class userAccountController extends Controller
         "EID"=>$EID,
         'UserName'=>$contact,
         'Password'=>$password,
-        'Designation'=>$email,
+        'Designation'=>$Designation,
         ]);
     
       return "User $newUser is Added";
