@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Enter your description here" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-
+    
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 <title>Sign Up Users</title>
     <style>
@@ -147,7 +148,7 @@
     </style>
 </head>
 
-<body>
+<body onload= "loadEmployees()">
     <div class="page-container">
 
         <div class="left-content">
@@ -166,16 +167,15 @@
                                     </div>
 
                                     <div class="form-group">
-                                    <label for="">Employee Name:</label>
-                                        <select name="" class="form-control item" id="designation">
-                                            <option value="1">Admin</option>
-                                            <option value="2">Manager</option>
-                                            <option value="3">Employee</option>
-                                        </select>
+                                    <label for="">Employees</label><br>
+                            <select
+                            class="selectpicker form-control" data-live-search="true" id="Employee" onchange="getContacts()">
+
+                            </select>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="Password"
-                                            placeholder="username" readonly >
+                                        <input type="text" class="form-control item" autocomplete="OFF" id="username"
+                                            placeholder="Username" readonly >
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF" id="Password"
@@ -219,13 +219,14 @@
     </script>
     <script>
     function addNewUser() {
-        var Username = document.getElementById("UserName").value;
+        var Username = document.getElementById("username").value;
+        var ID = $('#Employee').find(":selected").val();
 
         var password = document.getElementById("Password").value;
         
         var designation = $('#designation').find(":selected").text();
 
-        var addUsers = [Username, password, designation];
+        var addUsers = [ID,Username, password, designation];
 
         if(Username=="" || password==""){
             alert("Fill in all Fields")
@@ -243,7 +244,7 @@
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addUsers/" + AU, true)
+            xhttp.open("GET", "./signUp/" + AU, true)
             xhttp.send()
 
         }
@@ -251,6 +252,52 @@
 
     
     </script>
+    <script>
+function loadEmployees(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        
+        if (this.readyState == 4 && this.status == 200) {
+    
+            document.getElementById("Employee").innerHTML = this.response;
+            // $('#Employee').selectpicker('refresh');?
+        }
+    };
+    
+    xhttp.open("GET", "./getEmployeeName/", true);
+    
+    xhttp.send();
+    }
+</script>
+<script>
+function getContacts() {
+        
+        
+        var ID = $('#Employee').find(":selected").val();
+
+
+        
+        var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var data = this.responseText;
+                    var a= JSON.parse(data);
+                    var contact = a[0].ContactNo;
+                    document.getElementById("username").value = contact;
+
+                }
+            };
+
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./getEmpbyID/" + ID, true);
+            xhttp.send();
+
+        }
+    
+
+</script>
+
 </body>
 
 </html>
