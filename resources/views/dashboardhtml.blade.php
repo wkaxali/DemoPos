@@ -1250,9 +1250,9 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-2">
                                         <div class="col-md-8 market-update-left">
-                                            <h3>135</h3>
+                                            <h3>122</h3>
                                             <h4>Leads</h4>
-                                            <p>Team visited 230 people</p>
+                                            <p>Team visited 430 people</p>
                                         </div>
                                         <div class="col-md-4 market-update-right">
                                             <i class="fa fa-eye"> </i>
@@ -1264,10 +1264,11 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     <div class="market-update-block clr-block-3">
                                         <div class="col-md-8 market-update-left">
                                             <h3>23</h3>
-                                            <h4>New Messages</h4>
+                                            <h4>All Messages</h4>
                                         </div>
                                         <div class="col-md-4 market-update-right">
                                             <i class="fa fa-envelope-o"> </i>
+                                            <i class="fa fa-eye"> </i>
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
