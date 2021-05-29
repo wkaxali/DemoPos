@@ -57,6 +57,7 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/signUp/{data}',[signInSignUPcontroller::class, 'signUp']);
 Route::get('/paySalary/{data}',[payController::class, 'paySalary']);
 Route::get('/getCommissionData/{year}/{month}/{EID}',[payController::class, 'getCommissionData']);
 Route::get('/getEmpPay/{eid}',[payController::class, 'getEmpPay']);
@@ -965,15 +966,6 @@ Route::get('/ans', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('addNewStock'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
-
-Route::get('/au', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('addUsers'); 
     }else{
     return view("signInSignUp");
     }

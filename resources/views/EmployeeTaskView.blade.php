@@ -695,10 +695,9 @@
                 <div class="row">
                     <div class="col-md-4">
 
-                        <label for="">Employee ID</label><br>
+                        <label for="">Employees</label><br>
                         <select 
-                            class="selectpicker form-control" data-live-search="true" id="employee"
-                            onchange="searchEmployeeData()">
+                            class="selectpicker form-control" data-live-search="true" id="employee" onchange="getContact()">
 
                         </select>
                     </div>
