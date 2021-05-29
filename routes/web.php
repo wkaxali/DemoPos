@@ -1074,3 +1074,7 @@ route::get('/ssr', function(){
 route::get('/dEPay', function(){
     return view('deleteEmployeePayments');
 });
+
+route::get('/suu', function(){
+    return view('signUpUser');
+});
