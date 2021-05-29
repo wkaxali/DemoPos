@@ -1105,12 +1105,12 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
                                 <div class="col-md-4 market-update-gd">
                                     <div data-toggle="modal" data-target="#bd-example-modal-lg"
-                                        class="market-update-block clr-block-1">
+                                        class="market-update-block clr-block-3">
                                         <h3>Total Stock</h3>
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-2" href="/ac">
+                                    <div class="market-update-block clr-block-1" href="/ac">
                                         <div class="col-md-8 market-update-left">
                                             <h3>135</h3>
                                             <h4>Leads</h4>
@@ -1123,10 +1123,10 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-3">
+                                    <div class="market-update-block clr-block-2">
                                         <div class="col-md-8 market-update-left">
-                                            <h3>23</h3>
-                                            <h4>New Messages</h4>
+                                            <h3>11</h3>
+                                            <h4>News</h4>
 
                                         </div>
                                         <div class="col-md-4 market-update-right">
@@ -1147,8 +1147,8 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-1">
                                         <div class="col-md-8 market-update-left">
-                                            <h3>83</h3>
-                                            <h4>Sales Today</h4>
+                                            <h3>213</h3>
+                                            <h4>Sales Monthly</h4>
                                             <p>{{ Session::get('dailySale')}}</p>
                                         </div>
                                         <div class="col-md-4 market-update-right">
@@ -1252,7 +1252,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                         <div class="col-md-8 market-update-left">
                                             <h3>122</h3>
                                             <h4>Leads</h4>
-                                            <p>Team visited 430 people</p>
+                                            <p>Team visited 230 people</p>
                                         </div>
                                         <div class="col-md-4 market-update-right">
                                             <i class="fa fa-eye"> </i>
@@ -1268,7 +1268,6 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                         </div>
                                         <div class="col-md-4 market-update-right">
                                             <i class="fa fa-envelope-o"> </i>
-                                            <i class="fa fa-eye"> </i>
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
