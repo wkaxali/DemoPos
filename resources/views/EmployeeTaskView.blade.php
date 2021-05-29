@@ -1249,10 +1249,10 @@
             var userCategor = ('{{ Session::get('Designation')}}');
             var EID = ('{{ Session::get('EmpID')}}');
             if (userCategor == "User") {
-                document.getElementById("hideEmp").style.visibility = "hidden";
+                document.getElementById("hideEmp").style.visibility = "none";
                 
               
-                document.getElementById("employeeLabel").style.visibility="hidden";
+                document.getElementById("employeeLabel").style.visibility="none";
                 // alert("displayOptions");
                 // document.getElementById("employee").value=EID;
                 // searchEmployeeData();
