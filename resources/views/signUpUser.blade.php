@@ -177,11 +177,11 @@
                                             placeholder="Username" readonly >
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="Password"
+                                        <input type="Password" class="form-control item" autocomplete="OFF" id="Password"
                                             placeholder="Password" >
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="rePassword"
+                                        <input type="Password" class="form-control item" autocomplete="OFF" id="rePassword"
                                             placeholder="ReEnter Password" >
                                     </div>
                                     <div class="form-group">
