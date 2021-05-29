@@ -98,6 +98,7 @@
 
         label {
             width: 150px;
+            margin-left:110px;
         }
 
         .page-container.sidebar-collapsed-back .left-content {
@@ -162,35 +163,34 @@
                                 <form>
 
                                     <div class="CustomerAddition  mb-3" style="margin:20px !important;">
-                                        <h2 class="text-center addCut">Sign Up Users</h2>
+                                        <h2 class="text-center addCut">Sign-Up Users</h2>
 
                                     </div>
 
                                     <div class="form-group">
-                                    <label for="">Employees</label><br>
-                            <select
-                            class="selectpicker form-control" data-live-search="true" id="Employee" onchange="getContacts()">
+                                    <label for="">Employees:</label>
+                                <select class="form-control item"  id="Employee" onchange="getContacts()">
 
-                            </select>
+                                </select>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF" id="username"
                                             placeholder="Username" readonly >
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="Password"
+                                        <input type="Password" class="form-control item" autocomplete="OFF" id="Password"
                                             placeholder="Password" >
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="rePassword"
+                                        <input type="Password" class="form-control item" autocomplete="OFF" id="rePassword"
                                             placeholder="ReEnter Password" >
                                     </div>
                                     <div class="form-group">
         <label for="">Designation:</label>
                                         <select name="" class="form-control item" id="designation">
                                             <option value="1">Admin</option>
-                                            <option value="2">Manager</option>
-                                            <option value="3">Employee</option>
+                                            <option value="2">User</option>
+                                            
                                         </select>
                                     </div>
 
@@ -223,16 +223,18 @@
         var ID = $('#Employee').find(":selected").val();
 
         var password = document.getElementById("Password").value;
+        var repassword = document.getElementById("rePassword").value;
         
         var designation = $('#designation').find(":selected").text();
 
         var addUsers = [ID,Username, password, designation];
 
-        if(Username=="" || password==""){
-            alert("Fill in all Fields")
+        if(password!=repassword){
+            
+            alert("Password Is Not Same");
         }else{
         var AU = JSON.stringify(addUsers);
-        alert(AU)
+        
         var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
