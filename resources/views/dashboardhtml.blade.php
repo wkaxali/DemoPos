@@ -1099,6 +1099,43 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     </div>
                                 </div>
                             </div>
+                            <br><br>
+                            <div class="row">
+
+
+                                <div class="col-md-4 market-update-gd">
+                                    <div data-toggle="modal" data-target="#bd-example-modal-lg"
+                                        class="market-update-block clr-block-1">
+                                        <h3>Total Stock</h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 market-update-gd">
+                                    <div class="market-update-block clr-block-2" href="/ac">
+                                        <div class="col-md-8 market-update-left">
+                                            <h3>135</h3>
+                                            <h4>Leads</h4>
+
+                                        </div>
+                                        <div class="col-md-4 market-update-right">
+                                            <i class="fa fa-eye"> </i>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 market-update-gd">
+                                    <div class="market-update-block clr-block-3">
+                                        <div class="col-md-8 market-update-left">
+                                            <h3>23</h3>
+                                            <h4>New Messages</h4>
+
+                                        </div>
+                                        <div class="col-md-4 market-update-right">
+                                            <i class="fa fa-envelope-o"> </i>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="clearfix"> </div>
                         </div>
                     </div>
@@ -1241,49 +1278,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     </div>
                 </div>
              
-                <div class="borderClass">
-
-              
-                <div class="container mainMarg">
-                <div class="row">
-                    <div class="col-md-4">
-
-                        <label for="">Employee ID</label><br>
-                        <select 
-                            class="selectpicker form-control" data-live-search="true" id="employee"
-                            onchange="searchEmployeeData()">
-
-                        </select>
-                    </div>
-                    <div class="col-md-4 ">
-                        <label for="">Task Status</label><br>
-                        <select 
-                            class="selectpicker form-control" data-live-search="true" id="status"
-                            onchange="searchTaskWithStatus()">
-                            <option value=" "></option>
-                            <option value="Pending">Pending</option>
-                            <option value="Completed">Completed</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3 ">
-                        <label for="">Date</label><br>
-                        <input type="date" name="" class="form-control" id=""></div>
-                    <div class="col-md-1">
-                        <button class="btn btn-primary" style="margin-top: 31px;">Search</button>
-                    </div>
-                </div>
-
-
-
-            </div>
-                <div class="mainContCards">
-                    <div class="mainCards-1" id="cardsCanvas">
-    
-    
-                    </div>
-    
-                </div>
-            </div>
+            
                
        
 
