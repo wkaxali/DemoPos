@@ -693,8 +693,8 @@
 
             <div class="container mainMarg">
                 <div class="row">
-                    <div class="col-md-4">
-
+                    <div class="col-md-4" id= "hideEmp">
+                        
                         <label for="" id="employeeLabel">Employees</label><br>
                         <select 
                             class="selectpicker form-control" data-live-search="true" id="employee" onchange="searchEmployeeData()">
@@ -1249,9 +1249,11 @@
             var userCategor = ('{{ Session::get('Designation')}}');
             var EID = ('{{ Session::get('EmpID')}}');
             if (userCategor == "User") {
-                document.getElementById("employee").style.display="none";
-                document.getElementById("employeeLabel").style.display="none";
-                alert("displayOptions");
+                document.getElementById("hideEmp").style.visibility = "hidden";
+                
+              
+                document.getElementById("employeeLabel").style.visibility="hidden";
+                // alert("displayOptions");
                 // document.getElementById("employee").value=EID;
                 // searchEmployeeData();
             }if (userCategor == "Admin") {
