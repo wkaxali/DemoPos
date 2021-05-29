@@ -615,7 +615,16 @@
                                     <div id="AllSubTasks"></div>
 
                                     <br>
+                                    <div class="col-md-12">
+                                            <label for="">Due Date</label>
+                                            <input  readonly type="date" placeholder="Last Comment" class="form-control"
+                                                style="height: 100%; width: 100%; resize: none;"
+                                                id="showDueDate">
+                                            
+
+                                        </div>
                                     <div class="row">
+                                        
                                         <div class="col-md-12">
                                             <label for="">Last Comment</label>
                                             <textarea name="" placeholder="Last Comment" class="form-control"
@@ -645,22 +654,22 @@
                                         <div class="col-md-12">
                                         
                                             <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="dateValue" style="display:none">
+                                                id="updateDateValue" style="display:none">
                                             <label for="">Due On</label><br>
                                             <div class="btn-group" id="groupButtons" role="group"
                                                 aria-label="Basic example">
-                                                <button onclick="GetDates()" type="button" id="Today"
+                                                <button onclick="GetDates(2)" type="button" id="Today"
                                                     style="background-color: #ffffff; border: 1px solid #aaa;"
                                                     class="btn ">Today</button>
-                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                <button onclick="TomorrowDate(2)" type="button" id="Tomorrow"
                                                     style="background-color: #ffffff; border: 1px solid #aaa;"
                                                     class="btn ">Tomorrow</button>
                                                 <button type="button" id="Date"
                                                     style="background-color: #ffffff; border: 1px solid #aaa;"
-                                                    class="btn "><input class="hello" onchange="customDate()"
+                                                    class="btn "><input class="hello" onchange="customDate(2)"
                                                         type="date"
                                                         style="background: none !important; width:103px; border: none !important;"
-                                                        name="" id="date"></button>
+                                                        name="" id="customDate2"></button>
 
                                             </div>
                                         </div>
@@ -786,15 +795,15 @@
                                                     <label for="">Due On</label><br>
                                                     <div class="btn-group" id="groupButtons" role="group"
                                                         aria-label="Basic example">
-                                                        <button onclick="GetDates()" type="button" id="Today"
+                                                        <button onclick="GetDates(1)" type="button" id="Today"
                                                             style="background-color:  #ffffff; border: 1px solid #aaa;"
                                                             class="btn ">Today</button>
-                                                        <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                        <button onclick="TomorrowDate(1)" type="button" id="Tomorrow"
                                                             style="background-color:  #ffffff; border: 1px solid #aaa;"
                                                             class="btn ">Tomorrow</button>
                                                         <button type="button" id="Date"
                                                             style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                                            class="btn "><input class="hello" onchange="customDate()"
+                                                            class="btn "><input class="hello" onchange="customDate(1)"
                                                                 type="date"
                                                                 style="background: none !important; width:103px; border: none !important;"
                                                                 name="" id="customDate"></button>
@@ -1045,7 +1054,7 @@
             var mainTaskID = document.getElementById("mainTaskID").value;
             var comment = document.getElementById("comment").value;
             var status = document.getElementById("adminStatus").value;
-            var date = document.getElementById("dateValue").value;
+            var date = document.getElementById("updateDateValue").value;
             var adminStatus = [
                 [employeeID],
                 [mainTaskID],
@@ -1086,6 +1095,8 @@
                     document.getElementById("mainTaskID").value = a[0].TaskID;
                     document.getElementById("employeeID").value = a[0].EID;
                     document.getElementById("comment").value = a[0].Comment;
+                    document.getElementById("showDueDate").value = a[0].DueDate;
+                    
                     
                     a[0].TaskID;
                     a[0].STaskID;
@@ -1221,7 +1232,9 @@
             loadCategory();
             loadEmployeesMainPage();
             adminUserFunctions();
-
+            EmpID=('{{ Session::get('EmpID')}}');
+            Designation=('{{ Session::get('Designation')}}');
+            alert(EmpID+" Designation "+Designation)
         }
 
         function adminUserFunctions(){
@@ -1364,18 +1377,22 @@
 
     </script>
     <script>
-        function GetDates() {
+        function GetDates(data) {
             var dateFull = new Date();
             y = dateFull.getFullYear();
             m = dateFull.getMonth() + 1;
             d = dateFull.getDate()
             date = y + '-' + m + '-' + d;
-            
-            document.getElementById("dateValue").value = date
-
+            if(data==1){
+                document.getElementById("dateValue").value = date
+                alert(date+"New Task");
+            }else{
+                document.getElementById("updateDateValue").value = date
+                alert(date+"Task View");
+            }
         }
 
-        function TomorrowDate() {
+        function TomorrowDate(data) {
             const today = new Date()
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
@@ -1383,16 +1400,25 @@
             m = tomorrow.getMonth() + 1;
             d = tomorrow.getDate()
             date = y + '-' + m + '-' + d;
-            
-            document.getElementById("dateValue").value = date;
-
+            if(data==1){
+                document.getElementById("dateValue").value = date
+                alert(date+"New Task");
+            }else{
+                document.getElementById("updateDateValue").value = date
+                alert(date+"Task View");
+            }
         }
 
-        function customDate() {
-            var custumDate = document.getElementById("customDate").value;
-            document.getElementById("dateValue").value = custumDate;
-            
-
+        function customDate(data) {
+            if(data==1){
+                var custumDate = document.getElementById("customDate").value;
+                document.getElementById("dateValue").value = custumDate;
+                alert(custumDate+" New Task");
+            }else{
+                var custumDate = document.getElementById("customDate2").value;
+                document.getElementById("updateDateValue").value = custumDate
+                alert(custumDate+" Task View");
+            }
         }
 
         function loadEmployees() {
@@ -1462,48 +1488,48 @@
             document.getElementById("priority").value = "Easily"
         }
 
-        function GetDates() {
-            var dateFull = new Date();
-            y = dateFull.getFullYear();
-            m = dateFull.getMonth() + 1;
-            d = dateFull.getDate()
-            date = y + '-' + m + '-' + d;
+        // function GetDates() {
+        //     var dateFull = new Date();
+        //     y = dateFull.getFullYear();
+        //     m = dateFull.getMonth() + 1;
+        //     d = dateFull.getDate()
+        //     date = y + '-' + m + '-' + d;
            
-            document.getElementById("dateValue").value = date
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = date;
+        //     document.getElementById("dateValue").value = date
+        //     var mainValue = document.getElementById("changeme");
+        //     mainValue.value = date;
 
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = tomorrow;
-        }
+        //     var mainValue = document.getElementById("changeme");
+        //     mainValue.value = tomorrow;
+        // }
 
-        function customDate() {
-            var custumDate = document.getElementById("customDate").value;
+        // function customDate() {
+        //     var custumDate = document.getElementById("customDate").value;
            
-        }
+        // }
 
 
-        function TomorrowDate() {
-            const today = new Date()
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            y = tomorrow.getFullYear();
-            m = tomorrow.getMonth() + 1;
-            d = tomorrow.getDate()
-            date = y + '-' + m + '-' + d;
+        // function TomorrowDate() {
+        //     const today = new Date()
+        //     const tomorrow = new Date(today);
+        //     tomorrow.setDate(tomorrow.getDate() + 1);
+        //     y = tomorrow.getFullYear();
+        //     m = tomorrow.getMonth() + 1;
+        //     d = tomorrow.getDate()
+        //     date = y + '-' + m + '-' + d;
            
-            document.getElementById("dateValue").value = date;
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = date;
+        //     document.getElementById("dateValue").value = date;
+        //     var mainValue = document.getElementById("changeme");
+        //     mainValue.value = date;
 
-        }
+        // }
 
-        function customDate() {
-            var custumDate = document.getElementById("customDate").value;
-            document.getElementById("dateValue").value = custumDate;
+        // function customDate() {
+        //     var custumDate = document.getElementById("customDate").value;
+        //     document.getElementById("dateValue").value = custumDate;
           
 
-        }
+        // }
 
     </script>
 

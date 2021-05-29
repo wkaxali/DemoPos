@@ -410,7 +410,15 @@ public static function updateTaskStatus(Request $request, $CO){
             'Status'=>$status,
             'Comment'=>$comment,
             'DueDate'=>$date
-        ]);
+    ]);
+
+    $sbTasks = DB::table('tbl_subtasks')
+        ->where('TaskID', '=', $mainTaskID)
+        ->update([
+            'Status'=>$status,
+            'DueDate'=>$date
+    ]);
+   
 
     $dateTime = Carbon::now()->toDateTimeString();
     //$dateTime =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
