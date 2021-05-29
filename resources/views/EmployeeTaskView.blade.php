@@ -695,9 +695,9 @@
                 <div class="row">
                     <div class="col-md-4">
 
-                        <label for="">Employees</label><br>
+                        <label for="" id="employeeLabel">Employees</label><br>
                         <select 
-                            class="selectpicker form-control" data-live-search="true" id="employee" onchange="getContact()">
+                            class="selectpicker form-control" data-live-search="true" id="employee" onchange="searchEmployeeData()">
 
                         </select>
                     </div>
@@ -1043,13 +1043,12 @@
             xhttp.open("GET", "./updateTaskStatus/" + status, true);
 
             xhttp.send();
-            loadEmployees();
+            
         }
 
 
         function updateAdminStatus() {
             var employeeID = ('{{ Session::get('EmpID')}}');
-           
             var mainTaskID = document.getElementById("mainTaskID").value;
             var comment = document.getElementById("comment").value;
             var status = document.getElementById("adminStatus").value;
@@ -1211,6 +1210,7 @@
     </script>
     <script>
         function getEmployeeData() {
+
             var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1226,14 +1226,14 @@
             xhttp.open("GET", "./getEmployeeData/", true);
 
             xhttp.send();
-            loadEmployees();
-            displayOptions();
+            
             loadCategory();
             loadEmployeesMainPage();
             adminUserFunctions();
             EmpID=('{{ Session::get('EmpID')}}');
             Designation=('{{ Session::get('Designation')}}');
             alert(EmpID+" Designation "+Designation)
+            displayOptions();
         }
 
         function adminUserFunctions(){
@@ -1246,11 +1246,17 @@
         }
 
         function displayOptions() {
-            var userCategor = ('{{ Session::get('EMPID ')}}');
-
-            if (userCategor == 2) {
-
-
+            var userCategor = ('{{ Session::get('Designation')}}');
+            var EID = ('{{ Session::get('EmpID')}}');
+            if (userCategor == "User") {
+                document.getElementById("employee").style.display="none";
+                document.getElementById("employeeLabel").style.display="none";
+                alert("displayOptions");
+                // document.getElementById("employee").value=EID;
+                // searchEmployeeData();
+            }if (userCategor == "Admin") {
+                document.getElementById("employee").style.display="block";
+                
             }
 
 
@@ -1574,10 +1580,9 @@
 
         function loadHeads() {
             document.getElementById("dateValue").style.display = "none";
-            document.getElementById("priority").style.display = "none";
-            loadEmployees();
-            
+            document.getElementById("priority").style.display = "none";      
             loadCategory();
+            loadEmployees();
         }
 
         function addTasks() {
