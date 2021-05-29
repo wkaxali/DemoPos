@@ -189,8 +189,8 @@
         <label for="">Designation:</label>
                                         <select name="" class="form-control item" id="designation">
                                             <option value="1">Admin</option>
-                                            <option value="2">Manager</option>
-                                            <option value="3">Employee</option>
+                                            <option value="2">User</option>
+                                            
                                         </select>
                                     </div>
 
@@ -223,16 +223,18 @@
         var ID = $('#Employee').find(":selected").val();
 
         var password = document.getElementById("Password").value;
+        var repassword = document.getElementById("rePassword").value;
         
         var designation = $('#designation').find(":selected").text();
 
         var addUsers = [ID,Username, password, designation];
 
-        if(Username=="" || password==""){
-            alert("Fill in all Fields")
+        if(password!=repassword){
+            
+            alert("Password Is Not Same");
         }else{
         var AU = JSON.stringify(addUsers);
-        alert(AU)
+        
         var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
