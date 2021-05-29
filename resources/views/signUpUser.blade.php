@@ -167,11 +167,10 @@
                                     </div>
 
                                     <div class="form-group">
-                                    <label for="">Employees</label><br>
-                            <select
-                            class="selectpicker form-control" data-live-search="true" id="Employee" onchange="getContacts()">
+                                    <label for="">Employees:</label>
+                                <select class="form-control item"  id="Employee" onchange="getContacts()">
 
-                            </select>
+                                </select>
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF" id="username"
