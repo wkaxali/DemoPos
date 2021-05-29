@@ -576,7 +576,7 @@
     </style>
 </head>
 
-<body onload="getEmployeeData()">
+<body onload="loadHeads()">
 
 
     <div class="page-container">
@@ -1210,7 +1210,7 @@
     </script>
     <script>
         function getEmployeeData() {
-
+            
             var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1218,6 +1218,7 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("cardsCanvas").innerHTML = this.responseText;
+                    displayOptions();
 
 
                 }
@@ -1227,13 +1228,10 @@
 
             xhttp.send();
             
-            loadCategory();
-            loadEmployeesMainPage();
-            adminUserFunctions();
-            EmpID=('{{ Session::get('EmpID')}}');
-            Designation=('{{ Session::get('Designation')}}');
-            alert(EmpID+" Designation "+Designation)
-            displayOptions();
+            // EmpID=('{{ Session::get('EmpID')}}');
+            // Designation=('{{ Session::get('Designation')}}');
+            // alert(EmpID+" Designation "+Designation)
+            
         }
 
         function adminUserFunctions(){
@@ -1249,14 +1247,15 @@
             var userCategor = ('{{ Session::get('Designation')}}');
             var EID = ('{{ Session::get('EmpID')}}');
             if (userCategor == "User") {
-                document.getElementById("employee").style.display="none";
-                document.getElementById("employeeLabel").style.display="none";
-                alert("displayOptions");
-                // document.getElementById("employee").value=EID;
-                // searchEmployeeData();
+                // document.getElementById("employee").style.display="none";
+                // document.getElementById("employeeLabel").style.display="none";
+                $('#employee').val(EID);
+                $('#employee').selectpicker('refresh');
+                searchEmployeeData(EID);
+                
             }if (userCategor == "Admin") {
                 document.getElementById("employee").style.display="block";
-                
+                getEmployeeData();
             }
 
 
@@ -1434,6 +1433,7 @@
 
                     document.getElementById("employee").innerHTML = this.response;
                     $('#employee').selectpicker('refresh');
+                    displayOptions();
                     
                 }
             };
@@ -1581,8 +1581,10 @@
         function loadHeads() {
             document.getElementById("dateValue").style.display = "none";
             document.getElementById("priority").style.display = "none";      
-            loadCategory();
             loadEmployees();
+            loadCategory();
+            loadEmployeesMainPage();
+            adminUserFunctions();
         }
 
         function addTasks() {
