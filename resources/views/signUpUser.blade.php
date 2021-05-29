@@ -98,6 +98,7 @@
 
         label {
             width: 150px;
+            margin-left:110px;
         }
 
         .page-container.sidebar-collapsed-back .left-content {
@@ -162,7 +163,7 @@
                                 <form>
 
                                     <div class="CustomerAddition  mb-3" style="margin:20px !important;">
-                                        <h2 class="text-center addCut">Sign Up Users</h2>
+                                        <h2 class="text-center addCut">Sign-Up Users</h2>
 
                                     </div>
 
