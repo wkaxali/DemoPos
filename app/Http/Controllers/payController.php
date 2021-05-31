@@ -32,6 +32,7 @@ class payController extends Controller
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Debit",
         'Remarks'=>$remarks,
+        'LID'=> $LID,
         
         ]);  
 
@@ -40,7 +41,7 @@ class payController extends Controller
             ->where('TransactionID', $id)
             ->update([
               'PaidTo'=>$paidTo,
-              'TransactionCatogery'=>"Party Payment"
+              'TransactionCatogery'=>"Party Payment",
           ]);
         }
         if($PT=="Employee"){
@@ -49,6 +50,7 @@ class payController extends Controller
             ->update([
               'EmpID'=>$paidTo,
               'TransactionCatogery'=>"Salary Payment"
+              
           ]);
 
         }
@@ -272,6 +274,7 @@ public static function getCommissionData($year, $month, $EID){
 }
 
 public static function paySalary($data){
+  $LID=globalVarriablesController::selfLedgerID();
   $obj=json_decode($data);
   $amountPaid = $obj[0];
   $payable = $obj[1];
@@ -289,6 +292,8 @@ public static function paySalary($data){
       'PaidVia'=>$AID,
       'TransactionType'=>"Debit",
       'Remarks'=>$remarks,
+      'TransactionCatogery'=>"Salary Payment",
+      'LID'=>$LID
       
     ]);
 

@@ -987,7 +987,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                                                 <thead>
                                                                     <tr>
                                                                         <th>Product Id</th>
-                                                                        <th>Company</th>
+                                                                        
                                                                         <th>Product Name</th>
                                                                         <th>Invoice Price</th>
                                                                         <th>Unit Purchase Price</th>
