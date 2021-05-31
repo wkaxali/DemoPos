@@ -405,11 +405,10 @@ function drawChart() {
         if (this.readyState == 4 && this.status == 200) {
 
             var d = JSON.parse(this.responseText);
-            alert(this.responseText);
-            alert(d);
             var data = google.visualization.arrayToDataTable(d);
-            var options = {'title':'All Transactions', 'width':1000, 'height':800};
+            var options = {'title':'All Transactions',pieHole: 0.5, 'width':1100, 'height':800};
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            
             chart.draw(data, options);
 
         }
