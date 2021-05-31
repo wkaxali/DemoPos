@@ -389,38 +389,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     @include('dashboardhtml')
 
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-<script type="text/javascript">
-// Load google charts
-google.charts.load('current', {'packages':['corechart']});
-google.charts.setOnLoadCallback(drawChart);
-
-// Draw the chart and set the chart values
-function drawChart() {
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-
-            var d = JSON.parse(this.responseText);
-            alert(this.responseText);
-            alert(d);
-            var data = google.visualization.arrayToDataTable(d);
-            var options = {'title':'All Transactions', 'width':1000, 'height':800};
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            chart.draw(data, options);
-
-        }
-    };
-
-    xhttp.open("GET", "./getPieChartData/", true);
-    xhttp.send();
-
-}
-</script>
-
     <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
         <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
@@ -680,7 +648,7 @@ function drawChart() {
                   
                     $.each(a, function (i, item) {
 
-                        table.row.add([  a[i].ProductID,a[i].ProductName, a[i]
+                        table.row.add([  a[i].ProductID,a[i].ProductID, a[i].ProductName, a[i]
                             .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StockIn, a[i]
                             .EngineNumber, a[i].ChasisNumber, a[i].Status
                         ]);
@@ -900,7 +868,7 @@ function drawChart() {
             loadAutos();
             getEmployeeData();
             getStock();
-            //drawChart();
+            getMonthlySales();
         }
 
         function updateModelData() {
@@ -1188,6 +1156,28 @@ function drawChart() {
             document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
 
+        }
+
+
+        function getMonthlySales() {
+           
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var a = this.responseText;
+                    var data= JSON.parse(a);
+                    document.getElementById("monthlysale").innerHTML  = "Total Sales:"+ data[0].TotalSales;
+                    document.getElementById("monthlyamount").innerHTML  = "Total Amount:"+data[0].Amount;
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getMonthlySales/", true);
+
+            xhttp.send();
         }
 
     </script>
