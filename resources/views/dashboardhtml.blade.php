@@ -1139,17 +1139,16 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="clearfix"> </div>
                         </div>
                     </div>
+                    
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <div class="market-updates">
                             <div class="row">
-
-
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-1">
                                         <div class="col-md-8 market-update-left">
                                             <h3>213</h3>
                                             <h4>Sales Monthly</h4>
-                                            <p>{{ Session::get('dailySale')}}</p>
+                                            <p>{{Session::get('dailySale')}}</p>
                                         </div>
                                         <div class="col-md-4 market-update-right">
                                             <i class="fa fa-file-text-o"> </i>
@@ -1278,7 +1277,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     </div>
                 </div>
              
-            
+                
                
        
 
@@ -1287,8 +1286,9 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
 
         </div>
-
+        <div id="piechart"></div>
     </div>
+
     @include('adminNavbar')
 
     <div class="clearfix"> </div>

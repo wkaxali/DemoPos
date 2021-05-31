@@ -389,6 +389,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     @include('dashboardhtml')
 
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            var d = JSON.parse(this.responseText);
+            alert(this.responseText);
+            alert(d);
+            var data = google.visualization.arrayToDataTable(d);
+            var options = {'title':'All Transactions', 'width':1000, 'height':800};
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+
+        }
+    };
+
+    xhttp.open("GET", "./getPieChartData/", true);
+    xhttp.send();
+
+}
+</script>
+
     <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
         <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
@@ -867,6 +899,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             loadAutos();
             getEmployeeData();
             getStock();
+            //drawChart();
         }
 
         function updateModelData() {
