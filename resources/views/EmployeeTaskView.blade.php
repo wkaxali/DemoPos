@@ -1218,20 +1218,13 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("cardsCanvas").innerHTML = this.responseText;
-                    displayOptions();
-
-
                 }
             };
            
             xhttp.open("GET", "./getEmployeeData/", true);
 
             xhttp.send();
-            
-            // EmpID=('{{ Session::get('EmpID')}}');
-            // Designation=('{{ Session::get('Designation')}}');
-            // alert(EmpID+" Designation "+Designation)
-            
+        
         }
 
         function adminUserFunctions(){
@@ -1307,10 +1300,12 @@
             }
             if(status=="0" && employeeID=="All"){
                 getEmployeeData();
-                //alert("Hola!")
-            }if(status=="0" && employeeID!="All"){
+                alert("Hola!")
+            }
+            if(status=="0" && employeeID!="All"){
                 searchEmployeeData();
-            }else{
+            }
+            if(status!="0"){
                 xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
                 xhttp.send();
             }
