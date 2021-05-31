@@ -1170,7 +1170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     var a = this.responseText;
                     var data= JSON.parse(a);
                     document.getElementById("monthlysale").innerHTML  = "Total Sales: "+ data[0].TotalSales;
-                    document.getElementById("monthlyamount").innerHTML  = "Total Amount: "+data[0].Amount;
+                    document.getElementById("monthlyamount").innerHTML  = data[0].Amount;
 
                 }
             };

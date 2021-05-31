@@ -1010,15 +1010,16 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="col-md-4 market-update-gd">
                                     <div data-toggle="modal" data-target="#bd-example-modal-lg"
                                         class="market-update-block clr-block-1">
-                                        <h3>This Month</h3><br>
-                                        <h4 id = "monthlysale">Total Sales:</h4>
-                                            <h4 id = "monthlyamount">Total Amount:</h4>
+                                        <h3 id = "monthlyamount"></h3><br>
+                                        <h4>This Month</h4>
+                                        <h4 id = "monthlysale"></h4>
+                                            
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-2" href="/ac">
                                         <div class="col-md-8 market-update-left">
-                                            <h3>135</h3>
+                                            <h3>Expenses</h3>
                                             <h4>Leads</h4>
 
                                         </div>
