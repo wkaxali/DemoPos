@@ -679,7 +679,7 @@ function drawChart() {
                   
                     $.each(a, function (i, item) {
 
-                        table.row.add([  a[i].ProductID,a[i].ProductName, a[i]
+                        table.row.add([  a[i].ProductID,a[i].ProductID, a[i].ProductName, a[i]
                             .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StockIn, a[i]
                             .EngineNumber, a[i].ChasisNumber, a[i].Status
                         ]);
@@ -899,7 +899,7 @@ function drawChart() {
             loadAutos();
             getEmployeeData();
             getStock();
-            //drawChart();
+            getMonthlySales();
         }
 
         function updateModelData() {
@@ -1187,6 +1187,28 @@ function drawChart() {
             document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
 
+        }
+
+
+        function getMonthlySales() {
+           
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var a = this.responseText;
+                    var data= JSON.parse(a);
+                    document.getElementById("monthlysale").innerHTML  = "Total Sales: "+ data[0].TotalSales;
+                    document.getElementById("monthlyamount").innerHTML  = data[0].Amount;
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getMonthlySales/", true);
+
+            xhttp.send();
         }
 
     </script>
