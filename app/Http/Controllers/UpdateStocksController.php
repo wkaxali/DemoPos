@@ -16,6 +16,7 @@ class UpdateStocksController extends Controller
          $InvoiceNumber=$Array[1];
          $AID=$Array[2];
     foreach($Array[0] as $oneProduct){
+      $LID=globalVarriablesController::selfLedgerID();
       if($oneProduct[5]==1){
          $PID=$oneProduct[0];
          $color=$oneProduct[1];
@@ -71,7 +72,11 @@ class UpdateStocksController extends Controller
             ->where('ProductSerial', $PID)
             ->update(['DilevedStatus'=>"Received"
             ]);
-
+            
+            DB::table('tbltransactionflow')
+            ->where('ProductSerial', $PID)
+            ->update(['LID'=>$LID
+            ]);
 
 
 
