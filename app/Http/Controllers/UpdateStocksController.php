@@ -16,7 +16,6 @@ class UpdateStocksController extends Controller
          $InvoiceNumber=$Array[1];
          $AID=$Array[2];
     foreach($Array[0] as $oneProduct){
-      $LID=globalVarriablesController::selfLedgerID();
       if($oneProduct[5]==1){
          $PID=$oneProduct[0];
          $color=$oneProduct[1];
@@ -40,7 +39,7 @@ class UpdateStocksController extends Controller
        $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
         $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
             TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
-            "1",null,null,NULL,null,NULL,NULL,NULL,NULL,$paidVia,$CID);
+            "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,$CID);
             $AID=$paidVia;//This needs o be changed in production
             $OldAccBalance=accountsController::getAccountBalance($AID);
             $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
@@ -72,11 +71,7 @@ class UpdateStocksController extends Controller
             ->where('ProductSerial', $PID)
             ->update(['DilevedStatus'=>"Received"
             ]);
-            
-            DB::table('tbltransactionflow')
-            ->where('ProductSerial', $PID)
-            ->update(['LID'=>$LID
-            ]);
+
 
 
 
