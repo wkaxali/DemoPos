@@ -952,67 +952,8 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                       
 
                   
-                        <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg" style="margin-left:38px;" tabindex="-1"
-                        role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div class="container">
-
-
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Forland Modern Motors</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="modal-body">
-                                
-                                    <header>
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-md-12 mt-3 text-center">
-                                                    <h3>View Stock</h3>
-                                                </div>
-                                            </div>
-                                            <br>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="receivingMain">
-                                    
-                                    
-                                                        <div class="receivingTable" style="height: 400px; overflow: auto;">
-                                                            <table id="stockTable" class=" table-striped wrap"
-                                                                style="width: 100%; text-align: center;">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Product Id</th>
-                                                                        <th>Company</th>
-                                                                        <th>Product Name</th>
-                                                                        <th>Invoice Price</th>
-                                                                        <th>Unit Purchase Price</th>
-                                                                        <th>Stock</th>
-                                                                        <th>Engine Number</th>
-                                                                        <th>Chasis Number</th>
-                                                                        <th>Status</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                    
-                                                                </tbody>
-                                    
-                                                            </table>
-                                    
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </header>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        
+                       
 
 
                         <div class="clearfix"> </div>
@@ -1069,13 +1010,16 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="col-md-4 market-update-gd">
                                     <div data-toggle="modal" data-target="#bd-example-modal-lg"
                                         class="market-update-block clr-block-1">
-                                        <h3>Total Stock</h3>
+                                        <h3 id = "monthlyamount"></h3><br>
+                                        <h4>This Month</h4>
+                                        <h4 id = "monthlysale"></h4>
+                                            
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-2" href="/ac">
                                         <div class="col-md-8 market-update-left">
-                                            <h3>135</h3>
+                                            <h3>Expenses</h3>
                                             <h4>Leads</h4>
 
                                         </div>
@@ -1105,8 +1049,8 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
                                 <div class="col-md-4 market-update-gd">
                                     <div data-toggle="modal" data-target="#bd-example-modal-lg"
-                                        class="market-update-block clr-block-1">
-                                        <h3>Total Stock</h3>
+                                        class="market-update-block clr-block-3">
+                                        <h3>Total Sales</h3>
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
@@ -1139,17 +1083,16 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="clearfix"> </div>
                         </div>
                     </div>
+                    
                     <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <div class="market-updates">
                             <div class="row">
-
-
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-1">
                                         <div class="col-md-8 market-update-left">
                                             <h3>213</h3>
                                             <h4>Sales Monthly</h4>
-                                            <p>{{ Session::get('dailySale')}}</p>
+                                            <p>{{Session::get('dailySale')}}</p>
                                         </div>
                                         <div class="col-md-4 market-update-right">
                                             <i class="fa fa-file-text-o"> </i>
@@ -1278,7 +1221,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     </div>
                 </div>
              
-            
+                
                
        
 
@@ -1287,8 +1230,9 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
 
         </div>
-
+        <div id="piechart"></div>
     </div>
+
     @include('adminNavbar')
 
     <div class="clearfix"> </div>

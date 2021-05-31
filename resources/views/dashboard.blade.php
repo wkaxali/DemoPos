@@ -389,6 +389,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     @include('dashboardhtml')
 
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            var d = JSON.parse(this.responseText);
+            var data = google.visualization.arrayToDataTable(d);
+            var options = {'title':'All Transactions',pieHole: 0.5, 'width':1100, 'height':800};
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            
+            chart.draw(data, options);
+
+        }
+    };
+
+    xhttp.open("GET", "./getPieChartData/", true);
+    xhttp.send();
+
+}
+</script>
+
     <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
         <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
@@ -645,13 +676,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     var a = JSON.parse(data);
                     //  alert(a[0].ProductSerial);
                     table = $('#stockTable').DataTable();
-
+                  
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].ProductID, a[i].Company, a[i].ProductName, a[i]
+                        table.row.add([  a[i].ProductID,a[i].ProductID, a[i].ProductName, a[i]
                             .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StockIn, a[i]
                             .EngineNumber, a[i].ChasisNumber, a[i].Status
                         ]);
+                      
                     });
                     table.columns.adjust().draw();
 
@@ -670,8 +702,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $('#stockTable').DataTable();
         });
 
-    </script> -->
-    <script>
+    </script>  -->
+     <script>
         $(document).ready(function () {
             $('#stockTable').DataTable({
                 responsive: {
@@ -867,6 +899,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             loadAutos();
             getEmployeeData();
             getStock();
+            getMonthlySales();
         }
 
         function updateModelData() {
@@ -1154,6 +1187,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
 
+        }
+
+
+        function getMonthlySales() {
+           
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var a = this.responseText;
+                    var data= JSON.parse(a);
+                    document.getElementById("monthlysale").innerHTML  = "Total Sales: "+ data[0].TotalSales;
+                    document.getElementById("monthlyamount").innerHTML  = data[0].Amount;
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getMonthlySales/", true);
+
+            xhttp.send();
         }
 
     </script>

@@ -35,7 +35,7 @@ class expenseController extends Controller
         'Amount'=>$amount,
         'TransactionCatogery'=>"Expense",
         'EID'=>$EID,
-        
+        'LID'=> $LID,
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Debit"
         ]);
