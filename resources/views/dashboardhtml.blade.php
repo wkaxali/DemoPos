@@ -739,7 +739,7 @@
             border-radius: 50%;
             background-color: pink;
             display: inline-block;
-        }
+        
 
         .colorcard-1 .mainCardBody .mainDots div:nth-child(3) {
             height: 10px;
@@ -749,7 +749,12 @@
             display: inline-block;
 
         }
-
+.container{
+    border: 8px solid black;
+   width: 200px;
+   height:300px;
+    
+}
     
       
 
@@ -1054,7 +1059,11 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
 
         </div>
-        <div id="piechart"></div>
+        <div class="container">
+        <div id="piechart">
+  
+        </div>
+        </div>
     </div>
 
     @include('adminNavbar')
