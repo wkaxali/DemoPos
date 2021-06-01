@@ -1046,37 +1046,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <h4 id= "totalexpense">Total Expenses: 0</h4>
 
                                         </div>
-<<<<<<< HEAD
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-envelope-o"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br><br>
-                            <div class="row">
-
-
-                                <div class="col-md-4 market-update-gd">
-                                    <div data-toggle="modal" data-target="#bd-example-modal-lg"
-                                        class="market-update-block clr-block-3">
-                                        <h3>Total Sales</h3>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-2" href="/ac">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>135</h3>
-                                            <h4>Leads</h4>
-
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-eye"> </i>
-                                        </div>
-=======
                                        
->>>>>>> 01f0fd2deabada1ec499acae16c2742ab36990d7
                                         <div class="clearfix"> </div>
                                     </div>
                                 </div>
