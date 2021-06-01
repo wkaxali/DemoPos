@@ -406,11 +406,11 @@ function drawChart() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-            // alert(this.responseText);
+            //alert(this.responseText);
             var d = JSON.parse(this.responseText);
 
             var data = google.visualization.arrayToDataTable(d);
-            var options = {'title':'Stock Details',pieHole: 0.5, 'width':800, 'height':670 };
+            var options = {'title':'Stock Details',pieHole: 0.5, 'width':550, 'height':400};
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
 
@@ -1239,27 +1239,20 @@ function drawChart() {
        }
 
 
-       function getBalance() {
-           
+        var progress = setInterval(function () {
+            var $bar = $('.bar');
 
-           var xhttp = new XMLHttpRequest();
-           xhttp.onreadystatechange = function () {
+            if ($bar.width() >= 400) {
+                clearInterval(progress);
+                $('.progress').removeClass('active');
+            } else {
+                $bar.width($bar.width() + 40);
+            }
+            $bar.text($bar.width() / 4 + "%");
+        }, 800);
 
-               if (this.readyState == 4 && this.status == 200) {
 
-                   var b = this.responseText;
-                   var data= JSON.parse(b);
-                //    alert(data);
-                   document.getElementById("balance").innerHTML  = data[0].Balance;
-                   
 
-               }
-           };
-           //alert("ljd");
-           xhttp.open("GET", "./getBalance/", true);
-
-           xhttp.send();
-       }
     </script>
 
 
