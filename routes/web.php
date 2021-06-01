@@ -58,7 +58,7 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
-Route::get('/getPieChartData',[dashBoardDisplayData::class, 'getPieChartData']);
+Route::get('/autosPieChart',[dashBoardDisplayData::class, 'autoStock']);
 Route::get('/signUp/{data}',[userAccountController::class, 'signUp']);
 Route::get('/paySalary/{data}',[payController::class, 'paySalary']);
 Route::get('/getCommissionData/{year}/{month}/{EID}',[payController::class, 'getCommissionData']);
@@ -293,6 +293,11 @@ Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
 
 Route::get('/searchAttendance/{month}/{year}',[attendanceController::class, 'searchAttendance']);
 Route::get('/getMonthlySales',[dashBoardDisplayData::class, 'getMonthlySales']);
+Route::get('/getMonthlyExpenses',[dashBoardDisplayData::class, 'getMonthlyExpenses']);
+Route::get('/getPendingOrders',[OrderFlowController::class, 'getPendingOrders']);
+Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
+
+
 
 
 Route::get('/', function () {

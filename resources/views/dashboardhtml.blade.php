@@ -1,5 +1,16 @@
 <head>
     <style>
+
+        #piechart{
+            border-color: grey;
+            width: 780px;
+            border-radius: 10px;
+            margin-left:20px;
+            box-shadow: 1px 2px 2px 1px grey ;
+        }
+
+        
+    
         #movetop {
             position: fixed;
             bottom: 40px;
@@ -739,7 +750,7 @@
             border-radius: 50%;
             background-color: pink;
             display: inline-block;
-        }
+        
 
         .colorcard-1 .mainCardBody .mainDots div:nth-child(3) {
             height: 10px;
@@ -749,7 +760,12 @@
             display: inline-block;
 
         }
-
+.container{
+    border: 8px solid black;
+   width: 200px;
+   height:300px;
+    
+}
     
       
 
@@ -762,6 +778,12 @@
             border-radius: 10%;
         }
 
+        @import url('//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css');
+        .container {
+            margin-top: 30px;
+            width: 400px;
+        }
+        
     </style>
 </head>
 <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg-1" style="margin-left:38px;" tabindex="-1"
@@ -1007,35 +1029,24 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="row">
 
 
-                                <div class="col-md-4 market-update-gd">
+                                <div class="col-md-4 market-update-gd"  >
                                     <div data-toggle="modal" data-target="#bd-example-modal-lg"
                                         class="market-update-block clr-block-1">
-                                        <h3 id = "monthlyamount"></h3><br>
+                                        <h3 id = "monthlyamount"> 0</h3><br>
                                         <h4>This Month</h4>
-                                        <h4 id = "monthlysale"></h4>
+                                        <h4 id = "monthlysale">Total Sales: 0</h4>
                                             
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-2" href="/ac">
+                                    <div class="market-update-block clr-block-3" href="/ac">
                                         <div class="col-md-8 market-update-left">
-                                            <h3>Expenses</h3>
-                                            <h4>Leads</h4>
+                                            <h3 id = "monthlyexpense">0</h3><br>
+                                            <h4>This Month</h4>
+                                            <h4 id= "totalexpense">Total Expenses: 0</h4>
 
                                         </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-eye"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-3">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>23</h3>
-                                            <h4>New Messages</h4>
-
-                                        </div>
+<<<<<<< HEAD
                                         <div class="col-md-4 market-update-right">
                                             <i class="fa fa-envelope-o"> </i>
                                         </div>
@@ -1063,163 +1074,28 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                         <div class="col-md-4 market-update-right">
                                             <i class="fa fa-eye"> </i>
                                         </div>
+=======
+                                       
+>>>>>>> 01f0fd2deabada1ec499acae16c2742ab36990d7
                                         <div class="clearfix"> </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-3">
                                         <div class="col-md-8 market-update-left">
-                                            <h3>23</h3>
-                                            <h4>New Messages</h4>
+                                            <h3 id="balance">23</h3><br>
+                                            <h4>Balance Due To FJW</h4>
 
                                         </div>
                                         <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-envelope-o"> </i>
+                                           
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                    
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="market-updates">
-                            <div class="row">
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-1">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>213</h3>
-                                            <h4>Sales Monthly</h4>
-                                            <p>{{Session::get('dailySale')}}</p>
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-file-text-o"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-2">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>135</h3>
-                                            <h4>Leads</h4>
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-eye"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-3">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>23</h3>
-                                            <h4>New Messages</h4>
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-envelope-o"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <div class="market-updates">
-                            <div class="row">
-
-
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-1">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>83</h3>
-                                            <h4>Sales Today</h4>
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-file-text-o"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-2">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>135</h3>
-                                            <h4>Leads</h4>
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-eye"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-3">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>23</h3>
-                                            <h4>New Messages</h4>
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-envelope-o"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="pills-year" role="tabpanel" aria-labelledby="pills-year-tab">
-                        <div class="market-updates">
-                            <div class="row">
-
-
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-1">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>83</h3>
-                                            <h4>Sales Today</h4>
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-file-text-o"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-2">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>122</h3>
-                                            <h4>Leads</h4>
-                                            <p>Team visited 230 people</p>
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-eye"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-3">
-                                        <div class="col-md-8 market-update-left">
-                                            <h3>23</h3>
-                                            <h4>All Messages</h4>
-                                        </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-envelope-o"> </i>
-                                        </div>
-                                        <div class="clearfix"> </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                    </div>
-                </div>
+                            <br><br>
+                         
              
                 
                
@@ -1230,7 +1106,19 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
 
         </div>
-        <div id="piechart"></div>
+
+   
+            <div id="piechart"></div>
+        
+        
+        <div class="container">
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 0%;">
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     @include('adminNavbar')

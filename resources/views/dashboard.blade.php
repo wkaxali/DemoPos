@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Forland Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script type="application/x-javascript">
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -17,15 +19,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
     </script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-    </script>
+    
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
 
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
@@ -404,17 +406,18 @@ function drawChart() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
+            //alert(this.responseText);
             var d = JSON.parse(this.responseText);
+
             var data = google.visualization.arrayToDataTable(d);
-            var options = {'title':'All Transactions',pieHole: 0.5, 'width':1100, 'height':800};
+            var options = {'title':'Stock Details',pieHole: 0.5, 'width':760, 'height':450};
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-            
             chart.draw(data, options);
 
         }
     };
 
-    xhttp.open("GET", "./getPieChartData/", true);
+    xhttp.open("GET", "./autosPieChart/", true);
     xhttp.send();
 
 }
@@ -900,6 +903,8 @@ function drawChart() {
             getEmployeeData();
             getStock();
             getMonthlySales();
+            getMonthlyExpenses();
+            getBalance();
         }
 
         function updateModelData() {
@@ -1210,6 +1215,43 @@ function drawChart() {
 
             xhttp.send();
         }
+
+
+        function getMonthlyExpenses() {
+           
+
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function () {
+
+               if (this.readyState == 4 && this.status == 200) {
+
+                   var b = this.responseText;
+                   var data= JSON.parse(b);
+                   document.getElementById("totalexpense").innerHTML  = "Total Expenses: "+ data[0].TotalSales;
+                   document.getElementById("monthlyexpense").innerHTML  = data[0].TotalAmount;
+
+               }
+           };
+           //alert("ljd");
+           xhttp.open("GET", "./getMonthlyExpenses/", true);
+
+           xhttp.send();
+       }
+
+
+        var progress = setInterval(function () {
+            var $bar = $('.bar');
+
+            if ($bar.width() >= 400) {
+                clearInterval(progress);
+                $('.progress').removeClass('active');
+            } else {
+                $bar.width($bar.width() + 40);
+            }
+            $bar.text($bar.width() / 4 + "%");
+        }, 800);
+
+
 
     </script>
 

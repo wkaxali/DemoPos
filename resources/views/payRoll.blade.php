@@ -719,7 +719,7 @@
             amountPaid=document.getElementById("amountPaid").value;
             payable=document.getElementById("payable").innerHTML;
             amountRemaining=document.getElementById("amountRemaining").value;
-            date=document.getElementById("date").value;
+            date=document.getElementById("paymentDate").value;
             remarks=document.getElementById("remarks").value;
             var month = $('#month').find(":selected").val();
             var year = $('#year').find(":selected").text();

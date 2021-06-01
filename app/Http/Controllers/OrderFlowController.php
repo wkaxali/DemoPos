@@ -260,6 +260,12 @@ class OrderFlowController extends Controller
         
       }
 
+      function getPendingOrders(){
+        $data=DB:: select('select * from vw_purchaseorderdetails where DilevedStatus = "Pending"');
+        return $data;
+      }
+
+
       function spareParts(){
         $data=DB:: select('select * from vw_stockdetails where Category = 2');
         return $data;
