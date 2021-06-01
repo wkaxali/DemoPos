@@ -1012,12 +1012,12 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                         class="market-update-block clr-block-1">
                                         <h3 id = "monthlyamount"> 0</h3><br>
                                         <h4>This Month</h4>
-                                        <h4 id = "monthlysale"></h4>
+                                        <h4 id = "monthlysale">Total Sales: 0</h4>
                                             
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-2" href="/ac">
+                                    <div class="market-update-block clr-block-3" href="/ac">
                                         <div class="col-md-8 market-update-left">
                                             <h3 id = "monthlyexpense">0</h3><br>
                                             <h4>This Month</h4>
@@ -1029,7 +1029,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-3">
+                                    <div class="market-update-block clr-block-2">
                                         <div class="col-md-8 market-update-left">
                                             <h3>23</h3>
                                             <h4>New Messages</h4>

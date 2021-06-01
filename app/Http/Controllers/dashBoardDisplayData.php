@@ -34,7 +34,7 @@ class dashBoardDisplayData extends Controller
         $thismonth =  Carbon::createFromFormat('Y-m-d', $date)->format('m');
          $data=DB:: select('SELECT
         COUNT(TransactionID) AS TotalSales, SUM(Amount) AS TotalAmount 
-        FROM tbltransactionflow where TransactionCatogery = "Expense"');
+        FROM tbltransactionflow where TransactionCatogery = "Expense" AND month(DateStamp)= '.$thismonth);
 
          return $data;
 
