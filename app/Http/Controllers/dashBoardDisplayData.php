@@ -8,7 +8,7 @@ use DB;
 
 class dashBoardDisplayData extends Controller
 {
-    public static function getPieChartData(){
+    public static function transactions(){
         $pieChartData=[['Transaction Category', 'Amount']];
         $data=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
         FROM tbltransactionflow where TransactionCatogery != "null" group by TransactionCatogery');
@@ -18,6 +18,25 @@ class dashBoardDisplayData extends Controller
 
         return $pieChartData;
     }
+
+    public static function autoStock(){
+        
+        $data=DB:: select('SELECT SUM(UnitsBooked) AS UnitsBooked, SUM(UnitsSold) AS UnitsSold, SUM(InStock) AS InStock
+        FROM vw_auto_status');
+
+        $UnitsBooked = floatval($data[0]->UnitsBooked);
+        $UnitsSold = floatval($data[0]->UnitsSold);
+        $InStock = floatval($data[0]->InStock);
+
+        $pieChartData=[
+            ['Status', 'Units'],
+            ['UnitsSold',$UnitsSold],
+            ['InStock', $InStock],
+            ['UnitsBooked', $UnitsBooked]
+        ];
+
+        return $pieChartData;
+}
 
     public static function getMonthlySales(){
         $date = Carbon::now()->toDateString();

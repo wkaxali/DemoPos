@@ -235,9 +235,9 @@ public static function getEmployeeName(){
   }
   public static function getTotalPay($empID){
 
-    $totatlPay = DB::table('vw_employeealowncspay')
+    $totatlPay = DB::table('tblemployees')
               ->where('EID', $empID)
-              ->first()->TotalPay;
+              ->first()->Balance;
     return $totatlPay;
 
   }
@@ -286,11 +286,13 @@ public static function paySalary($data){
   $AID = $obj[7];
   $remarks = $obj[8];
 
+  $salaryOf = Carbon::createFromDate($year, $month, 00, 'Europe/Madrid')->format('Y-m-d');;
     $id=DB::table('tbltransactionflow')->insertGetId([
       'DateStamp'=>$date,
       'Amount'=>$amountPaid,
       'PaidVia'=>$AID,
       'TransactionType'=>"Debit",
+      'EmpID'=>$EID,
       'Remarks'=>$remarks,
       'TransactionCatogery'=>"Salary Payment",
       'LID'=>$LID
@@ -303,6 +305,7 @@ public static function paySalary($data){
       'AmountPaid'=>$amountPaid,
       'AmountRemaining'=>$amountRemaining,
       'Date'=>$date,
+      'SalaryOf'=>$salaryOf
       
     ]);  
     
