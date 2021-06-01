@@ -195,6 +195,8 @@ class LedgerPartiesController extends Controller
         
                   return $LID;
                 }
-                
-
+                public static function getBalance(){
+                    $data=DB:: select('select * from tblledgerparties where PartyName = "FJW"');
+                    return $data;
+                }
 }

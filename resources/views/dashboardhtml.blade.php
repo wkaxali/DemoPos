@@ -2,8 +2,11 @@
     <style>
 
         #piechart{
-            border: 1px solid black;
-            width: 570px;
+            border-color: grey;
+            width: 780px;
+            border-radius: 10px;
+            margin-left:20px;
+            box-shadow: 1px 2px 2px 1px grey ;
         }
 
         
@@ -1048,14 +1051,14 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     </div>
                                 </div>
                                 <div class="col-md-4 market-update-gd">
-                                    <div class="market-update-block clr-block-3">
+                                    <div class="market-update-block clr-block-2">
                                         <div class="col-md-8 market-update-left">
-                                            <h3>23</h3>
-                                            <h4>New Messages</h4>
+                                            <h3 id="balance">23</h3><br>
+                                            <h4>Balance Due To FJW</h4>
 
                                         </div>
                                         <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-envelope-o"> </i>
+                                           
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>
