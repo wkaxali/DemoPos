@@ -1,8 +1,11 @@
 <head>
     <style>
         #piechart{
-            border: 1px solid black;
-            width: 570px;
+            border-color: grey;
+            width: 780px;
+            border-radius: 10px;
+            margin-left:20px;
+            box-shadow: 1px 2px 2px 1px grey ;
         }
     
         #movetop {
