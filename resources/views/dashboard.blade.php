@@ -382,7 +382,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </style>
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
-        
+
 </head>
 
 <body onload="loadFields()">
