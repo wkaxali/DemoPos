@@ -1,9 +1,12 @@
 <head>
     <style>
+
         #piechart{
             border: 1px solid black;
             width: 570px;
         }
+
+        
     
         #movetop {
             position: fixed;
@@ -772,6 +775,12 @@
             border-radius: 10%;
         }
 
+        @import url('//netdna.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css');
+        .container {
+            margin-top: 30px;
+            width: 400px;
+        }
+        
     </style>
 </head>
 <div class="modal fade bd-example-modal-lg" id="bd-example-modal-lg-1" style="margin-left:38px;" tabindex="-1"
