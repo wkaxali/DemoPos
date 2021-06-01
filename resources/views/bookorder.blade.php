@@ -10,7 +10,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
     <title>Book Order</title>
     <style>
         @media (max-width: 1366px) {
@@ -56,6 +57,10 @@
             font-size: 16px;
         }
 
+
+        table.dataTable tbody td {
+             padding: 0px 0px;
+                 }
         #myHeader label {
 
             width: 250px !important;
@@ -65,7 +70,10 @@
             width: 250px !important;
 
         }
+        .dataTables_filter label {
+            width: auto !important;
 
+        }
         a {
             text-decoration: none !important;
         }
@@ -315,7 +323,18 @@
                 padding: 0px 10px;
 
             }
+            .modal-content {
+        width:130%;}
 
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -10 !important;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+        }
             #BookingRecordTable {
                 width: 500px !important;
             }
@@ -337,8 +356,16 @@
 
 @include('bookorderhtml')
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    
+    
     <script>
         function valid() {
             var OrderID = document.getElementById("OrderId").value;
@@ -387,7 +414,37 @@
         }
 
     </script>
+    <script>
+    
+    function getPendingOrders() {
 
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        // alert(data);
+        var table;
+        var a = JSON.parse(data);
+        
+        table = $('#searchProductTable').DataTable();
+        table.clear();
+        $.each(a, function (i, item) {
+
+            table.row.add([a[i].InvoiceNumber, a[i].ProductName, a[i].Color, a[i].ChasisNumber, a[i]
+                .EngineNumber,
+                a[i].PerUnitSalePrice, a[i].DatePurchase
+            ]);
+        });
+        table.draw();
+    }
+};
+
+xhttp.open("GET", "./getPendingOrders/", true);
+xhttp.send();
+}
+
+    </script>
+   
     <script>
         function add() {
 
@@ -582,11 +639,6 @@
         }
 
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 
     <script>
@@ -616,7 +668,13 @@
 
         }
 
-    </script>
+    </script>   
+        <script>
+    $(document).ready(function () {
+        $('#searchProductTable').DataTable();
+    });
+
+</script>
 
     <script>
         var toggle = true;
