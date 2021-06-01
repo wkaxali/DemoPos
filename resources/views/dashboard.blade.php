@@ -900,6 +900,7 @@ function drawChart() {
             getEmployeeData();
             getStock();
             getMonthlySales();
+            getMonthlyExpenses();
         }
 
         function updateModelData() {
@@ -1220,10 +1221,10 @@ function drawChart() {
 
                if (this.readyState == 4 && this.status == 200) {
 
-                   var a = this.responseText;
-                   var data= JSON.parse(a);
-                   document.getElementById("totalexpenses").innerHTML  = "Total Expenses: "+ data[0].TotalSales;
-                   document.getElementById("monthlyexpenses").innerHTML  = data[0].TotalAmount;
+                   var b = this.responseText;
+                   var data= JSON.parse(b);
+                   document.getElementById("totalexpense").innerHTML  = "Total Expenses: "+ data[0].TotalSales;
+                   document.getElementById("monthlyexpense").innerHTML  = data[0].TotalAmount;
 
                }
            };

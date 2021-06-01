@@ -1019,13 +1019,12 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-2" href="/ac">
                                         <div class="col-md-8 market-update-left">
-                                            <h3 id = "monthlyexpense">Expenses</h3>
-                                            <h4 id= "totalexpense">Leads</h4>
+                                            <h3 id = "monthlyexpense">0</h3><br>
+                                            <h4>This Month</h4>
+                                            <h4 id= "totalexpense">Total Expenses: 0</h4>
 
                                         </div>
-                                        <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-eye"> </i>
-                                        </div>
+                                       
                                         <div class="clearfix"> </div>
                                     </div>
                                 </div>
