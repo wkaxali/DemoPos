@@ -1007,7 +1007,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="row">
 
 
-                                <div class="col-md-4 market-update-gd">
+                                <div class="col-md-4 market-update-gd"  >
                                     <div data-toggle="modal" data-target="#bd-example-modal-lg"
                                         class="market-update-block clr-block-1">
                                         <h3 id = "monthlyamount"> 0</h3><br>
