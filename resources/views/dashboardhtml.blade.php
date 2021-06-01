@@ -1054,6 +1054,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
 
         </div>
+        
         <div id="piechart"></div>
     </div>
 

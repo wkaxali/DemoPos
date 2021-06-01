@@ -410,7 +410,7 @@ function drawChart() {
             var d = JSON.parse(this.responseText);
 
             var data = google.visualization.arrayToDataTable(d);
-            var options = {'title':'Stock Details',pieHole: 0.5, 'width':1100, 'height':800};
+            var options = {'title':'Stock Details',pieHole: 0.5, 'width':800, 'height':670 };
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
 
