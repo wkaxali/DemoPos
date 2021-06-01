@@ -1211,6 +1211,28 @@ function drawChart() {
             xhttp.send();
         }
 
+
+        function getMonthlyExpenses() {
+           
+
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function () {
+
+               if (this.readyState == 4 && this.status == 200) {
+
+                   var a = this.responseText;
+                   var data= JSON.parse(a);
+                   document.getElementById("totalexpenses").innerHTML  = "Total Expenses: "+ data[0].TotalSales;
+                   document.getElementById("monthlyexpenses").innerHTML  = data[0].TotalAmount;
+
+               }
+           };
+           //alert("ljd");
+           xhttp.open("GET", "./getMonthlyExpenses/", true);
+
+           xhttp.send();
+       }
+
     </script>
 
 
