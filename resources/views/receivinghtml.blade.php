@@ -59,12 +59,61 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                    aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" >
+                        <div class="modal-content">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <h4 class="text-center my-3">Pending Orders</h4>
+                                        <table class="table  table-bordered mb-5 " id="searchProductTable">
+                                            <thead>
+                                                <tr>
+
+                                                    <th>Order Number</th>
+
+                                                    <th>Product Name</th>
+                                                    <th>Color</th>
+                                                    <th>Chasis Number</th>
+                                                    <th>Engine Number</th>
+
+                                                    
+
+                                                    <!-- <th>Purchse Price</th> -->
+                                                    <th>Invoice Price</th>
+                                                    <!-- <th>Cost with Additional charges</th> -->
+                                                    
+                                                    <th>Date Purchase</th>
+
+
+
+
+
+
+
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-md-6 offset-md-6">
                             <div class="footerBtns text-right">
-                                
+                            <button class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"
+                                style="height: 38px;" onclick="getPendingOrders()">Pending Orders</button>
                                 <a class="btn btn-update" onclick="UpdateStatusAndTransaction()">Update</a>
 
 

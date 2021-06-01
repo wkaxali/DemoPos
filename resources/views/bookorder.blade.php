@@ -414,36 +414,7 @@
         }
 
     </script>
-    <script>
     
-    function getPendingOrders() {
-
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        var data = this.responseText;
-        // alert(data);
-        var table;
-        var a = JSON.parse(data);
-        
-        table = $('#searchProductTable').DataTable();
-        table.clear();
-        $.each(a, function (i, item) {
-
-            table.row.add([a[i].InvoiceNumber, a[i].ProductName, a[i].Color, a[i].ChasisNumber, a[i]
-                .EngineNumber,
-                a[i].PerUnitSalePrice, a[i].DatePurchase
-            ]);
-        });
-        table.draw();
-    }
-};
-
-xhttp.open("GET", "./getPendingOrders/", true);
-xhttp.send();
-}
-
-    </script>
    
     <script>
         function add() {
@@ -669,12 +640,7 @@ xhttp.send();
         }
 
     </script>   
-        <script>
-    $(document).ready(function () {
-        $('#searchProductTable').DataTable();
-    });
-
-</script>
+       
 
     <script>
         var toggle = true;
