@@ -1,5 +1,10 @@
 <head>
     <style>
+        #piechart{
+            border: 1px solid black;
+            width: 570px;
+        }
+    
         #movetop {
             position: fixed;
             bottom: 40px;
@@ -1059,11 +1064,19 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
 
         </div>
+
+   
+            <div id="piechart"></div>
+        
+        
         <div class="container">
-        <div id="piechart">
-  
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 0%;">
+                </div>
+            </div>
         </div>
-        </div>
+
+
     </div>
 
     @include('adminNavbar')

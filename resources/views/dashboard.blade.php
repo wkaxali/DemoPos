@@ -406,11 +406,11 @@ function drawChart() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-            alert(this.responseText);
+            //alert(this.responseText);
             var d = JSON.parse(this.responseText);
 
             var data = google.visualization.arrayToDataTable(d);
-            var options = {'title':'Stock Details',pieHole: 0.5, 'width':1100, 'height':800};
+            var options = {'title':'Stock Details',pieHole: 0.5, 'width':550, 'height':400};
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
 
@@ -1236,6 +1236,21 @@ function drawChart() {
 
            xhttp.send();
        }
+
+
+        var progress = setInterval(function () {
+            var $bar = $('.bar');
+
+            if ($bar.width() >= 400) {
+                clearInterval(progress);
+                $('.progress').removeClass('active');
+            } else {
+                $bar.width($bar.width() + 40);
+            }
+            $bar.text($bar.width() / 4 + "%");
+        }, 800);
+
+
 
     </script>
 
