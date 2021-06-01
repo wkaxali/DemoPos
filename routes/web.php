@@ -293,6 +293,11 @@ Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
 
 Route::get('/searchAttendance/{month}/{year}',[attendanceController::class, 'searchAttendance']);
 Route::get('/getMonthlySales',[dashBoardDisplayData::class, 'getMonthlySales']);
+Route::get('/getMonthlyExpenses',[dashBoardDisplayData::class, 'getMonthlyExpenses']);
+Route::get('/getPendingOrders',[OrderFlowController::class, 'getPendingOrders']);
+
+
+
 
 
 Route::get('/', function () {

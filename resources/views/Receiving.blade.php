@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
 
 
     <title>Receiving</title>
@@ -169,7 +170,26 @@
         .fa-bars {
             color: #fff;
         }
+        .modal-content {
+        width:130%;}
 
+        .dataTables_filter label {
+            width: auto !important;
+
+        }      
+        table.dataTable tbody td {
+            padding: 0px 0px;
+         }
+
+        .modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -10 !important;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+        }
         @media (max-width: 768px) {
             .orderNOLabel {
                 display: block;
@@ -210,14 +230,15 @@
 
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    
     <script>
         var toggle = true;
 
@@ -239,6 +260,42 @@
             }
             toggle = !toggle;
         });
+
+    </script>
+     <script>
+    $(document).ready(function () {
+        $('#searchProductTable').DataTable();
+    });
+
+</script>
+    <script>
+    
+    function getPendingOrders() {
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        var data = this.responseText;
+        // alert(data);
+        var table;
+        var a = JSON.parse(data);
+        
+        table = $('#searchProductTable').DataTable();
+        table.clear();
+        $.each(a, function (i, item) {
+
+            table.row.add([a[i].InvoiceNumber, a[i].ProductName, a[i].Color, a[i].ChasisNumber, a[i]
+                .EngineNumber,
+                a[i].PerUnitSalePrice, a[i].DatePurchase
+            ]);
+        });
+        table.draw();
+    }
+};
+
+xhttp.open("GET", "./getPendingOrders/", true);
+xhttp.send();
+}
 
     </script>
     <script>
