@@ -417,7 +417,7 @@ function drawChart() {
         }
     };
 
-    xhttp.open("GET", "./getPieChartData/", true);
+    xhttp.open("GET", "./autosPieChart/", true);
     xhttp.send();
 
 }
