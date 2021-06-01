@@ -1031,12 +1031,12 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-2">
                                         <div class="col-md-8 market-update-left">
-                                            <h3>23</h3>
-                                            <h4>New Messages</h4>
+                                            <h3 id="balance">23</h3><br>
+                                            <h4>Balance Due To FJW</h4>
 
                                         </div>
                                         <div class="col-md-4 market-update-right">
-                                            <i class="fa fa-envelope-o"> </i>
+                                           
                                         </div>
                                         <div class="clearfix"> </div>
                                     </div>

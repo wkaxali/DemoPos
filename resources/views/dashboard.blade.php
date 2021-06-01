@@ -406,7 +406,7 @@ function drawChart() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-            alert(this.responseText);
+            // alert(this.responseText);
             var d = JSON.parse(this.responseText);
 
             var data = google.visualization.arrayToDataTable(d);
@@ -904,6 +904,7 @@ function drawChart() {
             getStock();
             getMonthlySales();
             getMonthlyExpenses();
+            getBalance();
         }
 
         function updateModelData() {
@@ -1237,6 +1238,28 @@ function drawChart() {
            xhttp.send();
        }
 
+
+       function getBalance() {
+           
+
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function () {
+
+               if (this.readyState == 4 && this.status == 200) {
+
+                   var b = this.responseText;
+                   var data= JSON.parse(b);
+                //    alert(data);
+                   document.getElementById("balance").innerHTML  = data[0].Balance;
+                   
+
+               }
+           };
+           //alert("ljd");
+           xhttp.open("GET", "./getBalance/", true);
+
+           xhttp.send();
+       }
     </script>
 
 

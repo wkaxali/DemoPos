@@ -295,7 +295,7 @@ Route::get('/searchAttendance/{month}/{year}',[attendanceController::class, 'sea
 Route::get('/getMonthlySales',[dashBoardDisplayData::class, 'getMonthlySales']);
 Route::get('/getMonthlyExpenses',[dashBoardDisplayData::class, 'getMonthlyExpenses']);
 Route::get('/getPendingOrders',[OrderFlowController::class, 'getPendingOrders']);
-
+Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
 
 
 
