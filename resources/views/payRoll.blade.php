@@ -700,14 +700,15 @@
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
-                    date=this.responseText;
-                    a=JSON.parse(date);
+                    data=this.responseText;
+                   
+                    a=JSON.parse(data);
                     document.getElementById("totalSales").value = a[0];
                     document.getElementById("totalCommission").value = a[1];
                     totalPay = document.getElementById("total").value;
-                    document.getElementById("payable").innerHTML = Number(a[1])+Number(totalPay);
                     document.getElementById("absents").value = a[2];
-                    document.getElementById("deduction").value = a[2];
+                    document.getElementById("deduction").value = a[3];
+                    document.getElementById("payable").innerHTML = Number(a[1])+Number(totalPay)-Number(a[3]);
                 }
             };
             

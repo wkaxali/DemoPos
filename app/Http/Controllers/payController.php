@@ -275,14 +275,14 @@ public static function getCommissionData($year, $month, $EID){
   foreach($attendanceData as $d){
     $ab=$ab+1;
   }
-  $absents=[$ab];
+  $absents=$ab;
 
   foreach($pay as $d){
     $No=$No+1;
     $commission=$commission+$d->totalCommission;
   }
 
-  $deduction=intval($absents)*intval($dailyPay);
+  $deduction=round(floatval($absents)*floatval($dailyPay));
   $data=[$No,$commission,$absents,$deduction];
 
   return $data;
