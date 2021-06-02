@@ -82,7 +82,7 @@ var $form = $('#checkout-form2');
         exp_year: $('#card-expiry-year').val(),
         name: $('#card-name').val()
     }, stripeResponseHandler);
-    alert(Stripe.card.token);
+   
     return false;
         }
 
@@ -90,20 +90,19 @@ var $form = $('#checkout-form2');
 
 
         function stripeResponseHandler(status, response) {
-    alert(status);
+    
     if(response.error) {
         $('#checkout-error').removeClass('hidden');
         $('#checkout-error').text(response.error.message);
         $form.find('button').prop('disabled', false);
     } else {
         var token = response.id;
-        alert(token);
+        
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert("Blay  " + this.responseText + " is Updated");
-
 
                 }
             };

@@ -443,7 +443,7 @@
             });
             expenseDetails.shift();
             var expTable = JSON.stringify(expenseDetails);
-            alert(expTable);
+           
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function () {
