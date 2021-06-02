@@ -267,7 +267,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 customButtons offset-md-6">
-                                <button style="background-color: #e61d2f;color: #ffffff;" class="btn ">Update</button>
+                                <button style="background-color: #e61d2f;color: #ffffff;" class="btn " onclick="checkAbsents()">Update</button>
                                 <button onclick="printWindow()" style="background-color: #0a549d;color: #ffffff;"
                                     class="btn ">Print</button>
                             </div>
@@ -343,12 +343,15 @@
 
                 var status = $(tr).find('td:eq(5)').html();
                 // alert(status);
+                if (status == "Absent") {
+                    $(tr).css('background', '#FF0000');
+                }
+                
                 if (status == "Late") {
-
                     $(tr).css('background', '#f8aeae');
-
-
-                } else {
+                }
+                
+                else {
                     $(tr).css('background', '#dcf9b1');
                 }
 
@@ -492,6 +495,23 @@
 
             xhttp.send();
     }
+
+    function checkAbsents() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert(this.responseText);
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./checkAbsents/", true);
+
+            xhttp.send();
+
+
+        }
     </script>
 </body>
 

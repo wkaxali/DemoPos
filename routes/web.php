@@ -58,6 +58,7 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/checkAbsents',[attendanceController::class, 'checkAbsents']);
 Route::get('/autosPieChart',[dashBoardDisplayData::class, 'autoStock']);
 Route::get('/signUp/{data}',[userAccountController::class, 'signUp']);
 Route::get('/paySalary/{data}',[payController::class, 'paySalary']);
@@ -296,7 +297,7 @@ Route::get('/getMonthlySales',[dashBoardDisplayData::class, 'getMonthlySales']);
 Route::get('/getMonthlyExpenses',[dashBoardDisplayData::class, 'getMonthlyExpenses']);
 Route::get('/getPendingOrders',[OrderFlowController::class, 'getPendingOrders']);
 Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
-
+Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
 
 
 
@@ -1050,8 +1051,6 @@ Route::get('/dls', function () {
     return view("signInSignUp");
     }
 });
-  
-
 route::get('/acc', function(){
     return view('accesoriest');
 });
@@ -1076,4 +1075,8 @@ route::get('/dEPay', function(){
 
 route::get('/suu', function(){
     return view('signUpUser');
+});
+
+route::get('/dbo', function(){
+    return view('dashboardOld');
 });

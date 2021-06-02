@@ -373,6 +373,12 @@
                                     <br>
                                     <label for="">Total Commission</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="totalCommission">
+                                    <br>
+                                    <label for="">Total Absents</label>
+                                    <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="absents">
+                                    <br>
+                                    <label for="">Deduction</label>
+                                    <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="deduction">
                                     <br><br>
                                     <label for="">Total Payable</label>
                                     <h1 id="payable">0</h1>
@@ -478,7 +484,7 @@
         function getByID() {
             var xhttp = new XMLHttpRequest();
             var id = $('#name').find(":selected").val();
-            //alert(id);
+        
             $("#id").val(id);
             $('#contact').val(id);
             $('#cnic').val(id);
@@ -499,6 +505,7 @@
                     document.getElementById("workingHours").value = a[0].WorkingHours;
                     document.getElementById("comission").value = a[0].commission;
                     document.getElementById("reportingTime").value = a[0].ReportingTime;
+                    
                     $('#contact').val(a[0].EID);
                     $("#contact").selectpicker('refresh');
                     $('#cnic').val(a[0].EID);
@@ -526,7 +533,7 @@
                     $('#name').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+           
             xhttp.open("GET", "./getEmployeeName/", true);
 
             xhttp.send();
@@ -546,7 +553,7 @@
                     $('#cnic').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployeeCNIC/", true);
 
             xhttp.send();
@@ -645,7 +652,7 @@
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./updatePay/" + payData, true);
 
             xhttp.send();
@@ -665,7 +672,7 @@
                     $('#contact').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployeeContact/", true);
 
             xhttp.send();
@@ -693,12 +700,15 @@
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
-                    date=this.responseText;
-                    a=JSON.parse(date);
+                    data=this.responseText;
+                   
+                    a=JSON.parse(data);
                     document.getElementById("totalSales").value = a[0];
                     document.getElementById("totalCommission").value = a[1];
                     totalPay = document.getElementById("total").value;
-                    document.getElementById("payable").innerHTML = Number(a[1])+Number(totalPay);
+                    document.getElementById("absents").value = a[2];
+                    document.getElementById("deduction").value = a[3];
+                    document.getElementById("payable").innerHTML = Number(a[1])+Number(totalPay)-Number(a[3]);
                 }
             };
             
@@ -728,7 +738,7 @@
 
             payData=[amountPaid, payable, amountRemaining, date, month, year, EID, AID, remarks];
             data=JSON.stringify(payData);
-            alert(data);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 

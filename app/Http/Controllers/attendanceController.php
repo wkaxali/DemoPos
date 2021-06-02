@@ -28,12 +28,12 @@ class attendanceController extends Controller
         $status = '';
         print("Today Time ".$timeToday."\n");
         print("Reporting Time ".$reportingTime."\n");
-       $minLate= $timeToday->diffInMinutes($reportingTime);
+       $minLate = $timeToday->diffInMinutes($reportingTime);
        print("Late in Minutes".$minLate."\n");
-       $hm= $timeToday->diffForHumans($reportingTime);
+       $hm = $timeToday->diffForHumans($reportingTime);
         if ($minLate<=15) {
-            $status = 'On Time';//$today->eq($last)
-            $rm="On Time";
+            $status = 'On Time'; //$today->eq($last)
+            $rm = "On Time";
            // return "Wow On time";
           } else {
             $status = 'Late';
@@ -50,14 +50,33 @@ class attendanceController extends Controller
 }
 
 
-public static function getAttendance(){
+  public static function getAttendance(){
     $data=DB:: select('select * from vw_emoloyeeattendance order by Date DESC');
+    //$dd = self::checkAbsents();
     return $data;
   }
 
   public static function searchAttendance($year, $month){
     $attendance=DB::select('select * from vw_emoloyeeattendance where month(date) ='.$month.'  AND year(date) ='.$year);
     return $attendance;
+  }
+
+  public static function checkAbsents(){
+    $data = DB::select('select * from tbl_employeeattendance');
+    foreach($data as $d){
+      $reportingTime = Carbon::parse($d->ReportingTime);
+      $timeIn = Carbon::parse($d->TimeIn);
+      $hourDiff = $timeIn->diffInHours($reportingTime);
+      if(intval($hourDiff) > 2){
+        
+        DB::table('tbl_employeeattendance')
+        ->where('AID', '=', $d->AID)
+        ->update([
+          'Status' =>'Absent',
+        ]);
+      }
+    }
+    return $hourDiff;
   }
 }
 
