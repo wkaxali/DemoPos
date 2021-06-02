@@ -1258,6 +1258,14 @@ function drawChart() {
    
     <
     <script>
+
+
+                    function updateDiv()
+                        { 
+                            $( "#allcards" ).load(window.location.href + " #allcards" );
+                        }
+
+
      function getCustomerSales() {
             
             
@@ -1269,6 +1277,7 @@ function drawChart() {
                     var data = this.responseText;
                     
                     document.getElementById("allcards").innerHTML =data ; 
+                    updateDiv();
                    
                 }
             };
