@@ -378,7 +378,7 @@
                     basicPay=a[0].BasicPay;
                     allowance=a[0].Alownces;
                     totalPay=basicPay+allowance;
-                    //alert(totalPay);
+                    
                     document.getElementById("mainTotal").value=totalPay;
                     document.getElementById("val").value=totalPay;
                 }
@@ -405,7 +405,7 @@
     });
     allowanceDetails.shift();
     var allowanceData = JSON.stringify(allowanceDetails);
-    alert(allowanceData);
+ 
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {

@@ -478,7 +478,7 @@
         function getByID() {
             var xhttp = new XMLHttpRequest();
             var id = $('#name').find(":selected").val();
-            //alert(id);
+        
             $("#id").val(id);
             $('#contact').val(id);
             $('#cnic').val(id);
@@ -526,7 +526,7 @@
                     $('#name').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+           
             xhttp.open("GET", "./getEmployeeName/", true);
 
             xhttp.send();
@@ -546,7 +546,7 @@
                     $('#cnic').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployeeCNIC/", true);
 
             xhttp.send();
@@ -645,7 +645,7 @@
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./updatePay/" + payData, true);
 
             xhttp.send();
@@ -665,7 +665,7 @@
                     $('#contact').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployeeContact/", true);
 
             xhttp.send();
@@ -728,7 +728,7 @@
 
             payData=[amountPaid, payable, amountRemaining, date, month, year, EID, AID, remarks];
             data=JSON.stringify(payData);
-            alert(data);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
