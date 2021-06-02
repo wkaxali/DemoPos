@@ -58,6 +58,7 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/checkAbsents',[attendanceController::class, 'checkAbsents']);
 Route::get('/autosPieChart',[dashBoardDisplayData::class, 'autoStock']);
 Route::get('/signUp/{data}',[userAccountController::class, 'signUp']);
 Route::get('/paySalary/{data}',[payController::class, 'paySalary']);

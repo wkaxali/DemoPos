@@ -64,17 +64,16 @@ class attendanceController extends Controller
   public static function checkAbsents(){
     $data = DB::select('select * from tbl_employeeattendance');
     foreach($data as $d){
-      $reportingTime = strtotime($d->ReportingTime);
-      $timeIn = strtotime($d->TimeIn);
-      $hourDiff = abs($timeIn-$reportingTime);
-
-      if($hourDiff < 4){
+      $reportingTime = Carbon::parse($d->ReportingTime);
+      $timeIn = Carbon::parse($d->TimeIn);
+      $hourDiff = $timeIn->diffInHours($reportingTime);
+      if(intval($hourDiff) > 2){
         
-        // DB::table('tbl_employeeattendance')
-        // ->where('AID', '=', $d->AID)
-        // ->update([
-        //   'Status' =>'Absent',
-        // ]);
+        DB::table('tbl_employeeattendance')
+        ->where('AID', '=', $d->AID)
+        ->update([
+          'Status' =>'Absent',
+        ]);
       }
     }
     return $hourDiff;
