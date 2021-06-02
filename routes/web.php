@@ -1077,3 +1077,7 @@ route::get('/dEPay', function(){
 route::get('/suu', function(){
     return view('signUpUser');
 });
+
+route::get('/dbo', function(){
+    return view('dashboardOld');
+});
