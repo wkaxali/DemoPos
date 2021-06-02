@@ -1050,8 +1050,6 @@ Route::get('/dls', function () {
     return view("signInSignUp");
     }
 });
-  
-
 route::get('/acc', function(){
     return view('accesoriest');
 });
