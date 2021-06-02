@@ -1102,17 +1102,21 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         
         
        <br><br>
-        <div class="col-md-6 chart-layer2-right" id ="allcards">
+        <div class="col-md-6 chart-layer2-right" >
                                 <div class="prograc-blocks">
                                     <div class="home-progres-main">
                                         <h3>Total Sales</h3>
                                     </div>
-                                    <div class='bar_group'>
+                                    <div class='bar_group' id ="allcards">
                                         <div class='bar_group__bar thin' label='Rating' show_values='true'
-                                            tooltip='true' value='323'></div>
-                                        <div class='bar_group__bar myBlueColor thin' style="background: #0a549d;"
-                                            label='Quality' show_values='true' tooltip='true' value='235'></div>
-                                       
+                                        tooltip='true' value='323'></div>
+                                        
+                                        <div class='bar_group__bar thin' label='Rating' show_values='true'
+                                        tooltip='true' value='323'></div>
+
+                                        <div class='bar_group__bar thin' label='Rating' show_values='true'
+                                        tooltip='true' value='323'></div>
+    
                                     </div>
                                     <script src="js/bars.js"></script>
 

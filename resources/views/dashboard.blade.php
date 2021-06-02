@@ -1256,6 +1256,15 @@ function drawChart() {
 
     </script>
     <script>
+    <script> 
+        $(document).ready(function(){
+        setInterval(function(){
+            $("#allcards").load(window.location.href + " #allcards" );
+        }, 3000);
+        });
+</script>
+    </script>
+    <script>
      function getCustomerSales() {
             
             
