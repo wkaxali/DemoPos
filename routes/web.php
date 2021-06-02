@@ -297,7 +297,7 @@ Route::get('/getMonthlySales',[dashBoardDisplayData::class, 'getMonthlySales']);
 Route::get('/getMonthlyExpenses',[dashBoardDisplayData::class, 'getMonthlyExpenses']);
 Route::get('/getPendingOrders',[OrderFlowController::class, 'getPendingOrders']);
 Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
-
+Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
 
 
 

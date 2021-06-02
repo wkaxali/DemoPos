@@ -166,7 +166,7 @@
 
     function salesInvoice(InvoiceID)
     {
-        alert(InvoiceID);
+      
         
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {

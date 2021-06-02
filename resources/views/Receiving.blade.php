@@ -276,7 +276,7 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
         var data = this.responseText;
-        // alert(data);
+        
         var table;
         var a = JSON.parse(data);
         
@@ -366,7 +366,7 @@ xhttp.send();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
 
-                        alert("Stock =" + this.responseText + " Updated");
+                        alert( "Auto" + this.responseText + "Is Received");
 
 
                     }

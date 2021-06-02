@@ -544,7 +544,7 @@
             var table = document.getElementById("BookingRecordTable");
             var myRow2 = [];
 
-            //alert(sp);
+            
             $('#BookingRecordTable tr').each(function (row, tr) {
 
                 orderDetails[row] = [
@@ -585,7 +585,7 @@
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
 
-                        alert("Invoice =" + this.responseText + " is generated");
+                        alert("On Invoice No " + this.responseText + "  is generated");
                         getOrderID();
 
                     }
@@ -675,7 +675,7 @@
                     $('#category').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./loadAutos/", true);
 
             xhttp.send();

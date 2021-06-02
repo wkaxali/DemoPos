@@ -406,7 +406,7 @@ function drawChart() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-            //alert(this.responseText);
+        
             var d = JSON.parse(this.responseText);
 
             var data = google.visualization.arrayToDataTable(d);
@@ -674,10 +674,10 @@ function drawChart() {
                 if (this.readyState == 4 && this.status == 200) {
 
                     var data = this.responseText;
-                    //alert(data);
+                    
                     var table;
                     var a = JSON.parse(data);
-                    //  alert(a[0].ProductSerial);
+                    
                     table = $('#stockTable').DataTable();
                   
                     $.each(a, function (i, item) {
@@ -692,7 +692,7 @@ function drawChart() {
 
                 }
             };
-            //alert("ljd");
+          
             xhttp.open("GET", "./viewStock/", true);
 
             xhttp.send();
@@ -739,7 +739,7 @@ function drawChart() {
 
                 }
             };
-            //alert("ljd");
+         
             xhttp.open("GET", "./getEmployeeData/", true);
 
             xhttp.send();
@@ -776,7 +776,7 @@ function drawChart() {
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
 
             xhttp.send();
@@ -798,7 +798,7 @@ function drawChart() {
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
 
             xhttp.send();
@@ -806,7 +806,7 @@ function drawChart() {
 
         function loadTaskDetails(taskID) {
 
-            // alert(taskID);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -887,7 +887,7 @@ function drawChart() {
 
             }
 
-            //alert("ljd");
+        
             xhttp.open("GET", "./loadTaskDetails/" + taskID, true);
 
             xhttp.send();
@@ -900,11 +900,12 @@ function drawChart() {
         function loadFields() {
             dailySaleAmount();
             loadAutos();
-            getEmployeeData();
-            getStock();
+            
+            
             getMonthlySales();
             getMonthlyExpenses();
-            getBalance();
+            
+            getCustomerSales();
         }
 
         function updateModelData() {
@@ -923,7 +924,7 @@ function drawChart() {
                     document.getElementById("description").value = description;
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getAutoData/" + AID, true);
 
             xhttp.send();
@@ -939,7 +940,7 @@ function drawChart() {
                     $('#model').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./loadAutos/", true);
 
             xhttp.send();
@@ -1153,7 +1154,7 @@ function drawChart() {
                     $('#employee').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployees/", true);
 
             xhttp.send();
@@ -1210,7 +1211,7 @@ function drawChart() {
 
                 }
             };
-            //alert("ljd");
+          
             xhttp.open("GET", "./getMonthlySales/", true);
 
             xhttp.send();
@@ -1232,7 +1233,7 @@ function drawChart() {
 
                }
            };
-           //alert("ljd");
+          
            xhttp.open("GET", "./getMonthlyExpenses/", true);
 
            xhttp.send();
@@ -1252,6 +1253,35 @@ function drawChart() {
         }, 800);
 
 
+
+    </script>
+   
+    <
+    <script>
+
+
+     function getCustomerSales() {
+            
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var data = this.responseText;
+                   
+                    document.getElementById("allcards2").innerHTML =data ; 
+                    $('#tbar').css('width', '70'+'%').attr('aria-valuenow', '70');    
+
+                   
+                }
+            };
+            
+            xhttp.open("GET", "./getCustomerSales/", true);
+
+            xhttp.send();
+            
+        }
 
     </script>
 

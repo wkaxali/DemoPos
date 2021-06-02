@@ -81,7 +81,7 @@ class UpdateStocksController extends Controller
          //->format('Y-m-d h:iA');
         // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
  
-        return ".";
+        return $AID;
        
 
 
