@@ -212,7 +212,7 @@ class CustomerController extends Controller
 
       $innerProducts=$innerProducts.'
       <div class="bar_group__bar thin" label="Rating" show_values="true"
-      tooltip="true" value="100"> '.$sales.'</div><br>';
+      tooltip="true" value="100"> </div><br>';
     
                  }
 
