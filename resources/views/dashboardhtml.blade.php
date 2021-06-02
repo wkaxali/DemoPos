@@ -1107,9 +1107,9 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                     <div class="home-progres-main">
                                         <h3>Total Sales</h3>
                                     </div>
-                                    <div class='bar_group' id ="allcards">
+                                    <div class='bar_group' id ="allcards2">
                                         <div class='bar_group__bar thin' label='Rating' show_values='true'
-                                        tooltip='true' value='323'></div>
+                                        tooltip='true' value='323'id ="tbar" ></div>
                                         
                                         <div class='bar_group__bar thin' label='Rating' show_values='true'
                                         tooltip='true' value='323'></div>

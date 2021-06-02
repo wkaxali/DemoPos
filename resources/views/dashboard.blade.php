@@ -1270,8 +1270,9 @@ function drawChart() {
 
                     var data = this.responseText;
                    
-                    document.getElementById("allcards").innerHTML =data ; 
-                    $('#allcards').html(); 
+                    document.getElementById("allcards2").innerHTML =data ; 
+                    $('#tbar').css('width', '70'+'%').attr('aria-valuenow', '70');    
+
                    
                 }
             };
