@@ -900,11 +900,12 @@ function drawChart() {
         function loadFields() {
             dailySaleAmount();
             loadAutos();
-            getEmployeeData();
-            getStock();
+            
+            
             getMonthlySales();
             getMonthlyExpenses();
-            getBalance();
+            
+            getCustomerSales();
         }
 
         function updateModelData() {
@@ -1252,6 +1253,29 @@ function drawChart() {
         }, 800);
 
 
+
+    </script>
+    <script>
+     function getCustomerSales() {
+            
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var data = this.responseText;
+                    
+                    document.getElementById("allcards").innerHTML =data ; 
+                   
+                }
+            };
+            
+            xhttp.open("GET", "./getCustomerSales/", true);
+
+            xhttp.send();
+            
+        }
 
     </script>
 

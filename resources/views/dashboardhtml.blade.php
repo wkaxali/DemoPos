@@ -668,6 +668,26 @@
                 width: 82% !important;
             }
         }
+        .chart-layer2-right {
+                padding: 0px;
+                float: left;
+                width: 49%;
+            }
+
+            .chart-layer2-right {
+                padding: 0em 0.5em 0em 0em;
+            }
+
+            .chart-layer2-right {
+                padding: 0em 0em 1em 0em;
+            }
+
+            .chart-layer2-right {
+                padding: 0em 0em 2em 0em;
+                float: none;
+                width: 100%;
+            }
+
 
         .colorcard {
             border-left: 10px solid #FA5632;
@@ -1081,13 +1101,25 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div id="piechart"></div>
         
         
-        <div class="container">
-            <div class="progress progress-striped active">
-                <div class="bar" style="width: 0%;">
-                </div>
-            </div>
-        </div>
+       <br><br>
+        <div class="col-md-6 chart-layer2-right" id ="allcards">
+                                <div class="prograc-blocks">
+                                    <div class="home-progres-main">
+                                        <h3>Total Sales</h3>
+                                    </div>
+                                    <div class='bar_group'>
+                                        <div class='bar_group__bar thin' label='Rating' show_values='true'
+                                            tooltip='true' value='323'></div>
+                                        <div class='bar_group__bar myBlueColor thin' style="background: #0a549d;"
+                                            label='Quality' show_values='true' tooltip='true' value='235'></div>
+                                       
+                                    </div>
+                                    <script src="js/bars.js"></script>
 
+                                </div>
+                            </div>
+                          
+                        </div>
 
     </div>
 

@@ -201,6 +201,40 @@ class CustomerController extends Controller
 
           return $CID;
         }
+
+        public static function getCustomerSales(){
+
+            $productDetails=DB::select('select SaleTarget from tblemployeepay');
+        $innerProducts='';
+
+        foreach($productDetails as $p){
+            $sales=$p->SaleTarget;
+
+      $innerProducts=$innerProducts.' 
+      <div class="col-md-6 chart-layer2-right" id ="allcards"> 
+        <div class="prograc-blocks">
+            <div class="home-progres-main">
+                <h3>Total Sales '.$sales.'</h3>
+            </div>
+            <div class="bar_group">
+                <div class="bar_group__bar thin" label="Rating" show_values="true"
+                    tooltip="true" value="323">
+                </div>
+                <div class="bar_group__bar myBlueColor thin" style="background: #0a549d;"
+                    label="Quality" show_values="true" tooltip="true" value="235">
+                </div>
+                
+            </div>
+        <script src="js/bars.js">
+        </script>
+
+        </div>
+    </div>';
+    
+                 }
+
+                 return $innerProducts;
+        }
     
 }
 
