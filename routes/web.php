@@ -58,6 +58,8 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/empProgress',[dashBoardDisplayData::class, 'employeeProgress']);
+Route::get('/barGraphForTransactions',[dashBoardDisplayData::class, 'getTransactions']);
 Route::get('/checkAbsents',[attendanceController::class, 'checkAbsents']);
 Route::get('/autosPieChart',[dashBoardDisplayData::class, 'autoStock']);
 Route::get('/signUp/{data}',[userAccountController::class, 'signUp']);
@@ -298,6 +300,10 @@ Route::get('/getMonthlyExpenses',[dashBoardDisplayData::class, 'getMonthlyExpens
 Route::get('/getPendingOrders',[OrderFlowController::class, 'getPendingOrders']);
 Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
 Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
+
+Route::get('/getEmpPayments',[payController::class, 'getEmpPayments']);
+
+
 
 
 
@@ -1080,3 +1086,10 @@ route::get('/suu', function(){
 route::get('/dbo', function(){
     return view('dashboardOld');
 });
+
+route::get('/eph', function(){
+    return view('empPaymentHistory');
+});
+
+
+

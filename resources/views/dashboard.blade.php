@@ -395,6 +395,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 <script type="text/javascript">
+      google.charts.load('current', {'packages':['gauge']});
+      google.charts.setOnLoadCallback(drawGauge);
+
+      function drawGauge() {
+        var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+        
+            var d = JSON.parse(this.responseText);
+            var data = new google.visualization.arrayToDataTable(d);
+
+            var options = {
+            width: 1250, height: 400,
+            redFrom: 90, redTo: 100,
+            yellowFrom:75, yellowTo: 90,
+            minorTicks: 5
+            };
+
+            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+        };
+
+        xhttp.open("GET", "./empProgress/", true);
+        xhttp.send();
+
+        }
+    </script>
+
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawStuff);
+
+function drawStuff() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+        
+            var d = JSON.parse(this.responseText);
+            var data = new google.visualization.arrayToDataTable(d);
+            
+            var options = {
+            title: 'All Transactions',
+            width: 900,
+            legend: { position: 'none' },
+            chart: { title: 'Transaction Amounts',
+                    subtitle: 'Group By Category' },
+            bars: 'vertical', // Required for Material Bar Charts.
+            axes: {
+                x: {
+                0: { side: 'left', label: ''} // Top x-axis.
+                }
+            },
+            bar: { groupWidth: "90%" }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+            chart.draw(data, options);
+        }
+    };
+
+    xhttp.open("GET", "./barGraphForTransactions/", true);
+    xhttp.send();
+      };
+</script>
+
+
+<script type="text/javascript">
 // Load google charts
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -1255,36 +1326,6 @@ function drawChart() {
 
 
     </script>
-   
-    <
-    <script>
-
-
-     function getCustomerSales() {
-            
-            
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    var data = this.responseText;
-                   
-                    document.getElementById("allcards2").innerHTML =data ; 
-                    $('#tbar').css('width', '70'+'%').attr('aria-valuenow', '70');    
-
-                   
-                }
-            };
-            
-            xhttp.open("GET", "./getCustomerSales/", true);
-
-            xhttp.send();
-            
-        }
-
-    </script>
-
 
 </body>
 
