@@ -301,6 +301,10 @@ Route::get('/getPendingOrders',[OrderFlowController::class, 'getPendingOrders'])
 Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
 Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
 
+Route::get('/getEmpPayments',[payController::class, 'getEmpPayments']);
+
+
+
 
 
 Route::get('/', function () {
@@ -1082,3 +1086,10 @@ route::get('/suu', function(){
 route::get('/dbo', function(){
     return view('dashboardOld');
 });
+
+route::get('/eph', function(){
+    return view('empPaymentHistory');
+});
+
+
+

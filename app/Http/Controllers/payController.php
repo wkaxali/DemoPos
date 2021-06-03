@@ -225,7 +225,10 @@ public static function getEmployeeName(){
     
   }
 
-
+public static function getEmpPayments (){
+  $data = DB:: select ('select * from vw_employee_payment_history');
+  return $data;
+}
 
   public static function getPayRecivingHistory($EID)
   {
