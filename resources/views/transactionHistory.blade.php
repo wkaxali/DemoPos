@@ -488,6 +488,8 @@
                    
                
                    var printContents = document.getElementById('mydata').innerHTML;
+                   var originalContents = document.body.innerHTML;
+       
                    document.body.innerHTML = printContents;
                    document.getElementById("myTable_length").style.visibility = "hidden";
                    document.getElementById("myTable_filter").style.visibility = "hidden";
@@ -496,7 +498,8 @@
                    
                    window.print();
                
-                  
+                   
+                   document.body.innerHTML = originalContents;
                    location.reload(); 
             }
         </script>
