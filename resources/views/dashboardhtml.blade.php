@@ -1105,13 +1105,15 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
         </div>
 
-            <div id="chart_div" style="width: 400px; height: 120px;"></div>
-            <br>
+            
             <div id="piechart"></div>
             <br>
             <div id="top_x_div" style="width: 900px; height: 500px;"></div>
             <br>
-    
+            <div id="chart_div" style="width: 400px; height: 120px;"></div>
+            <br>
+            
+
 
     @include('adminNavbar')
 

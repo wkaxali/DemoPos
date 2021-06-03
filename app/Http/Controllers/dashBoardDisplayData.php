@@ -78,11 +78,23 @@ class dashBoardDisplayData extends Controller
     public static function employeeProgress(){
         $data = [
             ['Label', 'Value'],
-            ['x', 0],
-            ['Memory', 80],
-            ['CPU', 55],
-            ['Network', 68]
+            ['x', 0]
         ];
+        $date = Carbon::now()->toDateString();
+        $month=Carbon::createFromFormat('Y-m-d', $date)->format('m');
+        $year=Carbon::createFromFormat('Y-m-d', $date)->format('Y');
+        $pay=DB::select('select * from vw_employeepay');
+        foreach($pay as $d){
+            $cm=DB::select('select * from vw_employee_sale_commission where month(date) ='.$month.' AND EID ='.$d->EID.' AND year(date) ='.$year);
+            $No=0;
+            $progress = 0;
+            foreach($cm as $e){
+                $No=$No+1;
+                $progress = ($No/intval($d->SaleTarget))*100;
+            }
+
+            array_push($data, [$d->FirstName.' '.$d->LastName, $progress]);
+        }
     
         return $data;
     }
