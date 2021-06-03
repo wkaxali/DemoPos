@@ -209,7 +209,7 @@ style="float: right"></span></a>
 <li id="menu-academico-avaliacoes"><a href="/edal">Edit Allowance Head</a></li>
 <li id="menu-academico-avaliacoes"><a href="/dEPay">Delete Employee Pay</a></li>
 <li id="menu-academico-avaliacoes"><a href="/pr">View/Edit Pay</a></li>
-
+<li id="menu-academico-avaliacoes"><a href="/eph">View Pay History</a></li>
 <!-- <li id="menu-academico-boletim"><a href="/SalarySlip">Salary Slip</a></li> -->
 
 </ul>
