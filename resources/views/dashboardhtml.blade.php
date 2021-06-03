@@ -9,6 +9,14 @@
             box-shadow: 1px 2px 2px 1px grey ;
         }
 
+        #top_x_div{
+            border-color: grey;
+            width: 901px;
+            border-radius: 10px;
+            margin-left:20px;
+            box-shadow: 1px 2px 2px 1px grey ;
+        }
+
         
     
         #movetop {
@@ -1097,35 +1105,13 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
         </div>
 
-   
+            <div id="chart_div" style="width: 400px; height: 120px;"></div>
+            <br>
             <div id="piechart"></div>
-        
-        
-       <br><br>
-        <div class="col-md-6 chart-layer2-right" >
-                                <div class="prograc-blocks">
-                                    <div class="home-progres-main">
-                                        <h3>Total Sales</h3>
-                                    </div>
-                                    <div class='bar_group' id ="allcards2">
-                                        <div class='bar_group__bar thin' label='Rating' show_values='true'
-                                        tooltip='true' value='323'id ="tbar" ></div>
-                                        
-                                        <div class='bar_group__bar thin' label='Rating' show_values='true'
-                                        tooltip='true' value='323'></div>
-
-                                        <div class='bar_group__bar thin' label='Rating' show_values='true'
-                                        tooltip='true' value='323'></div>
+            <br>
+            <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+            <br>
     
-                                    </div>
-                                    <script src="js/bars.js"></script>
-
-                                </div>
-                            </div>
-                          
-                        </div>
-
-    </div>
 
     @include('adminNavbar')
 

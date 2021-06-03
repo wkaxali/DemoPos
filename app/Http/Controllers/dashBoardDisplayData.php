@@ -59,4 +59,31 @@ class dashBoardDisplayData extends Controller
 
     }
 
+    public static function getTransactions(){
+
+        $barGrapghData = [['Transaction Category', 'Amount']];
+
+        $TData = DB::select('SELECT
+        TransactionCatogery,
+        sum(Amount) as Amount
+        FROM tbltransactionflow
+        group by TransactionCatogery');
+
+        foreach($TData as $obj){
+            array_push($barGrapghData, [$obj->TransactionCatogery, $obj->Amount]);
+        }
+        return $barGrapghData;
+    }
+
+    public static function employeeProgress(){
+        $data = [
+            ['Label', 'Value'],
+            ['x', 0],
+            ['Memory', 80],
+            ['CPU', 55],
+            ['Network', 68]
+        ];
+    
+        return $data;
+    }
 }
