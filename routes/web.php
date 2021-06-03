@@ -58,6 +58,9 @@ use App\Http\Controllers\employeeAllowanceController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/empProgress',[dashBoardDisplayData::class, 'employeeProgress']);
+Route::get('/barGraphForTransactions',[dashBoardDisplayData::class, 'getTransactions']);
+Route::get('/checkAbsents',[attendanceController::class, 'checkAbsents']);
 Route::get('/autosPieChart',[dashBoardDisplayData::class, 'autoStock']);
 Route::get('/signUp/{data}',[userAccountController::class, 'signUp']);
 Route::get('/paySalary/{data}',[payController::class, 'paySalary']);
@@ -1054,8 +1057,6 @@ Route::get('/dls', function () {
     return view("signInSignUp");
     }
 });
-  
-
 route::get('/acc', function(){
     return view('accesoriest');
 });

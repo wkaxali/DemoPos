@@ -266,13 +266,28 @@ public static function getEmpPay($eid){
 
 public static function getCommissionData($year, $month, $EID){
   $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$month.' AND EID ='.$EID.' AND year(date) ='.$year);
+  $attendanceData=DB::select('select * from tbl_employeeattendance where month(date) ='.$month.' AND EID ='.$EID.' AND year(date) ='.$year);
+  $dailyPay = DB::table('tblemployeepay')
+  ->where('EID', $EID)
+  ->first()->PayPerDay;
+
+  
   $commission=0;
   $No=0;
+  $ab=0;
+  foreach($attendanceData as $d){
+    $ab=$ab+1;
+  }
+  $absents=$ab;
+
   foreach($pay as $d){
     $No=$No+1;
     $commission=$commission+$d->totalCommission;
   }
-  $data=[$No,$commission];
+
+  $deduction=round(floatval($absents)*floatval($dailyPay));
+  $data=[$No,$commission,$absents,$deduction];
+
   return $data;
 }
 
