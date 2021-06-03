@@ -158,7 +158,8 @@
                             <div class="col-md-12">
                                 <div class="transactionTable">
                                     <main id="mainHeader">
-                                        <table class="table display table-bordered table-striped" id="myTable">
+                                       <div id ="mydata" class="container">
+                                       <table class="table display table-bordered table-striped" id="myTable">
                                             <thead>
                                                 <tr>
                                                     <th></th>
@@ -175,6 +176,7 @@
                                             </tbody>
 
                                         </table>
+                                       </div>
                                     </main>
                                 </div>
                             </div>
@@ -198,7 +200,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="newFun()" class="btn btn-warning">Print</button>
+                                <button onclick="printDiv('mydata')" class="btn btn-info">Print</button>
                                 <button class="btn btn-danger">Close</button>
                             </div>
                         </div>
@@ -481,6 +483,24 @@
                 }
 
             </script>
+       <script>
+		    function printDiv(mydata){
+                   
+               
+                   var printContents = document.getElementById('mydata').innerHTML;
+                   document.body.innerHTML = printContents;
+                   document.getElementById("myTable_length").style.visibility = "hidden";
+                   document.getElementById("myTable_filter").style.visibility = "hidden";
+                   document.getElementById("myTable_info").style.visibility = "hidden";
+                   document.getElementById("myTable_paginate").style.visibility = "hidden";
+                   
+                   window.print();
+               
+                  
+                   location.reload(); 
+            }
+        </script>
+    
 
 </body>
 

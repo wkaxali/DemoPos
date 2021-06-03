@@ -300,6 +300,10 @@ Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
 
 Route::get('/getEmpPayments',[payController::class, 'getEmpPayments']);
 
+
+
+
+
 Route::get('/', function () {
 
 return view('signInSignUp');
