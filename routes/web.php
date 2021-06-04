@@ -302,7 +302,7 @@ Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
 Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
 
 Route::get('/getEmpPayments',[payController::class, 'getEmpPayments']);
-
+Route::get('/printTrasactionHistory',[TransactionFlow::class, 'printTrasactionHistory']);
 
 
 

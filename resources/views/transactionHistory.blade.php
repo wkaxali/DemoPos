@@ -200,7 +200,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="printDiv('mydata')" class="btn btn-info">Print</button>
+                                <button onclick="printTrasactionHistory()" class="btn btn-info">Print</button>
                                 <button class="btn btn-danger">Close</button>
                             </div>
                         </div>
@@ -503,7 +503,23 @@
                    location.reload(); 
             }
         </script>
-    
+    <script>
+    function printTrasactionHistory() {
+           
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printTrasactionHistory');
+                  
+                }
+            }
+            // alert("hello");
+            xhttp.open("GET", "./printTrasactionHistory/", true);
+            xhttp.send();
+
+        }
+    </script>
 
 </body>
 

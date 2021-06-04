@@ -145,14 +145,56 @@ class TransactionFlow extends Controller
         
     }
 
-    
-     
-    
 
+
+ public function printTrasactionHistory()
+    {
+        $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow');
+        $table='
+        <table  border="1">
+        <h1 style="text-align:center;">Transaction History</h1><br>
+          <thead>
+              <tr>
+                  <th width="115px;" >Transaction ID</th>
+                  <th  width="85px;" >Invoice No</th>
+                 
+                  <th  width="124px;" >Transaction Catogery</th>
+                  <th  width="100px;" >Amount</th>
+                  <th  width="100px;" >Transaction Date</th>
+              </tr>
+          </thead>
+          <tbody>';
  
 
-        
+        foreach ($data as $d){
+             
 
+            $table=$table.'
+           
+       
+            <tr>
+            <td>'.$d->TransactionID.'</td>
+            <td>'.$d->InvoiceNo.'</td>
+            <td>'.$d->TransactionCatogery.'</td>
+            <td>'.$d->Amount.'</td>
+            <td>'.$d->DateStamp.'</td>
+            </tr>
+        
+             ';
+      
+        }
+       
+PDF::SetTitle('Transaction History');
+PDF::AddPage();
+PDF::writeHTML($table, true, false, true, false, '');
+
+PDF::Output('Transaction.pdf');
+      }
+        
     
 
 }
+
+    
+
+
