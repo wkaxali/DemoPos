@@ -483,7 +483,7 @@
                 }
 
             </script>
-       <script>
+       <!-- <script>
 		    function printDiv(mydata){
                    
                
@@ -502,7 +502,7 @@
                    document.body.innerHTML = originalContents;
                    location.reload(); 
             }
-        </script>
+        </script> -->
     <script>
     function printTrasactionHistory() {
            

@@ -155,8 +155,8 @@ class TransactionFlow extends Controller
         <h1 style="text-align:center;">Transaction History</h1><br>
           <thead>
               <tr>
-                  <th width="115px;" >Transaction ID</th>
-                  <th  width="85px;" >Invoice No</th>
+                  <th width="100px;" >Transaction ID</th>
+                  <th  width="93px;" >Invoice No</th>
                  
                   <th  width="124px;" >Transaction Catogery</th>
                   <th  width="100px;" >Amount</th>
@@ -169,7 +169,7 @@ class TransactionFlow extends Controller
         foreach ($data as $d){
              
 
-            $table=$table.'
+            $table=$table.'<tbody>
            
        
             <tr>
