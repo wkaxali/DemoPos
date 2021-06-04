@@ -505,15 +505,14 @@
         </script> -->
     <script>
     function printTrasactionHistory() {
-        var AID = document.getElementById("accounts").value;
-        var LID = document.getElementById("parties").value;
-alert(AID);
-alert(parties);
+        var AID = $('#accounts').find(":selected").val();
+        var LID = $('#parties').find(":selected").val();
+      
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory');
+                    window.open('/printTrasactionHistory/'+AID+'/'+LID);
                   
                 }
             }

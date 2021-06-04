@@ -149,6 +149,7 @@ class TransactionFlow extends Controller
 
  public function printTrasactionHistory($AID,$LID)
     {
+    
         $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
         $table='
         <h1 style="text-align:center;">Transaction History</h1><br><br>
