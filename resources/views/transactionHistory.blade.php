@@ -505,7 +505,10 @@
         </script> -->
     <script>
     function printTrasactionHistory() {
-           
+        var AID = document.getElementById("accounts").value;
+        var LID = document.getElementById("parties").value;
+alert(AID);
+alert(parties);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -515,7 +518,7 @@
                 }
             }
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/", true);
+            xhttp.open("GET", "./printTrasactionHistory/"+AID+"/"+LID, true);
             xhttp.send();
 
         }

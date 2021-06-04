@@ -147,17 +147,18 @@ class TransactionFlow extends Controller
 
 
 
- public function printTrasactionHistory()
+ public function printTrasactionHistory($AID,$LID)
     {
-        $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow');
+        $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
         $table='
-        <table  border="1">
-        <h1 style="text-align:center;">Transaction History</h1><br>
+        <h1 style="text-align:center;">Transaction History</h1><br><br>
+        
+        <table style="border:1px solid black;">
+        
           <thead>
               <tr>
                   <th width="100px;" >Transaction ID</th>
                   <th  width="93px;" >Invoice No</th>
-                 
                   <th  width="124px;" >Transaction Catogery</th>
                   <th  width="100px;" >Amount</th>
                   <th  width="100px;" >Transaction Date</th>
@@ -171,7 +172,7 @@ class TransactionFlow extends Controller
 
             $table=$table.'<tbody>
            
-       
+            <div style = "border:1px solid black;">
             <tr>
             <td>'.$d->TransactionID.'</td>
             <td>'.$d->InvoiceNo.'</td>
@@ -179,17 +180,19 @@ class TransactionFlow extends Controller
             <td>'.$d->Amount.'</td>
             <td>'.$d->DateStamp.'</td>
             </tr>
-        
+            
+            
+
              ';
       
         }
        
-PDF::SetTitle('Transaction History');
-PDF::AddPage();
-PDF::writeHTML($table, true, false, true, false, '');
+        PDF::SetTitle('Transaction History');
+        PDF::AddPage();
+        PDF::writeHTML($table, true, false, true, false, '');
 
-PDF::Output('Transaction.pdf');
-      }
+        PDF::Output('Transaction.pdf');
+    }
         
     
 
