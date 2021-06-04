@@ -356,6 +356,7 @@
                 function getTransactionHistoryForParty() {
                     var xhttp = new XMLHttpRequest();
                     var LID = document.getElementById("parties").value;
+                    alert(LID);
                     xhttp.onreadystatechange = function () {
 
                         if (this.readyState == 4 && this.status == 200) {
@@ -391,6 +392,7 @@
                 function getTransactionHistoryAccounts() {
                     var xhttp = new XMLHttpRequest();
                     var AID = document.getElementById("accounts").value;
+                    alert(AID);
                     
                     xhttp.onreadystatechange = function () {
 
