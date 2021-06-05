@@ -76,10 +76,7 @@ class dashBoardDisplayData extends Controller
     }
 
     public static function employeeProgress(){
-        $data = [
-            ['Label', 'Value'],
-            ['x', 0]
-        ];
+        $data = [];
         $date = Carbon::now()->toDateString();
         $month=Carbon::createFromFormat('Y-m-d', $date)->format('m');
         $year=Carbon::createFromFormat('Y-m-d', $date)->format('Y');

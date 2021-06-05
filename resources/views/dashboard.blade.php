@@ -391,40 +391,72 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     @include('dashboardhtml')
 
-
+<script src="https://cdn.plot.ly/plotly-2.0.0-rc.3.min.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-<script type="text/javascript">
-      google.charts.load('current', {'packages':['gauge']});
-      google.charts.setOnLoadCallback(drawGauge);
-
-      function drawGauge() {
-        var xhttp = new XMLHttpRequest();
+<script>
+function gauge(){
+    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-        
             var d = JSON.parse(this.responseText);
-            var data = new google.visualization.arrayToDataTable(d);
+            var colCount = 0;
+            var column = 0;
+            var row = 0;
+            var width = 250;
+            var height = 150;
+            data = [];
+        
+            for(i = 0; i < d.length; i++){
+                name = d[i][0];
+                progress = d[i][1];
 
-            var options = {
-            width: 1250, height: 400,
-            redFrom: 90, redTo: 100,
-            yellowFrom:75, yellowTo: 90,
-            minorTicks: 5
+                var element = {
+                    type: "indicator",
+                    value: progress,
+                    delta: { reference: 100 },
+                    title: { text: name },
+                    gauge: { axis: { visible: false, range: [0, 100] } },
+                    domain: { row: row, column: column }
+                };
+                colCount += 1;
+                column += 1;
+                width += 300;
+                data.push(element);
+                
+                if((i+1) % 4 == 0){
+                    height += 150;
+                    row += 1;
+                    column = 0;
+                }
+            }
+            
+            var layout = {
+            width: width,
+            height: height,
+            margin: { t: 25, b: 25, l: 25, r: 25 },
+            grid: { rows: row, columns: colCount, pattern: "independent" },
+            template: {
+                data: {
+                indicator: [
+                    {
+                    mode: "number+delta+gauge",
+                    delta: { reference: 90 }
+                    }
+                ]
+                }
+            }
             };
 
-            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-
-            chart.draw(data, options);
+            Plotly.newPlot('progress', data, layout);
         }
-        };
+    };
 
-        xhttp.open("GET", "./empProgress/", true);
-        xhttp.send();
-
-        }
-    </script>
+    xhttp.open("GET", "./empProgress/", true);
+    xhttp.send();
+}
+</script>
 
 <script type="text/javascript">
     google.charts.load('current', {'packages':['bar']});
@@ -971,11 +1003,9 @@ function drawChart() {
         function loadFields() {
             dailySaleAmount();
             loadAutos();
-            
-            
+            gauge();
             getMonthlySales();
             getMonthlyExpenses();
-            
             getCustomerSales();
         }
 
