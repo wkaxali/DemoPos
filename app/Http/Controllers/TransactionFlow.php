@@ -163,18 +163,20 @@ class TransactionFlow extends Controller
         $table='
         <h1 style="text-align:center;">Transaction History</h1><br><br>
         
-        <table>
+        <table width="550px"  border="1" style="text-align:center;">
         
           <thead>
               <tr>
-                  <th width="100px;" >Transaction ID</th>
-                  <th  width="93px;" >Invoice No</th>
-                  <th  width="124px;" >Transaction Catogery</th>
-                  <th  width="100px;" >Amount</th>
-                  <th  width="100px;" >Transaction Date</th>
+                  <th width="110px;" >Transaction ID</th>
+                  <th  width="110px;" >Invoice No</th>
+                  <th  width="110px;" >Transaction Catogery</th>
+                  <th  width="110px;" >Amount</th>
+                  <th>Date</th>
+                 
               </tr>
           </thead>
-          <tbody>';
+          <tbody>
+          </table> ';
  
 
         foreach ($data as $d){
@@ -182,16 +184,16 @@ class TransactionFlow extends Controller
 
             $table=$table.'<tbody>
            
-            
+            <table width="550px"  border="1" style="text-align:center;">
             <tr>
-            <td>'.$d->TransactionID.'</td>
+            <td >'.$d->TransactionID.'</td>
             <td>'.$d->InvoiceNo.'</td>
             <td>'.$d->TransactionCatogery.'</td>
             <td>'.$d->Amount.'</td>
             <td>'.$d->DateStamp.'</td>
             </tr>
-            
-            
+            </tbody>
+        </table> 
 
              ';
       
