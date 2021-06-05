@@ -401,11 +401,11 @@ function gauge(){
         if (this.readyState == 4 && this.status == 200) {
 
             var d = JSON.parse(this.responseText);
-            var colCount = 0;
+            var colCount = 4;
             var column = 0;
             var row = 0;
             var width = 250;
-            var height = 150;
+            var height = 200;
             data = [];
         
             for(i = 0; i < d.length; i++){
@@ -420,23 +420,23 @@ function gauge(){
                     gauge: { axis: { visible: false, range: [0, 100] } },
                     domain: { row: row, column: column }
                 };
-                colCount += 1;
+                //colCount += 1;
                 column += 1;
-                width += 300;
+                //width += 300;
                 data.push(element);
                 
-                if((i+1) % 4 == 0){
-                    height += 150;
+                if((i+1) % colCount == 0){
+                    height += 200;
                     row += 1;
                     column = 0;
                 }
             }
             
             var layout = {
-            width: width,
+            width: width*colCount,
             height: height,
-            margin: { t: 25, b: 25, l: 25, r: 25 },
-            grid: { rows: row, columns: colCount, pattern: "independent" },
+            margin: { t: 50, b: 25, l: 25, r: 25 },
+            grid: { rows: row + 1, columns: colCount, pattern: "independent" },
             template: {
                 data: {
                 indicator: [
@@ -473,7 +473,8 @@ function drawStuff() {
             
             var options = {
             title: 'All Transactions',
-            width: 900,
+            width: 800,
+            height: 450,
             legend: { position: 'none' },
             chart: { title: 'Transaction Amounts',
                     subtitle: 'Group By Category' },
@@ -513,7 +514,7 @@ function drawChart() {
             var d = JSON.parse(this.responseText);
 
             var data = google.visualization.arrayToDataTable(d);
-            var options = {'title':'Stock Details',pieHole: 0.5, 'width':760, 'height':450};
+            var options = {'title':'Stock Details',pieHole: 0.5, 'width':600, 'height':450};
             var chart = new google.visualization.PieChart(document.getElementById('piechart'));
             chart.draw(data, options);
 
