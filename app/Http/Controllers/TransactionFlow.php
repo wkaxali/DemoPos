@@ -161,32 +161,33 @@ class TransactionFlow extends Controller
         }
        
         $table='
-        <h1 style="text-align:center;">Transaction History</h1><br><br>
+        <h1 style="text-align:center;">Transaction History</h1><br>
         
         <table width="550px"  border="1" style="text-align:center;">
         
           <thead>
               <tr>
-                  <th width="110px;" >Transaction ID</th>
-                  <th  width="110px;" >Invoice No</th>
-                  <th  width="110px;" >Transaction Catogery</th>
-                  <th  width="110px;" >Amount</th>
-                  <th>Date</th>
+                  <th><b>Transaction ID</b></th>
+                  <th><b>Invoice No</b></th>
+                  <th><b>Transaction Catogery</b></th>
+                  <th><b>Amount</b></th>
+                  <th><b>Date</b></th>
                  
               </tr>
           </thead>
-          <tbody>
+         
           </table> ';
  
 
         foreach ($data as $d){
              
 
-            $table=$table.'<tbody>
+            $table=$table.'
            
-            <table width="550px"  border="1" style="text-align:center;">
+        <table width="550px"  border="1" style="text-align:center;">
+            <tbody>
             <tr>
-            <td >'.$d->TransactionID.'</td>
+            <td>'.$d->TransactionID.'</td>
             <td>'.$d->InvoiceNo.'</td>
             <td>'.$d->TransactionCatogery.'</td>
             <td>'.$d->Amount.'</td>
