@@ -121,19 +121,26 @@
                         <div class="row my-2">
                             <div class="col-md-4">
                                 <label style="width:117px;" for="">Select Account</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="accounts"
-                                    onchange="getTransactionHistoryAccounts()">
+                                <select class="selectpicker form-control" data-live-search="true" id="accounts">
+                                    
 
                                 </select>
                             </div>
 
-                            <div class="col-md-4 offset-md-4 ">
+                            <div class="col-md-4  ">
                                 <label for="">Select Ledger</label>
                                 <select 
-                                    class="selectpicker form-control" data-live-search="true" id="parties"
-                                    onchange="getTransactionHistoryForParty()">
+                                    class="selectpicker form-control" data-live-search="true" id="parties">
 
                                 </select>
+                                </div>
+                            <div class="col-md-4  ">
+                                
+                                <button 
+                                    class="btn  btn-info" data-live-search="true" id="parties" style="margin-top:32px;"
+                                    onclick="selectedSearchData()">
+                                    Search
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -200,7 +207,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="printDiv('mydata')" class="btn btn-info">Print</button>
+                                <button onclick="printTrasactionHistory()" class="btn btn-info">Print</button>
                                 <button class="btn btn-danger">Close</button>
                             </div>
                         </div>
@@ -319,6 +326,41 @@
                     xhttp.send();
                 }
 
+
+                function selectedSearchData(){
+                    var AID = $('#accounts').find(":selected").val();
+                    var LID = $('#parties').find(":selected").val();
+                    alert(AID);
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+
+                        var data = this.responseText;
+                            //alert(data);
+                            var table;
+                            var a = JSON.parse(data);
+                            //  alert(a[0].ProductSerial);
+                            table = $('#myTable').DataTable();
+                            table.clear();
+
+                            $.each(a, function (i, item) {
+
+                                table.row.add(['',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
+                                    a[i]
+                                    .Amount,
+                                    a[i].DateStamp
+                                ]);
+                            });
+                            table.draw();
+
+                        }
+                    };
+                    xhttp.open("GET", "./selectedSearchData/"+AID+"/"+LID, true);
+
+                    xhttp.send();
+
+                }
+
             </script>
 
             <script>
@@ -326,7 +368,7 @@
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
 
-                        if (this.readyState == 4 && this.status == 200) {
+                                                if (this.readyState == 4 && this.status == 200) {
 
                             var data = this.responseText;
                             //alert(data);
@@ -356,6 +398,7 @@
                 function getTransactionHistoryForParty() {
                     var xhttp = new XMLHttpRequest();
                     var LID = document.getElementById("parties").value;
+                    alert(LID);
                     xhttp.onreadystatechange = function () {
 
                         if (this.readyState == 4 && this.status == 200) {
@@ -391,6 +434,7 @@
                 function getTransactionHistoryAccounts() {
                     var xhttp = new XMLHttpRequest();
                     var AID = document.getElementById("accounts").value;
+                    alert(AID);
                     
                     xhttp.onreadystatechange = function () {
 
@@ -483,7 +527,7 @@
                 }
 
             </script>
-       <script>
+       <!-- <script>
 		    function printDiv(mydata){
                    
                
@@ -502,8 +546,30 @@
                    document.body.innerHTML = originalContents;
                    location.reload(); 
             }
-        </script>
-    
+        </script> -->
+    <script>
+    function printTrasactionHistory() {
+        var AID = $('#accounts').find(":selected").val();
+        var LID = $('#parties').find(":selected").val();
+      
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printTrasactionHistory/'+AID+'/'+LID);
+                  
+                }
+            }
+            if (AID =="" || LID == ""){
+                AID = "All";
+                LID = "All";
+            }
+            // alert("hello");
+            xhttp.open("GET", "./printTrasactionHistory/"+AID+"/"+LID, true);
+            xhttp.send();
+
+        }
+    </script>
 
 </body>
 

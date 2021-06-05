@@ -1,9 +1,17 @@
 <head>
     <style>
 
+        #progress{
+            border-color: grey;
+            width: 1000px;
+            border-radius: 10px;
+            margin-left:20px;
+            box-shadow: 1px 2px 2px 1px grey ;
+        }
+
         #piechart{
             border-color: grey;
-            width: 780px;
+            width: 600px;
             border-radius: 10px;
             margin-left:20px;
             box-shadow: 1px 2px 2px 1px grey ;
@@ -11,7 +19,7 @@
 
         #top_x_div{
             border-color: grey;
-            width: 901px;
+            width: 800px;
             border-radius: 10px;
             margin-left:20px;
             box-shadow: 1px 2px 2px 1px grey ;
@@ -1108,11 +1116,10 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             
             <div id="piechart"></div>
             <br>
-            <div id="top_x_div" style="width: 900px; height: 500px;"></div>
+            <div id="top_x_div"></div>
             <br>
-            <div id="chart_div" style="width: 400px; height: 120px;"></div>
+            <div id="progress"></div>
             <br>
-            
 
 
     @include('adminNavbar')

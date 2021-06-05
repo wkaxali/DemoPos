@@ -712,7 +712,7 @@
                     document.getElementById("totalSales").value = a[0];
                     document.getElementById("totalCommission").value = a[1];
                     totalPay = document.getElementById("total").value;
-                    document.getElementById("advance").value = 400;
+                    document.getElementById("advance").value = a[4];
                     document.getElementById("absents").value = a[2];
                     document.getElementById("absentdeduction").value = a[3];
                     document.getElementById("payable").innerHTML = Number(a[1])+Number(totalPay)-Number(a[3]);
