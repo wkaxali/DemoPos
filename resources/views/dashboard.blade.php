@@ -408,7 +408,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             var data = new google.visualization.arrayToDataTable(d);
 
             var options = {
-            width: 400, height: 120,
+            width: 1250, height: 400,
             redFrom: 90, redTo: 100,
             yellowFrom:75, yellowTo: 90,
             minorTicks: 5
