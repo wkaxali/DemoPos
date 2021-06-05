@@ -560,6 +560,10 @@
                   
                 }
             }
+            if (AID =="" || LID == ""){
+                AID = "All";
+                LID = "All";
+            }
             // alert("hello");
             xhttp.open("GET", "./printTrasactionHistory/"+AID+"/"+LID, true);
             xhttp.send();
