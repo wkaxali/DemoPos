@@ -53,8 +53,13 @@ class TransactionFlow extends Controller
            return $TID;
 
     }
-
+        public static  function selectedSearchData($AID,$LID){
+            $data=DB:: select('select * from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
+            return $data;
+            
+        }
     public static function getTransactionsForAccounts($AID){
+        
         $data=DB:: select('select * from tbltransactionflow where PaidVia='.$AID);
         return $data;
 
@@ -149,31 +154,38 @@ class TransactionFlow extends Controller
 
  public function printTrasactionHistory($AID,$LID)
     {
-    
-        $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow where PaidVia='.$AID.' or PaidTo='.$LID);
+        if($AID=="All" || $LID=="All"){
+            $data=DB::select('select * from tbltransactionflow');
+        }else{
+            $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
+        }
+       
         $table='
-        <h1 style="text-align:center;">Transaction History</h1><br><br>
+        <h1 style="text-align:center;">Transaction History</h1><br>
         
-        <table style="border:1px solid black;">
+        <table width="550px"  border="1" style="text-align:center;">
         
-          <thead>
+          <tbody>
               <tr>
-                  <th width="100px;" >Transaction ID</th>
-                  <th  width="93px;" >Invoice No</th>
-                  <th  width="124px;" >Transaction Catogery</th>
-                  <th  width="100px;" >Amount</th>
-                  <th  width="100px;" >Transaction Date</th>
+                  <th><b>Transaction ID</b></th>
+                  <th><b>Invoice No</b></th>
+                  <th><b>Transaction Catogery</b></th>
+                  <th><b>Amount</b></th>
+                  <th><b>Date</b></th>
+                 
               </tr>
-          </thead>
-          <tbody>';
+          </tbody>
+         
+          </table> ';
  
 
         foreach ($data as $d){
              
 
-            $table=$table.'<tbody>
+            $table=$table.'
            
-            <div style = "border:1px solid black;">
+        <table width="550px"  border="1" style="text-align:center;">
+            <tbody>
             <tr>
             <td>'.$d->TransactionID.'</td>
             <td>'.$d->InvoiceNo.'</td>
@@ -181,8 +193,8 @@ class TransactionFlow extends Controller
             <td>'.$d->Amount.'</td>
             <td>'.$d->DateStamp.'</td>
             </tr>
-            
-            
+            </tbody>
+        </table> 
 
              ';
       

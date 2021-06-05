@@ -35,6 +35,18 @@ class payController extends Controller
         'LID'=> $LID,
         
         ]);  
+        $bal=employeeController::getEmployeeBalance($paidTo);
+        $newbal= floatval($bal)-floatval($amount);
+        $eb = DB::table('tblemployees')
+        ->where('EID', $paidTo)
+        ->update([
+          'Balance'=>$newbal
+        ]);
+        $id=DB::table('tbl_employee_payments_flow')->insertGetId([
+          'EmployeeID'=> $paidTo,
+          'AmountPaid'=>$amount,       
+          'Date'=>$date,
+        ]);  
 
         if($PT=="Party"){
           $re = DB::table('tbltransactionflow')
@@ -286,8 +298,19 @@ public static function getCommissionData($year, $month, $EID){
   }
 
   $deduction=round(floatval($absents)*floatval($dailyPay));
-  $data=[$No,$commission,$absents,$deduction];
+  
 
+  $bal=DB::select('select AmountPaid from tbl_employee_payments_flow where month(Date) ='.$month.' AND EmployeeID ='.$EID.' AND year(date) ='.$year);
+  
+ 
+  $advance=0;
+  
+  
+  foreach($bal as $d){
+    $advance=$advance+$d->AmountPaid;
+  }
+
+  $data=[$No,$commission,$absents,$deduction,$advance];
   return $data;
 }
 
@@ -316,6 +339,16 @@ public static function paySalary($data){
       'LID'=>$LID
       
     ]);
+   
+    // $bal=employeeController::getEmployeeBalance($EID);
+    // $newbal= floatval($bal)-floatval($amountPaid);
+    // $eb = DB::table('tblemployees')
+    // ->where('EID', $EID)
+    // ->update([
+    //   'Balance'=>$newbal
+    // ]);
+
+
 
     $id=DB::table('tbl_employee_payments_flow')->insertGetId([
       'EmployeeID'=>$EID,
@@ -341,6 +374,10 @@ public static function paySalary($data){
     ->update([
       'Balance'=>$employeeNewBalance
     ]);
+
+    
+  
+  
 
     $updateStatus = DB::select('UPDATE tbl_employee_sale_commission 
     Set CommissionStatus = "Paid"
