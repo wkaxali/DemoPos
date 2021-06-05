@@ -53,8 +53,13 @@ class TransactionFlow extends Controller
            return $TID;
 
     }
-
+        public static  function selectedSearchData($AID,$LID){
+            $data=DB:: select('select * from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
+            return $data;
+            
+        }
     public static function getTransactionsForAccounts($AID){
+        
         $data=DB:: select('select * from tbltransactionflow where PaidVia='.$AID);
         return $data;
 
@@ -150,7 +155,7 @@ class TransactionFlow extends Controller
  public function printTrasactionHistory($AID,$LID)
     {
     
-        $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow where PaidVia='.$AID.' or PaidTo='.$LID);
+        $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
         $table='
         <h1 style="text-align:center;">Transaction History</h1><br><br>
         
