@@ -165,7 +165,7 @@ class TransactionFlow extends Controller
         
         <table width="550px"  border="1" style="text-align:center;">
         
-          <thead>
+          <tbody>
               <tr>
                   <th><b>Transaction ID</b></th>
                   <th><b>Invoice No</b></th>
@@ -174,7 +174,7 @@ class TransactionFlow extends Controller
                   <th><b>Date</b></th>
                  
               </tr>
-          </thead>
+          </tbody>
          
           </table> ';
  
