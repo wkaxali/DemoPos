@@ -3,7 +3,7 @@
 
         #progress{
             border-color: grey;
-            width: 1000px;
+            width: auto;
             border-radius: 10px;
             margin-left:20px;
             box-shadow: 1px 2px 2px 1px grey ;
@@ -19,7 +19,7 @@
 
         #top_x_div{
             border-color: grey;
-            width: 800px;
+            width: 600px;
             border-radius: 10px;
             margin-left:20px;
             box-shadow: 1px 2px 2px 1px grey ;
@@ -786,7 +786,7 @@
             border-radius: 50%;
             background-color: pink;
             display: inline-block;
-        
+        }
 
         .colorcard-1 .mainCardBody .mainDots div:nth-child(3) {
             height: 10px;
@@ -802,8 +802,9 @@
    height:300px;
     
 }
+
     
-      
+
 
         :not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
             width: 100%;
@@ -1113,10 +1114,10 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
         </div>
 
-            
+            <div class="mainParent" style="display: flex; justify-content: space-between;">
             <div id="piechart"></div>
-            <br>
             <div id="top_x_div"></div>
+        </div>
             <br>
             <div id="progress"></div>
             <br>

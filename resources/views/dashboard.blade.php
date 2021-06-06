@@ -379,6 +379,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         label {
             color: #000 !important;
         }
+        @media only screen and (max-width: 768px) {
+    .mainParent{
+display: block !important;
+    }
+}
 
     </style>
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
@@ -473,7 +478,7 @@ function drawStuff() {
             
             var options = {
             title: 'All Transactions',
-            width: 800,
+            width: 600,
             height: 450,
             legend: { position: 'none' },
             chart: { title: 'Transaction Amounts',
