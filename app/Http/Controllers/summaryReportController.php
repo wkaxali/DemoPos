@@ -63,54 +63,53 @@ class summaryReportController extends Controller
 
     public static function summaryReportTabularBase(){
        
-    //dd($creditHtml);
+        $date1='2020-01-24 ';
+        $date2='2021-05-24 ';
 
     $newHTML='
-    <table border="0">
+    <table border="1">
     <tr>
     <td colspan=2>
-    <h1 align="center">Summary</h1>
+    <h1 align="center" style="font-family: Times New Roman, Times, serif; ">Balance Sheet</h1>
     </td>
     
     </tr>
-    <tr>
-    <td >
-    <h5  align="center">From_______________________To From_______________________________</h5>
-    </td>
     
-    
-    
-    </tr>
  </table>
  <br>
  <br><br><br><br><br>
 
  <table>
  <tr>
+    <td >
+    <h4  align="center">From '.$date1.' To From '.$date2.'</h4>
+    </td>
+    
+    
+    
+    </tr>
+ <tr>
  <td>
- <h2>
+ <h2 align="center"  style="font-family: Times New Roman, Times, serif; ">
  Credit</h2>
  </td>
  <td>
- <h2>
+ <h2 align="center"  style="font-family: Times New Roman, Times, serif; ">
 
  Debit</h2>
  </td>
  </tr>
  </table>
- <table border="1" CELLSPACING="10">
+ <table border="0" CELLSPACING="10">
 
  
  <tr>
  <td>
  
- <table border="0" CELLSPACING="10" CELLPADDING="10" >
+ <table border="1" CELLSPACING="1" CELLPADDING="8" style="font-family: Times New Roman, Times, serif; font-size:13px;" >
 
 
- <thead  border="0">
  
- </thead>
-
 
 
  <tr>
@@ -130,24 +129,32 @@ class summaryReportController extends Controller
  </td>
  </tr><tr>
  <td>
- Nothing
+ Salary Payment
  </td>
  <td>
- o
+ 200000
  </td>
  </tr><tr>
  <td>
- Nothing
+ 
  </td>
  <td>
- 0
+ 
  </td>
  </tr>
  <tr>
  <td>
- Total
+ 
  </td>
  <td>
+ 
+ </td>
+ </tr>
+ <tr>
+ <td bgcolor=" #C0C0C0">
+ Total
+ </td>
+ <td bgcolor=" #C0C0C0">
  300000
  </td>
  </tr>
@@ -162,7 +169,7 @@ class summaryReportController extends Controller
 
  </td>
  <td>
- <table border="0" CELLSPACING="10" CELLPADDING="10">
+ <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
  
  <tr>
  <td>
@@ -173,21 +180,15 @@ class summaryReportController extends Controller
  </td>
  </tr><tr>
  <td>
- Payments
+ Party Payments
+
  </td>
  <td>
  500000
  </td>
  </tr><tr>
  <td>
- Saleries
- </td>
- <td>
- 200000
- </td>
- </tr><tr>
- <td>
- Purchases
+ Stock Purchased
  </td>
  <td>
  300000
@@ -195,9 +196,25 @@ class summaryReportController extends Controller
  </tr>
  <tr>
  <td>
- ToTal
+ Transportation Charges
  </td>
  <td>
+ 30000
+ </td>
+ </tr>
+ <tr>
+ <td>
+ Booking Order
+ </td>
+ <td>
+ 30000
+ </td>
+ </tr>
+ <tr>
+ <td bgcolor=" #C0C0C0">
+ Total
+ </td>
+ <td bgcolor=" #C0C0C0">
  3000000
  </td>
  </tr>
@@ -220,7 +237,7 @@ class summaryReportController extends Controller
  <br>
     <table>
 <tr>
-<td><h3>
+<td><h3  style="font-family: Times New Roman, Times, serif; ">
 Blance (profit/loss)_________________________
 </h3></td>
 </tr>
@@ -245,37 +262,37 @@ Blance (profit/loss)_________________________
     $debitHtml='';
     $dateFrom="2019-01-24";
     $dateTo="2020-01-24";
-    $debitAmountSum=0;
-    $creditAmountSum=0;
-    $total=0;
-    foreach($data as $row){
-       // dd($row);
-       if($row->TransactionType=='Debit'){
-       $debitHtml=$debitHtml.' <tr >    
-        <td >'.$row->TransactionCatogery.'</td>
-        <td align="center">'.number_format($row->TotalAmount).'</td>
-        </tr>';
-        $debitAmountSum=floatval($debitAmountSum)  +floatval($row->TotalAmount);
+        $debitAmountSum=0;
+        $creditAmountSum=0;
+        $total=0;
+        foreach($data as $row){
+        // dd($row);
+        if($row->TransactionType=='Debit'){
+        $debitHtml=$debitHtml.' <tr >    
+            <td >'.$row->TransactionCatogery.'</td>
+            <td align="center">'.number_format($row->TotalAmount).'</td>
+            </tr>';
+            $debitAmountSum=floatval($debitAmountSum)  +floatval($row->TotalAmount);
 
-       }
-       else if($row->TransactionType=='Credit'){
-        $creditHtml=$creditHtml.' <tr >    
-         <td >'.$row->TransactionCatogery.'</td>
-         <td align="center">'.number_format($row->TotalAmount).'</td>
-         
-         </tr>';
-         $creditAmountSum=floatval($creditAmountSum)  + floatval($row->TotalAmount);
         }
+        else if($row->TransactionType=='Credit'){
+            $creditHtml=$creditHtml.' <tr >    
+            <td >'.$row->TransactionCatogery.'</td>
+            <td align="center">'.number_format($row->TotalAmount).'</td>
+            
+            </tr>';
+            $creditAmountSum=floatval($creditAmountSum)  + floatval($row->TotalAmount);
+            }
 
 
-    }
-    $remarks="Loss";
-    $total=floatval($creditAmountSum)-floatval($debitAmountSum);
-    if(floatval($total)>0){
+        }
+        $remarks="Loss";
+        $total=floatval($creditAmountSum)-floatval($debitAmountSum);
+        if(floatval($total)>0){
 
-        $remarks="Profit";
+            $remarks="Profit";
 
-    }
+        }
 
     //dd($creditHtml);
 

@@ -9,6 +9,12 @@ use DB;
 class printSalarySlip extends Controller
 {
     public static function printsalarySlip(){
+
+      $data=DB:: select('select * from tblemployeepay where EID ='.$ID );
+
+    
+      ->first()->data;
+
       $newHTML='
       <table border="0">
       <tr>
@@ -21,7 +27,7 @@ class printSalarySlip extends Controller
  
       <tr>
       <td >
-      <h5  align="">Employ Name______________________________</h5>
+      <h5  align="">Employer Name '.$data->BasicPay.'</h5>
       </td>
       
       
@@ -175,7 +181,7 @@ class printSalarySlip extends Controller
    <br>
       <table>
   <tr>
-  <td>
+  <td><br>
   Cheque No___________________________________
   </td>
   </tr>
@@ -194,13 +200,13 @@ class printSalarySlip extends Controller
   <table border="0">
   <tr>
   <td colspan=2>
-  <h1 align="center">Forland Modren Moters(Employ)</h1>
+  <h1 align="center">Forland Modren Moters(Employee)</h1>
   </td>
   
   </tr>
   <tr>
   <td >
-  <h5  align="">Employ Name______________________________</h5>
+  <h5  align="">Employee Name______________________________</h5>
   </td>
   
   
@@ -353,7 +359,7 @@ Net ToTal
 </table>
 <br>
   <table>
-<tr>
+<tr><br>
 <td>
 Cheque No___________________________________
 </td>
