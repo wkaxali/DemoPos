@@ -165,15 +165,12 @@
 
 
         .input-group {
-<<<<<<< HEAD
+
             margin: 20px 16px;
-=======
+
             margin: 10px 0px;
-<<<<<<< HEAD
-=======
->>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
             /* float: right; */
->>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
+
         }
 
         .mainInputGroups {
@@ -186,189 +183,11 @@
             clear: both;
         }
 
-<<<<<<< HEAD
         .mainInputGroups input {
             margin: 5px 0px !important;
-=======
-        .mainInputGroups ,input {
-            width: 120px !important;
->>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
         }
 
-<<<<<<< HEAD
-        /* body{
-            background-color: lightgray;
-        } */
-}
-=======
-        th,
-        td {
-            border-bottom: 1px solid #333;
-        }
-
-        .mainSection {
-            max-width: 1018px;
-            margin: 0 auto;
-        }
-
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-
-        }
-
-        /* Firefox */
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-
-        @media only screen and (max-width: 768px) {
-            .mainSection {
-                top: 80% !important;
-            }
-
-            .myBookingBorder {
-                margin: 20px 0px !important;
-            }
-
-            body {}
-
-        }
-
-        @media only screen and (max-width: 503px) {
-            body {}
-
-            /* Background Colors are for checking media queries You Can remove */
-
-            .mainSection label {
-                width: 150px !important;
-
-            }
-        }
-
-        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
-            .mainSection {
-                top: 84% !important;
-            }
-
-            /* uncomment this and :checked centeralized version at iphone x */
-            /* .myBookingBorder .row{
-                text-align: center !important;
-            } */
-
-        }
-
-        @media only screen and (device-width : 375px) and (device-height : 667px) and (-webkit-device-pixel-ratio : 2) {
-            .mainSection {
-                top: 102% !important;
-            }
-        }
-
-        @media only screen and (max-width: 1197px) {
-            .mainSection label {
-                width: 225px !important;
-            }
-        }
-
-        @media screen and (device-aspect-ratio: 40/71) {
-            .mainSection {
-                top: 127% !important;
-            }
-        }
-
-        @media only screen and (device-width : 414px) and (device-height : 736px) and (-webkit-device-pixel-ratio : 3) {
-            .mainSection {
-                top: 93% !important;
-            }
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-
-        }
-
-        ::-webkit-scrollbar-track {
-            background-color: #0a549d;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #e61d2f;
-        }
-
-        .fa-bars {
-            color: #fff;
-        }
-
-        .inner-block {
-            padding: 0em !important;
-        }
-
-        @media print {
-            body * {
-                visibility: hidden;
-            }
-
-            #mainHeader,
-            #mainHeader * {
-                visibility: visible;
-            }
-
-            #mainHeader {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100% !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            input {
-                width: 200px !important;
-            }
-
-            .bootstrap-select>.dropdown-toggle {
-                position: relative;
-                width: 200px !important;
-                z-index: 1;
-                text-align: right;
-                white-space: nowrap;
-            }
-
-            .bookingRightTable {
-                border-radius: 10px;
-                height: 650px !important;
-                border: 1px solid #aaaaaa;
-                padding: 0px 10px;
-
-            }
-            .modal-content {
-        width:130%;}
-
-        .modal-backdrop {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -10 !important;
-            width: 100vw;
-            height: 100vh;
-            background-color: #000;
-        }
-            #BookingRecordTable {
-                width: 500px !important;
-            }
-
-            .mainInputGroups {
-                float: right;
-                margin-top: 0px;
-            }
-
-            label {
-                display: block;
-            }
-        }
-
->>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
+    
     </style>
 </head>
 
@@ -565,11 +384,11 @@
                                 <input type="text" name="" id="totRemaining">
                             </div>
                             
-<<<<<<< HEAD
+
 </div></div>
-=======
+
                         </div>
->>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
+
                         <div class="clear"></div>
 
 
@@ -584,7 +403,7 @@
       
         </div>
     </header>
->>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
+
 
                 document.getElementById("qty").value = "";
 
@@ -781,9 +600,9 @@
                 xhttp.open("GET", "./placeOrder/" + OrderArray, true);
                 xhttp.send();
             }
-<<<<<<< HEAD
-        }
-=======
+
+        
+
         };
         // var MenuID=$('#Menus').find(":selected").val();
         xhttp.open("GET", "./placeOrder/"+OrderArray, true);
@@ -794,7 +613,7 @@ function getOrderID () {
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
->>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
+
 
         function getOrderID() {
 
