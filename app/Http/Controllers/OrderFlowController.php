@@ -76,7 +76,6 @@ class OrderFlowController extends Controller
 
     function getOrderID(){
 
-<<<<<<< HEAD
         $IID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
         return $IID+1;
     }
@@ -85,10 +84,6 @@ class OrderFlowController extends Controller
 
       $IID=DB::select('select * from tbltransactionflow');
       return $IID;
-=======
-      $IID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
-      return $IID+1;
->>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
   }
 
     function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice,$OrderID,$description,$INP){
