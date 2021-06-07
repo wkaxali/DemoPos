@@ -150,7 +150,6 @@
 
         .bookingRightTable {
             border-radius: 10px;
-<<<<<<< HEAD
             height: 514px;
             border: 1px solid #aaaaaa;
             padding: 0px 10px;
@@ -159,19 +158,6 @@
         .tableDiv {
 
             height: 285px;
-=======
-            height: 530px !important;
-            width:650px;
-            border: 1px solid #aaaaaa;
-            padding: 0px 1px;
-            /* border-radius: 10px; */
-        }
-
-        .tableDiv {
-            /* border: 1px solid #aaaaaa; */
-            /* height: 505px !important; */
-            height: 304px;
->>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
             overflow: auto;
 
         }
