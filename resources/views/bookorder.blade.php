@@ -112,9 +112,9 @@
         }
 
         .footerBtn {
-            text-align: right;
-            /* text-align: center; */
-            float: right;
+            /* text-align: right; */
+             text-align: center; 
+            /* float: right; */
             /* margin-top: 120px !important; */
         }
 
@@ -140,7 +140,7 @@
 
         .myBookingBorder {
             border: 1px solid #aaaaaa;
-            padding: 5px 8px;
+            padding: 16px 12px;
             border-radius: 10px;
         }
 
@@ -150,6 +150,7 @@
 
         .bookingRightTable {
             border-radius: 10px;
+<<<<<<< HEAD
             height: 514px;
             border: 1px solid #aaaaaa;
             padding: 0px 10px;
@@ -158,6 +159,19 @@
         .tableDiv {
 
             height: 285px;
+=======
+            height: 530px !important;
+            width:650px;
+            border: 1px solid #aaaaaa;
+            padding: 0px 1px;
+            /* border-radius: 10px; */
+        }
+
+        .tableDiv {
+            /* border: 1px solid #aaaaaa; */
+            /* height: 505px !important; */
+            height: 304px;
+>>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
             overflow: auto;
 
         }
@@ -165,7 +179,15 @@
 
 
         .input-group {
+<<<<<<< HEAD
+            margin: 20px 16px;
+=======
             margin: 10px 0px;
+<<<<<<< HEAD
+=======
+>>>>>>> db0d15e59cb96fb11437b3e64f3027d1091afb95
+            /* float: right; */
+>>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
         }
 
         .mainInputGroups {
@@ -178,10 +200,21 @@
             clear: both;
         }
 
+<<<<<<< HEAD
         .mainInputGroups input {
             margin: 5px 0px !important;
+=======
+        .mainInputGroups ,input {
+            width: 120px !important;
+>>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
         }
 
+<<<<<<< HEAD
+        /* body{
+            background-color: lightgray;
+        } */
+}
+=======
         th,
         td {
             border-bottom: 1px solid #333;
@@ -349,9 +382,11 @@
             }
         }
 
+>>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
     </style>
 </head>
 
+<<<<<<< HEAD
 <body id="mainBody" onload="loadFunction()">
 
 @include('bookorderhtml')
@@ -398,6 +433,172 @@
 
                 document.getElementById("invoice").value = "";
                 document.getElementById("bookingPrice").value = "";
+=======
+<body onload="getOrderID()">
+
+    <header id="myHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 my-2 text-center">
+                    <h3>Book Order</h3>
+                </div>
+            </div>
+     
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="myBookingBorder">
+
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">Order No</label>
+                                <input type="text" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name="" 
+                                    id="OrderId" readonly="true">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="Model">Model :</label>
+                                <select class="selectpicker form-control" data-live-search="true" id="category"
+                                    tabindex="null">
+                                    <option value=1>Forland C13</option>
+                                    <option value=2>Forland Trucks</option>
+                                    <option value=3>Land Trucks</option>
+                                    <option value=4>Continantal Trucks</option>
+
+
+                                </select>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">Invoice Price :</label>
+                                <input type="text" onchange="product()" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name=""
+                                    id="invoice">
+
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">Qty :</label>
+                                <input type="number" onchange="product()" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name="" id="qty">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">Total</label>
+                                <input type="text" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name=""
+                                    id="total" readonly="true">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">Amount Paid</label>
+                                <input type="text" onkeyup="subtract()" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name=""
+                                    id="amount">
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="">Remaining For This Order</label>
+                                <input type="text" class="form-control"
+                                    style="width: 200px !important; display: inline-block !important;" name=""
+                                    id="remaining"readonly="true">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-11">
+                                <div class="successButtons text-right" style="margin-right: 7px !important;">
+                                    <button onclick="add()"  class="btn ">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="bookingRightTable">
+
+                        <div class="tableContent  text-center">
+                            <h3>Your Current Orders </h3>
+                        </div>
+
+
+
+                        <div class="tableDiv">
+
+
+                            <table id="BookingRecordTable" class=" table-striped"
+                                style="width: 100%; text-align: center; ">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Model</th>
+                                        <th>Price</th>
+                                        <th>QTY</th>
+                                        <th>Total</th>
+                                        <th>Paid</th>
+                                        <th>Remain</th>
+                                        <th>Delete
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                                        /* data from database */
+=======
+<<<<<<< HEAD
+>>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
+=======
+>>>>>>> e3ac0e4aeefe981e394ed2e4a5be2ee9001092eb
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="mainInputGroups">
+                        <div class="input-group">
+                                <label style="width: 150px !important;" for="">Total Amount</label>
+                                <input type="text"  name="" id="mainTotal">
+                            </div>
+
+                            <div class="input-group ">
+                                <label style="width: 150px  !important;" for="">Total Paid</label>
+                                <input type="text" name="" id="totalPaid" onchange="calculatonInTable()">
+                            </div>
+                            <div class="input-group ">
+                                <label style="width: 150px  !important;" for="">Total Remaining</label>
+                                <input type="text" name="" id="totRemaining">
+                            </div>
+                            
+<<<<<<< HEAD
+</div></div>
+=======
+                        </div>
+>>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
+                        <div class="clear"></div>
+
+
+                        <div class="footerBtn">
+                            <a href='#' class="printBtns btn">Print Order</a>
+                            <button  class="placeBtns btn" onclick="placeOrder()">Place Order</button>
+                        </div>
+                    </div>
+
+                </div>
+        
+      
+        </div>
+    </header>
+>>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
 
                 document.getElementById("qty").value = "";
 
@@ -594,7 +795,20 @@
                 xhttp.open("GET", "./placeOrder/" + OrderArray, true);
                 xhttp.send();
             }
+<<<<<<< HEAD
         }
+=======
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./placeOrder/"+OrderArray, true);
+        xhttp.send();
+    }
+function getOrderID () {
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+>>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
 
         function getOrderID() {
 

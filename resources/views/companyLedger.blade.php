@@ -187,6 +187,7 @@
     </style>
 </head>
 
+<<<<<<< HEAD
 <body onload="loadFunctions()">
 @include('companyledgerhtml')
 
@@ -226,6 +227,66 @@
     </script>
 
 
+=======
+<body onload="getCompanyLedger()">
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h3>Company Ledger</h3>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="receivingMain">
+
+
+                        <div class="receivingTable" id = "myTableDiv">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row" >
+                <div class="col-md-4">
+                    <label style="width: 185px;" for="">Total Amount</label>
+                    <input type="text" value="127,000,000" name="" id="footerInput">
+                </div>
+                <div class="col-md-4">
+                    <label style="width: 185px;" for="">Amount Paid</label>
+                    <input type="text" value="122,000,000" name="" id="footerInput">
+                </div>
+                <div class="col-md-4">
+              
+                    <label style="width: 185px;" for="">Remaining</label>
+                    <input type="text" value="5,000,000" name="" id="footerInput">
+                    <h4 style="font-size: 16px; font-weight: 600;">Has To Be Paid By MM Motors To JWW </h4>
+
+                
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="Footerbtns">
+<<<<<<< HEAD
+                        <a class="btn" href="#" onclick="myFunction()">Print</a>
+=======
+                        <a class="btn">Print</a>
+>>>>>>> 2104cfd9b2bf8a92d28a8a5c4868e90b2e33f383
+                        <a class="btn" href="#">Export To Pdf</a>
+        
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+      
+        </div>
+    </header>
+>>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
 
     <script>
         function loadFunctions() {
@@ -240,9 +301,17 @@
             var table = document.getElementById("companyLedgerData");
             var sum = 0;
 
+<<<<<<< HEAD
             for (var i = 1; i < table.rows.length; i++) {
                 sum = sum + parseInt(table.rows[i].cells[3].innerHTML);
             }
+=======
+    <script>
+function myFunction() {
+  location.replace("/db")
+}
+</script>
+>>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
 
             document.getElementById("totalAmount").value = sum;
         }
