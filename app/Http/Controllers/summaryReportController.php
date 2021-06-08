@@ -62,198 +62,118 @@ class summaryReportController extends Controller
 
 
     public static function summaryReportTabularBase(){
-       
+        $data=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
+        FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit" group by TransactionCatogery');
+        
+        $total=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
+        FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit"');
+        
         $date1='2020-01-24 ';
-        $date2='2021-05-24 ';
+        $date2='2021-05-24';
 
-    $newHTML='
-    <table border="1">
-    <tr>
-    <td colspan=2>
-    <h1 align="center" style="font-family: Times New Roman, Times, serif; ">Balance Sheet</h1>
-    </td>
+        $table=' 
+        <h4  align="center">From '.$date1.' To From '.$date2.'  </h4>
+        
+        
+        <h3 align="center">Debit</h3> 
+        <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
+       
+        <thead></thead>
+        <tbody>
+             
+            <tr>
+           
+            <td align="center" ><b>Transaction Catogery</b></td>
+            <td align="center" ><b>Amount</b></td>
+         
+            </tr>
+        </tbody>
+        </table> 
+';
+    foreach ($data as $d){
+
+        $table=$table.'
+       
+    <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
+    <thead></thead>
+    <tbody>
+         
+        <tr>
+       
+        <td align="center" >'.$d->TransactionCatogery.'</td>
+        <td align="center" >'.$d->Amount.'</td>
+     
+        </tr>
+        </tbody>
+    </table> 
+
+        ';
+    }
+        $table=$table.' 
+        <h3 align="center">Credit</h3> 
+        <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
+       
+        <thead></thead>
+        <tbody>
+             
+            <tr>
+           
+            <td align="center" ><b>Transaction Catogery</b></td>
+            <td align="center" ><b>Amount</b></td>
+         
+            </tr>
+            </tbody>
+        </table> 
+';
     
-    </tr>
+        $data=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
+        FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit" group by TransactionCatogery');
+              
+    foreach ($data as $d){
+
+        $table=$table.'
+       
+    <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
+    <thead></thead>
+    <tbody>
+         
+        <tr>
+       
+        <td >'.$d->TransactionCatogery.'</td>
+        <td>'.$d->Amount.'</td>
+     
+        </tr>
+        </tbody>
+    </table> 
+
+        '
+        ;
+       
+
     
- </table>
- <br>
- <br><br><br><br><br>
+    }
+    $total=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
+    FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit" ');
 
- <table>
- <tr>
-    <td >
-    <h4  align="center">From '.$date1.' To From '.$date2.'</h4>
-    </td>
-    
-    
-    
-    </tr>
- <tr>
- <td>
- <h2 align="center"  style="font-family: Times New Roman, Times, serif; ">
- Credit</h2>
- </td>
- <td>
- <h2 align="center"  style="font-family: Times New Roman, Times, serif; ">
-
- Debit</h2>
- </td>
- </tr>
- </table>
- <table border="0" CELLSPACING="10">
-
- 
- <tr>
- <td>
- 
- <table border="1" CELLSPACING="1" CELLPADDING="8" style="font-family: Times New Roman, Times, serif; font-size:13px;" >
-
-
- 
-
-
- <tr>
- <td>
- Sales
- </td>
- <td>
- 100000
- </td>
- </tr>
- <tr>
- <td>
- service & Stock
- </td>
- <td>
- 30000
- </td>
- </tr><tr>
- <td>
- Salary Payment
- </td>
- <td>
- 200000
- </td>
- </tr><tr>
- <td>
- 
- </td>
- <td>
- 
- </td>
- </tr>
- <tr>
- <td>
- 
- </td>
- <td>
- 
- </td>
- </tr>
- <tr>
- <td bgcolor=" #C0C0C0">
- Total
- </td>
- <td bgcolor=" #C0C0C0">
- 300000
- </td>
- </tr>
-
- </table>
-
-
-
-
-
-
-
- </td>
- <td>
- <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
- 
- <tr>
- <td>
- Expence
- </td>
- <td>
- 10000
- </td>
- </tr><tr>
- <td>
- Party Payments
-
- </td>
- <td>
- 500000
- </td>
- </tr><tr>
- <td>
- Stock Purchased
- </td>
- <td>
- 300000
- </td>
- </tr>
- <tr>
- <td>
- Transportation Charges
- </td>
- <td>
- 30000
- </td>
- </tr>
- <tr>
- <td>
- Booking Order
- </td>
- <td>
- 30000
- </td>
- </tr>
- <tr>
- <td bgcolor=" #C0C0C0">
- Total
- </td>
- <td bgcolor=" #C0C0C0">
- 3000000
- </td>
- </tr>
-
- </table>
-
-
-
-
-
-
- </td>
- 
- </tr>
-
- </table>
- <br>
- <br>
- <br>
- <br>
+    $table=$table.' 
+    <br>
+ <br><br><br>
     <table>
 <tr>
 <td><h3  style="font-family: Times New Roman, Times, serif; ">
-Blance (profit/loss)_________________________
+Balance (profit/loss)
 </h3></td>
 </tr>
 </table>
-
-
-    ';     // $html= $htmldata;
-
+';
     
     PDF::SetTitle('Request for Invoice');
     PDF::AddPage();
-    PDF::writeHTML($newHTML, true, false, true, false, '');
+    PDF::writeHTML($table, true, false, true, false, '');
 
     PDF::Output('invoiceRequest.pdf');
-
-    }
+    
+}
     public static function summaryReport(){
         $data= self::transactions(null,null);
      //dd($data);

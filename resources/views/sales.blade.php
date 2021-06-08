@@ -1500,7 +1500,7 @@
 
                     for (i; i < a.length; i++) {
                         var PID = a[i].ProductSerial;
-                        var discount = a[i].Discount;
+                        var discount = a[i].DiscountOffered;
                         var quantity = a[i].Quantity;
                         var PerUnitSalePrice = a[i].PerUnitSalePrice;
                         var company = a[i].Company;
