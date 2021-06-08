@@ -5,18 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use PDF;
 use DB;
-
+use Carbon\Carbon;
 class printSalarySlip extends Controller
 {
-    public static function printsalarySlip(){
+    public static function printsalarySlip($id,$adv){
+      $date = Carbon::now()->toDateString();
+      $data = DB::select('select * from vw_employeepay where EID ='.$id);
+      session(['BasicPay' => $data[0]->BasicPay]);
+      session(['Alownces' => $data[0]->Alownces]);
+     
+      session(['ContactNo' => $data[0]->ContactNo]);
+      session(['firstName' => $data[0]->FirstName]);
+      session(['lastName' => $data[0]->LastName]);
+      session(['CNIC' => $data[0]->CNIC]);
+      session(['DesignationID' => $data[0]->DesignationID]);
+      session(['TotalPay' => $data[0]->TotalPay]);
 
-      
-
+      $netTotal=$data[0]->TotalPay-$adv;
       $newHTML='
       <table border="0">
       <tr>
       <td >
-      <h1 align="center">Forland Modren Moters(Company)</h1>
+      <h1 align="center">Forland modern  Motors(Company)</h1>
       </td>
       
       
@@ -24,7 +34,7 @@ class printSalarySlip extends Controller
  
       <tr>
       <td >
-      <h5  align="">Employer Name______________________________</h5>
+      <h5  align="">Employer Name: '.session()->get("firstName").'</h5>
       </td>
       
       
@@ -32,7 +42,7 @@ class printSalarySlip extends Controller
       </tr>
       <tr>
       <td >
-      <h5  align="">Designtion________________________________</h5>
+      <h5  align="">Designation: '.session()->get("DesignationID").'</h5>
       </td>
       
       
@@ -40,7 +50,7 @@ class printSalarySlip extends Controller
       </tr>
       <tr>
       <td >
-      <h5  align="">Month & Year______________________________</h5>
+      <h5  align="">Month & Year: '.$date.'</h5>
       </td>
       
       
@@ -85,18 +95,18 @@ class printSalarySlip extends Controller
    Basic pay
    </td>
    <td>
-   30000
+   '.session()->get("BasicPay").'
    </td>
    </tr><tr>
    <td>
-   Alownces
+   Allowances
    </td>
    <td>
-   300
+   '.session()->get("Alownces").'
    </td>
    </tr><tr>
    <td>
-   bonous
+   Bonus
    </td>
    <td>
    500
@@ -107,7 +117,7 @@ class printSalarySlip extends Controller
    Total
    </td>
    <td>
-   300000
+   '.session()->get("TotalPay").'
    </td>
    </tr>
   
@@ -134,14 +144,14 @@ class printSalarySlip extends Controller
    </td>
    </tr><tr>
    <td>
-   loan
+   Advanced
    </td>
    <td>
-   5000
+   '.$adv.'
    </td>
    </tr><tr>
    <td>
-   late fine
+   Late fine
    </td>
    <td>
    200
@@ -156,10 +166,10 @@ class printSalarySlip extends Controller
    </tr>
    <tr>
    <td>
-   Net ToTal
+   Net Total
    </td>
    <td>
-   300000
+   '.$netTotal.'
    </td>
    </tr>
   
@@ -178,7 +188,7 @@ class printSalarySlip extends Controller
    <br>
       <table>
   <tr>
-  <td><br>
+  <td><br> <br>
   Cheque No___________________________________
   </td>
   </tr>
@@ -197,21 +207,14 @@ class printSalarySlip extends Controller
   <table border="0">
   <tr>
   <td colspan=2>
-  <h1 align="center">Forland Modren Moters(Employee)</h1>
+  <h1 align="center">Forland modern  Motors(Employee)</h1>
   </td>
   
   </tr>
+  
   <tr>
   <td >
-  <h5  align="">Employee Name______________________________</h5>
-  </td>
-  
-  
-  
-  </tr>
-  <tr>
-  <td >
-  <h5  align="">Designtion________________________________</h5>
+  <h5  align="">Employee Name: '.session()->get("firstName").'</h5>
   </td>
   
   
@@ -219,7 +222,15 @@ class printSalarySlip extends Controller
   </tr>
   <tr>
   <td >
-  <h5  align="">Month & Year______________________________</h5>
+  <h5  align="">Designation: '.session()->get("DesignationID").'</h5>
+  </td>
+  
+  
+  
+  </tr>
+  <tr>
+  <td >
+  <h5  align="">Month & Year: '.$date.'</h5>
   </td>
   
   
@@ -230,7 +241,6 @@ class printSalarySlip extends Controller
 
 <br>
 
-<br>
 
 
 <br>
@@ -264,18 +274,18 @@ class printSalarySlip extends Controller
 Basic pay
 </td>
 <td>
-30000
+'.session()->get("BasicPay").'
 </td>
 </tr><tr>
 <td>
-Over time
+Allowances
 </td>
 <td>
-300
+'.session()->get("Alownces").'
 </td>
 </tr><tr>
 <td>
-bonous
+Bonus
 </td>
 <td>
 500
@@ -286,7 +296,7 @@ bonous
 Total
 </td>
 <td>
-300000
+'.session()->get("TotalPay").'
 </td>
 </tr>
 
@@ -313,14 +323,14 @@ Deduction
 </td>
 </tr><tr>
 <td>
-loan
+Advanced
 </td>
 <td>
-5000
+'.$adv.'
 </td>
 </tr><tr>
 <td>
-late fine
+Late fine
 </td>
 <td>
 200
@@ -335,16 +345,14 @@ Tax
 </tr>
 <tr>
 <td>
-Net ToTal
+Net Total
 </td>
 <td>
-300000
+'.$netTotal.'
 </td>
 </tr>
-
-</table>
-
-
+  
+   </table>
 
 
 
@@ -357,7 +365,7 @@ Net ToTal
 <br>
   <table>
 <tr><br>
-<td>
+<td><br>
 Cheque No___________________________________
 </td>
 </tr>

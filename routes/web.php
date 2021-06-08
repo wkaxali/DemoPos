@@ -82,11 +82,14 @@ Route::get('/addUsers/{data}',[userAccountController::class, 'addUsers']);
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
+
 Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliveryLetter']);
 
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
 
-Route::get('/printsse',[printSalarySlip::class, 'printsalarySlip']);
+
+Route::get('/printSalaries/{ID}/{adv}',[printSalarySlip::class, 'printsalarySlip']);
+Route::get('/printsse/{ID}/{adv}',[printSalarySlip::class, 'printsalarySlip']);
 Route::get('/getDocuments',[printDocuments::class, 'getDocuments']);
 Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);

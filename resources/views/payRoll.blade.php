@@ -409,6 +409,7 @@
                                     <input type="text" style="display: inline-block;width: 150px;" class="form-control" id="remarks">
                                     
                                         <button onclick="paySalary()" class="btn">Update</button>
+                                        <button onclick="printSalary()" class="btn">Print Salary</button>
                                 
                                 </div>
                             </div>
@@ -731,7 +732,22 @@
             document.getElementById("amountRemaining").value=amountRemaining;
 
         }
+            function printSalary(){
+                var EID = $('#name').find(":selected").val();
+               var adv= document.getElementById("advance").value;
+                alert(EID);
+                var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function () {
 
+                            if (this.readyState == 4 && this.status == 200) {
+                                window.open('/printsse/'+EID+"/"+adv);
+                            }
+                        };
+                            
+                            xhttp.open("GET", "./printSalaries/"+EID+"/"+adv, true);
+
+                            xhttp.send();
+            }
         function paySalary(){
             amountPaid=document.getElementById("amountPaid").value;
             payable=document.getElementById("payable").innerHTML;
