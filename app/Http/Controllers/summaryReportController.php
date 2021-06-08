@@ -139,8 +139,8 @@ class summaryReportController extends Controller
          
         <tr>
        
-        <td >'.$d->TransactionCatogery.'</td>
-        <td>'.$d->Amount.'</td>
+        <td align="center" >'.$d->TransactionCatogery.'</td>
+        <td align="center" >'.$d->Amount.'</td>
      
         </tr>
         </tbody>
