@@ -75,7 +75,7 @@ class summaryReportController extends Controller
         
         
         <h3 align="center">Debit</h3> 
-        <table style="display: inline-block;" border="1" >
+        <table style="display: inline-block; margin-right:10px" border="1" >
         <thead></thead>
         <tbody>
              
@@ -107,7 +107,7 @@ foreach ($total as $t){
 
         ';
     }
-    $table=$table.' <table style="float: left;" border="1" ><tr><td align="center" ><b>Total</b></td>
+    $table=$table.' <table style="display: inline-block;" border="1" ><tr><td align="center" ><b>Total</b></td>
         <td align="center" >'.$t->Amount.'</td>
         </tr></table> ';
  }
@@ -137,7 +137,7 @@ foreach ($total as $t){
 
         $table=$table.'
        
-        <table style="float: left;" border="1" >
+        <table style="display: inline-block;" border="1" >
         <thead></thead>
     <tbody>
          
@@ -155,7 +155,7 @@ foreach ($total as $t){
 
     
     }
-    $table=$table.' <table style="float: left;" border="1" ><tr><td align="center" ><b>Total</b></td>
+    $table=$table.' <table style="display: inline-block;" border="1" ><tr><td align="center" ><b>Total</b></td>
         <td align="center" >'.$t->Amount.'</td>
         </tr></table> ';
  }
@@ -167,14 +167,14 @@ foreach ($total as $t){
     FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit"');
   foreach ($tcredit as $t){       
     foreach ($tdebit as $d){
-
-
-    $table=$table.' 
+            $debit=$d->Amount;
+            $credit=$t->Amount;
+        $table=$table.' 
             <br><br><br><br>
         <table>
         <tr>
         <td><h3  style="font-family: Times New Roman, Times, serif; ">
-        Balance (profit/loss)= '.$d->Amount/$t->Amount.'
+        Balance (profit/loss)= '.($debit-$credit).'
         </h3></td>
         </tr>
         </table>
