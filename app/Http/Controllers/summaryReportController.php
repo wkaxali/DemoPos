@@ -64,10 +64,9 @@ class summaryReportController extends Controller
     public static function summaryReportTabularBase(){
         $data=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
         FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit" group by TransactionCatogery');
-        
-        $total=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
-        FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit"');
-        
+             $total=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
+             FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit"');
+       
         $date1='2020-01-24 ';
         $date2='2021-05-24';
 
@@ -76,8 +75,7 @@ class summaryReportController extends Controller
         
         
         <h3 align="center">Debit</h3> 
-        <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
-       
+        <table style="display: inline-block;" border="1" >
         <thead></thead>
         <tbody>
              
@@ -90,11 +88,11 @@ class summaryReportController extends Controller
         </tbody>
         </table> 
 ';
+foreach ($total as $t){
     foreach ($data as $d){
 
         $table=$table.'
-       
-    <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
+        <table style="display: inline-block;" border="1" >
     <thead></thead>
     <tbody>
          
@@ -109,10 +107,14 @@ class summaryReportController extends Controller
 
         ';
     }
+    $table=$table.' <table style="float: left;" border="1" ><tr><td align="center" ><b>Total</b></td>
+        <td align="center" >'.$t->Amount.'</td>
+        </tr></table> ';
+ }
+    
         $table=$table.' 
         <h3 align="center">Credit</h3> 
-        <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
-       
+        <table style="display: inline-block;" border="1" >
         <thead></thead>
         <tbody>
              
@@ -120,7 +122,7 @@ class summaryReportController extends Controller
            
             <td align="center" ><b>Transaction Catogery</b></td>
             <td align="center" ><b>Amount</b></td>
-         
+           
             </tr>
             </tbody>
         </table> 
@@ -128,21 +130,22 @@ class summaryReportController extends Controller
     
         $data=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
         FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit" group by TransactionCatogery');
-              
+             $total=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
+             FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit"');
+          foreach ($total as $t){       
     foreach ($data as $d){
 
         $table=$table.'
        
-    <table border="1" CELLSPACING="1" CELLPADDING="7" style="font-family: Times New Roman, Times, sans-serif; font-size:13px;">
-    <thead></thead>
+        <table style="float: left;" border="1" >
+        <thead></thead>
     <tbody>
          
         <tr>
        
         <td align="center" >'.$d->TransactionCatogery.'</td>
-        <td align="center" >'.$d->Amount.'</td>
-     
-        </tr>
+        <td align="center" >'.$d->Amount.'</td></tr>
+        
         </tbody>
     </table> 
 
@@ -152,20 +155,32 @@ class summaryReportController extends Controller
 
     
     }
-    $total=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
-    FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit" ');
+    $table=$table.' <table style="float: left;" border="1" ><tr><td align="center" ><b>Total</b></td>
+        <td align="center" >'.$t->Amount.'</td>
+        </tr></table> ';
+ }
+
+    $tdebit=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
+    FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit"');
+
+    $tcredit=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
+    FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit"');
+  foreach ($tcredit as $t){       
+    foreach ($tdebit as $d){
+
 
     $table=$table.' 
-    <br>
- <br><br><br>
-    <table>
-<tr>
-<td><h3  style="font-family: Times New Roman, Times, serif; ">
-Balance (profit/loss)
-</h3></td>
-</tr>
-</table>
-';
+            <br><br><br><br>
+        <table>
+        <tr>
+        <td><h3  style="font-family: Times New Roman, Times, serif; ">
+        Balance (profit/loss)= '.$d->Amount/$t->Amount.'
+        </h3></td>
+        </tr>
+        </table>
+        ';
+     }
+    }
     
     PDF::SetTitle('Request for Invoice');
     PDF::AddPage();
