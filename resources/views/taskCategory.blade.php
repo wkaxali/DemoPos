@@ -166,7 +166,7 @@
                                             placeholder="Task Categorey">
                                     </div>
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" class="btn  create-account" onclick="addTaskCategory()">Add Expense Head</button>
+                                        <button type="button" class="btn  create-account" onclick="addTaskCategory()">Add Category</button>
                                     </div>
 
 
@@ -198,13 +198,9 @@
     <script>
         function addTaskCategory() {
 
-            var tCat = document.getElementById("taskCategorey").value;
+            var data = document.getElementById("taskCategorey").value;
             
-            
-            var TC = [tCat];
-
-            var data = JSON.stringify(TC);
-            alert(data);
+    
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {

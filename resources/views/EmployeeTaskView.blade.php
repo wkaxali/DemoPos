@@ -576,7 +576,7 @@
     </style>
 </head>
 
-<body onload="getEmployeeData()">
+<body onload="loadHeads()">
 
 
     <div class="page-container">
@@ -615,7 +615,16 @@
                                     <div id="AllSubTasks"></div>
 
                                     <br>
+                                    <div class="col-md-12">
+                                            <label for="">Due Date</label>
+                                            <input  readonly type="date" placeholder="Last Comment" class="form-control"
+                                                style="height: 100%; width: 100%; resize: none;"
+                                                id="showDueDate">
+                                            
+
+                                        </div>
                                     <div class="row">
+                                        
                                         <div class="col-md-12">
                                             <label for="">Last Comment</label>
                                             <textarea name="" placeholder="Last Comment" class="form-control"
@@ -645,22 +654,22 @@
                                         <div class="col-md-12">
                                         
                                             <input type="text" placeholder="Task" class="form-control" name=""
-                                                id="dateValue" style="display:none">
+                                                id="updateDateValue" style="display:none">
                                             <label for="">Due On</label><br>
                                             <div class="btn-group" id="groupButtons" role="group"
                                                 aria-label="Basic example">
-                                                <button onclick="GetDates()" type="button" id="Today"
+                                                <button onclick="GetDates(2)" type="button" id="Today"
                                                     style="background-color: #ffffff; border: 1px solid #aaa;"
                                                     class="btn ">Today</button>
-                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                <button onclick="TomorrowDate(2)" type="button" id="Tomorrow"
                                                     style="background-color: #ffffff; border: 1px solid #aaa;"
                                                     class="btn ">Tomorrow</button>
                                                 <button type="button" id="Date"
                                                     style="background-color: #ffffff; border: 1px solid #aaa;"
-                                                    class="btn "><input class="hello" onchange="customDate()"
+                                                    class="btn "><input class="hello" onchange="customDate(2)"
                                                         type="date"
                                                         style="background: none !important; width:103px; border: none !important;"
-                                                        name="" id="date"></button>
+                                                        name="" id="customDate2"></button>
 
                                             </div>
                                         </div>
@@ -684,12 +693,11 @@
 
             <div class="container mainMarg">
                 <div class="row">
-                    <div class="col-md-4">
-
-                        <label for="">Employee ID</label><br>
+                    <div class="col-md-4" id= "hideEmp">
+                        
+                        <label for="" id="employeeLabel">Employees</label><br>
                         <select 
-                            class="selectpicker form-control" data-live-search="true" id="employee"
-                            onchange="searchEmployeeData()">
+                            class="selectpicker form-control" data-live-search="true" id="employee" onchange="searchEmployeeData()">
 
                         </select>
                     </div>
@@ -698,7 +706,7 @@
                         <select 
                             class="selectpicker form-control" data-live-search="true" id="status"
                             onchange="searchTaskWithStatus()">
-                            <option value=" "></option>
+                            <option value="0"></option>
                             <option value="Pending">Pending</option>
                             <option value="Completed">Completed</option>
                         </select>
@@ -786,15 +794,15 @@
                                                     <label for="">Due On</label><br>
                                                     <div class="btn-group" id="groupButtons" role="group"
                                                         aria-label="Basic example">
-                                                        <button onclick="GetDates()" type="button" id="Today"
+                                                        <button onclick="GetDates(1)" type="button" id="Today"
                                                             style="background-color:  #ffffff; border: 1px solid #aaa;"
                                                             class="btn ">Today</button>
-                                                        <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                        <button onclick="TomorrowDate(1)" type="button" id="Tomorrow"
                                                             style="background-color:  #ffffff; border: 1px solid #aaa;"
                                                             class="btn ">Tomorrow</button>
                                                         <button type="button" id="Date"
                                                             style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                                            class="btn "><input class="hello" onchange="customDate()"
+                                                            class="btn "><input class="hello" onchange="customDate(1)"
                                                                 type="date"
                                                                 style="background: none !important; width:103px; border: none !important;"
                                                                 name="" id="customDate"></button>
@@ -998,11 +1006,6 @@
 
 
     <script>
-        $(document).ready(function () {
-            $(".card").click(function () {
-                $('#myModal').modal('show')
-            })
-        })
 
         function updateEmployeeStatus() {
             var employeeID = [document.getElementById("employeeID").value];
@@ -1036,21 +1039,20 @@
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./updateTaskStatus/" + status, true);
 
             xhttp.send();
-            loadEmployees();
+            
         }
 
 
         function updateAdminStatus() {
             var employeeID = ('{{ Session::get('EmpID')}}');
-            alert(employeeID);
             var mainTaskID = document.getElementById("mainTaskID").value;
             var comment = document.getElementById("comment").value;
             var status = document.getElementById("adminStatus").value;
-            var date = document.getElementById("dateValue").value;
+            var date = document.getElementById("updateDateValue").value;
             var adminStatus = [
                 [employeeID],
                 [mainTaskID],
@@ -1060,7 +1062,7 @@
             ];
             
             var status = JSON.stringify(adminStatus);
-            alert(status);
+           
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1071,7 +1073,7 @@
 
                 }
             };
-            //alert("ljd");
+           
             xhttp.open("GET", "./updateAdminStatus/" + status, true);
 
             xhttp.send();
@@ -1080,7 +1082,7 @@
 
         function loadTaskDetails(taskID) {
 
-            // alert(taskID);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1091,6 +1093,8 @@
                     document.getElementById("mainTaskID").value = a[0].TaskID;
                     document.getElementById("employeeID").value = a[0].EID;
                     document.getElementById("comment").value = a[0].Comment;
+                    document.getElementById("showDueDate").value = a[0].DueDate;
+                    
                     
                     a[0].TaskID;
                     a[0].STaskID;
@@ -1164,7 +1168,7 @@
 
             }
 
-            //alert("ljd");
+           
             xhttp.open("GET", "./loadTaskDetails/" + taskID, true);
 
             xhttp.send();
@@ -1206,6 +1210,7 @@
     </script>
     <script>
         function getEmployeeData() {
+            
             var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1213,37 +1218,38 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     document.getElementById("cardsCanvas").innerHTML = this.responseText;
-
-
                 }
             };
-            //alert("ljd");
+           
             xhttp.open("GET", "./getEmployeeData/", true);
 
             xhttp.send();
-            loadEmployees();
-            displayOptions();
-            loadCategory();
-            loadEmployeesMainPage();
-            adminUserFunctions();
-
+        
         }
 
         function adminUserFunctions(){
             var userCategory = ('{{ Session::get('Designation')}}');
             var EmpID=('{{ Session::get('EmpID')}}');
+            
             if(userCategory=="User"){
             document.getElementById("movetop").style.display = "none";
             }
         }
 
         function displayOptions() {
-            var userCategor = ('{{ Session::get('
-                EMPID ')}}');
-
-            if (userCategor == 2) {
-
-
+            var userCategor = ('{{ Session::get('Designation')}}');
+            var EID = ('{{ Session::get('EmpID')}}');
+            if (userCategor == "User") {
+                // document.getElementById("employee").style.display="none";
+                // document.getElementById("employeeLabel").style.display="none";
+                $('#employee').val(EID);
+                $('#employee').selectpicker('refresh');
+                document.getElementById("hideEmp").style.display = "none";
+                searchEmployeeData(EID);
+                
+            }if (userCategor == "Admin") {
+                document.getElementById("employee").style.display="block";
+                getEmployeeData();
             }
 
 
@@ -1251,29 +1257,31 @@
 
         function searchEmployeeData() {
             var employeeID = document.getElementById("employee").value;
+            //alert(employeeID);
             var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
-
                     document.getElementById("cardsCanvas").innerHTML = "";
                     document.getElementById("cardsCanvas").innerHTML = this.responseText;
-
-
                 }
+                //alert(employeeID);
             };
-            //alert("ljd");
-            xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
-
-            xhttp.send();
+            if(employeeID==""){
+                getEmployeeData();
+                
+            }else{
+                xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
+                xhttp.send();
+            }
+            
         }
 
         function searchTaskWithStatus() {
             var employeeID = document.getElementById("employee").value;
             var employeeName = $('#employee').find(":selected").text();
             var status = document.getElementById("status").value;
-
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1285,17 +1293,30 @@
 
                 }
             };
-            //alert("ljd");
-            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
-
-            xhttp.send();
+            
+            if(employeeID==""){
+                employeeID="All";
+                employeeName="AllNames";
+            }
+            if(status=="0" && employeeID=="All"){
+                getEmployeeData();
+                alert("Hola!")
+            }
+            if(status=="0" && employeeID!="All"){
+                searchEmployeeData();
+            }
+            if(status!="0"){
+                xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
+                xhttp.send();
+            }
+            
         }
 
         function searchTaskWithDate() {
             var employeeID = document.getElementById("employee").value;
             var employeeName = $('#employee').find(":selected").text();
             var date = document.getElementById("taskDate").value;
-            alert(date);
+            
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1308,7 +1329,7 @@
 
                 }
             };
-            //alert("ljd");
+           
             xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + date + "/" + employeeName, true);
 
             xhttp.send();
@@ -1327,7 +1348,7 @@
 
 
             document.getElementById("mess-r").appendChild(newDiv);
-            //   alert(msg);
+       
 
         }
 
@@ -1356,18 +1377,22 @@
 
     </script>
     <script>
-        function GetDates() {
+        function GetDates(data) {
             var dateFull = new Date();
             y = dateFull.getFullYear();
             m = dateFull.getMonth() + 1;
             d = dateFull.getDate()
             date = y + '-' + m + '-' + d;
-            alert(date);
-            document.getElementById("dateValue").value = date
-
+            if(data==1){
+                document.getElementById("dateValue").value = date
+                alert(date+"New Task");
+            }else{
+                document.getElementById("updateDateValue").value = date
+                alert(date+"Task View");
+            }
         }
 
-        function TomorrowDate() {
+        function TomorrowDate(data) {
             const today = new Date()
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
@@ -1375,16 +1400,25 @@
             m = tomorrow.getMonth() + 1;
             d = tomorrow.getDate()
             date = y + '-' + m + '-' + d;
-            alert(date);
-            document.getElementById("dateValue").value = date;
-
+            if(data==1){
+                document.getElementById("dateValue").value = date
+                alert(date+"New Task");
+            }else{
+                document.getElementById("updateDateValue").value = date
+                alert(date+"Task View");
+            }
         }
 
-        function customDate() {
-            var custumDate = document.getElementById("customDate").value;
-            document.getElementById("dateValue").value = custumDate;
-            alert(custumDate);
-
+        function customDate(data) {
+            if(data==1){
+                var custumDate = document.getElementById("customDate").value;
+                document.getElementById("dateValue").value = custumDate;
+                alert(custumDate+" New Task");
+            }else{
+                var custumDate = document.getElementById("customDate2").value;
+                document.getElementById("updateDateValue").value = custumDate
+                alert(custumDate+" Task View");
+            }
         }
 
         function loadEmployees() {
@@ -1395,10 +1429,11 @@
 
                     document.getElementById("employee").innerHTML = this.response;
                     $('#employee').selectpicker('refresh');
+                    displayOptions();
                     
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployees/", true);
 
             xhttp.send();
@@ -1454,48 +1489,48 @@
             document.getElementById("priority").value = "Easily"
         }
 
-        function GetDates() {
-            var dateFull = new Date();
-            y = dateFull.getFullYear();
-            m = dateFull.getMonth() + 1;
-            d = dateFull.getDate()
-            date = y + '-' + m + '-' + d;
-            alert(date);
-            document.getElementById("dateValue").value = date
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = date;
+        // function GetDates() {
+        //     var dateFull = new Date();
+        //     y = dateFull.getFullYear();
+        //     m = dateFull.getMonth() + 1;
+        //     d = dateFull.getDate()
+        //     date = y + '-' + m + '-' + d;
+           
+        //     document.getElementById("dateValue").value = date
+        //     var mainValue = document.getElementById("changeme");
+        //     mainValue.value = date;
 
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = tomorrow;
-        }
+        //     var mainValue = document.getElementById("changeme");
+        //     mainValue.value = tomorrow;
+        // }
 
-        function customDate() {
-            var custumDate = document.getElementById("customDate").value;
-            alert(custumDate);
-        }
+        // function customDate() {
+        //     var custumDate = document.getElementById("customDate").value;
+           
+        // }
 
 
-        function TomorrowDate() {
-            const today = new Date()
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            y = tomorrow.getFullYear();
-            m = tomorrow.getMonth() + 1;
-            d = tomorrow.getDate()
-            date = y + '-' + m + '-' + d;
-            alert(date);
-            document.getElementById("dateValue").value = date;
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = date;
+        // function TomorrowDate() {
+        //     const today = new Date()
+        //     const tomorrow = new Date(today);
+        //     tomorrow.setDate(tomorrow.getDate() + 1);
+        //     y = tomorrow.getFullYear();
+        //     m = tomorrow.getMonth() + 1;
+        //     d = tomorrow.getDate()
+        //     date = y + '-' + m + '-' + d;
+           
+        //     document.getElementById("dateValue").value = date;
+        //     var mainValue = document.getElementById("changeme");
+        //     mainValue.value = date;
 
-        }
+        // }
 
-        function customDate() {
-            var custumDate = document.getElementById("customDate").value;
-            document.getElementById("dateValue").value = custumDate;
-            alert(custumDate);
+        // function customDate() {
+        //     var custumDate = document.getElementById("customDate").value;
+        //     document.getElementById("dateValue").value = custumDate;
+          
 
-        }
+        // }
 
     </script>
 
@@ -1510,7 +1545,7 @@
     <script>
         function RemoveThisRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
-            //alert(i);
+            
             document.getElementById("subTasks").deleteRow(i);
         }
 
@@ -1541,10 +1576,11 @@
 
         function loadHeads() {
             document.getElementById("dateValue").style.display = "none";
-            document.getElementById("priority").style.display = "none";
+            document.getElementById("priority").style.display = "none";      
             loadEmployees();
-            
             loadCategory();
+            loadEmployeesMainPage();
+            adminUserFunctions();
         }
 
         function addTasks() {
@@ -1559,7 +1595,7 @@
             var taskDetails = [];
             var OverallTask = [];
 
-            //alert(sp);
+           
             $('#subTasks tr').each(function (row, tr) {
                 taskDetails[row] = [
                     $(tr).find('td:eq(1) input[type="text"]').val(), //Amount
@@ -1569,7 +1605,7 @@
 
             OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority];
             var taskTable = JSON.stringify(OverallTask);
-            alert(taskTable);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -1595,7 +1631,7 @@
                     $('#assignTo').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployees/", true);
 
             xhttp.send();
@@ -1613,7 +1649,7 @@
                     $('#category').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+         
             xhttp.open("GET", "./getCategory/", true);
 
             xhttp.send();

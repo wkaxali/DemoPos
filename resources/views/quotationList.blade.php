@@ -141,7 +141,7 @@
 
 
         function printQuotation(QID) {
-            alert(QID);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -165,10 +165,11 @@
             //                                     <input type="text" name="phone_number" id="paymentTo" placeholder="Payment To"
             //                                     required />
             var customerName = document.getElementById("customerName").value;
+            customerName = customerName.replace("/", '|'); 
             var fatherName = "";
             var CNIC = "";
             var city = "";
-            
+            var address = document.getElementById("address").value;
             var description = document.getElementById("description").value;
             var color = document.getElementById("color").value;
             var unitPrice = document.getElementById("unitPrice").value;
@@ -179,12 +180,12 @@
             var qvt = document.getElementById("qvt").value;
             var payTo = document.getElementById("paymentTo").value;
 
-            var data = [customerName, fatherName, CNIC, city, "address", "contact", description, color, unitPrice, quantity,
+            var data = [customerName, fatherName, CNIC, city, address, "contact", description, color, unitPrice, quantity,
                 totalPrice, model, det, qvt, payTo
             ];
 
             var quotationData = JSON.stringify(data);
-            alert(data);
+            
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function () {
@@ -193,7 +194,7 @@
                     alert("Quotation =" + this.responseText + " is generated");
 
                     
-                    window.open("/testpdf/5");
+                    window.open("/printq");
 
 
                 }

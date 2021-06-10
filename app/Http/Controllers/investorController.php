@@ -37,6 +37,13 @@ class investorController extends Controller
       'SelfProfitRatio'=>$selfProfitRatio,
       'Status'=>"Pending"
       ]);
+
+      $pid = DB::table('instock')
+        ->where('ProductSerial', $PID)
+        ->update([
+          'Status'=>'Assigned'
+          ]);
+          
       $totalProfit=$totalProfit+$investorProfit;
       
     }
@@ -84,6 +91,7 @@ class investorController extends Controller
         'OurProfitRatio'=>$selfRatio,
         'InvestorProfitRatio'=>$investorRatio
         ]);
+      
         return $id;
 }
 
@@ -135,7 +143,7 @@ foreach ($data as $d){
     <tr>
     <td>'.$d->ProductID.'</td>
     <td>'.$d->ProductName.'</td>
-    <td>'.$d->TotalSaleAmount.'</td>
+    <td>'.$d->PerUnitSalePrice.'</td>
     <td>'.$d->TotalCost.'</td>
     <td>'.$d->totalProfit.'</td>
     <td>'.$d->SelfProfit.'</td>
@@ -152,6 +160,11 @@ return $table;
 
 
 
+}
+
+public static function getInvestorReceivedAmount(Request $request, $LID){
+  $SUM=DB::select('select sum(Amount) as SUM from tbltransactionflow where TransactionCatogery = "Payment" and PaidTo ='.$LID);
+  return $SUM;
 }
 
 }

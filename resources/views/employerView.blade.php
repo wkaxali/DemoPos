@@ -632,7 +632,7 @@
             m = dateFull.getMonth() + 1;
             d = dateFull.getDate()
             date = y + '-' + m + '-' + d;
-            alert(date);
+            
             document.getElementById("dateValue").value = date
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
@@ -643,7 +643,7 @@
 
         function customDate() {
             var custumDate = document.getElementById("date").value;
-            alert(custumDate);
+           
         }
 
 
@@ -655,7 +655,7 @@
             m = tomorrow.getMonth() + 1;
             d = tomorrow.getDate()
             date = y + '-' + m + '-' + d;
-            alert(date);
+          
             document.getElementById("dateValue").value = date;
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
@@ -665,7 +665,7 @@
         function customDate() {
             var custumDate = document.getElementById("date").value;
             document.getElementById("dateValue").value = custumDate;
-            alert(custumDate);
+            
 
         }
 
@@ -682,7 +682,7 @@
     <script>
         function RemoveThisRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
-            //alert(i);
+            
             document.getElementById("subTasks").deleteRow(i);
         }
 
@@ -730,7 +730,7 @@
             var taskDetails = [];
             var OverallTask = [];
 
-            //alert(sp);
+            
             $('#subTasks tr').each(function (row, tr) {
                 taskDetails[row] = [
                     $(tr).find('td:eq(1) input[type="text"]').val(), //Amount
@@ -766,7 +766,7 @@
                     $('#assignTo').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployees/", true);
 
             xhttp.send();
@@ -784,7 +784,7 @@
                     $('#category').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getCategory/", true);
 
             xhttp.send();

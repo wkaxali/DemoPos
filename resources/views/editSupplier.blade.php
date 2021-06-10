@@ -137,7 +137,7 @@ function searchRawMatirial() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        var data =   this.responseText;
-       //alert(data);
+      
        var table;
        var a=JSON.parse(data);
        
@@ -173,19 +173,19 @@ $("#stocktable").on('click','tr',function(){
 function editSupplier() {
     
     var SID = document.getElementById("supplierID").value;
-    //alert("updated  "+PID);
+    
     var suppliertName = document.getElementById("supplierName").value;
-    //alert("updated  "+productName);
+    
     var balance = document.getElementById("balance").value;
-    //alert("updated  "+company);
+    
     var contact = document.getElementById("contact").value;
-    //alert("updated "+salePrice);
+    
     var address = document.getElementById("address").value;
-    //alert("updated  "+purchasePrice);
+  
     var initialInvestment = document.getElementById("initialInvestment").value;
     
     var UpdateSupplier = [SID, suppliertName, balance, contact, address, initialInvestment];
-    // alert(UpdateSupplier);
+ 
 
     var ES = JSON.stringify(UpdateSupplier);
             
@@ -198,7 +198,7 @@ function editSupplier() {
 
                 }
             };
-            // alert(ES);
+          
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./editSupplier/" + ES, true);
             xhttp.send();

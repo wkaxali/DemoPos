@@ -22,6 +22,7 @@ class AdditionalTaxesAndCommissionsController extends Controller
         'Remarks'=>$Remarks,
         'CPercent'=>$CPercent,
         'percentOfAmount'=>$POA
+
         ]);
        
         // TransactionFlow:: addTransaction(NULL,"Credit",$CPName,$amount,$dateHere,
@@ -40,7 +41,9 @@ return $CID;
         // $(tr).find('td:eq(1)').text(), //Amount
         // $(tr).find('td:eq(2)').text(), //Remarks
         // $(tr).find('td:eq(4)').text() //ComID
-        $dateNow= Carbon::now()->toDateTimeString();
+        
+    $dateNow = Carbon::now()->toDateTimeString();
+    //$dateNow =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
         $Array=json_decode($data);
         $PID=$Array[0];
         $AID=$Array[1];
@@ -50,11 +53,12 @@ return $CID;
             $amp=$item[1];
        self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Cost",$PID,NULL,NULL,
     $dateNow);
-        $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+        $LID=globalVarriablesController::selfLedgerID();
+        $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
         $selfBalance=$oldSelfBalance-$item[1];
-        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+        LedgerPartiesController::UpdatePartiesBalance($LID, $selfBalance);
         $totCostHere=floatval($totCostHere)+floatval($item[1]);
-         TransactionFlow:: addTransaction(NULL,"Credit",$item[0],$item[1],$dateNow,
+         TransactionFlow:: addTransaction(NULL,"Debit",$item[0],$item[1],$dateNow,
         "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null);
         $OldAccBalance=accountsController::getAccountBalance($AID);
         $newAccountBalance=floatval($OldAccBalance)-floatval($amp);
@@ -80,9 +84,9 @@ return $CID;
 
     }
     public function AddTaxOrCommissionPositive(Request $request,$data){
-
         
-        $dateNow= Carbon::now()->toDateTimeString();
+    $dateNow = Carbon::now()->toDateTimeString();
+    //$dateNow =  Carbon::createFromFormat('Y-m-d H:i:s', $dateRaw)->format('d-F-Y H:i:s');
         $Array=json_decode($data);
         $PID=$Array[0];
         $TotalSaleAmount=0;
@@ -91,11 +95,12 @@ return $CID;
             $amp=$item[1];
        self:: AddTaxOrComminssion ( $item[0],$item[1],$item[2],"Profit",$PID,NULL,NULL,
     $dateNow);
-        $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+        $LID=globalVarriablesController::selfLedgerID();
+        $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
         $selfBalance=$oldSelfBalance+$item[1];
-        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+        LedgerPartiesController::UpdatePartiesBalance($LID, $selfBalance);
         $TotalSaleAmount=floatval($TotalSaleAmount)+floatval($item[1]);
-         TransactionFlow:: addTransaction(NULL,"Debit",$item[0],$item[1],$dateNow,
+         TransactionFlow:: addTransaction(NULL,"Credit",$item[0],$item[1],$dateNow,
         "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null);
         $OldAccBalance=accountsController::getAccountBalance($AID);
         $newAccountBalance=floatval($OldAccBalance)+floatval($amp);

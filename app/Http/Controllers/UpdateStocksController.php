@@ -23,12 +23,14 @@ class UpdateStocksController extends Controller
          $EngineNumber=$oneProduct[3];
         $TransportCharges =$oneProduct[4];
          $status=$oneProduct[5];
-         $dateNow= Carbon::now()->toDateTimeString();
+         $dateNow = Carbon::now()->toDateString();
+      //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+   
         
    
 
 
-      $LID=2;
+      $LID=globalVarriablesController::selfLedgerID();
       $oldBalance= LedgerPartiesController::getPartyBalance($LID);
       $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
       LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
@@ -36,8 +38,8 @@ class UpdateStocksController extends Controller
             $paidVia=$AID;
        $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
         $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
-            TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Transportation Charges',$TransportCharges,$dateNow,
-            "1",null,null,NULL,null,NULL,NULL,NULL,NULL,$paidVia,$CID);
+            TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
+            "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,$CID);
             $AID=$paidVia;//This needs o be changed in production
             $OldAccBalance=accountsController::getAccountBalance($AID);
             $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
@@ -79,7 +81,7 @@ class UpdateStocksController extends Controller
          //->format('Y-m-d h:iA');
         // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
  
-        return ".";
+        return $AID;
        
 
 
@@ -185,12 +187,8 @@ public function UpdateInStock(Request $request,$CO){
   $salePrice=$obj[3];
   $purchasePrice=$obj[4];
   $stockIn=$obj[5];
-  $color=$obj[6];
-  $engineNumber=$obj[7];
-  $chasisNumber=$obj[8];
-  $status=$obj[5];
   
-  self :: updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status);
+  self :: updateProducts($PID, $company, $productName, $stockIn, $salePrice, $purchasePrice);
   return $obj;
  //return "Getting from controller".$obj[0];
 
@@ -204,15 +202,12 @@ public function UpdateInStock(Request $request,$CO){
 
 }
 
-public static function updateProducts($PID, $company, $engineNumber, $chasisNumber, $productName, $stockIn, $color, $salePrice, $purchasePrice, $status){
+public static function updateProducts($PID, $company, $productName, $stockIn, $salePrice, $purchasePrice){
 
   DB::table('productdefination')
   ->where('ProductSerial', $PID)
   ->update([
     'Company'=>$company,
-    'color'=>$color,
-    'EngineNumber'=>$engineNumber,
-    'ChasisNumber'=>$chasisNumber,
     'ProductName'=>$productName
     ]);
 
@@ -220,7 +215,6 @@ public static function updateProducts($PID, $company, $engineNumber, $chasisNumb
   ->where('StockID', $PID)
   ->update([
     'StockIn'=>$stockIn,
-    // 'Status'=>$status,
     'PerUnitSalePrice'=>$salePrice,
     'PerUnitPurchasePrice'=>$purchasePrice
     ]);
@@ -246,15 +240,15 @@ public static function editAutoModels(Request $request, $CO){
   $MID = $ata[0];
   $company = $ata[1];
   $modelname = $ata[2];
-  $productcategory = $ata[3];
+  $description = $ata[3];
   $price = $ata[4];
-
+  
   $re = DB::table('tbl_auto_models')
   ->where('ModelID', $MID)
   ->update([
    'Company'=>$company,
     'ModelName'=>$modelname,
-    'ProductCategory'=>$productcategory,
+    'Description'=>$description,
     'Price'=>$price 
     ]);
 
@@ -266,14 +260,15 @@ public static function editAutoModels(Request $request, $CO){
     $ata=json_decode($CO);
     $company = $ata[0];
     $modelname = $ata[1];
-    $productcategory = $ata[2];
-    $price = $ata[3];
-
+    $price = $ata[2];
+    $description = $ata[3];
+    
     $tid=DB::table('tbl_auto_models')->insertGetId([
       'Company'=>$company,
       'ModelName'=>$modelname,
-      'ProductCategory'=>$productcategory,
-      'Price'=>$price
+      'ProductCategory'=>1,
+      'Price'=>$price,
+      'Description'=>$description
       ]);       
   return $tid;
   }

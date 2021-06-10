@@ -89,24 +89,24 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     var data = this.responseText;
-                    //alert(data);
+                    
                     var table;
                     var a = JSON.parse(data);
-                    //  alert(a[0].ProductSerial);
+                    
                     table = $('#myTable').DataTable();
 
                     $.each(a, function (i, item) {
 
                         table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i]
-                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StatusInStock, a[i]
-                            .EngineNumber, a[i].ChasisNumber
+                            .PerUnitSalePrice, a[i].PerUnitPurchasePrice,
+                            a[i].StockIn
                         ]);
                     });
                     table.draw();
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./spareParts/", true);
 
             xhttp.send();

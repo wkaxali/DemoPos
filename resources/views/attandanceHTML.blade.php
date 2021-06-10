@@ -188,7 +188,7 @@
     </style>
 </head>
 
-<body onload="myFunction()">
+<body onload="loadEmployeeNames()">
     <div class="page-container">
 
         <div class="left-content">
@@ -218,10 +218,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6 offset-md-3">
-                                <label style="width: 200px;" for="">Employee ID</label>
-                                <input type="text" class="form-control"
-                                    style="display: inline-block; width: 200px; margin: 5px 0px;" name=""
-                                    id="employeeID">
+                                <label style="width: 200px;" for="">Employees</label>
+                                    <select 
+                                        class="selectpicker form-control" data-live-search="true" id="name">
+
+                                    </select>
                                 <br>
                                 <label style="width: 200px;" for="">Password</label>
                                 <input type="text" class="form-control" style="display: inline-block; width: 200px;"

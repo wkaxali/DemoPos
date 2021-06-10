@@ -86,7 +86,7 @@
                                     <th>Contact No</th>
                                     <th>Home Address</th>
                                     <th>Email ID</th>
-                                    <th>Designation ID</th>
+                                    <th>Designation</th>
                                     <th>JoiningDate</th>
 
                                 </tr>
@@ -101,7 +101,7 @@
                 <div class="col-md-4 stockLabels">
                     <div class="input-field">
                         <label for="status">Employee ID</label>
-                        <input type="text" autocomplete="OFF" class="form-control"
+                        <input readonly autocomplete="OFF" class="form-control"
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
                             id="EID">
                     </div>
@@ -145,13 +145,14 @@
                             style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
                             id="email">
                     </div>
-
-                    <div class="input-field">
-                        <label for="status">Designation</label>
-                        <input type="text" autocomplete="OFF" class="form-control"
-                            style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-                            id="designation">
-                    </div>
+                    <label for="status">Designation</label>
+                    <select  class="selectpicker form-control"
+                          data-live-search="true" id="designation"  style=" width: 183px;" >
+                          <option value="Accountant">Accountant</option>
+                          <option value="Employee">Employee</option>
+                          <option value="Admin">Admin</option>
+                                       
+                     </select> 
 
                     <div class="input-field">
                         <label for="status">Joining Date</label>
@@ -198,7 +199,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     var data = this.responseText;
-                    //alert(data);
+                    
                     var table;
                     var a = JSON.parse(data);
 
@@ -207,7 +208,7 @@
                     $.each(a, function (i, item) {
 
                         table.row.add([a[i].EID, a[i].FirstName, a[i].LastName, a[i].CNIC, a[i].ContactNo,
-                            a[i].HomeAddress, a[i].EmailID, a[i].DesignationID, a[i].JoiningDate
+                            a[i].HomeAddress, a[i].EmailID, a[i].Designation, a[i].JoiningDate
                         ]);
                     });
                     table.draw();
@@ -247,13 +248,16 @@
             var contact = document.getElementById("contact").value;
             var address = document.getElementById("address").value;
             var email = document.getElementById("email").value;
-            var designation = document.getElementById("designation").value;
-            var date = document.getElementById("date").value;
+            var des = document.getElementById("designation");
+            var designation = des.options[des.selectedIndex].text;
+            
 
+            var date = document.getElementById("date").value;
+            
             var updateEmployee = [EID, firstName, lastName, CNIC, contact, address, email, designation, date];
 
             var UE = JSON.stringify(updateEmployee);
-            alert(UE);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {

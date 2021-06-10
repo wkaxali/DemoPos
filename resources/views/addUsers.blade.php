@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
-
+<title>Add Users</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -171,20 +171,20 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" autocomplete="OFF" id="Password"
-                                            placeholder="Password">
+                                            placeholder="Password" >
                                     </div>
                                     <div class="form-group">
 
                                         <select name="" class="form-control item" id="designation">
-                                            <option value="0">Admin</option>
-                                            <option value="1">Manager</option>
-                                            <option value="1">Employee</option>
+                                            <option value="1">Admin</option>
+                                            <option value="2">Manager</option>
+                                            <option value="3">Employee</option>
                                         </select>
                                     </div>
 
 
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" id="addUsers" onclick="addUsers()"
+                                        <button type="button" id="addUsers" onclick="addNewUser()"
                                             class="btn  create-account">Add</button>
                                     </div>
 
@@ -207,18 +207,21 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function addUsers() {
+    function addNewUser() {
+        var Username = document.getElementById("UserName").value;
 
+        var password = document.getElementById("Password").value;
+        
+        var designation = $('#designation').find(":selected").text();
 
-            var Username = document.getElementById("UserName").value;
-            var password = document.getElementById("Password").value;
-            var designation = document.getElementById("designation").value;
+        var addUsers = [Username, password, designation];
 
-            var addUsers = [Username, password, designation];
-
-            var AU = JSON.stringify(addUsers);
-            alert(AU);
-            var xhttp = new XMLHttpRequest();
+        if(Username=="" || password==""){
+            alert("Fill in all Fields")
+        }else{
+        var AU = JSON.stringify(addUsers);
+        alert(AU)
+        var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
@@ -229,11 +232,13 @@
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addUsers/" + AU, true);
-            xhttp.send();
+            xhttp.open("GET", "./addUsers/" + AU, true)
+            xhttp.send()
 
         }
+    }
 
+    
     </script>
 </body>
 

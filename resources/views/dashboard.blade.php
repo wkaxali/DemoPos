@@ -7,6 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Forland Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script type="application/x-javascript">
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
@@ -17,15 +19,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         }
 
     </script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-    </script>
+    
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
 
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
@@ -377,6 +379,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         label {
             color: #000 !important;
         }
+        @media only screen and (max-width: 768px) {
+    .mainParent{
+display: block !important;
+    }
+}
 
     </style>
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
@@ -388,6 +395,142 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
     @include('dashboardhtml')
+
+<script src="https://cdn.plot.ly/plotly-2.0.0-rc.3.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script>
+function gauge(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            var d = JSON.parse(this.responseText);
+            var colCount = 4;
+            var column = 0;
+            var row = 0;
+            var width = 250;
+            var height = 200;
+            data = [];
+        
+            for(i = 0; i < d.length; i++){
+                name = d[i][0];
+                progress = d[i][1];
+
+                var element = {
+                    type: "indicator",
+                    value: progress,
+                    delta: { reference: 100 },
+                    title: { text: name },
+                    gauge: { axis: { visible: false, range: [0, 100] } },
+                    domain: { row: row, column: column }
+                };
+                //colCount += 1;
+                column += 1;
+                //width += 300;
+                data.push(element);
+                
+                if((i+1) % colCount == 0){
+                    height += 200;
+                    row += 1;
+                    column = 0;
+                }
+            }
+            
+            var layout = {
+            width: width*colCount,
+            height: height,
+            margin: { t: 50, b: 25, l: 25, r: 25 },
+            grid: { rows: row + 1, columns: colCount, pattern: "independent" },
+            template: {
+                data: {
+                indicator: [
+                    {
+                    mode: "number+delta+gauge",
+                    delta: { reference: 90 }
+                    }
+                ]
+                }
+            }
+            };
+
+            Plotly.newPlot('progress', data, layout);
+        }
+    };
+
+    xhttp.open("GET", "./empProgress/", true);
+    xhttp.send();
+}
+</script>
+
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawStuff);
+
+function drawStuff() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+        
+            var d = JSON.parse(this.responseText);
+            var data = new google.visualization.arrayToDataTable(d);
+            
+            var options = {
+            title: 'All Transactions',
+            width: 600,
+            height: 450,
+            legend: { position: 'none' },
+            chart: { title: 'Transaction Amounts',
+                    subtitle: 'Group By Category' },
+            bars: 'vertical', // Required for Material Bar Charts.
+            axes: {
+                x: {
+                0: { side: 'left', label: ''} // Top x-axis.
+                }
+            },
+            bar: { groupWidth: "90%" }
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+            chart.draw(data, options);
+        }
+    };
+
+    xhttp.open("GET", "./barGraphForTransactions/", true);
+    xhttp.send();
+      };
+</script>
+
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+        
+            var d = JSON.parse(this.responseText);
+
+            var data = google.visualization.arrayToDataTable(d);
+            var options = {'title':'Stock Details',pieHole: 0.5, 'width':600, 'height':450};
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+
+        }
+    };
+
+    xhttp.open("GET", "./autosPieChart/", true);
+    xhttp.send();
+
+}
+</script>
 
     <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
         <span class="fas fa-plus-circle" aria-hidden="true"></span>
@@ -640,24 +783,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 if (this.readyState == 4 && this.status == 200) {
 
                     var data = this.responseText;
-                    //alert(data);
+                    
                     var table;
                     var a = JSON.parse(data);
-                    //  alert(a[0].ProductSerial);
+                    
                     table = $('#stockTable').DataTable();
-
+                  
                     $.each(a, function (i, item) {
 
-                        table.row.add([a[i].ProductID, a[i].Company, a[i].ProductName, a[i]
+                        table.row.add([  a[i].ProductID,a[i].ProductID, a[i].ProductName, a[i]
                             .PerUnitSalePrice, a[i].PerUnitPurchasePrice, a[i].StockIn, a[i]
                             .EngineNumber, a[i].ChasisNumber, a[i].Status
                         ]);
+                      
                     });
                     table.columns.adjust().draw();
 
                 }
             };
-            //alert("ljd");
+          
             xhttp.open("GET", "./viewStock/", true);
 
             xhttp.send();
@@ -670,8 +814,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $('#stockTable').DataTable();
         });
 
-    </script> -->
-    <script>
+    </script>  -->
+     <script>
         $(document).ready(function () {
             $('#stockTable').DataTable({
                 responsive: {
@@ -704,7 +848,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 }
             };
-            //alert("ljd");
+         
             xhttp.open("GET", "./getEmployeeData/", true);
 
             xhttp.send();
@@ -741,7 +885,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
 
             xhttp.send();
@@ -763,7 +907,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
 
             xhttp.send();
@@ -771,7 +915,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         function loadTaskDetails(taskID) {
 
-            // alert(taskID);
+            
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -852,7 +996,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             }
 
-            //alert("ljd");
+        
             xhttp.open("GET", "./loadTaskDetails/" + taskID, true);
 
             xhttp.send();
@@ -865,8 +1009,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         function loadFields() {
             dailySaleAmount();
             loadAutos();
-            getEmployeeData();
-            getStock();
+            gauge();
+            getMonthlySales();
+            getMonthlyExpenses();
+            getCustomerSales();
         }
 
         function updateModelData() {
@@ -885,7 +1031,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     document.getElementById("description").value = description;
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getAutoData/" + AID, true);
 
             xhttp.send();
@@ -901,7 +1047,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $('#model').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./loadAutos/", true);
 
             xhttp.send();
@@ -1115,7 +1261,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $('#employee').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getEmployees/", true);
 
             xhttp.send();
@@ -1156,8 +1302,66 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
         }
 
-    </script>
 
+        function getMonthlySales() {
+           
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var a = this.responseText;
+                    var data= JSON.parse(a);
+                    document.getElementById("monthlysale").innerHTML  = "Total Sales: "+ data[0].TotalSales;
+                    document.getElementById("monthlyamount").innerHTML  = data[0].Amount;
+
+                }
+            };
+          
+            xhttp.open("GET", "./getMonthlySales/", true);
+
+            xhttp.send();
+        }
+
+
+        function getMonthlyExpenses() {
+           
+
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function () {
+
+               if (this.readyState == 4 && this.status == 200) {
+
+                   var b = this.responseText;
+                   var data= JSON.parse(b);
+                   document.getElementById("totalexpense").innerHTML  = "Total Expenses: "+ data[0].TotalSales;
+                   document.getElementById("monthlyexpense").innerHTML  = data[0].TotalAmount;
+
+               }
+           };
+          
+           xhttp.open("GET", "./getMonthlyExpenses/", true);
+
+           xhttp.send();
+       }
+
+
+        var progress = setInterval(function () {
+            var $bar = $('.bar');
+
+            if ($bar.width() >= 400) {
+                clearInterval(progress);
+                $('.progress').removeClass('active');
+            } else {
+                $bar.width($bar.width() + 40);
+            }
+            $bar.text($bar.width() / 4 + "%");
+        }, 800);
+
+
+
+    </script>
 
 </body>
 

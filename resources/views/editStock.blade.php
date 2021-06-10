@@ -71,11 +71,7 @@
                                         <th>Company</th>
                                         <th>Invoice Price</th>
                                         <th>Unit Purchase Price</th>
-                                        <th>Stock</th>
-                                        <th>Color</th>
-                                        <th>Engine Number</th>
-                                        <th>Chasis Number</th>
-                                        <!-- <th>Status</th> -->
+                                        <th>Stock In</th>
                                 </tr>
                             </thead>
                             <tbody id="stocktableBody">
@@ -87,7 +83,7 @@
                 </div>
                 <div class="col-md-4 stockLabels">
                     <label for="id">Product ID</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
+                    <input type="text" readonly class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="productID">
                     <label for="id">Product Name</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
@@ -101,21 +97,10 @@
                     <label for="id">Purchase Price</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="purchasePrice">
-                    <label for="id">StockIn</label>
+                    <label for="id">Stock In</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="stockIn">
-                    <label for="id">Color</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="color">
-                    <label for="id">EngineNumber</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="engineNumber">
-                    <label for="id">Chasis Number</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
-                        name="id" id="chasisNumber">
-                    <!-- <label for="id">Status</label> -->
-                    <input type="text" class="form-control" style="display: none; width: 200px !important;"
-                        name="id" id="status">
+                    
                     <div class="st-button  " style="margin-top: 15px;">
                         <button class="btn btn-success" onclick="SetStockIdeal()">Update </button>
 
@@ -147,7 +132,7 @@ function searchRawMatirial() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
        var data =   this.responseText;
-       //alert(data);
+       
        var table;
        var a=JSON.parse(data);
        
@@ -155,30 +140,26 @@ function searchRawMatirial() {
         
         $.each(a, function (i, item) {
 
-            table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].SalePrice, a[i].TotalCost
-            , a[i].StockIn, a[i].color, a[i].EngineNumber, a[i].ChasisNumber, a[i].Status]);
+            table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].PerUnitSalePrice, a[i].PerUnitPurchasePrice
+            , a[i].StockIn]);
             });   
          table.draw();          
          
     }
   };
   
-  xhttp.open("GET", "./viewAllStock/", true);
+  xhttp.open("GET", "./spareParts/", true);
   xhttp.send();
 }
 $("#stocktable").on('click','tr',function(){
 
      document.getElementById("productID").value=this.cells[0].innerText; 
      document.getElementById("productName").value=this.cells[1].innerText;
-     document.getElementById("company").value=this.cells[2].innerText;
-     
+     document.getElementById("company").value=this.cells[2].innerText;   
      document.getElementById("salePrice").value=this.cells[3].innerText;
      document.getElementById("purchasePrice").value=this.cells[4].innerText;
      document.getElementById("stockIn").value=this.cells[5].innerText;
-     document.getElementById("color").value=this.cells[6].innerText;
-     document.getElementById("engineNumber").value=this.cells[7].innerText;
-     document.getElementById("chasisNumber").value=this.cells[8].innerText;
-     document.getElementById("status").value=this.cells[9].innerText;
+
      
 }
 );
@@ -186,29 +167,19 @@ $("#stocktable").on('click','tr',function(){
 function SetStockIdeal() {
     
     var PID = document.getElementById("productID").value;
-    //alert("updated  "+PID);
-    var productName = document.getElementById("productName").value;
-    //alert("updated  "+productName);
-    var company = document.getElementById("company").value;
-    //alert("updated  "+company);
-    var salePrice = document.getElementById("salePrice").value;
-    //alert("updated "+salePrice);
-    var purchasePrice = document.getElementById("purchasePrice").value;
-    //alert("updated  "+purchasePrice);
-    var stockIn = document.getElementById("stockIn").value;
-    //alert("updated "+stockIn);
-    var color = document.getElementById("color").value;
-    //alert("updated "+color);
-    var engineNumber = document.getElementById("engineNumber").value;
     
-    alert("updated "+engineNumber);
-    var chasisNumber = document.getElementById("chasisNumber").value;
-    //alert("updated "+chasisNumber);
-    var status = document.getElementById("status").value;
-    //alert("updated "+status);
+    var productName = document.getElementById("productName").value;
+    
+    var company = document.getElementById("company").value;
+    
+    var salePrice = document.getElementById("salePrice").value;
+    
+    var purchasePrice = document.getElementById("purchasePrice").value;
+    
+    var stockIn = document.getElementById("stockIn").value;
+   
        
-    var UpdateStock = [PID, productName, company, salePrice, purchasePrice, stockIn, color, engineNumber, chasisNumber, status];
-    alert(UpdateStock);
+    var UpdateStock = [PID, productName, company, salePrice, purchasePrice, stockIn];
 
     var UC = JSON.stringify(UpdateStock);
             
@@ -216,25 +187,15 @@ function SetStockIdeal() {
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Expense number " + this.responseText + " is added");
-
-
+                    alert("Stock number " + this.responseText + " is Updated");
                 }
             };
-            alert(UC);
+            
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./setStockIdeal/" + UC, true);
             xhttp.send();
             
         }
-
-
-
-
-
-
-
-
 
 </script>
     

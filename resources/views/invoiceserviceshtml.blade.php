@@ -1,3 +1,4 @@
+<body onload="myFunction()">
 <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -14,6 +15,9 @@
 
                             <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
                                 style="height: 25px;" onclick="loadStock()"></button>
+                                <div class="col-md-7 ">
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -23,7 +27,8 @@
                             <div class="col-md-12 ">
                                 <div class="firstColor my-4">
                                     <div class="date text-right">
-                                        <h6> <strong>Date :</strong> 27/11/2020</h6>
+                                    <h5 id="demo"></h5>
+                                
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +238,7 @@
                                     </div>
                                     <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
                                         aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
+                                        <div class="modal-dialog "  >
                                             <div class="modal-content">
 
                                                 <div class="modal-body">
@@ -253,8 +258,8 @@
                                                                 placeholder="Address" required />
                                                             <input type="text" name="phone_number" id="addProfession"
                                                                 placeholder="Profession" required />
-                                                            <input type="number" name="phone_number" id="addBalance"
-                                                                placeholder="Balance" required />
+                                                            <input type="email" name="phone_number" id="email"
+                                                                placeholder="Email" required />
 
                                                             <input type="text" name="phone_number" id="addComments"
                                                                 placeholder="Comments" required />
@@ -351,10 +356,10 @@
                     <div class="container">
                         <div class="row ">
                             <div class="col-md-8 offset-md-4 mb-2 myFooterButtons">
-                                <a class="btn" href="viewCustomers.html">view Customers</a>
+                                <a class="btn" onclick="window.location.href='/acc'">Add Accessories</a>
                                 <a class="btn" onclick="printDocs()">Print Docs</a>
                                 <a class="btn" onclick="validPlz()">Generate Sale</a>
-                                <a class="btn" href="#">Close Form</a>
+                                
 
 
 
@@ -372,8 +377,8 @@
                         <div class="modal-content">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <h4 class="text-center my-4">Products Table</h4>
+                                    <div class="col-lg-12">
+                                        <h4 class="text-center my-3">Products Table</h4>
                                         <table class="table  table-bordered mb-5 " id="searchProductTable">
                                             <thead>
                                                 <tr>

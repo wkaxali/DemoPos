@@ -6553,30 +6553,34 @@
 
 <script>
     function AddItemInGrid() {
-        var table = document.getElementById("MenuTable");
-        var row = table.insertRow(-1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        var cell6 = row.insertCell(5);
-        var cell7 = row.insertCell(6);
-        var e = document.getElementById("category");
-        var cateValue = e.options[e.selectedIndex].value;
-        var catetext = e.options[e.selectedIndex].text;
-        var catValue = e.options[e.selectedIndex].value;
-
-        cell1.innerHTML = document.getElementById("productName").value;
-        cell2.innerHTML = catetext;
-        cell3.innerHTML = document.getElementById("salePrice").value;
-        cell4.innerHTML = document.getElementById("cost").value;
-        cell5.innerHTML = document.getElementById("description").value;
-        cell6.innerHTML =
-            "<button onclick='deleteRow(this)' class=\"btn btn-danger \" style=\"height: 25px;width: 25px; padding:auto;\"></button>";
-        cell7.innerHTML = catValue;
-        cell7.style.display = "none";
-
+        
+        if(document.getElementById("productName").value==""||document.getElementById("salePrice").value==""||document.getElementById("cost").value==""||document.getElementById("description").value==""||catetext==""||catValue==""){
+            alert("fill in all fields");
+        }else{
+            var table = document.getElementById("MenuTable");
+            var row = table.insertRow(-1);
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var e = document.getElementById("category");
+            var cateValue = e.options[e.selectedIndex].value;
+            var catetext = e.options[e.selectedIndex].text;
+            var catValue = e.options[e.selectedIndex].value;
+            
+            cell1.innerHTML = document.getElementById("productName").value;
+            cell2.innerHTML = catetext;
+            cell3.innerHTML = document.getElementById("salePrice").value;
+            cell4.innerHTML = document.getElementById("cost").value;
+            cell5.innerHTML = document.getElementById("description").value;
+            cell6.innerHTML =
+                "<button onclick='deleteRow(this)' class=\"btn btn-danger \" style=\"height: 25px;width: 25px; padding:auto;\"></button>";
+            cell7.innerHTML = catValue;
+            cell7.style.display = "none";
+    }
 
 
     }
@@ -6659,9 +6663,10 @@
 
 
         var Product = [ProductName, ProductCat, Productsaleprice, ProductCost, Description];
-
-
         var xhttp = new XMLHttpRequest();
+        if(ProductName!=""||ProductCat!=""||Productsaleprice!=""||ProductCost!=""||Description!=""){
+            
+            
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 alert(this.responseText);
@@ -6671,6 +6676,9 @@
         xhttp.open("GET", "./AddProduct/" + EC, true);
         xhttp.send();
 
+        }else{
+            alert("Fill in all fields");
+        }
 
     };
 
@@ -6681,7 +6689,7 @@
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("pills-tabContent").innerHTML = this.responseText;
-                // alert();
+                
                 calculation();
 
 
@@ -6757,7 +6765,7 @@
                 $('#category').selectpicker('refresh');
             }
         };
-        //alert("ljd");
+      
         xhttp.open("GET", "./loadProductCategory/", true);
 
         xhttp.send();

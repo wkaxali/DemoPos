@@ -5,12 +5,13 @@ use App\Http\Controllers\signInSignUPcontroller;
 use App\Http\Controllers\employeeController;
 use App\Http\Controllers\saleInvoiceEditController;
 use App\Http\Controllers\AddMenucontroller;
-use App\Http\Controllers\autoStockDetails;
-#use App\Http\Controllers\CustomerViewcotroller;
-use App\Http\Controllers\OrderFlowController;
+use App\Http\Controllers\deleteExpenseController;
+use App\Http\Controllers\deletePaymentController;
 use App\Http\Controllers\CustomerViewController;
-
-
+use App\Http\Controllers\globalVarriablesController;
+use App\Http\Controllers\OrderFlowController;
+use App\Http\Controllers\productCategoryController;
+use App\Http\Controllers\printSalarySlip;
 use App\Http\Controllers\printServiceSaleInvoice;
 use App\Http\Controllers\UpdateStocksController;
 use App\Http\Controllers\quotationController;
@@ -20,13 +21,13 @@ use App\Http\Controllers\StripeController;
 use App\Http\Controllers\assesoriesController;
 use App\Http\Controllers\TransactionFlow;
 use App\Http\Controllers\printDocuments;
-//use App\Http\Controllers\AdminAccountController;
 use App\Http\Controllers\userAccountController;
 use App\Http\Controllers\printMonthlySaleController;
-
 use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
+use App\Http\Controllers\dashBoardDisplayData;
+
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\attendanceController;
 use App\Http\Controllers\accountsController;
@@ -41,6 +42,7 @@ use App\Http\Controllers\TEST;
 use App\Http\Controllers\printServiceInvoice;
 use App\Http\Controllers\deliverLetterPrintController;
 use App\Http\Controllers\summaryReportController;
+use App\Http\Controllers\employeeAllowanceController;
 
 
 
@@ -56,15 +58,38 @@ use App\Http\Controllers\summaryReportController;
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
 
+Route::get('/empProgress',[dashBoardDisplayData::class, 'employeeProgress']);
+Route::get('/barGraphForTransactions',[dashBoardDisplayData::class, 'getTransactions']);
+Route::get('/checkAbsents',[attendanceController::class, 'checkAbsents']);
+Route::get('/autosPieChart',[dashBoardDisplayData::class, 'autoStock']);
+Route::get('/signUp/{data}',[userAccountController::class, 'signUp']);
+Route::get('/paySalary/{data}',[payController::class, 'paySalary']);
+Route::get('/getCommissionData/{year}/{month}/{EID}',[payController::class, 'getCommissionData']);
+Route::get('/getEmpPay/{eid}',[payController::class, 'getEmpPay']);
+Route::get('/partyData',[LedgerPartiesController::class, 'partyData']);
+Route::get('/addAllowances/{data}',[employeeAllowanceController::class, 'addAllowances']);
+Route::get('/getAllownceHeads',[employeeAllowanceController::class, 'getAllownceHeads']);
+Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
+Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
+Route::get('/sd',[summaryReportController::class, 'stockDetails']);
+Route::get('/sum',[summaryReportController::class, 'summaryReport']);
+Route::get('/sum2',[summaryReportController::class, 'summaryReportTabularBase']);
 Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
 Route::get('/transactions/{dates}',[summaryReportController::class, 'transactions']);
-
+Route::get('/getUsers',[userAccountController::class, 'getUsers']);
+Route::get('/editUsers/{data}',[userAccountController::class, 'editUsers']);
+Route::get('/addUsers/{data}',[userAccountController::class, 'addUsers']);
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
+
 Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliveryLetter']);
 
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
+
+
+Route::get('/printSalaries/{ID}/{adv}',[printSalarySlip::class, 'printsalarySlip']);
+Route::get('/printsse/{ID}/{adv}',[printSalarySlip::class, 'printsalarySlip']);
 Route::get('/getDocuments',[printDocuments::class, 'getDocuments']);
 Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
@@ -82,7 +107,12 @@ Route::get('/updateTaskStatus/{data}',[taskController::class, 'updateTaskStatus'
 Route::get('/getPartsAndServices',[getProducts::class, 'getPartsAndServices']);
 Route::get('/getAllSupliers',[LedgerPartiesController::class, 'getAllSuplierParties']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
-Route::get('/addExpenseHead/{expTable}',[expenseController::class, 'insertExpense']);
+Route::get('/addExpenseHead/{expTable}',[expenseController::class, 'addExpenseHead']);
+Route::get('/getExpenses',[expenseController::class, 'getExpenses']);
+Route::get('/getEmployeePayment',[payController::class, 'getEmployeePayment']);
+Route::get('/getPartyPayment',[payController::class, 'getPartyPayment']);
+Route::get('/editExpense',[expenseController::class, 'editExpense']);
+
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
 Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 
@@ -92,13 +122,13 @@ Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 
 //Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 
-Route::get('/sum',[TEST::class, 'summary']);
+//Route::get('/sum',[TEST::class, 'summary']);
 
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
 //Route::get('/getqoute/{id}',[quotationController::class, 'getQuotation']);
 
 //---------------------------//LedgerPartiesController
-Route::get('/addCustomer/{data}',[CustomerController::class, 'check']);
+
 Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer']);
 
 Route::get('/getAllCustomers/',[CustomerController::class, 'getAllCustomers']);
@@ -112,7 +142,6 @@ Route::get('/addSupplier/{empData}',[LedgerPartiesController::class, 'addSupplie
 Route::get('/viewAllSupplier',[LedgerPartiesController::class, 'viewAllSupplier']);
 Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']);
 
-
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 //getInvoiceCustomer/{data}
@@ -125,9 +154,14 @@ Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class
 Route::get('/getComission/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
 Route::get('/getProfit/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
 
+Route::get('/addAccount/{accData}',[accountsController::class, 'addAccount']);
+Route::get('/getAccountsData',[accountsController::class, 'getAccountsData']);
+// Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
+Route::get('/editAccounts/{EA}',[accountsController::class, 'editAccounts']);
+
+
 Route::get('/getInvoiceCustomer/{data}',[serviceSalesFlow::class, 'printSaleRequestOnInvoiceNumber']);
 Route::get('/getQuotation/{data}',[quotationController::class, 'getQuotation']);
-Route::get('/AddProduct/{data}',[CUDproduct::class, 'insertProduct']);
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails']);
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock']);
@@ -140,6 +174,7 @@ Route::get('/getOrderId/{oid}',[OrderFlowController::class, 'getOrderItem']);
 Route::get('/getOrderId',[OrderFlowController::class, 'getOrderID']);
 Route::get('/viewCustomer',[OrderFlowController::class, 'viewCustomer']);
 Route::get('/transactionHistory',[OrderFlowController::class, 'transactionHistory']);
+Route::get('/transactionHistoryfe',[OrderFlowController::class, 'transactionHistoryforExpance']);
 Route::get('/transactionHistoryAccounts/{AID}',[TransactionFlow::class, 'getTransactionsForAccounts']);
 Route::get('/transactionHistoryParties/{LID}',[TransactionFlow::class, 'getTransactionsForParties']);
 Route::get('/debitTransactions',[TransactionFlow::class, 'debitTransactions']);
@@ -162,7 +197,6 @@ Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']
 Route::get('/dailySaleAmount',[AISessionController::class, 'dailySaleAmount']);
 Route::get('/loadAutos',[getProducts::class, 'getAutosNames']);
 
-// Test Functions
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
 Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
 Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStock']);
@@ -170,9 +204,7 @@ Route::get('/AddAcessories/{UC}',[assesoriesController::class, 'AddAcessories'])
 
 Route::get('/editAutoModels/{UC}',[UpdateStocksController::class, 'editAutoModels']);
 Route::get('/getAutoModel',[UpdateStocksController::class, 'getAutoModel']);
-
 Route::get('/addAutoModels/{AA}',[UpdateStocksController::class, 'addAutoModels']);
-
 
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
@@ -181,7 +213,7 @@ Route::get('/osama',[autoStockDetails::class, 'usama']);
 Route::get('/osama',[autoStockDetails::class, 'maher']);
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
-Route::get('/addPayment/{data}',[payController::class, 'insertPayment']);
+Route::get('/addPayment/{data}/{paidTo}',[payController::class, 'insertPayment']);
 Route::get('/getPaymentHistory/{data}',[payController::class, 'getPayRecivingHistory']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/updateAdminStatus/{data}',[taskController::class, 'updateAdminTaskStatus']);
@@ -201,14 +233,12 @@ Route::get('/getTaskcatagory',[payController::class, 'getTaskcatagory']);
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
 
-
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
-
+Route::get('/deleteExpense/{data}',[deleteExpenseController::class, 'deleteExpense']);
+Route::get('/deletePayment/{EID}',[deletePaymentController::class, 'deletePayment']);
 Route::get('/editCustomer/{data}',[CustomerController::class, 'editCustomer']);
-Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
-Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addTasks/{data}',[taskController::class, 'insertTasks']);
 Route::get('/markAttendance/{data}',[attendanceController::class, 'markAttendance']);
 Route::get('/getEmployeeData',[taskController::class, 'employeeData']);
@@ -226,7 +256,6 @@ Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategor
 Route::get('/getPartyNames',[expenseController::class, 'getPartyNames']);
 Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
-Route::get('/addcustomer/{AC}',[CustomerController::class, 'addcustomer']);
 
 Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
 
@@ -236,11 +265,17 @@ Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotati
 Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
 
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'signIn']);
+Route::get('/addNewUsers/{AU}',[userAccountController::class, 'addUsers']);
+
+Route::get('/addCategory/{Category}',[productCategoryController::class, 'addCategory']);
+
+Route::get('/getPCategory',[productCategoryController::class, 'getCategory']);
+Route::get('/editCategory/{EC}',[productCategoryController::class, 'editCategory']);
+
+Route::get('/addEmpPay/{AP}',[payController::class, 'addEmpPay']);
+
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
-// Route::get('/addAdmins/{AU}',[AdminAccountController::class, 'addAdmins']);
-// Route::get('/editAdmins/{AU}',[AdminAccountController::class, 'editAdmins']);
-// Route::get('/getAdmins',[AdminAccountController::class, 'getAdmins']);
 
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
@@ -252,14 +287,28 @@ Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/monthlyReport',[printMonthlySaleController::class, 'PrintMonthlySale']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
 
+Route::get('/addAllowanceHead/{allowName}',[employeeAllowanceController::class, 'addAllowanceHead']);
+Route::get('/getAllowance',[employeeAllowanceController::class, 'getAllowance']);
+Route::get('/editAllowance/{UA}',[employeeAllowanceController::class, 'editAllowance']);
+
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
 
 Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
-//qutationRequest
 
-//Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
 Route::get('/printq',[quotationController::class, 'qoutationToPDF']);
 Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
+
+Route::get('/searchAttendance/{month}/{year}',[attendanceController::class, 'searchAttendance']);
+Route::get('/getMonthlySales',[dashBoardDisplayData::class, 'getMonthlySales']);
+Route::get('/getMonthlyExpenses',[dashBoardDisplayData::class, 'getMonthlyExpenses']);
+Route::get('/getPendingOrders',[OrderFlowController::class, 'getPendingOrders']);
+Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
+Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
+
+Route::get('/getEmpPayments',[payController::class, 'getEmpPayments']);
+Route::get('/printTrasactionHistory/{AID}/{LID}',[TransactionFlow::class, 'printTrasactionHistory']);
+Route::get('/selectedSearchData/{AID}/{LID}',[TransactionFlow::class, 'selectedSearchData']);
+
 
 
 Route::get('/', function () {
@@ -269,7 +318,6 @@ return view('signInSignUp');
 // Route::get('/stripe', function () {
 // return view('stripe');
 // });
-
 
 Route::get('/ed', function () {
     $UN = session()->get('Designation');
@@ -311,6 +359,34 @@ Route::get('/qt', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('quotation'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+
+Route::get('/aep', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addEmployeePay'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/aa', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addAccount'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/ea', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAccount'); 
     }else{
     return view("signInSignUp");
     }
@@ -556,6 +632,15 @@ Route::get('/igl', function () {
     }
 });
 
+Route::get('/dpay', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('deletePayments'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
 Route::get('/inv', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -572,6 +657,15 @@ Route::get('/pr', function () {
     return view("signInSignUp");
     }
 });
+Route::get('/eat', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAttendance'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
 Route::get('/es', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -607,7 +701,14 @@ Route::get('/esp', function () {
     }
 });
 
-
+Route::get('/au', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addUsers'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
 
 Route::get('/SalarySlip', function () {
     $UN = session()->get('Designation');
@@ -627,12 +728,12 @@ Route::get('/l', function () {
 });
 
 Route::get('/ql', function () {
-    // $UN = session()->get('Designation');
-    // if($UN=="Admin"){
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
     return view('quotation'); 
-    // }else{
-    // return view("signInSignUp");
-    // }
+    }else{
+    return view("signInSignUp");
+    }
 });
 Route::get('/prc', function () {
     $UN = session()->get('Designation');
@@ -642,7 +743,6 @@ Route::get('/prc', function () {
     return view("signInSignUp");
     }
 });
-
 
 Route::get('/fgp', function () {
     $UN = session()->get('Designation');
@@ -708,6 +808,23 @@ Route::get('/gb', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('generateBarcode'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/adal', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addAllowance');
+    }else{
+    return view("signInSignUp");
+    }
+});
+Route::get('/edal', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAllowance'); 
     }else{
     return view("signInSignUp");
     }
@@ -787,15 +904,6 @@ $pdf = PDF::loadView('viewExpenses', $data);
 // download PDF file with download method
 return $pdf->download('pdf_file.pdf');
 });
-// Route::get('/vd', function () {
-//     $UN = session()->get('Designation');
-//     if($UN=="Admin"){
-//     return view('vehicleDetails'); 
-//     }else{
-//     return view("signInSignUp");
-//     }
-// });
-
 Route::get('/ssi2', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -881,19 +989,19 @@ Route::get('/ans', function (){
     }
 });
 
-Route::get('/au', function () {
+Route::get('/eam', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('addAdmins'); 
+    return view('editAutoModels'); 
     }else{
     return view("signInSignUp");
     }
 });
 
-Route::get('/eam', function () {
+Route::get('/dex', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('editAutoModels'); 
+    return view('deleteExpense'); 
     }else{
     return view("signInSignUp");
     }
@@ -911,7 +1019,7 @@ Route::get('/aam', function () {
 Route::get('/eu', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('editAdmins'); 
+    return view('editUsers'); 
     }else{
     return view("signInSignUp");
     }
@@ -937,13 +1045,12 @@ Route::get('/aam', function () {
     return view('addAutoModels');
 });
 
-Route::get('/ans', function () {
-    return view('addNewStock');
+Route::get('/sumrep', function () {
+    return view('summaryreport');
 });
 
-
-Route::get('/eu', function () {
-    return view('editAdmins');
+Route::get('/ans', function () {
+    return view('addNewStock');
 });
 
 Route::get('/dls', function () {
@@ -954,8 +1061,6 @@ Route::get('/dls', function () {
     return view("signInSignUp");
     }
 });
-  
-
 route::get('/acc', function(){
     return view('accesoriest');
 });
@@ -965,4 +1070,30 @@ route::get('/aeh', function(){
 route::get('/ch', function(){
     return view('customerHistory');
 });
+route::get('/dk', function(){
+    return view('dontKnow');
+});
+route::get('/abc', function(){
+    return view('abc');
+});
+route::get('/ssr', function(){
+    return view('saleSummaryReport');
+});
+route::get('/dEPay', function(){
+    return view('deleteEmployeePayments');
+});
+
+route::get('/suu', function(){
+    return view('signUpUser');
+});
+
+route::get('/dbo', function(){
+    return view('dashboardOld');
+});
+
+route::get('/eph', function(){
+    return view('empPaymentHistory');
+});
+
+
 

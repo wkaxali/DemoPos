@@ -6,7 +6,7 @@
 <head>
     <base href="">
     <meta charset="utf-8" />
-    <title>Bermij |</title>
+    <title>Purchase Stock</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
@@ -1572,7 +1572,7 @@
         RBForInvoice = (Number(tot) - Number(Ap)).toFixed(2);
         document.getElementById('RemainingBalance').value = RBForInvoice;
         var SupplierLastBalance = document.getElementById('LastBalance').value;
-        var newBalance = Number(SupplierLastBalance) + Number(RBForInvoice);
+        var newBalance = Number(SupplierLastBalance) - Number(RBForInvoice);
         document.getElementById("CurrentBalance").value = newBalance;
 
 

@@ -367,7 +367,7 @@
                 add();
                 // document.getElementById("OrderId").value = "";
 
-                document.getElementById("category").options[category.selectedIndex].text;
+                document.getElementById("category");
 
                 document.getElementById("invoice").value = "";
                 document.getElementById("bookingPrice").value = "";

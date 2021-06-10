@@ -50,11 +50,13 @@ class salesFlow extends Controller
       $totalCost= $tot-$OverAllDiscount;
       $vat= $tot*17/100;
       $AmountAfterDiscount=$totalCost+$vat;
+      $EID=$Array[22];
+    
 
        //return $TransactionMode;
          
-      $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
-
+      $dateNow = Carbon::now()->toDateString();
+      //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
       
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
          //return $dateNow;
@@ -88,39 +90,53 @@ class salesFlow extends Controller
         'Remarks'=>NULL,
         'dliveryDate'=>NULL,
         'returnDate' =>NULL,
-        'salesPerson'=>$receivedBy
+        'salesPerson'=>$receivedBy,
+        'EID'=>$EID
         
         ]);
+        $commission =DB::table('tblemployeepay')
+        ->where('EID', '=', $EID)
+         ->first()->commission;
+
+        $com=DB::table('tbl_employee_sale_commission')->insertGetId([
+        'InvoiceNumber'=>$invoiceNumber,
+        'EID'=>$EID,
+        'CommissionStatus'=>'Due',
+        'totalCommission'=>$commission*$AmountAfterDiscount/100,
+        'date'=>$dateNow,
+        ]);
+
+        $LID=globalVarriablesController::selfLedgerID();
        // $TransactionMode='2';
         $detailedOrder=array($pid,$tot,"1",$OverAllDiscount,$AmountAfterDiscount,$tot);
        // return  $detailedOrder[1];
         self::insertInDetailedOrder($detailedOrder,$invoiceNumber,$dateNow);
        // TransactionFlow::addInTransactionFlowForSales("1",$invoiceNumber,$dateNow,$amp,"1",NULL,NULL,NULL);
-       $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+       $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
         $oldCompanyBalance= LedgerPartiesController::getPartyBalance(1); 
-       $LID=2;
+
         $paidVia=$AID;
         $selfBalance=$oldSelfBalance+$amp;
         TransactionFlow::addTransaction($invoiceNumber,"Credit","Sales",
         $amp,$dateNow,"1",$oldSelfBalance,$selfBalance,NULL,NULL,$LID,"0",$CID,"0",$paidVia,NULL);
        
-        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+        LedgerPartiesController::UpdatePartiesBalance($LID, $selfBalance);
         $OldAccBalance=accountsController::getAccountBalance($AID);
         $newAccountBalance=floatval($OldAccBalance)+floatval($amp);
         
         accountsController::UpdateNewBalance($AID,$newAccountBalance);
         if($TransactionMode==2){
-          $LID=2;
+        $LID=globalVarriablesController::selfLedgerID();
           $paidVia=$AID;
           $oldBalance= LedgerPartiesController::getPartyBalance($LID);
           $currentBalance=floatval ($oldBalance)-floatval ($amp);
           TransactionFlow::addTransaction($invoiceNumber,"Credit","Customer Paid to Company",
           $amp,$dateNow,"2", $oldBalance,$currentBalance,NULL,NULL,$LID,"0",$CID,"1",$paidVia,NULL);
-          $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+          $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
           $companyBalance=$oldCompanyBalance-$amp;
         $selfBalance=$oldSelfBalance-$amp;
         LedgerPartiesController::UpdatePartiesBalance(1, $companyBalance);
-        LedgerPartiesController::UpdatePartiesBalance(2, $selfBalance);
+        LedgerPartiesController::UpdatePartiesBalance($LID, $selfBalance);
         $OldAccBalance=accountsController::getAccountBalance($AID);
         $newAccountBalance=floatval($OldAccBalance)-floatval($amp);
        // accountsController::getAccountBalance($AID);

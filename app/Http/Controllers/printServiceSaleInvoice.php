@@ -42,6 +42,7 @@ $productHtmlTDs =$productHtmlTDs.'<tr><td><div></div></td>
 <td><div></div></td>
 <td><div></div></td>
 <td><div></div></td>
+<td><div></div></td>
 </tr>';
 
 
@@ -162,17 +163,17 @@ ID# </td>
 <table border="0">
 <thead>
 <tr>
-<th width="60%" border="1" align="center">
+<th width="70%" border="1" align="center">
 Total in Word </th>
 
-<th width="40%" border="1" align="center" style="line-height: 100%;"> Total PKR</th>
+<th width="30%" border="1" align="center" style="line-height: 100%;"> Total PKR</th>
 
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="60%" border="1" align="center">'.session()->get("amountInWords").'/-Only.</td>
-<td width="40%" border="1" align="center">'.session()->get("amountPaid").'</td>
+<td width="70%" border="1" align="center"><b><u>'.session()->get("amountInWords").' Only.</u></b></td>
+<td width="30%" border="1" align="center"><b>'.session()->get("amountPaid").'</b></td>
 
 
 </tr>

@@ -1381,7 +1381,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     var data = this.responseText;
-                    //alert(data);
+                    
                     var a = JSON.parse(data);
 
                     document.getElementById("CID").value = a[0].CustomerID;
@@ -1392,7 +1392,7 @@
                     document.getElementById("CustomerCategory").value = a[0].CustomerCatogery;
                     document.getElementById("CustomerName").value = a[0].CustomerID;
                     var i = 0;
-                    //alert(a.length);
+                    
                     var table = document.getElementById("ProductSaleTable");
                     table.innerHTML = "<thead>\
                             <tr>\
@@ -1411,7 +1411,7 @@
                         var PID = a[i].ProductSerial;
                         var discount = a[i].Discount;
                         var quantity = a[i].Quantity;
-                        //alert(quantity);
+                        
                         var salePrice = a[i].SalePrice;
                         var company = a[i].Company;
                         var productName = a[i].ProductName;
@@ -1459,7 +1459,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     var data = this.responseText;
-                    //alert(data);
+                 
                     var a = JSON.parse(data);
                     document.getElementById("CID").value = a[0].CustomerID;
                     document.getElementById("LastBalance").value = a[0].Balance;
@@ -1483,7 +1483,7 @@
                     $('#accounts').selectpicker('refresh');
 
                     var i = 0;
-                    //alert(a.length);
+                  
                     var table = document.getElementById("ProductSaleTable");
                     table.innerHTML = "<thead>\
                             <tr>\
@@ -1500,7 +1500,7 @@
 
                     for (i; i < a.length; i++) {
                         var PID = a[i].ProductSerial;
-                        var discount = a[i].Discount;
+                        var discount = a[i].DiscountOffered;
                         var quantity = a[i].Quantity;
                         var PerUnitSalePrice = a[i].PerUnitSalePrice;
                         var company = a[i].Company;
@@ -1551,10 +1551,10 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
                     var data = this.responseText;
-                    //alert(data);
+                   
                     var table;
                     var a = JSON.parse(data);
-                    //  alert(a[0].ProductSerial);
+                    
                     table = $('#searchProductTable').DataTable();
                     //table = document.getElementById("searchProductTable")
                     $.each(a, function (i, item) {
@@ -1616,7 +1616,7 @@
 
 
                 } else {
-                    //alert( this.responseText);
+                    
                 }
             };
             var CustomerID = $('#CustomerName').find(":selected").val();
@@ -1637,7 +1637,7 @@
                     $('#accounts').selectpicker('refresh');
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getAccountHeads/", true);
 
             xhttp.send();
@@ -1646,27 +1646,26 @@
         function AddCustomer() {
 
             var CustomerName = document.getElementById("CustomerName").value;
-            //	alert("It is working"+CustomerName);
+            
 
             var password = document.getElementById("password").value;
-            //	alert("It is working"+password);
+         
 
             var CustomerContact = document.getElementById("Contact").value;
-            //alert("It is working"+CustomerContact);
+            
 
 
             var CustomerProfession = document.getElementById("Profession").value;
-            //alert("It is working"+CustomerProfession);
-
+        
 
             var CustomerBalance = 0;
-            //alert("It is working"+CustomerBalance);
+            
 
             var CustomerAddress = document.getElementById("Address").value;
-            //alert("It is working"+CustomerAddress);
+         
 
             var CustomerComments = document.getElementById("Comments").value;
-            //alert("It is working"+CustomerComments);
+           
 
             var Customer = [CustomerName, password, CustomerContact, CustomerProfession, CustomerBalance,
                 CustomerAddress,
@@ -1676,7 +1675,7 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
-                    //  alert( this.responseText);
+                   
                     
                     
                 }
@@ -1698,7 +1697,7 @@
                     document.getElementById("InvoiceID").value = this.response;
                 }
             };
-            //alert("ljd");
+            
             xhttp.open("GET", "./getInvoiceID", true);
 
             xhttp.send();
@@ -1757,7 +1756,7 @@
 
                     //$("#searchModal").modal('hide');
                     //calculation than enter price
-                    //alert("Item added");
+                   
 
 
                     cell8.innerHTML =
@@ -1775,9 +1774,9 @@
 
             var taxRate = document.getElementById('tax').value;
             var grosstotal = document.getElementById('grossTotal').value;
-            //alert(taxRate/100);
+          
             var tax = Number(grosstotal) * (taxRate / 100);
-            //	alert(tax);
+           
             return tax;
         }
 
@@ -1807,7 +1806,7 @@
 
             document.getElementById('tax').value = tax.toFixed(2);
             net = gross + Number(tax);
-            //alert(net);
+           
             document.getElementById('NetTotal').value = net.toFixed(2);
             document.getElementById('AmountPaid').value = net.toFixed(2);
 
@@ -1817,7 +1816,7 @@
 
         function RemoveThisRow(r) {
             var i = r.parentNode.parentNode.rowIndex;
-            //alert(i);
+            
             document.getElementById("ProductSaleTable").deleteRow(i);
             calc();
         }
@@ -1831,16 +1830,15 @@
         function calculationTrigerOnQtyValueChange(x) {
 
             var theRow = x.parentElement.parentElement;
-            //	alert(theRow);
+        
             var rx = x.parentElement.parentElement.rowIndex;
-            //alert(rx);
+         
 
             var salePrice = theRow.cells[3].innerText;
-            //alert(salePrice);
+            
             var qty = theRow.cells[4].children[0].value;
             var dis = theRow.cells[5].children[0].value;
-            //  alert(dis);
-            //  alert(qty);
+            
             var tot = (salePrice * qty) - dis;
 
 
@@ -1912,7 +1910,7 @@
             var table = document.getElementById("ProductSaleTable");
             var myRow2 = [];
 
-            //alert(sp);
+            
             $('#ProductSaleTable tr').each(function (row, tr) {
 
                 myTrows[row] = [
@@ -1954,12 +1952,11 @@
 
             myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
 
-            //alert(myRow2[0][1]);
-            //alert(myRow2[11]);
+            
 
 
             var array = JSON.stringify(myRow2);
-            alert(array);
+           
 
 
             var xhttp = new XMLHttpRequest();
@@ -1971,7 +1968,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated here");
-                        window.open("./testpdf/ss");
+                        window.open("./testpdf/as");
 
                     }
                 };
@@ -1983,7 +1980,7 @@
         }
 
         function print(){
-            window.open("./testpdf/ss");
+            window.open("./testpdf/as");
         }
 
         function UpdateSaleInvoice() {
@@ -1992,7 +1989,7 @@
             var table = document.getElementById("ProductSaleTable");
             var myRow2 = [];
 
-            //alert(sp);
+            
             $('#ProductSaleTable tr').each(function (row, tr) {
 
                 myTrows[row] = [
@@ -2036,8 +2033,7 @@
                 contact
             ];
 
-            //alert(myRow2[0][1]);
-            //alert(myRow2[11]);
+         
 
 
             var array = JSON.stringify(myRow2);
@@ -2071,22 +2067,22 @@
     function addCustomer() {
 
         var customerName = document.getElementById("addCustomerName").value;
-        //	alert("It is working"+CustomerName);
+     
         var fatherName = document.getElementById("addFatherName").value;
-        //	alert("It is working"+password);
+      
         var contact = document.getElementById("addContact").value;
-        //alert("It is working"+CustomerContact);
+      
         var profession = document.getElementById("addProfession").value;
-        //alert("It is working"+CustomerProfession);
+        
         var address = document.getElementById("addAddress").value;
-        //alert("It is working"+CustomerAddress);
-        var comments = document.getElementById("addComments").value;
-        //alert("It is working"+CustomerComments);
+   
+        var email = document.getElementById("email").value;
+    
         var cnic = document.getElementById("addCNIC").value;
-        //alert("It is working"+CustomerComments);
+        
 
         var newCustomer = [customerName, fatherName, contact, profession, address,
-            comments, cnic
+        email, cnic
         ];
 
         var xhttp = new XMLHttpRequest();
@@ -2097,7 +2093,7 @@
             }
         };
         var EC = JSON.stringify(newCustomer);
-        alert(EC);
+        
         xhttp.open("GET", "./insertCustomer/" + EC, true);
         xhttp.send();
 

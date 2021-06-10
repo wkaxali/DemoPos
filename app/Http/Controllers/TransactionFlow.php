@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
 
+use PDF;
+
 class TransactionFlow extends Controller
 {
     
@@ -24,7 +26,9 @@ class TransactionFlow extends Controller
         // PaidBy varchar(50) 
         // PaidVia
     
-        $dateNow= Carbon::now()->toDateTimeString();
+        $dateNow = Carbon::now()->toDateString();
+      //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+   
         $TID=DB::table('tbltransactionflow')->insertGetId(['InvoiceNo'=> $InvoiceNo, 
         'TransactionType' =>$TType,
         'TransactionCatogery'=>$Tcate,
@@ -49,8 +53,13 @@ class TransactionFlow extends Controller
            return $TID;
 
     }
-
+        public static  function selectedSearchData($AID,$LID){
+            $data=DB:: select('select * from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
+            return $data;
+            
+        }
     public static function getTransactionsForAccounts($AID){
+        
         $data=DB:: select('select * from tbltransactionflow where PaidVia='.$AID);
         return $data;
 
@@ -141,4 +150,67 @@ class TransactionFlow extends Controller
         
     }
 
+
+
+ public function printTrasactionHistory($AID,$LID)
+    {
+        if($AID=="All" || $LID=="All"){
+            $data=DB::select('select * from tbltransactionflow');
+        }else{
+            $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
+        }
+       
+        $table='
+        <h1 style="text-align:center;">Transaction History</h1><br>
+        
+        <table width="550px"  border="1" style="text-align:center;">
+        
+          <tbody>
+              <tr>
+                  <th><b>Transaction ID</b></th>
+                  <th><b>Invoice No</b></th>
+                  <th><b>Transaction Catogery</b></th>
+                  <th><b>Amount</b></th>
+                  <th><b>Date</b></th>
+                 
+              </tr>
+          </tbody>
+         
+          </table> ';
+ 
+
+        foreach ($data as $d){
+             
+
+            $table=$table.'
+           
+        <table width="550px"  border="1" style="text-align:center;">
+            <tbody>
+            <tr>
+            <td>'.$d->TransactionID.'</td>
+            <td>'.$d->InvoiceNo.'</td>
+            <td>'.$d->TransactionCatogery.'</td>
+            <td>'.$d->Amount.'</td>
+            <td>'.$d->DateStamp.'</td>
+            </tr>
+            </tbody>
+        </table> 
+
+             ';
+      
+        }
+       
+        PDF::SetTitle('Transaction History');
+        PDF::AddPage();
+        PDF::writeHTML($table, true, false, true, false, '');
+
+        PDF::Output('Transaction.pdf');
+    }
+        
+    
+
 }
+
+    
+
+

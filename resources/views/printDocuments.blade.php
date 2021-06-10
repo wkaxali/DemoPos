@@ -166,7 +166,7 @@
 
     function salesInvoice(InvoiceID)
     {
-        alert(InvoiceID);
+      
         
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -215,7 +215,7 @@ function deliveryLetter(id)
         xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             
-            window.open('/deliveryLetter/1');
+            window.open('/deliveryLetter/'+id);
 
             }
         }

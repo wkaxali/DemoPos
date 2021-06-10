@@ -23,7 +23,7 @@
                                     <th>Invoice Number</th>
                                     <th>Engine Number</th>
                                     <th>Chasis Number</th>
-                                    <th>Warranty Book</th>
+                                    <th>Color</th>
                                     <th>Net Total</th>
                                   
                                 </tr>
@@ -61,7 +61,7 @@
                         data-live-search="true" id="warrentybook">
                         <option value="">Yes</option>
                         <option value="">No</option>
-                    </select><br><br>
+                    </select><br><br><br>
 
                     <div class="st-button" style="margin-top: 15px;">
                         <button class="btn btn-success" onclick="setStock()">Update</button>

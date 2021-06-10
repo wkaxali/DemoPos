@@ -197,10 +197,10 @@ margin-bottom: 50px;
             var email = document.getElementById("email").value;
             var profession = document.getElementById("profession").value;
             
-            var addUsers = [username, fathername, address,pNumber,cnic,email,profession];
+            var addUsers = [username, fathername, pNumber,profession,address,email,cnic];
 
             var AC = JSON.stringify(addUsers);
-            alert(AC);
+           
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -212,7 +212,7 @@ margin-bottom: 50px;
             };
 
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addcustomer/" + AC, true);
+            xhttp.open("GET", "./insertCustomer/" + AC, true);
             xhttp.send();
 
         }

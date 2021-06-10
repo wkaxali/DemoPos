@@ -46,7 +46,7 @@ class saleInvoiceEditController extends Controller
  
          }
         
-        
+        $LID=globalVarriablesController::selfLedgerID();
         
         $amount = DB::table('tblsaleinvoice')
             ->where('InvoiceNumber', '=', $InvoiceID)
@@ -74,6 +74,7 @@ class saleInvoiceEditController extends Controller
        // Account is changed
        $OldAID = DB::table('tbltransactionflow')
        ->where([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Stock and Service']])
+       ->orwhere([['InvoiceNo', '=', $InvoiceID],['TransactionCatogery', '=', 'Sales']])
         ->first()->PaidVia;
 
        $OldAccBalance=accountsController::getAccountBalance($OldAID);
@@ -88,12 +89,12 @@ class saleInvoiceEditController extends Controller
        
        
              //Party Balance
-        $SelfBalance = LedgerPartiesController::getPartyBalance(2);
+        $SelfBalance = LedgerPartiesController::getPartyBalance($LID);
 
         $newSelfBalance =floatval($SelfBalance) - floatval($amount);
       
 
-        LedgerPartiesController::UpdatePartiesBalance(2, $newSelfBalance);
+        LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
       //  _____________________________________________________
       //  _____________________________________________________
       //  __________________________________________Old Values Deleted___________
@@ -106,7 +107,9 @@ class saleInvoiceEditController extends Controller
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
        
         //_________________//
-        $dateNow= Carbon::now()->toDateString();
+        
+      $dateNow = Carbon::now()->toDateString();
+      //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
    
      self::insertInDetailedOrder($Array[0],$InvoiceID,$dateNow);
     
@@ -119,9 +122,9 @@ class saleInvoiceEditController extends Controller
     //  //Customer Balance
       CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
     //  //Parties Balance
-     $oldSelfBalance= LedgerPartiesController::getPartyBalance(2);
+     $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
      $newSelfBalance=floatval($oldSelfBalance)+floatval($AP);
-     LedgerPartiesController::UpdatePartiesBalance(2, $newSelfBalance);
+     LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
     //  //Accounts Balance
       $OldAccBalance=accountsController::getAccountBalance($AID);
         $newAccountBalance=floatval($OldAccBalance)+floatval($AP);
@@ -206,11 +209,13 @@ class saleInvoiceEditController extends Controller
 
 public function updateBalnce($AP,$RBI){
 
-    $oldSelfBalance = LedgerPartiesController::getPartyBalance(2);
+  $LID=globalVarriablesController::selfLedgerID();
+
+    $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance + $AP;
     $newCumstomerBalance =$cumstomerBalance - $AP;
 
-    LedgerPartiesController::UpdatePartiesBalance(2, $newBalance);
+    LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
     
     DB::table('customeinformation')
     ->where('CustomerID', $CID)

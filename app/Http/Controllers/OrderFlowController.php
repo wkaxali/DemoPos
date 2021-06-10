@@ -22,9 +22,9 @@ class OrderFlowController extends Controller
        $AID=$Array[4];
        
        
-        
          
-         $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
+    $dateNow = Carbon::now()->toDateString();
+    //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
 
 
@@ -53,21 +53,21 @@ class OrderFlowController extends Controller
 
         
       self::insertInDetailedPurchaseOrder($orderDetails,$invoiceNumber,$dateNow);
-      $LID=2;
-      $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
+      $LID=globalVarriablesController::selfLedgerID();
+      $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
       $oldCompanyBalance=LedgerPartiesController::getPartyBalance(1);
       $paidVia=$AID;
      
       $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
       LedgerPartiesController::UpdatePartiesBalance(1,$currentCompanyBalance);
-      TransactionFlow::addTransaction($invoiceNumber,"Credit","Booking Order",
+      TransactionFlow::addTransaction($invoiceNumber,"Debit","Booking Order",
       $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,NULL,NULL,$LID,"0",NULL,'1',$paidVia,NULL);
       $OldAccBalance=accountsController::getAccountBalance($AID);
       $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
       
       accountsController::UpdateNewBalance($AID,$newAccountBalance);
       $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
-      LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
+      LedgerPartiesController::UpdatePartiesBalance($LID,$selfBalance);
      // $companyBalance=floatval($oldCompanyBalance)+floatval($totlpaid);
    
     
@@ -76,8 +76,14 @@ class OrderFlowController extends Controller
 
     function getOrderID(){
 
-      $IID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
-      return $IID+1;
+        $IID=DB::table('tblpurchaseorder')->max("InvoiceNumber");
+        return $IID+1;
+    }
+    function abc(){
+
+
+      $IID=DB::select('select * from tbltransactionflow');
+      return $IID;
   }
 
     function addProductOnlyForAutos($Pname,$Pcateg,$Psubcat,$Pbarcode,$UnitPurchasePrice,$OrderID,$description,$INP){
@@ -137,7 +143,7 @@ class OrderFlowController extends Controller
         // $(tr).find('td:eq(4)').text(), //totamount
         // $(tr).find('td:eq(5)').text(), //Paid
         // $(tr).find('td:eq(6)').text() //remAmount
-       $productSerial= self::addProductOnlyForAutos($Pname,"20",NULL,NULL,$purchasePrice,$InvoiceID,$description,$invoicePrice);
+       $productSerial= self::addProductOnlyForAutos($Pname,"1",NULL,NULL,$purchasePrice,$InvoiceID,$description,$invoicePrice);
        print ($productSerial);
       
   
@@ -260,13 +266,19 @@ class OrderFlowController extends Controller
         
       }
 
+      function getPendingOrders(){
+        $data=DB:: select('select * from vw_purchaseorderdetails where DilevedStatus = "Pending"');
+        return $data;
+      }
+
+
       function spareParts(){
-        $data=DB:: select('select * from vw_stockdetails where Category = 21');
+        $data=DB:: select('select * from vw_stockdetails where Category = 2');
         return $data;
       }
 
       function viewStock(){
-        $data=DB:: select('select * from vw_stockdetails where Category = 20');
+        $data=DB:: select('select * from vw_stockdetails where Category = 1');
         return $data;
       }
 
@@ -282,6 +294,12 @@ class OrderFlowController extends Controller
       
       function transactionHistory(){
         $data=DB:: select('select * from tbltransactionflow');
+        return $data;
+      }
+      
+         
+      function transactionHistoryforExpance(){
+        $data=DB:: select('select * from tbltransactionflow where TransactionType=Credit');
         return $data;
       }
       
@@ -452,7 +470,9 @@ class OrderFlowController extends Controller
         
          
           
-          $dateNow= Carbon::now()->toDateString();//->format('Y-m-d h:iA');
+          
+    $dateNow = Carbon::now()->toDateString();
+    //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
         // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
  
  
@@ -481,16 +501,16 @@ class OrderFlowController extends Controller
  
          
        self::insertInDetailedPurchaseOrderForSP($orderDetails,$invoiceNumber,$dateNow);
-       $LID=2;
-       $oldSelfBalance=LedgerPartiesController::getPartyBalance(2);
+       $LID=globalVarriablesController::selfLedgerID();
+       $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
        $oldCompanyBalance=LedgerPartiesController::getPartyBalance($SID);
        $paidVia=$AID;
      
        $currentCompanyBalance=floatval($oldCompanyBalance)+floatval($totRemaining);
        LedgerPartiesController::UpdatePartiesBalance($SID,$currentCompanyBalance);
        $selfBalance=floatval($oldSelfBalance)-floatval($totlpaid);
-       LedgerPartiesController::UpdatePartiesBalance(2,$selfBalance);
-       TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock Purchased",
+       LedgerPartiesController::UpdatePartiesBalance($LID,$selfBalance);
+       TransactionFlow::addTransaction($invoiceNumber,"Debit","Stock Purchased",
        $totlpaid,$dateNow,"1",$oldCompanyBalance,$currentCompanyBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$SID,$paidVia,NULL);
        $OldAccBalance=accountsController::getAccountBalance($AID);
        $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);

@@ -90,29 +90,24 @@
 <br>
 
                         <div class="centhour">
-                                <button class="btn btn-new" style="background-color: #e61d2f;" onclick="pageReload()">New</button>
-                                <button class="btn btn-edit" style="background-color: #13579a;">Edit</button>
-                                <button class="btn" style="background-color: #e61d2f;">Delete</button>
-                            </div>
-                            <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
+                            <button class="btn" style="background-color: #13579a;" onclick="pageReload()">New</button>
+                           
                         </div>
 
                     <div class="col-md-6  okay-invo-1">
                         <div class="o-inv">
                             <label for="invo-1">Customer Id</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="CID">
-                            <button class="btn"
-                                style="height: 25px; margin-top: -5px; background-color: #e61d2f;"></button>
+                                name="invo-1" id="CID" readonly>
+                            
                             <br>
                             <label for="prod-1">Last Balance</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="LastBalance">
-                            <button class="btn"
-                                style="height: 25px; margin-top: -5px;background-color: #13579a;"></button> <br>
+                                name="invo-1" id="LastBalance" readonly>
+                            <br>
                             <label for="prod-1">Current Balance</label>
                             <input type="text" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="CurrentBalance">
+                                name="invo-1" id="CurrentBalance" readonly>
 
                         </div>
                         <div class="o-inv-2">
@@ -130,12 +125,12 @@
                             <br>
                             <label for="prod-1">Contact Number</label>
                             <input type="text" class="form-control"
-                                style="display: inline-block; width: 107px; height: 30px;" name="invo-1" id="CNO">
+                                style="display: inline-block; width: 107px; height: 30px;" name="invo-1" id="CNO" readonly>
                             <br>
                             <label for="prod-1">Category</label>
                             <input type="text" class="form-control"
                                 style="display: inline-block; width: 107px; height: 30px;" name="invo-1"
-                                id="CustomerCategory">
+                                id="CustomerCategory" readonly>
                             <br>
                         </div>
                         <div class="clear">
@@ -170,8 +165,8 @@
                                                         placeholder="Address" required />
                                                     <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addProfession"
                                                         placeholder="Profession" required />
-                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addComments"
-                                                        placeholder="Comments" required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="email"
+                                                        placeholder="Email" required />
                                                         </form>
                                                 </div>
 
@@ -194,11 +189,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 okay-invo okay-invo-hide">
-                        <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid"
-                            alt="">
-
-                    </div>
+                   
 
 
 
@@ -238,7 +229,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-3 okay-invo-3">
+                    <div class="col-md-3 okay-invo-2">
                         <label for="invo-1" style="width: 130px;">Total</label>
                         <input type="text" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="Total">
@@ -274,11 +265,11 @@
                             <button class="btn" style="background-color: #e61d2f;" id="saveBtn"
                                 onclick="insertInSales()">Save</button>
                             <button class="btn" style="background-color: #0a549d;" onclick="print()">Print</button>
-                            <button class="btn" style="background-color: #e61d2f;">Edit</button>
-                            <button class="btn" style="background-color: #0a549d;">Hold</button>
+                            <!-- <button class="btn" style="background-color: #e61d2f;">Edit</button>
+                            <button class="btn" style="background-color: #0a549d;">Hold</button> -->
                             <button class="btn" style="background-color: #e61d2f;" id="updateBtn"
                                 onclick="UpdateSaleInvoice()">Update</button>
-                            <button class="btn" style="background-color: #0a549d;">Delete</button>
+                            <!-- <button class="btn" style="background-color: #0a549d;">Delete</button> -->
                         </div>
 
 

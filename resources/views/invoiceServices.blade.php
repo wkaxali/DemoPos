@@ -560,6 +560,8 @@
                 padding: 4px 7px 7px 7px;
             }
         }
+        .modal-content {
+        width:130%;}
 
         .modal-backdrop {
             position: fixed;
@@ -1104,7 +1106,9 @@
         .appointment-form {
             padding: 10px 60px 0px 60px;
         }
-
+        table.dataTable tbody td {
+             padding: 0px 0px;
+                 }
         .appointment-form input,
         select {
             width: 100%;
@@ -1411,6 +1415,7 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    
     <script>
         $(document).ready(function () {
             $('#searchProductTable').DataTable({
@@ -1520,10 +1525,10 @@
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var data = this.responseText;
-                //alert(data);
+                
                 var table;
                 var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
+                
                 table = $('#searchProductTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
@@ -1554,7 +1559,7 @@
 
             }
         };
-        //alert("ljd");
+        
         xhttp.open("GET", "./getSaleInvReq/" + id, true);
         xhttp.send();
 
@@ -1588,6 +1593,7 @@
             alert(this.cells[0].innerText);
             calc();
         });
+    
         calc();
     });
 
@@ -1637,6 +1643,8 @@
         var customerName = $('#CustomerName').find(":selected").text();
 
         var receivedBy = $('#employees').find(":selected").text();
+        var EID = $('#employees').find(":selected").val();
+        // alert(EID);
         var CNIC = document.getElementById("CNIC").value;
         var address = document.getElementById('Address').value;
         var contact = document.getElementById('contact').value;
@@ -1654,7 +1662,7 @@
             CID, paidTo, AID, customerName, CNIC, address,
             contact, fatherName, engineNo, chassisNo, color,
             description, productName, city, receivedBy,
-            totalCost
+            totalCost,EID
 
         ];
 
@@ -1669,6 +1677,8 @@
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert("Invoice =" + this.responseText + " is generated");
+                    
+                    document.getElementById("InvoiceID").value=this.responseText;
 
 
 
@@ -1685,9 +1695,13 @@
 
 <script>
     function printDocs() {
-        window.open("/testpdf/2");
-        window.open("/testpdf/3");
-        window.open("/testpdf/4");
+// var id=document.getElementById("InvoiceID").value;
+//         window.open("./InvoiceDetails/"+id)
+//         window.open("/testpdf/2");
+//         window.open("./getSaleInvReq/"+id)
+//         window.open("/testpdf/3");
+//         window.open("/printGatePass/"+id);
+window.open("./pds")
     }
 
     function fetchAccounts() {
@@ -1700,7 +1714,7 @@
                 $('#slctAccounts').selectpicker('refresh');
             }
         };
-        //alert("ljd");
+       
         xhttp.open("GET", "./getAccountHeads/", true);
 
         xhttp.send();
@@ -1893,7 +1907,7 @@
         //alert("It is working"+CustomerContact);
         var profession = document.getElementById("addProfession").value;
         //alert("It is working"+CustomerProfession);
-        var balance = document.getElementById("addBalance").value;
+        var email = document.getElementById("email").value;
         //alert("It is working"+CustomerBalance);
         var address = document.getElementById("addAddress").value;
         //alert("It is working"+CustomerAddress);
@@ -1902,10 +1916,10 @@
         var cnic = document.getElementById("addCNIC").value;
         //alert("It is working"+CustomerComments);
 
-        var newCustomer = [customerName, fatherName, contact, profession, balance, address,
-            comments, cnic
+        var newCustomer = [customerName, fatherName, contact, profession, address, email,
+            cnic
         ];
-
+        
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -1913,7 +1927,7 @@
             }
         };
         var EC = JSON.stringify(newCustomer);
-        alert(EC);
+        
         xhttp.open("GET", "./insertCustomer/" + EC, true);
         xhttp.send();
 
@@ -1971,7 +1985,7 @@
                 $('#employees').selectpicker('refresh');
             }
         };
-        //alert("ljd");
+        
         xhttp.open("GET", "./getEmployeeName/", true);
 
         xhttp.send();
@@ -1986,7 +2000,7 @@
                 document.getElementById("InvoiceID").value = this.response;
             }
         };
-        //alert("ljd");
+        
         xhttp.open("GET", "./getInvoiceID", true);
 
         xhttp.send();
@@ -1995,5 +2009,32 @@
     }
 
 </script>
+
+
+<script>
+        function myFunction() {
+            setTimeout(function () {
+                var id = document.getElementById("demo");
+                var mytime = document.getElementById("timeDemo");
+                var today = new Date();
+
+
+                var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+
+                // var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+                var dateTime = date;
+                
+
+                id.innerHTML = "DATE:  "+dateTime;
+                
+            }, 1000);
+        }
+        window.setInterval(function () {
+            myFunction()
+        }, 1000);
+
+    </script>
+
 
 </html>

@@ -26,7 +26,7 @@ class employeeController extends Controller
             'ContactNo'=>$contact,
             'HomeAddress'=>$address,
             'EmailID'=>$email,
-            'Designation'=>$designation,
+            'DesignationID'=>$designation,
             'JoiningDate'=>$date
             ]);  
 
@@ -59,11 +59,18 @@ class employeeController extends Controller
           'ContactNo'=>$contact,
           'HomeAddress'=>$address,
           'EmailID'=>$email,
-          'DesignationID'=>$designation,
+          'Designation'=>$designation,
           'JoiningDate'=>$date
           ]);
 
           return $EID;
+        }
+
+        public static function getEmployeeBalance($EID){
+            $re = DB::table('tblemployees')
+            ->where('EID', '=', $EID)
+            ->first()->Balance;
+            return $re;
         }
         
 }
