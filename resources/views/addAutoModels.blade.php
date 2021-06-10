@@ -170,22 +170,20 @@
                                             id="ModelName" required>
 
                                     </div>
-                                    
+                                    <div class="form-group">
+                                        <input type="text" class="form-control item" placeholder="ProductCategory"
+                                            id="ProductCategory" required>
+
+                                    </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control item" placeholder="Price" id="Price"
                                             required>
 
                                     </div>
 
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" placeholder="Description" id="description"
-                                            required>
-
-                                    </div>
-
 
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" class="btn  create-account" onclick="addAutoModels()">Add Auto Model</button>
+                                        <button type="button" class="btn  create-account">Add Auto Model</button>
                                     </div>
 
 
@@ -217,13 +215,13 @@
         function addAutoModels() {
 
             var comp = document.getElementById("Company").value;
-            var model = document.getElementById("ModelName").value;
-            var description = document.getElementById("description").value;
+            var model = dosssscument.getElementById("ModelName").value;
+            var product = document.getElementById("ProductCategory").value;
             var price = document.getElementById("Price").value;
-            var add = [comp, model, price, description];
+            var add = [comp, model, product, price];
 
             var AA = JSON.stringify(add);
-            
+            alert(AA);
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
