@@ -55,19 +55,19 @@ class TransactionFlow extends Controller
     }
         public static  function selectedSearchData($AID,$LID){
             if($AID == "All" && $LID != "All"){
-                $data=DB:: select('select * from tbltransactionflow where PaidTo='.$LID);
+                $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$LID);
                 return $data;
             }
             if($LID == "All" && $AID != "All"){
-                $data=DB:: select('select * from tbltransactionflow where PaidVia='.$AID);
+                $data=DB:: select('select * from vw_transaction_flow where PaidVia='.$AID);
                 return $data;
             }
             if($LID != "All" && $AID != "All"){
-                $data=DB:: select('select * from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
+                $data=DB:: select('select * from vw_transaction_flow where PaidVia='.$AID.' and PaidTo='.$LID);
                 return $data;
             }
             if($LID == "All" && $AID == "All"){
-                $data=DB:: select('select * from tbltransactionflow');
+                $data=DB:: select('select * from vw_transaction_flow');
                 return $data;
             }
         }
