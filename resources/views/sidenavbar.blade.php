@@ -89,6 +89,8 @@ style="float: right"></span></a>
 </li>
 <li id="menu-mensagens" style="width: 201px"><a href="/ep">Employee Payments</a>
 </li>
+<li id="menu-mensagens" style="width: 201px"><a href="/th">Transaction History</a>
+</li>
 
 
 </ul>

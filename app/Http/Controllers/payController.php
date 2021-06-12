@@ -12,9 +12,9 @@ class payController extends Controller
 {
 
   public static function insertPayment(Request $request, $CO, $PT){
-
+  
     $ata=json_decode($CO);
-      
+        
         foreach ($ata as $obj){
         $date=$obj[0];
         //$date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
@@ -26,15 +26,15 @@ class payController extends Controller
         $paidVia=$obj[4];
         $remarks=$obj[5];
 
-        $id=DB::table('tbltransactionflow')->insertGetId([
+        $TID=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Debit",
         'Remarks'=>$remarks,
         'LID'=> $LID,
-        
-        ]);  
+        ]);
+
         $bal=employeeController::getEmployeeBalance($paidTo);
         $newbal= floatval($bal)-floatval($amount);
         $eb = DB::table('tblemployees')
@@ -50,22 +50,22 @@ class payController extends Controller
 
         if($PT=="Party"){
           $re = DB::table('tbltransactionflow')
-            ->where('TransactionID', $id)
+            ->where('TransactionID', $TID)
             ->update([
               'PaidTo'=>$paidTo,
-              'TransactionCatogery'=>"Party Payment",
+              'TransactionCatogery'=>'Party Payment',
           ]);
         }
         if($PT=="Employee"){
           $re = DB::table('tbltransactionflow')
-            ->where('TransactionID', $id)
+            ->where('TransactionID', $TID)
             ->update([
               'EmpID'=>$paidTo,
-              'TransactionCatogery'=>"Salary Payment"
+              'TransactionCatogery'=>'Salary Payment'
               
           ]);
 
-        }
+      }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance - $amount;

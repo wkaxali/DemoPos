@@ -330,21 +330,27 @@
                 function selectedSearchData(){
                     var AID = $('#accounts').find(":selected").val();
                     var LID = $('#parties').find(":selected").val();
-                    alert(AID);
+                    if(AID==""){
+                        AID = "All";
+                    }
+                    if(LID==""){
+                        LID = "All";
+                    }
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
 
                         var data = this.responseText;
-                            //alert(data);
+                        
                             var table;
                             var a = JSON.parse(data);
-                            //  alert(a[0].ProductSerial);
+                        
                             table = $('#myTable').DataTable();
                             table.clear();
 
                             $.each(a, function (i, item) {
 
+                                date = dateFormat();
                                 table.row.add(['',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
@@ -355,6 +361,7 @@
 
                         }
                     };
+                    
                     xhttp.open("GET", "./selectedSearchData/"+AID+"/"+LID, true);
 
                     xhttp.send();
@@ -364,6 +371,17 @@
             </script>
 
             <script>
+
+            function dateFormat(data){
+                monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"];
+                var date = new Date(data);
+                var d = date.getDate();
+                var m = monthNames[date.getMonth()];
+                var y = date.getFullYear();
+                finalDate = d+"-"+m+"-"+y;
+                return finalDate;
+            }
                 function getTransactionHistory() {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {

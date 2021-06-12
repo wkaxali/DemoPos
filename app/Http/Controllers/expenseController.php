@@ -59,7 +59,7 @@ public static function getPartyNames(){
     $LID=globalVarriablesController::selfLedgerID();
     $data=DB:: select('select * from tblledgerparties where LID <>'.$LID);
     
-    $option='<option value=" "></option>';
+    $option='<option value=""></option>';
 
 
     foreach ($data as $d){
