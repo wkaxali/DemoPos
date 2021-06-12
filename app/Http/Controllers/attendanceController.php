@@ -13,27 +13,45 @@ class attendanceController extends Controller
     public static function markAttendance(Request $request, $CO){
 
         $EID=json_decode($CO);
-        $date = Carbon::now();
-        $time = $date->toTimeString();
-        $reportingTime = '15:15:00';
-        $status = '';
-        if ($time < $reportingTime) {
-            $status = 'Late';
+       //->format('Y-m-d h:iA');
+       $date=Carbon::now();
+        $dateToday = Carbon::now()->toDateString();
+        $timeToday = Carbon::now();
+
+        
+       $reportingTime =Carbon::parse( DB::table('tblemployeepay')
+                    ->where('EID', '=', $EID)
+                     ->first()->ReportingTime);
+        
+            // return $reportingTime;
+      
+        $status = 'LATE';
+        print("Today Time ".$timeToday."\n");
+        print("Reporting Time ".$reportingTime."\n");
+       $minLate= $timeToday->diffInMinutes($reportingTime);
+       print("Late in Minutes".$minLate."\n");
+       $hm= $timeToday->diffForHumans($reportingTime);
+        if ($minLate<=15) {
+            $status = 'On Time';//$today->eq($last)
+            $rm="On Time";
+           // return "Wow On time";
           } else {
-            $status = 'In Time';
+            $status = 'Late';
+            $rm="You are ".$hm." the Reporting Time";
           }
         $tid=DB::table('tbl_employeeattendance')->insertGetId([
             'EID'=>$EID,
             'Date'=>$date,
-            'TimeIn'=>$time,
+            'TimeIn'=>$timeToday,
             'ReportingTime'=>$reportingTime,
-            'Status'=>$status
+            'Status'=>$status,
+            'Remarks'=>$rm
             ]);       
 }
 
 
 public static function getAttendance(){
-    $data=DB:: select('select * from vw_emoloyeeattendance');
+    $data=DB:: select('select * from vw_emoloyeeattendance order by Date DESC');
     return $data;
   }
 

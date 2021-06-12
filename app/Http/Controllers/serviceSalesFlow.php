@@ -8,6 +8,7 @@ use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\accountsController;
 use App\Http\Controllers\UpdateStocksController;
 use DB;
+use NumberToWords\NumberToWords;
 
 
 class serviceSalesFlow extends Controller
@@ -28,6 +29,7 @@ class serviceSalesFlow extends Controller
 
          $CCB=$Array[10];
          $AID=$Array[11];
+         
        //  return $CLB;
          $dateNow= Carbon::now()->toDateTimeString();//->format('Y-m-d h:iA');
        // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
@@ -72,16 +74,70 @@ class serviceSalesFlow extends Controller
        $newAccountBalance=floatval($OldAccBalance)-floatval($totlpaid);
        
        accountsController::UpdateNewBalance($AID,$newAccountBalance);
-       
 
-
-     
+       $invoiceDetails=self::getAllInvoiceDetails($invoiceNumber);
        
+       //session(['invoiceDetails' => $invoiceDetails]);
+       $ProductDetailsArray=array();
+       $oneProductInInvoice=array();
+         foreach($invoiceDetails as $product){
+         $qty=$product->Quantity;
+        
+         $contact=$product->ProductSerial;
+         $customerName=$product->CustomerName;
+         $PID=$product->ProductSerial;
+         $productName=$product->ProductName;
+         $IN=$product->InvoiceNumber;
+         $tax=$product->VAT;
+        $Pt =$product->NetAmount;
+         
+         $unitPrice=$product->PerUnitSalePrice;
+         $CNIC=$product->CNIC;
+         $productName=$product->ProductName;
+         $contact=$product->Contect;
+         $TotalAmount=$product->TotalAmount;
+         $tax=$product->VAT;
+         $Discount=$product->Discount;
+         $NetTotal=$product->NetTotal;
+         $AmountPaid=$product->AmountPaid;
+         $Balance=$product->Balance;
+         $dat=$product->DateStamp;
+         $BillStatus=$product->BillStatus;
+         $AmountPaid=$product->AmountPaid;
+         $InvoiceBalance=$product->Balance;
+
+         
+         array_push($oneProductInInvoice,$PID,$productName,$qty,$unitPrice,$tax,$Pt);
+         array_push($ProductDetailsArray,$oneProductInInvoice);
+         $oneProductInInvoice=array();
+
+         session(['ProductNames' => $ProductDetailsArray]);
+         session(['ivd' => $dat]);
+         session(['iu' => $IN]);
+         session(['customerID' => $CID]);
+         session(['customerName' => $customerName]);
+         session(['contact' => $contact]);
+         session(['model' => $productName]);
+         session(['invoiceNo' => $invoiceNumber]);
+         session(['CNIC' => $CNIC]);
+         session(['tax' => $tax]);
+         session(['total' => $TotalAmount]);
+         session(['netTotal' => $netTotal]);
+         session(['InvBalance' => $InvoiceBalance]);
+         session(['amountPaid' =>  number_format($AmountPaid)]);
+         session(['overallDiscount' => $Discount]);
+
+         $numberToWords = new NumberToWords();
+            $numberTransformer = $numberToWords->getNumberTransformer('en');
+            $a= $numberTransformer->toWords($AmountPaid);
+          session(['amountInWords' => ucwords($a)]);
+      }
+  
+    }
         //insert into order details
         //inster in transaction Flow
         //update customer balance
-        //frf
-    }
+        //frf())
     public function insertInDetailedOrder($OrderDetails,$InvoiceID,$date){
       foreach ($OrderDetails as $row){
 
@@ -199,6 +255,12 @@ class serviceSalesFlow extends Controller
   
   
    }
+   public function getAllInvoiceDetails($InvoiceNo){
+    $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+   
+    return $results;
+
+}
 
    public function insertinrecipetblraw($Rpid,$Rrawid,$Runit,$Rquantity,$remarks,$REcost){
 
@@ -228,6 +290,296 @@ class serviceSalesFlow extends Controller
   print("Number of Rows Affacted".$affected);
   
   } 
+
+
+
+  public function saleServiceInvoice()
+  {
+      
+      
+
+      $newHTML='<table border="0">
+      <thead>
+          <tr>
+              <th><br><h1>FORLAND MODREN MOTORS</h1></th>
+              
+             
+          </tr>
+      </thead>
+      
+      <tbody>
+      <tr>
+      <br>
+      <td>
+     
+      NTN:82588676-6 <br>
+
+      STRN:3277876204764 <br>
+      Customer\'s Copy
+      </td>
+
+
+
+
+      
+      
+      </tr>
+      <tr><td align="center"><h1>Sales Invoice</h1></td></tr>
+
+
+      
+      </tbody>
+
+
+          
+  </table>
+  <br>
+  <br>
+  <br>
+
+  <table border="0">
+      <tbody>
+          <tr>
+              <td><br><span style="font-size: medium;">Customer Name</span></td>
+              <td align="center"><br>____________</td>
+              <td><br><span style="font-size: medium;">Booking No</span></td>
+              <td align="center"><br>____________</td>
+              
+             
+          </tr>
+          <tr>
+              <td><br><span style="font-size: medium;">Address</span></td>
+              <td align="center"><br>____________</td>
+              <td><br><span style="font-size: medium;">Invoice Number</span></td>
+              <td align="center"><br>____________</td>
+              
+             
+          </tr>
+          <tr>
+              <td><br><span style="font-size: medium;">CNIC/NTN</span></td>
+              <td align="center"><br>____________</td>
+              <td><br><span style="font-size: medium;">Invoice Date</span></td>
+              <td align="center"><br>____________</td>
+              
+             
+          </tr>
+          <tr>
+              <td><br><span style="font-size: medium;">Contact</span></td>
+              <td align="center"><br>____________</td>
+              <td><br><span style="font-size: medium;"></span></td>
+              <td align="center"><br>____________</td>
+              
+             
+          </tr>
+      </tbody>
+      </table>
+  
+
+
+<br>
+<br>
+<br>
+<br>
+<table border="1" >
+<tr ><td>
+      <table border="0">
+      <thead>
+      <tr>
+          <td  align="left" bgcolor="#C0C0C0" >
+             Description </td>
+             <td align="center" bgcolor="#C0C0C0" >color</td>
+             <td align="center"bgcolor="#C0C0C0" >Engine No</td>
+             <td align="center" bgcolor="	#C0C0C0">Chassis No</td>
+             <td align="center" bgcolor="	#C0C0C0">Amount</td>
+       
+      </tr>
+  </thead>
+          <tbody >
+              <tr >
+                  <td ></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr> <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr> <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr> <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr> <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr> <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr> <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr> <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr> <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr> <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+              </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+          <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+  </tr>
+  <tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+</tr>
+      </tbody>
+  </table>
+  </td>
+</tr>
+</table>
+  
+
+
+<table border="0">
+  <thead>
+  <tr>
+      <th width="60%" border="1" align="center">
+         Total in Word </th>
+    
+      <th  width="40%" border="1" align="center"> Tootal PKR</th>
+    
+  </tr>
+</thead>
+      <tbody>
+      <tr>
+          <td width="60%" border="1" align="center">1000</td>
+          <td width="40%" border="1" align="center">10000</td>
+         
+        
+      </tr>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      
+     
+      <br>
+      <tr>
+      <td width="60%" border="0"></td>
+      <td width="40%" align="center" border="0">_______________________</td>
+      
+     
+    
+  </tr>
+  <tr>
+  <br>
+     
+      <td width="60%" border="0"></td>
+      <td width="40%" align="center" border="0">Sign and Signature</td>
+      
+     
+    
+  </tr>
+  
+  
+   
+   
+  </tbody>
+</table>
+<br><br> <br>
+<br>
+<table border="0">
+
+<tr>
+  
+     
+      <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore,Tel:0300-0600061  </h4></td>
+      
+      
+     
+    
+  </tr>
+  <tr>
+  
+     
+      <td bgcolor="crimson" align="center" border="0"><h5> Email Adress: forlandmodernmotoprs@yahoo.com </h5></td>
+      
+      
+     
+    
+  </tr>
+  
+</table>
+
+  
+  
+  
+  
+  
+  ';     // $html= $htmldata;
+
+      
+      PDF::SetTitle('Sale Invoice');
+      PDF::AddPage();
+      PDF::writeHTML($newHTML, true, false, true, false, '');
+
+      PDF::Output('saleInvoice.pdf');
+     
+  }
 
 
 }

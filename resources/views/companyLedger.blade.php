@@ -8,9 +8,22 @@
     <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <title>Company Ledger</title>
     <style>
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 83%;
+            }
+        }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
+
+
         input {
 
             color: red;
@@ -31,17 +44,17 @@
         th,
         td {
             border: 1px solid #aaaaaa;
-            padding: 5px;
+            padding: 1px !important;
         }
 
         .receivingTable {
             border: 1px solid #aaaaaa;
             border-radius: 10px;
-
+            padding: 10px;
         }
 
         .receivingMain {
-            border: 1px solid #aaaaaa;
+
             border-radius: 10px;
             height: 450px;
             overflow: auto;
@@ -64,7 +77,7 @@
         }
 
         .Footerbtns .btn {
-            width: 120px;
+            width: 180px;
         }
 
         .Footerbtns .btn:nth-child(2) {
@@ -109,86 +122,153 @@
             -moz-appearance: textfield;
         }
 
-        #myTable_length label{
+        #myTable_length label {
             width: auto !important;
         }
-        .dataTables_filter label{
+
+        .dataTables_filter label {
             width: auto !important;
 
         }
+
+        @media print {
+            .left-content {
+                width: 100% !important;
+            }
+
+            .sidebar-menu {
+                display: none;
+            }
+
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            #mainComapnyLedger {
+                visibility: visible !important;
+            }
+
+            table {
+                page-break-before: always;
+            }
+        }
+
+        .responseTable {
+            overflow: auto;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .responseTable table {
+                width: 900px !important;
+            }
+
+            .inner-block {
+                padding: .5em 1em 2em 1em;
+            }
+
+            .Footerbtns .btn {
+                margin: 5px 0px;
+            }
+        }
+
     </style>
 </head>
 
 <body onload="loadFunctions()">
-
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h3>Company Ledger</h3>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="receivingMain">
-
-
-                        <div class="receivingTable" id = "companyLedgerTable">
-                        <table id="companyLedgerData" class=" table-striped" style="width: 100%; text-align: center;">
-                        <thead>
-                            <tr>
-                                <th id ="Cusname">Transaction ID</th>
-                                <th id="CusCont">Order No</th>
-                                <th id ="Cusaddr">Transaction Category</th>
-                                <th id ="CusMeet">Net Total</th>
-                                <th id="CusIntrs">Amount Paid</th>
-                                <th id ="CusMeet">Balance</th>
-                                <th id ="CusMeet">Date</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                        </table>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="inner-block">
+                <header>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h3 id="mainComapnyLedger">Company Ledger</h3>
+                            </div>
                         </div>
+                        <br>
+
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="receivingMain">
+
+
+                                    <div class="receivingTable" id="companyLedgerTable">
+                                        <main id="mainHeader">
+                                            <div class="responseTable">
+                                                <table id="companyLedgerData" class="table table-striped"
+                                                    style="width: 100%; text-align: center;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th id="Cusname">Transaction ID</th>
+                                                            <th id="CusCont">Order No</th>
+                                                            <th id="Cusaddr">Transaction Category</th>
+                                                            <th id="CusMeet">Net Total</th>
+                                                            <th id="CusIntrs">Amount Paid</th>
+                                                            <th id="CusMeet">Balance</th>
+                                                            <th id="CusMeet">Date</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </main>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label style="width: 185px;" for="">Total Amount</label>
+                                <input type="number" value="" name="" id="totalAmount">
+                            </div>
+                            <div class="col-md-4">
+                                <label style="width: 185px;" for="">Amount Paid</label>
+                                <input type="number" value="" name="" id="totalPaid">
+                            </div>
+                            <div class="col-md-4">
+
+                                <label style="width: 185px;" for="">Remaining</label>
+                                <input type="number" value="" name="" id="remaining">
+                                <h4 style="font-size: 16px; font-weight: 600;">Has To Be Paid By MM Motors To JWW </h4>
+
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="Footerbtns">
+                                    <a class="btn" onclick="printWindow()">Print</a>
+                                    <a class="btn" href="#">Export To Pdf</a>
+
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
+                </header>
             </div>
-            <br>
-            <div class="row">
-                <div class="col-md-4">
-                    <label style="width: 185px;" for="">Total Amount</label>
-                    <input type="number" value="" name="" id="totalAmount">
-                </div>
-                <div class="col-md-4">
-                    <label style="width: 185px;" for="">Amount Paid</label>
-                    <input type="number" value="" name="" id="totalPaid">
-                </div>
-                <div class="col-md-4">
-
-                    <label style="width: 185px;" for="">Remaining</label>
-                    <input type="number" value="" name="" id="remaining">
-                    <h4 style="font-size: 16px; font-weight: 600;">Has To Be Paid By MM Motors To JWW </h4>
-
-
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="Footerbtns">
-                        <a class="btn">Print</a>
-                        <a class="btn" href="#">Export To Pdf</a>
-
-                    </div>
-                    <div class="clear"></div>
-                </div>
-            </div>
-
         </div>
-    </header>
-
+        @include('sidenavbar')
+        <div class="clearfix"></div>
+    </div>
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -200,99 +280,123 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
 
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute",
+
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
+
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+
+    </script>
 
 
 
+    <script>
+        function loadFunctions() {
+            getCompanyLedger();
+        }
 
-<script>
-function loadFunctions(){
-    getCompanyLedger();
-}
-</script>
+    </script>
 
 
-<script>
-function totalAmount(){
-    var table = document.getElementById("companyLedgerData");
-    var sum = 0;
+    <script>
+        function totalAmount() {
+            var table = document.getElementById("companyLedgerData");
+            var sum = 0;
 
-    for(var i = 1; i < table.rows.length; i++)
-            {
+            for (var i = 1; i < table.rows.length; i++) {
                 sum = sum + parseInt(table.rows[i].cells[3].innerHTML);
             }
-            
+
             document.getElementById("totalAmount").value = sum;
-}
+        }
 
-function totalPaid(){
-    var table = document.getElementById("companyLedgerData");
-    var sum = 0;
+        function totalPaid() {
+            var table = document.getElementById("companyLedgerData");
+            var sum = 0;
 
-    for(var i = 1; i < table.rows.length; i++)
-            {
+            for (var i = 1; i < table.rows.length; i++) {
                 sum = sum + parseInt(table.rows[i].cells[4].innerHTML);
             }
-            
+
             document.getElementById("totalPaid").value = sum;
-}
-
-
-function remaining(){
-    var totalPaid = document.getElementById("totalPaid").value;
-    var totalAmount = document.getElementById("totalAmount").value;
-    var remaining = totalAmount - totalPaid;
-    document.getElementById("remaining").value = remaining;
-}
-
-</script>
-
-
-<script>
-function getCompanyLedger(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-            
-            var data = this.responseText;
-                //alert(data);
-                var table;
-                var a = JSON.parse(data);
-                //  alert(a[0].ProductSerial);
-                table = $('#companyLedgerData').DataTable();
-
-                $.each(a, function (i, item) {
-                        
-                    if (a[i].NetTotal == null){
-                        a[i].NetTotal = 0;
-                    }
-                    if (a[i].Amount == null){
-                        a[i].Amount = 0;
-                    }
-                    if (a[i].Balance == null){
-                        a[i].Balance = 0;
-                    }
-
-                    table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i].NetTotal, 
-                    a[i].Amount, a[i].Balance, a[i].DateStamp]);
-                });
-                table.draw();
-                totalAmount();
-                totalPaid();
-                remaining();
-
         }
-        
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./companyLedger/", true);
-    
-    xhttp.send();
+
+
+        function remaining() {
+            var totalPaid = document.getElementById("totalPaid").value;
+            var totalAmount = document.getElementById("totalAmount").value;
+            var remaining = totalAmount - totalPaid;
+            document.getElementById("remaining").value = remaining;
+        }
+
+    </script>
+
+
+    <script>
+        function getCompanyLedger() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var data = this.responseText;
+                    //alert(data);
+                    var table;
+                    var a = JSON.parse(data);
+                    //  alert(a[0].ProductSerial);
+                    table = $('#companyLedgerData').DataTable();
+
+                    $.each(a, function (i, item) {
+
+                        if (a[i].NetTotal == null) {
+                            a[i].NetTotal = 0;
+                        }
+                        if (a[i].Amount == null) {
+                            a[i].Amount = 0;
+                        }
+                        if (a[i].Balance == null) {
+                            a[i].Balance = 0;
+                        }
+
+                        table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery, a[i]
+                            .NetTotal,
+                            a[i].Amount, a[i].Balance, a[i].DateStamp
+                        ]);
+                    });
+                    table.draw();
+                    totalAmount();
+                    totalPaid();
+                    remaining();
+
+                }
+
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./companyLedger/", true);
+
+            xhttp.send();
+        }
+
+    </script>
+
+
     }
-</script>
-
-
-        }
 
     </script>
 
@@ -303,8 +407,23 @@ function getCompanyLedger(){
 
     </script>
 
-</body>
+    <script>
+        function printWindow() {
+            var divToPrint = document.getElementById("companyLedgerData");
+            divToPrint.style.textAlign = "center";
+            divToPrint.style.border = "1px solid #333";
+            newWin = window.open("");
+            newWin.document.write(
+                '<html><head><title>Print it!</title><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"></head><body>'
+            );
 
+            newWin.document.write(divToPrint.outerHTML);
+            newWin.document.write('</body></html>');
+            newWin.print();
+            newWin.close();
+        }
+
+    </script>
 
 </body>
 

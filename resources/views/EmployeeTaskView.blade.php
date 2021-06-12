@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <title>Search Task</title>
 
-    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
     <script>
@@ -24,187 +27,6 @@
 
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            text-decoration: none;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            background: #e1ecf2;
-        }
-
-        .wrapper {
-            margin: 10px;
-        }
-
-        .wrapper .top_navbar {
-            width: calc(100% - 20px);
-            height: 60px;
-            display: flex;
-            position: fixed;
-            top: 10px;
-        }
-
-        .wrapper .top_navbar .hamburger {
-            width: 70px;
-            height: 100%;
-            background: #2e4ead;
-            padding: 15px 17px;
-            border-top-left-radius: 20px;
-            cursor: pointer;
-        }
-
-        .wrapper .top_navbar .hamburger div {
-            width: 35px;
-            height: 4px;
-            background: #92a6e2;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-
-        .wrapper .top_navbar .top_menu {
-            width: calc(100% - 70px);
-            height: 100%;
-            background: #fff;
-            border-top-right-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-        }
-
-        .wrapper .top_navbar .top_menu .logo {
-            color: #2e4ead;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 3px;
-        }
-
-        .wrapper .top_navbar .top_menu ul {
-            display: flex;
-        }
-
-        .wrapper .top_navbar .top_menu ul li a {
-            display: block;
-            margin: 0 10px;
-            width: 35px;
-            height: 35px;
-            line-height: 35px;
-            text-align: center;
-            border: 1px solid #2e4ead;
-            border-radius: 50%;
-            color: #2e4ead;
-        }
-
-        .wrapper .top_navbar .top_menu ul li a:hover {
-            background: #4360b5;
-            color: #fff;
-        }
-
-        .wrapper .top_navbar .top_menu ul li a:hover i {
-            color: #fff;
-        }
-
-        .wrapper .sidebar {
-            position: fixed;
-            top: 70px;
-            left: 10px;
-            background: #0a549d;
-            width: 200px;
-            height: calc(100% - 80px);
-            border-bottom-left-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .wrapper .sidebar ul li a {
-            display: block;
-            padding: 20px;
-            color: #fff;
-            position: relative;
-            margin-bottom: 1px;
-            color: #92a6e2;
-            white-space: nowrap;
-        }
-
-        .wrapper .sidebar ul li a:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: #92a6e2;
-            display: none;
-        }
-
-        .wrapper .sidebar ul li a span.icon {
-            margin-right: 10px;
-            display: inline-block;
-        }
-
-        .wrapper .sidebar ul li a span.title {
-            display: inline-block;
-        }
-
-        .wrapper .sidebar ul li a:hover,
-        .wrapper .sidebar ul li a.active {
-            background: #4360b5;
-            color: #fff;
-        }
-
-        .wrapper .sidebar ul li a:hover:before,
-        .wrapper .sidebar ul li a.active:before {
-            display: block;
-        }
-
-        .wrapper .main_container {
-            width: (100% - 200px);
-            margin-top: 70px;
-            margin-left: 200px;
-            padding: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .wrapper .main_container .item {
-            background: #fff;
-            margin-bottom: 10px;
-            padding: 15px;
-            font-size: 14px;
-            line-height: 22px;
-        }
-
-        .wrapper.hello .sidebar {
-            width: 70px;
-        }
-
-        .wrapper.hello .sidebar ul li a {
-            text-align: center;
-        }
-
-        .wrapper.hello .sidebar ul li a span.icon {
-            margin: 0;
-        }
-
-        .wrapper.hello .sidebar ul li a span.title {
-            display: none;
-        }
-
-        .wrapper.hello .main_container {
-            width: (100% - 70px);
-            margin-left: 70px;
-        }
-
-        .container .row {
-            margin: 5px 0px !important;
-        }
-
         #movetop {
             position: fixed;
             bottom: 40px;
@@ -328,12 +150,13 @@
             justify-content: center;
             flex-wrap: wrap;
             flex-direction: row;
+            width: 100%;
 
         }
 
         .mainContCards .mainCards-1 .card {
             margin: 10px;
-            width: 23rem;
+            width: 20rem;
         }
 
         @media screen and (max-width: 1202px) {
@@ -347,13 +170,7 @@
 
             }
 
-            .wrapper .main_container {
 
-                margin-top: 70px;
-                margin-left: 336px;
-                padding: 15px;
-                transition: all 0.3s ease;
-            }
         }
 
 
@@ -631,168 +448,6 @@
             background: #e1ecf2;
         }
 
-        .wrapper {
-            margin: 10px;
-        }
-
-        .wrapper .top_navbar {
-            width: calc(100% - 20px);
-            height: 60px;
-            display: flex;
-            position: fixed;
-            top: 10px;
-        }
-
-        .wrapper .top_navbar .hamburger {
-            width: 70px;
-            height: 100%;
-            background: #2e4ead;
-            padding: 15px 17px;
-            border-top-left-radius: 20px;
-            cursor: pointer;
-        }
-
-        .wrapper .top_navbar .hamburger div {
-            width: 35px;
-            height: 4px;
-            background: #92a6e2;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-
-        .wrapper .top_navbar .top_menu {
-            width: calc(100% - 70px);
-            height: 100%;
-            background: #fff;
-            border-top-right-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-        }
-
-        .wrapper .top_navbar .top_menu .logo {
-            color: #2e4ead;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 3px;
-        }
-
-        .wrapper .top_navbar .top_menu ul {
-            display: flex;
-        }
-
-        .wrapper .top_navbar .top_menu ul li a {
-            display: block;
-            margin: 0 10px;
-            width: 35px;
-            height: 35px;
-            line-height: 35px;
-            text-align: center;
-            border: 1px solid #2e4ead;
-            border-radius: 50%;
-            color: #2e4ead;
-        }
-
-        .wrapper .top_navbar .top_menu ul li a:hover {
-            background: #4360b5;
-            color: #fff;
-        }
-
-        .wrapper .top_navbar .top_menu ul li a:hover i {
-            color: #fff;
-        }
-
-        .wrapper .sidebar {
-            position: fixed;
-            top: 70px;
-            left: 10px;
-            background: #0a549d;
-            width: 200px;
-            height: calc(100% - 80px);
-            border-bottom-left-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .wrapper .sidebar ul li a {
-            display: block;
-            padding: 20px;
-            color: #fff;
-            position: relative;
-            margin-bottom: 1px;
-            color: #92a6e2;
-            white-space: nowrap;
-        }
-
-        .wrapper .sidebar ul li a:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 3px;
-            height: 100%;
-            background: #92a6e2;
-            display: none;
-        }
-
-        .wrapper .sidebar ul li a span.icon {
-            margin-right: 10px;
-            display: inline-block;
-        }
-
-        .wrapper .sidebar ul li a span.title {
-            display: inline-block;
-        }
-
-        .wrapper .sidebar ul li a:hover,
-        .wrapper .sidebar ul li a.active {
-            background: #4360b5;
-            color: #fff;
-        }
-
-        .wrapper .sidebar ul li a:hover:before,
-        .wrapper .sidebar ul li a.active:before {
-            display: block;
-        }
-
-        .wrapper .main_container {
-            width: (100% - 200px);
-            margin-top: 70px;
-            margin-left: 200px;
-            padding: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .wrapper .main_container .item {
-            background: #fff;
-            margin-bottom: 10px;
-            padding: 15px;
-            font-size: 14px;
-            line-height: 22px;
-        }
-
-        .wrapper.hello .sidebar {
-            width: 70px;
-        }
-
-        .wrapper.hello .sidebar ul li a {
-            text-align: center;
-        }
-
-        .wrapper.hello .sidebar ul li a span.icon {
-            margin: 0;
-        }
-
-        .wrapper.hello .sidebar ul li a span.title {
-            display: none;
-        }
-
-        .wrapper.hello .main_container {
-            width: (100% - 70px);
-            margin-left: 70px;
-        }
-
         .container .row {
             margin: 5px 0px !important;
         }
@@ -920,10 +575,7 @@
 
         }
 
-        .mainCards-1:hover {
-            transform: translateY(-10px);
-            transition: .7s;
-        }
+    
 
         .card {
             border-left: 10px solid #4360b5;
@@ -942,13 +594,6 @@
 
             }
 
-            .wrapper .main_container {
-
-                margin-top: 70px;
-                margin-left: 336px;
-                padding: 15px;
-                transition: all 0.3s ease;
-            }
 
             .btn-group span {
                 margin-top: 20px;
@@ -1036,81 +681,229 @@
             outline: 0 none;
         }
 
+        ::-webkit-scrollbar {
+            width: 10px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #0a549d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e61d2f;
+        }
+
+        .fa-bars {
+            color: #fff;
+        }
+
     </style>
 </head>
 
 <body onload="getEmployeeData()">
 
-    <div class="wrapper">
-        <div class="top_navbar">
-            <div class="hamburger">
-                <div class="one"></div>
-                <div class="two"></div>
-                <div class="three"></div>
-            </div>
-            <div class="top_menu">
-                <div class="logo"><label for="">Date</label>
-                    <input class="form-control" style="width: 200px; display: inline-block;" type="date">
+    <div class="page-container">
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog mydialog modal-dialog-centered" role="document">
+<div class="modal-content myshadow">
+<div class="myshadow">
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h4>Tasks View</h4>
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-12">
+<input type="text" placeholder="Task" class="form-control" name="" id="">
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-8 ">
+<input type="text" class="form-control" name="" id="">
+
+</div>
+<div class="col-md-4">
+<select style="height: 25px !important; width: 158px !important; "
+class="selectpicker form-control" data-live-search="true" id="category">
+
+</select>
+</div>
+</div>
+
+<br><br>
+<div class="row">
+
+<div class="col-md-12">
+<div class="rightButtons">
+<button class="btn">Update</button>
+<button class="btn">Ok</button>
+<button class="btn">History</button>
+</div>
+</div>
+</div>
+<br>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog mydialog" role="document">
+<div class="modal-content myshadow">
+
+<div class="modal-body">
+<div class="myshadow">
+
+
+<div class="container">
+<div class="row">
+<div class="col-md-12 text-center">
+<h4>Tasks View</h4>
+</div>
+
+</div>
+<div class="row">
+<div class="col-md-12">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="mainTask">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="mainTaskID" style="display:none">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="employeeID" style="display:none">
+</div>
+
+</div>
+<div id="AllSubTasks"></div>
+
+<br>
+<div class="row">
+<div class="col-md-12">
+<label for="">Last Comment</label>
+<textarea name="" placeholder="Last Comment" class="form-control"
+style="height: 100%; width: 100%; resize: none;" id="comment"></textarea>
+
+</div>
+
+</div>
+<br>
+<button onclick="updateEmployeeStatus()" type="button" id="updateEmployeeStatus"
+class="btn primary ">Update</button>
+<br>
+<div class="row" id="adminUseOnly">
+<div class="col-md-8">
+<label for="">Remarks</label>
+<input type="text" class="form-control" name="" id="remarks">
+</div> <div class="col-md-4">
+<label for="">&nbsp;</label>
+<select style="height: 35px !important; width: 120px !important; "
+    class="form-control" 
+    id="adminStatus">
+    <option value="Pending">Pending</option>
+    <option value="Completed">Completed</option>
+</select>
+</div>
+</div>
+<div class="row" id="adminUseOnly2">
+<div class="col-md-12">
+<input type="text" placeholder="Task" class="form-control" name=""
+id="dateValue" style="display:none">
+<label for="">Due On</label><br>
+<div class="btn-group" id="groupButtons" role="group"
+aria-label="Basic example">
+<button onclick="GetDates()" type="button" id="Today"
+style="background-color: #ffffff; border: 1px solid #aaa;"
+class="btn ">Today</button>
+<button onclick="TomorrowDate()" type="button" id="Tomorrow"
+style="background-color: #ffffff; border: 1px solid #aaa;"
+class="btn ">Tomorrow</button>
+<button type="button" id="Date"
+style="background-color: #ffffff; border: 1px solid #aaa;"
+class="btn "><input class="hello" onchange="customDate()"
+type="date"
+style="background: none !important; width:103px; border: none !important;"
+name="" id="date"></button>
+
+</div>
+</div>
+<br>
+<button onclick="updateAdminStatus()" type="button" id="updateAdminStatus"
+class="btn primary ">Update</button>
+<br>
+</div>
+
+<br>
+
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+                <div class="main_container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                
+                            <label for="">Employee ID</label><br>
+                                <select style="height: 25px !important; width: 158px !important; "
+                                    class="selectpicker form-control" data-live-search="true"
+                                    id="employee" onchange="searchEmployeeData()">
+
+                                </select>
+                            </div>
+                                <div class="col-md-4 ">
+                                <label for="">Task Status</label><br>
+                                    <select style="height: 25px !important; width: 158px !important; "
+                                        class="selectpicker form-control" data-live-search="true"
+                                        id="status" onchange="searchTaskWithStatus()">
+                                            <option value=" "></option>
+                                            <option value="Pending">Pending</option>
+                                            <option value="Completed">Completed</option>
+                                    </select>
+                                </div>
+                                    <div class="col-md-3 ">
+                                    <label for="">Date</label><br>
+                                       <input type="date" name="" class="form-control" id=""></div>
+                                       <div class="col-md-1">
+                                           <button class="btn btn-primary">Search</button>
+                                       </div>
+                        </div>
+                 
+                    </div>
+
                 </div>
-                <div class="rightSide">
-                    <label for="">Search</label>
-                    <input type="text" class="form-control" style="width: 200px; display: inline-block;" name="" id="">
-                </div>
-            </div>
-        </div>
+                <div class="mainContCards">
+                    <div class="mainCards-1" id="cardsCanvas">
 
-        <div class="sidebar">
-            <ul>
-                <li><a href="#">
-                        <span class="icon"><i class="fas fa-user"></i></span>
-                        <span class="title">User</span></a></li>
-                <li><a href="#" data-toggle="modal" data-target="#exampleModal">
-                        <span class="icon"><i class="fas fa-plus-circle"></i></span>
-                        <span class="title">Add Task</span>
-                    </a></li>
-                <li><a href="#">
-                        <span class="icon"><i class="fas fa-minus-circle"></i></span>
-                        <span class="title">Decrease</span>
-                    </a></li>
-                <li><a href="#">
-                        <span class="icon"><i class="fas fa-blog"></i></span>
-                        <span class="title">Blogs</span>
-                    </a></li>
-                <li><a href="#">
-                        <span class="icon"><i class="fas fa-leaf"></i></span>
-                        <span class="title">Nature</span>
-                    </a></li>
-            </ul>
-        </div>
 
-        <div class="main_container">
-            <div class="mainContCards">
-                <div class="mainCards-1" id="cardsCanvas">
-
+                    </div>
 
                 </div>
+
+
 
             </div>
 
 
 
-        </div>
-
-
-
-
-
-
-    </div>
-    </div>
-    </div>
-    <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
-        <span class="fas fa-plus-circle" aria-hidden="true"></span>
-
-    </button>
-
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -1317,122 +1110,293 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-                </div>
+                     <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
             </div>
         </div>
     </div>
+            <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
+                <span class="fas fa-plus-circle" aria-hidden="true"></span>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+            </button>
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mainAbs">
-                                    <label for="">Task</label>
-                                    <input type="text" class="form-control" name="" id="taskSubject">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">New Task</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
 
-                                    <label for="">Assign To</label><br>
-                                    <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="assignTo">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="mainAbs">
+                                            <label for="">Task</label>
+                                            <input type="text" class="form-control" name="" id="taskSubject">
 
-                                    </select>
-                                    <label for="">Details</label>
-                                    <table id="subTasks">
-                                        <tr>
-                                            <td id="td-1">1</td>
-                                            <td id="td-2"><input type="text" class="form-control" name="" id=""></td>
+                                            <label for="">Assign To</label><br>
+                                            <select style="height: 25px !important; width: 158px !important; "
+                                                class="selectpicker form-control" data-live-search="true" id="assignTo">
 
-                                        </tr>
-                                    </table>
-                                    <div class="row">
-                                        <div class="col-md-12" style="margin-left:20px;">
-                                            <div class="mainButtons">
-                                                <button class="btn btn-info">Progress</button>
-                                                <button onclick="getRowId()" class="btn btn-success">Add New
-                                                    List</button>
+                                            </select>
+                                            <label for="">Details</label>
+                                            <table id="subTasks">
+                                                <tr>
+                                                    <td id="td-1">1</td>
+                                                    <td id="td-2"><input type="text" class="form-control" name="" id="">
+                                                    </td>
 
-                                                <button class="btn btn-success">Done</button>
+                                                </tr>
+                                            </table>
+                                            <div class="row">
+                                                <div class="col-md-12" style="margin-left:20px;">
+                                                    <div class="mainButtons">
+                                                        <button class="btn btn-info">Progress</button>
+                                                        <button onclick="getRowId()" class="btn btn-success">Add New
+                                                            List</button>
+
+                                                        <button class="btn btn-success">Done</button>
+                                                    </div>
+
+
+                                                </div>
                                             </div>
+                                            <label for="">Due On</label><br>
+                                            <div class="btn-group" id="groupButtons" role="group"
+                                                aria-label="Basic example">
+                                                <button onclick="GetDates()" type="button" id="Today"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Today</button>
+                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Tomorrow</button>
+                                                <button type="button" id="Date"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn "><input class="hello" onchange="customDate()"
+                                                        type="date"
+                                                        style="background: none !important; width:103px; border: none !important;"
+                                                        name="" id="date"></button>
+                                            </div>
+                                            <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
+                                            <br>
+                                            <label for="">Priority</label><br>
 
+                                            <div class="btn-group" id="myBtnGroup" role="group"
+                                                aria-label="Basic example">
+                                                <button type="button" id="Urgent"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Urgent</button>
+                                                <button type="button" id="Normal"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Normal</button>
+                                                <button type="button" id="Easily"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn">Easily</button>
+                                            </div><br>
+                                            <label for="">Category</label><br>
+                                            <select style="height: 25px !important; width: 158px !important; "
+                                                class="selectpicker form-control" data-live-search="true" id="category">
+
+                                            </select>
 
                                         </div>
                                     </div>
-                                    <label for="">Due On</label><br>
-                                    <div class="btn-group" id="groupButtons" role="group" aria-label="Basic example">
-                                        <button onclick="GetDates()" type="button" id="Today"
-                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn ">Today</button>
-                                        <button onclick="TomorrowDate()" type="button" id="Tomorrow"
-                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn ">Tomorrow</button>
-                                        <button type="button" id="Date"
-                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn "><input class="hello" onchange="customDate()" type="date"
-                                                style="background: none !important; width:103px; border: none !important;"
-                                                name="" id="date"></button>
-                                    </div>
-                                    <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
-                                    <br>
-                                    <label for="">Priority</label><br>
-
-                                    <div class="btn-group" id="myBtnGroup" role="group" aria-label="Basic example">
-                                        <button type="button" id="Urgent"
-                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn ">Urgent</button>
-                                        <button type="button" id="Normal"
-                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn ">Normal</button>
-                                        <button type="button" id="Easily"
-                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn">Easily</button>
-                                    </div><br>
-                                    <label for="">Category</label><br>
-                                    <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category">
-
-                                    </select>
-
                                 </div>
+
                             </div>
                         </div>
-
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary-1" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary-1" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="addTasks()">Send</button>
-                </div>
             </div>
+
         </div>
+    </div>
+    @include('sidenavbar')
+    <div class="clearfix"></div>
+
     </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-    </script>
+
     <script>
         $(document).ready(function () {
             $(".card").click(function () {
                 $('#myModal').modal('show')
             })
         })
+
+        function updateEmployeeStatus(){
+            var employeeID = [document.getElementById("employeeID").value];
+            var mainTaskID = [document.getElementById("mainTaskID").value];
+            var comment = [document.getElementById("comment").value];
+            var task = document.getElementById("AllSubTasks").getElementsByTagName("select");
+            var overallStatus = ["Pending"]
+            var allSubTasks = [mainTaskID, comment, employeeID, overallStatus];
+            
+            for(i = 0; i < task.length; i++){
+                allSubTasks[3]=["Completed"];
+                var singleSubTaskDeatails=[];
+                var STaskID = task[i].value;
+                singleSubTaskDeatails.push(STaskID);
+                singleSubTaskDeatails.push(task[i].options[task[i].selectedIndex].text);
+                allSubTasks.push(singleSubTaskDeatails);
+                if (task[i].options[task[i].selectedIndex].text=="Pending"){
+                    allSubTasks[3]=["Pending"];
+                }
+            }
+            
+            
+            var status = JSON.stringify(allSubTasks);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert(this.response);
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./updateTaskStatus/"+ status, true);
+
+            xhttp.send();
+            loadEmployees();
+        }
+
+
+        function updateAdminStatus(){
+            var employeeID = document.getElementById("employeeID").value;
+            var mainTaskID = document.getElementById("mainTaskID").value;
+            var remarks = document.getElementById("remarks").value;
+            var status = document.getElementById("adminStatus").value;
+            var date = document.getElementById("dateValue").value;
+            var adminStatus = [[employeeID], [mainTaskID], [remarks], [status], [date]];
+            alert(adminStatus);
+            
+            var status = JSON.stringify(adminStatus);
+            alert(status);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert(this.response);
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./updateAdminStatus/"+ status, true);
+
+            xhttp.send();
+        }
+
+
+        function loadTaskDetails(taskID){
+
+           // alert(taskID);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    var data = this.responseText;
+                    var a = JSON.parse(data);
+                    document.getElementById("mainTask").value=a[0].Subject;
+                    document.getElementById("mainTaskID").value=a[0].TaskID;
+                    document.getElementById("employeeID").value=a[0].EID;
+                        a[0].TaskID;
+                        a[0].STaskID;
+                        a[0].Subject;
+                        a[0].Status;
+                        a[0].DueDate;
+                        a[0].taskDetails;
+                        a[0].StockIn;
+                        a[0].AssignedBy;
+                        a[0].AssignedTo;
+                        a[0].DueDate;
+                        a[0].taskDetails;
+                        a[0].Priority;
+                        a[0].Remarks;
+                        a[0].EID;
+                        a[0].FirstName;
+                        a[0].LastName;
+
+                        document.getElementById("AllSubTasks").innerHTML="";
+                        var st= "";
+
+                    
+
+                        $.each(a, function (i, item) {
+                            if (a[i].Status=="Pending"){
+                            // document.getElementById("AllSubTasks").innerHTML=;
+                                st=st+'<div class="row">\
+                                <div class="col-md-8 ">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                </div>\
+                                <div class="col-md-4">\
+                                <select style="height: 35px !important; width: 120px !important; "\
+                                class="form-control" \
+                                id="TaskStatus[]">\
+                                <option value="'+item.STaskID+'">Pending</option>\
+                                <option value="'+item.STaskID+'">Completed</option>\
+                                </select>\
+                                </div>\
+                                </div>';
+                            }
+                            if (a[i].Status!="Pending"){
+
+                                st=st+'<div class="row">\
+                                <div class="col-md-8 ">\
+                                <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="'+item.taskDetails+'">\
+                                </div>\
+                                <div class="col-md-4">\
+                                <input style="height: 35px !important; width: 120px !important; " readonly\
+                                class="form-control" value="'+item.Status+'">\
+                                </input>\
+                                </div>\
+                                </div>';
+                            }
+                            var userCategory=( '{{ Session::get('EMPID')}}');
+                            if(userCategory!=1){
+                                document.getElementById("adminUseOnly").style.visibility = "hidden"; 
+                                document.getElementById("adminUseOnly2").style.visibility = "hidden";
+                                
+                            }else{
+                                document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
+                            }
+                        });
+                    }
+
+                    document.getElementById("AllSubTasks").innerHTML=st;
+
+                    
+                }
+            
+            //alert("ljd");
+            xhttp.open("GET", "./loadTaskDetails/"+taskID, true);
+
+            xhttp.send();
+
+            }
 
     </script>
     <script>
@@ -1469,6 +1433,7 @@
     </script>
     <script>
         function getEmployeeData() {
+            var employeeName = $('#employee').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
 
@@ -1483,9 +1448,65 @@
             xhttp.open("GET", "./getEmployeeData/", true);
 
             xhttp.send();
+            loadEmployees();
+            displayOptions();
+            
+        }
+        function displayOptions(){
+           var userCategor=( '{{ Session::get('EMPID')}}');
+
+           if(userCategor==2){
+
+
+           }
+          
+
+        }
+
+        function searchEmployeeData() {
+            var employeeID = document.getElementById("employee").value;
+            var employeeName = $('#employee').find(":selected").text();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = "";
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
+
+            xhttp.send();
+        }
+
+        function searchTaskWithStatus() {
+            var employeeID = document.getElementById("employee").value;
+            var employeeName = $('#employee').find(":selected").text();
+            var status = document.getElementById("status").value;
+            
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("cardsCanvas").innerHTML = "";
+                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
+
+
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
+           
+            xhttp.send();
         }
 
     </script>
+
     <script>
         function sendData() {
             let msg = document.getElementById("getValuesmsg").value;
@@ -1527,34 +1548,78 @@
     </script>
     <script>
         function GetDates() {
-            var date = new Date();
+            var dateFull = new Date();
+            y = dateFull.getFullYear();
+            m = dateFull.getMonth() + 1;
+            d = dateFull.getDate()
+            date = y + '-' + m + '-' + d;
             alert(date);
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = date;
-
-
-        }
+            document.getElementById("dateValue").value = date
+            
+            }
 
         function TomorrowDate() {
             const today = new Date()
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
-            alert(tomorrow);
+            y = tomorrow.getFullYear();
+            m = tomorrow.getMonth() + 1;
+            d = tomorrow.getDate()
+            date = y + '-' + m + '-' + d;
+            alert(date);
+            document.getElementById("dateValue").value = date;
 
-
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = tomorrow;
-        }
+            }
 
         function customDate() {
             var custumDate = document.getElementById("date").value;
+            document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
+            
+        }
 
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = custumDate;
+        function loadEmployees() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("employee").innerHTML = this.response;
+                    $('#employee').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getEmployees/", true);
+
+            xhttp.send();
 
 
         }
+
+    </script>
+
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute",
+
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
+
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+
 
     </script>
 

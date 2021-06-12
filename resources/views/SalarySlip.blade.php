@@ -14,9 +14,21 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <title>Salary Slip</title>
     <style>
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 83%;
+            }
+        }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
+
         .dropdown.bootstrap-select.form-control {
             width: 200px !important;
             display: inline-block !important;
@@ -133,57 +145,87 @@
             box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
             outline: 0 none;
         }
-        #myTable_length label{
+
+        #myTable_length label {
             width: auto !important;
         }
-        .dataTables_filter label{
+
+        .dataTables_filter label {
             width: auto !important;
 
         }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #0a549d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e61d2f;
+        }
+
+        .fa-bars {
+            color: #fff;
+        }
+
     </style>
 </head>
 
 <body onload="myFunction()">
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h4>ATTANDANCE</h4>
-                </div>
-            </div>
-        </div>
-    </main>
-    <section>
-        <div class="container">
-            <div class="row mainRows" style="border: 1px solid #333;">
-                <div class="col-md-4 offset-md-1">
-                    <h4 id="demo"></h4>
-                    <h4>Forland MM</h4>
-                </div>
-                <div class="col-md-7 ">
-                    <div class="circle">
-                        <div class="circleContent">
-                            <h4 id="timeDemo"></h4>
+
+    <div class="page-container">
+        <div class="left-content">
+            <main>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h4>ATTANDANCE</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 offset-md-3">
-                    <label style="width: 200px;" for="">Employee ID</label>
-                    <input type="text" class="form-control"
-                        style="display: inline-block; width: 200px; margin: 5px 0px;" name="" id="">
-                    <br>
-                    <label style="width: 200px;" for="">Password</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px;" name="" id="">
-                    <br>
-                    <div class="loginButtons">
-                        <button class="btn" style="background-color: #e61d2f; color: #ffffff;">View Previous</button>
-                        <button class="btn" style="background-color:  #0a549d; color: #ffffff;">Mark Attandance</button>
+            </main>
+            <section>
+                <div class="container">
+                    <div class="row mainRows" style="border: 1px solid #333;">
+                        <div class="col-md-4 offset-md-1">
+                            <h4 id="demo"></h4>
+                            <h4>Forland MM</h4>
+                        </div>
+                        <div class="col-md-7 ">
+                            <div class="circle">
+                                <div class="circleContent">
+                                    <h4 id="timeDemo"></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 offset-md-3">
+                            <label style="width: 200px;" for="">Employee ID</label>
+                            <input type="text" class="form-control"
+                                style="display: inline-block; width: 200px; margin: 5px 0px;" name="" id="">
+                            <br>
+                            <label style="width: 200px;" for="">Password</label>
+                            <input type="text" class="form-control" style="display: inline-block; width: 200px;" name=""
+                                id="">
+                            <br>
+                            <div class="loginButtons">
+                                <button class="btn" style="background-color: #e61d2f; color: #ffffff;">View
+                                    Previous</button>
+                                <button class="btn" style="background-color:  #0a549d; color: #ffffff;">Mark
+                                    Attandance</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
+                </div>
+            </section>
         </div>
-    </section>
+        @include('sidenavbar')
+        <div class="clearfix"></div>
+    </div>
 
 
 
@@ -225,6 +267,29 @@
         window.setInterval(function () {
             myFunction()
         }, 1000);
+
+    </script>
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute",
+
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
+
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
 
     </script>
 

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <title>Title Stock</title>
 
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -68,13 +69,13 @@
                                         <th>Product Id</th>
                                         <th>Product Name</th>
                                         <th>Company</th>
-                                        <th>Unit Sale Price</th>
+                                        <th>Invoice Price</th>
                                         <th>Unit Purchase Price</th>
                                         <th>Stock</th>
                                         <th>Color</th>
                                         <th>Engine Number</th>
                                         <th>Chasis Number</th>
-                                        <th>Status</th>
+                                        <!-- <th>Status</th> -->
                                 </tr>
                             </thead>
                             <tbody id="stocktableBody">
@@ -94,7 +95,7 @@
                     <label for="id">Company</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="company"><br><br>
-                    <label for="id">Sale Price</label>
+                    <label for="id">Invoice Price</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="salePrice"><br><br>
                     <label for="id">Purchase Price</label>
@@ -112,8 +113,8 @@
                     <label for="id">Chasis Number</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="chasisNumber"><br><br>
-                    <label for="id">Status</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
+                    <!-- <label for="id">Status</label> -->
+                    <input type="text" class="form-control" style="display: none; width: 200px !important;"
                         name="id" id="status"><br><br>
                     <div class="st-button  " style="margin-top: 15px; margin-left: 362px;">
                         <button class="btn btn-success" onclick="SetStockIdeal()">Update </button>
@@ -167,7 +168,7 @@ function searchRawMatirial() {
         
         $.each(a, function (i, item) {
 
-            table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].TotalSaleAmount, a[i].TotalCost
+            table.row.add([a[i].ProductID, a[i].ProductName, a[i].Company, a[i].SalePrice, a[i].TotalCost
             , a[i].StockIn, a[i].color, a[i].EngineNumber, a[i].ChasisNumber, a[i].Status]);
             });   
          table.draw();          

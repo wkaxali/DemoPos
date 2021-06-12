@@ -8,10 +8,23 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
+
     <title>Book Order</title>
     <style>
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 83%;
+            }
+        }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
+
         .dropdown.bootstrap-select.form-control {
-            width: 200px !important;
+            width: 135px !important;
             display: inline-block !important;
             /* background-color:#0a549d !important; */
 
@@ -129,7 +142,7 @@
 
         .bookingRightTable {
             border-radius: 10px;
-            height: 514px !important;
+            height: 514px;
             border: 1px solid #aaaaaa;
             padding: 0px 10px;
         }
@@ -158,7 +171,7 @@
         }
 
         .mainInputGroups input {
-          margin: 5px 0px !important;
+            margin: 5px 0px !important;
         }
 
         th,
@@ -167,14 +180,10 @@
         }
 
         .mainSection {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 100vw;
+            max-width: 1018px;
+            margin: 0 auto;
         }
 
-        /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -196,16 +205,12 @@
                 margin: 20px 0px !important;
             }
 
-            body {
-                background-color: #0a549d;
-            }
+            body {}
 
         }
 
         @media only screen and (max-width: 503px) {
-            body {
-                background-color: lightblue;
-            }
+            body {}
 
             /* Background Colors are for checking media queries You Can remove */
 
@@ -251,178 +256,278 @@
             }
         }
 
+        ::-webkit-scrollbar {
+            width: 10px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #0a549d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e61d2f;
+        }
+
+        .fa-bars {
+            color: #fff;
+        }
+
+        .inner-block {
+            padding: 0em !important;
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #mainHeader,
+            #mainHeader * {
+                visibility: visible;
+            }
+
+            #mainHeader {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100% !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            input {
+                width: 200px !important;
+            }
+
+            .bootstrap-select>.dropdown-toggle {
+                position: relative;
+                width: 200px !important;
+                z-index: 1;
+                text-align: right;
+                white-space: nowrap;
+            }
+
+            .bookingRightTable {
+                border-radius: 10px;
+                height: 650px !important;
+                border: 1px solid #aaaaaa;
+                padding: 0px 10px;
+
+            }
+
+            #BookingRecordTable {
+                width: 500px !important;
+            }
+
+            .mainInputGroups {
+                float: right;
+                margin-top: 0px;
+            }
+
+            label {
+                display: block;
+            }
+        }
+
     </style>
 </head>
 
 <body id="mainBody" onload="loadFunction()">
-
-    <header id="myHeader">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 my-2 mb-5 text-center">
-                    <h3>Book Order</h3>
-                </div>
-            </div>
-
-
-
-        </div>
-    </header>
-    <section class="mainSection">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="myBookingBorder">
-
-                        <br>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="inner-block">
+                <header id="myHeader">
+                    <div class="container">
                         <div class="row">
-                            <div class="col-md-12">
-                                <label for="">Order No</label>
-                                <input type="text" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
-                                    name="" id="OrderId" readonly="true">
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="Model">Model :</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="category"
-                                    tabindex="null">
-                                    <option value=1>Forland C13</option>
-                                    <option value=2>Forland Trucks</option>
-                                    <option value=3>Land Trucks</option>
-                                    <option value=4>Continantal Trucks</option>
-                                    <option value=4>Continantal Trucks</option>
-                                    <option value=4>Continantal Trucks</option>
-                                    <option value=4>Continantal Trucks</option>
-
-
-                                </select>
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="">Invoice Price :</label>
-                                <input type="number" onchange="product()" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name=""
-                                    id="invoice">
-
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="">Qty :</label>
-                                <input type="number" onchange="product()" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name="" id="qty">
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="">Total</label>
-                                <input type="text" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
-                                    name="" id="total" readonly="true">
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="">Amount Paid</label>
-                                <input type="number" title="Press Enter To Submit" onkeyup="subtract()"
-                                    class="form-control"
-                                    style="width: 200px !important; display: inline-block !important;" name=""
-                                    id="amount">
-                            </div>
-                        </div><br>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label for="">Remaining For This Order</label>
-                                <input type="text" class="form-control"
-                                    style="width: 200px !important; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
-                                    name="" id="remaining" readonly="true">
+                            <div class="col-md-12  text-center">
+                                <h3>Book Order</h3>
                             </div>
                         </div>
-                        <br>
+
+
+
+                    </div>
+                </header>
+                <section class="mainSection">
+                    <div class="container">
                         <div class="row">
-                            <div class="col-md-11">
-                                <div class="successButtons text-right" style="margin-right: 7px !important;">
-                                    <button onclick="valid()" class="btn ">Add</button>
+                            <div class="col-md-12">
+                                <div class="myBookingBorder">
+
+
+                                    <div class="row mb-3">
+                                        <div class="col-md-2">
+                                            <label for="">Order No</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 135px; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
+                                                name="" id="OrderId" readonly="true">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="Model">Model</label>
+                                            <select style="height: 25px !important; width: 158px !important; "
+                                                class="selectpicker form-control" data-live-search="true" id="category">
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="">Booking Price</label>
+                                            <input type="number" onchange="product()" class="form-control"
+                                                style="width: 135px ; display: inline-block !important;" name=""
+                                                id="bookingPrice">
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="">Invoice Price</label>
+                                            <input type="number" onchange="product()" class="form-control"
+                                                style="width: 135px ; display: inline-block !important;" name=""
+                                                id="invoice">
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="">Description</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 135px; display: inline-block !important;" name=""
+                                                id="description">
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="">Qty</label>
+                                            <input type="number" onchange="product()" class="form-control"
+                                                style="width: 135px; display: inline-block !important;" name=""
+                                                id="qty">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-3">
+                                            <label style="width: 50px !important;" for="">Total</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 200px ; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
+                                                name="" id="total" readonly="true">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label style="width: 100px !important;" for="">Amount Paid</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 200px ; display: inline-block !important;" name=""
+                                                id="amount" onchange="subtract()">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label style="width: 50px !important;" for="">Remaining</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 200px ; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
+                                                name="" id="remaining" readonly="true">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="successButtons text-right"
+                                                style=" margin-right:15px;margin-top:35px;">
+                                                <button onclick="valid()" class="btn ">Add</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="bookingRightTable">
 
-                        <div class="tableContent  text-center">
-                            <h3>Your Current Orders </h3>
-                        </div>
-
-
-
-                        <div class="tableDiv">
-
-
-                            <table id="BookingRecordTable" class=" table-striped"
-                                style="width: 100%; text-align: center; ">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Model</th>
-                                        <th>Price</th>
-                                        <th>QTY</th>
-                                        <th>Total</th>
-                                        <th>Paid</th>
-                                        <th>Remain</th>
-                                        <th>Delete
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-
-
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="mainInputGroups">
-                              
-                                    <label style="width: 150px !important;" for="">Payment Method</label>
-                                    <select 
-                                    class="selectpicker form-control"  data-live-search="true"  id="accounts">
-                    
-                                    </select><br>
-                               
-                        
-                                <label style="width: 150px !important;" for="">Total Amount</label>
-                                <input class="form-control" style="display: inline-block !important; width: 200px !important;" type="number" name="" id="mainTotal"><br>
-                         
-
-                         
-                                <label style="width: 150px  !important;" for="">Total Paid</label>
-                                <input type="number" name="" class="form-control" style="display: inline-block !important; width: 200px !important;" id="totalPaid" onchange="calculatonInTable()"><br>
-                        
-                       
-                                <label style="width: 150px  !important;" for="">Total Remaining</label>
-                                <input type="number" name="" class="form-control" style="display: inline-block !important; width: 200px !important;" id="totRemaining">
-                            
 
                         </div>
+                        <br>
+                        <main id="mainHeader">
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="bookingRightTable">
+
+                                        <div class="tableContent  text-center">
+                                            <h3>Your Current Orders </h3>
+                                        </div>
+
+
+
+                                        <div class="tableDiv">
+
+
+                                            <table id="BookingRecordTable" class=" table-striped"
+                                                style="width: 100%; text-align: center; ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Id</th>
+                                                        <th>Model</th>
+                                                        <th>Price</th>
+                                                        <th>QTY</th>
+                                                        <th>Total</th>
+                                                        <th>Paid</th>
+                                                        <th>Remain</th>
+                                                        <th>Delete
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="mainInputGroups">
+
+                                            <label style="width: 150px;" for="">Payment Method</label>
+                                            <select class="selectpicker form-control" data-live-search="true"
+                                                id="accounts">
+
+                                            </select><br>
+
+
+                                            <label style="width: 150px;" for="">Total Amount</label>
+                                            <input class="form-control"
+                                                style="display: inline-block !important; width: 135px !important;"
+                                                type="number" name="" id="mainTotal"><br>
+
+
+
+                                            <label style="width: 150px  ;" for="">Total Paid</label>
+                                            <input type="number" name="" class="form-control"
+                                                style="display: inline-block !important; width: 135px !important;"
+                                                id="totalPaid" onchange="calculatonInTable()"><br>
+
+
+                                            <label style="width: 150px  ;" for="">Total Remaining</label>
+                                            <input type="number" name="" class="form-control"
+                                                style="display: inline-block !important; width: 135px !important;"
+                                                id="totRemaining">
+
+
+                                        </div>
+                        </main>
                         <div class="clear"></div>
 
 
                         <div class="footerBtn">
-                            <a href="#" class="printBtns btn">Print Order</a>
+                            <a href="#" onclick="window.print()" class="printBtns btn">Print Order</a>
                             <button class="placeBtns btn" onclick="placeOrder()">Place Order</button>
                         </div>
                     </div>
+                </section>
 
-
-                </div>
             </div>
         </div>
-    </section>
+        @include('sidenavbar')
+    </div>
+
+
+
+    <div class="clearfix"></div>
+    </div>
 
 
 
@@ -431,7 +536,9 @@
         function valid() {
             var OrderID = document.getElementById("OrderId").value;
             var category = document.getElementById("category");
+            var bookingPrice = document.getElementById("bookingPrice").value;
             var invoicePrice = document.getElementById("invoice").value;
+            var description = document.getElementById("description").value;
             var qty = document.getElementById("qty").value;
             var tot = document.getElementById("total").value;
             var amontPaid = document.getElementById("amount").value;
@@ -443,17 +550,24 @@
                 document.getElementById('qty').focus();
             } else if (amontPaid == "") {
                 document.getElementById('amount').focus();
+            } else if (description == "") {
+                document.getElementById('description').focus();
+            } else if (bookingPrice == "") {
+                document.getElementById('bookingPrice').focus();
             } else {
                 document.getElementById('invoice').focus();
 
                 add();
-               // document.getElementById("OrderId").value = "";
+                // document.getElementById("OrderId").value = "";
 
                 document.getElementById("category");
 
                 document.getElementById("invoice").value = "";
+                document.getElementById("bookingPrice").value = "";
 
                 document.getElementById("qty").value = "";
+
+                document.getElementById("description").value = "";
 
                 document.getElementById("total").value = "";
 
@@ -473,6 +587,8 @@
             var OrderID = document.getElementById("OrderId").value;
             var category = document.getElementById("category");
             var invoicePrice = document.getElementById("invoice").value;
+            var bookingPrice = document.getElementById("bookingPrice").value;
+            var description = document.getElementById("description").value;
             var qty = document.getElementById("qty").value;
             var tot = document.getElementById("total").value;
             var amontPaid = document.getElementById("amount").value;
@@ -488,17 +604,24 @@
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
+            var cell9 = row.insertCell(8);
+            var cell10 = row.insertCell(9);
+
 
 
 
             cell1.innerHTML = OrderID;
             cell2.innerHTML = category.options[category.selectedIndex].text;
-            cell3.innerHTML = invoicePrice;
+            cell3.innerHTML = bookingPrice;
             cell4.innerHTML = qty;
             cell5.innerHTML = tot;
             cell6.innerHTML = amontPaid;
             cell7.innerHTML = remaining;
             cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+            cell9.innerHTML = description;
+            cell10.innerHTML = invoicePrice;
+            cell9.style.display = "none";
+            cell10.style.display = "none";
             calculatonInTable();
 
 
@@ -535,10 +658,10 @@
 
 
         function product() {
-            var invoice = document.getElementById("invoice").value;
+            var bookingPrice = document.getElementById("bookingPrice").value;
             var qty = document.getElementById("qty").value;
 
-            var product = invoice * qty;
+            var product = bookingPrice * qty;
             document.getElementById("total").value = product;
             // document.getElementById("mainTotal").value = product;
 
@@ -599,7 +722,9 @@
                     $(tr).find('td:eq(4)').text(), //totamount
                     $(tr).find('td:eq(5)').text(), //Paid
                     $(tr).find('td:eq(6)').text(), //remAmount
-                    $(tr).find('td:eq(1)').text() //productName
+                    $(tr).find('td:eq(1)').text(), //productName
+                    $(tr).find('td:eq(8)').text(), //description
+                    $(tr).find('td:eq(9)').text() //invoice price
 
 
 
@@ -608,37 +733,32 @@
 
             });
             orderDetails.shift();
-
-
-            alert("array for order" + orderDetails);
+            alert(orderDetails);
             var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
             var totalpaid = document.getElementById("totalPaid").value;
             var totRemaining = document.getElementById("totRemaining").value;
-            alert(mainTotal);
             var Order = [mainTotal, totalpaid, totRemaining, orderDetails, AID];
-
-
-            alert(Order);
-
-
 
             var OrderArray = JSON.stringify(Order);
 
-            alert(OrderArray);
-
             var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Invoice =" + this.responseText + " is generated");
-                    getOrderID();
+            if (AID == "") {
+                alert('Payment Method not Selected');
+            } else {
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
 
-                }
-            };
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./placeOrder/" + OrderArray, true);
-            xhttp.send();
+                        alert("Invoice =" + this.responseText + " is generated");
+                        getOrderID();
+
+                    }
+                };
+                // var MenuID=$('#Menus').find(":selected").val();
+                xhttp.open("GET", "./placeOrder/" + OrderArray, true);
+                xhttp.send();
+            }
         }
 
         function getOrderID() {
@@ -662,34 +782,75 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
 
 
-        <script>
-            function loadFunction(){
-                getOrderID();
-                loadaccounts();
-            }
-        
-        </script>
-        <script>
-function loadaccounts(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("accounts").innerHTML = this.response;
-            $('#accounts').selectpicker('refresh');
+    <script>
+        function loadFunction() {
+            getOrderID();
+            loadaccounts();
+            loadAutos();
         }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getAccountHeads/", true);
-    
-    xhttp.send();
+
+    </script>
+    <script>
+        function loadaccounts() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("accounts").innerHTML = this.response;
+                    $('#accounts').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./getAccountHeads/", true);
+
+            xhttp.send();
 
 
-    }
-</script>
+        }
+
+    </script>
+
+    <script>
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute",
+
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
+
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
 
 
+        function loadAutos() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    document.getElementById("category").innerHTML = this.response;
+                    $('#category').selectpicker('refresh');
+                }
+            };
+            //alert("ljd");
+            xhttp.open("GET", "./loadAutos/", true);
+
+            xhttp.send();
+        }
+
+    </script>
 </body>
 
 </html>

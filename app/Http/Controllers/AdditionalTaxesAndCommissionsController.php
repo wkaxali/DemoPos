@@ -117,7 +117,23 @@ return $CID;
         UpdateStocksController::setTotalSaleAmount($PID,$newCost);
 
 
-        return "HOLA";
+        return 'Hola';
 
     }
+
+    public static function getComissionHeads(){
+        $data=DB:: select('select * from tbl_comissionheads');
+        
+        $option='<option value=" "></option>';
+    
+    
+        foreach ($data as $d){
+          //print $option;
+    
+            $option=$option.'
+            <option value= '.$d->ComissionID.'>'.$d->ComissionName.'</option>';
+          
+        }
+        return $option;
+      }
 }

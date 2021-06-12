@@ -205,10 +205,6 @@
             margin: 5px 0px !important;
         }
 
-        .deleted {
-            cursor: pointer;
-        }
-
         #movetop {
             position: fixed;
             bottom: 40px;
@@ -428,30 +424,10 @@
 
         }
 
-        input[type="text"]:focus,
-        input[type="password"]:focus,
-        input[type="datetime"]:focus,
-        input[type="datetime-local"]:focus,
-        input[type="date"]:focus,
-        input[type="month"]:focus,
-        input[type="time"]:focus,
-        input[type="week"]:focus,
-        input[type="number"]:focus,
-        input[type="email"]:focus,
-        input[type="url"]:focus,
-        input[type="search"]:focus,
-        input[type="tel"]:focus,
-        input[type="color"]:focus,
-        .uneditable-input:focus {
-            border-color: #0a549d;
-            box-shadow: 0 1px 1px#0a549d inset, 0 0 8px #0a549d;
-            outline: 0 none;
-        }
-
     </style>
 </head>
 
-<body>
+<body onload="loadHeads()">
 
     <div class="wrapper">
         <div class="top_navbar">
@@ -516,7 +492,7 @@
                             <div class="btn-group ml-3 mt-3" id="basicExample" role="group" aria-label="Basic example">
                                 <button type="button" class="btn btn-secondary-1">66%</button>
                                 <button type="button" class="btn btn-dark-1">2/3 Complete</button> <button id="MainSpan"
-                                    type="button" class="btn btn-secondary-1" onclick="loadHeads()"><i
+                                    type="button" class="btn btn-secondary-1"><i
                                         class="fas fa-plus-circle"></i></button>
 
 
@@ -559,16 +535,17 @@
                                     <input type="text" class="form-control" name="" id="taskSubject">
 
                                     <label for="">Assign To</label><br>
-                                    <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="assignTo">
+                                                <select style="height: 25px !important; width: 158px !important; "
+                                                    class="selectpicker form-control" data-live-search="true"
+                                                    id="assignTo">
 
-                                    </select>
+                                                </select>
                                     <label for="">Details</label>
                                     <table id="subTasks">
                                         <tr>
                                             <td id="td-1">1</td>
                                             <td id="td-2"><input type="text" class="form-control" name="" id=""></td>
-
+                                           
                                         </tr>
                                     </table>
                                     <div class="row">
@@ -585,22 +562,22 @@
                                         </div>
                                     </div>
                                     <label for="">Due On</label><br>
-                                    <div class="btn-group" id="groupButtons" role="group" aria-label="Basic example">
-                                        <button onclick="GetDates()" type="button" id="Today"
-                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn ">Today</button>
-                                        <button onclick="TomorrowDate()" type="button" id="Tomorrow"
-                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn ">Tomorrow</button>
-                                        <button type="button" id="Date"
-                                            style="background-color:  #ffffff; border: 1px solid #aaa;"
-                                            class="btn "><input class="hello" onchange="customDate()" type="date"
-                                                style="background: none !important; width:103px; border: none !important;"
-                                                name="" id="date"></button>
-                                        <input type="text" class="form-control" name="" id="dateValue">
-                                    </div>
-                                    <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
-                                    <br>
+                                            <div class="btn-group" id="groupButtons" role="group" aria-label="Basic example">
+                                                <button onclick="GetDates()" type="button" id="Today"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Today</button>
+                                                <button onclick="TomorrowDate()" type="button" id="Tomorrow"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn ">Tomorrow</button>
+                                                <button type="button" id="Date"
+                                                    style="background-color:  #ffffff; border: 1px solid #aaa;"
+                                                    class="btn "><input class="hello" onchange="customDate()" type="date"
+                                                        style="background: none !important; width:103px; border: none !important;"
+                                                        name="" id="date"></button>
+                                                <input type="text" class="form-control" name="" id="dateValue">
+                                            </div>
+                                            <!-- <input type="text" class="form-control" id="changeme" name="" id=""> -->
+                                            <br>
                                     <label for="">Priority</label><br>
 
                                     <div class="btn-group" id="myBtnGroup" role="group" aria-label="Basic example">
@@ -616,10 +593,11 @@
                                         <input type="text" class="form-control" name="" id="priority">
                                     </div><br>
                                     <label for="">Category</label><br>
-                                    <select style="height: 25px !important; width: 158px !important; "
-                                        class="selectpicker form-control" data-live-search="true" id="category">
+                                        <select style="height: 25px !important; width: 158px !important; "
+                                            class="selectpicker form-control" data-live-search="true"
+                                            id="category">
 
-                                    </select>
+                                        </select>
 
                                 </div>
                             </div>
@@ -648,19 +626,6 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
-        function priority1() {
-            document.getElementById("priority").value = "Urgent"
-        }
-
-        function priority2() {
-            document.getElementById("priority").value = "Normal"
-        }
-
-        function priority3() {
-            document.getElementById("priority").value = "Easily"
-        }
-
-
         $(document).ready(function () {
             $("#Today").click(function () {
                 $(this).css({
@@ -782,19 +747,37 @@
 
     </script>
     <script>
+        function priority1() {
+            document.getElementById("priority").value = "Urgent"
+        }
+
+        function priority2() {
+            document.getElementById("priority").value = "Normal"
+        }
+
+        function priority3() {
+            document.getElementById("priority").value = "Easily"
+        }
         function GetDates() {
             var dateFull = new Date();
             y = dateFull.getFullYear();
             m = dateFull.getMonth() + 1;
             d = dateFull.getDate()
             date = y + '-' + m + '-' + d;
+            alert(date);
             document.getElementById("dateValue").value = date
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
 
+                var mainValue = document.getElementById("changeme");
+                mainValue.value = tomorrow;
+            }
 
-
-        }
+            function customDate() {
+                var custumDate = document.getElementById("date").value;
+                alert(custumDate);
+            }
+        
 
         function TomorrowDate() {
             const today = new Date()
@@ -804,21 +787,18 @@
             m = tomorrow.getMonth() + 1;
             d = tomorrow.getDate()
             date = y + '-' + m + '-' + d;
+            alert(date);
             document.getElementById("dateValue").value = date;
             var mainValue = document.getElementById("changeme");
             mainValue.value = date;
 
-        }
+            }
 
         function customDate() {
             var custumDate = document.getElementById("date").value;
             document.getElementById("dateValue").value = custumDate;
             alert(custumDate);
-
-            var mainValue = document.getElementById("changeme");
-            mainValue.value = custumDate;
-
-
+            
         }
 
     </script>
@@ -832,6 +812,14 @@
 
     </script>
     <script>
+
+        function RemoveThisRow(r) {
+            var i = r.parentNode.parentNode.rowIndex;
+            //alert(i);
+            document.getElementById("subTasks").deleteRow(i);
+        }
+
+
         function getRowId() {
             var t = document.getElementById("subTasks");
             var x = document.getElementById("subTasks").rows.length;
@@ -844,8 +832,7 @@
 
 
             var cell2 = document.getElementById("td-2").innerHTML;
-
-
+         
             var row = t.insertRow(-1);
             var mcell1 = row.insertCell(0);
             var mcell2 = row.insertCell(1);
@@ -853,57 +840,36 @@
 
             mcell1.innerHTML = totalRow;
             mcell2.innerHTML = cell2;
-            mcell3.innerHTML = "<h1 class='deleted' onclick='deleteRow(this)' >&times;</h1>";
+            mcell3.innerHTML = "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>";
         }
 
-        function deleteRow(ele) {
-
-            var item = ele.parentNode.parentNode;
-            item.remove();
-
+        function loadHeads() {
+            document.getElementById("dateValue").style.display = "none";
+            document.getElementById("priority").style.display = "none";
+            loadEmployees();
+            loadCategory();
         }
-
-    </script>
-
-
-    <script>
         function addTasks() {
-
-            var dateFull = new Date();
-            y = dateFull.getFullYear();
-            m = dateFull.getMonth() + 1;
-            d = dateFull.getDate()
-            
 
             var taskSubject = document.getElementById("taskSubject").value;
             var assignedTo = document.getElementById("assignTo").value;
             var dueDate = document.getElementById("dateValue").value;
-            var priority = document.getElementById("priority").value;
             var category = document.getElementById("category").value;
-            var assignedDate = y + '-' + m + '-' + d;
             //var taskSubject = document.getElementById("taskSubject").value;
-            //var priority = document.getElementById("taskSubject").value;
+            var priority = document.getElementById("priority").value;
 
             var taskDetails = [];
             var OverallTask = [];
 
-
             //alert(sp);
             $('#subTasks tr').each(function (row, tr) {
-
                 taskDetails[row] = [
-
-
-                    $(tr).find('td:eq(1) input[type="text"]').val(),
-
+                $(tr).find('td:eq(1) input[type="text"]').val(), //Amount
                 ];
-
-
             });
-            //expenseDetails.shift();
-            //
-            //var taskTable = JSON.stringify(taskDetails);
-            OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority, assignedDate];
+           
+            
+            OverallTask = [taskDetails, taskSubject, assignedTo, dueDate, category, priority];
             var taskTable = JSON.stringify(OverallTask);
             alert(taskTable);
             var xhttp = new XMLHttpRequest();
@@ -921,21 +887,6 @@
             xhttp.send();
         }
 
-    </script>
-
-    <script>
-        function loadHeads() {
-            document.getElementById("dateValue").style.display = "none";
-            document.getElementById("priority").style.display = "none";
-            loadEmployees();
-            loadCategory();
-        }
-
-    </script>
-
-
-
-    <script>
         function loadEmployees() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -973,6 +924,9 @@
         }
 
     </script>
+
+
+
 
 
 </body>

@@ -12,7 +12,7 @@ class getProducts extends Controller
 
 
     public static function getAllProducts(){
-        $results=DB::select('select * from  vw_stockdetails');
+        $results=DB::select('select * from  vw_stockdetails where category = 21');
         
             
         return $results;
@@ -29,6 +29,30 @@ class getProducts extends Controller
         $results=DB::select('select * from  vw_stockdetails where Category=21 or Category=22' );
         
             
+        return $results;
+
+    }
+
+
+    public static function getAutosNames(){
+        $data=DB:: select('select * from tbl_auto_models');
+        
+        $option='<option value=" "></option>';
+    
+    
+        foreach ($data as $d){
+          //print $option;
+    
+            $option=$option.'
+            <option value= '.$d->ModelID.'>'.$d->Company.' '.$d->ModelName.'</option>';
+          
+        }
+        return $option;
+      }
+
+      public static function getAutoData($AID){
+        $results=DB::select('select * from  tbl_auto_models where ModelID='.$AID);
+        
         return $results;
 
     }

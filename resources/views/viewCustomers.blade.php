@@ -10,8 +10,20 @@
          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
 
      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
+
      <title>View Customers</title>
      <style>
+          @media (max-width: 1366px) {
+            .left-content {
+                width: 83%;
+            }
+        }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
          .dropdown.bootstrap-select.form-control {
              width: 200px !important;
              display: inline-block !important;
@@ -40,10 +52,10 @@
              border-radius: 10px;
              height: 550px;
              padding: 10px;
-              overflow: auto; 
+             overflow: auto;
          }
 
-     
+
 
          table {
              border-spacing: 0;
@@ -64,74 +76,103 @@
              display: flex;
              justify-content: space-between;
          }
+
          .receivingTable {
              border: 1px solid #aaaaaa;
              border-radius: 10px;
              padding: 10px;
              overflow: auto !important;
          }
+         
+        ::-webkit-scrollbar {
+            width: 10px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #0a549d;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #e61d2f;
+        }
+
+        .fa-bars {
+            color: #fff;
+        }
 
      </style>
  </head>
 
  <body onload="getCustomers()">
-     <header>
-         <div class="container">
-             <div class="row">
-                 <div class="col-md-12 text-center">
-                     <h3>Customers</h3>
-                 </div>
-             </div>
-             <div class="mainRows">
-                 <div class="leftmain">
+     <div class="page-container">
 
-                     <input type="checkbox" name="" id="">
-                     <label for="Old">Old Customers</label>
-                 </div>
-                 <div class="rightmain">
+         <div class="left-content">
+             <div class="inner-block">
 
-                     <input type="checkbox" name="" id="">
-                     <label for="Old">New Leads</label>
+                 <header>
+                     <div class="container">
+                         <div class="row">
+                             <div class="col-md-12 text-center">
+                                 <h3>Customers</h3>
+                             </div>
+                         </div>
+                         <div class="mainRows">
+                             <div class="leftmain">
 
-                 </div>
+                                 <input type="checkbox" name="" id="">
+                                 <label for="Old">Old Customers</label>
+                             </div>
+                             <div class="rightmain">
+
+                                 <input type="checkbox" name="" id="">
+                                 <label for="Old">New Leads</label>
+
+                             </div>
 
 
-             </div>
-             <div class="row">
-                 <div class="col-md-12">
+                         </div>
+                         <div class="row">
+                             <div class="col-md-12">
 
 
 
-                     <div class="receivingTable" id="tableDiv">
-                         <table id="myTable" class=" table-striped" style="width: 100%; text-align: center;">
-                             <thead>
-                                 <tr>
-                                     <th id="Cusname">Name</th>
-                                     <th id="CusCont">Contact</th>
-                                     <th id="Cusaddr">Address</th>
-                                     <th id="CusIntrs">Balance</th>
-                                     <th id="CusMeet">CNIC</th>
+                                 <div class="receivingTable" id="tableDiv">
+                                     <table id="myTable" class=" table-striped"
+                                         style="width: 100%; text-align: center;">
+                                         <thead>
+                                             <tr>
+                                                 <th id="Cusname">Name</th>
+                                                 <th id="CusCont">Contact</th>
+                                                 <th id="Cusaddr">Address</th>
+                                                 <th id="CusIntrs">Balance</th>
+                                                 <th id="CusMeet">CNIC</th>
 
-                                 </tr>
-                             </thead>
-                             <tbody>
-                             </tbody>
-                         </table>
+                                             </tr>
+                                         </thead>
+                                         <tbody>
+                                         </tbody>
+                                     </table>
 
+                                 </div>
+
+                             </div>
+                         </div>
+                         <br>
+                         <div class="row">
+                             <div class="col-md-4 offset-md-8 text-right">
+                                 <button class="btn printBtns" onclick=" CustomerInfo()">
+                                     Print
+                                 </button>
+                             </div>
+                         </div>
                      </div>
-
-                 </div>
-             </div>
-             <br>
-             <div class="row">
-                 <div class="col-md-4 offset-md-8 text-right">
-                     <button class="btn printBtns" onclick=" CustomerInfo()">
-                         Print
-                     </button>
-                 </div>
+                 </header>
              </div>
          </div>
-     </header>
+         @include('sidenavbar')
+         <div class="clearfix"></div>
+     </div>
 
 
 
@@ -149,7 +190,29 @@
 
      <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
      </script>
+     <script>
+         var toggle = true;
 
+         $(".sidebar-icon").click(function () {
+             if (toggle) {
+                 $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                 $("#menu span").css({
+                     "position": "absolute",
+
+                 });
+             } else {
+                 $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                 setTimeout(function () {
+                     $("#menu span").css({
+                         "position": "relative",
+
+                     });
+                 }, 400);
+             }
+             toggle = !toggle;
+         });
+
+     </script>
      <script>
          function CustomerInfo() {
 

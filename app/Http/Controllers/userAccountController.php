@@ -7,18 +7,23 @@ use DB;
 
 class userAccountController extends Controller
 {
- public static   function singIn($userName,$passcode){
+ public static function singIn($userName,$passcode){
 
     $re = DB::table('userinfo')
     ->where([['UserName', '=', $userName ],['Password', '=', $passcode ]])
-->get();
+        ->get();
      //->first()->UserName;
     if($re=="[]"){
+        session(['userName' =>null]);
         return "Invalid Username";
-    }
+    }else{
     
     session(['userName' => $re[0]->UserName]);
+    session(['userCategory' => $re[0]->Designation]);
+      
+        session(['userID' => $re[0]->UserID]);
      return $re;
+    }
 
 
 

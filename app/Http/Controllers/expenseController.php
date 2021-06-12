@@ -19,25 +19,35 @@ class expenseController extends Controller
         $amount=$obj[1];
         $expenseName=$obj[2];
         $expenseID=$obj[3];
-        $paidTo=$obj[4];
-        $paidVia=$obj[5];
-        $remarks=$obj[6];
+        $paidVia=$obj[4];
+        $remarks=$obj[5];
+        
         $id=DB::table('tbltransactionflow')->insertGetId([
         'DateStamp'=>$date,
         'Amount'=>$amount,
-        'TransactionCatogery'=>"Payment",
+        'TransactionCatogery'=>"Expense",
         'EID'=>$expenseID,
-        'PaidTo'=>$paidTo,
+        
         'PaidVia'=>$paidVia,
         'TransactionType'=>"Credit"
         ]);
 
+        DB::table('tblexpanseflow')->insertGetId([
+          
+          'ExpanseID'=>$expenseID,
+          'ExpanseHeadID'=>$amount,
+          'Remarks'=>"$remarks",
+          'DateStamp'=>$date,
+          
+          'Amount'=>$amount,
+          ]);
+
         $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
         $newBalance = $oldSelfBalance - $amount;
         LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
-        $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
-        $newBalanceOfParty=$balanceForParty-$amount;
-        LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
+        //$balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
+        //$newBalanceOfParty=$balanceForParty-$amount;
+        //LedgerPartiesController::UpdatePartiesBalance($paidTo, $newBalanceOfParty);
 
         $oldAccountBalance = accountsController::getAccountBalance($paidVia);
         $newAccountBalance = $oldAccountBalance - $amount;
@@ -80,7 +90,7 @@ public static function getPartyNames(){
   }
 
   public static function getExpenseHeads(){
-    $data=DB:: select('select * from tblexpenseheads');
+    $data=DB:: select('select * from tblexpenseheads where ExpenseHead <> "Payment"');
     
     $option='<option value=" "></option>';
 
@@ -93,6 +103,12 @@ public static function getPartyNames(){
       
     }
     return $option;
+  }
+
+
+  function viewExpense(){
+    $data=DB:: select('select * from vw_expensetransactionflow');
+    return $data;
   }
 
 
