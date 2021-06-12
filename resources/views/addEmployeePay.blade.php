@@ -306,7 +306,7 @@
     <div class="row">
     <div class="col-md-6 offset-md-6">
     <div class="mainTableEnd">
-    <label for="">Total Pay</label>
+    <label for="">Total Allowances</label>
     <input type="text" value="" name="" id="mainTotal" readonly>
     <input type="text" value="" name="" id="val" style="display:none">
     </div>

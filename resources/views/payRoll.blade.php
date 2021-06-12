@@ -389,7 +389,7 @@
                                     <label for="">Total Payable</label>
                                     <h1 id="payable">0</h1>
                                     <br>
-                                 
+                                   
                                     <label for="">Date</label>
                                     <input type="date" style="display: inline-block;width: 150px;" class="form-control" id="paymentDate">
                                     <br>
@@ -491,10 +491,33 @@
         function getByID() {
             var xhttp = new XMLHttpRequest();
             var id = $('#name').find(":selected").val();
-        
             $("#id").val(id);
             $('#contact').val(id);
             $('#cnic').val(id);
+            document.getElementById("date").value = "";
+            document.getElementById("address").value = "";
+            document.getElementById("basicPay").value = "";
+            document.getElementById("allowedHolidays").value = "";
+            document.getElementById("allownces").value = "";
+            document.getElementById("saleTarget").value = "";
+            document.getElementById("total").value = "";
+            document.getElementById("payable").innerHTML = "";
+            document.getElementById("workingHours").value = "";
+            document.getElementById("comission").value = "";
+            document.getElementById("reportingTime").value = "";
+
+            document.getElementById("totalSales").value = "";
+            document.getElementById("totalCommission").value = "";
+            document.getElementById("advance").value = "";
+            document.getElementById("absents").value = "";
+            document.getElementById("absentdeduction").value = "";
+            document.getElementById("payable").innerHTML = "";
+
+            document.getElementById("paymentDate").value = "";
+            document.getElementById("amountPaid").value = "";
+            document.getElementById("amountRemaining").value = "";
+            document.getElementById("remarks").value = "";
+            
             xhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
@@ -519,7 +542,7 @@
                     $("#cnic").selectpicker('refresh');
                     $('#name').val(a[0].EID);
                     $("#name").selectpicker('refresh');
-
+                    searchMonthlyCommission();
                 }
             };
             xhttp.open("GET", "./getEmpbyID/" + id, true);
@@ -711,12 +734,12 @@
                    
                     a=JSON.parse(data);
                     document.getElementById("totalSales").value = a[0];
-                    document.getElementById("totalCommission").value = a[1];
+                    document.getElementById("totalCommission").value = Math.round(Number(a[1]));
                     totalPay = document.getElementById("total").value;
                     document.getElementById("advance").value = a[4];
                     document.getElementById("absents").value = a[2];
                     document.getElementById("absentdeduction").value = a[3];
-                    document.getElementById("payable").innerHTML = Number(a[1])+Number(totalPay)-Number(a[3]);
+                    document.getElementById("payable").innerHTML = Math.round(a[1]+Number(totalPay)-Number(a[3]) - Number(a[4]));
                 }
             };
             

@@ -214,7 +214,7 @@ public static function getEmployeeName(){
       $id=DB::table('tblemployeepay')->insertGetId([
         
         'BasicPay' =>$basicPay,
-        'TotalPay' =>0,
+        'TotalPay' =>$basicPay,
         'Alownces' =>0,
         'AllowedHolidays' =>$allowedHolidays,
         'SaleTarget' =>$saleTarget,

@@ -7,6 +7,7 @@
                         <div class="col-md-12 text-center mt-1">
                             <h4>Create Invoice</h4>
                         </div>
+    
                     </div>
                     <div class="row">
 
@@ -14,7 +15,7 @@
 
 
                             <button class="btn btn-Search" data-toggle="modal" data-target=".bd-example-modal-lg"
-                                style="height: 25px;" onclick="loadStock()"></button>
+                                style="height: 25px;" onclick="loadStock()">List</button>
                                 <div class="col-md-7 ">
                                 
                             </div>
