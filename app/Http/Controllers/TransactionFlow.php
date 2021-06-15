@@ -68,6 +68,12 @@ class TransactionFlow extends Controller
                     return $data;
                 }
 
+
+                if($table == "tblledgerparties"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
+                    return $data;
+                }
+
                 if($table == "customeinformation"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidBy='.$value );
                     return $data;
