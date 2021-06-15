@@ -206,134 +206,15 @@
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
                 </main>
-=======
-                </div>
-            </div>
-            <div class="row customBorder">
-                <div class="col-md-4">
-                    <h4>Add Expense</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="">Amount</label>
-                            <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-                                value="" name=""  onclick="calculatonInTable()" id="amount"><br>
-                            <label for="">Paid To</label>
-                            <select data-live-search="true"
-                                class="selectpicker form-control" id="paidto" >
-                                <option value=1>Mohsin</option>
-                                <option value=2>Ali</option>
-                                <option value=3>Malik</option>
-                                <option value=4>Rayyan</option>
-
-
-                            </select>
-
-                             <button data-toggle="modal" data-target="#staticBackdrop" style="    height: 30px;
-                               margin-top: -5px;" class="btn"><i class="fas fa-user-plus"></i></button>
-
-  <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-                            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-
-                                    <div class="modal-body">
-                                        <form class="sign-in-form">
-                                            <h2 class="title">Add Customer</h2>
-                                            <div class="input-field">
-                                                <a href="#"> <i class="fas fa-user"></i>
-                                                </a> <input type="text" name="fname" autocomplete="OFF" id="fname"
-                                                    placeholder="Customer">
-                                            </div>
-                                          
-                                            <div class="input-field">
-                                                <a href="#"> <i class="fas fa-user"></i>
-                                                </a> <input type="text" name="fname" autocomplete="OFF" id="fname"
-                                                    placeholder="Contact">
-                                            </div>
-                                            
-
-
-                                            <input type="submit" value="Add Customer"
-                                                class="btn btn-success btn-submit solid">
-
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-org-1" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        
-                            <label for="">Paid by</label>
-<<<<<<< HEAD
-                            <select   data-live-search="true" 
-                                class="selectpicker form-control"  id="paidby" >
-
-=======
-                            <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control" data-live-search="true"  id="paidby" >
->>>>>>> e3ac0e4aeefe981e394ed2e4a5be2ee9001092eb
-                                <option value=1>Mamu</option>
-                                <option value=2>Ali</option>
-                                <option value=3>Malik</option>
-                                <option value=4>Rayyan</option>
-
-
-                            </select>
-                        </div>
-                        <div class="col-md-4 offset-md-2">
-                            <label for="">Expense Head</label>
-<<<<<<< HEAD
-                            <select 
-                                class="selectpicker form-control" data-live-search="true"  id="expence" >
-                                <option value=1>Bill</option>
-                                <option value=2>Document</option>
-                                <option value=3>Malik</option>
-                                <option value=4>Rayyan</option>
-
-
-=======
-                            <select style="height: 25px !important; width: 158px !important; "
-                                class="selectpicker form-control"  data-live-search="true"  id="expense" >
-                            
->>>>>>> e3ac0e4aeefe981e394ed2e4a5be2ee9001092eb
-                            </select>
-                            <button class="btn">+</button>
-                            <br>
-                            <label style="width: 100px !important;" for="">Date</label>
-                            <input type="date" style="width: 240px;" name="" id="date"><br>
-                            <div class="expenseButtons">
-                            <label for="">remarks</label>
-                            <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-                                value="" name="" id="remarks">
-                                <br>
-                                <button class="btn" onclick="add(), calculatonInTable()"  >Add</button>
-                            </div>
->>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
 
                 <section>
                     <div class="container">
 
-<<<<<<< HEAD
                         <div class="row customBorder">
                             <div class="col-md-4">
                                 <h4>Add Expenses</h4>
                             </div>
-=======
-
->>>>>>> 93a4b26ad2e092313d611b59d0c077a406dca4bb
                         </div>
                     </div>
                 </section>
@@ -430,7 +311,7 @@
                         <div class="row">
                             <div class="col-md-5 offset-md-7">
                                 <div class="footerBtns">
-                                    
+                                    <button class="btn">Close</button>
                                     <button onclick="window.print()" class="btn print">Print</button>
                                     <button class="btn" onclick="addExpenses()">Update</button>
                                 </div>
@@ -537,7 +418,7 @@
             var table = document.getElementById("expenseTable");
 
 
-            
+            //alert(sp);
             $('#expenseTable tr').each(function (row, tr) {
 
                 expenseDetails[row] = [
@@ -562,7 +443,7 @@
             });
             expenseDetails.shift();
             var expTable = JSON.stringify(expenseDetails);
-           
+            alert(expTable);
             var xhttp = new XMLHttpRequest();
 
             xhttp.onreadystatechange = function () {
@@ -599,7 +480,7 @@
                     $('#expense').selectpicker('refresh');
                 }
             };
-            
+            //alert("ljd");
             xhttp.open("GET", "./getExpenseHeads/", true);
 
             xhttp.send();
@@ -644,7 +525,7 @@
                     $('#paidBy').selectpicker('refresh');
                 }
             };
-            
+            //alert("ljd");
             xhttp.open("GET", "./getAccounts/", true);
 
             xhttp.send();

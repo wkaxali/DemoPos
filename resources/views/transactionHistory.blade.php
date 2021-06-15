@@ -426,8 +426,10 @@
                         }
                     };
                     if(value == ""){
-                        value = "All";
-                       
+                        value = "All";  
+                    }
+                    if(table == ""){
+                        table = "All";  
                     }
                     
                     
@@ -662,8 +664,8 @@
                     var category = $('#transactionCategory').find(":selected").text();
                     var table = $('#transactionCategory').find(":selected").val();
                 //  alert(category);
-                    if(category==""){
-                        category = "All";
+                    if(table==""){
+                        table = "All";
                     }
                    
                     var xhttp = new XMLHttpRequest();

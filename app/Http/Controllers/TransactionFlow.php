@@ -93,6 +93,10 @@ class TransactionFlow extends Controller
                 }
             }
             if($value=="All"){
+                if($table == "All"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                    return $data;
+                }
                 if($table == "tblledgerparties"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
                     return $data;
@@ -268,41 +272,48 @@ class TransactionFlow extends Controller
         
     public static function loadCategoryData($table){
         $option='';
-        $data=DB:: select('select * from '.$table);
-        if($table == "tblledgerparties"){
-            $option='<option value=""></option>';
-            foreach ($data as $d){
-                $option=$option.'
-                <option value='.$d->LID.'>'.$d->PartyName.'</option>';
+        if($table!="All"){
+            $data=DB:: select('select * from '.$table);
+            if($table == "tblledgerparties"){
+                $option='<option value=""></option>';
+                foreach ($data as $d){
+                    $option=$option.'
+                    <option value='.$d->LID.'>'.$d->PartyName.'</option>';
+                }
+                return $option;
             }
-            return $option;
-        }
-        if($table == "customeinformation"){
-            $option='<option value=""></option>';
-            foreach ($data as $d){
-                $option=$option.'
-                <option value='.$d->CustomerID.'>'.$d->CustomerName.'</option>';
+            if($table == "customeinformation"){
+                $option='<option value=""></option>';
+                foreach ($data as $d){
+                    $option=$option.'
+                    <option value='.$d->CustomerID.'>'.$d->CustomerName.'</option>';
+                }
+                return $option;
             }
-            return $option;
-        }
-        if($table == "tblexpenseheads"){
-            $option='<option value=""></option>';
-            foreach ($data as $d){
-                $option=$option.'
-                <option value='.$d->ID.'>'.$d->ExpenseHead.'</option>';
+            if($table == "tblexpenseheads"){
+                $option='<option value=""></option>';
+                foreach ($data as $d){
+                    $option=$option.'
+                    <option value='.$d->ID.'>'.$d->ExpenseHead.'</option>';
+                }
+                return $option;
             }
-            return $option;
-        }
-        if($table == "tblemployees"){
-            $option='<option value=""></option>';
-            foreach ($data as $d){
-                $option=$option.'
-                <option value='.$d->EID.'>'.$d->FirstName.' '.$d->LastName.'</option>';
+            if($table == "tblemployees"){
+                $option='<option value=""></option>';
+                foreach ($data as $d){
+                    $option=$option.'
+                    <option value='.$d->EID.'>'.$d->FirstName.' '.$d->LastName.'</option>';
+                }
+                return $option;
             }
-            return $option;
+            else {
+                $option='<option value="">Hola!</option>';
+                
+                return $option;
+            }
         }
-        else {
-            $option='<option value="">Hola!</option>';
+        if($table == "All"){
+            $option='<option value=""></option>';
             
             return $option;
         }
