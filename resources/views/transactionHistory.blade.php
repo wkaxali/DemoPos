@@ -128,7 +128,7 @@
                             </div>
 
                             <div class="col-md-4  ">
-                                <label for="">Select Ledger</label>
+                                <label for="">Select Data</label>
                                 <select 
                                     class="selectpicker form-control" data-live-search="true" id="parties">
 
@@ -230,7 +230,7 @@
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
                                 <button onclick="printTrasactionHistory()" class="btn btn-info">Print</button>
-                                <button class="btn btn-danger">Close</button>
+                                <!-- <button class="btn btn-danger">Close</button> -->
                             </div>
                         </div>
                     </div>
@@ -351,8 +351,7 @@
                 function selectedDateData(){
                     var date1 = document.getElementById("date1").value;
                     var date2 = document.getElementById("date2").value;
-                    alert(date1);
-                    alert(date2);
+                  
                     if(date1=="" || date2==""){
                         alert("select the date first");
                 
