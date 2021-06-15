@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class accountsController extends Controller
 {
     public static function loadCategory(){
-        $data=DB:: select('select DISTINCT TransactionCatogery from vw_transaction_flow');
+        $data=DB:: select('select * from tbl_transaction_history_search');
     
         $option='<option value=""></option>';
     
@@ -16,7 +16,7 @@ class accountsController extends Controller
           //print $option;
     
             $option=$option.'
-            <option value= '.$d->TransactionCatogery.'>'.$d->TransactionCatogery.' </option>';
+            <option value= '.$d->RelatedTable.'>'.$d->TransactionCategory.' </option>';
           
         }
         return $option;

@@ -121,7 +121,7 @@
                         <div class="row my-2">
                             <div class="col-md-4">
                                 <label style="width:117px;" for="">Select Category</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="accounts">
+                                <select class="selectpicker form-control" data-live-search="true" id="transactionCategory"  onchange="loadCategoryData()">
                                     
 
                                 </select>
@@ -130,14 +130,14 @@
                             <div class="col-md-4  ">
                                 <label for="">Select Data</label>
                                 <select 
-                                    class="selectpicker form-control" data-live-search="true" id="parties">
+                                    class="selectpicker form-control" data-live-search="true" id="tables" >
 
                                 </select>
                                 </div>
                             <div class="col-md-4  ">
                                 
                                 <button 
-                                    class="btn  btn-info" data-live-search="true" id="parties" style="margin-top:32px;"
+                                    class="btn  btn-info" data-live-search="true"  style="margin-top:32px;"
                                     onclick="selectedSearchData()">
                                     Search
                                 </button>
@@ -194,6 +194,7 @@
                                                     <th>Party Name</th>
                                                     <th>Employee Name</th>
                                                     <th>Customer Name</th>
+                                                    <th>Expense Head</th>
                                                     <th>Account Name</th>
                                                     <th>Transaction Category</th>
                                                     <th>Amount</th>
@@ -318,8 +319,8 @@
 
                         if (this.readyState == 4 && this.status == 200) {
 
-                            document.getElementById("accounts").innerHTML = this.response;
-                            $('#accounts').selectpicker('refresh');
+                            document.getElementById("transactionCategory").innerHTML = this.response;
+                            $('#transactionCategory').selectpicker('refresh');
                         }
                     };
                     //alert("ljd");
@@ -371,7 +372,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add(['', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add(['', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -389,20 +390,22 @@
                 }
 
                 function selectedSearchData(){
-                    var AID = $('#accounts').find(":selected").val();
-                    var LID = $('#parties').find(":selected").val();
-                    if(AID==""){
-                        AID = "All";
-                    }
-                    if(LID==""){
-                        LID = "All";
-                    }
+                    var category = $('#transactionCategory').find(":selected").text();
+                    var table = $('#transactionCategory').find(":selected").val();
+                    var value = $('#tables').find(":selected").val();
+
+                    alert(category);
+                    alert(value);
+                    if(category=="" || value==""){
+                        alert("select the category first");
+                
+                    }else{
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
 
                         var data = this.responseText;
-                        
+                        alert(data);
                             var table;
                             var a = JSON.parse(data);
                         
@@ -423,10 +426,10 @@
                         }
                     };
                     
-                    xhttp.open("GET", "./selectedSearchData/"+AID+"/"+LID, true);
+                    xhttp.open("GET", "./selectedSearchData/"+category+"/"+value+"/"+table, true);
 
                     xhttp.send();
-
+                 }
                 }
 
             </script>
@@ -649,7 +652,31 @@
 
         }
     </script>
+<script>
+ function loadCategoryData(){
+                    var category = $('#transactionCategory').find(":selected").text();
+                    var table = $('#transactionCategory').find(":selected").val();
+                //  alert(category);
+                    if(category==""){
+                        category = "All";
+                    }
+                   
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            // alert(this.response);
+                            document.getElementById("tables").innerHTML = this.response;
+                            $('#tables').selectpicker('refresh');
 
+                        }
+                    };
+                    
+                    xhttp.open("GET", "./loadCategoryData/"+table, true);
+
+                    xhttp.send();
+
+                }
+</script>
 </body>
 
 </html>
