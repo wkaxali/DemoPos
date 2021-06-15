@@ -187,7 +187,7 @@ Route::get('/viewAllStock',[OrderFlowController::class, 'viewAllStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
-Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
+Route::get('/loadCategory',[accountsController::class, 'loadCategory']);
 Route::get('/customer/{data}',[CustomerViewController::class, 'customerinfo']);
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
@@ -307,6 +307,7 @@ Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
 Route::get('/getEmpPayments',[payController::class, 'getEmpPayments']);
 Route::get('/printTrasactionHistory/{AID}/{LID}',[TransactionFlow::class, 'printTrasactionHistory']);
 Route::get('/selectedSearchData/{AID}/{LID}',[TransactionFlow::class, 'selectedSearchData']);
+Route::get('/selectedDateData/{DATE1}/{DATE2}',[TransactionFlow::class, 'selectedDateData']);
 
 
 

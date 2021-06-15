@@ -120,7 +120,7 @@
                     <div class="container">
                         <div class="row my-2">
                             <div class="col-md-4">
-                                <label style="width:117px;" for="">Select Account</label>
+                                <label style="width:117px;" for="">Select Category</label>
                                 <select class="selectpicker form-control" data-live-search="true" id="accounts">
                                     
 
@@ -141,9 +141,28 @@
                                     onclick="selectedSearchData()">
                                     Search
                                 </button>
-                            </div>
+                                </div>
                         </div>
                     </div>
+                                <div class="container"  >
+                                     <div class="row my-2" >
+                                            <div class="col-md-4" >
+                                                <label for="">From Date</label>
+                                                <input type="date" id ="date1">
+                                            </div>
+                                            <div class="col-md-4" >
+                                                <label for="">To Date</label>
+                                                <input type="date" id ="date2">
+                                            </div>
+                                            <div class="col-md-4" >
+                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
+                                                        onclick="selectedDateData()">Search </button> </div>
+                                            </div>
+                                          
+                                            
+                                        </div>
+                                  </div>
+                          
                 </section>
                 <section>
                     <div class="container">
@@ -284,7 +303,7 @@
 
             <script>
                 function loadFunctions() {
-                    loadAccounts();
+                    loadCategory();
                     loadParties();
                     getTransactionHistory();
                 }
@@ -293,7 +312,7 @@
 
 
             <script>
-                function loadAccounts() {
+                function loadCategory() {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
 
@@ -304,7 +323,7 @@
                         }
                     };
                     //alert("ljd");
-                    xhttp.open("GET", "./getAccountHeads/", true);
+                    xhttp.open("GET", "./loadCategory/", true);
 
                     xhttp.send();
                 }
@@ -329,6 +348,46 @@
                     xhttp.send();
                 }
 
+                function selectedDateData(){
+                    var date1 = document.getElementById("date1").value;
+                    var date2 = document.getElementById("date2").value;
+                    alert(date1);
+                    alert(date2);
+                    if(date1=="" || date2==""){
+                        alert("select the date first");
+                
+                    }
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+
+                        var data = this.responseText;
+                        
+                            var table;
+                            var a = JSON.parse(data);
+                        
+                            table = $('#myTable').DataTable();
+                            table.clear();
+
+                            $.each(a, function (i, item) {
+
+                                date = dateFormat();
+                                table.row.add(['', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                    a[i]
+                                    .Amount,
+                                    a[i].DateStamp
+                                ]);
+                            });
+                            table.draw();
+
+                        }
+                    };
+                    
+                    xhttp.open("GET", "./selectedDateData/"+date1+"/"+date2, true);
+
+                    xhttp.send();
+
+                }
 
                 function selectedSearchData(){
                     var AID = $('#accounts').find(":selected").val();
@@ -389,7 +448,7 @@
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
 
-                                                if (this.readyState == 4 && this.status == 200) {
+                      if (this.readyState == 4 && this.status == 200) {
 
                             var data = this.responseText;
                             //alert(data);
