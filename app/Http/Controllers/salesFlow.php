@@ -102,7 +102,7 @@ class salesFlow extends Controller
         'InvoiceNumber'=>$invoiceNumber,
         'EID'=>$EID,
         'CommissionStatus'=>'Due',
-        'totalCommission'=>$commission*$AmountAfterDiscount/100,
+        'totalCommission'=>$commission*$tot/100,
         'date'=>$dateNow,
         ]);
 

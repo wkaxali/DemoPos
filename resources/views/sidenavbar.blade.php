@@ -89,6 +89,8 @@ style="float: right"></span></a>
 </li>
 <li id="menu-mensagens" style="width: 201px"><a href="/ep">Employee Payments</a>
 </li>
+<li id="menu-mensagens" style="width: 201px"><a href="/th">Transaction History</a>
+</li>
 
 
 </ul>
@@ -204,7 +206,8 @@ style="float: right"></span></a>
 <ul class="collapse firstULs12" id="menu-academico-sub">
 
 <li id="menu-academico-avaliacoes"><a href="/aep">Assign Pay</a></li>
-<li id="menu-academico-avaliacoes"><a href="/ep">Add Employee Pay</a></li>
+<li id="menu-academico-avaliacoes"><a href="/pr">Employee Salary</a></li>
+<li id="menu-academico-avaliacoes"><a href="/ep">Employee Payments</a></li>
 <li id="menu-academico-avaliacoes"><a href="/adal">Add Allowance Head </a></li>
 <li id="menu-academico-avaliacoes"><a href="/edal">Edit Allowance Head</a></li>
 <li id="menu-academico-avaliacoes"><a href="/dEPay">Delete Employee Pay</a></li>

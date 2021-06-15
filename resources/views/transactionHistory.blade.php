@@ -170,9 +170,12 @@
                                             <thead>
                                                 <tr>
                                                     <th></th>
-
+                                                    
                                                     <th>Transaction ID</th>
-                                                    <th>Invoice No</th>
+                                                    <th>Party Name</th>
+                                                    <th>Employee Name</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Account Name</th>
                                                     <th>Transaction Category</th>
                                                     <th>Amount</th>
                                                     <th>Transaction Date</th>
@@ -330,22 +333,28 @@
                 function selectedSearchData(){
                     var AID = $('#accounts').find(":selected").val();
                     var LID = $('#parties').find(":selected").val();
-                    alert(AID);
+                    if(AID==""){
+                        AID = "All";
+                    }
+                    if(LID==""){
+                        LID = "All";
+                    }
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
 
                         var data = this.responseText;
-                            //alert(data);
+                        
                             var table;
                             var a = JSON.parse(data);
-                            //  alert(a[0].ProductSerial);
+                        
                             table = $('#myTable').DataTable();
                             table.clear();
 
                             $.each(a, function (i, item) {
 
-                                table.row.add(['',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
+                                date = dateFormat();
+                                table.row.add(['', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -355,6 +364,7 @@
 
                         }
                     };
+                    
                     xhttp.open("GET", "./selectedSearchData/"+AID+"/"+LID, true);
 
                     xhttp.send();
@@ -364,6 +374,17 @@
             </script>
 
             <script>
+
+            function dateFormat(data){
+                monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"];
+                var date = new Date(data);
+                var d = date.getDate();
+                var m = monthNames[date.getMonth()];
+                var y = date.getFullYear();
+                finalDate = d+"-"+m+"-"+y;
+                return finalDate;
+            }
                 function getTransactionHistory() {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
@@ -380,7 +401,7 @@
                             $.each(a, function (i, item) {
 
                                 table.row.add(['',
-                                    a[i].TransactionID, a[i].InvoiceNo, 
+                                    a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                                     a[i].TransactionCatogery, a[i].Amount,
                                     a[i].DateStamp
                                 ]);
@@ -415,7 +436,7 @@
 
                             $.each(a, function (i, item) {
 
-                                table.row.add(['',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
+                                table.row.add(['', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -450,7 +471,7 @@
 
                             $.each(a, function (i, item) {
 
-                                table.row.add(['',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
+                                table.row.add(['', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp

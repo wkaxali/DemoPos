@@ -293,7 +293,7 @@ class OrderFlowController extends Controller
       }
       
       function transactionHistory(){
-        $data=DB:: select('select * from tbltransactionflow');
+        $data=DB:: select('select * from vw_transaction_flow');
         return $data;
       }
       
