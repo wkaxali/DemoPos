@@ -62,27 +62,53 @@ class TransactionFlow extends Controller
 
 
         public static  function selectedSearchData($category, $value, $table){
-            if($table == "tblledgerparties"){
-                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
-                return $data;
-            }
+            if($value!="All"){
+                if($table == "tblledgerparties"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
+                    return $data;
+                }
 
-            if($table == "customeinformation"){
-                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidBy='.$value );
-                return $data;
-            }
+                if($table == "customeinformation"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidBy='.$value );
+                    return $data;
+                }
 
-            if($table == "tblexpenseheads"){
-                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and ExpenseHeadID='.$value );
-                return $data;
-            }
+                if($table == "tblexpenseheads"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and ExpenseHeadID='.$value );
+                    return $data;
+                }
 
-            if($table == "tblemployees"){
-                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and EmpID='.$value );
-                return $data;
+                if($table == "tblemployees"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and EmpID='.$value );
+                    return $data;
+                }
+                else{
+                    return [1,23,4];
+                }
             }
-            else{
-                return [1,23,4];
+            if($value=="All"){
+                if($table == "tblledgerparties"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                    return $data;
+                }
+
+                if($table == "customeinformation"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                    return $data;
+                }
+
+                if($table == "tblexpenseheads"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                    return $data;
+                }
+
+                if($table == "tblemployees"){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                    return $data;
+                }
+                else{
+                    return [1,23,4];
+                }
             }
         }
     public static function getTransactionsForAccounts($AID){
