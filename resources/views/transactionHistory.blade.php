@@ -405,7 +405,7 @@
                         if (this.readyState == 4 && this.status == 200) {
 
                         var data = this.responseText;
-                        alert(data);
+                       
                             var table;
                             var a = JSON.parse(data);
                         
@@ -429,7 +429,7 @@
                         value = "All";
                        
                     }
-                    alert(value);
+                    
                     
                     xhttp.open("GET", "./selectedSearchData/"+category+"/"+value+"/"+table, true);
 
