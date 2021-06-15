@@ -61,22 +61,28 @@ class TransactionFlow extends Controller
     }
 
 
-        public static  function selectedSearchData($AID,$LID){
-            if($AID == "All" && $LID != "All"){
-                $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$LID);
+        public static  function selectedSearchData($category, $value, $table){
+            if($table == "tblledgerparties"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
                 return $data;
             }
-            if($LID == "All" && $AID != "All"){
-                $data=DB:: select('select * from vw_transaction_flow where PaidVia='.$AID);
+
+            if($table == "customeinformation"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidBy='.$value );
                 return $data;
             }
-            if($LID != "All" && $AID != "All"){
-                $data=DB:: select('select * from vw_transaction_flow where PaidVia='.$AID.' and PaidTo='.$LID);
+
+            if($table == "tblexpenseheads"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and ExpenseHeadID='.$value );
                 return $data;
             }
-            if($LID == "All" && $AID == "All"){
-                $data=DB:: select('select * from vw_transaction_flow');
+
+            if($table == "tblemployees"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and EmpID='.$value );
                 return $data;
+            }
+            else{
+                return [1,23,4];
             }
         }
     public static function getTransactionsForAccounts($AID){
@@ -228,7 +234,47 @@ class TransactionFlow extends Controller
         PDF::Output('Transaction.pdf');
     }
         
-    
+    public static function loadCategoryData($table){
+        $option='';
+        $data=DB:: select('select * from '.$table);
+        if($table == "tblledgerparties"){
+            $option='<option value=""></option>';
+            foreach ($data as $d){
+                $option=$option.'
+                <option value='.$d->LID.'>'.$d->PartyName.'</option>';
+            }
+            return $option;
+        }
+        if($table == "customeinformation"){
+            $option='<option value=""></option>';
+            foreach ($data as $d){
+                $option=$option.'
+                <option value='.$d->CustomerID.'>'.$d->CustomerName.'</option>';
+            }
+            return $option;
+        }
+        if($table == "tblexpenseheads"){
+            $option='<option value=""></option>';
+            foreach ($data as $d){
+                $option=$option.'
+                <option value='.$d->ID.'>'.$d->ExpenseHead.'</option>';
+            }
+            return $option;
+        }
+        if($table == "tblemployees"){
+            $option='<option value=""></option>';
+            foreach ($data as $d){
+                $option=$option.'
+                <option value='.$d->EID.'>'.$d->FirstName.' '.$d->LastName.'</option>';
+            }
+            return $option;
+        }
+        else {
+            $option='<option value="">Hola!</option>';
+            
+            return $option;
+        }
+    }
 
 }
 
