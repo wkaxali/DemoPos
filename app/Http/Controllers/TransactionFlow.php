@@ -62,7 +62,14 @@ class TransactionFlow extends Controller
 
 
         public static  function selectedSearchData($category, $value, $table){
+           // return $value;     
             if($value!="All"){
+
+                if(strcmp($category , "investors")){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="Stock Purchased" or TransactionCatogery="Party Payment" or TransactionCatogery="Booking Order" and PaidTo='.$value );
+                    return $data;
+                }
+
                 if($table == "tblledgerparties"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
                     return $data;
@@ -87,6 +94,10 @@ class TransactionFlow extends Controller
                 }
             }
             if($value=="All"){
+                if(strcmp($category , "investors")){
+                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="Stock Purchased" or TransactionCatogery="Party Payment" or TransactionCatogery="Booking Order"' );
+                    return $data;
+                }
                 if($table == "All"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
                     return $data;
