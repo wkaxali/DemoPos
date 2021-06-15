@@ -53,6 +53,14 @@ class TransactionFlow extends Controller
            return $TID;
 
     }
+    public static  function selectedDateData($date1,$date2){
+        
+    $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
+    return $data;
+    
+    }
+
+
     public static  function selectedSearchData($AID,$LID){
         if($AID == "All" && $LID != "All"){
             $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$LID);
@@ -70,6 +78,7 @@ class TransactionFlow extends Controller
             $data=DB:: select('select * from vw_transaction_flow');
             return $data;
         }
+
     }
     public static function getTransactionsForAccounts($AID){
         

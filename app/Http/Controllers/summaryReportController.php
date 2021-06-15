@@ -75,7 +75,7 @@ class summaryReportController extends Controller
         
         
         <h3 align="center">Debit</h3> 
-        <table style="display: inline-block; margin-right:10px" border="1" >
+        <table width= 100px style="display: inline-block; margin-right:10px" border="1" >
         <thead></thead>
         <tbody>
              
@@ -92,7 +92,7 @@ foreach ($total as $t){
     foreach ($data as $d){
 
         $table=$table.'
-        <table style="display: inline-block;" border="1" >
+        <table width= 100px style="display: inline-block;" border="1" >
     <thead></thead>
     <tbody>
          
@@ -114,7 +114,7 @@ foreach ($total as $t){
     
         $table=$table.' 
         <h3 align="center">Credit</h3> 
-        <table style="display: inline-block;" border="1" >
+        <table width= 100px style="display: inline-block;" border="1" >
         <thead></thead>
         <tbody>
              
@@ -137,7 +137,7 @@ foreach ($total as $t){
 
         $table=$table.'
        
-        <table style="display: inline-block;" border="1" >
+        <table width= 100px style="display: inline-block;" border="1" >
         <thead></thead>
     <tbody>
          

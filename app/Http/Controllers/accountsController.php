@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class accountsController extends Controller
 {
-    public static function getAccountHeads(){
-        $data=DB:: select('select * from tblaccounts');
+    public static function loadCategory(){
+        $data=DB:: select('select DISTINCT TransactionCatogery from vw_transaction_flow');
     
         $option='<option value=""></option>';
     
@@ -16,7 +16,7 @@ class accountsController extends Controller
           //print $option;
     
             $option=$option.'
-            <option value= '.$d->AID.'>'.$d->AccountName.'   #    '.$d->AccountNumber.'</option>';
+            <option value= '.$d->TransactionCatogery.'>'.$d->TransactionCatogery.' </option>';
           
         }
         return $option;
