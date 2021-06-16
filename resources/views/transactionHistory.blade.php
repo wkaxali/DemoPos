@@ -637,29 +637,23 @@
             }
         </script> -->
     <script>
-    function printTrasactionHistory() {
-                var category = $('#transactionCategory').find(":selected").text();
-                var table = $('#transactionCategory').find(":selected").val();
-                 var value = $('#tables').find(":selected").val();
-
-                 
-      
+    function printTrasactionHistory(){
+             var date1 = document.getElementById("date1").value;
+             var date2 = document.getElementById("date2").value;
+                    alert(date1);
+                   
+                  
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory/'+category+'/'+value+'/'table);
+                    window.open('/printTrasactionHistory/'+date1+'/'+date2);
                   
                 }
             }
-            if(value == ""){
-                        value = "All";  
-                    }
-                    if(table == ""){
-                        table = "All";  
-                    }
+            alert(date2);
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+category+"/"+value+"/"table, true);
+            xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2, true);
             xhttp.send();
 
         }
