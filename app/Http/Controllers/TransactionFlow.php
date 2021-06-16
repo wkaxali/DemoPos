@@ -65,8 +65,8 @@ class TransactionFlow extends Controller
            // return $value;     
             if($value!="All"){
 
-                if(strcmp($category , "investors")){
-                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="Stock Purchased" or TransactionCatogery="Party Payment" or TransactionCatogery="Booking Order" and PaidTo='.$value );
+                if($table == "tblledgerpartiesall"){
+                    $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$value );
                     return $data;
                 }
 
@@ -74,7 +74,6 @@ class TransactionFlow extends Controller
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
                     return $data;
                 }
-
 
                 if($table == "tblledgerparties"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
@@ -100,8 +99,8 @@ class TransactionFlow extends Controller
                 }
             }
             if($value=="All"){
-                if(strcmp($category , "investors")){
-                    $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="Stock Purchased" or TransactionCatogery="Party Payment" or TransactionCatogery="Booking Order"' );
+                if($table=="tblledgerpartiesall"){
+                    $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL' );
                     return $data;
                 }
                 if($table == "All"){
@@ -130,6 +129,9 @@ class TransactionFlow extends Controller
                 else{
                     return [1,23,4];
                 }
+            }
+            else{
+                return "dssd";
             }
         }
     public static function getTransactionsForAccounts($AID){
@@ -283,7 +285,16 @@ class TransactionFlow extends Controller
         
     public static function loadCategoryData($table){
         $option='';
-        if($table!="All"){
+        if($table=="tblledgerpartiesall"){
+            $data=DB:: select('select * from tblledgerparties');
+            $option='<option value=""></option>';
+                foreach ($data as $d){
+                    $option=$option.'
+                    <option value='.$d->LID.'>'.$d->PartyName.'</option>';
+                }
+                return $option;
+        }
+        if($table!="All" AND $table!="tblledgerpartiesall"){
             $data=DB:: select('select * from '.$table);
             if($table == "tblledgerparties"){
                 $option='<option value=""></option>';
