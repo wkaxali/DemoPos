@@ -372,7 +372,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add([ a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add([ '', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -638,23 +638,28 @@
         </script> -->
     <script>
     function printTrasactionHistory() {
-        var AID = $('#accounts').find(":selected").val();
-        var LID = $('#parties').find(":selected").val();
+                var category = $('#transactionCategory').find(":selected").text();
+                var table = $('#transactionCategory').find(":selected").val();
+                 var value = $('#tables').find(":selected").val();
+
+                 
       
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory/'+AID+'/'+LID);
+                    window.open('/printTrasactionHistory/'+category+'/'+value+'/'table);
                   
                 }
             }
-            if (AID =="" || LID == ""){
-                AID = "All";
-                LID = "All";
-            }
+            if(value == ""){
+                        value = "All";  
+                    }
+                    if(table == ""){
+                        table = "All";  
+                    }
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+AID+"/"+LID, true);
+            xhttp.open("GET", "./printTrasactionHistory/"+category+"/"+value+"/"table, true);
             xhttp.send();
 
         }

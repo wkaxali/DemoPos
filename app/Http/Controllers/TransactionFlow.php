@@ -117,7 +117,7 @@ class TransactionFlow extends Controller
                     return $data;
                 }
                 else{
-                    return [1,23,4];
+                    return "error";
                 }
             }
         }
@@ -215,14 +215,66 @@ class TransactionFlow extends Controller
 
 
 
- public function printTrasactionHistory($AID,$LID)
+ public function printTrasactionHistory($category, $value, $table)
     {
-        if($AID=="All" || $LID=="All"){
-            $data=DB::select('select * from tbltransactionflow');
-        }else{
-            $data=DB:: select('select TransactionID, InvoiceNo, Amount, TransactionCatogery, DateStamp from tbltransactionflow where PaidVia='.$AID.' and PaidTo='.$LID);
+        if($value!="All"){
+            if($table == "tblledgerparties"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
+                return $data;
+            }
+
+
+            if($table == "tblledgerparties"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
+                return $data;
+            }
+
+            if($table == "customeinformation"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidBy='.$value );
+                return $data;
+            }
+
+            if($table == "tblexpenseheads"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and ExpenseHeadID='.$value );
+                return $data;
+            }
+
+            if($table == "tblemployees"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and EmpID='.$value );
+                return $data;
+            }
+            else{
+                return [1,23,4];
+            }
         }
-       
+        if($value=="All"){
+            if($table == "All"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                return $data;
+            }
+            if($table == "tblledgerparties"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                return $data;
+            }
+
+            if($table == "customeinformation"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                return $data;
+            }
+
+            if($table == "tblexpenseheads"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                return $data;
+            }
+
+            if($table == "tblemployees"){
+                $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
+                return $data;
+            }
+            else{
+                return "error";
+            }
+        }
         $table='
         <h1 style="text-align:center;">Transaction History</h1><br>
         
