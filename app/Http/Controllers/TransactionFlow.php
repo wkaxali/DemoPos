@@ -53,12 +53,50 @@ class TransactionFlow extends Controller
            return $TID;
 
     }
-    public static  function selectedDateData($date1,$date2){
+    public static  function selectedDateData($date1,$date2,$category,$table,$value){
         
-    $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
-    return $data;
+
     
-    }
+        $columnName='';
+        if(!strcmp($value,"All")){
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            return $data;
+        }
+
+        if(strcmp($value,"All")){
+            if(!strcmp($category,"tblledgerparties")){
+                
+                $columnName="PaidTo";
+        
+            }
+
+            else if(!strcmp($category,"customeinformation")){
+                
+                $columnName="PaidBy";
+        
+            }
+            else if(!strcmp($category,"tblexpenseheads")){
+                
+                $columnName="ExpenseHeadID";
+        
+            }
+
+            else if(!strcmp($category,"tblemployees")){
+                
+                $columnName="EmpID";
+        
+            }
+        }
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and '.$columnName.'='.$value);
+            return $data;
+        }
+
+           
+        
+        
+    
+    
+    
 
 
         public static  function selectedSearchData($category, $value, $table){
@@ -215,9 +253,9 @@ class TransactionFlow extends Controller
 
 
 
- public function printTrasactionHistory($date1,$date2)
+ public static function printTrasactionHistory($date1,$date2)
     {
-        $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1.'"and"'.$date2.'" ');
+        $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1.'" and "'.$date2.'" ');
         
         $table='
         <h1 style="text-align:center;">Transaction History</h1><br>
@@ -227,11 +265,14 @@ class TransactionFlow extends Controller
           <tbody>
               <tr>
                   <th><b>Transaction ID</b></th>
-                  <th><b>Invoice No</b></th>
+                  <th><b>Party Name</b></th>
+                  <th><b>Employee Name</b></th>
+                  <th><b>Customer Name</b></th>
+                  <th><b>Expense Head</b></th>
+                  <th><b>Account Name</b></th>
                   <th><b>Transaction Catogery</b></th>
                   <th><b>Amount</b></th>
-                  <th><b>Date</b></th>
-                 
+                  <th><b>Transaction Date</b></th>
               </tr>
           </tbody>
          
@@ -247,7 +288,11 @@ class TransactionFlow extends Controller
             <tbody>
             <tr>
             <td>'.$d->TransactionID.'</td>
-            <td>'.$d->InvoiceNo.'</td>
+            <td>'.$d->PartyName.'</td>
+            <td>'.$d->FirstName.'</td>
+            <td>'.$d->CustomerName.'</td>
+            <td>'.$d->ExpenseHead.'</td>
+            <td>'.$d->AccountName.'</td>
             <td>'.$d->TransactionCatogery.'</td>
             <td>'.$d->Amount.'</td>
             <td>'.$d->DateStamp.'</td>

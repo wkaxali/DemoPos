@@ -352,7 +352,10 @@
                 function selectedDateData(){
                     var date1 = document.getElementById("date1").value;
                     var date2 = document.getElementById("date2").value;
-                  
+                    var table = $('#transactionCategory').find(":selected").val();
+                    var value = $('#tables').find(":selected").val();
+                    var category = $('#transactionCategory').find(":selected").text();
+                   
                     if(date1=="" || date2==""){
                         alert("select the date first");
                 
@@ -362,6 +365,7 @@
                         if (this.readyState == 4 && this.status == 200) {
 
                         var data = this.responseText;
+                       
                         
                             var table;
                             var a = JSON.parse(data);
@@ -382,8 +386,14 @@
 
                         }
                     };
+                    if(value == ""){
+                        value = "All";  
+                    }
                     
-                    xhttp.open("GET", "./selectedDateData/"+date1+"/"+date2, true);
+                    
+                    // alert("table is ="+table);
+                    
+                    xhttp.open("GET", "./selectedDateData/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
 
                     xhttp.send();
 
@@ -641,7 +651,7 @@
              var date1 = document.getElementById("date1").value;
              var date2 = document.getElementById("date2").value;
                     alert(date1);
-                   
+                    alert(date2);
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -651,7 +661,7 @@
                   
                 }
             }
-            alert(date2);
+          
             // alert("hello");
             xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2, true);
             xhttp.send();
