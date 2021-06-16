@@ -307,9 +307,9 @@ Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
 Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
 
 Route::get('/getEmpPayments',[payController::class, 'getEmpPayments']);
-Route::get('/printTrasactionHistory/{AID}/{LID}',[TransactionFlow::class, 'printTrasactionHistory']);
+Route::get('/printTrasactionHistory/{date1}/{date2}',[TransactionFlow::class, 'printTrasactionHistory']);
 Route::get('/selectedSearchData/{category}/{value}/{table}',[TransactionFlow::class, 'selectedSearchData']);
-Route::get('/selectedDateData/{DATE1}/{DATE2}',[TransactionFlow::class, 'selectedDateData']);
+Route::get('/selectedDateData/{DATE1}/{DATE2}/{table}/{category}/{value}',[TransactionFlow::class, 'selectedDateData']);
 Route::get('/loadCategoryData/{table}',[TransactionFlow::class, 'loadCategoryData']);
 
 
