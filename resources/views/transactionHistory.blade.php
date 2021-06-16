@@ -403,8 +403,8 @@
                     var category = $('#transactionCategory').find(":selected").text();
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
+                    
 
-                 
                     if(category==""){
                         alert("select the category first");
                 
@@ -413,9 +413,9 @@
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
-
-                        var data = this.responseText;
-                       
+                            
+                            var data = this.responseText;
+                            alert(data);
                             var table;
                             var a = JSON.parse(data);
                         
@@ -441,6 +441,10 @@
                     if(table == ""){
                         table = "All";  
                     }
+
+                    alert(category);
+                    
+                    alert(value);
                     
                     
                     xhttp.open("GET", "./selectedSearchData/"+category+"/"+value+"/"+table, true);
