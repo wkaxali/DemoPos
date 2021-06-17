@@ -667,7 +667,9 @@
                   
                 }
             }
-          
+            if(value == ""){
+                        value = "All";  
+                    }
             // alert("hello");
             xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
             xhttp.send();

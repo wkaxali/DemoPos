@@ -264,8 +264,9 @@ class TransactionFlow extends Controller
 
 
 
- public static function printTrasactionHistory($date1,$date2)
-    {$columnName='';
+ public static function printTrasactionHistory($date1,$date2,$category,$table,$value)
+    {
+        $columnName='';
         if(!strcmp($value,"All")){
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
             
@@ -294,13 +295,14 @@ class TransactionFlow extends Controller
                 $columnName="EmpID";
         
             }
-        }
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
+            
+        }
             
         
         $table='
         <h1 style="text-align:center;">Transaction History</h1><br>
-        
+        <br><br>
         <table width="550px"  border="1" style="text-align:center;">
         
           <tbody>
@@ -325,18 +327,18 @@ class TransactionFlow extends Controller
 
             $table=$table.'
            
-        <table width="550px"  border="1" style="text-align:center;">
+        <table width="550px"  border="1">
             <tbody>
             <tr>
-            <td>'.$d->TransactionID.'</td>
-            <td>'.$d->PartyName.'</td>
-            <td>'.$d->FirstName.'</td>
-            <td>'.$d->CustomerName.'</td>
-            <td>'.$d->ExpenseHead.'</td>
-            <td>'.$d->AccountName.'</td>
-            <td>'.$d->TransactionCatogery.'</td>
-            <td>'.$d->Amount.'</td>
-            <td>'.$d->DateStamp.'</td>
+            <td align="center">'.$d->TransactionID.'</td>
+            <td align="center">'.$d->PartyName.'</td>
+            <td align="center">'.$d->FirstName.'</td>
+            <td align="center">'.$d->CustomerName.'</td>
+            <td align="center">'.$d->ExpenseHead.'</td>
+            <td align="center">'.$d->AccountName.'</td>
+            <td align="center">'.$d->TransactionCatogery.'</td>
+            <td align="center">'.$d->Amount.'</td>
+            <td align="center">'.$d->DateStamp.'</td>
             </tr>
             </tbody>
         </table> 
