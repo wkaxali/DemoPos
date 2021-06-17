@@ -301,21 +301,21 @@ class TransactionFlow extends Controller
             
         
         $table='
-        <h1 style="text-align:center;">Transaction History</h1><br>
-        <br><br>
-        <table width="550px"  border="1" style="text-align:center;">
+        <h2 style="text-align:center;">Transaction History</h2><br>
         
+        <table style="font-size:10px" border="0.5" style="text-align:center;">
+        <thead></thead>
           <tbody>
               <tr>
-                  <th><b>Transaction ID</b></th>
-                  <th><b>Party Name</b></th>
-                  <th><b>Employee Name</b></th>
-                  <th><b>Customer Name</b></th>
-                  <th><b>Expense Head</b></th>
-                  <th><b>Account Name</b></th>
-                  <th><b>Transaction Catogery</b></th>
-                  <th><b>Amount</b></th>
-                  <th><b>Transaction Date</b></th>
+                  <th>Transaction ID</th>
+                  <th>Party Name</th>
+                  <th>Employee Name</th>
+                  <th>Customer Name</th>
+                  <th>Expense Head</th>
+                  <th>Account Name</th>
+                  <th>Transaction Catogery</th>
+                  <th>Amount</th>
+                  <th>Transaction Date</th>
               </tr>
           </tbody>
          
@@ -327,7 +327,7 @@ class TransactionFlow extends Controller
 
             $table=$table.'
            
-        <table width="550px"  border="1">
+        <table  border="0.5" style="font-size:12px"><thead></thead>
             <tbody>
             <tr>
             <td align="center">'.$d->TransactionID.'</td>
