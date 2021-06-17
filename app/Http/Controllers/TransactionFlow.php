@@ -87,7 +87,7 @@ class TransactionFlow extends Controller
         
             }
         }
-            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and '.$columnName.'='.$value);
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
             return $data;
         }
 
@@ -266,26 +266,58 @@ class TransactionFlow extends Controller
 
 
 
- public static function printTrasactionHistory($date1,$date2)
+ public static function printTrasactionHistory($date1,$date2,$category,$table,$value)
     {
-        $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1.'" and "'.$date2.'" ');
+        $columnName='';
+        if(!strcmp($value,"All")){
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            
+        }
+
+       else if(strcmp($value,"All")){
+            if(!strcmp($category,"tblledgerparties")){
+                
+                $columnName="PaidTo";
+        
+            }
+
+            else if(!strcmp($category,"customeinformation")){
+                
+                $columnName="PaidBy";
+        
+            }
+            else if(!strcmp($category,"tblexpenseheads")){
+                
+                $columnName="ExpenseHeadID";
+        
+            }
+
+            else if(!strcmp($category,"tblemployees")){
+                
+                $columnName="EmpID";
+        
+            }
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
+            
+        }
+            
         
         $table='
-        <h1 style="text-align:center;">Transaction History</h1><br>
-        
-        <table width="550px"  border="1" style="text-align:center;">
-        
+        <h2 style="text-align:center;">Transaction History</h2><br>
+        <p>From: '.$date1.' To:  '.$date1.' </p><p> Filter By: '.$table.'</p>
+        <table style="font-size:10px" border="0.5" style="text-align:center;">
+        <thead></thead>
           <tbody>
               <tr>
-                  <th><b>Transaction ID</b></th>
-                  <th><b>Party Name</b></th>
-                  <th><b>Employee Name</b></th>
-                  <th><b>Customer Name</b></th>
-                  <th><b>Expense Head</b></th>
-                  <th><b>Account Name</b></th>
-                  <th><b>Transaction Catogery</b></th>
-                  <th><b>Amount</b></th>
-                  <th><b>Transaction Date</b></th>
+                  <th>Transaction ID</th>
+                  <th>Party Name</th>
+                  <th>Employee Name</th>
+                  <th>Customer Name</th>
+                  <th>Expense Head</th>
+                  <th>Account Name</th>
+                  <th>Transaction Catogery</th>
+                  <th>Amount</th>
+                  <th>Transaction Date</th>
               </tr>
           </tbody>
          
@@ -297,18 +329,18 @@ class TransactionFlow extends Controller
 
             $table=$table.'
            
-        <table width="550px"  border="1" style="text-align:center;">
+        <table  border="0.5" style="font-size:12px"><thead></thead>
             <tbody>
             <tr>
-            <td>'.$d->TransactionID.'</td>
-            <td>'.$d->PartyName.'</td>
-            <td>'.$d->FirstName.'</td>
-            <td>'.$d->CustomerName.'</td>
-            <td>'.$d->ExpenseHead.'</td>
-            <td>'.$d->AccountName.'</td>
-            <td>'.$d->TransactionCatogery.'</td>
-            <td>'.$d->Amount.'</td>
-            <td>'.$d->DateStamp.'</td>
+            <td align="center">'.$d->TransactionID.'</td>
+            <td align="center">'.$d->PartyName.'</td>
+            <td align="center">'.$d->FirstName.'</td>
+            <td align="center">'.$d->CustomerName.'</td>
+            <td align="center">'.$d->ExpenseHead.'</td>
+            <td align="center">'.$d->AccountName.'</td>
+            <td align="center">'.$d->TransactionCatogery.'</td>
+            <td align="center">'.$d->Amount.'</td>
+            <td align="center">'.$d->DateStamp.'</td>
             </tr>
             </tbody>
         </table> 

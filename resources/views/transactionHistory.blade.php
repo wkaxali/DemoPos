@@ -121,14 +121,14 @@
                         <div class="row my-2">
                             <div class="col-md-4">
                                 <label style="width:117px;" for="">Select Category</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="transactionCategory"  onchange="loadCategoryData()">
+                                <select class="selectpicker form-control" data-live-search="true" id="transactionCategory"  onchange="loaddata()">
                                     
 
                                 </select>
                             </div>
 
                             <div class="col-md-4  ">
-                                <label for="">Select Data</label>
+                                <label for="" id="pname">Select Data</label>
                                 <select 
                                     class="selectpicker form-control" data-live-search="true" id="tables" >
 
@@ -307,6 +307,7 @@
                     loadCategory();
                     loadParties();
                     getTransactionHistory();
+                    
                 }
 
             </script>
@@ -321,6 +322,7 @@
 
                             document.getElementById("transactionCategory").innerHTML = this.response;
                             $('#transactionCategory').selectpicker('refresh');
+                            
                         }
                     };
                     //alert("ljd");
@@ -331,7 +333,37 @@
 
             </script>
 
+            <script>
+            function changeCategory() {
+                    var cat =$('#transactionCategory').find(":selected").text();
+                    alert(cat)
 
+                    if((cat.localeCompare("Salary Payment"))){
+                        //alert("Thisi");
+
+                document.getElementById("pname").innerHTML="Employees";
+                } else if((cat.localeCompare("Party Payment"))){
+            
+                document.getElementById("pname").innerHTML="Parties";
+                 }
+                 else if((cat.localeCompare("Booking Order"))){   
+                
+                document.getElementById("pname").innerHTML="Parties";
+                }else if((cat.localeCompare("Expense"))){
+                        
+                document.getElementById("pname").innerHTML="Expenses";
+                }else if((cat.localeCompare("Stock and Service"))){
+                        
+                document.getElementById("pname").innerHTML="Parties";
+                }else if((cat.localeCompare("Stock and Purchased"))){
+                            
+                document.getElementById("pname").innerHTML="Company";
+                }else if((cat.localeCompare("Sales"))){
+                            
+                 document.getElementById("pname").innerHTML="Company";
+                }
+            }
+            </script>
             <script>
                 function loadParties() {
                     var xhttp = new XMLHttpRequest();
@@ -341,6 +373,9 @@
 
                             document.getElementById("parties").innerHTML = this.response;
                             $('#parties').selectpicker('refresh');
+                                    
+
+                            
                         }
                     };
                     //alert("ljd");
@@ -652,22 +687,26 @@
         </script> -->
     <script>
     function printTrasactionHistory(){
-             var date1 = document.getElementById("date1").value;
-             var date2 = document.getElementById("date2").value;
-                    alert(date1);
-                    alert(date2);
+                    var date1 = document.getElementById("date1").value;
+                    var date2 = document.getElementById("date2").value;
+                    var table = $('#transactionCategory').find(":selected").val();
+                    var value = $('#tables').find(":selected").val();
+                    var category = $('#transactionCategory').find(":selected").text();
+                   
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory/'+date1+'/'+date2);
+                    window.open('/printTrasactionHistory/'+date1+'/'+date2+"/"+table+"/"+category+"/"+value);
                   
                 }
             }
-          
+            if(value == ""){
+                        value = "All";  
+                    }
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2, true);
+            xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
             xhttp.send();
 
         }
@@ -687,7 +726,7 @@
                             // alert(this.response);
                             document.getElementById("tables").innerHTML = this.response;
                             $('#tables').selectpicker('refresh');
-
+                            
                         }
                     };
                     
@@ -698,6 +737,15 @@
                 }
 
 </script>
+<script>
+                function loaddata() {
+                    loadCategoryData();
+                    changeCategory();
+                    
+                    
+                }
+
+            </script>
 </body>
 
 </html>
