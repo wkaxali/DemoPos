@@ -652,22 +652,24 @@
         </script> -->
     <script>
     function printTrasactionHistory(){
-             var date1 = document.getElementById("date1").value;
-             var date2 = document.getElementById("date2").value;
-                    alert(date1);
-                    alert(date2);
+                    var date1 = document.getElementById("date1").value;
+                    var date2 = document.getElementById("date2").value;
+                    var table = $('#transactionCategory').find(":selected").val();
+                    var value = $('#tables').find(":selected").val();
+                    var category = $('#transactionCategory').find(":selected").text();
+                   
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory/'+date1+'/'+date2);
+                    window.open('/printTrasactionHistory/'+date1+'/'+date2+"/"+table+"/"+category+"/"+value);
                   
                 }
             }
           
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2, true);
+            xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
             xhttp.send();
 
         }

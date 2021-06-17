@@ -265,8 +265,38 @@ class TransactionFlow extends Controller
 
 
  public static function printTrasactionHistory($date1,$date2)
-    {
-        $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1.'" and "'.$date2.'" ');
+    {$columnName='';
+        if(!strcmp($value,"All")){
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            
+        }
+
+       else if(strcmp($value,"All")){
+            if(!strcmp($category,"tblledgerparties")){
+                
+                $columnName="PaidTo";
+        
+            }
+
+            else if(!strcmp($category,"customeinformation")){
+                
+                $columnName="PaidBy";
+        
+            }
+            else if(!strcmp($category,"tblexpenseheads")){
+                
+                $columnName="ExpenseHeadID";
+        
+            }
+
+            else if(!strcmp($category,"tblemployees")){
+                
+                $columnName="EmpID";
+        
+            }
+        }
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
+            
         
         $table='
         <h1 style="text-align:center;">Transaction History</h1><br>
