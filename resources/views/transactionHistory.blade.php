@@ -128,7 +128,7 @@
                             </div>
 
                             <div class="col-md-4  ">
-                                <label for="">Select Data</label>
+                                <label for="" id="partyname">Select Data</label>
                                 <select 
                                     class="selectpicker form-control" data-live-search="true" id="tables" >
 

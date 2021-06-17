@@ -302,7 +302,7 @@ class TransactionFlow extends Controller
         
         $table='
         <h2 style="text-align:center;">Transaction History</h2><br>
-        
+        <p>From: '.$date1.' To:  '.$date1.' </p><p> Filter By: '.$table.'</p>
         <table style="font-size:10px" border="0.5" style="text-align:center;">
         <thead></thead>
           <tbody>
