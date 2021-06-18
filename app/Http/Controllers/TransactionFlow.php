@@ -269,6 +269,12 @@ class TransactionFlow extends Controller
         $columnName='';
         if(!strcmp($value,"All")){
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+           
+            
+        }
+        else if((!strcmp($value,"All"))&&(!strcmp($table,"Transportation Charges"))){
+                
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
             
         }
 
@@ -295,64 +301,321 @@ class TransactionFlow extends Controller
                 $columnName="EmpID";
         
             }
+
+            
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
             
         }
        
+        if (!strcmp($category,"tblemployees")){
         
         $table='
-        <h3 style="text-align:center;" >Transaction History</h3><br>
+        <h2 style="text-align:center;" >Transaction History</h2><br>
         <p style="font-size:9px">From: '.$date1.' To:  '.$date1.' </p><p style="font-size:9px"> Filter By: '.$table.'</p>
-        <table  border="0.2" style="font-size:9px"><thead></thead>
+        <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
           <tbody>
               <tr>
                   <th>Transaction ID</th>
-                  <th>Party Name</th>
+                  
                   <th>Employee Name</th>
-                  <th>Customer Name</th>
-                  <th>Expense Head</th>
+                 
                   <th>Account Name</th>
                   <th>Transaction Catogery</th>
-                  <th>Amount</th>
                   <th>Transaction Date</th>
+                  <th>Amount</th>
+                  
+                  
               </tr>
           </tbody>
          
           </table> ';
  
+          $sum = 0;
+          foreach($data as $d)
+          {
+             $sum+= $d->Amount;
+          }
+           $sum;
 
         foreach ($data as $d){
-             
+            
 
             $table=$table.'
            
-        <table  border="0.2" style="font-size:9px"><thead></thead>
+        <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
             <tbody>
             <tr>
-            <td align="center">'.$d->TransactionID.'</td>
-            <td align="center">'.$d->PartyName.'</td>
-            <td align="center">'.$d->FirstName.'</td>
-            <td align="center">'.$d->CustomerName.'</td>
-            <td align="center">'.$d->ExpenseHead.'</td>
-            <td align="center">'.$d->AccountName.'</td>
-            <td align="center">'.$d->TransactionCatogery.'</td>
-            <td align="center">'.$d->Amount.'</td>
-            <td align="center">'.$d->DateStamp.'</td>
+            <td max-height="20px">'.$d->TransactionID.'</td>
+           
+            <td>'.$d->FirstName.'</td>
+            
+            <td>'.$d->AccountName.'</td>
+            <td>'.$d->TransactionCatogery.'</td>
+            <td>'.$d->DateStamp.'</td>
+            <td>'.$d->Amount.'</td>
+            
             </tr>
             </tbody>
         </table> 
 
              ';
+
+             
+
       
         }
-       
+        $table=$table.'
+           <br><br>
+        <table cellpadding = "1" cellspacing = "0"   style="font-size:9px"><thead></thead>
+            <tbody>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+            <td>Total Amount:</td>  
+            <td>'.$sum.'</td>
+            </tr>
+            </tbody>
+        </table> 
+
+             ';
         PDF::SetTitle('Transaction History');
         PDF::AddPage();
         PDF::writeHTML($table, true, false, true, false, '');
 
         PDF::Output('Transaction.pdf');
     }
+
+    else if (!strcmp($category,"tblexpenseheads")){
+                
+
+    $table='
+    <h2 style="text-align:center;" >Transaction History</h2><br>
+    <p style="font-size:9px">From: '.$date1.' To:  '.$date1.' </p><p style="font-size:9px"> Filter By: '.$table.'</p>
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+      <tbody>
+          <tr>
+              <th>Transaction ID</th>
+             
+              <th>Expense Head</th>
+              <th>Account Name</th>
+              <th>Transaction Catogery</th>
+              <th>Transaction Date</th>
+              <th>Amount</th>
+              
+              
+          </tr>
+      </tbody>
+     
+      </table> ';
+
+      $sum = 0;
+      foreach($data as $d)
+      {
+         $sum+= $d->Amount;
+      }
+       $sum;
+
+    foreach ($data as $d){
         
+
+        $table=$table.'
+       
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr>
+        <td max-height="20px">'.$d->TransactionID.'</td>
+       
+        <td>'.$d->ExpenseHead.'</td>
+        <td>'.$d->AccountName.'</td>
+        <td>'.$d->TransactionCatogery.'</td>
+        <td>'.$d->DateStamp.'</td>
+        <td>'.$d->Amount.'</td>
+        
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+
+         
+
+  
+    }
+    $table=$table.'
+       <br><br>
+    <table cellpadding = "1" cellspacing = "0"   style="font-size:9px"><thead></thead>
+        <tbody>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td>Total Amount:</td>  
+        <td>'.$sum.'</td>
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+    PDF::SetTitle('Transaction History');
+    PDF::AddPage();
+    PDF::writeHTML($table, true, false, true, false, '');
+
+    PDF::Output('Transaction.pdf');
+}
+
+
+
+else if (!strcmp($category,"customeinformation")){
+                
+
+    $table='
+    <h2 style="text-align:center;" >Transaction History</h2><br>
+    <p style="font-size:9px">From: '.$date1.' To:  '.$date1.' </p><p style="font-size:9px"> Filter By: '.$table.'</p>
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+      <tbody>
+          <tr>
+              <th>Transaction ID</th>
+              
+              <th>Customer Name</th>
+             
+              <th>Account Name</th>
+              <th>Transaction Catogery</th>
+              <th>Transaction Date</th>
+              <th>Amount</th>
+              
+              
+          </tr>
+      </tbody>
+     
+      </table> ';
+
+      $sum = 0;
+      foreach($data as $d)
+      {
+         $sum+= $d->Amount;
+      }
+       $sum;
+
+    foreach ($data as $d){
+        
+
+        $table=$table.'
+       
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr>
+        <td max-height="20px">'.$d->TransactionID.'</td>
+       
+        <td>'.$d->CustomerName.'</td>
+        
+        <td>'.$d->AccountName.'</td>
+        <td>'.$d->TransactionCatogery.'</td>
+        <td>'.$d->DateStamp.'</td>
+        <td>'.$d->Amount.'</td>
+        
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+
+         
+
+  
+    }
+    $table=$table.'
+       <br><br>
+    <table cellpadding = "1" cellspacing = "0"   style="font-size:9px"><thead></thead>
+        <tbody>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td>Total Amount:</td>  
+        <td>'.$sum.'</td>
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+    PDF::SetTitle('Transaction History');
+    PDF::AddPage();
+    PDF::writeHTML($table, true, false, true, false, '');
+
+    PDF::Output('Transaction.pdf');
+}
+
+
+else if (!strcmp($category,"tblledgerparties")){
+                
+
+    $table='
+    <h2 style="text-align:center;" >Transaction History</h2><br>
+    <p style="font-size:9px">From: '.$date1.' To:  '.$date1.' </p><p style="font-size:9px"> Filter By: '.$table.'</p>
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+      <tbody>
+          <tr>
+              <th>Transaction ID</th>
+              <th>Party Name</th>
+            
+              <th>Account Name</th>
+              <th>Transaction Catogery</th>
+              <th>Transaction Date</th>
+              <th>Amount</th>
+              
+              
+          </tr>
+      </tbody>
+     
+      </table> ';
+
+      $sum = 0;
+      foreach($data as $d)
+      {
+         $sum+= $d->Amount;
+      }
+       $sum;
+
+    foreach ($data as $d){
+        
+
+        $table=$table.'
+       
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr>
+        <td max-height="20px">'.$d->TransactionID.'</td>
+        <td>'.$d->PartyName.'</td>
+       
+        <td>'.$d->AccountName.'</td>
+        <td>'.$d->TransactionCatogery.'</td>
+        <td>'.$d->DateStamp.'</td>
+        <td>'.$d->Amount.'</td>
+        
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+
+         
+
+  
+    }
+    $table=$table.'
+       <br><br>
+    <table cellpadding = "1" cellspacing = "0"   style="font-size:9px"><thead></thead>
+        <tbody>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        <td>Total Amount:</td>  
+        <td>'.$sum.'</td>
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+    PDF::SetTitle('Transaction History');
+    PDF::AddPage();
+    PDF::writeHTML($table, true, false, true, false, '');
+
+    PDF::Output('Transaction.pdf');
+}
+
+
+
+} 
     public static function loadCategoryData($table){
         $option='';
         if($table!="All"){
