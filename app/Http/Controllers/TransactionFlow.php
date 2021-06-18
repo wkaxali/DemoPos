@@ -298,13 +298,12 @@ class TransactionFlow extends Controller
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
             
         }
-            
+       
         
         $table='
-        <h2 style="text-align:center;">Transaction History</h2><br>
-        <p>From: '.$date1.' To:  '.$date1.' </p><p> Filter By: '.$table.'</p>
-        <table style="font-size:10px" border="0.5" style="text-align:center;">
-        <thead></thead>
+        <h3 style="text-align:center;" >Transaction History</h3><br>
+        <p style="font-size:9px">From: '.$date1.' To:  '.$date1.' </p><p style="font-size:9px"> Filter By: '.$table.'</p>
+        <table  border="0.2" style="font-size:9px"><thead></thead>
           <tbody>
               <tr>
                   <th>Transaction ID</th>
@@ -327,7 +326,7 @@ class TransactionFlow extends Controller
 
             $table=$table.'
            
-        <table  border="0.5" style="font-size:12px"><thead></thead>
+        <table  border="0.2" style="font-size:9px"><thead></thead>
             <tbody>
             <tr>
             <td align="center">'.$d->TransactionID.'</td>

@@ -336,32 +336,44 @@
             <script>
             function changeCategory() {
                     var cat =$('#transactionCategory').find(":selected").text();
-                    alert(cat)
+                    alert(cat);
+                    var sal ="Salary Payment";
+                    var par ="Party Payment";
+                    var ts ="Transportation Charges";
+                    var bo ="Booking Order";
+                    var sales ="Sales";
+                    var exp ="Expense";
+                    var sap ="Stock and Purchased";
+                    var sas ="Stock and Service";
+                    
+                    if(cat.trim()===sa.trim()){
+                document.getElementById("pname").innerHTML="sal";
 
-                    if((cat.localeCompare("Salary Payment"))){
-                        //alert("Thisi");
-
-                document.getElementById("pname").innerHTML="Employees";
-                } else if((cat.localeCompare("Party Payment"))){
-            
-                document.getElementById("pname").innerHTML="Parties";
+                } else if(cat.trim()===par.trim()){
+                document.getElementById("pname").innerHTML="par";
+                alert(par);
                  }
-                 else if((cat.localeCompare("Booking Order"))){   
+                else if(cat.trim()===ts.trim()){
+                document.getElementById("pname").innerHTML="ts";
                 
-                document.getElementById("pname").innerHTML="Parties";
-                }else if((cat.localeCompare("Expense"))){
-                        
-                document.getElementById("pname").innerHTML="Expenses";
-                }else if((cat.localeCompare("Stock and Service"))){
-                        
-                document.getElementById("pname").innerHTML="Parties";
-                }else if((cat.localeCompare("Stock and Purchased"))){
-                            
-                document.getElementById("pname").innerHTML="Company";
-                }else if((cat.localeCompare("Sales"))){
-                            
-                 document.getElementById("pname").innerHTML="Company";
-                }
+                 }else if(cat.trim()===bo.trim()){
+                document.getElementById("pname").innerHTML="bo";
+                
+                 }else if(cat.trim()===sales.trim()){
+                document.getElementById("pname").innerHTML="sales";
+                
+                 }else if(cat.trim()===exp.trim()){
+                document.getElementById("pname").innerHTML="exp";
+                
+                 }
+                 else if(cat.trim()===sap.trim()){
+                document.getElementById("pname").innerHTML="sap";
+                
+                 }
+                 else if(cat.trim()===sap.trim()){
+                document.getElementById("pname").innerHTML="sas";
+                
+                 }
             }
             </script>
             <script>
