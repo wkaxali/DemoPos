@@ -445,9 +445,6 @@ class TransactionFlow extends Controller
     </table> 
 
          ';
-
-         
-
   
     }
     
