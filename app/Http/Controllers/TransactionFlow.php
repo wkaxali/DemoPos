@@ -62,8 +62,14 @@ class TransactionFlow extends Controller
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
             return $data;
         }
+        
+        else if(!strcmp($category,"All")){
+                
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            
+        }
 
-        if(strcmp($value,"All")){
+        else if(strcmp($value,"All")){
             if(!strcmp($category,"tblledgerparties")){
                 
                 $columnName="PaidTo";
@@ -272,11 +278,7 @@ class TransactionFlow extends Controller
            
             
         }
-        else if((!strcmp($value,"All"))&&(!strcmp($table,"Transportation Charges"))){
-                
-            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
-            
-        }
+        
 
        else if(strcmp($value,"All")){
             if(!strcmp($category,"tblledgerparties")){
@@ -612,7 +614,11 @@ else if (!strcmp($category,"tblledgerparties")){
 
     PDF::Output('Transaction.pdf');
 }
-
+else if(!strcmp($category,"All")){
+                
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            
+        }
 
 
 } 

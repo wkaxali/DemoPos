@@ -437,7 +437,10 @@
                         value = "All";  
                     }
                     
-                    
+                    if(table == ""){
+                        table = "All";  
+                    }
+
                     // alert("table is ="+table);
                     
                     xhttp.open("GET", "./selectedDateData/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
@@ -490,8 +493,7 @@
                     }
 
                     alert(category);
-                    
-                    alert(value);
+                   
                     
                     
                     xhttp.open("GET", "./selectedSearchData/"+category+"/"+value+"/"+table, true);
