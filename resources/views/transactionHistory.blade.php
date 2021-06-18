@@ -719,6 +719,9 @@
             if(value == ""){
                         value = "All";  
                     }
+                    if(table == ""){
+                        table = "All";  
+                    }
             // alert("hello");
             xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
             xhttp.send();

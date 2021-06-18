@@ -280,7 +280,7 @@ class TransactionFlow extends Controller
            
             
         }
-        
+       
 
        else if(strcmp($value,"All")){
             if(!strcmp($category,"tblledgerparties")){
@@ -340,7 +340,7 @@ class TransactionFlow extends Controller
                   <th><b>Employee Name</b></th>
                  
                   <th><b>Account Name</b></th>
-                  <th><b>Transaction Catogery</b></th>
+                  <th><b>Transaction Category</b></th>
                   <th><b>Transaction Date</b></th>
                   <th><b>Amount</b></th>
                   
@@ -387,6 +387,79 @@ class TransactionFlow extends Controller
         PDF::Output('Transaction.pdf');
     }
 
+
+   else if (!strcmp($category,"All")){
+           
+        $sum = 0;
+      foreach($data as $d)
+      {
+         $sum+= $d->Amount;
+      }
+       
+    
+    $table='
+    <h2 style="text-align:center;" >Transaction History</h2><br>
+    <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
+    <tbody>
+    <tr><br><br><br><br>
+    <td max-height="20px"><h3>From: '.$date1.'</h3></td>
+    <td max-height="20px"><h3>To: '.$date2.' </h3></td>
+    <td max-height="20px" ><h2>Total Amount : '.$sum.' </h2></td>
+    
+    </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
+    </tbody>
+</table> 
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+      <tbody>
+          <tr>
+              <th><b>Transaction ID</b></th>
+              <th><b>Account Name</b></th>
+              <th><b>Transaction Category</b></th>
+              <th><b>Transaction Date</b></th>
+              <th><b>Amount</b></th>
+              
+              
+          </tr>
+      </tbody>
+     
+      </table> ';
+
+     
+
+    foreach ($data as $d){
+        
+
+        $table=$table.'
+       
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr>
+        <td max-height="20px">'.$d->TransactionID.'</td> 
+        <td>'.$d->AccountName.'</td>
+        <td>'.$d->TransactionCatogery.'</td>
+        <td>'.$d->DateStamp.'</td>
+        <td>'.$d->Amount.'</td>
+        
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+
+         
+
+  
+    }
+    
+    PDF::SetTitle('Transaction History');
+    PDF::AddPage();
+    PDF::writeHTML($table, true, false, true, false, '');
+
+    PDF::Output('Transaction.pdf');
+}
+
+
+
     else if (!strcmp($category,"tblexpenseheads")){
                 
         $sum = 0;
@@ -416,7 +489,7 @@ class TransactionFlow extends Controller
                 <th><b>Employee Name</b></th>
                
                 <th><b>Account Name</b></th>
-                <th><b>Transaction Catogery</b></th>
+                <th><b>Transaction Category</b></th>
                 <th><b>Transaction Date</b></th>
                 <th><b>Amount</b></th>
                 
@@ -490,7 +563,7 @@ else if (!strcmp($category,"customeinformation")){
             <th><b>Employee Name</b></th>
            
             <th><b>Account Name</b></th>
-            <th><b>Transaction Catogery</b></th>
+            <th><b>Transaction Category</b></th>
             <th><b>Transaction Date</b></th>
             <th><b>Amount</b></th>
             
@@ -565,7 +638,7 @@ else if (!strcmp($category,"tblledgerparties")){
                   <th><b>Employee Name</b></th>
                  
                   <th><b>Account Name</b></th>
-                  <th><b>Transaction Catogery</b></th>
+                  <th><b>Transaction Category</b></th>
                   <th><b>Transaction Date</b></th>
                   <th><b>Amount</b></th>
                   
