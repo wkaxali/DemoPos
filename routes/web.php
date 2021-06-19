@@ -376,25 +376,7 @@ Route::get('/aep', function () {
     return view("signInSignUp");
     }
 });
-
-Route::get('/aa', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('addAccount'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
-
-Route::get('/ea', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('editAccount'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
-
+ 
 //61bd06c
 Route::get('/logout', function () {
 session(['Designation' =>null]);
@@ -755,14 +737,7 @@ Route::get('/fgp', function () {
     return view("signInSignUp");
     }
 });
-Route::get('/slip', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('SalarySlip'); 
-    }else{
-    return view("signInSignUp");
-    };
-});
+ 
 Route::get('/sheet', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -772,14 +747,7 @@ Route::get('/sheet', function (){
     }
 });
 
-Route::get('/sir', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('solutions'); 
-    }else{
-    return view("signInSignUp");
-    }
-});
+  
 Route::get('/ql', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -1098,5 +1066,21 @@ route::get('/eph', function(){
     return view('empPaymentHistory');
 });
 
+Route::get('/aa', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addAccount'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
 
+Route::get('/ea', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAccount'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
 
