@@ -557,7 +557,7 @@ else if (!strcmp($category,"customeinformation")){
         <tr>
             <th><b>Transaction ID</b></th>
             
-            <th><b>Employee Name</b></th>
+            <th><b>Customer Name</b></th>
            
             <th><b>Account Name</b></th>
             <th><b>Transaction Category</b></th>
