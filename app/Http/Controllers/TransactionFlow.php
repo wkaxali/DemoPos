@@ -375,7 +375,38 @@ class TransactionFlow extends Controller
 
              ';
 
-             
+             $table=$table.'
+       
+    <table border="0">
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+
+
+
+
+</tr>
+
+
+
+</table>
+     
+
+    
+         ';
 
       
         }
@@ -445,7 +476,38 @@ class TransactionFlow extends Controller
     </table> 
 
          ';
-  
+         $table=$table.'
+       
+         <table border="0">
+     <br>
+     <br>
+     
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     
+     
+     
+     
+     <tr>
+     
+     
+     <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+     
+     
+     
+     
+     </tr>
+     
+     
+     
+     </table>
+          
+     
+         
+              ';
     }
     
     PDF::SetTitle('Transaction History');
@@ -520,7 +582,38 @@ class TransactionFlow extends Controller
          ';
 
 
-    }
+    }$table=$table.'
+       
+    <table border="0">
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+
+
+
+
+</tr>
+
+
+
+</table>
+     
+
+    
+         ';
     
     PDF::SetTitle('Transaction History');
     PDF::AddPage();
@@ -596,7 +689,38 @@ else if (!strcmp($category,"customeinformation")){
     
          ';
 
+         $table=$table.'
+       
+         <table border="0">
+     <br>
+     <br>
+     
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     
+     
+     
+     
+     <tr>
+     
+     
+     <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+     
+     
+     
+     
+     </tr>
+     
+     
+     
+     </table>
+          
+     
          
+              ';  
 
   
     }
@@ -708,7 +832,38 @@ else if (!strcmp($category,"tblledgerparties")){
 
   
     }
+    $table=$table.'
+       
+    <table border="0">
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+
+
+
+
+</tr>
+
+
+
+</table>
+     
+
     
+         ';
     PDF::SetTitle('Transaction History');
     PDF::AddPage();
     PDF::writeHTML($table, true, false, true, false, '');

@@ -24,11 +24,11 @@
                 <section>
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="myMainRow">
+                            <div class="col-md-9 ">
+                                <div class="myMainRow" style="margin-left:330px;">
 
 
-                                    <div class="myOwnRow-left">
+                                    <div class="myOwnRow-left" >
                                         <div class="input-field">
                                             <label for="status">Account Name</label>
                                             <input type="text" autocomplete="OFF" class="form-control"
@@ -50,7 +50,7 @@
                                         </div>
 
                                        <br>
-                                        <button type="button" class="btn" style="background-color: #2F2F2F;color: #fff;" 
+                                        <button type="button" class="btn btn-danger" 
                         onclick="addAccount()">Add Account</button>
                                         
 

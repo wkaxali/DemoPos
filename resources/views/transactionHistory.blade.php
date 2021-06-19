@@ -336,7 +336,7 @@
             <script>
             function changeCategory() {
                     var cat =$('#transactionCategory').find(":selected").val();
-                    alert(cat);
+                  
                     var sal ="tblemployees";
                     var par ="tblledgerparties";
                     var tc ="";

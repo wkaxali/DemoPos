@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>Edit Account</title>
+    <title>Edit Accounts</title>
 
 
     <link rel="stylesheet" href="assets/css/style.css">
@@ -51,7 +51,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="mt-3">Edit Account</h3>
+                    <h3 class="mt-3">Edit Accounts</h3>
                 </div>
             </div>
 
@@ -113,7 +113,7 @@
 
             
 <br>
-                    <button class="btn btn-success" onclick="editAccounts()">Update </button>
+                    <button class="btn btn-info" onclick="editAccounts()">Update </button>
 
 
                 </div>
