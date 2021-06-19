@@ -335,48 +335,36 @@
 
             <script>
             function changeCategory() {
-                    var cat =$('#transactionCategory').find(":selected").text();
+                    var cat =$('#transactionCategory').find(":selected").val();
                     alert(cat);
-                    var sal ="Salary Payment";
-                    var par ="Party Payment";
-                    var ts ="Transportation Charges";
-                    var bo ="Booking Order";
-                    var sales ="Sales";
-                    var exp ="Expense";
-                    var sap ="Stock and Purchased";
-                    var sas ="Stock and Service";
-                    
-                    if(cat.trim()===sa.trim()){
-                document.getElementById("pname").innerHTML="sal";
+                    var sal ="tblemployees";
+                    var par ="tblledgerparties";
+                    var tc ="";
+                    var customer ="customeinformation";
+                    var exp ="tblexpenseheads";
 
-                } else if(cat.trim()===par.trim()){
-                document.getElementById("pname").innerHTML="par";
-                alert(par);
-                 }
-                else if(cat.trim()===ts.trim()){
-                document.getElementById("pname").innerHTML="ts";
-                
-                 }else if(cat.trim()===bo.trim()){
-                document.getElementById("pname").innerHTML="bo";
-                
-                 }else if(cat.trim()===sales.trim()){
-                document.getElementById("pname").innerHTML="sales";
-                
-                 }else if(cat.trim()===exp.trim()){
-                document.getElementById("pname").innerHTML="exp";
+                    if(cat.localeCompare(sal)){
+                document.getElementById("pname").innerHTML="Parties";
                 
                  }
-                 else if(cat.trim()===sap.trim()){
-                document.getElementById("pname").innerHTML="sap";
+                    else if(cat.localeCompare(customer)){
+                document.getElementById("pname").innerHTML="Customers";
                 
                  }
-                 else if(cat.trim()===sap.trim()){
-                document.getElementById("pname").innerHTML="sas";
+                 else if(cat.localeCompare(par)){
+                document.getElementById("pname").innerHTML="Employees";
+
+                } 
+                 else if(cat.localeCompare(tc)){
+                document.getElementById("pname").innerHTML="";
+                
+                 }else if(cat.localeCompare(exp)){
+                document.getElementById("pname").innerHTML="Expenses";
                 
                  }
             }
             </script>
-            <script>
+            <script>5
                 function loadParties() {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {

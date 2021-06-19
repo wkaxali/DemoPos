@@ -79,7 +79,7 @@ class accountsController extends Controller
             'Balance'=>$Balance
             
             ]);
-        return $CID." ID Account added";
+        return "Account " .$AccountName." is added on ID ".$CID;
     }
 
     public static function editAccounts(Request $request, $CO){

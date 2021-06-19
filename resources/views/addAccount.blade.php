@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 
-    <title>Add New Employee</title>
+    <title>Add New Account</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {

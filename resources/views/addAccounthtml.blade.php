@@ -49,8 +49,9 @@
                                                 name="name" id="Balance">
                                         </div>
 
-                                       
-                                        
+                                       <br>
+                                        <button type="button" class="btn" style="background-color: #2F2F2F;color: #fff;" 
+                        onclick="addAccount()">Add Account</button>
                                         
 
                                     </div>
@@ -60,8 +61,7 @@
 
                         </div>
                         <br>
-                        <button type="button" class="btn" style="background-color: #2F2F2F;color: #fff;" 
-                        onclick="addAccount()">Add New Account</button>
+                        
                     </div>
                 </section>
                
