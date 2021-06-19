@@ -235,8 +235,8 @@
                             </div>
                         </div>
                     </div>
-                    @include('sidenavbar')
-                    <div class="clearfix"></div>
+                    
+                    <div class="clearfix">@include('sidenavbar')</div>
             </div>
 
 
