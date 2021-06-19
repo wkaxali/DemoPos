@@ -331,7 +331,7 @@ class TransactionFlow extends Controller
         
         </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
         </tbody>
-    </table> 
+    </table> <br><br>
         <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
           <tbody>
               <tr>
@@ -408,7 +408,7 @@ class TransactionFlow extends Controller
     
     </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
     </tbody>
-</table> 
+</table> <br><br>
     <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
       <tbody>
           <tr>
@@ -477,7 +477,7 @@ class TransactionFlow extends Controller
       
       </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
       </tbody>
-  </table> 
+  </table> <br><br>
       <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
         <tbody>
             <tr>
@@ -551,7 +551,7 @@ else if (!strcmp($category,"customeinformation")){
   
   </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
   </tbody>
-</table> 
+</table> <br><br>
   <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
     <tbody>
         <tr>
