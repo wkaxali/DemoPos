@@ -1803,12 +1803,7 @@ window.open("./pds")
             document.getElementById("CustomerName").focus();
 
 
-        } else if (CNIC == "") {
-            // alert("Customer ID Field Must Be Valid");
-            document.getElementById("CNIC").focus();
-
-
-        } else if (Address == "") {
+        }   else if (Address == "") {
             // alert("Address  Must Be Mentioned");
             document.getElementById("Address").focus();
 
@@ -1900,6 +1895,8 @@ window.open("./pds")
     function addCustomer() {
 
         var customerName = document.getElementById("addCustomerName").value;
+
+        // customerName = customerName.replace("/", '|'); 
         //	alert("It is working"+CustomerName);
         var fatherName = document.getElementById("addFatherName").value;
         //	alert("It is working"+password);

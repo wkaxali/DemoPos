@@ -17,7 +17,7 @@ use PDF;
 class quotationController extends Controller
 {
 
-        public function createQuotation(Request $request,$data){
+        public function h(Request $request,$data){
      
             $Array=json_decode($data);
             $customerName = $Array[0];
