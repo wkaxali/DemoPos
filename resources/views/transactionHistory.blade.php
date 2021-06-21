@@ -336,31 +336,29 @@
             <script>
             function changeCategory() {
                     var cat =$('#transactionCategory').find(":selected").text();
-                    alert(cat)
+                  //  alert(cat)
 
-                    if((cat.localeCompare("Salary Payment"))){
+                    if((cat.trim()==="Salary Payment".trim())){
                         //alert("Thisi");
 
                 document.getElementById("pname").innerHTML="Employees";
-                } else if((cat.localeCompare("Party Payment"))){
+                } else if((cat.trim()==="Party Payment".trim()) ||  (cat.trim()==="Booking Order".trim()) || 
+                (cat.trim()==="Booking Order".trim())){
             
                 document.getElementById("pname").innerHTML="Parties";
                  }
-                 else if((cat.localeCompare("Booking Order"))){   
-                
-                document.getElementById("pname").innerHTML="Parties";
-                }else if((cat.localeCompare("Expense"))){
+                else if((cat.localeCompare("Expense"))){
                         
                 document.getElementById("pname").innerHTML="Expenses";
-                }else if((cat.localeCompare("Stock and Service"))){
+                }else if((cat.trim()==="Stock and Service".trim())){
                         
-                document.getElementById("pname").innerHTML="Parties";
-                }else if((cat.localeCompare("Stock and Purchased"))){
+                document.getElementById("pname").innerHTML="Customers";
+                }else if(cat.trim()==="Stock and Service".trim()){
                             
                 document.getElementById("pname").innerHTML="Company";
-                }else if((cat.localeCompare("Sales"))){
+                }else if((cat.trim()===("Sales").trim())){
                             
-                 document.getElementById("pname").innerHTML="Company";
+                 document.getElementById("pname").innerHTML="Customers";
                 }
             }
             </script>
