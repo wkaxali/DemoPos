@@ -145,21 +145,16 @@ Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 //getInvoiceCustomer/{data}
-
 Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleRequest']);
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate']);
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID']);
-
 Route::get('/loadComissionHeads',[AdditionalTaxesAndCommissionsController::class, 'getComissionHeads']);
 Route::get('/getComission/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
 Route::get('/getProfit/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
-
 Route::get('/addAccount/{accData}',[accountsController::class, 'addAccount']);
 Route::get('/getAccountsData',[accountsController::class, 'getAccountsData']);
 // Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
 Route::get('/editAccounts/{EA}',[accountsController::class, 'editAccounts']);
-
-
 Route::get('/getInvoiceCustomer/{data}',[serviceSalesFlow::class, 'printSaleRequestOnInvoiceNumber']);
 Route::get('/getQuotation/{data}',[quotationController::class, 'getQuotation']);
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails']);
@@ -197,21 +192,16 @@ Route::get('/insertProducts/{data}',[AddMenucontroller::class, 'insertProducts']
 Route::get('/dailySaleAmount',[AISessionController::class, 'dailySaleAmount']);
 Route::get('/loadAutos',[getProducts::class, 'getAutosNames']);
 Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
-//this line is added
-
 Route::get('/getTransaction',[OrderFlowController::class, 'getTransaction']);
 Route::get('/scratchFunc',[OrderFlowController::class, 'scratchFunc']);
 Route::get('/setStockIdeal/{data}',[UpdateStocksController::class, 'UpdateInStock']);
 Route::get('/AddAcessories/{UC}',[assesoriesController::class, 'AddAcessories']);
-
 Route::get('/editAutoModels/{UC}',[UpdateStocksController::class, 'editAutoModels']);
 Route::get('/getAutoModel',[UpdateStocksController::class, 'getAutoModel']);
 Route::get('/addAutoModels/{AA}',[UpdateStocksController::class, 'addAutoModels']);
-
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
-
 Route::get('/addInvestor/{data}',[investorController::class, 'insertInvestor']);
 Route::get('/addExpense/{data}',[expenseController::class, 'insertExpense']);
 Route::get('/addPayment/{data}/{paidTo}',[payController::class, 'insertPayment']);
@@ -233,7 +223,6 @@ Route::get('/getTotalPay/{EID}',[payController::class, 'getTotalPay']);
 Route::get('/getTaskcatagory',[payController::class, 'getTaskcatagory']);
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
 Route::get('/insertInCommission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommission']);
-
 Route::get('/ruautos/{data}',[UpdateStocksController::class, 'updateStockDetails']);
 Route::get('/getAvailableProducts',[UpdateStocksController::class, 'getAllAvailableProducts']);
 Route::get('/addSales/{data}',[salesFlow::class, 'SalesFlow']);
