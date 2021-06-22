@@ -335,36 +335,35 @@
 
             <script>
             function changeCategory() {
-                    var cat =$('#transactionCategory').find(":selected").val();
-                  
-                    var sal ="tblemployees";
-                    var par ="tblledgerparties";
-                    var tc ="";
-                    var customer ="customeinformation";
-                    var exp ="tblexpenseheads";
+                    var cat =$('#transactionCategory').find(":selected").text();
+                  //  alert(cat)
 
-                    if(cat.localeCompare(sal)){
+                    if((cat.trim()==="Salary Payment".trim())){
+                        //alert("Thisi");
+
+                document.getElementById("pname").innerHTML="Employees";
+                } else if((cat.trim()==="Party Payment".trim()) ||  (cat.trim()==="Booking Order".trim()) || 
+                (cat.trim()==="Booking Order".trim())){
+            
                 document.getElementById("pname").innerHTML="Parties";
                 
                  }
-                    else if(cat.localeCompare(customer)){
-                document.getElementById("pname").innerHTML="Customers";
-                
-                 }
-                 else if(cat.localeCompare(par)){
-                document.getElementById("pname").innerHTML="Employees";
-
-                } 
-                 else if(cat.localeCompare(tc)){
-                document.getElementById("pname").innerHTML="";
-                
-                 }else if(cat.localeCompare(exp)){
+                else if((cat.localeCompare("Expense"))){
+                        
                 document.getElementById("pname").innerHTML="Expenses";
-                
-                 }
+                }else if((cat.trim()==="Stock and Service".trim())){
+                        
+                document.getElementById("pname").innerHTML="Customers";
+                }else if(cat.trim()==="Stock and Service".trim()){
+                            
+                document.getElementById("pname").innerHTML="Company";
+                }else if((cat.trim()===("Sales").trim())){
+                            
+                 document.getElementById("pname").innerHTML="Customers";
+                }
             }
             </script>
-            <script>5
+            <script>
                 function loadParties() {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
