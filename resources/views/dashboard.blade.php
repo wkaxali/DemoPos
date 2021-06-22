@@ -406,7 +406,7 @@ function gauge(){
         if (this.readyState == 4 && this.status == 200) {
 
             var d = JSON.parse(this.responseText);
-            var colCount = 4;
+            var colCount = 5;
             var column = 0;
             var row = 0;
             var width = 250;
