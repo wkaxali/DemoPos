@@ -235,8 +235,8 @@
                             </div>
                         </div>
                     </div>
-                    @include('sidenavbar')
-                    <div class="clearfix"></div>
+                    
+                    <div class="clearfix">@include('sidenavbar')</div>
             </div>
 
 
@@ -346,6 +346,7 @@
                 (cat.trim()==="Booking Order".trim())){
             
                 document.getElementById("pname").innerHTML="Parties";
+                
                  }
                 else if((cat.localeCompare("Expense"))){
                         
@@ -423,7 +424,10 @@
                         value = "All";  
                     }
                     
-                    
+                    if(table == ""){
+                        table = "All";  
+                    }
+
                     // alert("table is ="+table);
                     
                     xhttp.open("GET", "./selectedDateData/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
@@ -476,8 +480,7 @@
                     }
 
                     alert(category);
-                    
-                    alert(value);
+                   
                     
                     
                     xhttp.open("GET", "./selectedSearchData/"+category+"/"+value+"/"+table, true);
@@ -504,7 +507,7 @@
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
 
-                      if (this.readyState == 4 && this.status == 200) {
+                        if (this.readyState == 4 && this.status == 200) {
 
                             var data = this.responseText;
                             //alert(data);
@@ -702,6 +705,9 @@
             }
             if(value == ""){
                         value = "All";  
+                    }
+                    if(table == ""){
+                        table = "All";  
                     }
             // alert("hello");
             xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);

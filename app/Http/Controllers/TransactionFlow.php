@@ -62,8 +62,14 @@ class TransactionFlow extends Controller
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
             return $data;
         }
+        
+        else if(!strcmp($category,"All")){
+                
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            
+        }
 
-        if(strcmp($value,"All")){
+        else if(strcmp($value,"All")){
             if(!strcmp($category,"tblledgerparties")){
                 
                 $columnName="PaidTo";
@@ -271,8 +277,10 @@ class TransactionFlow extends Controller
         $columnName='';
         if(!strcmp($value,"All")){
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+           
             
         }
+       
 
        else if(strcmp($value,"All")){
             if(!strcmp($category,"tblledgerparties")){
@@ -297,65 +305,579 @@ class TransactionFlow extends Controller
                 $columnName="EmpID";
         
             }
+
+            
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
             
         }
-            
+       
+        if (!strcmp($category,"tblemployees")){
+           
+            $sum = 0;
+          foreach($data as $d)
+          {
+             $sum+= $d->Amount;
+          }
+           
         
         $table='
-        <h2 style="text-align:center;">Transaction History</h2><br>
-        <p>From: '.$date1.' To:  '.$date1.' </p><p> Filter By: '.$table.'</p>
-        <table style="font-size:10px" border="0.5" style="text-align:center;">
-        <thead></thead>
+        <h2 style="text-align:center;" >Transaction History</h2><br>
+        <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr><br><br><br><br>
+        <td max-height="20px"><h3>From: '.$date1.'</h3></td>
+        <td max-height="20px"><h3>To: '.$date2.' </h3></td>
+        <td max-height="20px" ><h2>Total Amount : '.$sum.' </h2></td>
+        
+        </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
+        </tbody>
+    </table> <br><br>
+        <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
           <tbody>
               <tr>
-                  <th>Transaction ID</th>
-                  <th>Party Name</th>
-                  <th>Employee Name</th>
-                  <th>Customer Name</th>
-                  <th>Expense Head</th>
-                  <th>Account Name</th>
-                  <th>Transaction Catogery</th>
-                  <th>Amount</th>
-                  <th>Transaction Date</th>
+                  <th><b>Transaction ID</b></th>
+                  
+                  <th><b>Employee Name</b></th>
+                 
+                  <th><b>Account Name</b></th>
+                  <th><b>Transaction Category</b></th>
+                  <th><b>Transaction Date</b></th>
+                  <th><b>Amount</b></th>
+                  
+                  
               </tr>
           </tbody>
          
           </table> ';
  
+         
 
         foreach ($data as $d){
-             
+            
 
             $table=$table.'
            
-        <table  border="0.5" style="font-size:12px"><thead></thead>
+        <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
             <tbody>
             <tr>
-            <td align="center">'.$d->TransactionID.'</td>
-            <td align="center">'.$d->PartyName.'</td>
-            <td align="center">'.$d->FirstName.'</td>
-            <td align="center">'.$d->CustomerName.'</td>
-            <td align="center">'.$d->ExpenseHead.'</td>
-            <td align="center">'.$d->AccountName.'</td>
-            <td align="center">'.$d->TransactionCatogery.'</td>
-            <td align="center">'.$d->Amount.'</td>
-            <td align="center">'.$d->DateStamp.'</td>
+            <td max-height="20px">'.$d->TransactionID.'</td>
+           
+            <td>'.$d->FirstName.'</td>
+            
+            <td>'.$d->AccountName.'</td>
+            <td>'.$d->TransactionCatogery.'</td>
+            <td>'.$d->DateStamp.'</td>
+            <td>'.$d->Amount.'</td>
+            
             </tr>
             </tbody>
         </table> 
 
              ';
+
+             $table=$table.'
+       
+    <table border="0">
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+
+
+
+
+</tr>
+
+
+
+</table>
+     
+
+    
+         ';
+
       
         }
-       
+        
         PDF::SetTitle('Transaction History');
         PDF::AddPage();
         PDF::writeHTML($table, true, false, true, false, '');
 
         PDF::Output('Transaction.pdf');
     }
+
+
+   else if (!strcmp($category,"All")){
+           
+        $sum = 0;
+      foreach($data as $d)
+      {
+         $sum+= $d->Amount;
+      }
+       
+    
+    $table='
+    <h2 style="text-align:center;" >Transaction History</h2><br>
+    <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
+    <tbody>
+    <tr><br><br><br><br>
+    <td max-height="20px"><h3>From: '.$date1.'</h3></td>
+    <td max-height="20px"><h3>To: '.$date2.' </h3></td>
+    <td max-height="20px" ><h2>Total Amount : '.$sum.' </h2></td>
+    
+    </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
+    </tbody>
+</table> <br><br>
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+      <tbody>
+          <tr>
+              <th><b>Transaction ID</b></th>
+              <th><b>Account Name</b></th>
+              <th><b>Transaction Category</b></th>
+              <th><b>Transaction Date</b></th>
+              <th><b>Amount</b></th>
+              
+              
+          </tr>
+      </tbody>
+     
+      </table> ';
+
+     
+
+    foreach ($data as $d){
         
+
+        $table=$table.'
+       
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr>
+        <td max-height="20px">'.$d->TransactionID.'</td> 
+        <td>'.$d->AccountName.'</td>
+        <td>'.$d->TransactionCatogery.'</td>
+        <td>'.$d->DateStamp.'</td>
+        <td>'.$d->Amount.'</td>
+        
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+         $table=$table.'
+       
+         <table border="0">
+     <br>
+     <br>
+     
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     
+     
+     
+     
+     <tr>
+     
+     
+     <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+     
+     
+     
+     
+     </tr>
+     
+     
+     
+     </table>
+          
+     
+         
+              ';
+    }
+    
+    PDF::SetTitle('Transaction History');
+    PDF::AddPage();
+    PDF::writeHTML($table, true, false, true, false, '');
+
+    PDF::Output('Transaction.pdf');
+}
+
+
+
+    else if (!strcmp($category,"tblexpenseheads")){
+                
+        $sum = 0;
+        foreach($data as $d)
+        {
+           $sum+= $d->Amount;
+        }
+         
+      
+      $table='
+      <h2 style="text-align:center;" >Transaction History</h2><br>
+      <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
+      <tbody>
+      <tr><br><br><br><br>
+      <td max-height="20px"><h3>From: '.$date1.'</h3></td>
+      <td max-height="20px"><h3>To: '.$date2.' </h3></td>
+      <td max-height="20px" ><h2>Total Amount : '.$sum.' </h2></td>
+      
+      </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
+      </tbody>
+  </table> <br><br>
+      <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+        <tbody>
+            <tr>
+                <th><b>Transaction ID</b></th>
+                
+                <th><b>Employee Name</b></th>
+               
+                <th><b>Account Name</b></th>
+                <th><b>Transaction Category</b></th>
+                <th><b>Transaction Date</b></th>
+                <th><b>Amount</b></th>
+                
+                
+            </tr>
+        </tbody>
+       
+        </table> ';
+
+
+    foreach ($data as $d){
+        
+
+        $table=$table.'
+       
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr>
+        <td max-height="20px">'.$d->TransactionID.'</td>
+       
+        <td>'.$d->ExpenseHead.'</td>
+        <td>'.$d->AccountName.'</td>
+        <td>'.$d->TransactionCatogery.'</td>
+        <td>'.$d->DateStamp.'</td>
+        <td>'.$d->Amount.'</td>
+        
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+
+
+    }$table=$table.'
+       
+    <table border="0">
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+
+
+
+
+</tr>
+
+
+
+</table>
+     
+
+    
+         ';
+    
+    PDF::SetTitle('Transaction History');
+    PDF::AddPage();
+    PDF::writeHTML($table, true, false, true, false, '');
+
+    PDF::Output('Transaction.pdf');
+}
+
+
+
+else if (!strcmp($category,"customeinformation")){
+                
+    $sum = 0;
+    foreach($data as $d)
+    {
+       $sum+= $d->Amount;
+    }
+     
+  
+  $table='
+  <h2 style="text-align:center;" >Transaction History</h2><br>
+  <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
+  <tbody>
+  <tr><br><br><br><br>
+  <td max-height="20px"><h3>From: '.$date1.'</h3></td>
+  <td max-height="20px"><h3>To: '.$date2.' </h3></td>
+  <td max-height="20px" ><h2>Total Amount : '.$sum.' </h2></td>
+  
+  </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
+  </tbody>
+</table> <br><br>
+  <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+    <tbody>
+        <tr>
+            <th><b>Transaction ID</b></th>
+            
+            <th><b>Customer Name</b></th>
+           
+            <th><b>Account Name</b></th>
+            <th><b>Transaction Category</b></th>
+            <th><b>Transaction Date</b></th>
+            <th><b>Amount</b></th>
+            
+            
+        </tr>
+    </tbody>
+   
+    </table> ';
+
+
+    foreach ($data as $d){
+        
+
+        $table=$table.'
+       
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr>
+        <td max-height="20px">'.$d->TransactionID.'</td>
+       
+        <td>'.$d->CustomerName.'</td>
+        
+        <td>'.$d->AccountName.'</td>
+        <td>'.$d->TransactionCatogery.'</td>
+        <td>'.$d->DateStamp.'</td>
+        <td>'.$d->Amount.'</td>
+        
+        </tr>
+        </tbody>
+    </table> 
+     
+
+    
+         ';
+
+         $table=$table.'
+       
+         <table border="0">
+     <br>
+     <br>
+     
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     
+     
+     
+     
+     <tr>
+     
+     
+     <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+     
+     
+     
+     
+     </tr>
+     
+     
+     
+     </table>
+          
+     
+         
+              ';  
+
+  
+    }
+
+    $table=$table.'
+       
+    <table border="0">
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+
+
+
+
+</tr>
+
+
+
+</table>
+     
+
+    
+         ';
+
+
+    PDF::SetTitle('Transaction History');
+    PDF::AddPage();
+    PDF::writeHTML($table, true, false, true, false, '');
+
+    PDF::Output('Transaction.pdf');
+}
+
+
+else if (!strcmp($category,"tblledgerparties")){
+    $sum = 0;
+          foreach($data as $d)
+          {
+             $sum+= $d->Amount;
+          }
+           
+        
+        $table='
+        <h2 style="text-align:center;" >Transaction History</h2><br>
+        <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr><br><br><br><br>
+        <td max-height="20px"><h3>From: '.$date1.'</h3></td>
+        <td max-height="20px"><h3>To: '.$date2.' </h3></td>
+        <td max-height="20px" ><h2>Total Amount : '.$sum.' </h2></td>
+        
+        </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
+        </tbody>
+        </table> 
+        <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+          <tbody>
+              <tr>
+                  <th><b>Transaction ID</b></th>
+                  
+                  <th><b>Employee Name</b></th>
+                 
+                  <th><b>Account Name</b></th>
+                  <th><b>Transaction Category</b></th>
+                  <th><b>Transaction Date</b></th>
+                  <th><b>Amount</b></th>
+                  
+                  
+              </tr>
+          </tbody>
+         
+          </table> ';
+ 
+
+    foreach ($data as $d){
+        
+
+        $table=$table.'
+       
+    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
+        <tbody>
+        <tr>
+        <td max-height="20px">'.$d->TransactionID.'</td>
+        <td>'.$d->PartyName.'</td>
+       
+        <td>'.$d->AccountName.'</td>
+        <td>'.$d->TransactionCatogery.'</td>
+        <td>'.$d->DateStamp.'</td>
+        <td>'.$d->Amount.'</td>
+        
+        </tr>
+        </tbody>
+    </table> 
+
+         ';
+
+         
+
+  
+    }
+    $table=$table.'
+       
+    <table border="0">
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<tr>
+
+
+<td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
+
+
+
+
+</tr>
+
+
+
+</table>
+     
+
+    
+         ';
+    PDF::SetTitle('Transaction History');
+    PDF::AddPage();
+    PDF::writeHTML($table, true, false, true, false, '');
+
+    PDF::Output('Transaction.pdf');
+}
+else if(!strcmp($category,"All")){
+                
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            
+        }
+
+
+} 
     public static function loadCategoryData($table){
         $option='';
         if($table=="tblledgerpartiesall"){

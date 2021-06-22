@@ -380,8 +380,7 @@ PDF::writeHTML($html, true, false, true, false, '');
 PDF::Output('Quotation-'.session()->get("refNo").'.pdf');
 }
 
-
-            
+      
             
             
         
