@@ -253,7 +253,7 @@
 
                                                             <input type="number" name="tel" id="addContact"
                                                                 placeholder="Contact" required />
-                                                            <input type="number" name="title" id="addCNIC"
+                                                            <input type="text" name="title" id="addCNIC"
                                                                 placeholder="ID Card" required />
                                                             <input type="text" name="phone_number" id="addAddress"
                                                                 placeholder="Address" required />
