@@ -41,7 +41,7 @@
                                         <div class="container">
                                             <div class="row">
                                                 <div class="overFlowingTable"
-                                                    style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
+                                                    style="overflow: auto !important; width: 730px !important;   margin: 10px auto !important; ">
 
 
                                                     <table class="table  table-bordered " id="searchProductTable">
