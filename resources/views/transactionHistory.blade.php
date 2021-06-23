@@ -183,14 +183,15 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="transactionTable">
-                                    <main id="mainHeader">
-                                       <div id ="mydata" class="container">
-                                       <table class="table display table-bordered table-striped" id="myTable">
+                                     
+                                       <div id ="mydata" class="table-responsive">
+                                       <table  style="width: 100%; text-align: center;" class="table table-bordered table-hover" id="myTable">
                                             <thead>
                                                 <tr>
                                                     <th></th>
                                                     
                                                     <th>Transaction ID</th>
+                                                    <th>Invoice Number</th>
                                                     <th>Party Name</th>
                                                     <th>Employee Name</th>
                                                     <th>Customer Name</th>
@@ -198,7 +199,7 @@
                                                     <th>Account Name</th>
                                                     <th>Transaction Category</th>
                                                     <th>Amount</th>
-                                                    <th>Transaction Date</th>
+                                                    <th>Transaction Date</th> 
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -207,7 +208,7 @@
 
                                         </table>
                                        </div>
-                                    </main>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -304,8 +305,7 @@
 
             <script>
                 function loadFunctions() {
-                    loadCategory();
-                    loadParties();
+                     
                     getTransactionHistory();
                     
                 }
@@ -410,7 +410,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add([ '', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add([ '', a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -441,11 +441,7 @@
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
                     
-
-                    if(category==""){
-                        alert("select the category first");
-                
-                    }else{
+                    alert(category);
                    
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
@@ -470,7 +466,7 @@
                             });
                             table.draw();
 
-                        }
+                        
                     };
                     if(value == ""){
                         value = "All";  
@@ -479,7 +475,7 @@
                         table = "All";  
                     }
 
-                    alert(category);
+                    
                    
                     
                     
@@ -518,8 +514,8 @@
 
                             $.each(a, function (i, item) {
 
-                                table.row.add(['',
-                                    a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                                table.row.add([ '', 
+                                    a[i].TransactionID,a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
                                     a[i].TransactionCatogery, a[i].Amount,
                                     a[i].DateStamp
                                 ]);
