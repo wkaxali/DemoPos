@@ -29,57 +29,63 @@
 
 
                             <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
-                                aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog  modal-lg">
-                                    <div class="modal-content">
-                                        <div class="container">
-                                            <div class="row">
+                            aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog  modal-xl">
+                                <div class="modal-content" style="margin: 0 auto; width: 70%;">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Forland Modern Motors</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                    <div class="container">
+                                        <div class="row">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="overFlowingTable"
+                                                style="padding: 20px; overflow: auto !important; width: 908px !important; margin: 15px auto !important; ">
+
+
+                                                <table class="table table-bordered " id="searchProductTable">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th>Product Id</th>
+
+                                                            <th>Product Name</th>
+                                                            <th>Company</th>
+                                                            <th>Price</th>
+                                                            <th>Stock</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
+                                                <button type="button" class="btn btn-org-1"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="submit" data-dismiss="modal"
+                                                    class="btn btn-org-1">Okay</button>
 
                                             </div>
                                         </div>
-
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="overFlowingTable"
-                                                    style="overflow: auto !important; width: 520px !important;   margin: 10px auto !important; ">
-
-
-                                                    <table class="table table-striped display nowrap" id="searchProductTable">
-                                                        <thead>
-                                                            <tr>
-
-                                                                <th>Product Id</th>
-
-                                                                <th>Product Name</th>
-                                                                <th>Company</th>
-                                                                <th>Price</th>
-                                                                <th>Stock</th>
-
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
-                                                    <button type="button" class="btn btn-org-1"
-                                                        data-dismiss="modal">Close</button>
-                                                    <button type="submit" data-dismiss="modal"
-                                                        class="btn btn-org-1">Okay</button>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
 
                                 </div>
+
                             </div>
+                        </div>
                             <label style="visibility: hidden;" for="prod-hour">Product Number</label>
                             <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
                             <br>
