@@ -33,7 +33,7 @@
                             </tbody>
 
                         </table>
-
+                        <button class="btn btn-success" onclick="printStockData()">Print </button>
                     </div>
                 </div>
             </div>
