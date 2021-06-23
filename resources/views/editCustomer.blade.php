@@ -135,6 +135,8 @@ id="balance" required>
 <br>
 <button class="btn btn-success" onclick="editEmployee()">Update </button>
 
+<button class="btn btn-success" onclick="printEmployee()">Print </button>
+
 
 </div>
 </div>
@@ -260,7 +262,25 @@ xhttp.send();
 }
 
 </script>
+<script>
+    function printEmployee(){
+                   
+                  
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
 
+                    window.open('/printEmployee/' );
+                  
+                }
+            }
+            
+            // alert("hello");
+            xhttp.open("GET", "./printEmployee/" , true);
+            xhttp.send();
+
+        }
+    </script>
 </body>
 
 </html>

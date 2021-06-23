@@ -218,6 +218,54 @@ class CustomerController extends Controller
 
                  return $innerProducts;
         }
+    public static function printEmployee(){ 
+       
+        
+        $table='<h1 align="center">All Customers</h1>
+        <br><br><br>
     
-}
+        <table  align="center" cellpadding = "1" cellspacing = "0"  border="1" style="font-size:22.2px margin-left:49px;"><thead></thead>
+          <tbody>
+              <tr>
+                  <th align="center"><b>Customer ID</b></th>
+                  
+                  <th align="center"> <b>Customer Name</b></th>
+                 
+                  <th align="center"><b>Contact</b></th>
+                  <th align="center"><b>Address</b></th>
+                  <th align="center"><b>CNIC</b></th>
+                  <th align="center"><b>Balance</b></th>
+                  
+                  
+              </tr>
+           
+         
+            ';
+ 
+         
+          $data=DB::select('select * from customeinformation');
+        foreach ($data as $d){
+            
 
+            $table=$table.'
+           
+            
+            <tr>
+            <td align="center">'.$d->CustomerID.'</td>
+           
+            <td align="center">'.$d->CustomerName.'</td>
+            <td align="center">'.$d->Contect.'</td>
+            <td align="center">'.$d->Address.'</td>
+            
+            <td align="center">'.$d->CNIC.'</td>
+            <td align="center">'.$d->Balance.'</td>
+            
+            </tr>
+            
+        
+
+             ';}
+             return $table;
+     }
+
+}
