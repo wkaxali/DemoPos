@@ -145,7 +145,7 @@ class TransactionFlow extends Controller
             if($value=="All"){
 
                 if($category=="Everything"){
-                    $data=DB:: select('select * from vw_transaction_flow   ' );
+                    $data=DB:: select('select * from vw_transaction_flow' );
                     return $data;
                 }
 

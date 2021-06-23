@@ -307,7 +307,7 @@
                 function loadFunctions() {
                     loadCategory();
                     loadParties();
-                     
+                    getTransactionHistory();
                 }
 
             </script>
@@ -448,7 +448,7 @@
                         if (this.readyState == 4 && this.status == 200) {
                             
                             var data = this.responseText;
-                            alert(data);
+                             
                             var table;
                             var a = JSON.parse(data);
                         
@@ -458,7 +458,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add(['', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add(['', a[i].TransactionID, a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -468,7 +468,9 @@
 
                         
                     };
-                    if(value == ""){
+                    
+                 }
+                 if(value == ""){
                         value = "All";  
                     }
                     if(table == ""){
@@ -478,11 +480,9 @@
                     
                    
                     
-                    
-                    xhttp.open("GET", "./selectedSearchData/"+category+"/"+value+"/"+table, true);
+                    xhttp.open("GET", "./selectedSearchData/"+category.trim()+"/"+value.trim()+"/"+table.trim(), true);
 
                     xhttp.send();
-                 }
                 }
 
             </script>
