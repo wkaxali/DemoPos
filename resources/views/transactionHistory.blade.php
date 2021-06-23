@@ -93,6 +93,8 @@
             }
 
         }
+        th { font-size: 12px; max-width:50px; }
+        td { font-size: 13px; }
 
         .inner-block {
             padding: 1em 1em 2em 1em;
@@ -183,14 +185,14 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="transactionTable">
-                                    <main id="mainHeader">
-                                       <div id ="mydata" class="container">
-                                       <table class="table display table-bordered table-striped" id="myTable">
+                                     
+                                       <div id ="mydata" class="table-responsive">
+                                       <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
                                             <thead>
                                                 <tr>
-                                                    <th></th>
-                                                    
+                                                   
                                                     <th>Transaction ID</th>
+                                                    <th>Invoice Number</th>
                                                     <th>Party Name</th>
                                                     <th>Employee Name</th>
                                                     <th>Customer Name</th>
@@ -198,7 +200,7 @@
                                                     <th>Account Name</th>
                                                     <th>Transaction Category</th>
                                                     <th>Amount</th>
-                                                    <th>Transaction Date</th>
+                                                    <th>Transaction Date</th> 
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -207,7 +209,7 @@
 
                                         </table>
                                        </div>
-                                    </main>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -264,25 +266,7 @@
             <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 
 
-            <script>
-                $(document).ready(function () {
-                    $('#myTable').DataTable({
-                        responsive: {
-                            details: {
-                                type: 'column',
-                                target: 'tr'
-                            }
-                        },
-                        columnDefs: [{
-                            className: 'control',
-                            orderable: false,
-                            targets: 0
-                        }],
-                        order: [1, 'asc']
-                    });
-                });
-
-            </script>
+        
             <script type="text/javascript">
                 var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', 'UA-365466-5']);
@@ -307,7 +291,6 @@
                     loadCategory();
                     loadParties();
                     getTransactionHistory();
-                    
                 }
 
             </script>
@@ -346,6 +329,10 @@
                 (cat.trim()==="Booking Order".trim())){
             
                 document.getElementById("pname").innerHTML="Parties";
+                
+                 }else if((cat.trim()==="Everything".trim())) {
+            
+                document.getElementById("pname").innerHTML=" ";
                 
                  }
                 else if((cat.localeCompare("Expense"))){
@@ -410,7 +397,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add([ '', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add([ '', a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -441,18 +428,14 @@
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
                     
-
-                    if(category==""){
-                        alert("select the category first");
-                
-                    }else{
+                    alert(category);
                    
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             
                             var data = this.responseText;
-                            alert(data);
+                             
                             var table;
                             var a = JSON.parse(data);
                         
@@ -462,7 +445,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add(['', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add(['', a[i].TransactionID, a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -470,23 +453,23 @@
                             });
                             table.draw();
 
-                        }
+                        
                     };
-                    if(value == ""){
+                    
+                 }
+                 if(value == ""){
                         value = "All";  
                     }
                     if(table == ""){
                         table = "All";  
                     }
 
-                    alert(category);
+                    
                    
                     
-                    
-                    xhttp.open("GET", "./selectedSearchData/"+category+"/"+value+"/"+table, true);
+                    xhttp.open("GET", "./selectedSearchData/"+category.trim()+"/"+value.trim()+"/"+table.trim(), true);
 
                     xhttp.send();
-                 }
                 }
 
             </script>
@@ -518,8 +501,8 @@
 
                             $.each(a, function (i, item) {
 
-                                table.row.add(['',
-                                    a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                                table.row.add([  
+                                    a[i].TransactionID,a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
                                     a[i].TransactionCatogery, a[i].Amount,
                                     a[i].DateStamp
                                 ]);
@@ -606,9 +589,7 @@
                 }
 
             </script>
-
-
-
+ 
             <script>
                 var toggle = true;
 

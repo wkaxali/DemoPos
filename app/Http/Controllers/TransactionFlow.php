@@ -133,7 +133,7 @@ class TransactionFlow extends Controller
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and ExpenseHeadID='.$value );
                     return $data;
                 }
-
+    
                 if($table == "tblemployees"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and EmpID='.$value );
                     return $data;
@@ -143,6 +143,12 @@ class TransactionFlow extends Controller
                 }
             }
             if($value=="All"){
+
+                if($category=="Everything"){
+                    $data=DB:: select('select * from vw_transaction_flow' );
+                    return $data;
+                }
+
                 if($table=="tblledgerpartiesall"){
                     $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL' );
                     return $data;

@@ -30,7 +30,7 @@
 
                             <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
                                 aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog  modal-xl">
+                                <div class="modal-dialog  modal-lg">
                                     <div class="modal-content">
                                         <div class="container">
                                             <div class="row">
@@ -41,10 +41,10 @@
                                         <div class="container">
                                             <div class="row">
                                                 <div class="overFlowingTable"
-                                                    style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
+                                                    style="overflow: auto !important; width: 520px !important;   margin: 10px auto !important; ">
 
 
-                                                    <table class="table  table-bordered " id="searchProductTable">
+                                                    <table class="table table-striped display nowrap" id="searchProductTable">
                                                         <thead>
                                                             <tr>
 

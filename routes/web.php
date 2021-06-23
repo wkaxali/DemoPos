@@ -297,8 +297,8 @@ Route::get('/printTrasactionHistory/{date1}/{date2}/{table}/{category}/{value}',
 Route::get('/selectedSearchData/{category}/{value}/{table}',[TransactionFlow::class, 'selectedSearchData']);
 Route::get('/selectedDateData/{DATE1}/{DATE2}/{table}/{category}/{value}',[TransactionFlow::class, 'selectedDateData']);
 Route::get('/loadCategoryData/{table}',[TransactionFlow::class, 'loadCategoryData']);
-
-
+Route::get('/printEmployee',[CustomerController::class, 'printEmployee']);
+Route::get('/printStockData',[OrderFlowController::class, 'printStockData']);
 
 Route::get('/', function () {
 
