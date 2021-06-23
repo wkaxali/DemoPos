@@ -305,9 +305,9 @@
 
             <script>
                 function loadFunctions() {
+                    loadCategory();
+                    loadParties();
                      
-                    getTransactionHistory();
-                    
                 }
 
             </script>

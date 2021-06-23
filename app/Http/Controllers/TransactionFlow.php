@@ -133,7 +133,7 @@ class TransactionFlow extends Controller
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and ExpenseHeadID='.$value );
                     return $data;
                 }
-
+    
                 if($table == "tblemployees"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and EmpID='.$value );
                     return $data;
