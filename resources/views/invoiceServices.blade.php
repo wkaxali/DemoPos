@@ -1533,8 +1533,8 @@
                 table.clear();
                 $.each(a, function (i, item) {
 
-                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].color, a[i].ChasisNumber, a[i]
-                        .EngineNumber,
+                    table.row.add([a[i].ProductID, a[i].ProductName, a[i].color,
+                    a[i].EngineNumber, a[i].ChasisNumber,
                         a[i].PerUnitSalePrice, a[i].StatusInStock, a[i].description
                     ]);
                 });

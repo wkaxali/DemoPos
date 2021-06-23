@@ -140,7 +140,7 @@ ID# </td>
 <td align="center" bgcolor="#C0C0C0" width="30%">Description</td>
 <td align="center"bgcolor="#C0C0C0" width="10%">Qty</td>
 <td align="center" bgcolor=" #C0C0C0" width="20%">Unit Price</td>
-<td align="center" bgcolor=" #C0C0C0" width="15%">Tax</td>
+<td align="center" bgcolor=" #C0C0C0" width="15%">Discount</td>
 <td align="center" bgcolor=" #C0C0C0" width="15%">Total</td>
 
 </tr>
