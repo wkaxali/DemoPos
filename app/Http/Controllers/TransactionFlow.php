@@ -58,16 +58,26 @@ class TransactionFlow extends Controller
 
     
         $columnName='';
-        if(!strcmp($value,"All")){
+
+        if(!strcmp($table,"Everything")){
+                
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
+            return $data;
+    
+        }
+        else if(!strcmp($value,"All")){
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
             return $data;
+
+           
         }
         
         else if(!strcmp($category,"All")){
                 
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
-            
-        }
+            return $data;
+        } 
+
 
         else if(strcmp($value,"All")){
             if(!strcmp($category,"tblledgerparties")){
@@ -87,9 +97,11 @@ class TransactionFlow extends Controller
         
             }
 
-            else if(!strcmp($category,"tblemployees")){
+            
+
+            else if(!strcmp($category,"customeinformation")){
                 
-                $columnName="EmpID";
+                $columnName="PaidBy";
         
             }
         }
