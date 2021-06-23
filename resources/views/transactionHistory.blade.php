@@ -93,6 +93,8 @@
             }
 
         }
+        th { font-size: 12px; max-width:50px; }
+td { font-size: 13px; }
 
         .inner-block {
             padding: 1em 1em 2em 1em;
@@ -185,11 +187,10 @@
                                 <div class="transactionTable">
                                      
                                        <div id ="mydata" class="table-responsive">
-                                       <table  style="width: 100%; text-align: center;" class="table table-bordered table-hover" id="myTable">
+                                       <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
                                             <thead>
                                                 <tr>
-                                                    <th></th>
-                                                    
+                                                   
                                                     <th>Transaction ID</th>
                                                     <th>Invoice Number</th>
                                                     <th>Party Name</th>
@@ -500,7 +501,7 @@
 
                             $.each(a, function (i, item) {
 
-                                table.row.add([ '', 
+                                table.row.add([  
                                     a[i].TransactionID,a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
                                     a[i].TransactionCatogery, a[i].Amount,
                                     a[i].DateStamp
@@ -588,9 +589,7 @@
                 }
 
             </script>
-
-
-
+ 
             <script>
                 var toggle = true;
 
