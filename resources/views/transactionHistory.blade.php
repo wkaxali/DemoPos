@@ -265,25 +265,7 @@
             <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 
 
-            <script>
-                $(document).ready(function () {
-                    $('#myTable').DataTable({
-                        responsive: {
-                            details: {
-                                type: 'column',
-                                target: 'tr'
-                            }
-                        },
-                        columnDefs: [{
-                            className: 'control',
-                            orderable: false,
-                            targets: 0
-                        }],
-                        order: [1, 'asc']
-                    });
-                });
-
-            </script>
+        
             <script type="text/javascript">
                 var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', 'UA-365466-5']);
@@ -346,6 +328,10 @@
                 (cat.trim()==="Booking Order".trim())){
             
                 document.getElementById("pname").innerHTML="Parties";
+                
+                 }else if((cat.trim()==="Everything".trim())) {
+            
+                document.getElementById("pname").innerHTML=" ";
                 
                  }
                 else if((cat.localeCompare("Expense"))){
