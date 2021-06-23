@@ -84,18 +84,12 @@ class dashBoardDisplayData extends Controller
         foreach($pay as $d){
             $cm=DB::select('select * from vw_employee_sale_commission where month(date) ='.$month.' AND EID ='.$d->EID.' AND year(date) ='.$year);
             $No=0;
-            if($d->SaleTarget==0){
-                $progress="";
+            $progress = 0;
+            foreach($cm as $e){
+                $No=$No+1;
+                $progress = ($No/intval($d->SaleTarget))*100;
             }
-            else{
-                $progress = 0;
-                foreach($cm as $e){
 
-                    $No=$No+1;
-                    $progress = ($No/intval($d->SaleTarget))*100;
-                }
-            }
-            
             array_push($data, [$d->FirstName.' '.$d->LastName, $progress]);
         }
     
