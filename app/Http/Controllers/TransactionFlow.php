@@ -380,7 +380,7 @@ class TransactionFlow extends Controller
         </table> 
 
              ';
-
+            }
              $table=$table.'
        
     <table border="0">
@@ -415,7 +415,7 @@ class TransactionFlow extends Controller
          ';
 
       
-        }
+        
         
         PDF::SetTitle('Transaction History');
         PDF::AddPage();
@@ -551,7 +551,7 @@ class TransactionFlow extends Controller
             <tr>
                 <th><b>Transaction ID</b></th>
                 
-                <th><b>Employee Name</b></th>
+                <th><b>Expense Name</b></th>
                
                 <th><b>Account Name</b></th>
                 <th><b>Transaction Category</b></th>
@@ -695,38 +695,7 @@ else if (!strcmp($category,"customeinformation")){
     
          ';
 
-         $table=$table.'
-       
-         <table border="0">
-     <br>
-     <br>
-     
-     <br>
-     <br>
-     <br>
-     <br>
-     <br>
-     
-     
-     
-     
-     <tr>
-     
-     
-     <td bgcolor="crimson" align="center" border="0"><h4>8-km Sheikhupura Road, Opposite Millat Tractors Limited,Lahore,Tel:0300-0600061 </h4></td>
-     
-     
-     
-     
-     </tr>
-     
-     
-     
-     </table>
-          
-     
-         
-              ';  
+           
 
   
     }
