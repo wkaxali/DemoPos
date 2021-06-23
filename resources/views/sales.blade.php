@@ -2080,24 +2080,27 @@
     
         var cnic = document.getElementById("addCNIC").value;
         
+        if(customerName==""||fatherName==""||contact==""||profession==""||address==""||email==""||cnic==""){
+            alert("Fill in all fields");
+        }else{
 
-        var newCustomer = [customerName, fatherName, contact, profession, address,
-        email, cnic
-        ];
+            var newCustomer = [customerName, fatherName, contact, profession, address,
+            email, cnic
+            ];
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText);
-                loadAllCustomers();
-            }
-        };
-        var EC = JSON.stringify(newCustomer);
-        
-        xhttp.open("GET", "./insertCustomer/" + EC, true);
-        xhttp.send();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+                    loadAllCustomers();
+                }
+            };
+            var EC = JSON.stringify(newCustomer);
+            
+            xhttp.open("GET", "./insertCustomer/" + EC, true);
+            xhttp.send();
 
-
+        }
 }
 
     </script>

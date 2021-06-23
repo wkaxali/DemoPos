@@ -237,50 +237,51 @@
                                             name="name" id="city">
 
                                     </div>
+                                    
                                     <div class="modal fade" id="staticBackdrop" data-keyboard="false" tabindex="-1"
-                                        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <div class="modal-dialog "  >
-                                            <div class="modal-content">
+                                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
 
-                                                <div class="modal-body">
-                                                    <div class="appointment-form" id="appointment-form">
-                                                        <h2>Add New Customer</h2>
-                                                        <div class="form-group-1">
-                                                            <input type="text" name="name" id="addCustomerName"
-                                                                placeholder="Customer Name" required />
-                                                            <input type="text" name="title" id="addFatherName"
-                                                                placeholder="Father Name" required />
+                                        <div class="modal-body">
+                                            <div class="registration-form" >
+                                                <h1 class="text-center addCut">Add New Customer</h1>
+                                                <div class="form-group-1">
+                                                    <form>
+                                                    <input type="text" style="width:232px;" class="form-control item" name="name" id="addCustomerName"
+                                                        placeholder="Customer Name" required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="title" id="addFatherName"
+                                                        placeholder="Father Name" required />
 
-                                                            <input type="number" name="tel" id="addContact"
-                                                                placeholder="Contact" required />
-                                                            <input type="text" name="title" id="addCNIC"
-                                                                placeholder="ID Card" required />
-                                                            <input type="text" name="phone_number" id="addAddress"
-                                                                placeholder="Address" required />
-                                                            <input type="text" name="phone_number" id="addProfession"
-                                                                placeholder="Profession" required />
-                                                            <input type="email" name="phone_number" id="email"
-                                                                placeholder="Email" required />
-
-                                                            <input type="text" name="phone_number" id="addComments"
-                                                                placeholder="Comments" required />
-
-                                                        </div>
-
-                                                        <div class="form-submit">
-                                                            <button onclick="addCustomer()" name="submit" id="submit"
-                                                                class="submit" value="">Add Customer</button>
-                                                        </div>
-                                                    </div>
+                                                    <input type="number" style="width:232px;" class="form-control item" name="tel" id="addContact"
+                                                        placeholder="Contact" required />
+                                                    <input type="number" style="width:232px;" class="form-control item" name="title" id="addCNIC" placeholder="ID Card"
+                                                        required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addAddress"
+                                                        placeholder="Address" required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addProfession"
+                                                        placeholder="Profession" required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="email"
+                                                        placeholder="Email" required />
+                                                        </form>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-org-1"
-                                                        data-dismiss="modal">Close</button>
+
+                                                <div class="form-submit">
+                                                    <button style="width: 100px; text-align: center" onclick="addCustomer()"
+                                                    type="button" class="btn  create-account" value="">Add</button>
                                                 </div>
                                             </div>
-
+                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-org-1"
+                                                data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
+
+                                </div>
+                            </div>
+
                                     <div class="input-field">
                                         <label for="status">Address</label>
                                         <input type="text" autocomplete="OFF" class="form-control"

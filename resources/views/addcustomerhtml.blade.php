@@ -16,39 +16,27 @@
                                     </div>
 
                                     
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF"
-                                            id="name" placeholder="Customer Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF"
-                                            id="fName" placeholder="Father Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="address"
-                                            placeholder="Address">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="tel" class="form-control item" autocomplete="OFF"
-                                            id="number" placeholder="Phone Number">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF" id="cnic"
-                                            placeholder="CNIC">
-                                    </div>
-                                   
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF"
-                                            id="email" placeholder="Email ID">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control item" autocomplete="OFF"
-                                            id="profession" placeholder="Profession">
-                                    </div>
+                                    <form>
+                                                    <input type="text" style="width:232px;" class="form-control item" name="name" id="addCustomerName"
+                                                        placeholder="Customer Name" required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="title" id="addFatherName"
+                                                        placeholder="Father Name" required />
+
+                                                    <input type="number" style="width:232px;" class="form-control item" name="tel" id="addContact"
+                                                        placeholder="Contact" required />
+                                                    <input type="number" style="width:232px;" class="form-control item" name="title" id="addCNIC" placeholder="ID Card"
+                                                        required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addAddress"
+                                                        placeholder="Address" required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="addProfession"
+                                                        placeholder="Profession" required />
+                                                    <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="email"
+                                                        placeholder="Email" required />
+                                                        </form>
                                     
 
                                     <div class="form-group" style="text-align: center;">
-                                        <button type="button" class="btn  create-account" onclick="addcustomer()">Add</button>
+                                        <button type="button" class="btn  create-account" onclick="addCustomer()">Add</button>
                                     </div>
 
 

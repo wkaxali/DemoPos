@@ -23,7 +23,7 @@
                                     <div class="row mb-3">
                                         <div class="col-md-2">
                                             <label for="">Order No</label>
-                                            <input type="text" class="form-control"
+                                            <input type="number" class="form-control"
                                                 style="width: 135px; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
                                                 name="" id="OrderId" readonly="true">
                                         </div>
@@ -70,21 +70,21 @@
 
                                         <div class="col-md-3">
                                             <label style="width: 50px !important;" for="">Total</label>
-                                            <input type="text" class="form-control"
+                                            <input type="number" class="form-control"
                                                 style="width: 200px ; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
                                                 name="" id="total" readonly="true">
                                         </div>
 
                                         <div class="col-md-3">
                                             <label style="width: 100px !important;" for="">Amount Paid</label>
-                                            <input type="text" class="form-control"
+                                            <input type="number" class="form-control"
                                                 style="width: 200px ; display: inline-block !important;" name=""
                                                 id="amount" onchange="subtract()">
                                         </div>
 
                                         <div class="col-md-3">
                                             <label style="width: 50px !important;" for="">Remaining</label>
-                                            <input type="text" class="form-control"
+                                            <input type="number" class="form-control"
                                                 style="width: 200px ; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
                                                 name="" id="remaining" readonly="true">
                                         </div>
