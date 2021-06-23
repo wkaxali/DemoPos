@@ -94,7 +94,7 @@
 
         }
         th { font-size: 12px; max-width:50px; }
-td { font-size: 13px; }
+        td { font-size: 13px; }
 
         .inner-block {
             padding: 1em 1em 2em 1em;
