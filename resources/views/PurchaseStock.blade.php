@@ -67,7 +67,7 @@
         }
 
         .bootstrap-select .dropdown-toggle {
-            width: 159px !important;
+            width: 106px !important;
             height: 30px !important;
 
         }
@@ -82,13 +82,13 @@
             padding-bottom: inherit;
             padding-left: inherit;
             height: 100%;
-            width: 150%;
+            width: 100%;
             text-align: left;
         }
 
         .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
             color: black;
-            width:60%;
+            
         }
 
         .okay-invo-3 label {

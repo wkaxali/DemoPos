@@ -116,7 +116,7 @@
 
 
                                 <label for="issue-3">Supplier Name</label>
-                                <select class="selectpicker" data-live-search="true" tabindex="null" id="SupplierName"
+                                <select   data-live-search="true" tabindex="null" id="SupplierName"
                                     onchange="getCurrentSupplierInfo()">
                                     <!-- from database -->
                                 </select>

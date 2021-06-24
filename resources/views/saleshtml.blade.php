@@ -258,7 +258,7 @@
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1"
                             id="RemainingBalance">
 
-                        <label id="paidme" for="">Paid From</label><br>
+                            <label id="paidme" for="">Paid From</label><br>
                         <select   class="selectpicker form-control" data-live-search="true" id="accounts">
 
                         </select>
