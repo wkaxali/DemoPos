@@ -188,9 +188,9 @@ class TransactionFlow extends Controller
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
                     return $data;
                 }
-                else{
-                    return "error";
-                }
+                // else{
+                //     return "error";
+                // }
             }
             else{
                 return "dssd";
@@ -390,7 +390,7 @@ class TransactionFlow extends Controller
             <tr>
             <td max-height="20px">'.$d->TransactionID.'</td>
            
-            <td>'.$d->FirstName." ".$d->LastName .'</td>
+            <td >'.$d->FirstName." ".$d->LastName .'</td>
             
             <td>'.$d->AccountName." ($d->AccountNumber)".'</td>
             <td>'.$d->TransactionCatogery.'</td>
@@ -469,16 +469,16 @@ class TransactionFlow extends Controller
     <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
       <tbody>
           <tr>
-              <th><b>Transaction ID</b></th>
-              <th><b>Invoice Number</b></th>
-              <th><b>Party Name</b></th>
-              <th><b>Employee Name</b></th>
-              <th><b>Customer Name</b></th>
-              <th><b>Expense Head</b></th>
-              <th><b>Account Name</b></th>
-              <th><b>Transaction Category</b></th>
-              <th><b>Transaction Date</b></th>
-              <th><b>Amount</b></th>
+              <th max-width:50px;><b>Transaction ID</b></th>
+              <th max-width:50px;><b>Invoice Number</b></th>
+              <th max-width:50px;><b>Party Name</b></th>
+              <th max-width:50px;><b>Employee Name</b></th>
+              <th max-width:50px;><b>Customer Name</b></th>
+              <th max-width:50px;><b>Expense Head</b></th>
+              <th max-width:50px;><b>Account Name</b></th>
+              <th max-width:50px;><b>Transaction Category</b></th>
+              <th max-width:50px;><b>Transaction Date</b></th>
+              <th max-width:50px;><b>Amount</b></th>
               
           </tr>
       </tbody>
@@ -492,19 +492,19 @@ class TransactionFlow extends Controller
     
         $table=$table.'
        
-    <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
+    <table cellpadding = "2" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
         <tbody>
         <tr>
-        <td max-height="20px">'.$d->TransactionID.'</td> 
-        <td>'.$d->InvoiceNo.'</td>
-        <td>'.$d->PartyName.'</td>
-        <td>'.$d->FirstName." ".$d->LastName .'</td>
-        <td>'.$d->CustomerName.'</td>
-        <td>'.$d->ExpenseHead.'</td>
-        <td>'.$d->AccountName.'</td>
-        <td>'.$d->TransactionCatogery.'</td>
-        <td>'.$d->DateStamp.'</td>
-        <td>'.$d->Amount.'</td>
+        <td height:80px;>'.$d->TransactionID.'</td> 
+        <td height:80px;>'.$d->InvoiceNo.'</td>
+        <td height:80px;>'.$d->PartyName.'</td>
+        <td height:80px;>'.$d->FirstName." ".$d->LastName .'</td>
+        <td height:80px;>'.$d->CustomerName.'</td>
+        <td height:80px;>'.$d->ExpenseHead.'</td>
+        <td height:80px;>'.$d->AccountName.'</td>
+        <td height:80px;>'.$d->TransactionCatogery.'</td>
+        <td height:80px;>'.$d->DateStamp.'</td>
+        <td height:80px;>'.$d->Amount.'</td>
         </tr>
         </tbody>
     </table> 

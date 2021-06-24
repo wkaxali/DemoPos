@@ -93,7 +93,7 @@
             }
 
         }
-        th { font-size: 12px; max-width:50px; }
+        th { font-size: 13px;   }
         td { font-size: 13px; }
 
         .inner-block {
@@ -192,11 +192,11 @@
                                                 <tr>
                                                    
                                                     <th>Transaction ID</th>
-                                                    <th>Invoice Number</th>
-                                                    <th>Party Name</th>
-                                                    <th>Employee Name</th>
-                                                    <th>Customer Name</th>
-                                                    <th>Expense Head</th>
+                                                    <th id ="Invoice">Invoice Number</th>
+                                                    <th id="partyname">Party Name</th>
+                                                    <th id="empname">Employee Name</th>
+                                                    <th id="custname">Customer Name</th>
+                                                    <th id="expname">Expense Head</th>
                                                     <th>Account Name</th>
                                                     <th>Transaction Category</th>
                                                     <th>Amount</th>
@@ -397,7 +397,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add([   a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -407,6 +407,53 @@
 
                         }
                     };
+
+                    if((category.trim()==="Salary Payment".trim())){
+
+                    $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 2, false );
+                    } else if((category.trim()==="Party Payment".trim())){
+
+                    $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    }else if((category.trim()==="Booking Order".trim())){
+
+                    $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    }else if((category.trim()==="Sales".trim())){
+
+                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    }else if((category.trim()==="Expense".trim())){
+                        $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    }else if((category.trim()==="Transportation Charges".trim())){
+                        $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    }else if((category.trim()==="Stock and Purchased".trim())){
+                        $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+
+                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    }else if((category.trim()==="Stock and Service".trim())){
+                        $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+
+                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    }
+
+
                     if(value == ""){
                         value = "All";  
                     }
@@ -428,13 +475,14 @@
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
                     
-                    
+        
                    
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             
                             var data = this.responseText;
+                             alert(category);
                              
                             var table;
                             var a = JSON.parse(data);
@@ -457,6 +505,50 @@
                     };
                     
                  }
+                 if((category.trim()==="Salary Payment".trim())){
+
+                $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 2, false );
+                 } else if((category.trim()==="Party Payment".trim())){
+
+                $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+            $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+            }else if((category.trim()==="Booking Order".trim())){
+
+                $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                }else if((category.trim()==="Sales".trim())){
+ 
+                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                }else if((category.trim()==="Expense".trim())){
+                    $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                }else if((category.trim()==="Transportation Charges".trim())){
+                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                }else if((category.trim()==="Stock and Purchased".trim())){
+                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+               
+                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                }else if((category.trim()==="Stock and Service".trim())){
+                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
+                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
+               
+                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                }
                  if(value == ""){
                         value = "All";  
                     }
