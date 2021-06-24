@@ -397,7 +397,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add([ '', a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add([   a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -445,7 +445,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add(['', a[i].TransactionID, a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add([  a[i].TransactionID, a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -674,7 +674,7 @@
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
                     var category = $('#transactionCategory').find(":selected").text();
-                   
+                //    alert(date1);
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -684,14 +684,19 @@
                   
                 }
             }
-            if(value == ""){
+            if(table == ""){
                         value = "All";  
                     }
-                    if(table == ""){
-                        table = "All";  
+                    if(date1 == ""){
+                        date1 = "All";  
+                    }if(value == ""){
+                        value = "All";  
+                    }
+                    if(date2 == ""){
+                        date2 = "All";  
                     }
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
+            xhttp.open("GET", "./printTrasactionHistory/"+date1.trim()+"/"+date2.trim()+"/"+table.trim()+"/"+category.trim()+"/"+value.trim(), true);
             xhttp.send();
 
         }
