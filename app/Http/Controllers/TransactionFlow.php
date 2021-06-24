@@ -297,7 +297,7 @@ class TransactionFlow extends Controller
            
             
             }else{
-            $data=DB:: select('select * from vw_transaction_flow  where TransactionCatogery="'.$table.'"' );
+            $data=DB:: select('select * from vw_transaction_flow  where TransactionCatogery="'.$category.'"' );
            
         }
         }
@@ -1282,7 +1282,7 @@ foreach ($data as $d){
     <td max-height="20px">'.$d->TransactionID.'</td> 
     <td>'.$d->InvoiceNo.'</td>
     <td>'.$d->PartyName.'</td>
-    <td>'.$d->FirstName." ".$d->LastName .'</td>
+     <td>'.$d->FirstName." ".$d->LastName .'</td>
     <td>'.$d->CustomerName.'</td>
     <td>'.$d->ExpenseHead.'</td>
     <td>'.$d->AccountName.'</td>
