@@ -60,17 +60,10 @@ class CustomerController extends Controller
             ]);
     }
     public static function getCustomerBalance($CID){
-
-       
         $re = DB::table('customeinformation')
-            ->where('CustomerID', '=', $CID)
-             ->first()->Balance;
-
-             return $re;
-
-
-
-
+        ->where('CustomerID', '=', $CID)
+        ->first()->Balance;
+        return $re;
     }
 
 
