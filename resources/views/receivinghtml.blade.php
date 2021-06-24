@@ -10,12 +10,17 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4">
-                                <label class="orderNOLabel" for="OrderNo">Order No</label>
-                                <input type="text" name="" value="" id="OrderId">
-                                <button class="btn" style="background-color: #e61d2f; height: 30px;"
+                            
+                                
+                                <label for="OrderNo">Order No</label>
+                                <input type="text" name="" value="" id="OrderId" style="width: 50px; height: 38px;">
+                                <button class="btn" style="background-color: #e61d2f; height: 38px;"
                                     onclick="getOrderDetails()">Add</button>
+                                <button class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"
+                                style="height: 38px;" onclick="getPendingOrders()">Pending Orders</button>
 
                             </div>
+
                             <div class="col-md-4 offset-md-4">
                                 <label for="">Payment Method</label>
                                 <select 
@@ -72,26 +77,9 @@
                                                 <tr>
 
                                                     <th>Order Number</th>
-
                                                     <th>Product Name</th>
-                                                    <th>Color</th>
-                                                    <th>Chasis Number</th>
-                                                    <th>Engine Number</th>
-
-                                                    
-
-                                                    <!-- <th>Purchse Price</th> -->
                                                     <th>Invoice Price</th>
-                                                    <!-- <th>Cost with Additional charges</th> -->
-                                                    
                                                     <th>Date Purchase</th>
-
-
-
-
-
-
-
 
                                                 </tr>
                                             </thead>
@@ -112,9 +100,7 @@
                     <div class="row">
                         <div class="col-md-6 offset-md-6">
                             <div class="footerBtns text-right">
-                            <button class="btn btn-info" data-toggle="modal" data-target=".bd-example-modal-lg"
-                                style="height: 38px;" onclick="getPendingOrders()">Pending Orders</button>
-                                <a class="btn btn-update" onclick="UpdateStatusAndTransaction()">Update</a>
+                            <a class="btn btn-update" onclick="UpdateStatusAndTransaction()">Update</a>
 
 
                             </div>

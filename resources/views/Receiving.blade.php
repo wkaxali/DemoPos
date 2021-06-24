@@ -284,8 +284,7 @@ xhttp.onreadystatechange = function () {
         table.clear();
         $.each(a, function (i, item) {
 
-            table.row.add([a[i].InvoiceNumber, a[i].ProductName, a[i].Color, a[i].ChasisNumber, a[i]
-                .EngineNumber,
+            table.row.add([a[i].InvoiceNumber, a[i].ProductName, 
                 a[i].PerUnitSalePrice, a[i].DatePurchase
             ]);
         });
@@ -396,8 +395,15 @@ xhttp.send();
 
             xhttp.send();
 
-
         }
+
+       
+
+    $("#searchProductTable").on('click', 'tr', function () {
+        var OID = parseInt(this.cells[0].innerText);
+        document.getElementById("OrderId").value=OID;
+        getOrderDetails();
+    });
 
     </script>
 

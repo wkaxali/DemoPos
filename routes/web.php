@@ -153,15 +153,12 @@ Route::get('/getComission/{PID}',[AdditionalTaxesAndCommissionsController::class
 Route::get('/getProfit/{PID}',[AdditionalTaxesAndCommissionsController::class, 'getComission']);
 Route::get('/addAccount/{accData}',[accountsController::class, 'addAccount']);
 Route::get('/getAccountsData',[accountsController::class, 'getAccountsData']);
-// Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
 Route::get('/editAccounts/{EA}',[accountsController::class, 'editAccounts']);
 Route::get('/getInvoiceCustomer/{data}',[serviceSalesFlow::class, 'printSaleRequestOnInvoiceNumber']);
 Route::get('/getQuotation/{data}',[quotationController::class, 'getQuotation']);
 Route::get('/invetorDetails/{data}',[investorController::class, 'getInvestorDetails']);
 Route::get('/getAllInvoiceDetails/{data}',[salesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/getInvoiceStock/{data}',[UpdateStocksController::class, 'getInvoiceStock']);
-//Route::get('/addAdmin/{data}',[AdminController::class, 'addnewAdmin']);
-
 Route::get('/addInvestorProduct/{data}',[investorController::class, 'addInvestorProduct']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
 Route::get('/placeOrder/{data}',[OrderFlowController::class, 'OrderFlow']);

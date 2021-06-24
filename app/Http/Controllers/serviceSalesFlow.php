@@ -108,9 +108,10 @@ $dat=$product->DateStamp;
 $BillStatus=$product->BillStatus;
 $AmountPaid=$product->AmountPaid;
 $InvoiceBalance=$product->Balance;
+$singleProductDiscount=$product->DiscountOffered;
 
+array_push($oneProductInInvoice,$PID,$productName,$qty,$unitPrice,$singleProductDiscount,$Pt);
 
-array_push($oneProductInInvoice,$PID,$productName,$qty,$unitPrice,$tax,$Pt);
 array_push($ProductDetailsArray,$oneProductInInvoice);
 $oneProductInInvoice=array();
 
@@ -216,9 +217,9 @@ $dat=$product->DateStamp;
 $BillStatus=$product->BillStatus;
 $AmountPaid=$product->AmountPaid;
 $InvoiceBalance=$product->Balance;
+$singleProductDiscount=$product->DiscountOffered;
 
-
-array_push($oneProductInInvoice,$PID,$productName,$qty,$unitPrice,$tax,$Pt);
+array_push($oneProductInInvoice,$PID,$productName,$qty,$unitPrice,$singleProductDiscount,$Pt);
 array_push($ProductDetailsArray,$oneProductInInvoice);
 $oneProductInInvoice=array();
 
@@ -341,7 +342,7 @@ session(['invoicePrice' => $product->PerUnitSalePrice]);
 session(['netAmount' => number_format($product->NetAmount)]);
 session(['discount' => $product->Discount]);
 
-
+session(['singleProductDiscount' => $product->DiscountOffered]);
 session(['customerName' => $product->CustomerName]);
 session(['address' => $product->Address]);
 session(['invoiceNo' => $product->InvoiceNumber]);
