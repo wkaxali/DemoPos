@@ -1780,8 +1780,8 @@
                     cell2.innerHTML = productName;
                     cell3.innerHTML = company;
                     cell4.innerHTML = purchasePrice;
-                    cell5.innerHTML = quantity;
-                    cell6.innerHTML = DiscountOffered;
+                    cell5.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+quantity+'>';
+                    cell6.innerHTML = '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value='+DiscountOffered+'>';
                     cell7.innerHTML = totalAmount;
                     //calc();
                     cell8.innerHTML =

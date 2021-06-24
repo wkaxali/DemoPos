@@ -193,4 +193,17 @@ class LedgerPartiesController extends Controller
                     $data=DB:: select('select * from tblledgerparties where PartyName = "FJW"');
                     return $data;
                 }
+                public static function getSupplierBalance($SID){
+                    $re = DB::table('tblledgerparties')
+                    ->where('LID', '=', $SID)
+                    ->first()->Balance;
+                    return $re;
+                }
+
+                public static function UpdateSupplierBalance($SID,$newBalance){
+                    DB::table('tblledgerparties')
+                    ->where('LID', $SID)
+                    ->update(['Balance' =>$newBalance
+                    ]);
+                }
 }
