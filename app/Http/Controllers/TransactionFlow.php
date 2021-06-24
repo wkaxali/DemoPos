@@ -300,7 +300,11 @@ class TransactionFlow extends Controller
            
             
         }
-
+        else if(!strcmp($category,"Everything")){
+            $data=DB:: select('select * from vw_transaction_flow' );
+           
+            
+        }
        else if(strcmp($value,"All")){
             if(!strcmp($table,"tblledgerparties")){
                 
@@ -867,10 +871,16 @@ else if(!strcmp($table,"All")){
  public static function printTrasactionHistory($date1,$date2,$category,$table,$value)
     {
         $columnName='';
-        if(!strcmp($value,"All")){
-            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+        if(!strcmp($value,"All")){ 
+            if(!strcmp($table,"Everything")){
+
+                $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  ' );
            
             
+            }else{
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+           
+        }
         }
        
 

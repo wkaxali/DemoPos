@@ -428,7 +428,7 @@
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
                     
-                    alert(category);
+                    
                    
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
@@ -682,7 +682,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory/'+date1+'/'+date2+'/'+table+'/'+category+'/'+value);
+                    window.open('/printTrasactionHistory/'+date1+'/'+date2+'/'+table+'/'+category.trim()+'/'+value);
                   
                 }
             }
@@ -706,13 +706,13 @@
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
                     var category = $('#transactionCategory').find(":selected").text();
-                   alert("hello");
+                   
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory2/'+table+'/'+category+'/'+value);
+                    window.open('/printTrasactionHistory2/'+table+'/'+category.trim()+'/'+value);
                   
                 }
             }
