@@ -66,7 +66,7 @@
         }
 
         .bootstrap-select .dropdown-toggle {
-            width: 29px !important;
+            width: 106px !important;
             height: 30px !important;
 
         }
@@ -87,7 +87,7 @@
 
         .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
             color: black;
-            width:180%;
+            
         }
 
 
@@ -1132,10 +1132,7 @@ width: 153px;
 
         }
 
-        #paidme {
-            width: 129px;
-        }
-
+         
         .dropdown {
             height: 0px !important;
         }
