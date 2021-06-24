@@ -1722,17 +1722,23 @@
                 var data = this.responseText;
                 //alert(data);
                 var a = JSON.parse(data);
-                document.getElementById("SID").value = a[0].SID;
-                document.getElementById("LastBalance").value = a[0].Balance;
-                document.getElementById("CurrentBalance").value = a[0].Balance;
-                calc();
-                document.getElementById("CNO").value = a[0].Contect;
-                document.getElementById("SupplierCategory").value = a[0].Category;
-                //document.getElementById("SupplierName").value =;
+                document.getElementById("SID").value = a[0].SupplierID;
+                document.getElementById("LastBalance").value = a[0].SupplierBalanceBeforeInvoiceBill;
+                document.getElementById("CurrentBalance").value = a[0].SupplierBalanceAfterInvoiceBill;
+                document.getElementById("CNO").value = a[0].ContantNo;
+                document.getElementById("SupplierCategory").value = a[0].PartyCategory;
                 $('#SupplierName').val(a[0].SupplierID);
                 $('#SupplierName').selectpicker('refresh');
-                // var e = document.getElementById("SupplierName");
-                //  e.options[e.selectedIndex].value=a[0].SID;
+                document.getElementById("Total").value = a[0].FirstTotal;
+                document.getElementById("DiscountOverall").value = a[0].Discount;
+                grossTotal = Number(a[0].FirstTotal)-Number(a[0].Discount);
+                document.getElementById("grossTotal").value = grossTotal;
+                document.getElementById("tax").value = a[0].VAT;
+                document.getElementById("NetTotal").value = a[0].NetTotal;
+                document.getElementById("AmountPaid").value = a[0].AmountPaid;
+                document.getElementById("RemainingBalance").value = a[0].PurchaseBalance;
+                $('#accounts').val(a[0].AID);
+                $('#accounts').selectpicker('refresh');
 
                 var i = 0;
                 //alert(a.length);
@@ -1752,7 +1758,7 @@
 
                 for (i; i < a.length; i++) {
                     var PID = a[i].ProductSerial;
-                    var discount = a[i].Discount;
+                    var DiscountOffered = a[i].DiscountOffered;
                     var quantity = a[i].OrderedQuantiy;
                     var purchasePrice = a[i].PurchasePricePerUnit;
                     var company = a[i].Company;
@@ -1774,7 +1780,7 @@
                     cell3.innerHTML = company;
                     cell4.innerHTML = purchasePrice;
                     cell5.innerHTML = quantity;
-                    cell6.innerHTML = discount;
+                    cell6.innerHTML = DiscountOffered;
                     cell7.innerHTML = totalAmount;
                     //calc();
                     cell8.innerHTML =
@@ -1825,6 +1831,80 @@
 
 
     }
+
+
+function updateStockPurchase() {
+
+var myTrows = [];
+var table = document.getElementById("ProductSaleTable");
+var myRow2 = [];
+
+
+$('#ProductSaleTable tr').each(function (row, tr) {
+
+    myTrows[row] = [
+
+        $(tr).find('td:eq(0)').text(), //productID
+        $(tr).find('td:eq(3)').text(), //purchasePrice
+        $(tr).find('td:eq(4) input[type="text"]').val(), //qty
+        $(tr).find('td:eq(5) input[type="text"]').val(), //discount
+        $(tr).find('td:eq(6)').text() //totamount
+
+
+    ];
+
+
+});
+myTrows.shift();
+
+//var invoiceNumber=getInvoiceID();
+var tot = document.getElementById("Total").value;
+var SupplierName = $('#SupplierName').find(":selected").text();
+var contact = document.getElementById('CNO').value;
+var discount = document.getElementById('DiscountOverall').value;
+if (discount == "") {
+
+    discount = 0;
+    document.getElementById('DiscountOverall').value = 0;
+
+}
+var invoiceID = document.getElementById('InvoiceID').value;
+var gross = document.getElementById('grossTotal').value;
+var tax = document.getElementById('tax').value;
+var netTotal = document.getElementById('NetTotal').value;
+var amp = document.getElementById('AmountPaid').value;
+var rmb = document.getElementById("RemainingBalance").value;
+var SID = document.getElementById("SupplierName").value;
+var CLB = document.getElementById("LastBalance").value;
+var CCB = document.getElementById("CurrentBalance").value;
+var AID = $('#accounts').find(":selected").val();
+
+myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, CLB, CCB, AID, SupplierName,
+    contact
+];
+alert(myRow2);
+var array = JSON.stringify(myRow2);
+var xhttp = new XMLHttpRequest();
+if (AID == "") {
+    alert("Payment Method not selected");
+
+} else {
+
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            alert("Invoice =" + this.responseText + " is generated");
+            
+
+        }
+    };
+
+    xhttp.open("GET", "./updatePurchasedStock/" + array + "/" + invoiceID, true);
+    // var MenuID=$('#Menus').find(":selected").val();
+    xhttp.send();
+}
+}
+
 
 </script>
 

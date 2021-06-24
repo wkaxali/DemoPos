@@ -27,7 +27,6 @@ use App\Http\Controllers\expenseController;
 use App\Http\Controllers\investorController;
 use App\Http\Controllers\salesFlow;
 use App\Http\Controllers\dashBoardDisplayData;
-
 use App\Http\Controllers\taskController;
 use App\Http\Controllers\attendanceController;
 use App\Http\Controllers\accountsController;
@@ -43,6 +42,7 @@ use App\Http\Controllers\printServiceInvoice;
 use App\Http\Controllers\deliverLetterPrintController;
 use App\Http\Controllers\summaryReportController;
 use App\Http\Controllers\employeeAllowanceController;
+use App\Http\Controllers\purchaseStockEditController;
 
 
 
@@ -57,7 +57,7 @@ use App\Http\Controllers\employeeAllowanceController;
 |
 */
 //Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
-
+Route::get('/updatePurchasedStock/{array}/{InvoiceNo}',[purchaseStockEditController::class, 'updatePurchasedStock']);
 Route::get('/empProgress',[dashBoardDisplayData::class, 'employeeProgress']);
 Route::get('/barGraphForTransactions',[dashBoardDisplayData::class, 'getTransactions']);
 Route::get('/checkAbsents',[attendanceController::class, 'checkAbsents']);

@@ -458,6 +458,7 @@ class OrderFlowController extends Controller
  
          $Array=json_decode($data);
          $mainTotal=$Array[1];
+         $discount=$Array[2];
          $netTotal=$Array[5];
          $totlpaid= $Array[6];
          $totRemaining=$Array[7];
@@ -480,7 +481,7 @@ class OrderFlowController extends Controller
         
          $invoiceNumber=DB::table('tblpurchaseorder')->insertGetId(['SupplierID'=>$SID,
          'TotalAmount'=>$mainTotal,
-         'Discount'=>'0',
+         'Discount'=>$discount,
          'DateStamp'=>$dateNow,
          'VAT'=>'0',
          'NetTotal'=>$netTotal,
