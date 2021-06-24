@@ -131,8 +131,7 @@
                         ]);
                     });
                     table.columns.adjust().draw();
-                    $('#stockTable').dataTable().fnSetColumnVis( 1, false );
-                    $('#stockTable').dataTable().fnSetColumnVis( 4, false );
+
                 }
             };
             //alert("ljd");
@@ -141,7 +140,15 @@
             xhttp.send();
         }
 
+    </script>
 
+    <!-- <script>
+        $(document).ready(function () {
+            $('#stockTable').DataTable();
+        });
+
+    </script> -->
+  <script>
     $(document).ready(function () {
         $('#stockTable').DataTable({
             responsive: {
