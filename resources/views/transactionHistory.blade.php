@@ -675,32 +675,63 @@
                     var value = $('#tables').find(":selected").val();
                     var category = $('#transactionCategory').find(":selected").text();
                 //    alert(date1);
+                  if (date1==""){
+                      printTrasactionHistory2();
+                }else{
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printTrasactionHistory/'+date1+'/'+date2+'/'+table+'/'+category+'/'+value);
+                  
+                }
+            }
+            if(table == ""){
+                table = "All";  
+                    }
+                     if(value == ""){
+                        value = "All";  
+                    }
+                     
+            // alert("hello");
+            xhttp.open("GET", "./printTrasactionHistory/"+date1.trim()+"/"+date2.trim()+"/"+table.trim()+"/"+category.trim()+"/"+value.trim(), true);
+            xhttp.send();
+        }
+        }
+    </script>
+
+<script>
+    function printTrasactionHistory2(){
+                    
+                    var table = $('#transactionCategory').find(":selected").val();
+                    var value = $('#tables').find(":selected").val();
+                    var category = $('#transactionCategory').find(":selected").text();
+                   alert("hello");
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory/'+date1+'/'+date2+"/"+table+"/"+category+"/"+value);
+                    window.open('/printTrasactionHistory2/'+table+'/'+category+'/'+value);
                   
                 }
             }
             if(table == ""){
+                table = "All";  
+                    }
+                     if(value == ""){
                         value = "All";  
                     }
-                    if(date1 == ""){
-                        date1 = "All";  
-                    }if(value == ""){
-                        value = "All";  
-                    }
-                    if(date2 == ""){
-                        date2 = "All";  
-                    }
+                     
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+date1.trim()+"/"+date2.trim()+"/"+table.trim()+"/"+category.trim()+"/"+value.trim(), true);
+            xhttp.open("GET", "./printTrasactionHistory2/"+table.trim()+"/"+category.trim()+"/"+value.trim(), true);
             xhttp.send();
-
+        
         }
     </script>
+
+
+
 <script>
  function loadCategoryData(){
                     var category = $('#transactionCategory').find(":selected").text();
