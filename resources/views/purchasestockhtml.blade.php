@@ -293,7 +293,7 @@
                                 <button class="btn" style="background-color: #0a549d;"
                                     onclick="insertInOrder()">Save</button>
                                 <button class="btn" onclick="window.print()" style="background-color: #e61d2f ;">Print</button>
-                                <button class="btn" style="background-color:#0a549d;">Edit</button>
+                                <button class="btn" style="background-color:#0a549d;" onclick="updateStockPurchase()">Edit</button>
                             </div>
                             <!-- <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #e61d2f;">Hold</button>
