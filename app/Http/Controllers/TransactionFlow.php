@@ -297,6 +297,10 @@ class TransactionFlow extends Controller
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
            
             
+        } else if((!strcmp($date1," "))&&(!strcmp($date2," "))){
+            $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$table.'"' );
+           
+            
         }
        
 
