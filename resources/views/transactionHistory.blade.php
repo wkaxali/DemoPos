@@ -482,7 +482,7 @@
                         if (this.readyState == 4 && this.status == 200) {
                             
                             var data = this.responseText;
-                             alert(category);
+                              
                              
                             var table;
                             var a = JSON.parse(data);
