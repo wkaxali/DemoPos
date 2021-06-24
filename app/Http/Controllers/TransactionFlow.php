@@ -498,7 +498,7 @@ class TransactionFlow extends Controller
         <td max-height="20px">'.$d->TransactionID.'</td> 
         <td>'.$d->InvoiceNo.'</td>
         <td>'.$d->PartyName.'</td>
-        <td>'.$d->DateStamp.'</td>
+        <td>'.$d->FirstName." ".$d->LastName .'</td>
         <td>'.$d->CustomerName.'</td>
         <td>'.$d->ExpenseHead.'</td>
         <td>'.$d->AccountName.'</td>
@@ -1282,7 +1282,7 @@ foreach ($data as $d){
     <td max-height="20px">'.$d->TransactionID.'</td> 
     <td>'.$d->InvoiceNo.'</td>
     <td>'.$d->PartyName.'</td>
-    <td>'.$d->DateStamp.'</td>
+    <td>'.$d->FirstName." ".$d->LastName .'</td>
     <td>'.$d->CustomerName.'</td>
     <td>'.$d->ExpenseHead.'</td>
     <td>'.$d->AccountName.'</td>
