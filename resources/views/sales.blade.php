@@ -66,7 +66,7 @@
         }
 
         .bootstrap-select .dropdown-toggle {
-            width: 159px !important;
+            width: 29px !important;
             height: 30px !important;
 
         }
@@ -87,7 +87,7 @@
 
         .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
             color: black;
-            width:80%;
+            width:180%;
         }
 
 
@@ -1158,7 +1158,7 @@ width: 153px;
         }
 
         .okay-invo-2 .bootstrap-select .dropdown-toggle {
-            width: 195px !important;
+            width: 162px !important;
             height: 30px !important;
 
         }
