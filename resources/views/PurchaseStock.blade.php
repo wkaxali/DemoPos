@@ -67,7 +67,7 @@
         }
 
         .bootstrap-select .dropdown-toggle {
-            width: 107px !important;
+            width: 159px !important;
             height: 30px !important;
 
         }
@@ -76,18 +76,19 @@
             position: absolute;
             top: -5px !important;
             left: 0;
+            color: #ffffff;
             padding-top: inherit;
             padding-right: inherit;
             padding-bottom: inherit;
             padding-left: inherit;
             height: 100%;
-            width: 100%;
+            width: 150%;
             text-align: left;
         }
 
         .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
             color: black;
-
+            width:60%;
         }
 
         .okay-invo-3 label {
@@ -293,7 +294,7 @@
             background-color: rgb(85, 168, 8);
 
         }
-
+        
         .myLabel .btn-my {
             float: right;
             width: 180px;

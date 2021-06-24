@@ -73,10 +73,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
-                                                <button type="button" class="btn btn-org-1"
+                                                <button type="button" class="btn btn-danger"
                                                     data-dismiss="modal">Close</button>
                                                 <button type="submit" data-dismiss="modal"
-                                                    class="btn btn-org-1">Okay</button>
+                                                class="btn btn-primary active">Okay</button>
 
                                             </div>
                                         </div>
@@ -259,35 +259,32 @@
 
                         </div>
                         <div class="col-md-3 okay-invo-2">
-                            <label for="invo-1">Total</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="Total" >
+                            <label for="invo-1" style="width: 130px;">Total</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                                name="invo-1" id="Total"  width: 130px;" >
 
-                            <label for="prod-1">Discount</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                            <label for="prod-1" style="width: 130px;">Discount</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="DiscountOverall" value="00" onchange="calc()">
-                            <label for="invo-1">Gross Total</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                            <label for="invo-1" style="width: 130px;">Gross Total</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="grossTotal">
-                            <label for="prod-1"> Tax %</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                            <label for="prod-1" style="width: 130px;"> Tax %</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="tax" onchange="calc()">
-                            <label for="prod-1">Net Total</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                            <label for="prod-1" style="width: 130px;">Net Total</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="NetTotal">
-                            <label for="invo-1" style=" font-weight: 500;">Amount Paid</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                            <label for="invo-1" style=" font-weight: 500; width: 130px;">Amount Paid</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="AmountPaid" onchange="calcForBalance()">
-                            <label for="prod-1" style=" font-weight: 500;">Remaining Balance</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                            <label for="prod-1" style=" font-weight: 500; width: 130px;">Remaining Balance</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="RemainingBalance">
-                            <label id="payFrom" for="">Paid From</label>
-                            <select class="selectpicker form-control" data-live-search="true" id="accounts"
-                                tabindex="null">
+                  <label id="paidme" for="">Paid From</label><br>
+                        <select   class="selectpicker form-control" data-live-search="true" id="accounts">
 
-
-
-                            </select>
+                        </select>
 
                             <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #0a549d;"

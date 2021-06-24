@@ -66,12 +66,10 @@
         }
 
         .bootstrap-select .dropdown-toggle {
-            width: 182px;
-            height: 33px !important;
+            width: 159px !important;
+            height: 30px !important;
 
-            color: #ffffff !important;
         }
-
 
         .bootstrap-select .dropdown-toggle .filter-option {
             position: absolute;
@@ -89,8 +87,9 @@
 
         .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
             color: black;
-
+            width:80%;
         }
+
 
         .okay-invo-3 label {
             font-size: 15px !important;
@@ -659,7 +658,7 @@
             background: none;
             outline: none;
             border: none;
-
+width: 153px;
             font-weight: 600;
             font-size: 1.1rem;
             color: #333;
