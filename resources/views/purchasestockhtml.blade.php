@@ -260,26 +260,29 @@
                         </div>
                         <div class="col-md-3 okay-invo-2">
                             <label for="invo-1" style="width: 130px;">Total</label>
-                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="Total"  width: 130px;" >
 
                             <label for="prod-1" style="width: 130px;">Discount</label>
                             <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                                name="invo-1" id="DiscountOverall" value="00" onchange="calc()">
-                            <label for="invo-1" style="width: 130px;">Gross Total</label>
-                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                                name="invo-1" id="DiscountOverall" value="00" onkeypress="calc()">
+                            <label  for="invo-1" style="width: 130px;">Gross Total</label>
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="grossTotal">
                             <label for="prod-1" style="width: 130px;"> Tax %</label>
                             <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                                name="invo-1" id="tax" onchange="calc()">
+                                name="invo-1" id="tax" onkeypress="calc()">
+                            <label for="prod-1" style="width: 130px;"> Tax Amount</label>
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                                name="invo-1" id="taxAmount" onchange="calc()">
                             <label for="prod-1" style="width: 130px;">Net Total</label>
-                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="NetTotal">
                             <label for="invo-1" style=" font-weight: 500; width: 130px;">Amount Paid</label>
                             <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                                name="invo-1" id="AmountPaid" onchange="calcForBalance()">
+                                name="invo-1" id="AmountPaid" onkeypress="calcForBalance()">
                             <label for="prod-1" style=" font-weight: 500; width: 130px;">Remaining Balance</label>
-                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="RemainingBalance">
                   <label id="paidme" for="">Paid From</label><br>
                         <select   class="selectpicker form-control" data-live-search="true" id="accounts">
@@ -288,9 +291,9 @@
 
                             <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #0a549d;"
-                                    onclick="insertInOrder()">Save</button>
+                                    onclick="insertInOrder()" id="saveBtn">Save</button>
                                 <button class="btn" onclick="window.print()" style="background-color: #e61d2f ;">Print</button>
-                                <button class="btn" style="background-color:#0a549d;" onclick="updateStockPurchase()">Edit</button>
+                                <button class="btn" style="background-color:#0a549d;" id="editBtn" onclick="updateStockPurchase()">Edit</button>
                             </div>
                             <!-- <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #e61d2f;">Hold</button>
