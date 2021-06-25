@@ -63,7 +63,7 @@
 
     @include('accesorieshtml')
 
-
+    @include('sidenavbar')
 
 
 
