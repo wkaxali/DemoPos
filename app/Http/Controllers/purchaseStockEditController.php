@@ -78,7 +78,7 @@ class purchaseStockEditController extends Controller
         LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
       
         $oldSupplierBalance=LedgerPartiesController::getSupplierBalance($SID);
-        $currentSuppierBalance=floatval($oldSupplierBalance)-floatval($RBI);
+        $currentSuppierBalance=floatval($oldSupplierBalance)+floatval($RBI);
         LedgerPartiesController::UpdateSupplierBalance($SID,$currentSuppierBalance);
 
         //  //Parties Balance

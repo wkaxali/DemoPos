@@ -1270,6 +1270,7 @@
 
 <script>
     function getPartsAndServices() {
+        document.getElementById("editBtn").disabled = true; 
         var xhttp = new XMLHttpRequest();
         var CatID = 21;
         xhttp.onreadystatechange = function () {
@@ -1488,6 +1489,7 @@
         //alert(taxRate/100);
         var tax = Number(grosstotal) * (taxRate / 100);
         //	alert(tax);
+        document.getElementById('taxAmount').value=tax;
         return tax;
     }
 
@@ -1515,7 +1517,7 @@
         var tax = 0;
         var tax = taxCalculation();
 
-        document.getElementById('tax').value = tax.toFixed(2);
+        document.getElementById('taxAmount').value = tax.toFixed(2);
         net = gross + Number(tax);
         //alert(net);
         document.getElementById('NetTotal').value = net.toFixed(2);
@@ -1655,57 +1657,50 @@
         });
         myTrows.shift();
 
-        //var invoiceNumber=getInvoiceID();
         var tot = document.getElementById("Total").value;
         var discount = document.getElementById('DiscountOverall').value;
         var gross = document.getElementById('grossTotal').value;
-
-
-
-
         var tax = document.getElementById('tax').value;
-
         var netTotal = document.getElementById('NetTotal').value;
         var amp = document.getElementById('AmountPaid').value;
         var rmb = document.getElementById("RemainingBalance").value;
-
-
         var SID = document.getElementById("SID").value;
         var SLB = document.getElementById("LastBalance").value;
-
         var SCB = document.getElementById("CurrentBalance").value;
         var AID = $('#accounts').find(":selected").val();
-        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB, AID];
-
-
-
-
-        var array = JSON.stringify(myRow2);
-        // alert(array);
-
-
-        var xhttp = new XMLHttpRequest();
+        var SupplierID = $('#SupplierName').find(":selected").val();
 
         if (AID == "") {
             alert("Payment Method not selected");
-        } else {
+        }else if (SupplierID == " ") {
+            alert("Supplier not selected");
+        }else if (myTrows == "") {
+            alert("Please Select a Product");
+        }else if (discount == "") {
+            alert('Please fill "Discount" Field');
+        }else if (tax == "") {
+            alert('Please fill "Tax" Field');
+        }else if (amp == "") {
+            alert('Please fill "Amount Paid" Field');
+        }else {
+        myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, SLB, SCB, AID];
+        var array = JSON.stringify(myRow2);
+        var xhttp = new XMLHttpRequest();
+ 
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
 
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
+                alert("Invoice =" + this.responseText + " is generated");
 
-                    alert("Invoice =" + this.responseText + " is generated");
+            }
+        };
+        // var MenuID=$('#Menus').find(":selected").val();
+        xhttp.open("GET", "./addPurchaseForSS/" + array, true);
 
-                }
-            };
-
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./addPurchaseForSS/" + array, true);
-
-            xhttp.send();
+        xhttp.send();
+        
+        
         }
-        // }else{
-        //         alert("Payment Method is not selected");
-        //     }
     }
 
     function validation() {
@@ -1716,6 +1711,8 @@
 
 <script>
     function getInvoiceStock() {
+        document.getElementById("saveBtn").disabled = true; 
+        document.getElementById("editBtn").disabled = false; 
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -1735,6 +1732,7 @@
                 grossTotal = Number(a[0].FirstTotal)-Number(a[0].Discount);
                 document.getElementById("grossTotal").value = grossTotal;
                 document.getElementById("tax").value = a[0].VAT;
+                taxCalculation();
                 document.getElementById("NetTotal").value = a[0].NetTotal;
                 document.getElementById("AmountPaid").value = a[0].AmountPaid;
                 document.getElementById("RemainingBalance").value = a[0].PurchaseBalance;
@@ -1861,6 +1859,7 @@ myTrows.shift();
 //var invoiceNumber=getInvoiceID();
 var tot = document.getElementById("Total").value;
 var SupplierName = $('#SupplierName').find(":selected").text();
+var SupplierID = $('#SupplierName').find(":selected").val();
 var contact = document.getElementById('CNO').value;
 var discount = document.getElementById('DiscountOverall').value;
 if (discount == "") {
@@ -1883,13 +1882,22 @@ var AID = $('#accounts').find(":selected").val();
 myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, CLB, CCB, AID, SupplierName,
     contact
 ];
-alert(myRow2);
+
 var array = JSON.stringify(myRow2);
 var xhttp = new XMLHttpRequest();
 if (AID == "") {
     alert("Payment Method not selected");
-
-} else {
+}else if (SupplierID == " ") {
+    alert("Supplier not selected");
+}else if (myTrows == "") {
+    alert("Please Select a Product");
+}else if (discount == "") {
+    alert('Please fill "Discount" Field');
+}else if (tax == "") {
+    alert('Please fill "Tax" Field');
+}else if (amp == "") {
+    alert('Please fill "Amount Paid" Field');
+}else {
 
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {

@@ -33,6 +33,7 @@
                             </tbody>
 
                         </table>
+                        <button onclick="hideColumn()">Hide</button>
                         <button class="btn btn-success" onclick="printStockData()">Print </button>
                     </div>
                 </div>
