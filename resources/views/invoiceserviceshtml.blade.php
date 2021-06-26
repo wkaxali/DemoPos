@@ -46,39 +46,39 @@
                                     <div class="myOwnRow-left">
                                         <div class="input-field">
                                             <label for="status">Product ID</label>
-                                            <input type="text" autocomplete="OFF" class="form-control"
+                                            <input readonly type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="PID">
                                         </div>
                                         <div class="input-field">
                                             <label for="status">Model</label>
-                                            <input type="text" autocomplete="OFF" class="form-control"
+                                            <input readonly type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="ProductName">
                                         </div>
 
                                         <div class="input-field">
                                             <label for="status">Color</label>
-                                            <input type="text" autocomplete="OFF" class="form-control"
+                                            <input readonly type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="color">
                                         </div>
 
                                         <div class="input-field">
                                             <label for="status">Chassis Number </label>
-                                            <input type="text" autocomplete="OFF" class="form-control"
+                                            <input readonly type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="ChasisNumber">
                                         </div>
                                         <div class="input-field">
                                             <label for="status">Engine Number</label>
-                                            <input type="text" autocomplete="OFF" class="form-control"
+                                            <input readonly type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="EngineNumber">
                                         </div>
                                         <div class="input-field">
                                             <label for="status">Status</label>
-                                            <input type="text" autocomplete="OFF" class="form-control"
+                                            <input readonly type="text" autocomplete="OFF" class="form-control"
                                                 style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                 name="name" id="Status">
                                         </div>
@@ -103,7 +103,7 @@
 
 
                                                 <div class="input-field">
-                                                    <label for="status">Description</label>
+                                                    <label readonly for="status">Description</label>
                                                     <input type="text" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                         name="name" id="description">
@@ -111,11 +111,11 @@
 
                                                 <div class="input-field">
                                                     <label for="status">Invoice Price</label>
-                                                    <input type="number" autocomplete="OFF" class="form-control"
+                                                    <input readonly type="number" autocomplete="OFF" class="form-control"
                                                         style="display: inline-block !important; height: 30px !important; width: 183px;"
                                                         name="name" id="TotalPrice">
                                                     <!-- <label for="status">Total Cost</label> -->
-                                                    <input type="number" autocomplete="OFF" class="form-control"
+                                                    <input readonly type="number" autocomplete="OFF" class="form-control"
                                                         style="display: none !important; height: 30px !important; width: 183px;"
                                                         name="name" id="TotalCost"><br>
                                                     <!-- <label for="status">17 % Tax on Price</label> -->
@@ -219,20 +219,20 @@
                                     </div>
                                     <div class="input-field">
                                         <label for="status">Client's Father Name</label>
-                                        <input type="text" autocomplete="OFF" class="form-control"
+                                        <input readonly type="text" autocomplete="OFF" class="form-control"
                                             style="display: inline-block !important; height: 30px !important; width: 183px;"
                                             name="name" id="fatherName">
                                     </div>
                                     <div class="input-field">
                                         <label for="status">Customer CNIC</label>
-                                        <input type="number" autocomplete="OFF" class="form-control"
+                                        <input readonly type="number" autocomplete="OFF" class="form-control"
                                             style="display: inline-block !important; height: 30px !important; width: 183px;"
                                             name="name" id="CNIC">
 
                                     </div>
                                     <div class="input-field">
                                         <label for="status">Movement City/Area</label>
-                                        <input type="text" autocomplete="OFF" class="form-control"
+                                        <input readonly type="text" autocomplete="OFF" class="form-control"
                                             style="display: inline-block !important; height: 30px !important; width: 183px;"
                                             name="name" id="city">
 
@@ -284,13 +284,13 @@
 
                                     <div class="input-field">
                                         <label for="status">Address</label>
-                                        <input type="text" autocomplete="OFF" class="form-control"
+                                        <input readonly type="text" autocomplete="OFF" class="form-control"
                                             style="display: inline-block !important; height: 30px !important; width: 183px;"
                                             name="name" id="Address">
                                     </div>
                                     <div class="input-field">
                                         <label for="status">Contact</label>
-                                        <input type="text" autocomplete="OFF" class="form-control"
+                                        <input readonly type="text" autocomplete="OFF" class="form-control"
                                             style="display: inline-block !important; height: 30px !important; width: 183px;"
                                             name="name" id="contact">
                                     </div>
@@ -308,7 +308,7 @@
                                     </div>
                                     <div class="input-field">
                                         <label for="status">Remaining</label>
-                                        <input type="number" autocomplete="OFF" class="form-control"
+                                        <input readonly type="number" autocomplete="OFF" class="form-control"
                                             style="display: inline-block !important; height: 30px !important; width: 183px;"
                                             name="name" id="amountRemaining">
                                     </div>

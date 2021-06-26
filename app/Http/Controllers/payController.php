@@ -36,16 +36,10 @@ class payController extends Controller
           'LID'=> $LID,
         ]);
 
-        if($advanceCat=="Deductable"){
+        $bal=employeeController::getEmployeeBalance($paidTo);
+        $newbal= floatval($bal)-floatval($amount);
 
-          $bal=employeeController::getEmployeeBalance($paidTo);
-          $newbal= floatval($bal)-floatval($amount);
-          $eb = DB::table('tblemployees')
-          ->where('EID', $paidTo)
-          ->update([
-            'Balance'=>$newbal
-          ]);
-        }
+
 
         $id=DB::table('tbl_employee_payments_flow')->insertGetId([
           'EmployeeID'=> $paidTo,
@@ -53,8 +47,23 @@ class payController extends Controller
           'Date'=>$date,
           'AdvanceCategory'=>$advanceCat,
           'EmployeeBalanceBefore'=>$bal,
-          'EmployeeBalanceAfter'=>$newbal,
-        ]);  
+          'EmployeeBalanceAfter'=>$bal,
+        ]);
+
+        if($advanceCat=="Deductable"){
+
+          $eb = DB::table('tblemployees')
+          ->where('EID', $paidTo)
+          ->update([
+            'Balance'=>$newbal
+          ]);
+
+          $eb = DB::table('tbl_employee_payments_flow')
+          ->where('paymentID', $id)
+          ->update([
+            'EmployeeBalanceAfter'=>$newbal
+          ]);
+        }
 
         if($PT=="Party"){
           $re = DB::table('tbltransactionflow')
@@ -285,8 +294,9 @@ public static function getEmpPay($eid){
 }
 
 public static function getCommissionData($year, $month, $EID){
-  $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$month.' AND EID ='.$EID.' AND year(date) ='.$year);
-  $attendanceData=DB::select('select * from tbl_employeeattendance where month(date) ='.$month.' AND EID ='.$EID.' AND year(date) ='.$year);
+  $M=$month+1;
+  $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$M.' AND EID ='.$EID.' AND year(date) ='.$year);
+  $attendanceData=DB::select('select * from tbl_employeeattendance where month(date) ='.$M.' AND EID ='.$EID.' AND year(date) ='.$year);
   $dailyPay = DB::table('tblemployeepay')
   ->where('EID', $EID)
   ->first()->PayPerDay;
@@ -306,18 +316,7 @@ public static function getCommissionData($year, $month, $EID){
   }
 
   $deduction=round(floatval($absents)*floatval($dailyPay));
-  
-
-  $bal=DB::select('select AmountPaid from tbl_employee_payments_flow where AdvanceCategory = "Deductable" AND EmployeeID ='.$EID.' AND year(date) ='.$year);
-  
- 
-  $advance=0;
-  
-  
-  foreach($bal as $d){
-    $advance=$advance+$d->AmountPaid;
-  }
-
+  $advance=employeeController::getEmployeeBalance($EID);
   $data=[$No,$commission,$absents,$deduction,$advance];
   return $data;
 }

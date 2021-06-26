@@ -382,10 +382,10 @@
                                     <label for="">Absents Deductions</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="absentdeduction">
                                     <br>
-                                    <label for="">Already Paid</label>
-                                    <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="advance">
+                                    <label for="">Employee Balance</label>
+                                    <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="balance">
                                     <br>
-                                    <label for="">Deduction</label>
+                                    <label for="">Total Deduction</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="deduction">
                                     <br><br>
                                     <label for="">Total Payable</label>
@@ -510,7 +510,7 @@
 
             document.getElementById("totalSales").value = "";
             document.getElementById("totalCommission").value = "";
-            document.getElementById("advance").value = "";
+            document.getElementById("balance").value = "";
             document.getElementById("absents").value = "";
             document.getElementById("absentdeduction").value = "";
             document.getElementById("payable").innerHTML = "";
@@ -738,11 +738,11 @@
                     document.getElementById("totalSales").value = a[0];
                     document.getElementById("totalCommission").value = Math.round(Number(a[1]));
                     totalPay = document.getElementById("total").value;
-                    document.getElementById("advance").value = a[4];
+                    document.getElementById("balance").value = a[4];
                     document.getElementById("absents").value = a[2];
                     document.getElementById("absentdeduction").value = a[3];
-                    document.getElementById("deduction").value = a[3]+a[4];
-                    document.getElementById("payable").innerHTML = Math.round(a[1]+Number(totalPay)-Number(a[3]) - Number(a[4]));
+                    document.getElementById("deduction").value = a[3]-a[4];
+                    document.getElementById("payable").innerHTML = Math.round(a[1]+Number(totalPay)-Number(a[3]) + Number(a[4]));
                     document.getElementById("monthSalary").innerHTML = Math.round(a[1]+Number(totalPay));
                 }
             };
@@ -761,7 +761,7 @@
         }
             function printSalary(){
                 var EID = $('#name').find(":selected").val();
-               var adv= document.getElementById("advance").value;
+               var adv= document.getElementById("balance").value;
                 alert(EID);
                 var xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function () {
@@ -789,9 +789,9 @@
             totalDeduction=document.getElementById("deduction").value;
             totalComission=document.getElementById("totalCommission").value;
             absentDeduction=document.getElementById("absentdeduction").value;
-            advance=document.getElementById("advance").value;
+            balance=document.getElementById("balance").value;
             payData=[amountPaid, payable, amountRemaining, date, month, year, EID, AID, remarks,
-            totalDeduction, totalComission, absentDeduction, advance, monthSalary];
+            totalDeduction, totalComission, absentDeduction, balance, monthSalary];
             data=JSON.stringify(payData);
             
             var xhttp = new XMLHttpRequest();

@@ -44,8 +44,6 @@ use App\Http\Controllers\summaryReportController;
 use App\Http\Controllers\employeeAllowanceController;
 use App\Http\Controllers\purchaseStockEditController;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,12 +80,8 @@ Route::get('/addUsers/{data}',[userAccountController::class, 'addUsers']);
 Route::get('/printGatePass/{ID}',[TEST::class, 'gatePass']);
 Route::get('/invoiceDetails/{ID}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
-
 Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliveryLetter']);
-
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
-
-
 Route::get('/printSalaries/{ID}/{adv}',[printSalarySlip::class, 'printsalarySlip']);
 Route::get('/printsse/{ID}/{adv}',[printSalarySlip::class, 'printsalarySlip']);
 Route::get('/getDocuments',[printDocuments::class, 'getDocuments']);
@@ -95,7 +89,6 @@ Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
 Route::get('/fetchMenu/{CID}',[AddMenucontroller::class, 'fetchMenu']);
 Route::get('/fetchCategoriesInOptions',[AddMenucontroller::class, 'getCategoriesForSelectMenu']);
-
 Route::get('/addNewEmployee/{data}',[employeeController::class, 'addNewEmployee']);
 Route::get('/getAllEmployees',[employeeController::class, 'getAllEmployees']);
 Route::get('/getsignin/{data}',[signInSignUPcontroller::class, 'InsertAdmin']);
@@ -112,27 +105,16 @@ Route::get('/getExpenses',[expenseController::class, 'getExpenses']);
 Route::get('/getEmployeePayment',[payController::class, 'getEmployeePayment']);
 Route::get('/getPartyPayment',[payController::class, 'getPartyPayment']);
 Route::get('/editExpense',[expenseController::class, 'editExpense']);
-
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
 Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
-
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
-//qutationRequest
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
-
-//Route::get('/testpdf/5',[TEST::class, 'qutationRequestFinal']);
-
-//Route::get('/sum',[TEST::class, 'summary']);
-
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
-//Route::get('/getqoute/{id}',[quotationController::class, 'getQuotation']);
 
 //---------------------------//LedgerPartiesController
-
 Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer']);
-
-Route::get('/getAllCustomers/',[CustomerController::class, 'getAllCustomers']);
-Route::get('/getCustomerNames/',[CustomerViewController::class, 'getCustomerNames']);
+Route::get('/getAllCustomers',[CustomerController::class, 'getAllCustomers']);
+Route::get('/getCustomerNames',[CustomerViewController::class, 'getCustomerNames']);
 //Route::get('/getAllSupliers/',[CustomerController::class, 'getAllCustomers']);
 Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail']);
 Route::get('/getCustomers',[CustomerController::class, 'getCustomers']);

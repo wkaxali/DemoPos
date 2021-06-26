@@ -237,9 +237,6 @@
                                         <label for="">Remarks</label>
                                         <input type="text" class="form-control" style="display: inline-block; width: 192px;"
                                         value="" name="" id="remarks"><br>
-                                        <label for="">Remaining</label>
-                                        <input readonly type="number" class="form-control" style="display: inline-block; width: 192px;"
-                                        value="" name="" id="remaining"><br>
                                 <button class="btn" onclick="add(), calculatonInTable()"  >Add</button>
                             </div>
 
