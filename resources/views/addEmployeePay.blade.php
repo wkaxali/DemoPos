@@ -180,8 +180,8 @@
     </style>
     </head>
 
-    <body onload="loadFunctions()">
-    <main>
+    <body onload="loadFunctions()">  
+    <main> 
     <div class="container">
     <div class="row">
     <div class="col-md-12 text-center">

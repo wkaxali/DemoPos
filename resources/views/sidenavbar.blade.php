@@ -57,8 +57,8 @@ style="font-size: 14px;">Expenses</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs3">
 <li><a href="/ex">Daily Expense</a></li>
+<li><a href="/pay">Payments</a></li>
 
-<li><a href="/ex">Add Expense</a></li>
 <li><a href="/dex">Delete Expense</a></li>
 <li><a href="/exv">Expense List</a></li>
 <li><a href="/aeh">Add Expense Head</a></li>
@@ -74,7 +74,7 @@ style="float: right"></span></a>
 </li>
 <li><a href="/ss">Service Sales Invoice</a></li>
 <li><a href="/th">Transaction History</a></li>
-
+<li><a href="/sales">View Sales</a></li>
 </ul>
 </li>
 
@@ -88,8 +88,6 @@ style="float: right"></span></a>
 <li id="menu-mensagens" style="width: 201px"><a href="/dpay">Delete Payments</a>
 </li>
 <li id="menu-mensagens" style="width: 201px"><a href="/ep">Employee Payments</a>
-</li>
-<li id="menu-mensagens" style="width: 201px"><a href="/th">Transaction History</a>
 </li>
 
 
@@ -112,19 +110,20 @@ style="float: right"></span></a>
 <ul class="collapse firstULs7">
 <li><a href="/ae">Add Employee</a></li>
 <li><a href="ee">View/Edit Employee</a></li>
-<!-- <li><a href="/pr">Payroll</a></li> -->
+<li><a href="/pr">Payroll</a></li>
 <li id="menu-academico-avaliacoes"><a href="/atv">View Attendance</a></li>
 <li id="menu-academico-boletim"><a href="/at">Mark Attendance</a></li>
 
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-vials"></i><span
-style="font-size: 14px;">Account Settings</span><span class="fa fa-angle-right"
+style="font-size: 14px;">Settings</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs8">
 <li><a href="/suu">Add User</a></li>
 <li><a href="eu">Edit User</a></li>
-
+<li><a href="/aa">Add Account</a></li>
+<li><a href="ea">Edit Account</a></li>
 </ul>
 </li>
 
@@ -204,10 +203,8 @@ Tracking</span><span class="fa fa-angle-right" style="float: right;"></span></a>
 style="font-size: 14px;">PayRoll</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs12" id="menu-academico-sub">
-
 <li id="menu-academico-avaliacoes"><a href="/aep">Assign Pay</a></li>
-<li id="menu-academico-avaliacoes"><a href="/pr">Employee Salary</a></li>
-<li id="menu-academico-avaliacoes"><a href="/ep">Employee Payments</a></li>
+<li id="menu-academico-avaliacoes"><a href="/ep">Add Employee Pay</a></li>
 <li id="menu-academico-avaliacoes"><a href="/adal">Add Allowance Head </a></li>
 <li id="menu-academico-avaliacoes"><a href="/edal">Edit Allowance Head</a></li>
 <li id="menu-academico-avaliacoes"><a href="/dEPay">Delete Employee Pay</a></li>

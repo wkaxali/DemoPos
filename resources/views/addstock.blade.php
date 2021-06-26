@@ -284,7 +284,7 @@
 
 </head>
 
-<body>
+<body> @include('sidenavbar')
     <header>
         <div class="container">
             <div class="row">

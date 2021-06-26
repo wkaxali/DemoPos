@@ -238,7 +238,8 @@
                         </div>
                     </div>
                     
-                    <div class="clearfix">@include('sidenavbar')</div>
+                    @include('sidenavbar')
+        <div class="clearfix"></div>
             </div>
 
 
@@ -482,7 +483,8 @@
                         if (this.readyState == 4 && this.status == 200) {
                             
                             var data = this.responseText;
-                    
+                              
+                             
                             var table;
                             var a = JSON.parse(data);
                         
@@ -505,13 +507,17 @@
                     
                  }
                  if((category.trim()==="Salary Payment".trim())){
-
+                    var table = $('#example').DataTable();
+ 
+alert( 'total '+table.columns().count()+' column  ' );
                 $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
                 $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
                 $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
                 $('#myTable').dataTable().fnSetColumnVis( 2, false );
                  } else if((category.trim()==="Party Payment".trim())){
 
+                    var table = $('#example').DataTable();
+                    alert( 'total '+table.columns().count()+' column  ' );
                 $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
                 $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
             $('#myTable').dataTable().fnSetColumnVis( 5, false ); 

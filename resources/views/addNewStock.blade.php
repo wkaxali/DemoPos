@@ -6534,7 +6534,7 @@
 <body id="mainBody" onload="loadData()">
 
     @include('addnewstockhtml')
-
+    @include('sidenavbar')
 
 
 

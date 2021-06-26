@@ -44,7 +44,9 @@ margin: 0 auto;
 </style>
 </head>
 
-<body onload="getAllowance()">
+<body onload="getAllowance()"> <div class="page-container">
+
+<div class="left-content">
 <div class="container">
 
 <header class="idi">
@@ -102,7 +104,10 @@ id="AllowanceName">
 </section>
 </div>
 
-
+</div>
+    @include('sidenavbar')
+    <div class="clearfix"></div>
+    </div>
 
 
 
