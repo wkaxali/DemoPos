@@ -300,7 +300,7 @@ public static function getCommissionData($year, $month, $EID){
   $deduction=round(floatval($absents)*floatval($dailyPay));
   
 
-  $bal=DB::select('select AmountPaid from tbl_employee_payments_flow where month(Date) ='.$month.' AND EmployeeID ='.$EID.' AND year(date) ='.$year);
+  $bal=DB::select('select AmountPaid from tbl_employee_payments_flow where SalaryOf is null AND EmployeeID ='.$EID.' AND year(date) ='.$year);
   
  
   $advance=0;

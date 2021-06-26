@@ -232,29 +232,32 @@
                     </div>
                     <div class="col-md-3 okay-invo-2">
                         <label for="invo-1" style="width: 130px;">Total</label>
-                        <input type="text" class="form-control"
+                        <input readonly type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="Total">
 
                         <label for="prod-1" style="width: 130px;">Discount</label>
-                        <input type="text" class="form-control"
+                        <input type="number" value=0 class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1"
                             id="DiscountOverall" onchange="calc()">
                         <label for="invo-1" style="width: 130px;">Gross Total</label>
-                        <input type="text" class="form-control"
+                        <input readonly type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="grossTotal">
                         <label for="prod-1" style="width: 130px;"> Tax %</label>
-                        <input type="text" class="form-control"
+                        <input type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="tax"
-                            onchange="calc()">
+                            onchange="calc()" value=0>
+                        <label for="prod-1" style="width: 130px;"> Tax Amount</label>
+                        <input readonly type="number" class="form-control"
+                            style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="taxAmount">
                         <label for="prod-1" style="width: 130px;">Net Total</label>
-                        <input type="text" class="form-control"
+                        <input readonly type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="NetTotal">
                         <label for="invo-1" style="width: 130px; font-weight: 500;">Amount Paid</label>
-                        <input type="text" class="form-control"
+                        <input type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="AmountPaid"
                             onchange="calcForBalance()">
                         <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
-                        <input type="text" class="form-control"
+                        <input readonly type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1"
                             id="RemainingBalance">
 

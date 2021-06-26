@@ -374,13 +374,15 @@
                                     <label for="">Total Commission</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="totalCommission">
                                     <br>
+                                    <label for="">Month Salary</label>
+                                    <h1 id="monthSalary">0</h1>
                                     <label for="">Total Absents</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="absents">
                                     <br>
-                                    <label for="">Absent's Deductions</label>
+                                    <label for="">Absents Deductions</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="absentdeduction">
                                     <br>
-                                    <label for="">Advance</label>
+                                    <label for="">Already Paid</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="advance">
                                     <br>
                                     <label for="">Deduction</label>
@@ -739,7 +741,9 @@
                     document.getElementById("advance").value = a[4];
                     document.getElementById("absents").value = a[2];
                     document.getElementById("absentdeduction").value = a[3];
+                    document.getElementById("deduction").value = a[3]+a[4];
                     document.getElementById("payable").innerHTML = Math.round(a[1]+Number(totalPay)-Number(a[3]) - Number(a[4]));
+                    document.getElementById("monthSalary").innerHTML = Math.round(a[1]+Number(totalPay));
                 }
             };
             
@@ -781,8 +785,13 @@
             var year = $('#year').find(":selected").text();
             var EID = $('#name').find(":selected").val();
             var AID = $('#paidBy').find(":selected").val();
-
-            payData=[amountPaid, payable, amountRemaining, date, month, year, EID, AID, remarks];
+            monthSalary=document.getElementById("monthSalary").innerHTML;
+            totalDeduction=document.getElementById("deduction").value;
+            totalComission=document.getElementById("comission").value;
+            absentDeduction=document.getElementById("absentDeduction").value;
+            advance=document.getElementById("advance").value;
+            payData=[amountPaid, payable, amountRemaining, date, month, year, EID, AID, remarks,
+            totalDeduction, totalComission, absentDeduction, advance];
             data=JSON.stringify(payData);
             
             var xhttp = new XMLHttpRequest();

@@ -132,19 +132,21 @@
                         <div class="col-md-6">
                             <label for="">Amount</label>
                             <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-                                value="" name=""  onclick="calculatonInTable()" id="amount"><br>
+                                value="" name=""  onchange="calculatonInTable()" id="amount"><br>
                             <label for="">Paid To</label>
                             <select 
                                 class="selectpicker form-control"  data-live-search="true"  id="paidTo" onchange="getAmount()">
                             
                             </select>
-                            <!-- <button class="btn btn-info">+</button> -->
                             <br>
                             <label for="">Paid by</label>
                             <select 
                                 class="selectpicker form-control"  data-live-search="true"  id="paidBy" >
                             
                             </select>
+                            <br>
+                            <label for="">Balance:</label>
+                            <h1 id = "balance">0</h1>
                         </div>
                         <div class="col-md-4 offset-md-2">
                             
@@ -156,10 +158,14 @@
                             <label style="width: 100px !important;" for="">Date</label>
                             <input type="date" style="width: 240px;" name="" id="date"><br>
                             <div class="expenseButtons">
-                            <label for="">Remarks</label>
-                            <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-                                value="" name="" id="remarks">
+                            
                                 <br>
+                                        <label for="">Remarks</label>
+                                        <input type="text" class="form-control" style="display: inline-block; width: 192px;"
+                                        value="" name="" id="remarks"><br>
+                                        <label for="">Remaining</label>
+                                        <input readonly type="number" class="form-control" style="display: inline-block; width: 192px;"
+                                        value="" name="" id="remaining"><br>
                                 <button class="btn" onclick="add(), calculatonInTable()"  >Add</button>
                             </div>
 
@@ -295,18 +301,20 @@
           calculatonInTable(5);
       }
 
-      function calculatonInTable(){
+    function calculatonInTable(){
+        var amount=document.getElementById("amount").value;
+        var balance=Number(document.getElementById("balance").innerHTML);
+        document.getElementById("remaining").value = balance-amount;
+        var t=document.getElementById("expenseTable");
+        var tot=0;
 
-var t=document.getElementById("expenseTable");
-var tot=0;
+        var x = document.getElementById("expenseTable").rows.length;
 
-var x = document.getElementById("expenseTable").rows.length;
-
-for (var i = 1; i <x ; i++){
-    tot=tot+Number(t.rows[i].cells[1].innerText);
-}
-document.getElementById("mainTotal").value=tot;
-      }
+        for (var i = 1; i <x ; i++){
+            tot=tot+Number(t.rows[i].cells[1].innerText);
+        }
+        document.getElementById("mainTotal").value=tot;
+    }
     </script>
 
 
@@ -411,7 +419,7 @@ function loadAccounts(){
             
             if (this.readyState == 4 && this.status == 200) {
                 
-                document.getElementById("amount").value = this.response;
+                document.getElementById("balance").innerHTML = this.response;
             }
         };
     

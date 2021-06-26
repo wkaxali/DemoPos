@@ -1464,7 +1464,7 @@
 
                 //$("#searchModal").modal('hide');
                 //calculation than enter price
-                alert("Item added");
+                
 
 
                 cell8.innerHTML =
@@ -1670,6 +1670,13 @@
         var AID = $('#accounts').find(":selected").val();
         var SupplierID = $('#SupplierName').find(":selected").val();
 
+        if (discount == "") {
+            document.getElementById('DiscountOverall').value = 0;
+    
+        }if (tax == "") {
+            document.getElementById('tax').value = 0;
+        }
+
         if (AID == "") {
             alert("Payment Method not selected");
         }else if (SupplierID == " ") {
@@ -1862,12 +1869,6 @@ var SupplierName = $('#SupplierName').find(":selected").text();
 var SupplierID = $('#SupplierName').find(":selected").val();
 var contact = document.getElementById('CNO').value;
 var discount = document.getElementById('DiscountOverall').value;
-if (discount == "") {
-
-    discount = 0;
-    document.getElementById('DiscountOverall').value = 0;
-
-}
 var invoiceID = document.getElementById('InvoiceID').value;
 var gross = document.getElementById('grossTotal').value;
 var tax = document.getElementById('tax').value;
@@ -1878,6 +1879,13 @@ var SID = document.getElementById("SupplierName").value;
 var CLB = document.getElementById("LastBalance").value;
 var CCB = document.getElementById("CurrentBalance").value;
 var AID = $('#accounts').find(":selected").val();
+
+if (discount == "") {
+    document.getElementById('DiscountOverall').value = 0;
+    
+}if (tax == "") {
+    document.getElementById('tax').value = 0;
+}
 
 myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, SID, CLB, CCB, AID, SupplierName,
     contact
