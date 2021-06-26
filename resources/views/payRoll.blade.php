@@ -339,18 +339,18 @@
                                 <label for="">Salary of</label>
                                         <select id='month' onchange="searchMonthlyCommission()" style="display: inline-block;width: 150px;">
                                             <option selected value=''>--Select Month--</option>
-                                            <option value='1'>Janaury</option>
-                                            <option value='2'>February</option>
-                                            <option value='3'>March</option>
-                                            <option value='4'>April</option>
-                                            <option value='5'>May</option>
-                                            <option value='6'>June</option>
-                                            <option value='7'>July</option>
-                                            <option value='8'>August</option>
-                                            <option value='9'>September</option>
-                                            <option value='10'>October</option>
-                                            <option value='11'>November</option>
-                                            <option value='12'>December</option>
+                                            <option value='0'>Janaury</option>
+                                            <option value='1'>February</option>
+                                            <option value='2'>March</option>
+                                            <option value='3'>April</option>
+                                            <option value='4'>May</option>
+                                            <option value='5'>June</option>
+                                            <option value='6'>July</option>
+                                            <option value='7'>August</option>
+                                            <option value='8'>September</option>
+                                            <option value='9'>October</option>
+                                            <option value='10'>November</option>
+                                            <option value='11'>December</option>
                                         </select>
                                         <select id='year' onchange="searchMonthlyCommission()" style="display: inline-block;width: 100px;">
                                             <option selected value=''>--Year--</option>
@@ -787,11 +787,11 @@
             var AID = $('#paidBy').find(":selected").val();
             monthSalary=document.getElementById("monthSalary").innerHTML;
             totalDeduction=document.getElementById("deduction").value;
-            totalComission=document.getElementById("comission").value;
-            absentDeduction=document.getElementById("absentDeduction").value;
+            totalComission=document.getElementById("totalCommission").value;
+            absentDeduction=document.getElementById("absentdeduction").value;
             advance=document.getElementById("advance").value;
             payData=[amountPaid, payable, amountRemaining, date, month, year, EID, AID, remarks,
-            totalDeduction, totalComission, absentDeduction, advance];
+            totalDeduction, totalComission, absentDeduction, advance, monthSalary];
             data=JSON.stringify(payData);
             
             var xhttp = new XMLHttpRequest();

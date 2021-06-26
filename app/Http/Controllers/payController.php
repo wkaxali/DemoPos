@@ -21,31 +21,39 @@ class payController extends Controller
         
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
-        $expenseName=$obj[2];
-        $paidTo=$obj[3];
-        $paidVia=$obj[4];
-        $remarks=$obj[5];
+        $advanceCat=$obj[2];
+        $expenseName=$obj[3];
+        $paidTo=$obj[4];
+        $paidVia=$obj[5];
+        $remarks=$obj[6];
 
         $TID=DB::table('tbltransactionflow')->insertGetId([
-        'DateStamp'=>$date,
-        'Amount'=>$amount,
-        'PaidVia'=>$paidVia,
-        'TransactionType'=>"Debit",
-        'Remarks'=>$remarks,
-        'LID'=> $LID,
+          'DateStamp'=>$date,
+          'Amount'=>$amount,
+          'PaidVia'=>$paidVia,
+          'TransactionType'=>"Debit",
+          'Remarks'=>$remarks,
+          'LID'=> $LID,
         ]);
 
-        $bal=employeeController::getEmployeeBalance($paidTo);
-        $newbal= floatval($bal)-floatval($amount);
-        $eb = DB::table('tblemployees')
-        ->where('EID', $paidTo)
-        ->update([
-          'Balance'=>$newbal
-        ]);
+        if($advanceCat=="Deductable"){
+
+          $bal=employeeController::getEmployeeBalance($paidTo);
+          $newbal= floatval($bal)-floatval($amount);
+          $eb = DB::table('tblemployees')
+          ->where('EID', $paidTo)
+          ->update([
+            'Balance'=>$newbal
+          ]);
+        }
+
         $id=DB::table('tbl_employee_payments_flow')->insertGetId([
           'EmployeeID'=> $paidTo,
           'AmountPaid'=>$amount,       
           'Date'=>$date,
+          'AdvanceCategory'=>$advanceCat,
+          'EmployeeBalanceBefore'=>$bal,
+          'EmployeeBalanceAfter'=>$newbal,
         ]);  
 
         if($PT=="Party"){
@@ -56,6 +64,7 @@ class payController extends Controller
               'TransactionCatogery'=>'Party Payment',
           ]);
         }
+        
         if($PT=="Employee"){
           $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $TID)
@@ -64,8 +73,7 @@ class payController extends Controller
               'TransactionCatogery'=>'Salary Payment'
               
           ]);
-
-      }
+        }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance - $amount;
@@ -300,7 +308,7 @@ public static function getCommissionData($year, $month, $EID){
   $deduction=round(floatval($absents)*floatval($dailyPay));
   
 
-  $bal=DB::select('select AmountPaid from tbl_employee_payments_flow where SalaryOf is null AND EmployeeID ='.$EID.' AND year(date) ='.$year);
+  $bal=DB::select('select AmountPaid from tbl_employee_payments_flow where AdvanceCategory = "Deductable" AND EmployeeID ='.$EID.' AND year(date) ='.$year);
   
  
   $advance=0;
@@ -326,8 +334,15 @@ public static function paySalary($data){
   $EID = $obj[6];
   $AID = $obj[7];
   $remarks = $obj[8];
+  $totalDeduction = $obj[9];
+  $totalComission = $obj[10];
+  $absentDeduction = $obj[11];
+  $advance = $obj[12];
+  $monthSalary = $obj[13];
 
-  $salaryOf = Carbon::createFromDate($year, $month, 00, 'Europe/Madrid')->format('Y-m-d');;
+
+  
+  $salaryOf = Carbon::createFromDate($year, $month+2, 0, 'Europe/Madrid')->format('Y-m-d');
     $id=DB::table('tbltransactionflow')->insertGetId([
       'DateStamp'=>$date,
       'Amount'=>$amountPaid,
@@ -340,23 +355,19 @@ public static function paySalary($data){
       
     ]);
    
-    // $bal=employeeController::getEmployeeBalance($EID);
-    // $newbal= floatval($bal)-floatval($amountPaid);
-    // $eb = DB::table('tblemployees')
-    // ->where('EID', $EID)
-    // ->update([
-    //   'Balance'=>$newbal
-    // ]);
-
-
-
     $id=DB::table('tbl_employee_payments_flow')->insertGetId([
       'EmployeeID'=>$EID,
-      'TotalPay'=>$payable,
+      'MonthSalary'=>$monthSalary,
+      'TotalPayable'=>$payable,
       'AmountPaid'=>$amountPaid,
       'AmountRemaining'=>$amountRemaining,
       'Date'=>$date,
-      'SalaryOf'=>$salaryOf
+      'SalaryOf'=>$salaryOf,
+      'TotalDeduction'=>$totalDeduction,
+      'TotalCommission'=>$totalComission,
+      'AbsentsDeduction'=>$absentDeduction,
+      'Advance'=>$advance,
+      'Remarks'=>$remarks
       
     ]);  
     
