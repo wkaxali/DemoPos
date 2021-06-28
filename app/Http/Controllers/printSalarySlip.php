@@ -85,7 +85,7 @@ class printSalarySlip extends Controller
   
   
 <tr>
-<td style="background-color:skyblue; " colspan="2" align="center">
+<td style="background-color: blue; color:white; " colspan="2" align="center">
 <h4> Earning</h4>
 </td>
  
@@ -133,7 +133,7 @@ Total
    <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
    
 <tr>
-<td colspan="2" align="center">
+<td colspan="2" align="center" style="background-color:red; color:white;">
 <h4>
 Deduction
 </h4>
@@ -263,7 +263,7 @@ Net Total
   
   
 <tr>
-<td colspan="2" align="center">
+<td style="background-color: blue; color:white; " colspan="2" align="center">
 <h4> Earning</h4>
 </td>
  
@@ -311,7 +311,7 @@ Total
    <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
    
 <tr>
-<td colspan="2" align="center">
+<td colspan="2" align="center" style="background-color:red; color:white;">
 <h4>
 Deduction
 </h4>
@@ -348,7 +348,6 @@ Net Total
 </td>
 </tr>
    </table>
-  
   
   
   
