@@ -259,7 +259,7 @@
                         <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
                         <input readonly type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1"
-                            id="RemainingBalance">
+                            id="RemainingBalance"><br><br>
 
                             <label id="paidme" for="">Paid From</label><br>
                         <select   class="selectpicker form-control" data-live-search="true" id="accounts">

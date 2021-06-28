@@ -17,70 +17,71 @@ class printSalarySlip extends Controller
       session(['ContactNo' => $data[0]->ContactNo]);
       session(['firstName' => $data[0]->FirstName]);
       session(['lastName' => $data[0]->LastName]);
-      // session(['CNIC' => $data[0]->CNIC]);
+      session(['CNIC' => $data[0]->CNIC]);
       session(['DesignationID' => $data[0]->DesignationID]);
       session(['TotalPay' => $data[0]->TotalPay]);
 
-      $netTotal=$data[0]->TotalPay+$adv;
+      $netTotal=$data[0]->TotalPay-$adv;
       $newHTML='
-     
-  <table border="0" style="font-size:11.5 px">
-  <tr>
-  <td colspan=2>
-  <h1 align="center">Forland modern  Motors(Employee)</h1>
-  </td>
+      <table border="0" >
+      <tr>
+      <td >
+      <h1 align="center">Forland modern  Motors(Employee)</h1>
+      </td>
+      
+      
+      </tr> 
+ 
+      <tr>
+      <td> 
+      <h5 cellpadding="0">Employee Name: '.session()->get("firstName").' '.session()->get("lastName").'</h5>
+      </td>
+      
+      
+      
+      </tr>
+      <tr>
+      <td >
+      <h5 cellpadding="0" >Designation: '.session()->get("DesignationID").'</h5>
+      </td>
+      
+      
+      
+      </tr>
+      <tr>
+      <td >
+      <h5 cellpadding="0">Month & Year: '.$date.'</h5>
+      </td>
+      
+      
+      
+      </tr>
+      
+   </table>
   
-  </tr>
+   <br>
   
-  <tr>
-  <td >
-  <h5  align="">Employee Name: '.session()->get("firstName").' '.session()->get("lastName").'</h5>
-  </td>
+   <br>
   
   
-  
-  </tr>
-  <tr>
-  <td >
-  <h5  align="">Designation: '.session()->get("DesignationID").'</h5>
-  </td>
+   <br>
   
   
   
-  </tr>
-  <tr>
-  <td >
-  <h5  align="">Month & Year: '.$date.'</h5>
-  </td>
+   
+   <table border="0" >
+  
+   
+   <tr>
+   <td>
+   
+   <table   CELLPADDING="5" style="font-size:9 px"  border="0.2" >
   
   
   
-  </tr>
   
-</table>
-
-<br>
-
-
-
-<br>
-
-
-
-
-<table border="0" >
-
-
-<tr>
-<td>
-
-<table border="1" CELLPADDING="5" style="font-size:9 px"  border="0.2">
-
-
-
-
-
-
+  
+  
 <tr>
 <td align="center">
 <h4> Earning</h4>
@@ -119,19 +120,18 @@ Total
 '.session()->get("TotalPay").'
 </td>
 </tr>
-
-</table>
-
-
-
-
-
-
-
-</td>
-<td>
-<table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
-
+   </table>
+  
+  
+  
+  
+  
+  
+  
+   </td>
+   <td>
+   <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
+   
 <tr>
 <td align="center">
 <h4>
@@ -171,93 +171,95 @@ Net Total
 '.$netTotal.'
 </td>
 </tr>
+   </table>
+  
+  
+  
+  
+  
+  
+   </td>
+   
+   </tr>
   
    </table>
-
-
-
-
-</td>
-
-</tr>
-
-</table>
-<br>
-  <table style="font-size:9.5 px" >
-<tr><br>
-<td><br><br>
-Cheque No___________________________________
-</td>
-</tr>
-<tr><br>
-<td><br>
-Bank name___________________________________
-</td>
-</tr>
-<tr><br>
-<td><br>
-Sign & stamp__________________________________
-</td>
-</tr>
-</table>
- <br>
- <br><br> <table border="0" style="font-size:11.5 px">
- <tr>
- <td colspan=2>
- <h1 align="center">Forland modern  Motors(Employee)</h1>
- </td>
+   <br>
+      <table style="font-size:9.5 px">
+  <tr>
+  <td><br> <br> 
+  Cheque No___________________________________
+  </td>
+  </tr>
+  <tr>
+  <td><br><br>
+  Bank name___________________________________
+  </td>
+  </tr>
+  <tr>
+  <td><br><br>
+  Sign & stamp__________________________________
+  </td>
+  </tr>
+  </table> 
+  <table border="0" >
+      <tr>
+      <td >
+      <h1 align="center">Forland modern  Motors(Company)</h1>
+      </td>
+      
+      
+      </tr> 
  
- </tr>
- 
- <tr>
- <td >
- <h5  align="">Employee Name: '.session()->get("firstName").' '.session()->get("lastName").'</h5>
- </td>
- 
- 
- 
- </tr>
- <tr>
- <td >
- <h5  align="">Designation: '.session()->get("DesignationID").'</h5>
- </td>
- 
- 
- 
- </tr>
- <tr>
- <td >
- <h5  align="">Month & Year: '.$date.'</h5>
- </td>
- 
- 
- 
- </tr>
- 
-</table>
-
-<br>
-
-
-
-<br>
-
-
-
-
-<table border="0" >
-
-
-<tr>
-<td>
-
-<table border="1" CELLPADDING="5" style="font-size:9 px"  border="0.2">
-
-
-
-
-
-
+      <tr>
+      <td s >
+      <h5 >Employer Name: '.session()->get("firstName").' '.session()->get("lastName").'</h5>
+      </td>
+      
+      
+      
+      </tr>
+      <tr>
+      <td >
+      <h5  >Designation: '.session()->get("DesignationID").'</h5>
+      </td>
+      
+      
+      
+      </tr>
+      <tr>
+      <td >
+      <h5 >Month & Year: '.$date.'</h5>
+      </td>
+      
+      
+      
+      </tr>
+      
+   </table>
+  
+   <br>
+  
+   <br>
+  
+  
+   <br>
+  
+  
+  
+   
+   <table border="0" >
+  
+   
+   <tr>
+   <td>
+   
+   <table   CELLPADDING="5" style="font-size:9 px"  border="0.2" >
+  
+  
+  
+  
+  
+  
 <tr>
 <td align="center">
 <h4> Earning</h4>
@@ -296,19 +298,18 @@ Total
 '.session()->get("TotalPay").'
 </td>
 </tr>
-
-</table>
-
-
-
-
-
-
-
-</td>
-<td>
-<table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
-
+   </table>
+  
+  
+  
+  
+  
+  
+  
+   </td>
+   <td>
+   <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
+   
 <tr>
 <td align="center">
 <h4>
@@ -348,35 +349,36 @@ Net Total
 '.$netTotal.'
 </td>
 </tr>
- 
+   </table>
+  
+  
+  
+  
+  
+  
+   </td>
+   
+   </tr>
+  
+   </table>
+   <br>
+      <table style="font-size:9.5 px">
+  <tr>
+  <td><br> <br> 
+  Cheque No___________________________________
+  </td>
+  </tr>
+  <tr>
+  <td><br><br>
+  Bank name___________________________________
+  </td>
+  </tr>
+  <tr>
+  <td><br><br>
+  Sign & stamp__________________________________
+  </td>
+  </tr>
   </table>
-
-
-
-
-</td>
-
-</tr>
-
-</table>
-<br>
- <table style="font-size:9.5 px" >
-<tr><br>
-<td><br><br>
-Cheque No___________________________________
-</td>
-</tr>
-<tr><br>
-<td><br>
-Bank name___________________________________
-</td>
-</tr>
-<tr><br>
-<td><br>
-Sign & stamp__________________________________
-</td>
-</tr>
-</table>
 
     ';     // $html= $htmldata;
 
