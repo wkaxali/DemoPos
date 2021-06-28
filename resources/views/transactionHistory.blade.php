@@ -482,11 +482,9 @@
                                     a[i].DateStamp
                                 ]);
                             });
-                            table.draw();
-
-                        
+                            table.draw(); 
                     };
-                    
+            
                  }
                  if((category.trim()==="Salary Payment".trim())){
 
