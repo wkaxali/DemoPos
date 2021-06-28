@@ -391,50 +391,91 @@
                             });
                             table.draw();
 
+
+                            if((category.trim()==="Salary Payment".trim())){
+
+
+                            table.column(1).visible(0);
+                            table.column(2).visible(0);
+                            table.column(4).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(3).visible(1);
+
+
+                            } else if((category.trim()==="Party Payment".trim())){
+
+
+                            table.column(1).visible(0);
+                            table.column(3).visible(0);
+                            table.column(4).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(2).visible(1);
+                            }else if((category.trim()==="Booking Order".trim())){
+
+                            table.column(1).visible(0);
+                            table.column(3).visible(0);
+                            table.column(4).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(2).visible(1);
+
+                            }
+
+                            if((category.trim()==="Sales".trim())){
+
+                                
+                            table.column(2).visible(0);
+                            table.column(3).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(4).visible(1);
+                            table.column(1).visible(0);
+                            }else if((category.trim()==="Expense".trim())){
+                            table.column(1).visible(0);
+                            table.column(4).visible(0);
+                            table.column(2).visible(0);
+                            table.column(3).visible(0);
+                            table.column(0).visible(1);
+                            table.column(5).visible(1);
+
+                            }else if((category.trim()==="Transportation Charges".trim())){
+                                table.column(5).visible(0);
+                            table.column(4).visible(0);
+                            table.column(2).visible(0);
+                            table.column(3).visible(0);
+                            table.column(1).visible(1);
+                            table.column(0).visible(1);
+
+                            }else if((category.trim()==="Stock and Purchased".trim())){
+                                table.column(2).visible(0);
+                            table.column(5).visible(0);
+                            table.column(4).visible(1);
+                            table.column(3).visible(0);
+                            table.column(0).visible(1);
+                            table.column(1).visible(1);
+
+                            }else if((category.trim()==="Stock and Service".trim())){
+                                table.column(2).visible(0);
+                            table.column(5).visible(0);
+                            table.column(4).visible(1);
+                            table.column(3).visible(0);
+                            table.column(0).visible(1);
+                            table.column(1).visible(1);
+                            }else if((category.trim()==="Everything".trim())){
+                             
+                            table.column(0).visible(1);
+                            table.column(1).visible(1);
+                            table.column(2).visible(1);
+                            table.column(3).visible(1);
+                            table.column(4).visible(1);
+                            table.column(5).visible(1);
+                            }
                         }
                     };
 
-                    if((category.trim()==="Salary Payment".trim())){
-
-                    
-                    } else if((category.trim()==="Party Payment".trim())){
-
-                    $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
-                    }else if((category.trim()==="Booking Order".trim())){
-
-                    $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
-                    }else if((category.trim()==="Sales".trim())){
-
-                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
-                    }else if((category.trim()==="Expense".trim())){
-                        $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
-                    }else if((category.trim()==="Transportation Charges".trim())){
-                        $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
-                    }else if((category.trim()==="Stock and Purchased".trim())){
-                        $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-
-                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
-                    }else if((category.trim()==="Stock and Service".trim())){
-                        $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-
-                    $('#myTable').dataTable().fnSetColumnVis( 3, false );
-                    }
+                     
 
 
                     if(value == ""){
@@ -483,84 +524,93 @@
                                 ]);
                             });
                             table.draw(); 
+
+                            if((category.trim()==="Salary Payment".trim())){
+
+
+                            table.column(1).visible(0);
+                            table.column(2).visible(0);
+                            table.column(4).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(3).visible(1);
+
+
+                            } else if((category.trim()==="Party Payment".trim())){
+
+
+                            table.column(1).visible(0);
+                            table.column(3).visible(0);
+                            table.column(4).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(2).visible(1);
+                            }else if((category.trim()==="Booking Order".trim())){
+
+                            table.column(1).visible(0);
+                            table.column(3).visible(0);
+                            table.column(4).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(2).visible(1);
+
+                            }
+
+                            if((category.trim()==="Sales".trim())){
+                            
+                                
+                            table.column(2).visible(0);
+                            table.column(3).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(4).visible(1);
+                            table.column(1).visible(0);
+                            }else if((category.trim()==="Expense".trim())){
+                             table.column(1).visible(0);
+                             table.column(4).visible(0);
+                            table.column(2).visible(0);
+                            table.column(3).visible(0);
+                            table.column(0).visible(1);
+                            table.column(5).visible(1);
+                            
+                            }else if((category.trim()==="Transportation Charges".trim())){
+                                table.column(5).visible(0);
+                             table.column(4).visible(0);
+                            table.column(2).visible(0);
+                            table.column(3).visible(0);
+                            table.column(1).visible(1);
+                            table.column(0).visible(1);
+                            
+                            }else if((category.trim()==="Stock and Purchased".trim())){
+                                table.column(2).visible(0);
+                             table.column(5).visible(0);
+                            table.column(4).visible(1);
+                            table.column(3).visible(0);
+                            table.column(0).visible(1);
+                            table.column(1).visible(1);
+                            
+                            }else if((category.trim()==="Stock and Service".trim())){
+                                table.column(2).visible(0);
+                             table.column(5).visible(0);
+                            table.column(4).visible(1);
+                            table.column(3).visible(0);
+                            table.column(0).visible(1);
+                            table.column(1).visible(1);
+                            }else if((category.trim()==="Everything".trim())){
+                                      
+                            table.column(0).visible(1);
+                            table.column(1).visible(1);
+                            table.column(2).visible(1);
+                            table.column(3).visible(1);
+                            table.column(4).visible(1);
+                            table.column(5).visible(1);
+
+                            }
                     };
             
-                 }
-                 if((category.trim()==="Salary Payment".trim())){
-
-                    table = $('#myTable').DataTable();
-                    table.column(1).visible(0);
-                    table.column(2).visible(0);
-                    table.column(4).visible(0);
-                    table.column(5).visible(0);
-                    table.column(0).visible(1);
-                    table.column(3).visible(1);
-                    
- 
-                 } else if((category.trim()==="Party Payment".trim())){
-
-                    table = $('#myTable').DataTable();
-                    table.column(1).visible(0);
-                    table.column(3).visible(0);
-                    table.column(4).visible(0);
-                    table.column(5).visible(0);
-                    table.column(0).visible(1);
-                    table.column(2).visible(1);
-            }else if((category.trim()==="Booking Order".trim())){
-                table = $('#myTable').DataTable();
-                    table.column(1).visible(0);
-                    table.column(3).visible(0);
-                    table.column(4).visible(0);
-                    table.column(5).visible(0);
-                    table.column(0).visible(1);
-                    table.column(2).visible(1);
-                }else if((category.trim()==="Sales".trim())){
-                    table = $('#myTable').DataTable();
-                    table.column(2).visible(0);
-                    table.column(3).visible(0);
-                    
-                    table.column(5).visible(0);
-                    table.column(0).visible(1);
-                    table.column(3).visible(1);
-                    table.column(1).visible(1);
-                    table.column(4).visible(1);
-                }else if((category.trim()==="Expense".trim())){
-                    table = $('#myTable').DataTable();
-                    table.column(1).visible(0);
-                    table.column(3).visible(0);
-                    table.column(4).visible(0);
-                    table.column(2).visible(0);
-                    table.column(0).visible(1);
-                    table.column(5).visible(1);
-                }else if((category.trim()==="Transportation Charges".trim())){
-                    table = $('#myTable').DataTable();
-                    table.column(2).visible(0);
-                    table.column(3).visible(0);
-                    table.column(4).visible(0);
-                    table.column(5).visible(0);
-                    table.column(0).visible(1);
-                    table.column(1).visible(1);
-                }else if((category.trim()==="Stock and Purchased".trim())){
-                    table = $('#myTable').DataTable();
-                    
-                    table.column(3).visible(0);
-                    table.column(2).visible(0);
-                    table.column(5).visible(0);
-                    table.column(0).visible(1);
-                   
-                    table.column(4).visible(1);
-                    table.column(1).visible(1);
-                }else if((category.trim()==="Stock and Service".trim())){
-                    table = $('#myTable').DataTable();
-                    
-                    table.column(3).visible(0);
-                    table.column(2).visible(0);
-                    table.column(5).visible(0);
-                    table.column(0).visible(1);
-                    
-                    table.column(4).visible(1);
-                    table.column(1).visible(1);
-                }
+                 };
+                 
+                
                  if(value == ""){
                         value = "All";  
                     }
@@ -571,7 +621,7 @@
                     
                    
                     
-                    xhttp.open("GET", "./selectedSearchData/"+category.trim()+"/"+value.trim()+"/"+table.trim(), true);
+                    xhttp.open("GET", "./selectedSearchData/"+category.trim()+"/"+value.trim()+"/"+table , true);
 
                     xhttp.send();
                 }
@@ -813,7 +863,7 @@
                     }
                      
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+date1.trim()+"/"+date2.trim()+"/"+table.trim()+"/"+category.trim()+"/"+value.trim(), true);
+            xhttp.open("GET", "./printTrasactionHistory/"+date1.trim()+"/"+date2.trim()+"/"+table +"/"+category.trim()+"/"+value.trim(), true);
             xhttp.send();
         }
         }
