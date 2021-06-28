@@ -106,6 +106,7 @@
 </head>
 
 <body onload="loadFunctions()" id="allData">
+<button onclick="showColumns()">Show Columns</button>
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -247,7 +248,8 @@
 
 
 
-
+            <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
                 crossorigin="anonymous">
@@ -255,9 +257,6 @@
             <script type="text/javascript"
                 src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
             </script>
-
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js'></script>
-            <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script type="text/javascript" language="javascript"
                 src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" language="javascript"
@@ -266,6 +265,9 @@
                 src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
             <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 
+
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js'></script>
+            
 
         
             <script type="text/javascript">
@@ -290,7 +292,7 @@
             <script>
                 function loadFunctions() {
                     loadCategory();
-                    loadParties();
+               
                     getTransactionHistory();
                 }
 
@@ -352,24 +354,7 @@
             }
             </script>
             <script>
-                function loadParties() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-
-                        if (this.readyState == 4 && this.status == 200) {
-
-                            document.getElementById("parties").innerHTML = this.response;
-                            $('#parties').selectpicker('refresh');
-                                    
-
-                            
-                        }
-                    };
-                    //alert("ljd");
-                    xhttp.open("GET", "./getPartyNames/", true);
-
-                    xhttp.send();
-                }
+                
 
                 function selectedDateData(){
                     var date1 = document.getElementById("date1").value;
@@ -411,10 +396,7 @@
 
                     if((category.trim()==="Salary Payment".trim())){
 
-                    $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                    $('#myTable').dataTable().fnSetColumnVis( 2, false );
+                    
                     } else if((category.trim()==="Party Payment".trim())){
 
                     $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
@@ -500,27 +482,29 @@
                                     a[i].DateStamp
                                 ]);
                             });
-                            table.draw();
-
-                        
+                            table.draw(); 
                     };
-                    
+            
                  }
                  if((category.trim()==="Salary Payment".trim())){
-                    var table = $('#myTable').DataTable();
+
+                    table = $('#myTable').DataTable();
+                    table.column(1).visible(0);
+                    table.column(2).visible(0);
+                    table.column(4).visible(0);
+                    table.column(5).visible(0);
+                    table.column(0).visible(1);
+                    table.column(3).visible(1);
+                    
  
-                $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 2, false );
                  } else if((category.trim()==="Party Payment".trim())){
 
                     var table = $('#myTable').DataTable();
-                    alert( 'total '+table.columns().count()+' column  ' );
-                $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-            $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    table.column(1).visible(0);
+                    table.column(3).visible(0);
+                    table.column(4).visible(0);
+                    table.column(5).visible(0);
+
             }else if((category.trim()==="Booking Order".trim())){
 
                 $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
@@ -604,6 +588,7 @@
                                 ]);
                             });
                             table.draw();
+                            
 
                         }
                     };
@@ -611,6 +596,20 @@
                     xhttp.open("GET", "./transactionHistory/", true);
 
                     xhttp.send();
+                }
+
+                function hideColumns(){
+                    table = $('#myTable').DataTable();
+                    table.column(1).visible(0);
+                    table.column(2).visible(0);
+                    table.column(3).visible(0);
+                }
+
+                function showColumns(){
+                    table = $('#myTable').DataTable();
+                    table.column(1).visible(1);
+                    table.column(2).visible(1);
+                    table.column(3).visible(1);
                 }
 
                 function getTransactionHistoryForParty() {

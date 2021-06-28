@@ -353,6 +353,9 @@ public static function paySalary($data){
       'LID'=>$LID
       
     ]);
+
+    $employeeOldBalance=employeeController::getEmployeeBalance($EID);
+    $employeeNewBalance=$employeeOldBalance+$amountRemaining;
    
     $id=DB::table('tbl_employee_payments_flow')->insertGetId([
       'EmployeeID'=>$EID,
@@ -366,7 +369,9 @@ public static function paySalary($data){
       'TotalCommission'=>$totalComission,
       'AbsentsDeduction'=>$absentDeduction,
       'Advance'=>$advance,
-      'Remarks'=>$remarks
+      'Remarks'=>$remarks,
+      'EmployeeBalanceBefore'=>$employeeOldBalance,
+      'EmployeeBalanceAfter'=>$employeeNewBalance
       
     ]);  
     
@@ -377,8 +382,6 @@ public static function paySalary($data){
         'TransactionCatogery'=>"Salary Payment"
     ]);
     
-    $employeeOldBalance=employeeController::getEmployeeBalance($EID);
-    $employeeNewBalance=$employeeOldBalance+$amountRemaining;
     $eb = DB::table('tblemployees')
     ->where('EID', $EID)
     ->update([
