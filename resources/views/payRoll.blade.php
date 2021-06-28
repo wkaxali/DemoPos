@@ -255,27 +255,27 @@
                                     </div>
                                     <div class="col-md-5  ">
                                         <label for="">Contact</label>
-                                        <select 
-                                            class="selectpicker form-control" data-live-search="true" id="contact">
-
-                                        </select>
+                                        <input readonly type="text" value="date" class="form-control"
+                                            style="display: inline-block; width: 200px;margin-top: 3px;" name=""
+                                            id="contact">
+                                        
                                     </div>
                                     <div class="col-md-5">
                                         <label for="">CNIC</label>
-                                        <select 
-                                            class="selectpicker form-control" data-live-search="true" id="cnic">
-
-                                        </select>
+                                        <input readonly type="text" value="date" class="form-control"
+                                            style="display: inline-block; width: 200px;margin-top: 3px;" name=""
+                                            id="cnic">
+                                     
                                     </div>
                                     <div class="col-md-5  ">
                                         <label for="">Joining</label>
-                                        <input type="text" value="date" class="form-control"
+                                        <input readonly type="text" value="date" class="form-control"
                                             style="display: inline-block; width: 200px;margin-top: 3px;" name=""
                                             id="date">
                                     </div>
                                     <div class="col-md-12 ">
                                         <label for="">Address</label>
-                                        <input type="text" style="display: inline-block; width: 810px;"
+                                        <input readonly type="text" style="display: inline-block; width: 810px;"
                                             class="form-control" name="" id="address">
                                     </div>
                                     
@@ -374,14 +374,15 @@
                                     <label for="">Total Commission</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="totalCommission">
                                     <br>
-                                    <label for="">Month Salary</label>
-                                    <h1 id="monthSalary">0</h1>
                                     <label for="">Total Absents</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="absents">
                                     <br>
                                     <label for="">Absents Deductions</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="absentdeduction">
                                     <br>
+                                    <label for="">Month Salary</label>
+                                    <h1 id="monthSalary">0</h1><br>
+                                    
                                     <label for="">Employee Balance</label>
                                     <input readonly type="text" style="display: inline-block;width: 150px;" class="form-control" id="balance">
                                     <br>
@@ -468,8 +469,6 @@
         function loadEmployeeInfo() {
             clearAll();
             loadEmployeeNames();
-            loadEmployeeCNIC();
-            loadEmployeeContact();
             loadAccounts();
         }
 
@@ -493,9 +492,9 @@
         function getByID() {
             var xhttp = new XMLHttpRequest();
             var id = $('#name').find(":selected").val();
-            $("#id").val(id);
-            $('#contact').val(id);
-            $('#cnic').val(id);
+
+            document.getElementById("contact").value = "";
+            document.getElementById("cnic").value = "";
             document.getElementById("date").value = "";
             document.getElementById("address").value = "";
             document.getElementById("basicPay").value = "";
@@ -526,6 +525,8 @@
                     
                     var a = JSON.parse(this.response);
 
+                    document.getElementById("contact").value = a[0].ContactNo;
+                    document.getElementById("cnic").value = a[0].CNIC;
                     document.getElementById("date").value = a[0].JoiningDate;
                     document.getElementById("address").value = a[0].HomeAddress;
                     document.getElementById("basicPay").value = a[0].BasicPay;
@@ -537,13 +538,6 @@
                     document.getElementById("workingHours").value = a[0].WorkingHours;
                     document.getElementById("comission").value = a[0].commission;
                     document.getElementById("reportingTime").value = a[0].ReportingTime;
-                    
-                    $('#contact').val(a[0].EID);
-                    $("#contact").selectpicker('refresh');
-                    $('#cnic').val(a[0].EID);
-                    $("#cnic").selectpicker('refresh');
-                    $('#name').val(a[0].EID);
-                    $("#name").selectpicker('refresh');
                     searchMonthlyCommission();
                 }
             };
@@ -573,29 +567,7 @@
 
         }
 
-    </script>
-    <script>
-        function loadEmployeeCNIC() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("cnic").innerHTML = this.response;
-                    $('#cnic').selectpicker('refresh');
-                }
-            };
-            
-            xhttp.open("GET", "./getEmployeeCNIC/", true);
-
-            xhttp.send();
-
-
-        }
-
-    </script>
-
-    <script>
+ 
         function bar_group() {
             group_ident = 1, $(".bar_group").each(function () {
                 $(this).addClass("group_ident-" + group_ident), $(this).data("gid", group_ident), group_ident++
@@ -693,24 +665,6 @@
         }
 
 
-
-        function loadEmployeeContact() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("contact").innerHTML = this.response;
-                    $('#contact').selectpicker('refresh');
-                }
-            };
-            
-            xhttp.open("GET", "./getEmployeeContact/", true);
-
-            xhttp.send();
-
-        }
-
         function payCalculation() {
             var bp = document.getElementById("basicPay").value;
             var alounsec = document.getElementById("allownces").value;
@@ -743,7 +697,7 @@
                     document.getElementById("absentdeduction").value = a[3];
                     document.getElementById("deduction").value = a[3]-a[4];
                     document.getElementById("payable").innerHTML = Math.round(a[1]+Number(totalPay)-Number(a[3]) + Number(a[4]));
-                    document.getElementById("monthSalary").innerHTML = Math.round(a[1]+Number(totalPay));
+                    document.getElementById("monthSalary").innerHTML = Math.round(a[1]+Number(totalPay)-Number(a[3]));
                 }
             };
             
@@ -754,8 +708,8 @@
 
         function calRemaining(){
             amountPaid=document.getElementById("amountPaid").value;
-            payable=document.getElementById("payable").innerHTML;
-            amountRemaining=Number(payable)-amountPaid;
+            monthSalary=document.getElementById("monthSalary").innerHTML;
+            amountRemaining=Number(monthSalary)-amountPaid;
             document.getElementById("amountRemaining").value=amountRemaining;
 
         }

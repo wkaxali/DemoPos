@@ -279,7 +279,7 @@
             <div class="row">
                 <div class="col-md-6 offset-md-6">
                     <div class="mainTableEnd">
-                        <label for="">Total Salary</label>
+                        <label for="">Total</label>
                         <input type="text"  onclick="calculatonInTable()" value="" name="" id="mainTotal">
                     </div>
                 </div>
@@ -371,13 +371,12 @@
     function calculatonInTable(){
         var amount=document.getElementById("amount").value;
         var balance=Number(document.getElementById("balance").innerHTML);
-        document.getElementById("remaining").value = balance-amount;
         var t=document.getElementById("expenseTable");
         var tot=0;
 
         var x = document.getElementById("expenseTable").rows.length;
 
-        for (var i = 1; i <x ; i++){
+        for (var i = 1; i < x ; i++){
             tot=tot+Number(t.rows[i].cells[1].innerText);
         }
         document.getElementById("mainTotal").value=tot;
