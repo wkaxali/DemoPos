@@ -297,27 +297,27 @@
                             <div class="col-md-6 payRow ">
                                 <h4 class="redBg">Pay Details</h4>
                                 <label for="">Basic Pay</label>
-                                <input type="text" class="form-control" value=""
+                                <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="basicPay" onchange="payCalculation()">
                                 <br>
                                 <label for="">Total Allowances</label>
-                                <input type="text" class="form-control" value=""
+                                <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="allownces" readonly>
                                 <br>
                                 <label for="">Comission %</label>
-                                <input type="text" class="form-control" value=""
+                                <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="comission" onchange="payCalculation()">
                                 <br>
                                 <label for="">Allowed Holidays</label>
-                                <input type="text" class="form-control" value=""
+                                <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="allowedHolidays" onchange="payCalculation()">
                                 <br>
                                 <label for="">Target Sales</label>
-                                <input type="text" class="form-control" value=""
+                                <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="saleTarget" onchange="payCalculation()">
                                 <br>
                                 <label for="">Working Hours</label>
-                                <input type="text" class="form-control" value=""
+                                <input type="number" class="form-control" value=""
                                     style="display: inline-block; width: 200px;" name="" id="workingHours" onchange="payCalculation()">
                                 <br>
                                 <label for="">Reporting Time</label>
@@ -397,7 +397,7 @@
                                     <input type="date" style="display: inline-block;width: 150px;" class="form-control" id="paymentDate">
                                     <br>
                                     <label for="">Amount Paid</label>
-                                    <input onchange="calRemaining()" type="text" style="display: inline-block;width: 150px;" class="form-control" id="amountPaid">
+                                    <input onchange="calRemaining()" type="number" style="display: inline-block;width: 150px;" class="form-control" id="amountPaid">
                                     <br>
                                     <label for="">Paid by</label>
                                     <select
@@ -506,14 +506,12 @@
             document.getElementById("workingHours").value = "";
             document.getElementById("comission").value = "";
             document.getElementById("reportingTime").value = "";
-
             document.getElementById("totalSales").value = "";
             document.getElementById("totalCommission").value = "";
             document.getElementById("balance").value = "";
             document.getElementById("absents").value = "";
             document.getElementById("absentdeduction").value = "";
             document.getElementById("payable").innerHTML = "";
-
             document.getElementById("paymentDate").value = "";
             document.getElementById("amountPaid").value = "";
             document.getElementById("amountRemaining").value = "";
@@ -645,6 +643,37 @@
             var reportingTime = document.getElementById("reportingTime").value ;
             var workingHours = document.getElementById("workingHours").value;
             var EID = $('#name').find(":selected").val();
+
+            if (EID == " ") {
+                alert("Employee Not Selected")
+                
+            }else if (basicPay == "") {
+                alert('Please fill in "Basic Pay" Field');
+            }
+            else if (allowedHolidays == "") {
+                alert('Please fill in "Alowed Holidays" Field');
+            }
+            else if (comission == "") {
+                alert('Please fill in "Commission" Field');
+            }
+            else if (saleTarget == "") {
+                alert('Please fill in "Sale Target" Field');
+            }
+            else if (allownces == "") {
+                alert('Please fill in "Allowance" Field');
+            }
+            else if (total == "") {
+                alert('Please fill in "Total Pay" Field');
+            }
+            else if (reportingTime == "") {
+                alert('Please fill in "Reporting Time" Field');
+            }
+            else if (workingHours == "") {
+                alert('Please fill in "Working Hours" Field');
+            }else{
+
+            
+
             data = [basicPay, allowedHolidays, comission, saleTarget, allownces, total, workingHours, EID, reportingTime]
             payData = JSON.stringify(data);
             var xhttp = new XMLHttpRequest();
@@ -661,7 +690,7 @@
 
             xhttp.send();
 
-
+        }
         }
 
 
@@ -737,6 +766,7 @@
             remarks=document.getElementById("remarks").value;
             var month = $('#month').find(":selected").val();
             var year = $('#year').find(":selected").text();
+            var yearVal = $('#year').find(":selected").val();
             var EID = $('#name').find(":selected").val();
             var AID = $('#paidBy').find(":selected").val();
             monthSalary=document.getElementById("monthSalary").innerHTML;
@@ -744,6 +774,31 @@
             totalComission=document.getElementById("totalCommission").value;
             absentDeduction=document.getElementById("absentdeduction").value;
             balance=document.getElementById("balance").value;
+
+            if(EID == " "){
+                alert('Employee Not Selected');
+
+            } else if (AID == " ") {
+                alert('Account Not Selected');
+
+            }
+            else if (yearVal == "") {
+                alert("Year Not Selected")
+                
+            }else if (month == "") {
+                alert('Month Not Selected');
+            }
+            else if (date == "") {
+                alert('Please fill in "Date" Field');
+            }
+            else if (amountPaid == "") {
+                alert('Please fill in "Amount Paid" Field');
+            }
+            else if (remarks == "") {
+                alert('Please fill in "Remark" Field');
+            }
+            else{
+
             payData=[amountPaid, payable, amountRemaining, date, month, year, EID, AID, remarks,
             totalDeduction, totalComission, absentDeduction, balance, monthSalary];
             data=JSON.stringify(payData);
@@ -759,6 +814,7 @@
             xhttp.open("GET", "./paySalary/"+data, true);
 
             xhttp.send();
+        }
         }
 
         function loadAccounts() {
