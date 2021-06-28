@@ -106,7 +106,7 @@
 </head>
 
 <body onload="loadFunctions()" id="allData">
-<button onclick="showColumns()">Show Columns</button>
+
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -670,20 +670,6 @@
                     xhttp.open("GET", "./transactionHistory/", true);
 
                     xhttp.send();
-                }
-
-                function hideColumns(){
-                    table = $('#myTable').DataTable();
-                    table.column(1).visible(0);
-                    table.column(2).visible(0);
-                    table.column(3).visible(0);
-                }
-
-                function showColumns(){
-                    table = $('#myTable').DataTable();
-                    table.column(1).visible(1);
-                    table.column(2).visible(1);
-                    table.column(3).visible(1);
                 }
 
                 function getTransactionHistoryForParty() {
