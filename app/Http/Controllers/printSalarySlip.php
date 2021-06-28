@@ -26,7 +26,7 @@ class printSalarySlip extends Controller
       <table border="0" >
       <tr>
       <td >
-      <h1 align="center">Forland modern  Motors(Company)</h1>
+      <h1 align="center">Forland modern  Motors(Employee)</h1>
       </td>
       
       
@@ -38,7 +38,7 @@ class printSalarySlip extends Controller
       <br>
    
       <br>
-       Employer Name: '.session()->get("firstName").' '.session()->get("lastName").' 
+       Employee Name: '.session()->get("firstName").' '.session()->get("lastName").' 
       </td>
       
       
