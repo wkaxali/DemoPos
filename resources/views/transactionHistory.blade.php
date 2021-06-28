@@ -499,43 +499,67 @@
  
                  } else if((category.trim()==="Party Payment".trim())){
 
-                    var table = $('#myTable').DataTable();
+                    table = $('#myTable').DataTable();
                     table.column(1).visible(0);
                     table.column(3).visible(0);
                     table.column(4).visible(0);
                     table.column(5).visible(0);
-
+                    table.column(0).visible(1);
+                    table.column(2).visible(1);
             }else if((category.trim()==="Booking Order".trim())){
-
-                $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                table = $('#myTable').DataTable();
+                    table.column(1).visible(0);
+                    table.column(3).visible(0);
+                    table.column(4).visible(0);
+                    table.column(5).visible(0);
+                    table.column(0).visible(1);
+                    table.column(2).visible(1);
                 }else if((category.trim()==="Sales".trim())){
- 
-                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    table = $('#myTable').DataTable();
+                    table.column(2).visible(0);
+                    table.column(3).visible(0);
+                    
+                    table.column(5).visible(0);
+                    table.column(0).visible(1);
+                    table.column(3).visible(1);
+                    table.column(1).visible(1);
+                    table.column(4).visible(1);
                 }else if((category.trim()==="Expense".trim())){
-                    $('#myTable').dataTable().fnSetColumnVis( 1, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    table = $('#myTable').DataTable();
+                    table.column(1).visible(0);
+                    table.column(3).visible(0);
+                    table.column(4).visible(0);
+                    table.column(2).visible(0);
+                    table.column(0).visible(1);
+                    table.column(5).visible(1);
                 }else if((category.trim()==="Transportation Charges".trim())){
-                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 4, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    table = $('#myTable').DataTable();
+                    table.column(2).visible(0);
+                    table.column(3).visible(0);
+                    table.column(4).visible(0);
+                    table.column(5).visible(0);
+                    table.column(0).visible(1);
+                    table.column(1).visible(1);
                 }else if((category.trim()==="Stock and Purchased".trim())){
-                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-               
-                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    table = $('#myTable').DataTable();
+                    
+                    table.column(3).visible(0);
+                    table.column(2).visible(0);
+                    table.column(5).visible(0);
+                    table.column(0).visible(1);
+                   
+                    table.column(4).visible(1);
+                    table.column(1).visible(1);
                 }else if((category.trim()==="Stock and Service".trim())){
-                    $('#myTable').dataTable().fnSetColumnVis( 5, false ); 
-                $('#myTable').dataTable().fnSetColumnVis( 2, false ); 
-               
-                $('#myTable').dataTable().fnSetColumnVis( 3, false );
+                    table = $('#myTable').DataTable();
+                    
+                    table.column(3).visible(0);
+                    table.column(2).visible(0);
+                    table.column(5).visible(0);
+                    table.column(0).visible(1);
+                    
+                    table.column(4).visible(1);
+                    table.column(1).visible(1);
                 }
                  if(value == ""){
                         value = "All";  
