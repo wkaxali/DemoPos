@@ -82,7 +82,7 @@ class printSalarySlip extends Controller
 
 
 <tr>
-<td max-width:50px;>
+<td align="center">
 <h4> Earning</h4>
 </td>
 <td>
@@ -90,32 +90,32 @@ class printSalarySlip extends Controller
 </td>
 </tr>
 <tr>
-<td>
+<td align="center">
 Basic pay
 </td>
-<td>
+<td align="center">
 '.session()->get("BasicPay").'
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Allowances
 </td>
-<td>
+<td align="center">
 '.session()->get("Alownces").'
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Bonus
 </td>
-<td>
+<td align="center">
 500
 </td>
 </tr>
 <tr>
-<td>
+<td align="center">
 Total
 </td>
-<td>
+<td align="center">
 '.session()->get("TotalPay").'
 </td>
 </tr>
@@ -133,7 +133,7 @@ Total
 <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
 
 <tr>
-<td>
+<td align="center">
 <h4>
 Deduction
 </h4>
@@ -142,32 +142,32 @@ Deduction
 
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Advanced
 </td>
-<td>
+<td align="center">
 '.$adv.'
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Late fine
 </td>
-<td>
+<td align="center">
 200
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Tax
 </td>
-<td>
+<td align="center">
 30
 </td>
 </tr>
 <tr>
-<td>
+<td align="center">
 Net Total
 </td>
-<td>
+<td align="center">
 '.$netTotal.'
 </td>
 </tr>
@@ -185,23 +185,23 @@ Net Total
 <br>
   <table style="font-size:9.5 px" >
 <tr><br>
-<td><br>
+<td><br><br>
 Cheque No___________________________________
 </td>
 </tr>
-<tr>
-<td>
+<tr><br>
+<td><br>
 Bank name___________________________________
 </td>
 </tr>
-<tr>
-<td>
+<tr><br>
+<td><br>
 Sign & stamp__________________________________
 </td>
 </tr>
 </table>
  <br>
- <br><br><br>
+ <br><br> 
   <table border="0">
   <tr>
   <td colspan=2>
@@ -363,17 +363,17 @@ Net Total
 <br>
   <table style="font-size:9.5 px" >
 <tr><br>
-<td><br>
+<td><br><br>
 Cheque No___________________________________
 </td>
 </tr>
-<tr>
-<td>
+<tr><br>
+<td><br>
 Bank name___________________________________
 </td>
 </tr>
-<tr>
-<td>
+<tr><br>
+<td><br>
 Sign & stamp__________________________________
 </td>
 </tr>
