@@ -26,31 +26,35 @@ class printSalarySlip extends Controller
       <table border="0" >
       <tr>
       <td >
-      <h1 align="center">Forland modern  Motors(Employee)</h1>
+      <h1 align="center">Forland modern  Motors(Company)</h1>
       </td>
       
       
       </tr> 
  
       <tr>
-      <td> 
-      <h5 cellpadding="0">Employee Name: '.session()->get("firstName").' '.session()->get("lastName").'</h5>
+      <td style="font-size:11 px"  ><br><br><br>
+   
+      <br>
+   
+      <br>
+       Employer Name: '.session()->get("firstName").' '.session()->get("lastName").' 
       </td>
       
       
       
       </tr>
       <tr>
-      <td >
-      <h5 cellpadding="0" >Designation: '.session()->get("DesignationID").'</h5>
+      <td style="font-size:11 px" >
+       Designation: '.session()->get("DesignationID").' 
       </td>
       
       
       
       </tr>
       <tr>
-      <td >
-      <h5 cellpadding="0">Month & Year: '.$date.'</h5>
+      <td style="font-size:11 px"  >
+       Month & Year: '.$date.' 
       </td>
       
       
@@ -59,12 +63,10 @@ class printSalarySlip extends Controller
       
    </table>
   
-   <br>
-  
-   <br>
+    
   
   
-   <br>
+   <br><br>
   
   
   
@@ -83,12 +85,10 @@ class printSalarySlip extends Controller
   
   
 <tr>
-<td align="center">
+<td style="background-color:skyblue; " colspan="2" align="center">
 <h4> Earning</h4>
 </td>
-<td align="center">
-<h4>Amount</h4>
-</td>
+ 
 </tr>
 <tr>
 <td align="center">
@@ -133,14 +133,12 @@ Total
    <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
    
 <tr>
-<td align="center">
+<td colspan="2" align="center">
 <h4>
 Deduction
 </h4>
 </td>
-<td align="center">
-<h4>Amount</h4>
-</td>
+ 
 </tr><tr>
 <td align="center">
 Advanced
@@ -211,24 +209,30 @@ Net Total
       </tr> 
  
       <tr>
-      <td s >
-      <h5 >Employer Name: '.session()->get("firstName").' '.session()->get("lastName").'</h5>
+      <td style="font-size:11 px"  ><br><br>
+      <br>
+   
+      <br>
+   
+      <br>
+      
+       Employer Name: '.session()->get("firstName").' '.session()->get("lastName").' 
       </td>
       
       
       
       </tr>
       <tr>
-      <td >
-      <h5  >Designation: '.session()->get("DesignationID").'</h5>
+      <td style="font-size:11 px" >
+       Designation: '.session()->get("DesignationID").' 
       </td>
       
       
       
       </tr>
       <tr>
-      <td >
-      <h5 >Month & Year: '.$date.'</h5>
+      <td style="font-size:11 px"  >
+       Month & Year: '.$date.' 
       </td>
       
       
@@ -240,9 +244,7 @@ Net Total
    <br>
   
    <br>
-  
-  
-   <br>
+   
   
   
   
@@ -261,12 +263,10 @@ Net Total
   
   
 <tr>
-<td align="center">
+<td colspan="2" align="center">
 <h4> Earning</h4>
 </td>
-<td align="center">
-<h4>Amount</h4>
-</td>
+ 
 </tr>
 <tr>
 <td align="center">
@@ -311,14 +311,12 @@ Total
    <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
    
 <tr>
-<td align="center">
+<td colspan="2" align="center">
 <h4>
 Deduction
 </h4>
 </td>
-<td align="center">
-<h4>Amount</h4>
-</td>
+ 
 </tr><tr>
 <td align="center">
 Advanced
