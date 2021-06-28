@@ -85,8 +85,8 @@ class printSalarySlip extends Controller
 <td align="center">
 <h4> Earning</h4>
 </td>
-<td>
-
+<td align="center">
+<h4>Amount</h4>
 </td>
 </tr>
 <tr>
@@ -138,8 +138,8 @@ Total
 Deduction
 </h4>
 </td>
-<td>
-
+<td align="center">
+<h4>Amount</h4>
 </td>
 </tr><tr>
 <td align="center">
@@ -201,40 +201,39 @@ Sign & stamp__________________________________
 </tr>
 </table>
  <br>
- <br><br> 
-  <table border="0">
-  <tr>
-  <td colspan=2>
-  <h1 align="center">Forland modern  Motors(Company)</h1>
-  </td>
-  
-  </tr>
-  
-  <tr>
-  <td >
-  <h5  align="">Employer Name:  '.session()->get("firstName").' '.session()->get("lastName").'</h5>
-  </td>
-  
-  
-  
-  </tr>
-  <tr>
-  <td >
-  <h5  align="">Designation: '.session()->get("DesignationID").'</h5>
-  </td>
-  
-  
-  
-  </tr>
-  <tr>
-  <td >
-  <h5  align="">Month & Year: '.$date.'</h5>
-  </td>
-  
-  
-  
-  </tr>
-  
+ <br><br> <table border="0" style="font-size:11.5 px">
+ <tr>
+ <td colspan=2>
+ <h1 align="center">Forland modern  Motors(Employee)</h1>
+ </td>
+ 
+ </tr>
+ 
+ <tr>
+ <td >
+ <h5  align="">Employee Name: '.session()->get("firstName").' '.session()->get("lastName").'</h5>
+ </td>
+ 
+ 
+ 
+ </tr>
+ <tr>
+ <td >
+ <h5  align="">Designation: '.session()->get("DesignationID").'</h5>
+ </td>
+ 
+ 
+ 
+ </tr>
+ <tr>
+ <td >
+ <h5  align="">Month & Year: '.$date.'</h5>
+ </td>
+ 
+ 
+ 
+ </tr>
+ 
 </table>
 
 <br>
@@ -252,7 +251,7 @@ Sign & stamp__________________________________
 <tr>
 <td>
 
-<table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
+<table border="1" CELLPADDING="5" style="font-size:9 px"  border="0.2">
 
 
 
@@ -260,40 +259,40 @@ Sign & stamp__________________________________
 
 
 <tr>
-<td>
+<td align="center">
 <h4> Earning</h4>
 </td>
-<td>
-
+<td align="center">
+<h4>Amount</h4>
 </td>
 </tr>
 <tr>
-<td>
+<td align="center">
 Basic pay
 </td>
-<td>
+<td align="center">
 '.session()->get("BasicPay").'
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Allowances
 </td>
-<td>
+<td align="center">
 '.session()->get("Alownces").'
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Bonus
 </td>
-<td>
+<td align="center">
 500
 </td>
 </tr>
 <tr>
-<td>
+<td align="center">
 Total
 </td>
-<td>
+<td align="center">
 '.session()->get("TotalPay").'
 </td>
 </tr>
@@ -311,46 +310,46 @@ Total
 <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
 
 <tr>
-<td>
+<td align="center">
 <h4>
 Deduction
 </h4>
 </td>
-<td>
-
+<td align="center">
+<h4>Amount</h4>
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Advanced
 </td>
-<td>
+<td align="center">
 '.$adv.'
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Late fine
 </td>
-<td>
+<td align="center">
 200
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Tax
 </td>
-<td>
+<td align="center">
 30
 </td>
 </tr>
 <tr>
-<td>
+<td align="center">
 Net Total
 </td>
-<td>
+<td align="center">
 '.$netTotal.'
 </td>
 </tr>
-  
-   </table>
+ 
+  </table>
 
 
 
@@ -361,7 +360,7 @@ Net Total
 
 </table>
 <br>
-  <table style="font-size:9.5 px" >
+ <table style="font-size:9.5 px" >
 <tr><br>
 <td><br><br>
 Cheque No___________________________________
@@ -378,7 +377,6 @@ Sign & stamp__________________________________
 </td>
 </tr>
 </table>
-
 
     ';     // $html= $htmldata;
 
