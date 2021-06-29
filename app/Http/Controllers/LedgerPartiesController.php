@@ -147,7 +147,7 @@ class LedgerPartiesController extends Controller
                 $InitialInvestment=$obj[4];
         
                 
-                $CID=DB::table('tblledgerparties')->insertGetId([
+                $SID=DB::table('tblledgerparties')->insertGetId([
                     'PartyName'=>$supplierName,
                     'Category'=> 'Supplier',
                     'Balance'=>$balance,
@@ -155,14 +155,8 @@ class LedgerPartiesController extends Controller
                     'Address'=>$address,
                     'InitialInvestment'=>$InitialInvestment,
                     
-                    
-                    
-                    
-                    
-                    
-                    
                     ]);
-                return $CID." ID customer added";
+                return "Supplier ".$SID." is added";
             }
 
             public function viewAllSupplier(){
@@ -198,5 +192,18 @@ class LedgerPartiesController extends Controller
                 public static function getBalance(){
                     $data=DB:: select('select * from tblledgerparties where PartyName = "FJW"');
                     return $data;
+                }
+                public static function getSupplierBalance($SID){
+                    $re = DB::table('tblledgerparties')
+                    ->where('LID', '=', $SID)
+                    ->first()->Balance;
+                    return $re;
+                }
+
+                public static function UpdateSupplierBalance($SID,$newBalance){
+                    DB::table('tblledgerparties')
+                    ->where('LID', $SID)
+                    ->update(['Balance' =>$newBalance
+                    ]);
                 }
 }

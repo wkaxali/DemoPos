@@ -21,32 +21,49 @@ class payController extends Controller
         
         $LID=globalVarriablesController::selfLedgerID();
         $amount=$obj[1];
-        $expenseName=$obj[2];
-        $paidTo=$obj[3];
-        $paidVia=$obj[4];
-        $remarks=$obj[5];
+        $advanceCat=$obj[2];
+        $expenseName=$obj[3];
+        $paidTo=$obj[4];
+        $paidVia=$obj[5];
+        $remarks=$obj[6];
 
         $TID=DB::table('tbltransactionflow')->insertGetId([
-        'DateStamp'=>$date,
-        'Amount'=>$amount,
-        'PaidVia'=>$paidVia,
-        'TransactionType'=>"Debit",
-        'Remarks'=>$remarks,
-        'LID'=> $LID,
+          'DateStamp'=>$date,
+          'Amount'=>$amount,
+          'PaidVia'=>$paidVia,
+          'TransactionType'=>"Debit",
+          'Remarks'=>$remarks,
+          'LID'=> $LID,
         ]);
 
         $bal=employeeController::getEmployeeBalance($paidTo);
         $newbal= floatval($bal)-floatval($amount);
-        $eb = DB::table('tblemployees')
-        ->where('EID', $paidTo)
-        ->update([
-          'Balance'=>$newbal
-        ]);
+
+
+
         $id=DB::table('tbl_employee_payments_flow')->insertGetId([
           'EmployeeID'=> $paidTo,
           'AmountPaid'=>$amount,       
           'Date'=>$date,
-        ]);  
+          'AdvanceCategory'=>$advanceCat,
+          'EmployeeBalanceBefore'=>$bal,
+          'EmployeeBalanceAfter'=>$bal,
+        ]);
+
+        if($advanceCat=="Deductable"){
+
+          $eb = DB::table('tblemployees')
+          ->where('EID', $paidTo)
+          ->update([
+            'Balance'=>$newbal
+          ]);
+
+          $eb = DB::table('tbl_employee_payments_flow')
+          ->where('paymentID', $id)
+          ->update([
+            'EmployeeBalanceAfter'=>$newbal
+          ]);
+        }
 
         if($PT=="Party"){
           $re = DB::table('tbltransactionflow')
@@ -56,6 +73,7 @@ class payController extends Controller
               'TransactionCatogery'=>'Party Payment',
           ]);
         }
+        
         if($PT=="Employee"){
           $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $TID)
@@ -64,8 +82,7 @@ class payController extends Controller
               'TransactionCatogery'=>'Salary Payment'
               
           ]);
-
-      }
+        }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
     $newBalance = $oldSelfBalance - $amount;
@@ -277,8 +294,9 @@ public static function getEmpPay($eid){
 }
 
 public static function getCommissionData($year, $month, $EID){
-  $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$month.' AND EID ='.$EID.' AND year(date) ='.$year);
-  $attendanceData=DB::select('select * from tbl_employeeattendance where month(date) ='.$month.' AND EID ='.$EID.' AND year(date) ='.$year);
+  $M=$month+1;
+  $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$M.' AND EID ='.$EID.' AND year(date) ='.$year);
+  $attendanceData=DB::select('select * from tbl_employeeattendance where Status = "Absent" AND month(date) ='.$M.' AND EID ='.$EID.' AND year(date) ='.$year);
   $dailyPay = DB::table('tblemployeepay')
   ->where('EID', $EID)
   ->first()->PayPerDay;
@@ -298,18 +316,7 @@ public static function getCommissionData($year, $month, $EID){
   }
 
   $deduction=round(floatval($absents)*floatval($dailyPay));
-  
-
-  $bal=DB::select('select AmountPaid from tbl_employee_payments_flow where month(Date) ='.$month.' AND EmployeeID ='.$EID.' AND year(date) ='.$year);
-  
- 
-  $advance=0;
-  
-  
-  foreach($bal as $d){
-    $advance=$advance+$d->AmountPaid;
-  }
-
+  $advance=employeeController::getEmployeeBalance($EID);
   $data=[$No,$commission,$absents,$deduction,$advance];
   return $data;
 }
@@ -326,8 +333,15 @@ public static function paySalary($data){
   $EID = $obj[6];
   $AID = $obj[7];
   $remarks = $obj[8];
+  $totalDeduction = $obj[9];
+  $totalComission = $obj[10];
+  $absentDeduction = $obj[11];
+  $advance = $obj[12];
+  $monthSalary = $obj[13];
 
-  $salaryOf = Carbon::createFromDate($year, $month, 00, 'Europe/Madrid')->format('Y-m-d');;
+
+  
+  $salaryOf = Carbon::createFromDate($year, $month+2, 0, 'Europe/Madrid')->format('Y-m-d');
     $id=DB::table('tbltransactionflow')->insertGetId([
       'DateStamp'=>$date,
       'Amount'=>$amountPaid,
@@ -339,24 +353,25 @@ public static function paySalary($data){
       'LID'=>$LID
       
     ]);
+
+    $employeeOldBalance=employeeController::getEmployeeBalance($EID);
+    $employeeNewBalance=$employeeOldBalance+$amountRemaining;
    
-    // $bal=employeeController::getEmployeeBalance($EID);
-    // $newbal= floatval($bal)-floatval($amountPaid);
-    // $eb = DB::table('tblemployees')
-    // ->where('EID', $EID)
-    // ->update([
-    //   'Balance'=>$newbal
-    // ]);
-
-
-
     $id=DB::table('tbl_employee_payments_flow')->insertGetId([
       'EmployeeID'=>$EID,
-      'TotalPay'=>$payable,
+      'MonthSalary'=>$monthSalary,
+      'TotalPayable'=>$payable,
       'AmountPaid'=>$amountPaid,
       'AmountRemaining'=>$amountRemaining,
       'Date'=>$date,
-      'SalaryOf'=>$salaryOf
+      'SalaryOf'=>$salaryOf,
+      'TotalDeduction'=>$totalDeduction,
+      'TotalCommission'=>$totalComission,
+      'AbsentsDeduction'=>$absentDeduction,
+      'Advance'=>$advance,
+      'Remarks'=>$remarks,
+      'EmployeeBalanceBefore'=>$employeeOldBalance,
+      'EmployeeBalanceAfter'=>$employeeNewBalance
       
     ]);  
     
@@ -367,8 +382,6 @@ public static function paySalary($data){
         'TransactionCatogery'=>"Salary Payment"
     ]);
     
-    $employeeOldBalance=employeeController::getEmployeeBalance($EID);
-    $employeeNewBalance=$employeeOldBalance+$amountRemaining;
     $eb = DB::table('tblemployees')
     ->where('EID', $EID)
     ->update([

@@ -23,34 +23,38 @@ class printSalarySlip extends Controller
 
       $netTotal=$data[0]->TotalPay-$adv;
       $newHTML='
-      <table border="0">
+      <table border="0" >
       <tr>
       <td >
-      <h1 align="center">Forland modern  Motors(Company)</h1>
+      <h1 align="center">Forland modern  Motors(Employee)</h1>
       </td>
       
       
       </tr> 
  
       <tr>
-      <td >
-      <h5  align="">Employer Name: '.session()->get("firstName").'</h5>
+      <td style="font-size:11 px"  ><br><br><br>
+   
+      <br>
+   
+      <br>
+       Employee Name: '.session()->get("firstName").' '.session()->get("lastName").' 
       </td>
       
       
       
       </tr>
       <tr>
-      <td >
-      <h5  align="">Designation: '.session()->get("DesignationID").'</h5>
+      <td style="font-size:11 px" >
+       Designation: '.session()->get("DesignationID").' 
       </td>
       
       
       
       </tr>
       <tr>
-      <td >
-      <h5  align="">Month & Year: '.$date.'</h5>
+      <td style="font-size:11 px"  >
+       Month & Year: '.$date.' 
       </td>
       
       
@@ -59,12 +63,10 @@ class printSalarySlip extends Controller
       
    </table>
   
-   <br>
-  
-   <br>
+    
   
   
-   <br>
+   <br><br>
   
   
   
@@ -75,52 +77,49 @@ class printSalarySlip extends Controller
    <tr>
    <td>
    
-   <table border="1" CELLPADDING="5" >
+   <table   CELLPADDING="5" style="font-size:9 px"  border="0.2" >
   
   
   
   
   
   
-   <tr>
-   <td>
-   <h4> Earning</h4>
-   </td>
-   <td>
-   
-   </td>
-   </tr>
-   <tr>
-   <td>
-   Basic pay
-   </td>
-   <td>
-   '.session()->get("BasicPay").'
-   </td>
-   </tr><tr>
-   <td>
-   Allowances
-   </td>
-   <td>
-   '.session()->get("Alownces").'
-   </td>
-   </tr><tr>
-   <td>
-   Bonus
-   </td>
-   <td>
-   500
-   </td>
-   </tr>
-   <tr>
-   <td>
-   Total
-   </td>
-   <td>
-   '.session()->get("TotalPay").'
-   </td>
-   </tr>
-  
+<tr>
+<td style="background-color: blue; color:white; " colspan="2" align="center">
+<h4> Earning</h4>
+</td>
+ 
+</tr>
+<tr>
+<td align="center">
+Basic pay
+</td>
+<td align="center">
+'.session()->get("BasicPay").'
+</td>
+</tr><tr>
+<td align="center">
+Allowances
+</td>
+<td align="center">
+'.session()->get("Alownces").'
+</td>
+</tr><tr>
+<td align="center">
+Bonus
+</td>
+<td align="center">
+500
+</td>
+</tr>
+<tr>
+<td align="center">
+Total
+</td>
+<td align="center">
+'.session()->get("TotalPay").'
+</td>
+</tr>
    </table>
   
   
@@ -131,48 +130,45 @@ class printSalarySlip extends Controller
   
    </td>
    <td>
-   <table border="1" CELLPADDING="5">
+   <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
    
-   <tr>
-   <td>
-   <h4>
-   Deduction
-   </h4>
-   </td>
-   <td>
-  
-   </td>
-   </tr><tr>
-   <td>
-   Advanced
-   </td>
-   <td>
-   '.$adv.'
-   </td>
-   </tr><tr>
-   <td>
-   Late fine
-   </td>
-   <td>
-   200
-   </td>
-   </tr><tr>
-   <td>
-   Tax
-   </td>
-   <td>
-   30
-   </td>
-   </tr>
-   <tr>
-   <td>
-   Net Total
-   </td>
-   <td>
-   '.$netTotal.'
-   </td>
-   </tr>
-  
+<tr>
+<td colspan="2" align="center" style="background-color:red; color:white;">
+<h4>
+Deduction
+</h4>
+</td>
+ 
+</tr><tr>
+<td align="center">
+Advanced
+</td>
+<td align="center">
+'.$adv.'
+</td>
+</tr><tr>
+<td align="center">
+Late fine
+</td>
+<td align="center">
+200
+</td>
+</tr><tr>
+<td align="center">
+Tax
+</td>
+<td align="center">
+30
+</td>
+</tr>
+<tr>
+<td align="center">
+Net Total
+</td>
+<td align="center">
+'.$netTotal.'
+</td>
+</tr>
    </table>
   
   
@@ -186,201 +182,200 @@ class printSalarySlip extends Controller
   
    </table>
    <br>
-      <table>
+      <table style="font-size:9.5 px">
   <tr>
-  <td><br> <br>
+  <td><br> <br> 
   Cheque No___________________________________
   </td>
   </tr>
   <tr>
-  <td>
+  <td><br><br>
   Bank name___________________________________
   </td>
   </tr>
   <tr>
-  <td>
+  <td><br><br>
   Sign & stamp__________________________________
   </td>
   </tr>
   </table> 
+  <table border="0" >
+      <tr>
+      <td >
+      <h1 align="center">Forland modern  Motors(Company)</h1>
+      </td>
+      
+      
+      </tr> 
+ 
+      <tr>
+      <td style="font-size:11 px"  ><br><br>
+      <br>
+   
+      <br>
+   
+      <br>
+      
+       Employer Name: '.session()->get("firstName").' '.session()->get("lastName").' 
+      </td>
+      
+      
+      
+      </tr>
+      <tr>
+      <td style="font-size:11 px" >
+       Designation: '.session()->get("DesignationID").' 
+      </td>
+      
+      
+      
+      </tr>
+      <tr>
+      <td style="font-size:11 px"  >
+       Month & Year: '.$date.' 
+      </td>
+      
+      
+      
+      </tr>
+      
+   </table>
   
-  <table border="0">
-  <tr>
-  <td colspan=2>
-  <h1 align="center">Forland modern  Motors(Employee)</h1>
-  </td>
+   <br>
   
-  </tr>
-  
-  <tr>
-  <td >
-  <h5  align="">Employee Name: '.session()->get("firstName").'</h5>
-  </td>
+   <br>
+   
   
   
   
-  </tr>
-  <tr>
-  <td >
-  <h5  align="">Designation: '.session()->get("DesignationID").'</h5>
-  </td>
+   
+   <table border="0" >
+  
+   
+   <tr>
+   <td>
+   
+   <table   CELLPADDING="5" style="font-size:9 px"  border="0.2" >
   
   
   
-  </tr>
-  <tr>
-  <td >
-  <h5  align="">Month & Year: '.$date.'</h5>
-  </td>
   
   
   
-  </tr>
-  
-</table>
-
-<br>
-
-
-
-<br>
-
-
-
-
-<table border="0" >
-
-
 <tr>
-<td>
-
-<table border="1" CELLPADDING="5" >
-
-
-
-
-
-
-<tr>
-<td>
+<td style="background-color: blue; color:white; " colspan="2" align="center">
 <h4> Earning</h4>
 </td>
-<td>
-
-</td>
+ 
 </tr>
 <tr>
-<td>
+<td align="center">
 Basic pay
 </td>
-<td>
+<td align="center">
 '.session()->get("BasicPay").'
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Allowances
 </td>
-<td>
+<td align="center">
 '.session()->get("Alownces").'
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Bonus
 </td>
-<td>
+<td align="center">
 500
 </td>
 </tr>
 <tr>
-<td>
+<td align="center">
 Total
 </td>
-<td>
+<td align="center">
 '.session()->get("TotalPay").'
 </td>
 </tr>
-
-</table>
-
-
-
-
-
-
-
-</td>
-<td>
-<table border="1" CELLPADDING="5">
-
+   </table>
+  
+  
+  
+  
+  
+  
+  
+   </td>
+   <td>
+   <table border="1" CELLPADDING="5" style="font-size:9 px" border="0.2">
+   
 <tr>
-<td>
+<td colspan="2" align="center" style="background-color:red; color:white;">
 <h4>
 Deduction
 </h4>
 </td>
-<td>
-
-</td>
+ 
 </tr><tr>
-<td>
+<td align="center">
 Advanced
 </td>
-<td>
+<td align="center">
 '.$adv.'
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Late fine
 </td>
-<td>
+<td align="center">
 200
 </td>
 </tr><tr>
-<td>
+<td align="center">
 Tax
 </td>
-<td>
+<td align="center">
 30
 </td>
 </tr>
 <tr>
-<td>
+<td align="center">
 Net Total
 </td>
-<td>
+<td align="center">
 '.$netTotal.'
 </td>
 </tr>
+   </table>
+  
+  
+  
+  
+  
+   </td>
+   
+   </tr>
   
    </table>
-
-
-
-
-</td>
-
-</tr>
-
-</table>
-<br>
-  <table>
-<tr><br>
-<td><br>
-Cheque No___________________________________
-</td>
-</tr>
-<tr>
-<td>
-Bank name___________________________________
-</td>
-</tr>
-<tr>
-<td>
-Sign & stamp__________________________________
-</td>
-</tr>
-</table>
-
+   <br>
+      <table style="font-size:9.5 px">
+  <tr>
+  <td><br> <br> 
+  Cheque No___________________________________
+  </td>
+  </tr>
+  <tr>
+  <td><br><br>
+  Bank name___________________________________
+  </td>
+  </tr>
+  <tr>
+  <td><br><br>
+  Sign & stamp__________________________________
+  </td>
+  </tr>
+  </table>
 
     ';     // $html= $htmldata;
 

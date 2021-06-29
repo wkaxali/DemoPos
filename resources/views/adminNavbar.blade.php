@@ -74,7 +74,7 @@ style="float: right"></span></a>
 </li>
 <li><a href="/ss">Service Sales Invoice</a></li>
 <li><a href="/th">Transaction History</a></li>
-
+<li><a href="/sales">View Sales</a></li>
 </ul>
 </li>
 
@@ -117,12 +117,14 @@ style="float: right"></span></a>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs8"><i class="fas fa-vials"></i><span
-style="font-size: 14px;">Account Settings</span><span class="fa fa-angle-right"
+style="font-size: 14px;">Settings</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs8">
 <li><a href="/suu">Add User</a></li>
 <li><a href="eu">Edit User</a></li>
-
+<li><a href="/aa">Add Account</a></li>
+<li><a href="ea">Edit Account</a></li>
+<li><a href="ac">Add & Edit Category</a></li>
 </ul>
 </li>
 

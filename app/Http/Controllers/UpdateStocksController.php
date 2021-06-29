@@ -195,9 +195,8 @@ public function UpdateInStock(Request $request,$CO){
 }
 
 
-  public function getInvoiceStock($InvoiceNo){
+  public static function getInvoiceStock($InvoiceNo){
     $results=DB::select('select * from vw_suppliersale_invoice where InvoiceNumber= '.$InvoiceNo);
-   // mysql_insert_id()
     return $results;
 
 }

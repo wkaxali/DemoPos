@@ -15,15 +15,72 @@
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <style>
-        @media (max-width: 1366px) {
-            .left-content {
-                width: 81%;
+        .registration-form {
+            padding: 0px 0;
+            /* background-color: #fff; */
+
+        }
+
+        .registration-form form {
+            background-color: #fff;
+            max-width: 600px;
+            margin: auto;
+            padding: 30px 70px;
+            border-radius: 30px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+        }
+
+
+
+        .registration-form .item {
+            border-radius: 20px;
+            margin-bottom: 15px;
+            padding: 10px 20px;
+            margin: 0px auto 15px auto;
+        }
+
+        .form-control {
+            width: 250px !important;
+        }
+
+
+        .registration-form .create-account {
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #0a549d;
+            border: none;
+            color: white;
+            margin-top: 20px;
+            /* width: 100px; */
+        }
+
+        .registration-form .form-group {
+            padding: 0;
+            margin: 0;
+        }
+
+
+
+
+        @media (max-width: 576px) {
+            .registration-form form {
+                padding: 50px 20px;
+            }
+
+            .registration-form .form-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 30px;
+                line-height: 70px;
             }
         }
 
-        .left-content {
-            float: right;
-            width: 81%;
+        @media (max-width: 1366px) {
+            .left-content {
+                width: 84%;
+            }
         }
 
         .dropdown.bootstrap-select.form-control {
@@ -35,6 +92,9 @@
 
         }
 
+        label {
+            width: 150px;
+        }
 
         .page-container.sidebar-collapsed-back .left-content {
             transition: all 100ms linear;
@@ -42,78 +102,50 @@
             -moz-transition: all 0.3s ease;
             transition: all 0.3s ease;
             float: right;
-            width: 81%;
+            width: 84%;
         }
 
-        .Update {
+        .update {
             background-color: #e61d2f;
             color: #ffffff;
         }
 
-        .endButtons {
-            margin-top: 166px;
+        .print {
+            width: 77px;
         }
 
-        .endButtons button {
-            width: 100px;
+        .inner-block {
+            padding: 3em 2em 0em 2em;
         }
 
-
-
-
-
-
-        img {
-            border-radius: 10%;
-            height: 150px;
-            width: 150px;
-        }
-
-        .mainImg {
-            margin-top: 10px;
-        }
-
-        label {
-            width: 200px;
-        }
-
-        .input-groups {
-            margin: 20px 0px;
-
-        }
-
-        .endButtons .update {
-            background-color: #e61d2f;
-            color: #ffffff;
-        }
-
-        .endButtons .save {
-            background-color: #0a549d;
-            color: #ffffff;
-        }
-
-        .mainInputs {
-            margin: 0 auto !important;
-        }
-        @media only screen and (max-width: 600px) {
-         
-
+        @media only screen and (max-width: 1440px) {
             .inner-block {
-                padding: .5em 1em 2em 1em;
+                padding: 1em 2em 0em 2em;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .form-control {
+                width: 180px !important;
             }
 
-           
+            .addCut{
+font-size: 25px;
+margin-bottom: 50px;
+            }
+            .registration-form {
+            padding: 60px 0;
+            /* background-color: #fff; */
+
         }
+        }
+
     </style>
     <title>Add Supplier</title>
 </head>
 
 <body>
- @include('addsuplierhtml')
-
-
-
-
+@include('addsuplierhtml')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
@@ -151,14 +183,17 @@
     </script>
     <script>
     function addSupplier() {
-            var name = document.getElementById("name").value;
-            var balance = document.getElementById("balance").value; 
-            var contact = document.getElementById("contact").value;
-            var address = document.getElementById("address").value;
-            var InitialInvestment = document.getElementById("InitialInvestment").value;
-     
+        var name = document.getElementById("name").value;
+        var balance = document.getElementById("balance").value; 
+        var contact = document.getElementById("contact").value;
+        var address = document.getElementById("address").value;
+        var InitialInvestment = document.getElementById("InitialInvestment").value;
+        if(name==""||balance==""||contact==""||address==""||InitialInvestment==""){
+            alert("Fill in All Fields");
+        }
+        else{
             var array = [name, balance, contact,address, InitialInvestment];
-            var empData = JSON.stringify(array);
+            var suppData = JSON.stringify(array);
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -170,11 +205,12 @@
                 }
             };
             
-            xhttp.open("GET", "./addSupplier/" + empData, true);
+            xhttp.open("GET", "./addSupplier/" + suppData, true);
 
             xhttp.send();
-
         }
+    }
+
 
     </script>
 </body>

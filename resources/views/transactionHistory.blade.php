@@ -93,6 +93,8 @@
             }
 
         }
+        th { font-size: 13px;   }
+        td { font-size: 13px; }
 
         .inner-block {
             padding: 1em 1em 2em 1em;
@@ -104,6 +106,7 @@
 </head>
 
 <body onload="loadFunctions()" id="allData">
+
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -131,7 +134,7 @@
                                 <label for="" id="pname">Select Data</label>
                                 <select 
                                     class="selectpicker form-control" data-live-search="true" id="tables" >
-
+                                    <option value=""></option>
                                 </select>
                                 </div>
                             <div class="col-md-4  ">
@@ -178,27 +181,27 @@
 
 
 
-                <section>
+                <section >
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="transactionTable">
-                                    <main id="mainHeader">
-                                       <div id ="mydata" class="container">
-                                       <table class="table display table-bordered table-striped" id="myTable">
+                                     
+                                       <div id ="mydata" class="table-responsive">
+                                       <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
                                             <thead>
                                                 <tr>
-                                                    <th></th>
-                                                    
+                                                   
                                                     <th>Transaction ID</th>
-                                                    <th>Party Name</th>
-                                                    <th>Employee Name</th>
-                                                    <th>Customer Name</th>
-                                                    <th>Expense Head</th>
+                                                    <th id ="Invoice">Invoice Number</th>
+                                                    <th id="partyname">Party Name</th>
+                                                    <th id="empname">Employee Name</th>
+                                                    <th id="custname">Customer Name</th>
+                                                    <th id="expname">Expense Head</th>
                                                     <th>Account Name</th>
                                                     <th>Transaction Category</th>
                                                     <th>Amount</th>
-                                                    <th>Transaction Date</th>
+                                                    <th>Transaction Date</th> 
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -207,7 +210,7 @@
 
                                         </table>
                                        </div>
-                                    </main>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -236,7 +239,8 @@
                         </div>
                     </div>
                     
-                    <div class="clearfix">@include('sidenavbar')</div>
+                    @include('sidenavbar')
+        <div class="clearfix"></div>
             </div>
 
 
@@ -244,7 +248,8 @@
 
 
 
-
+            <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
                 crossorigin="anonymous">
@@ -252,9 +257,6 @@
             <script type="text/javascript"
                 src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
             </script>
-
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js'></script>
-            <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script type="text/javascript" language="javascript"
                 src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" language="javascript"
@@ -264,25 +266,10 @@
             <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 
 
-            <script>
-                $(document).ready(function () {
-                    $('#myTable').DataTable({
-                        responsive: {
-                            details: {
-                                type: 'column',
-                                target: 'tr'
-                            }
-                        },
-                        columnDefs: [{
-                            className: 'control',
-                            orderable: false,
-                            targets: 0
-                        }],
-                        order: [1, 'asc']
-                    });
-                });
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js'></script>
+            
 
-            </script>
+        
             <script type="text/javascript">
                 var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', 'UA-365466-5']);
@@ -305,9 +292,8 @@
             <script>
                 function loadFunctions() {
                     loadCategory();
-                    loadParties();
+               
                     getTransactionHistory();
-                    
                 }
 
             </script>
@@ -347,6 +333,10 @@
             
                 document.getElementById("pname").innerHTML="Parties";
                 
+                 }else if((cat.trim()==="Everything".trim())) {
+            
+                document.getElementById("pname").innerHTML=" ";
+                
                  }
                 else if((cat.localeCompare("Expense"))){
                         
@@ -364,24 +354,7 @@
             }
             </script>
             <script>
-                function loadParties() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-
-                        if (this.readyState == 4 && this.status == 200) {
-
-                            document.getElementById("parties").innerHTML = this.response;
-                            $('#parties').selectpicker('refresh');
-                                    
-
-                            
-                        }
-                    };
-                    //alert("ljd");
-                    xhttp.open("GET", "./getPartyNames/", true);
-
-                    xhttp.send();
-                }
+                
 
                 function selectedDateData(){
                     var date1 = document.getElementById("date1").value;
@@ -410,7 +383,7 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add([ '', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
@@ -418,14 +391,101 @@
                             });
                             table.draw();
 
+
+                            if((category.trim()==="Salary Payment".trim())){
+
+
+                            table.column(1).visible(0);
+                            table.column(2).visible(0);
+                            table.column(4).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(3).visible(1);
+
+
+                            } else if((category.trim()==="Party Payment".trim())){
+
+
+                            table.column(1).visible(0);
+                            table.column(3).visible(0);
+                            table.column(4).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(2).visible(1);
+                            }else if((category.trim()==="Booking Order".trim())){
+
+                            table.column(1).visible(0);
+                            table.column(3).visible(0);
+                            table.column(4).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(2).visible(1);
+
+                            }
+
+                            if((category.trim()==="Sales".trim())){
+
+                                
+                            table.column(2).visible(0);
+                            table.column(3).visible(0);
+                            table.column(5).visible(0);
+                            table.column(0).visible(1);
+                            table.column(4).visible(1);
+                            table.column(1).visible(0);
+                            }else if((category.trim()==="Expense".trim())){
+                            table.column(1).visible(0);
+                            table.column(4).visible(0);
+                            table.column(2).visible(0);
+                            table.column(3).visible(0);
+                            table.column(0).visible(1);
+                            table.column(5).visible(1);
+
+                            }else if((category.trim()==="Transportation Charges".trim())){
+                                table.column(5).visible(0);
+                            table.column(4).visible(0);
+                            table.column(2).visible(0);
+                            table.column(3).visible(0);
+                            table.column(1).visible(1);
+                            table.column(0).visible(1);
+
+                            }else if((category.trim()==="Stock and Purchased".trim())){
+                                table.column(2).visible(0);
+                            table.column(5).visible(0);
+                            table.column(4).visible(1);
+                            table.column(3).visible(0);
+                            table.column(0).visible(1);
+                            table.column(1).visible(1);
+
+                            }else if((category.trim()==="Stock and Service".trim())){
+                                table.column(2).visible(0);
+                            table.column(5).visible(0);
+                            table.column(4).visible(1);
+                            table.column(3).visible(0);
+                            table.column(0).visible(1);
+                            table.column(1).visible(1);
+                            }else if((category.trim()==="Everything".trim())){
+                             
+                            table.column(0).visible(1);
+                            table.column(1).visible(1);
+                            table.column(2).visible(1);
+                            table.column(3).visible(1);
+                            table.column(4).visible(1);
+                            table.column(5).visible(1);
+                            }
                         }
                     };
+
+                     
+
+
                     if(value == ""){
                         value = "All";  
                     }
                     
                     if(table == ""){
                         table = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
                     }
 
                     // alert("table is ="+table);
@@ -441,18 +501,15 @@
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
                     
-
-                    if(category==""){
-                        alert("select the category first");
-                
-                    }else{
-                   
+                    document.getElementById("date1").value="";
+                    document.getElementById("date2").value="";
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             
                             var data = this.responseText;
-                            alert(data);
+                              
+                             
                             var table;
                             var a = JSON.parse(data);
                         
@@ -462,31 +519,105 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add(['', a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                table.row.add([  a[i].TransactionID, a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
                                     a[i]
                                     .Amount,
                                     a[i].DateStamp
                                 ]);
                             });
-                            table.draw();
+                            table.draw(); 
 
-                        }
+                            if((category.trim()==="Salary Payment".trim())){
+                                table.column(1).visible(0);
+                                table.column(2).visible(0);
+                                table.column(4).visible(0);
+                                table.column(5).visible(0);
+                                table.column(0).visible(1);
+                                table.column(3).visible(1);
+
+                            } else if((category.trim()==="Party Payment".trim())){
+                                table.column(1).visible(0);
+                                table.column(3).visible(0);
+                                table.column(4).visible(0);
+                                table.column(5).visible(0);
+                                table.column(0).visible(1);
+                                table.column(2).visible(1);
+
+                            }else if((category.trim()==="Booking Order".trim())){
+
+                                table.column(1).visible(1);
+                                table.column(3).visible(0);
+                                table.column(4).visible(0);
+                                table.column(5).visible(0);
+                                table.column(0).visible(1);
+                                table.column(2).visible(1);
+
+                            }if((category.trim()==="Sales".trim())){ 
+                                table.column(2).visible(0);
+                                table.column(3).visible(0);
+                                table.column(5).visible(0);
+                                table.column(0).visible(1);
+                                table.column(4).visible(1);
+                                table.column(1).visible(1);
+                                
+                            }else if((category.trim()==="Expense".trim())){
+                                table.column(1).visible(0);
+                                table.column(4).visible(0);
+                                table.column(2).visible(0);
+                                table.column(3).visible(0);
+                                table.column(0).visible(1);
+                                table.column(5).visible(1);
+                            
+                            }else if((category.trim()==="Transportation Charges".trim())){
+                                table.column(5).visible(0);
+                                table.column(4).visible(0);
+                                table.column(2).visible(0);
+                                table.column(3).visible(0);
+                                table.column(1).visible(1);
+                                table.column(0).visible(1);
+                            
+                            }else if((category.trim()==="Stock and Purchased".trim())){
+                                table.column(2).visible(0);
+                                table.column(5).visible(0);
+                                table.column(4).visible(1);
+                                table.column(3).visible(0);
+                                table.column(0).visible(1);
+                                table.column(1).visible(1);
+                            
+                            }else if((category.trim()==="Stock and Service".trim())){
+                                table.column(2).visible(0);
+                                table.column(5).visible(0);
+                                table.column(4).visible(1);
+                                table.column(3).visible(0);
+                                table.column(0).visible(1);
+                                table.column(1).visible(1);
+                            }else if((category.trim()==="Everything".trim())){
+                                      
+                                table.column(0).visible(1);
+                                table.column(1).visible(1);
+                                table.column(2).visible(1);
+                                table.column(3).visible(1);
+                                table.column(4).visible(1);
+                                table.column(5).visible(1);
+
+                            }
                     };
-                    if(value == ""){
+            
+                 };
+                 
+                
+                 if(value == ""){
                         value = "All";  
                     }
                     if(table == ""){
                         table = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
                     }
 
-                    alert(category);
-                   
-                    
-                    
-                    xhttp.open("GET", "./selectedSearchData/"+category+"/"+value+"/"+table, true);
+                    xhttp.open("GET", "./selectedSearchData/"+category.trim()+"/"+value.trim()+"/"+table , true);
 
                     xhttp.send();
-                 }
                 }
 
             </script>
@@ -518,13 +649,14 @@
 
                             $.each(a, function (i, item) {
 
-                                table.row.add(['',
-                                    a[i].TransactionID, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                                table.row.add([  
+                                    a[i].TransactionID,a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
                                     a[i].TransactionCatogery, a[i].Amount,
                                     a[i].DateStamp
                                 ]);
                             });
                             table.draw();
+                            
 
                         }
                     };
@@ -537,7 +669,7 @@
                 function getTransactionHistoryForParty() {
                     var xhttp = new XMLHttpRequest();
                     var LID = document.getElementById("parties").value;
-                    alert(LID);
+                  
                     xhttp.onreadystatechange = function () {
 
                         if (this.readyState == 4 && this.status == 200) {
@@ -573,7 +705,7 @@
                 function getTransactionHistoryAccounts() {
                     var xhttp = new XMLHttpRequest();
                     var AID = document.getElementById("accounts").value;
-                    alert(AID);
+                  
                     
                     xhttp.onreadystatechange = function () {
 
@@ -606,9 +738,7 @@
                 }
 
             </script>
-
-
-
+ 
             <script>
                 var toggle = true;
 
@@ -693,28 +823,68 @@
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
                     var category = $('#transactionCategory').find(":selected").text();
+                //    alert(date1);
+                  if (date1==""){
+                      printTrasactionHistory2();
+                }else{
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printTrasactionHistory/'+date1+'/'+date2+'/'+table+'/'+category.trim()+'/'+value);
+                  
+                }
+            }
+            if(table == ""){
+                table = "All";  
+                    }
+                     if(value == ""){
+                        value = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
+                    }
+                       
+            // alert("hello");
+            xhttp.open("GET", "./printTrasactionHistory/"+date1.trim()+"/"+date2.trim()+"/"+table +"/"+category.trim()+"/"+value, true);
+            xhttp.send();
+        }
+        }
+    </script>
+
+<script>
+    function printTrasactionHistory2(){
+                    
+                    var table = $('#transactionCategory').find(":selected").val();
+                    var value = $('#tables').find(":selected").val();
+                    var category = $('#transactionCategory').find(":selected").text();
                    
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory/'+date1+'/'+date2+"/"+table+"/"+category+"/"+value);
+                    window.open('/printTrasactionHistory2/'+table+'/'+category.trim()+'/'+value);
                   
                 }
             }
-            if(value == ""){
+            if(table == ""){
+                table = "All";  
+                    }
+                     if(value == ""){
                         value = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
                     }
-                    if(table == ""){
-                        table = "All";  
-                    }
+                     
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
+            xhttp.open("GET", "./printTrasactionHistory2/"+table.trim()+"/"+category.trim()+"/"+value,true);
             xhttp.send();
-
+        
         }
     </script>
+
+
+
 <script>
  function loadCategoryData(){
                     var category = $('#transactionCategory').find(":selected").text();

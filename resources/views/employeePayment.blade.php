@@ -16,6 +16,72 @@
 
     <title>Employee Payments</title>
     <style>
+
+    /* The radio */
+.radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+
         .footerBtns {
             float: right !important;
             margin-top: 10px;
@@ -132,19 +198,29 @@
                         <div class="col-md-6">
                             <label for="">Amount</label>
                             <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-                                value="" name=""  onclick="calculatonInTable()" id="amount"><br>
+                                value="" name=""  onchange="calculatonInTable()" id="amount">
+                                
+                                <label>Deductable
+                                <input type="radio" checked="checked" id="deductable" name="advanceCat" value="Deductable">
+                                </label>
+                                
+                                <label>Non Deductable
+                                <input type="radio" id="nondeductable" name="advanceCat" value="Non Deductable">
+                                </label><br>
                             <label for="">Paid To</label>
                             <select 
                                 class="selectpicker form-control"  data-live-search="true"  id="paidTo" onchange="getAmount()">
                             
                             </select>
-                            <!-- <button class="btn btn-info">+</button> -->
-                            <br>
+            
                             <label for="">Paid by</label>
                             <select 
                                 class="selectpicker form-control"  data-live-search="true"  id="paidBy" >
                             
                             </select>
+                            <br>
+                            <label for="">Balance:</label>
+                            <h1 id = "balance">0</h1>
                         </div>
                         <div class="col-md-4 offset-md-2">
                             
@@ -156,10 +232,11 @@
                             <label style="width: 100px !important;" for="">Date</label>
                             <input type="date" style="width: 240px;" name="" id="date"><br>
                             <div class="expenseButtons">
-                            <label for="">Remarks</label>
-                            <input type="text" class="form-control" style="display: inline-block; width: 192px;"
-                                value="" name="" id="remarks">
+                            
                                 <br>
+                                        <label for="">Remarks</label>
+                                        <input type="text" class="form-control" style="display: inline-block; width: 192px;"
+                                        value="" name="" id="remarks"><br>
                                 <button class="btn" onclick="add(), calculatonInTable()"  >Add</button>
                             </div>
 
@@ -186,7 +263,7 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Amount</th>
-                                    
+                                    <th>Advance Category</th>
                                     <th>Paid To</th>
                                     <th>Paid By</th>
                                     <th>Remarks</th>
@@ -202,7 +279,7 @@
             <div class="row">
                 <div class="col-md-6 offset-md-6">
                     <div class="mainTableEnd">
-                        <label for="">Total Expense</label>
+                        <label for="">Total</label>
                         <input type="text"  onclick="calculatonInTable()" value="" name="" id="mainTotal">
                     </div>
                 </div>
@@ -240,73 +317,70 @@
 
     <script>
         
-      function add() {
+    function add() {
 
-         var date = document.getElementById("date").value;
+        var date = document.getElementById("date").value;
+        var advanceCat = $("input[type='radio'][name='advanceCat']:checked").val();
+        var amount = document.getElementById("amount").value;
+        var expense = document.getElementById("expense").value;
+        var paidto = document.getElementById("paidTo");
+        var paidby = document.getElementById("paidBy");
+        var remarks = document.getElementById("remarks").value;
+        var table = document.getElementById("expenseTable");
         
-         var amount = document.getElementById("amount").value;
-         var expense = document.getElementById("expense").value;
-         var paidto = document.getElementById("paidTo");
-         var paidby = document.getElementById("paidBy");
-         var remarks = document.getElementById("remarks").value;
-       
-         
-
-          var table = document.getElementById("expenseTable");
-          var row = table.insertRow(-1);
-          var cell1 = row.insertCell(0);
-          var cell2 = row.insertCell(1);
-          var cell3 = row.insertCell(2);
-          var cell4 = row.insertCell(3);
-          var cell5 = row.insertCell(4);
-          var cell6 = row.insertCell(5);
-          var cell7 = row.insertCell(6);
-          var cell8 = row.insertCell(7);
-          var cell9 = row.insertCell(8);
-          var cell10 = row.insertCell(9);
-          
-          cell1.innerHTML = date  ;
-          cell2.innerHTML = amount ;
-          cell3.innerHTML = expense;
-          //cell4.innerHTML = expense;
-          cell4.innerHTML = paidto.options[paidto.selectedIndex].text;
-          cell5.innerHTML = paidby.options[paidby.selectedIndex].text;
-          cell6.innerHTML = paidto.options[paidto.selectedIndex].value;
-          cell7.innerHTML = paidby.options[paidby.selectedIndex].value;
-          cell8.innerHTML = remarks;
-          cell9.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
-          
-          cell3.style.display = "none";
-          cell6.style.display = "none";
-          cell7.style.display = "none";
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+        var cell8 = row.insertCell(7);
+        var cell9 = row.insertCell(8);
+        var cell10 = row.insertCell(9);
         
-     
+        
+        cell1.innerHTML = date;
+        cell2.innerHTML = amount;
+        cell3.innerHTML = advanceCat;
+        cell4.innerHTML = expense;
+        cell5.innerHTML = paidto.options[paidto.selectedIndex].text;
+        cell6.innerHTML = paidby.options[paidby.selectedIndex].text;
+        cell7.innerHTML = paidto.options[paidto.selectedIndex].value;
+        cell8.innerHTML = paidby.options[paidby.selectedIndex].value;
+        cell9.innerHTML = remarks;
+        cell10.innerHTML ='<button  calss="" onclick="deleteRow(this)">X</button>';
+        
+        cell4.style.display = "none";
+        cell7.style.display = "none";
+        cell8.style.display = "none";
+
+    }
 
 
-      }
 
 
+    function deleteRow(ele) {
+        var a = ele.parentNode.parentNode;
 
+        a.remove();
+        calculatonInTable(5);
+    }
 
-      function deleteRow(ele) {
-          var a = ele.parentNode.parentNode;
+    function calculatonInTable(){
+        var amount=document.getElementById("amount").value;
+        var balance=Number(document.getElementById("balance").innerHTML);
+        var t=document.getElementById("expenseTable");
+        var tot=0;
 
-          a.remove();
-          calculatonInTable(5);
-      }
+        var x = document.getElementById("expenseTable").rows.length;
 
-      function calculatonInTable(){
-
-var t=document.getElementById("expenseTable");
-var tot=0;
-
-var x = document.getElementById("expenseTable").rows.length;
-
-for (var i = 1; i <x ; i++){
-    tot=tot+Number(t.rows[i].cells[1].innerText);
-}
-document.getElementById("mainTotal").value=tot;
-      }
+        for (var i = 1; i < x ; i++){
+            tot=tot+Number(t.rows[i].cells[1].innerText);
+        }
+        document.getElementById("mainTotal").value=tot;
+    }
     </script>
 
 
@@ -324,18 +398,12 @@ document.getElementById("mainTotal").value=tot;
 
                 $(tr).find('td:eq(0)').text(), //Date
                 $(tr).find('td:eq(1)').text(),//Amount
-                $(tr).find('td:eq(2)').text(), //Expense Name
-                
-               
-               
-                //$(tr).find('td:eq(4)').text(), //Paid To
-                //$(tr).find('td:eq(5)').text(), //Paid By
-
-                $(tr).find('td:eq(5)').text(), //Paid To ID
-                $(tr).find('td:eq(6)').text(), //Paid By ID
-
-                $(tr).find('td:eq(7)').text(), //Remarks
-                $(tr).find('td:eq(8)').text()
+                $(tr).find('td:eq(2)').text(), //Advance Category
+                $(tr).find('td:eq(3)').text(), //Expense Name
+                $(tr).find('td:eq(6)').text(), //Paid To ID
+                $(tr).find('td:eq(7)').text(), //Paid By ID
+                $(tr).find('td:eq(8)').text(), //Remarks
+                $(tr).find('td:eq(9)').text()
             ];
 
 
@@ -411,7 +479,7 @@ function loadAccounts(){
             
             if (this.readyState == 4 && this.status == 200) {
                 
-                document.getElementById("amount").value = this.response;
+                document.getElementById("balance").innerHTML = this.response;
             }
         };
     

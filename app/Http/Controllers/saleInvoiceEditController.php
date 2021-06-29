@@ -8,8 +8,6 @@ use Carbon\Carbon;
 
 use App\Http\Controllers\salesFlow;
 use App\Http\Controllers\UpdateStocksController;
-
-
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LedgerPartiesController;
 use App\Http\Controllers\accountsController;

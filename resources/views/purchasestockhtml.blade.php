@@ -29,57 +29,63 @@
 
 
                             <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
-                                aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog  modal-xl">
-                                    <div class="modal-content">
-                                        <div class="container">
-                                            <div class="row">
+                            aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog  modal-xl">
+                                <div class="modal-content" style="margin: 0 auto; width: 70%;">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Forland Modern Motors</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                    <div class="container">
+                                        <div class="row">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="overFlowingTable"
+                                                style="padding: 20px; overflow: auto !important; width: 908px !important; margin: 15px auto !important; ">
+
+
+                                                <table class="table table-bordered " id="searchProductTable">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th>Product Id</th>
+
+                                                            <th>Product Name</th>
+                                                            <th>Company</th>
+                                                            <th>Price</th>
+                                                            <th>Stock</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="submit" data-dismiss="modal"
+                                                class="btn btn-primary active">Okay</button>
 
                                             </div>
                                         </div>
-
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="overFlowingTable"
-                                                    style="overflow: auto !important; width: 1118px !important; margin: 15px auto !important; ">
-
-
-                                                    <table class="table  table-bordered " id="searchProductTable">
-                                                        <thead>
-                                                            <tr>
-
-                                                                <th>Product Id</th>
-
-                                                                <th>Product Name</th>
-                                                                <th>Company</th>
-                                                                <th>Price</th>
-                                                                <th>Stock</th>
-
-
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
-                                                    <button type="button" class="btn btn-org-1"
-                                                        data-dismiss="modal">Close</button>
-                                                    <button type="submit" data-dismiss="modal"
-                                                        class="btn btn-org-1">Okay</button>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
 
                                 </div>
+
                             </div>
+                        </div>
                             <label style="visibility: hidden;" for="prod-hour">Product Number</label>
                             <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
                             <br>
@@ -110,7 +116,7 @@
 
 
                                 <label for="issue-3">Supplier Name</label>
-                                <select class="selectpicker" data-live-search="true" tabindex="null" id="SupplierName"
+                                <select   data-live-search="true" tabindex="null" id="SupplierName"
                                     onchange="getCurrentSupplierInfo()">
                                     <!-- from database -->
                                 </select>
@@ -253,41 +259,41 @@
 
                         </div>
                         <div class="col-md-3 okay-invo-2">
-                            <label for="invo-1">Total</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="Total" >
+                            <label for="invo-1" style="width: 130px;">Total</label>
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                                name="invo-1" id="Total"  width: 130px;" >
 
-                            <label for="prod-1">Discount</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="DiscountOverall" value="00" onchange="calc()">
-                            <label for="invo-1">Gross Total</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                            <label for="prod-1" style="width: 130px;">Discount</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                                name="invo-1" id="DiscountOverall" value="00" onkeypress="calc()">
+                            <label  for="invo-1" style="width: 130px;">Gross Total</label>
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="grossTotal">
-                            <label for="prod-1"> Tax %</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="tax" onchange="calc()">
-                            <label for="prod-1">Net Total</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                            <label for="prod-1" style="width: 130px;"> Tax %</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                                name="invo-1" id="tax" onkeypress="calc()">
+                            <label for="prod-1" style="width: 130px;"> Tax Amount</label>
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                                name="invo-1" id="taxAmount" onchange="calc()">
+                            <label for="prod-1" style="width: 130px;">Net Total</label>
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="NetTotal">
-                            <label for="invo-1" style=" font-weight: 500;">Amount Paid</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
-                                name="invo-1" id="AmountPaid" onchange="calcForBalance()">
-                            <label for="prod-1" style=" font-weight: 500;">Remaining Balance</label>
-                            <input type="number" class="form-control" style="display: inline-block;  height: 30px;"
+                            <label for="invo-1" style=" font-weight: 500; width: 130px;">Amount Paid</label>
+                            <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
+                                name="invo-1" id="AmountPaid" onkeypress="calcForBalance()">
+                            <label for="prod-1" style=" font-weight: 500; width: 130px;">Remaining Balance</label>
+                            <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="RemainingBalance">
-                            <label id="payFrom" for="">Paid From</label>
-                            <select class="selectpicker form-control" data-live-search="true" id="accounts"
-                                tabindex="null">
+                  <label id="paidme" for="">Paid From</label><br>
+                        <select   class="selectpicker form-control" data-live-search="true" id="accounts">
 
-
-
-                            </select>
+                        </select>
 
                             <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #0a549d;"
-                                    onclick="insertInOrder()">Save</button>
+                                    onclick="insertInOrder()" id="saveBtn">Save</button>
                                 <button class="btn" onclick="window.print()" style="background-color: #e61d2f ;">Print</button>
-                                <button class="btn" style="background-color:#0a549d;">Edit</button>
+                                <button class="btn" style="background-color:#0a549d;" id="editBtn" onclick="updateStockPurchase()">Edit</button>
                             </div>
                             <!-- <div class="total-buttons" id="hideme">
                                 <button class="btn" style="background-color: #e61d2f;">Hold</button>

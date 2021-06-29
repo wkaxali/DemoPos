@@ -186,36 +186,45 @@ margin-bottom: 50px;
 
     </script>
     <script>
-        function addcustomer() {
+  
+  function addCustomer() {
 
+var customerName = document.getElementById("addCustomerName").value;
 
-            var username = document.getElementById("name").value;
-            var fathername = document.getElementById("fName").value;
-            var address = document.getElementById("address").value;
-            var pNumber = document.getElementById("number").value;
-            var cnic = document.getElementById("cnic").value;
-            var email = document.getElementById("email").value;
-            var profession = document.getElementById("profession").value;
-            
-            var addUsers = [username, fathername, pNumber,profession,address,email,cnic];
+var fatherName = document.getElementById("addFatherName").value;
 
-            var AC = JSON.stringify(addUsers);
-           
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
+var contact = document.getElementById("addContact").value;
 
-                    alert("Customer " + this.responseText + " is Added");
+var profession = document.getElementById("addProfession").value;
 
+var address = document.getElementById("addAddress").value;
 
-                }
-            };
+var email = document.getElementById("email").value;
 
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./insertCustomer/" + AC, true);
-            xhttp.send();
+var cnic = document.getElementById("addCNIC").value;
 
+if(customerName==""||fatherName==""||contact==""||profession==""||address==""||email==""||cnic==""){
+    alert("Fill in all fields");
+}else{
+
+    var newCustomer = [customerName, fatherName, contact, profession, address,
+    email, cnic
+    ];
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+            loadAllCustomers();
         }
+    };
+    var EC = JSON.stringify(newCustomer);
+    
+    xhttp.open("GET", "./insertCustomer/" + EC, true);
+    xhttp.send();
+
+}
+}
 
     </script>
 </body>

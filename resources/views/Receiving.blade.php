@@ -284,8 +284,7 @@ xhttp.onreadystatechange = function () {
         table.clear();
         $.each(a, function (i, item) {
 
-            table.row.add([a[i].InvoiceNumber, a[i].ProductName, a[i].Color, a[i].ChasisNumber, a[i]
-                .EngineNumber,
+            table.row.add([a[i].InvoiceNumber, a[i].ProductName, 
                 a[i].PerUnitSalePrice, a[i].DatePurchase
             ]);
         });
@@ -351,7 +350,7 @@ xhttp.send();
 
             });
             //products.shift();
-
+            alert(products[2][1]);
             var AID = $('#accounts').find(":selected").val();
             var OID = document.getElementById("OrderId").value;
             var array2 = [products, OID, AID];
@@ -362,6 +361,8 @@ xhttp.send();
             var xhttp = new XMLHttpRequest();
             if (accVal == "") {
                 alert('Payment Method not Selected');
+            }else if (products == "") {
+                alert('Please Select a Product');
             } else {
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -396,8 +397,15 @@ xhttp.send();
 
             xhttp.send();
 
-
         }
+
+       
+
+    $("#searchProductTable").on('click', 'tr', function () {
+        var OID = parseInt(this.cells[0].innerText);
+        document.getElementById("OrderId").value=OID;
+        getOrderDetails();
+    });
 
     </script>
 

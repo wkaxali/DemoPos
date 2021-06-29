@@ -342,7 +342,7 @@
     <script>
         function valid() {
             var OrderID = document.getElementById("OrderId").value;
-            var category = document.getElementById("category");
+            var category = $('#category').find(":selected").val();
             var bookingPrice = document.getElementById("bookingPrice").value;
             var invoicePrice = document.getElementById("invoice").value;
             var description = document.getElementById("description").value;
@@ -350,11 +350,13 @@
             var tot = document.getElementById("total").value;
             var amontPaid = document.getElementById("amount").value;
             var remaining = document.getElementById("remaining").value;
+
             if (invoicePrice == "") {
                 document.getElementById('invoice').focus();
-
-            } else if (qty == "") {
+            }else if (qty == "") {
                 document.getElementById('qty').focus();
+            }else if (category == " ") {
+                document.getElementById('category').focus();
             } else if (amontPaid == "") {
                 document.getElementById('amount').focus();
             } else if (description == "") {
@@ -414,9 +416,6 @@
             var cell9 = row.insertCell(8);
             var cell10 = row.insertCell(9);
 
-
-
-
             cell1.innerHTML = OrderID;
             cell2.innerHTML = category.options[category.selectedIndex].text;
             cell3.innerHTML = bookingPrice;
@@ -431,23 +430,23 @@
             cell10.style.display = "none";
             calculatonInTable();
 
-
+        
 
         }
 
 
 
 
-        var body = document.getElementById("mainBody");
+            var body = document.getElementById("mainBody");
 
-        body.addEventListener('keypress', function (event) {
-            if (event.keyCode === 13) {
-                event.preventDefault();
-                valid();
-            }
-        })
+            body.addEventListener('keypress', function (event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    valid();
+                }
+            })
 
-
+       
         function deleteRow(ele) {
             var conf = confirm("Do You Want To Delete This Row");
 
@@ -540,7 +539,7 @@
 
             });
             orderDetails.shift();
-            alert(orderDetails);
+      
             var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
             var totalpaid = document.getElementById("totalPaid").value;
@@ -548,12 +547,13 @@
             var Order = [mainTotal, totalpaid, totRemaining, orderDetails, AID];
 
             var OrderArray = JSON.stringify(Order);
-
             var xhttp = new XMLHttpRequest();
 
             if (AID == "") {
                 alert('Payment Method not Selected');
-            } else {
+            }else if (orderDetails == "") {
+                alert('Please add a Product');
+            }else {
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
 

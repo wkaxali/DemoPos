@@ -72,10 +72,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
-                                                <button type="button" class="btn btn-org-1"
+                                                <button type="button" class="btn btn-danger"
                                                     data-dismiss="modal">Close</button>
-                                                <button type="submit" data-dismiss="modal"
-                                                    class="btn btn-org-1">Okay</button>
+                                                <button style="borderackground-color: ##0a549d;" type="submit" data-dismiss="modal"
+                                                    class="btn btn-primary active">Okay</button>
 
                                             </div>
                                         </div>
@@ -179,7 +179,7 @@
                                             
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-org-1"
+                                            <button type="button" class="btn btn-danger"
                                                 data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
@@ -232,34 +232,37 @@
                     </div>
                     <div class="col-md-3 okay-invo-2">
                         <label for="invo-1" style="width: 130px;">Total</label>
-                        <input type="text" class="form-control"
+                        <input readonly type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="Total">
 
                         <label for="prod-1" style="width: 130px;">Discount</label>
-                        <input type="text" class="form-control"
+                        <input type="number" value=0 class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1"
                             id="DiscountOverall" onchange="calc()">
                         <label for="invo-1" style="width: 130px;">Gross Total</label>
-                        <input type="text" class="form-control"
+                        <input readonly type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="grossTotal">
                         <label for="prod-1" style="width: 130px;"> Tax %</label>
-                        <input type="text" class="form-control"
+                        <input type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="tax"
-                            onchange="calc()">
+                            onchange="calc()" value=0>
+                        <label for="prod-1" style="width: 130px;"> Tax Amount</label>
+                        <input readonly type="number" class="form-control"
+                            style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="taxAmount">
                         <label for="prod-1" style="width: 130px;">Net Total</label>
-                        <input type="text" class="form-control"
+                        <input readonly type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="NetTotal">
                         <label for="invo-1" style="width: 130px; font-weight: 500;">Amount Paid</label>
-                        <input type="text" class="form-control"
+                        <input type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="AmountPaid"
                             onchange="calcForBalance()">
                         <label for="prod-1" style="width: 130px; font-weight: 500;">Remaining Balance</label>
-                        <input type="text" class="form-control"
+                        <input readonly type="number" class="form-control"
                             style="display: inline-block; width: 177px; height: 30px;" name="invo-1"
-                            id="RemainingBalance">
+                            id="RemainingBalance"><br><br>
 
-                        <label id="paidme" for="">Paid From</label>
-                        <select class="selectpicker form-control" data-live-search="true" id="accounts">
+                            <label id="paidme" for="">Paid From</label><br>
+                        <select   class="selectpicker form-control" data-live-search="true" id="accounts">
 
                         </select>
                         <div class="total-buttons" id="hideme">
@@ -268,7 +271,7 @@
                             <button class="btn" style="background-color: #0a549d;" onclick="print()">Print</button>
                             <!-- <button class="btn" style="background-color: #e61d2f;">Edit</button>
                             <button class="btn" style="background-color: #0a549d;">Hold</button> -->
-                            <button class="btn" style="background-color: #e61d2f;" id="updateBtn"
+                            <button class="btn button-red" style="background-color: #e61d2f;" id="updateBtn"
                                 onclick="UpdateSaleInvoice()">Update</button>
                             <!-- <button class="btn" style="background-color: #0a549d;">Delete</button> -->
                         </div>

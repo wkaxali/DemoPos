@@ -66,12 +66,10 @@
         }
 
         .bootstrap-select .dropdown-toggle {
-            width: 182px;
-            height: 33px !important;
+            width: 106px !important;
+            height: 30px !important;
 
-            color: #ffffff !important;
         }
-
 
         .bootstrap-select .dropdown-toggle .filter-option {
             position: absolute;
@@ -89,8 +87,9 @@
 
         .bootstrap-select .dropdown-toggle .filter-option-inner-inner {
             color: black;
-
+            
         }
+
 
         .okay-invo-3 label {
             font-size: 15px !important;
@@ -659,7 +658,7 @@
             background: none;
             outline: none;
             border: none;
-
+width: 153px;
             font-weight: 600;
             font-size: 1.1rem;
             color: #333;
@@ -1133,10 +1132,7 @@
 
         }
 
-        #paidme {
-            width: 129px;
-        }
-
+         
         .dropdown {
             height: 0px !important;
         }
@@ -1159,7 +1155,7 @@
         }
 
         .okay-invo-2 .bootstrap-select .dropdown-toggle {
-            width: 195px !important;
+            width: 162px !important;
             height: 30px !important;
 
         }
@@ -1481,7 +1477,7 @@
                     $('#CustomerName').selectpicker('refresh');
                     $('#accounts').val(a[0].AID);
                     $('#accounts').selectpicker('refresh');
-
+                    taxCalculation();
                     var i = 0;
                   
                     var table = document.getElementById("ProductSaleTable");
@@ -1776,6 +1772,7 @@
             var grosstotal = document.getElementById('grossTotal').value;
           
             var tax = Number(grosstotal) * (taxRate / 100);
+            document.getElementById('taxAmount').value = tax;
            
             return tax;
         }
@@ -1804,7 +1801,7 @@
             var tax = 0;
             var tax = taxCalculation();
 
-            document.getElementById('tax').value = tax.toFixed(2);
+            document.getElementById('taxAmount').value = tax.toFixed(2);
             net = gross + Number(tax);
            
             document.getElementById('NetTotal').value = net.toFixed(2);
@@ -1949,6 +1946,28 @@
             var CLB = document.getElementById("LastBalance").value;
             var CCB = document.getElementById("CurrentBalance").value;
             var AID = $('#accounts').find(":selected").val();
+            var CustomerID = $('#CustomerName').find(":selected").val();
+
+            if (discount == "") {
+                document.getElementById('DiscountOverall').value = 0;
+        
+            }if (tax == "") {
+                document.getElementById('tax').value = 0;
+            }
+
+            if (AID == "") {
+                alert("Payment Method not selected");
+            }else if (CustomerID == " ") {
+                alert("Customer not selected");
+            }else if (myTrows == "") {
+                alert("Please Select a Product");
+            }else if (discount == "") {
+                alert('Please fill "Discount" Field');
+            }else if (tax == "") {
+                alert('Please fill "Tax" Field');
+            }else if (amp == "") {
+                alert('Please fill "Amount Paid" Field');
+            }else {
 
             myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID];
 
@@ -1960,9 +1979,7 @@
 
 
             var xhttp = new XMLHttpRequest();
-            if (AID == "") {
-                alert("Payment Method not selected");
-            } else {
+            
 
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -1977,6 +1994,7 @@
                 // var MenuID=$('#Menus').find(":selected").val();
                 xhttp.send();
             }
+        
         }
 
         function print(){
@@ -2012,12 +2030,6 @@
             var customerName = $('#CustomerName').find(":selected").text();
             var contact = document.getElementById('CNO').value;
             var discount = document.getElementById('DiscountOverall').value;
-            if (discount == "") {
-
-                discount = 0;
-                document.getElementById('DiscountOverall').value = 0;
-
-            }
             var invoiceID = document.getElementById('InvoiceID').value;
             var gross = document.getElementById('grossTotal').value;
             var tax = document.getElementById('tax').value;
@@ -2028,7 +2040,28 @@
             var CLB = document.getElementById("LastBalance").value;
             var CCB = document.getElementById("CurrentBalance").value;
             var AID = $('#accounts').find(":selected").val();
+            var CustomerID = $('#CustomerName').find(":selected").val();
 
+            if (discount == "") {
+                document.getElementById('DiscountOverall').value = 0;
+                
+            }if (tax == "") {
+                document.getElementById('tax').value = 0;
+            }
+
+            if (AID == "") {
+                alert("Payment Method not selected");
+            }else if (CustomerID == " ") {
+                alert("Customer not selected");
+            }else if (myTrows == "") {
+                alert("Please Select a Product");
+            }else if (discount == "") {
+                alert('Please fill "Discount" Field');
+            }else if (tax == "") {
+                alert('Please fill "Tax" Field');
+            }else if (amp == "") {
+                alert('Please fill "Amount Paid" Field');
+            }else {
             myRow2 = [myTrows, tot, discount, gross, tax, netTotal, amp, rmb, CID, CLB, CCB, AID, customerName,
                 contact
             ];
@@ -2043,11 +2076,6 @@
             var xhttp = new XMLHttpRequest();
 
 
-
-            if (AID == "") {
-                alert("Payment Method not selected");
-
-            } else {
 
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -2080,24 +2108,27 @@
     
         var cnic = document.getElementById("addCNIC").value;
         
+        if(customerName==""||fatherName==""||contact==""||profession==""||address==""||email==""||cnic==""){
+            alert("Fill in all fields");
+        }else{
 
-        var newCustomer = [customerName, fatherName, contact, profession, address,
-        email, cnic
-        ];
+            var newCustomer = [customerName, fatherName, contact, profession, address,
+            email, cnic
+            ];
 
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                alert(this.responseText);
-                loadAllCustomers();
-            }
-        };
-        var EC = JSON.stringify(newCustomer);
-        
-        xhttp.open("GET", "./insertCustomer/" + EC, true);
-        xhttp.send();
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    alert(this.responseText);
+                    loadAllCustomers();
+                }
+            };
+            var EC = JSON.stringify(newCustomer);
+            
+            xhttp.open("GET", "./insertCustomer/" + EC, true);
+            xhttp.send();
 
-
+        }
 }
 
     </script>

@@ -1114,13 +1114,17 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 
         </div>
 
-            <div class="mainParent" style="display: flex; justify-content: space-between;">
+        <div class="mainParent" style="display: flex; justify-content: space-between;">
             <div id="piechart"></div>
             <div id="top_x_div"></div>
         </div>
             <br>
             <div id="progress"></div>
             <br>
+        <div class="mainParent" style="display: flex; justify-content: space-between;">
+            <div id="graphDiv"></div>
+            <div id="scatterDiv"></div>
+        </div>
 
 
     @include('adminNavbar')

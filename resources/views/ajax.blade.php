@@ -1,25 +1,33 @@
-<h1>Hello World</h1>
+<div class="input-groups">
+                                    <label for="">Supplier Name</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="name">
+                                </div>
+                                <div class="input-groups">
+                                    <label for="">Balance</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="balance">
+                                </div>
+                                
+                                <div class="input-groups">
+                                    <label for="">Contact No</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="contact">
+                                </div>
+                                <div class="input-groups">
+                                    <label for="">Address</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="address">
 
-
-<button onclick="myFunction()">Load</button>
-
-
-    <div id="quark">
-
-    </div>
-
-<script>
-function myFunction(){
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-    
-            document.getElementById("quark").innerHTML = this.response;
-        }
-    };
-    //alert("ljd");
-    xhttp.open("GET", "./getTransaction/", true);
-    
-    xhttp.send();
-    }
-    </script>
+                                    </select>
+                                </div>
+                                <div class="input-groups">
+                                    <label for="">Initial Investment</label>
+                                    <input type="text"
+                                        style="display: inline-block !important; width: 200px !important;"
+                                        class="form-control" name="" id="InitialInvestment">
+                                </div>
