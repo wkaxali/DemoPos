@@ -350,7 +350,7 @@ xhttp.send();
 
             });
             //products.shift();
-
+            alert(products[2][1]);
             var AID = $('#accounts').find(":selected").val();
             var OID = document.getElementById("OrderId").value;
             var array2 = [products, OID, AID];
@@ -361,6 +361,8 @@ xhttp.send();
             var xhttp = new XMLHttpRequest();
             if (accVal == "") {
                 alert('Payment Method not Selected');
+            }else if (products == "") {
+                alert('Please Select a Product');
             } else {
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
