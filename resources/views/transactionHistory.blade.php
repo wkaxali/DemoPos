@@ -134,7 +134,7 @@
                                 <label for="" id="pname">Select Data</label>
                                 <select 
                                     class="selectpicker form-control" data-live-search="true" id="tables" >
-
+                                    <option value=""></option>
                                 </select>
                                 </div>
                             <div class="col-md-4  ">
@@ -843,9 +843,9 @@
                     }if(category == ""){
                         category = "Everything";  
                     }
-                     
+                      
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+date1.trim()+"/"+date2.trim()+"/"+table +"/"+category.trim()+"/"+value.trim(), true);
+            xhttp.open("GET", "./printTrasactionHistory/"+date1.trim()+"/"+date2.trim()+"/"+table +"/"+category.trim()+"/"+value, true);
             xhttp.send();
         }
         }
@@ -877,7 +877,7 @@
                     }
                      
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory2/"+table.trim()+"/"+category.trim()+"/"+value.trim(), true);
+            xhttp.open("GET", "./printTrasactionHistory2/"+table.trim()+"/"+category.trim()+"/"+value,true);
             xhttp.send();
         
         }

@@ -294,7 +294,7 @@ class TransactionFlow extends Controller
             if(!strcmp($category,"Everything")){
 
                 $data=DB:: select('select * from vw_transaction_flow' );
-           
+                
             
             }else{
             $data=DB:: select('select * from vw_transaction_flow  where TransactionCatogery="'.$category.'"' );
