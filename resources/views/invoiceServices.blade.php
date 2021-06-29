@@ -1705,9 +1705,9 @@
                 .innerText; // get current row 1st TD value
             document.getElementById("ProductName").value = this.cells[1].innerText;
             document.getElementById("color").value = this.cells[2].innerText;
-            document.getElementById("ChasisNumber").value = this.cells[3].innerText;
+            document.getElementById("ChasisNumber").value = this.cells[4].innerText;
 
-            document.getElementById("EngineNumber").value = this.cells[4].innerText;
+            document.getElementById("EngineNumber").value = this.cells[3].innerText;
             document.getElementById("Status").value = this.cells[6].innerText;
             document.getElementById("description").value = this.cells[7].innerText;
             document.getElementById("TotalPrice").value = this.cells[5].innerText;
