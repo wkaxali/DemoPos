@@ -776,17 +776,17 @@ else if (!strcmp($table,"customeinformation")){
   </tr><tr><td max-height="20px"><h3>Filter by : '.$category.'</h3></td></tr>
   </tbody>
 </table> <br><br>
-  <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+  <table cellpadding = "1" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
     <tbody>
         <tr>
-            <th height=" 50"><b>Transaction ID</b></th>
-            <th height=" 50"><b>Invoice Number</b></th>
-            <th height=" 50"><b>Customer Name</b></th>
+            <th ><b>Transaction ID</b></th>
+            <th ><b>Invoice Number</b></th>
+            <th ><b>Customer Name</b></th>
            
-            <th height=" 50"><b>Account Name</b></th>
-            <th height=" 50"><b>Category</b></th>
-            <th height=" 50"><b>Transaction Date</b></th>
-            <th height=" 50"><b>Amount</b></th>
+            <th ><b>Account Name</b></th>
+            <th ><b>Category</b></th>
+            <th ><b>Transaction Date</b></th>
+            <th ><b>Amount</b></th>
             
             
         </tr>
