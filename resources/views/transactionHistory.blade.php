@@ -484,6 +484,8 @@
                     
                     if(table == ""){
                         table = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
                     }
 
                     // alert("table is ="+table);
@@ -499,8 +501,8 @@
                     var table = $('#transactionCategory').find(":selected").val();
                     var value = $('#tables').find(":selected").val();
                     
-        
-                   
+                    document.getElementById("date1").value="";
+                    document.getElementById("date2").value="";
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
@@ -609,6 +611,8 @@
                     }
                     if(table == ""){
                         table = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
                     }
 
                     xhttp.open("GET", "./selectedSearchData/"+category.trim()+"/"+value.trim()+"/"+table , true);
