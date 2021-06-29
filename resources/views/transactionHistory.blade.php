@@ -181,7 +181,7 @@
 
 
 
-                <section>
+                <section >
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -840,6 +840,8 @@
                     }
                      if(value == ""){
                         value = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
                     }
                      
             // alert("hello");
@@ -870,6 +872,8 @@
                     }
                      if(value == ""){
                         value = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
                     }
                      
             // alert("hello");
