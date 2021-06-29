@@ -106,7 +106,7 @@
 </head>
 
 <body onload="loadFunctions()" id="allData">
-<button onclick="showColumns()">Show Columns</button>
+
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -526,84 +526,77 @@
                             table.draw(); 
 
                             if((category.trim()==="Salary Payment".trim())){
-
-
-                            table.column(1).visible(0);
-                            table.column(2).visible(0);
-                            table.column(4).visible(0);
-                            table.column(5).visible(0);
-                            table.column(0).visible(1);
-                            table.column(3).visible(1);
-
+                                table.column(1).visible(0);
+                                table.column(2).visible(0);
+                                table.column(4).visible(0);
+                                table.column(5).visible(0);
+                                table.column(0).visible(1);
+                                table.column(3).visible(1);
 
                             } else if((category.trim()==="Party Payment".trim())){
+                                table.column(1).visible(0);
+                                table.column(3).visible(0);
+                                table.column(4).visible(0);
+                                table.column(5).visible(0);
+                                table.column(0).visible(1);
+                                table.column(2).visible(1);
 
-
-                            table.column(1).visible(0);
-                            table.column(3).visible(0);
-                            table.column(4).visible(0);
-                            table.column(5).visible(0);
-                            table.column(0).visible(1);
-                            table.column(2).visible(1);
                             }else if((category.trim()==="Booking Order".trim())){
 
-                            table.column(1).visible(0);
-                            table.column(3).visible(0);
-                            table.column(4).visible(0);
-                            table.column(5).visible(0);
-                            table.column(0).visible(1);
-                            table.column(2).visible(1);
+                                table.column(1).visible(0);
+                                table.column(3).visible(0);
+                                table.column(4).visible(0);
+                                table.column(5).visible(0);
+                                table.column(0).visible(1);
+                                table.column(2).visible(1);
 
-                            }
-
-                            if((category.trim()==="Sales".trim())){
-                            
+                            }if((category.trim()==="Sales".trim())){ 
+                                table.column(2).visible(0);
+                                table.column(3).visible(0);
+                                table.column(5).visible(0);
+                                table.column(0).visible(1);
+                                table.column(4).visible(1);
+                                table.column(1).visible(0);
                                 
-                            table.column(2).visible(0);
-                            table.column(3).visible(0);
-                            table.column(5).visible(0);
-                            table.column(0).visible(1);
-                            table.column(4).visible(1);
-                            table.column(1).visible(0);
                             }else if((category.trim()==="Expense".trim())){
-                             table.column(1).visible(0);
-                             table.column(4).visible(0);
-                            table.column(2).visible(0);
-                            table.column(3).visible(0);
-                            table.column(0).visible(1);
-                            table.column(5).visible(1);
+                                table.column(1).visible(0);
+                                table.column(4).visible(0);
+                                table.column(2).visible(0);
+                                table.column(3).visible(0);
+                                table.column(0).visible(1);
+                                table.column(5).visible(1);
                             
                             }else if((category.trim()==="Transportation Charges".trim())){
                                 table.column(5).visible(0);
-                             table.column(4).visible(0);
-                            table.column(2).visible(0);
-                            table.column(3).visible(0);
-                            table.column(1).visible(1);
-                            table.column(0).visible(1);
+                                table.column(4).visible(0);
+                                table.column(2).visible(0);
+                                table.column(3).visible(0);
+                                table.column(1).visible(1);
+                                table.column(0).visible(1);
                             
                             }else if((category.trim()==="Stock and Purchased".trim())){
                                 table.column(2).visible(0);
-                             table.column(5).visible(0);
-                            table.column(4).visible(1);
-                            table.column(3).visible(0);
-                            table.column(0).visible(1);
-                            table.column(1).visible(1);
+                                table.column(5).visible(0);
+                                table.column(4).visible(1);
+                                table.column(3).visible(0);
+                                table.column(0).visible(1);
+                                table.column(1).visible(1);
                             
                             }else if((category.trim()==="Stock and Service".trim())){
                                 table.column(2).visible(0);
-                             table.column(5).visible(0);
-                            table.column(4).visible(1);
-                            table.column(3).visible(0);
-                            table.column(0).visible(1);
-                            table.column(1).visible(1);
+                                table.column(5).visible(0);
+                                table.column(4).visible(1);
+                                table.column(3).visible(0);
+                                table.column(0).visible(1);
+                                table.column(1).visible(1);
                             }else if((category.trim()==="Everything".trim())){
                                       
-                            table.column(0).visible(1);
-                            table.column(1).visible(1);
-                            table.column(2).visible(1);
-                            table.column(3).visible(1);
-                            table.column(4).visible(1);
-                            table.column(5).visible(1);
+                                table.column(0).visible(1);
+                                table.column(1).visible(1);
+                                table.column(2).visible(1);
+                                table.column(3).visible(1);
+                                table.column(4).visible(1);
+                                table.column(5).visible(1);
 
                             }
                     };
@@ -618,9 +611,6 @@
                         table = "All";  
                     }
 
-                    
-                   
-                    
                     xhttp.open("GET", "./selectedSearchData/"+category.trim()+"/"+value.trim()+"/"+table , true);
 
                     xhttp.send();
@@ -670,20 +660,6 @@
                     xhttp.open("GET", "./transactionHistory/", true);
 
                     xhttp.send();
-                }
-
-                function hideColumns(){
-                    table = $('#myTable').DataTable();
-                    table.column(1).visible(0);
-                    table.column(2).visible(0);
-                    table.column(3).visible(0);
-                }
-
-                function showColumns(){
-                    table = $('#myTable').DataTable();
-                    table.column(1).visible(1);
-                    table.column(2).visible(1);
-                    table.column(3).visible(1);
                 }
 
                 function getTransactionHistoryForParty() {
