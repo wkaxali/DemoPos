@@ -39,8 +39,13 @@ padding: 10px;
 max-width: 1400px;
 margin: 0 auto;
 
-}
+}#stocktable_length label {
+            width: auto !important;
+        }
+        #TblSection label {
+            width: auto !important;
 
+        }
 </style>
 </head>
 
@@ -58,13 +63,14 @@ margin: 0 auto;
 </div>
 </header>
 <br>
-<section>
+<section id="TblSection">
 <div class="container-fluid">
 <div class="row">
-<div class="col-md-8 ">
+<div class="col-md-8" id="attendanceTableDiv">
 <div class="stock-table"
-style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
-<table style="width: 100%;" id="stocktable">
+style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow: auto;">
+<table  class="table table-striped display nowrap"
+  style="width: 50%; text-align: center;"   id="stocktable">
 <thead>
 
 <th>Customer ID</th>
@@ -87,55 +93,55 @@ style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto;">
 
 </div>
 <div class="col-md-4 stockLabels">
-<div class="input-field">
-<label for="status">CustomerID</label>
+<div class="input-field"><br>
+<label for="status" style="  width: 273px;">CustomerID</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+readonly style="margin-left:30px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="CID">
-</div>
+</div><br>
 <div class="input-field">
 <label for="status">CustomerName</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+style="margin-left:6px;  display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="customerName">
 </div>
 
-
+<br>
 
 <div class="input-field">
 <label for="status">Contact</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+style="margin-left:58px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="Contact" required>
 </div>
-
+<br>
 <div class="input-field">
 <label for="status">Address</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+style="margin-left:58px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="Address" required>
 </div>
-
+<br>
 <div class="input-field">
 <label for="status">CNIC</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+style="margin-left:75px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 value="" id="CNIC" required>
 </div>
-
+<br>
 
 <div class="input-field">
 <label for="status">Balance</label>
 <input type="email" autocomplete="OFF" class="form-control"
-style="display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+style="margin-left:61px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="balance" required>
 </div>
-
+<br>
 
 <br>
-<button class="btn btn-success" onclick="editEmployee()">Update </button>
+<button style="margin-left:110px;" class="btn btn-success" onclick="editEmployee()">Update </button>
 
-<button class="btn btn-success" onclick="printEmployee()">Print </button>
+<button style="margin-left:10px;" class="btn btn-success" onclick="printEmployee()">Print </button>
 
 
 </div>
@@ -167,14 +173,32 @@ crossorigin="anonymous">
 src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </script>
-<script>
+<!-- <script>
 $(document).ready(function () {
 $('#stocktable').DataTable();
 });
 
-</script>
+</script> -->
 <!--end::Global Theme Bundle-->
+<script>
+        $(document).ready(function () {
+            $('#stocktable').DataTable({
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: 'tr'
+                    }
+                },
+                columnDefs: [{
+                    className: 'control',
+                    orderable: false,
+                    targets: 0
+                }],
+                order: [1, 'asc']
+            });
+        });
 
+    </script>
 <script>
 function getCustomers() {
 var xhttp = new XMLHttpRequest();
@@ -236,9 +260,9 @@ var address = document.getElementById("Address").value;
 var CNIC = document.getElementById("CNIC").value;
 var balance = document.getElementById("balance").value;
 
-if (customerName == "" || contact == "" || address == "" || CNIC == "" || balance == "") {
+if (customerName == ""  ) {
 
-alert("please fill all fields");
+alert("Please Enter The Name Of Customer");
 } else{
 var updateCustomer = [CID, customerName, contact, address, CNIC, balance,
 ]};

@@ -181,7 +181,7 @@
 
 
 
-                <section>
+                <section >
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -545,7 +545,7 @@
 
                             }else if((category.trim()==="Booking Order".trim())){
 
-                                table.column(1).visible(0);
+                                table.column(1).visible(1);
                                 table.column(3).visible(0);
                                 table.column(4).visible(0);
                                 table.column(5).visible(0);
@@ -558,7 +558,7 @@
                                 table.column(5).visible(0);
                                 table.column(0).visible(1);
                                 table.column(4).visible(1);
-                                table.column(1).visible(0);
+                                table.column(1).visible(1);
                                 
                             }else if((category.trim()==="Expense".trim())){
                                 table.column(1).visible(0);
@@ -840,6 +840,8 @@
                     }
                      if(value == ""){
                         value = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
                     }
                      
             // alert("hello");
@@ -870,6 +872,8 @@
                     }
                      if(value == ""){
                         value = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
                     }
                      
             // alert("hello");

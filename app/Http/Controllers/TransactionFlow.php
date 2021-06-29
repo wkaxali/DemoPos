@@ -575,6 +575,7 @@ class TransactionFlow extends Controller
       <tbody>
           <tr>
               <th><b>Transaction ID</b></th>
+              <th><b>Invoice Number</b></th>
               <th><b>Account Name</b></th>
               <th><b>Transaction Category</b></th>
               <th><b>Transaction Date</b></th>
@@ -597,6 +598,7 @@ class TransactionFlow extends Controller
         <tbody>
         <tr>
         <td max-height="20px">'.$d->TransactionID.'</td> 
+        <td max-height="20px">'.$d->InvoiceNo.'</td> 
         <td>'.$d->AccountName." ($d->AccountNumber)".'</td>
         <td>'.$d->TransactionCatogery.'</td>
         <td>'.$d->DateStamp.'</td>
