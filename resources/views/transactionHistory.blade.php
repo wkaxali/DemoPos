@@ -843,7 +843,7 @@
                     }if(category == ""){
                         category = "Everything";  
                     }
-                      
+                       
             // alert("hello");
             xhttp.open("GET", "./printTrasactionHistory/"+date1.trim()+"/"+date2.trim()+"/"+table +"/"+category.trim()+"/"+value, true);
             xhttp.send();
