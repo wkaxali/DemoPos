@@ -96,7 +96,7 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
 <div class="input-field"><br>
 <label for="status" style="  width: 273px;">CustomerID</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="margin-left:30px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+readonly style="margin-left:30px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="CID">
 </div><br>
 <div class="input-field">
@@ -260,9 +260,9 @@ var address = document.getElementById("Address").value;
 var CNIC = document.getElementById("CNIC").value;
 var balance = document.getElementById("balance").value;
 
-if (customerName == "" || contact == "" || address == "" || CNIC == "" || balance == "") {
+if (customerName == ""  ) {
 
-alert("please fill all fields");
+alert("Please Enter The Name Of Customer");
 } else{
 var updateCustomer = [CID, customerName, contact, address, CNIC, balance,
 ]};
