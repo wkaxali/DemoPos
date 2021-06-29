@@ -779,14 +779,14 @@ else if (!strcmp($table,"customeinformation")){
   <table cellpadding = "1" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
     <tbody>
         <tr>
-            <th height=" 5 "><b>Transaction ID</b></th>
-            <th height=" 5 "><b>Invoice Number</b></th>
-            <th height=" 5 "><b>Customer Name</b></th>
+            <th height="15"><b>Transaction ID</b></th>
+            <th height="15"><b>Invoice Number</b></th>
+            <th height="15 "><b>Customer Name</b></th>
            
-            <th height=" 5 "><b>Account Name</b></th>
-            <th height=" 5 "><b>Category</b></th>
-            <th height=" 5 "><b>Transaction Date</b></th>
-            <th height=" 5 "><b>Amount</b></th>
+            <th height="15"><b>Account Name</b></th>
+            <th height="15"><b>Category</b></th>
+            <th height="15 "><b>Transaction Date</b></th>
+            <th height="15"><b>Amount</b></th>
             
             
         </tr>
