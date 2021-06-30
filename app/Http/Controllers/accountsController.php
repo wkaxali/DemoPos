@@ -49,9 +49,6 @@ class accountsController extends Controller
 
              return $re;
 
-
-
-
     }
     public static function UpdateNewBalance($AID,$amount){
 

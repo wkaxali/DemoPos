@@ -433,15 +433,8 @@ class TransactionFlow extends Controller
 
 
 
-</table>
-     
+</table>';
 
-    
-         ';
-
-      
-        
-        
         PDF::SetTitle('Transaction History');
         PDF::AddPage();
         PDF::writeHTML($table, true, false, true, false, '');
