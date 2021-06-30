@@ -294,15 +294,7 @@ class OrderFlowController extends Controller
       
       function transactionHistory(){
         $data=DB:: select('select * from vw_transaction_flow');
-        $sum=0;
-        foreach($data as $d){
-          if($d->TransactionType=="Credit"){
-            $sum+= $d->Amount;
-          }else{
-            $sum-= $d->Amount;
-        }
-          }
-        return [$data, $sum];
+        return $data;
       }
       
          
