@@ -314,12 +314,14 @@ class TransactionFlow extends Controller
            
             
         }
-       else if(strcmp($value,"All")){
 
-          if(!strcmp($table,"tblledgerpartiesall")){
+        else if(!strcmp($table,"tblledgerpartiesall")){
             $data=DB:: select('select * from vw_transaction_flow where  PaidTo='.$value );
              
         }
+       else if(strcmp($value,"All")){
+
+          
             if(!strcmp($table,"tblledgerparties")){
                 
                 $columnName="PaidTo";
