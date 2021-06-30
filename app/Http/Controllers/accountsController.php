@@ -40,8 +40,8 @@ class accountsController extends Controller
 
 
     }
+    
     public static function getAccountBalance($AID){
-
        
         $re = DB::table('tblaccounts')
             ->where('AID', '=', $AID)

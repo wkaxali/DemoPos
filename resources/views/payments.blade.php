@@ -404,6 +404,7 @@
 
     $(tr).find('td:eq(0)').text(), //Date
     $(tr).find('td:eq(1)').text(), //Amount
+    "",
     $(tr).find('td:eq(2)').text(), //Expense Name
     //$(tr).find('td:eq(3)').text(), //Expense ID
 
@@ -422,7 +423,7 @@
     });
     expenseDetails.shift();
     var expTable = JSON.stringify(expenseDetails);
-
+alert(expTable);
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
