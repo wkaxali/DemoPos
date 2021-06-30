@@ -164,7 +164,7 @@
                                                         onclick="selectedDateData()">Search </button> </div>
                                             </div>
                                             <label for="">Total:</label>
-                                            <h1 id="tableSum">2800</h1>
+                                            <h1 id="tableSum">0</h1>
                                             
                                         </div>
                                   </div>
@@ -669,8 +669,10 @@
                             var data = this.responseText;
                             //alert(data);
                             var table;
-                            var a = JSON.parse(data);
-                            //alert(a[0].TransactionID);
+                            var dt = JSON.parse(data);
+                            a=dt[0];
+                            sum=dt[1];
+                            document.getElementById("tableSum").innerHTML=sum;
                             table = $('#myTable').DataTable();
 
                             $.each(a, function (i, item) {
