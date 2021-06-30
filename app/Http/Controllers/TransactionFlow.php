@@ -64,7 +64,7 @@ class TransactionFlow extends Controller
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
             return $data;
     
-        }else if (!strcmp($table,"investors")){
+        }else if ((!strcmp($table,"investors"))&&(!strcmp($value,"All"))){
             $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
             return $data;
         }
@@ -83,6 +83,12 @@ class TransactionFlow extends Controller
 
 
         else if(strcmp($value,"All")){
+
+
+              if (!strcmp($table,"investors")){
+                $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo ="'.$value.'"');
+                return $data;
+            }
             if(!strcmp($category,"tblledgerparties")){
                 
                 $columnName="PaidTo";
