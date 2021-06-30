@@ -144,7 +144,9 @@
                                     onclick="selectedSearchData()">
                                     Search
                                 </button>
-                                </div>
+                                
+                            </div>
+                            
                         </div>
                     </div>
                                 <div class="container"  >
@@ -161,7 +163,8 @@
                                                 <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
                                                         onclick="selectedDateData()">Search </button> </div>
                                             </div>
-                                          
+                                            <label for="">Total:</label>
+                                            <h1 id="tableSum">0</h1>
                                             
                                         </div>
                                   </div>
@@ -321,10 +324,10 @@
 
             <script>
             function changeCategory() {
-                    var cat =$('#transactionCategory').find(":selected").text();
+                var cat =$('#transactionCategory').find(":selected").text();
                   //  alert(cat)
 
-                    if((cat.trim()==="Salary Payment".trim())){
+                if((cat.trim()==="Salary Payment".trim())){
                         //alert("Thisi");
 
                 document.getElementById("pname").innerHTML="Employees";
@@ -333,12 +336,7 @@
             
                 document.getElementById("pname").innerHTML="Parties";
                 
-                 }else if((cat.trim()==="Everything".trim())) {
-            
-                document.getElementById("pname").innerHTML=" ";
-                
-                 }
-                else if((cat.localeCompare("Expense"))){
+                }else if((cat.localeCompare("Expense"))){
                         
                 document.getElementById("pname").innerHTML="Expenses";
                 }else if((cat.trim()==="Stock and Service".trim())){
@@ -375,10 +373,13 @@
                        
                         
                             var table;
-                            var a = JSON.parse(data);
+                            var dt = JSON.parse(data);
+                            a=dt[0];
+                            sum=dt[1];
                         
                             table = $('#myTable').DataTable();
                             table.clear();
+                            
 
                             $.each(a, function (i, item) {
 
@@ -515,11 +516,13 @@
                               
                              
                             var table;
-                            var a = JSON.parse(data);
+                            var dt = JSON.parse(data);
+                            a=dt[0];
+                            sum=dt[1];
                         
                             table = $('#myTable').DataTable();
                             table.clear();
-
+                            document.getElementById('tableSum').innerHTML="3200";
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
@@ -539,7 +542,7 @@
                                 table.column(0).visible(1);
                                 table.column(3).visible(1);
 
-                            } else if((category.trim()==="Party Payment".trim())){
+                            }else if((category.trim()==="Party Payment".trim())){
                                 table.column(1).visible(0);
                                 table.column(3).visible(0);
                                 table.column(4).visible(0);
@@ -670,8 +673,10 @@
                             var data = this.responseText;
                             //alert(data);
                             var table;
-                            var a = JSON.parse(data);
-                            //alert(a[0].TransactionID);
+                            var dt = JSON.parse(data);
+                            a=dt[0];
+                            sum=dt[1];
+                            document.getElementById("tableSum").innerHTML=sum;
                             table = $('#myTable').DataTable();
 
                             $.each(a, function (i, item) {
