@@ -64,15 +64,15 @@ class TransactionFlow extends Controller
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
             return $data;
     
+        }else if (!strcmp($table,"investors")){
+            $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
+            return $data;
         }
         else if(!strcmp($value,"All")){
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
             return $data;
             
            
-        }else if(!strcmp($category,"tblledgerpartiesall")){
-            $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL' );
-            return $data;
         }
         
         else if(!strcmp($category,"All")){
