@@ -62,26 +62,46 @@ class TransactionFlow extends Controller
         if(!strcmp($table,"Everything")){
                 
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
-            return $data;
+            $sum=0;
+            foreach($data as $d){
+                  $sum+= $d->Amount;
+                }
+              return [$data, $sum];
     
         }else if ((!strcmp($table,"investors"))&&(!strcmp($value,"All"))){
             $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
-            return $data;
+            $sum=0;
+            foreach($data as $d){
+                  $sum+= $d->Amount;
+                }
+              return [$data, $sum];
         }
         else if(!strcmp($value,"All")){
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
-            return $data;
+            $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
             
            
         }else if(!strcmp($category,"tblledgerpartiesall")){
             $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL' );
-            return $data;
+            $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
         }
         
         else if(!strcmp($category,"All")){
                 
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
-            return $data;
+            $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
         } 
 
 
@@ -90,7 +110,11 @@ class TransactionFlow extends Controller
 
               if (!strcmp($table,"investors")){
                 $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo ="'.$value.'"');
-                return $data;
+                $sum=0;
+                foreach($data as $d){
+                      $sum+= $d->Amount;
+                    }
+                  return [$data, $sum];
             }
             if(!strcmp($category,"tblledgerparties")){
                 
@@ -118,7 +142,11 @@ class TransactionFlow extends Controller
             }
         }
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
-            return $data;
+            $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
         }
 
            
@@ -135,32 +163,56 @@ class TransactionFlow extends Controller
 
                 if($table == "tblledgerpartiesall"){
                     $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$value );
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
 
                 if($table == "tblledgerparties"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
 
                 if($table == "tblledgerparties"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidTo='.$value );
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
 
                 if($table == "customeinformation"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and PaidBy='.$value );
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
 
                 if($table == "tblexpenseheads"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and ExpenseHeadID='.$value );
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
     
                 if($table == "tblemployees"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'" and EmpID='.$value );
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
                 else{
                     return [1,23,4];
@@ -170,35 +222,63 @@ class TransactionFlow extends Controller
 
                 if($category=="Everything"){
                     $data=DB:: select('select * from vw_transaction_flow' );
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
 
                 if($table=="tblledgerpartiesall"){
                     $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <>0 ');
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
                 if($table == "All"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
                 if($table == "tblledgerparties"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
 
                 if($table == "customeinformation"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
 
                 if($table == "tblexpenseheads"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
 
                 if($table == "tblemployees"){
                     $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery="'.$category.'"');
-                    return $data;
+                    $sum=0;
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
                 }
                 // else{
                 //     return "error";
