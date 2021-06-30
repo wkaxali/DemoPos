@@ -1113,13 +1113,18 @@ else if(!strcmp($table,"All")){
             
             
             else{
-            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1.'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
            
         }
         }
        
-
+        if (!strcmp($category,"tblledgerpartiesall")){
+            $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo="'.$value.'"');
+            
+        }
        else if(strcmp($value,"All")){
+          
+        
             if(!strcmp($category,"tblledgerparties")){
                 
                 $columnName="PaidTo";
@@ -1254,7 +1259,7 @@ else if(!strcmp($table,"All")){
 
         PDF::Output('Transaction.pdf');
     }
-    else if (!strcmp($table,"tblledgerpartiesall")){
+    else if (!strcmp($category,"tblledgerpartiesall")){
            
         $sum = 0;
       foreach($data as $d)
