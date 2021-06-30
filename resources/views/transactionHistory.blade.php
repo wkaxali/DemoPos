@@ -333,12 +333,7 @@
             
                 document.getElementById("pname").innerHTML="Parties";
                 
-                 }else if((cat.trim()==="Everything".trim())) {
-            
-                document.getElementById("pname").innerHTML=" ";
-                
-                 }
-                else if((cat.localeCompare("Expense"))){
+                 }else if((cat.localeCompare("Expense"))){
                         
                 document.getElementById("pname").innerHTML="Expenses";
                 }else if((cat.trim()==="Stock and Service".trim())){
