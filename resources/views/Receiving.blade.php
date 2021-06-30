@@ -343,8 +343,6 @@ xhttp.send();
                     $(tr).find('td:eq(7)').find(":selected").val() //Status
 
 
-
-
                 ];
 
 
