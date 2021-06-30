@@ -449,9 +449,12 @@ class TransactionFlow extends Controller
     else if (!strcmp($category,"Everything")){
            
         $sum = 0;
-      foreach($data as $d)
-      {
-         $sum+= $d->Amount;
+      foreach($data as $d){
+        if($d->TransactionType=="Credit"){
+            $sum+= $d->Amount;
+        }else{
+            $sum-= $d->Amount;
+        }
       }
        
     

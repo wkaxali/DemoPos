@@ -535,7 +535,7 @@
                                 table.column(0).visible(1);
                                 table.column(3).visible(1);
 
-                            } else if((category.trim()==="Party Payment".trim())){
+                            }else if((category.trim()==="Party Payment".trim())){
                                 table.column(1).visible(0);
                                 table.column(3).visible(0);
                                 table.column(4).visible(0);
