@@ -1099,15 +1099,10 @@ else if(!strcmp($table,"All")){
     {
         $columnName='';
         if(!strcmp($value,"All")){ 
-            if(!strcmp($table,"Everything")){
-
-                $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  ' );
-           
-            
-            }
-            else if (!strcmp($table,"investors")){
+             
+             if (!strcmp($category,"tblledgerpartiesall")){
                 $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
-                
+               
             }
             
             
@@ -1117,7 +1112,7 @@ else if(!strcmp($table,"All")){
         }
         }
        
-        if (!strcmp($category,"tblledgerpartiesall")){
+       else if (!strcmp($category,"tblledgerpartiesall")){
             $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo="'.$value.'"');
             
         }
