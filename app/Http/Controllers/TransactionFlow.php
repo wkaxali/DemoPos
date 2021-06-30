@@ -1112,7 +1112,7 @@ else if(!strcmp($table,"All")){
            
             
             }
-            else if (!strcmp($category,"tblledgerpartiesall")){
+            else if (!strcmp($table,"investors")){
                 $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
                 
             }
@@ -1283,7 +1283,7 @@ else if(!strcmp($table,"All")){
     <td max-height="20px" ><h2>Total Amount : '.$sum.' </h2></td>
     <td max-height="20px"><h3>From: '.$date1.'</h3></td>
     <td max-height="20px"><h3>To: '.$date2.' </h3></td>
-    </tr><tr><td max-height="20px"><h3>Filter by : '.$category.'</h3></td></tr>
+    </tr><tr><td max-height="20px"><h3>Filter by : '.$table.'</h3></td></tr>
     </tbody>
     </table> <br><br>
     <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
