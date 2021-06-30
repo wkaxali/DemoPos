@@ -144,7 +144,9 @@
                                     onclick="selectedSearchData()">
                                     Search
                                 </button>
-                                </div>
+                                
+                            </div>
+                            
                         </div>
                     </div>
                                 <div class="container"  >
@@ -161,7 +163,8 @@
                                                 <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
                                                         onclick="selectedDateData()">Search </button> </div>
                                             </div>
-                                          
+                                            <label for="">Total:</label>
+                                            <h1 id="tableSum">2800</h1>
                                             
                                         </div>
                                   </div>
@@ -321,10 +324,10 @@
 
             <script>
             function changeCategory() {
-                    var cat =$('#transactionCategory').find(":selected").text();
+                var cat =$('#transactionCategory').find(":selected").text();
                   //  alert(cat)
 
-                    if((cat.trim()==="Salary Payment".trim())){
+                if((cat.trim()==="Salary Payment".trim())){
                         //alert("Thisi");
 
                 document.getElementById("pname").innerHTML="Employees";
@@ -333,7 +336,7 @@
             
                 document.getElementById("pname").innerHTML="Parties";
                 
-                 }else if((cat.localeCompare("Expense"))){
+                }else if((cat.localeCompare("Expense"))){
                         
                 document.getElementById("pname").innerHTML="Expenses";
                 }else if((cat.trim()==="Stock and Service".trim())){
@@ -374,6 +377,7 @@
                         
                             table = $('#myTable').DataTable();
                             table.clear();
+                            
 
                             $.each(a, function (i, item) {
 
@@ -514,7 +518,7 @@
                         
                             table = $('#myTable').DataTable();
                             table.clear();
-
+                            document.getElementById('tableSum').innerHTML="3200";
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
