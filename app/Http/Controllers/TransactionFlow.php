@@ -324,6 +324,9 @@ class TransactionFlow extends Controller
                 
                 $columnName="PaidTo";
         
+            }else if($table == "tblledgerpartiesall"){
+                $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$value );
+                 
             }
 
             else if(!strcmp($table,"customeinformation")){
@@ -1099,7 +1102,7 @@ else if(!strcmp($table,"All")){
            
             
             }
-            else if (!strcmp($table,"tblledgerpartiesall")){
+            else if (!strcmp($category,"tblledgerpartiesall")){
                 $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
                 
             }
