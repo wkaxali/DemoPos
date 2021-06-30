@@ -118,11 +118,7 @@ class TransactionFlow extends Controller
             return $data;
         }
 
-           
         
-        
-
-
         public static  function selectedSearchData($category, $value, $table){
            // return $value;     
             if($value!="All"){
