@@ -373,7 +373,9 @@
                        
                         
                             var table;
-                            var a = JSON.parse(data);
+                            var dt = JSON.parse(data);
+                            a=dt[0];
+                            sum=dt[1];
                         
                             table = $('#myTable').DataTable();
                             table.clear();
