@@ -376,6 +376,7 @@
                             var dt = JSON.parse(data);
                             a=dt[0];
                             sum=dt[1];
+                            document.getElementById("tableSum").innerHTML=sum;
                         
                             table = $('#myTable').DataTable();
                             table.clear();
@@ -522,7 +523,7 @@
                         
                             table = $('#myTable').DataTable();
                             table.clear();
-                            document.getElementById('tableSum').innerHTML="3200";
+                            document.getElementById('tableSum').innerHTML=sum;
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
