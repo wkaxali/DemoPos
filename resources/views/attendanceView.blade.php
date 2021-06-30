@@ -343,11 +343,11 @@
 
                 var status = $(tr).find('td:eq(5)').html();
                 // alert(status);
-                if (status == "Absent") {
+                if (status.trim() == "Absent".trim()) {
                     $(tr).css('background', '#FF0000');
                 }
                 
-                if (status == "Late") {
+                else if (status.trim() == "Late".trim()) {
                     $(tr).css('background', '#f8aeae');
                 }
                 

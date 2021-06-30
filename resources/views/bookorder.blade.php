@@ -539,7 +539,7 @@
 
             });
             orderDetails.shift();
-            alert(orderDetails);
+      
             var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
             var totalpaid = document.getElementById("totalPaid").value;
@@ -551,7 +551,9 @@
 
             if (AID == "") {
                 alert('Payment Method not Selected');
-            } else {
+            }else if (orderDetails == "") {
+                alert('Please add a Product');
+            }else {
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
 

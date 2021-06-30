@@ -153,10 +153,9 @@
 
 
                                             <label style="width: 150px;" for="">Total Amount</label>
-                                            <input class="form-control"
+                                            <input readonly class="form-control"
                                                 style="display: inline-block !important; width: 135px !important;"
                                                 type="number" name="" id="mainTotal"><br>
-
 
 
                                             <label style="width: 150px  ;" for="">Total Paid</label>
@@ -166,7 +165,7 @@
 
 
                                             <label style="width: 150px  ;" for="">Total Remaining</label>
-                                            <input type="number" name="" class="form-control"
+                                            <input readonly type="number" name="" class="form-control"
                                                 style="display: inline-block !important; width: 135px !important;"
                                                 id="totRemaining">
 
