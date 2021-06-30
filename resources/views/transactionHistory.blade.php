@@ -376,7 +376,7 @@
                             var dt = JSON.parse(data);
                             a=dt[0];
                             sum=dt[1];
-                            document.getElementById("tableSum").innerHTML=sum;
+                            document.getElementById('tableSum').innerHTML=sum;
                         
                             table = $('#myTable').DataTable();
                             table.clear();
@@ -521,6 +521,7 @@
                             a=dt[0];
                             sum=dt[1];
                             document.getElementById('tableSum').innerHTML=sum;
+                        
                             table = $('#myTable').DataTable();
                             table.clear();
                             
@@ -677,7 +678,8 @@
                             var dt = JSON.parse(data);
                             a=dt[0];
                             sum=dt[1];
-                            document.getElementById("tableSum").innerHTML=sum;
+                            document.getElementById('tableSum').innerHTML=sum;
+                            //alert(a[0].TransactionID);
                             table = $('#myTable').DataTable();
 
                             $.each(a, function (i, item) {

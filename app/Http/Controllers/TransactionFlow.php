@@ -63,10 +63,10 @@ class TransactionFlow extends Controller
                 
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
             $sum=0;
-            foreach($data as $d){
-                  $sum+= $d->Amount;
-                }
-              return [$data, $sum];
+                    foreach($data as $d){
+                          $sum+= $d->Amount;
+                        }
+                      return [$data, $sum];
     
         }else if ((!strcmp($table,"investors"))&&(!strcmp($value,"All"))){
             $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
@@ -143,10 +143,10 @@ class TransactionFlow extends Controller
         }
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
             $sum=0;
-                    foreach($data as $d){
-                          $sum+= $d->Amount;
-                        }
-                      return [$data, $sum];
+            foreach($data as $d){
+                  $sum+= $d->Amount;
+                }
+              return [$data, $sum];
         }
 
            
@@ -547,14 +547,15 @@ class TransactionFlow extends Controller
 
     else if (!strcmp($category,"Everything")){
            
-        $sum = 0;
-      foreach($data as $d){
-        if($d->TransactionType=="Credit"){
+        $sum=0;
+        foreach($data as $d){
+          if($d->TransactionType=="Credit"){
             $sum+= $d->Amount;
-        }else{
+          }else{
             $sum-= $d->Amount;
         }
-      }
+          }
+         
        
     
     $table='
@@ -1086,15 +1087,10 @@ else if(!strcmp($table,"All")){
     {
         $columnName='';
         if(!strcmp($value,"All")){ 
-            if(!strcmp($table,"Everything")){
-
-                $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  ' );
-           
-            
-            }
-            else if (!strcmp($category,"tblledgerpartiesall")){
+             
+             if (!strcmp($category,"tblledgerpartiesall")){
                 $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
-                
+               
             }
             
             
@@ -1104,7 +1100,7 @@ else if(!strcmp($table,"All")){
         }
         }
        
-        if (!strcmp($category,"tblledgerpartiesall")){
+       else if (!strcmp($category,"tblledgerpartiesall")){
             $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo="'.$value.'"');
             
         }
