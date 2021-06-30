@@ -165,7 +165,7 @@ class TransactionFlow extends Controller
                 }
 
                 if($table=="tblledgerpartiesall"){
-                    $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL or PaidTo <>0 ');
+                    $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <>0 ');
                     return $data;
                 }
                 if($table == "All"){
