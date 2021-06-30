@@ -368,7 +368,7 @@ class TransactionFlow extends Controller
                   <th><b>Employee Name</b></th>
                  
                   <th><b>Account Name</b></th>
-                  <th><b>Transaction Category</b></th>
+                  <th><b>Category</b></th>
                   <th><b>Transaction Date</b></th>
                   <th><b>Amount</b></th>
                   
@@ -479,7 +479,7 @@ class TransactionFlow extends Controller
               <th max-width:50px;><b>Customer Name</b></th>
               <th max-width:50px;><b>Expense Head</b></th>
               <th max-width:50px;><b>Account Name</b></th>
-              <th max-width:50px;><b>Transaction Category</b></th>
+              <th max-width:50px;><b>Category</b></th>
               <th max-width:50px;><b>Transaction Date</b></th>
               <th max-width:50px;><b>Amount</b></th>
               
@@ -580,7 +580,7 @@ class TransactionFlow extends Controller
               <th><b>Transaction ID</b></th>
               <th><b>Invoice Number</b></th>
               <th><b>Account Name</b></th>
-              <th><b>Transaction Category</b></th>
+              <th><b>Category</b></th>
               <th><b>Transaction Date</b></th>
               <th><b>Amount</b></th>
               
@@ -683,7 +683,7 @@ class TransactionFlow extends Controller
                 <th><b>Expense Name</b></th>
                
                 <th><b>Account Name</b></th>
-                <th><b>Transaction Category</b></th>
+                <th><b>Category</b></th>
                 <th><b>Transaction Date</b></th>
                 <th><b>Amount</b></th>
                 
@@ -779,17 +779,17 @@ else if (!strcmp($table,"customeinformation")){
   </tr><tr><td max-height="20px"><h3>Filter by : '.$category.'</h3></td></tr>
   </tbody>
 </table> <br><br>
-  <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
+  <table cellpadding = "1" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
     <tbody>
         <tr>
-            <th height=" 50"><b>Transaction ID</b></th>
-            <th height=" 50"><b>Invoice Number</b></th>
-            <th height=" 50"><b>Customer Name</b></th>
+            <th height="15"><b>Transaction ID</b></th>
+            <th height="15"><b>Invoice Number</b></th>
+            <th height="15 "><b>Customer Name</b></th>
            
-            <th height=" 50"><b>Account Name</b></th>
-            <th height=" 50"><b>Transaction Category</b></th>
-            <th height=" 50"><b>Transaction Date</b></th>
-            <th height=" 50"><b>Amount</b></th>
+            <th height="15"><b>Account Name</b></th>
+            <th height="15"><b>Category</b></th>
+            <th height="15 "><b>Transaction Date</b></th>
+            <th height="15"><b>Amount</b></th>
             
             
         </tr>
@@ -897,7 +897,7 @@ else if (!strcmp($table,"tblledgerparties")){
                   <th><b>Employee Name</b></th>
                  
                   <th><b>Account Name</b></th>
-                  <th><b>Transaction Category</b></th>
+                  <th><b>Category</b></th>
                   <th><b>Transaction Date</b></th>
                   <th><b>Amount</b></th>
                   
@@ -1057,7 +1057,7 @@ else if(!strcmp($table,"All")){
                   <th><b>Employee Name</b></th>
                  
                   <th><b>Account Name</b></th>
-                  <th><b>Transaction Category</b></th>
+                  <th><b>Category</b></th>
                   <th><b>Transaction Date</b></th>
                   <th><b>Amount</b></th>
                   
@@ -1162,7 +1162,7 @@ else if(!strcmp($table,"All")){
           <tr>
               <th><b>Transaction ID</b></th>
               <th><b>Account Name</b></th>
-              <th><b>Transaction Category</b></th>
+              <th><b>Category</b></th>
               <th><b>Transaction Date</b></th>
               <th><b>Amount</b></th>
               
@@ -1265,7 +1265,7 @@ $table='
           <th><b>Customer Name</b></th>
           <th><b>Expense Head</b></th>
           <th><b>Account Name</b></th>
-          <th><b>Transaction Category</b></th>
+          <th><b>Category</b></th>
           <th><b>Transaction Date</b></th>
           <th><b>Amount</b></th>
           
@@ -1370,7 +1370,7 @@ PDF::Output('Transaction.pdf');
                 <th><b>Expense Name</b></th>
                
                 <th><b>Account Name</b></th>
-                <th><b>Transaction Category</b></th>
+                <th><b>Category</b></th>
                 <th><b>Transaction Date</b></th>
                 <th><b>Amount</b></th>
                 
@@ -1475,7 +1475,7 @@ else if (!strcmp($category,"customeinformation")){
             <th><b>Customer Name</b></th>
            
             <th><b>Account Name</b></th>
-            <th><b>Transaction Category</b></th>
+            <th><b>Category</b></th>
             <th><b>Transaction Date</b></th>
             <th><b>Amount</b></th>
             
@@ -1586,7 +1586,7 @@ else if (!strcmp($category,"tblledgerparties")){
                   <th><b>Employee Name</b></th>
                  
                   <th><b>Account Name</b></th>
-                  <th><b>Transaction Category</b></th>
+                  <th><b>Category</b></th>
                   <th><b>Transaction Date</b></th>
                   <th><b>Amount</b></th>
                   
