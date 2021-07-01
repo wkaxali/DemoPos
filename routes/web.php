@@ -55,7 +55,9 @@ use App\Http\Controllers\salesHistoryController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/getsignin1/{data}',[signInSignUPcontroller::class, 'signIn']);
+
+Route::get('/filterSalesHistory/{cat}/{cus}',[salesHistoryController::class, 'filterSalesHistory']);
+Route::get('/salesHistory',[salesHistoryController::class, 'getSalesHistory']);
 Route::get('/updatePurchasedStock/{array}/{InvoiceNo}',[purchaseStockEditController::class, 'updatePurchasedStock']);
 Route::get('/empProgress',[dashBoardDisplayData::class, 'employeeProgress']);
 Route::get('/barGraphForTransactions',[dashBoardDisplayData::class, 'getTransactions']);
@@ -1055,6 +1057,15 @@ Route::get('/ea', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('editAccount'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/sh', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('salesHistory'); 
     }else{
     return view("signInSignUp");
     }
