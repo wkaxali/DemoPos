@@ -413,19 +413,19 @@
         <script>
     function printMonthlyTrasaction(){
               var month = $('#month').find(":selected").val();
-                  
+              var monthname = $('#month').find(":selected").text();
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printMonthlyTrasaction/'+month );
+                    window.open('/printMonthlyTrasaction/'+month+"/"+monthname );
                   
                 }
             }
              
                      
             // alert("hello");
-            xhttp.open("GET", "./printMonthlyTrasaction/"+month.trim() ,true);
+            xhttp.open("GET", "./printMonthlyTrasaction/"+month.trim()+"/"+monthname ,true);
             xhttp.send();
         
         }

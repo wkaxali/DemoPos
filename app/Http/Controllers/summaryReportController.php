@@ -69,21 +69,20 @@ class summaryReportController extends Controller
     }
     }
 
-    public static function summaryReportTabularBase(){
+    public static function summaryReportTabularBase($month,$monthname){
         $data=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
-        FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit" group by TransactionCatogery');
+        FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit" and Month(DateStamp)='.$month.' group by TransactionCatogery');
              $total=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
-             FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit"');
-       
-        $date1='2020-01-24 ';
-        $date2='2021-05-24';
-
+             FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit" and Month(DateStamp)='.$month);
+        
         $table=' 
-        <h4  align="center">From '.$date1.' To From '.$date2.'  </h4>
+
+        <h2  align="center"> Summary Report </h2>
+        <h4  align="left">Filter by Month: '.$monthname.'  </h4>
         
         
         <h3 align="center">Debit</h3> 
-        <table width= 100px style="display: inline-block; margin-right:10px" border="1" >
+        <table width= 100px style="display: inline-block; margin-right:10px" border="0.4" >
         <thead></thead>
         <tbody>
              
@@ -100,7 +99,7 @@ foreach ($total as $t){
     foreach ($data as $d){
 
         $table=$table.'
-        <table width= 100px style="display: inline-block;" border="1" >
+        <table width= 100px style="display: inline-block;" border="0.4" >
     <thead></thead>
     <tbody>
          
@@ -115,14 +114,14 @@ foreach ($total as $t){
 
         ';
     }
-    $table=$table.' <table style="display: inline-block;" border="1" ><tr><td align="center" ><b>Total</b></td>
+    $table=$table.' <table style="display: inline-block;" border="0.4" ><tr><td align="center" ><b>Total</b></td>
         <td align="center" >'.$t->Amount.'</td>
         </tr></table> ';
  }
     
         $table=$table.' 
         <h3 align="center">Credit</h3> 
-        <table width= 100px style="display: inline-block;" border="1" >
+        <table width= 100px style="display: inline-block;" border="0.4" >
         <thead></thead>
         <tbody>
              
@@ -137,15 +136,15 @@ foreach ($total as $t){
 ';
     
         $data=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
-        FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit" group by TransactionCatogery');
+        FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit" and Month(DateStamp)='.$month.' group by TransactionCatogery');
              $total=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
-             FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit"');
+             FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit" and Month(DateStamp)='.$month);
           foreach ($total as $t){       
     foreach ($data as $d){
 
         $table=$table.'
        
-        <table width= 100px style="display: inline-block;" border="1" >
+        <table width= 100px style="display: inline-block;" border="0.4" >
         <thead></thead>
     <tbody>
          
@@ -163,16 +162,16 @@ foreach ($total as $t){
 
     
     }
-    $table=$table.' <table style="display: inline-block;" border="1" ><tr><td align="center" ><b>Total</b></td>
+    $table=$table.' <table style="display: inline-block;" border="0.4" ><tr><td align="center" ><b>Total</b></td>
         <td align="center" >'.$t->Amount.'</td>
         </tr></table> ';
  }
 
     $tdebit=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
-    FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Debit"');
+    FROM tbltransactionflow where TransactionCatogery != "null" and Month(DateStamp)='.$month.' And TransactionType="Debit"');
 
     $tcredit=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount
-    FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit"');
+    FROM tbltransactionflow where TransactionCatogery != "null" And TransactionType="Credit" and Month(DateStamp)='.$month);
   foreach ($tcredit as $t){       
     foreach ($tdebit as $d){
             $debit=$d->Amount;
