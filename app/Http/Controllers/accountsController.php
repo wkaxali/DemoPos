@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class accountsController extends Controller
 {
     public static function loadCategory(){
@@ -158,7 +158,20 @@ class accountsController extends Controller
             $oldbalance2=self::getAccountBalance($acc2);
             $oldbalance2+= $amount;
             $newbalance2=self::UpdateNewBalance($acc2,$oldbalance2);
-             
+            
+
+            $Tcate= "Amount Transfer";
+            $dateStamp = Carbon::now()->toDateString();
+            $LID=globalVarriablesController::selfLedgerID();
+            $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
+
+            $transactionRecord1=TransactionFlow::addTransaction(Null,"Debit",$Tcate,$amount,$dateStamp,
+            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc1,Null);
+            $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
+            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc2,Null);
+            
+
+
             return "Amount ".$amount." Is Transfered " ;
         }
 

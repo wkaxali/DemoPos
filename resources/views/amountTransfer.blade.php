@@ -239,7 +239,7 @@
                     var account1 = $('#acc1').find(":selected").val();
                     var account2 = $('#acc2').find(":selected").val();
                     var amount = document.getElementById("amount").value;
-                 alert(account1);   alert(account2);
+                //  alert(account1);   alert(account2);
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
