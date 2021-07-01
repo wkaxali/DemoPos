@@ -283,9 +283,10 @@ Route::get('/printEmployee',[CustomerController::class, 'printEmployee']);
 Route::get('/printStockData',[OrderFlowController::class, 'printStockData']);
 Route::get('/printTrasactionHistory2/{table}/{category}/{value}',[TransactionFlow::class, 'printTrasactionHistory2']);
 
+Route::get('/selectedMonthData/{DATE1}',[summaryReportController::class, 'selectedMonthData']);
 
 
-
+ 
 
 Route::get('/', function () {
 

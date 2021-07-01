@@ -59,7 +59,15 @@ class summaryReportController extends Controller
         return $data;
     }
     
-
+    public static function selectedMonthData($month){
+        if(!strcmp($month,"All")){
+            $data=DB:: select('select * from vw_transaction_flow' );
+            return $data;
+        }else{
+        $data=DB:: select('select * from vw_transaction_flow where Month(DateStamp)='.$month);
+        return $data;
+    }
+    }
 
     public static function summaryReportTabularBase(){
         $data=DB:: select('SELECT TransactionCatogery, SUM(Amount) AS Amount

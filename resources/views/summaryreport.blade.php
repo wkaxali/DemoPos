@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Summary Report</title>
+    <title>Transactions Summary Report</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -93,6 +93,8 @@
             }
 
         }
+        th { font-size: 13px;   }
+        td { font-size: 13px; }
 
         .inner-block {
             padding: 1em 1em 2em 1em;
@@ -103,7 +105,8 @@
     </style>
 </head>
 
-<body onload="loadFunctions()" id="allData">
+<body onload="getTransactionHistory()" id="allData">
+
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -117,26 +120,41 @@
                     </div>
                 </header>
                 <section>
-                    <div class="container">
-                        <div class="row my-2">
-                            <div class="col-md-4">
-                                <label style="width:117px;" for="">Select Account</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="accounts"
-                                    onchange="getTransactionHistoryAccounts()">
-
-                                </select>
-                            </div>
-
-                            <div class="col-md-4 offset-md-4 ">
-                                <label for="">Select Ledger</label>
-                                <select 
-                                    class="selectpicker form-control" data-live-search="true" id="parties"
-                                    onchange="getTransactionHistoryForParty()">
-
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                     
+                                <div class="container"  >
+                                     <div class="row my-2" >
+                                            <div class="col-md-4" >
+                                                <label for="">Select Month</label>
+                   
+                                                
+                                                <select name="month" id="month">
+                                                     <option value="All"> </option>
+                                                    <option value="01">January</option>
+                                                    <option value="02">February</option>
+                                                    <option value="03">March</option>
+                                                    <option value="04">April</option>
+                                                    <option value="05">May</option>
+                                                    <option value="06">June</option>
+                                                    <option value="07">July</option>
+                                                    <option value="08">August</option>
+                                                    <option value="09">September</option>
+                                                    <option value="10">October</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">December</option>
+                                                </select> 
+ 
+                                            </div>
+                                             
+                                            <div class="col-md-4" >
+                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:20px;"
+                                                        onclick="selectedMonthData()">Search </button> </div>
+                                            </div>
+                                            <!-- <label for="">Total:</label>
+                                            <h1 id="tableSum">0</h1>
+                                             -->
+                                        </div>
+                                  </div>
+                          
                 </section>
                 <section>
                     <div class="container">
@@ -152,22 +170,27 @@
 
 
 
-                <section>
+                <section >
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="transactionTable">
-                                    <main id="mainHeader">
-                                        <table class="table display table-bordered table-striped" id="myTable">
+                                     
+                                       <div id ="mydata" class="table-responsive">
+                                       <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
                                             <thead>
                                                 <tr>
-                                                    <th></th>
-
-                                                    <th> ID</th>
-                                                    <th>Invoice No</th>
-                                                    <th>Summary Category</th>
+                                                   
+                                                    <th>Transaction ID</th>
+                                                    <th>Invoice Number</th>
+                                                    <th>Party Name</th>
+                                                    <th>Employee Name</th>
+                                                    <th>Customer Name</th>
+                                                    <th >Expense Head</th>
+                                                    <th>Account Name</th>
+                                                    <th>Transaction Category</th>
                                                     <th>Amount</th>
-                                                    <th>Summary Date</th>
+                                                    <th>Transaction Date</th> 
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -175,7 +198,8 @@
                                             </tbody>
 
                                         </table>
-                                    </main>
+                                       </div>
+                                     
                                 </div>
                             </div>
                         </div>
@@ -198,13 +222,14 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="newFun()" class="btn btn-warning">Print</button>
-                                <button class="btn btn-danger">Close</button>
+                                <button onclick="printTrasactionHistory()" class="btn btn-info">Print</button>
+                                <!-- <button class="btn btn-danger">Close</button> -->
                             </div>
                         </div>
                     </div>
+                    
                     @include('sidenavbar')
-                    <div class="clearfix"></div>
+        <div class="clearfix"></div>
             </div>
 
 
@@ -212,7 +237,8 @@
 
 
 
-
+            <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+            
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
                 crossorigin="anonymous">
@@ -220,9 +246,6 @@
             <script type="text/javascript"
                 src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js">
             </script>
-
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js'></script>
-            <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
             <script type="text/javascript" language="javascript"
                 src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
             <script type="text/javascript" language="javascript"
@@ -232,25 +255,10 @@
             <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
 
 
-            <script>
-                $(document).ready(function () {
-                    $('#myTable').DataTable({
-                        responsive: {
-                            details: {
-                                type: 'column',
-                                target: 'tr'
-                            }
-                        },
-                        columnDefs: [{
-                            className: 'control',
-                            orderable: false,
-                            targets: 0
-                        }],
-                        order: [1, 'asc']
-                    });
-                });
+            <script src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js'></script>
+            
 
-            </script>
+        
             <script type="text/javascript">
                 var _gaq = _gaq || [];
                 _gaq.push(['_setAccount', 'UA-365466-5']);
@@ -267,60 +275,21 @@
                 })();
 
             </script>
-
-
-
+ 
+ 
             <script>
-                function loadFunctions() {
-                    loadAccounts();
-                    loadParties();
-                    getTransactionHistoryforExpance();
-                }
 
-            </script>
-
-
-            <script>
-                function loadAccounts() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-
-                        if (this.readyState == 4 && this.status == 200) {
-
-                            document.getElementById("accounts").innerHTML = this.response;
-                            $('#accounts').selectpicker('refresh');
-                        }
-                    };
-                    //alert("ljd");
-                    xhttp.open("GET", "./getAccountHeads/", true);
-
-                    xhttp.send();
-                }
-
-            </script>
-
-
-            <script>
-                function loadParties() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-
-                        if (this.readyState == 4 && this.status == 200) {
-
-                            document.getElementById("parties").innerHTML = this.response;
-                            $('#parties').selectpicker('refresh');
-                        }
-                    };
-                    //alert("ljd");
-                    xhttp.open("GET", "./getPartyNames/", true);
-
-                    xhttp.send();
-                }
-
-            </script>
-
-            <script>
-                function getTransactionHistoryforExpance() {
+            function dateFormat(data){
+                monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"];
+                var date = new Date(data);
+                var d = date.getDate();
+                var m = monthNames[date.getMonth()];
+                var y = date.getFullYear();
+                finalDate = d+"-"+m+"-"+y;
+                return finalDate;
+            }
+                function getTransactionHistory() {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
 
@@ -329,101 +298,34 @@
                             var data = this.responseText;
                             //alert(data);
                             var table;
-                            var a = JSON.parse(data);
+                            var dt = JSON.parse(data);
+                            a=dt[0];
+                            sum=dt[1];
+                            
                             //alert(a[0].TransactionID);
                             table = $('#myTable').DataTable();
 
                             $.each(a, function (i, item) {
 
-                                table.row.add(['',
-                                    a[i].TransactionID, a[i].InvoiceNo, 
+                                table.row.add([  
+                                    a[i].TransactionID,a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
                                     a[i].TransactionCatogery, a[i].Amount,
                                     a[i].DateStamp
                                 ]);
                             });
                             table.draw();
-
-                        }
-                    };
-                    //alert("ljd");
-                    xhttp.open("GET", "./transactionHistoryfe/", true);
-
-                    xhttp.send();
-                }
-
-                function getTransactionHistoryForParty() {
-                    var xhttp = new XMLHttpRequest();
-                    var LID = document.getElementById("parties").value;
-                    xhttp.onreadystatechange = function () {
-
-                        if (this.readyState == 4 && this.status == 200) {
-
-
-                            var data = this.responseText;
-                            //alert(data);
-                            var table;
-                            var a = JSON.parse(data);
-                            //  alert(a[0].ProductSerial);
                             
-                            table = $('#myTable').DataTable();
-                            table.clear();
-
-                            $.each(a, function (i, item) {
-
-                                table.row.add(['',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
-                                    a[i]
-                                    .Amount,
-                                    a[i].DateStamp
-                                ]);
-                            });
-                            table.draw();
 
                         }
                     };
                     //alert("ljd");
-                    xhttp.open("GET", "./transactionHistoryParties/" + LID, true);
+                    xhttp.open("GET", "./transactionHistory/", true);
 
                     xhttp.send();
                 }
-
-                function getTransactionHistoryAccounts() {
-                    var xhttp = new XMLHttpRequest();
-                    var AID = document.getElementById("accounts").value;
-                    
-                    xhttp.onreadystatechange = function () {
-
-                        if (this.readyState == 4 && this.status == 200) {
-
-                            var data = this.responseText;
-                            //alert(data);
-                            var table;
-                            var a = JSON.parse(data);
-                            //  alert(a[0].ProductSerial);
-                            table = $('#myTable').DataTable();
-                            table.clear();
-
-                            $.each(a, function (i, item) {
-
-                                table.row.add(['',a[i].TransactionID, a[i].InvoiceNo, a[i].TransactionCatogery,
-                                    a[i]
-                                    .Amount,
-                                    a[i].DateStamp
-                                ]);
-                            });
-                            table.draw();
-
-                        }
-                    };
-                    //alert("ljd");
-                    xhttp.open("GET", "./transactionHistoryAccounts/" + AID, true);
-
-                    xhttp.send();
-                }
-
+ 
             </script>
-
-
-
+ 
             <script>
                 var toggle = true;
 
@@ -448,40 +350,100 @@
                     toggle = !toggle;
                 });
 
-                function newFun() {
-                    var table = $('#myTable').DataTable();
-                    var htmlTable = '<table > ';
-                    var data = table
-                        .rows()
-                        .data();
+                function selectedMonthData() {
+                  
+                    var month = $('#month').find(":selected").val();
+                   alert(month)
+                     
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
 
-                    // var a = alert('The table has ' + data.length + ' records');
-                    for (i = 0; i < data.length; i++) {
-                        var rows = table.rows(i).data();
-                        //alert(rows[i])
+                        var data = this.responseText;
+                       
+                        
+                            var table;
+                            var a = JSON.parse(data);
+                             
+                            table = $('#myTable').DataTable();
+                            table.clear();
 
+                            $.each(a, function (i, item) {
 
-                        htmlTable = htmlTable + "<tr><td >" + i + "</td></tr>";
-                    }
-                    htmlTable = htmlTable + "</table>"
-                    // var divToPrint = document.getElementById("printTable");
-                    newWin = window.open("");
-                    newWin.document.write(
-                        '<html><head><title>Print it!</title><style>table,th,td{border:1px solid #333 ;}</style></head><body>'
-                    );
-                    // newWin.document.write("<h1> hhdd</h1>");
+                                date = dateFormat();
+                                table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                                    a[i]
+                                    .Amount,
+                                    a[i].DateStamp
+                                ]);
+                            });
+                            table.draw();
+ 
+                        }
+                    };
+ 
+                    xhttp.open("GET", "./selectedMonthData/"+month , true);
 
-                    newWin.document.write(htmlTable);
-                    newWin.print();
-                    //newWin.save();
-                    var doc = new jsPFD("potrait");
-                    doc.fromHTML(htmlTable);
-                    doc.save(test.pdf);
-                    // newWin.close();
+                    xhttp.send();
+
                 }
 
             </script>
+       <!-- <script>
+		    function printDiv(mydata){
+                   
+               
+                   var printContents = document.getElementById('mydata').innerHTML;
+                   var originalContents = document.body.innerHTML;
+       
+                   document.body.innerHTML = printContents;
+                   document.getElementById("myTable_length").style.visibility = "hidden";
+                   document.getElementById("myTable_filter").style.visibility = "hidden";
+                   document.getElementById("myTable_info").style.visibility = "hidden";
+                   document.getElementById("myTable_paginate").style.visibility = "hidden";
+                   
+                   window.print();
+               
+                   
+                   document.body.innerHTML = originalContents;
+                   location.reload(); 
+            }
+        </script> -->
+     
 
+        <script>
+    function printTrasactionHistory(){
+                    
+                    var table = $('#transactionCategory').find(":selected").val();
+                    var value = $('#tables').find(":selected").val();
+                    var category = $('#transactionCategory').find(":selected").text();
+                   
+                  
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printTrasactionHistory/'+table+'/'+category.trim()+'/'+value);
+                  
+                }
+            }
+            if(table == ""){
+                table = "All";  
+                    }
+                     if(value == ""){
+                        value = "All";  
+                    }if(category == ""){
+                        category = "Everything";  
+                    }
+                     
+            // alert("hello");
+            xhttp.open("GET", "./printTrasactionHistory/"+table.trim()+"/"+category.trim()+"/"+value,true);
+            xhttp.send();
+        
+        }
+    </script>
+
+ 
 </body>
 
 </html>
