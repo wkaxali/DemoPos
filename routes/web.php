@@ -43,6 +43,7 @@ use App\Http\Controllers\deliverLetterPrintController;
 use App\Http\Controllers\summaryReportController;
 use App\Http\Controllers\employeeAllowanceController;
 use App\Http\Controllers\purchaseStockEditController;
+use App\Http\Controllers\salesHistoryController;
 
 /*
 |--------------------------------------------------------------------------
