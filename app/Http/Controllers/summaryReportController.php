@@ -81,15 +81,15 @@ class summaryReportController extends Controller
         <h4  align="left">Filter by Month: '.$monthname.'  </h4>
         
         
-        <h3 align="center">Debit</h3> 
-        <table cellpadding = "3" cellspacing = "0"  width=50%  style="display: inline-block ; font-size:10px; margin-right:20px" border="0.2" >
+        <h4 align="left">Debit</h4> 
+        <table cellpadding = "3" cellspacing = "0"  width=50%  style="  font-size:10px; margin-right:20px" border="0.2" >
         <thead></thead>
         <tbody>
              
             <tr>
            
-            <td align="center"  ><b>Transaction Catogery</b></td>
-            <td align="center" ><b>Amount</b></td>
+            <td align="center" width="200px;" ><b>Transaction Catogery</b></td>
+            <td align="center" width="200px;" ><b>Amount</b></td>
          
             </tr>
         </tbody>
@@ -105,8 +105,8 @@ foreach ($total as $t){
          
         <tr>
        
-        <td align="center" >'.$d->TransactionCatogery.'</td>
-        <td align="center" >'.$d->Amount.'</td>
+        <td align="center" width="200px;">'.$d->TransactionCatogery.'</td>
+        <td align="center" width="200px;">'.$d->Amount.'</td>
      
         </tr>
         </tbody>
@@ -114,21 +114,22 @@ foreach ($total as $t){
 
         ';
     }
-    $table=$table.' <table cellpadding = "3" cellspacing = "0"  style="display: inline-block; font-size:10px;" border="0.2" ><tr><td align="center" ><b>Total</b></td>
-        <td align="center" >'.$t->Amount.'</td>
+    $table=$table.' <table cellpadding = "3" cellspacing = "0"  style="display: inline-block; font-size:10px;" border="0.2" ><tr>
+        <td align="center" width="200px;"><b>Total</b></td>
+        <td align="center" width="200px;">'.$t->Amount.'</td>
         </tr></table> ';
  }
     
         $table=$table.' 
-        <h3 align="center">Credit</h3> 
+        <h4 align="left">Credit</h4> 
         <table cellpadding = "3" cellspacing = "0"  style="display: inline-block; font-size:10px;" border="0.2" >
         <thead></thead>
         <tbody>
              
             <tr>
            
-            <td align="center" ><b>Transaction Catogery</b></td>
-            <td align="center" ><b>Amount</b></td>
+            <td align="center" width="200px;"><b>Transaction Catogery</b></td>
+            <td align="center" width="200px;"><b>Amount</b></td>
            
             </tr>
             </tbody>
@@ -150,8 +151,8 @@ foreach ($total as $t){
          
         <tr>
        
-        <td align="center" >'.$d->TransactionCatogery.'</td>
-        <td align="center" >'.$d->Amount.'</td></tr>
+        <td align="center" width="200px;">'.$d->TransactionCatogery.'</td>
+        <td align="center" width="200px;">'.$d->Amount.'</td></tr>
         
         </tbody>
     </table> 
@@ -162,8 +163,9 @@ foreach ($total as $t){
 
     
     }
-    $table=$table.' <table cellpadding = "3" cellspacing = "0"  style="display: inline-block; font-size:10px;" border="0.2" ><tr><td align="center" ><b>Total</b></td>
-        <td align="center" >'.$t->Amount.'</td>
+    $table=$table.' <table cellpadding = "3" cellspacing = "0"  style="display: inline-block; font-size:10px;" border="0.2" ><tr>
+        <td align="center" width="200px;"><b>Total</b></td>
+        <td align="center" width="200px;">'.$t->Amount.'</td>
         </tr></table> ';
  }
 
