@@ -1040,7 +1040,9 @@ route::get('/dbo', function(){
 route::get('/eph', function(){
     return view('empPaymentHistory');
 });
-
+route::get('/amt', function(){
+    return view('amountTransfer');
+});
 Route::get('/aa', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
