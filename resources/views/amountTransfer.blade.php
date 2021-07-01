@@ -121,7 +121,7 @@
                 </header>
                 <section><br><br><br>
                     <div class="container">
-                        <div class="row my-2">
+                        <div class="row my-2" style="margin-left:317px;" >
                             <div class="col-md-3">
                                 <label style="width:117px;" for="">From Account</label>
                                 <select class="selectpicker form-control" data-live-search="true" id="acc1"   >
@@ -137,12 +137,12 @@
                                     <option value=""></option>
                                 </select>
                                 </div> <br>
-                            <div class="col-md-3 ">
-                            
+                            <div class="col-md-7 ">
+                            <br>
                                 <label for=""  >Enter Amount</label>
                                  <input type="text" id="amount">
-                                </div> <br>
-                            <div class="col-md-3">
+                                </div> 
+                            <div class="col-md-6">
                                 <button 
                                     class="btn  btn-info" data-live-search="true"  style="margin-top:32px;"
                                     onclick="amountTransfer()">
