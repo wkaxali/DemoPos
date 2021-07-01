@@ -136,5 +136,31 @@ class accountsController extends Controller
                 </table>';
             return $table;
         }
+
+        public static function getAccounts(){
+            $option='';
+            $data=DB:: select('select * from tblaccounts');
+            $option='<option value=""></option>';
+                foreach ($data as $d){
+                    $option=$option.'
+                    <option value='.$d->AID.'>'.$d->AccountName.'</option>';
+                }
+                return $option;
+        }
         
+
+        public function amountTransfer($acc1,$acc2,$amount){
+            $oldbalance1=self::getAccountBalance($acc1);
+            $oldbalance1-= $amount;
+            $newbalance1=self::UpdateNewBalance($acc1,$oldbalance1);
+            
+
+            $oldbalance2=self::getAccountBalance($acc2);
+            $oldbalance2+= $amount;
+            $newbalance2=self::UpdateNewBalance($acc2,$oldbalance2);
+             
+            return "Amount ".$amount." Is Transfered " ;
+        }
+
+
 }

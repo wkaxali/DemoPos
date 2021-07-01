@@ -285,9 +285,10 @@ Route::get('/printTrasactionHistory2/{table}/{category}/{value}',[TransactionFlo
 
 Route::get('/selectedMonthData/{month}',[summaryReportController::class, 'selectedMonthData']);
 Route::get('/printMonthlyTrasaction/{month}/{monthname} ',[summaryReportController::class, 'summaryReportTabularBase']);
+Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
+Route::get('/amountTransfer/{acc1}/{acc2}/{amount}',[accountsController::class, 'amountTransfer']);
 
 
- 
 
 Route::get('/', function () {
 
