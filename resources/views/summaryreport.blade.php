@@ -128,7 +128,7 @@
                    
                                                 
                                                 <select name="month" id="month">
-                                                     <option value="All"> </option>
+                                                     <option value="All">All</option>
                                                     <option value="01">January</option>
                                                     <option value="02">February</option>
                                                     <option value="03">March</option>
@@ -222,7 +222,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="printTrasactionHistory()" class="btn btn-info">Print</button>
+                                <button onclick="printMonthlyTrasaction()" class="btn btn-info">Print</button>
                                 <!-- <button class="btn btn-danger">Close</button> -->
                             </div>
                         </div>
@@ -353,8 +353,7 @@
                 function selectedMonthData() {
                   
                     var month = $('#month').find(":selected").val();
-                   alert(month)
-                     
+              
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
@@ -412,32 +411,21 @@
      
 
         <script>
-    function printTrasactionHistory(){
-                    
-                    var table = $('#transactionCategory').find(":selected").val();
-                    var value = $('#tables').find(":selected").val();
-                    var category = $('#transactionCategory').find(":selected").text();
-                   
+    function printMonthlyTrasaction(){
+              var month = $('#month').find(":selected").val();
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printTrasactionHistory/'+table+'/'+category.trim()+'/'+value);
+                    window.open('/printMonthlyTrasaction/'+month );
                   
                 }
             }
-            if(table == ""){
-                table = "All";  
-                    }
-                     if(value == ""){
-                        value = "All";  
-                    }if(category == ""){
-                        category = "Everything";  
-                    }
+             
                      
             // alert("hello");
-            xhttp.open("GET", "./printTrasactionHistory/"+table.trim()+"/"+category.trim()+"/"+value,true);
+            xhttp.open("GET", "./printMonthlyTrasaction/"+month.trim() ,true);
             xhttp.send();
         
         }
