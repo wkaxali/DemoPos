@@ -99,7 +99,7 @@ foreach ($total as $t){
     foreach ($data as $d){
 
         $table=$table.'
-        <table  cellpadding = "3" cellspacing = "0"  width= 100px style="display: inline-block; font-size:10px;" border="0.2" >
+        <table  cellpadding = "3" cellspacing = "0"  width= 100px  display: inline-block; font-size:10px;" border="0.2" >
     <thead></thead>
     <tbody>
          
