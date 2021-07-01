@@ -290,9 +290,6 @@
         xhttp.send();
     };
                
-
-
-            
     function getSalesHistory() {
         loadAllCustomers();
         var xhttp = new XMLHttpRequest();
