@@ -475,7 +475,7 @@
                                 table.column(1).visible(1);
                                 table.column(4).visible(1);
                                
-                            }else if((category.trim()==="investors".trim())){
+                            }else if((category.trim()==="Investors".trim())){
                                       table.column(3).visible(0);
                                       table.column(4).visible(0);
                                       table.column(5).visible(0);
@@ -617,7 +617,7 @@
                                 table.column(1).visible(1);
                                 table.column(4).visible(1);
                                
-                            }else if((category.trim()==="investors".trim())){
+                            }else if((category.trim()==="Investors".trim())){
                                       table.column(3).visible(0);
                                       table.column(4).visible(0);
                                       table.column(5).visible(0);
