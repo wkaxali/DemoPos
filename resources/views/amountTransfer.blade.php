@@ -142,6 +142,11 @@
                                 <label for=""  >Enter Amount</label>
                                  <input type="text" id="amount">
                                 </div> 
+                                <div class="col-md-7 ">
+                            <br>
+                                <label for=""  >Remarks</label>
+                                 <input type="text" id="Remarks">
+                                </div> 
                             <div class="col-md-6">
                                 <button 
                                     class="btn  btn-info" data-live-search="true"  style="margin-top:32px;"
@@ -239,6 +244,7 @@
                     var account1 = $('#acc1').find(":selected").val();
                     var account2 = $('#acc2').find(":selected").val();
                     var amount = document.getElementById("amount").value;
+                    var remarks = document.getElementById("Remarks").value;
                 //  alert(account1);   alert(account2);
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
@@ -247,8 +253,8 @@
                             
                         }
                     };
-                     
-                    xhttp.open("GET", "./amountTransfer/"+account1+"/"+account2+"/"+amount, true);
+                      
+                    xhttp.open("GET", "./amountTransfer/"+account1+"/"+account2+"/"+amount+"/"+remarks, true);
 
                     xhttp.send();
 

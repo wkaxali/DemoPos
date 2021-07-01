@@ -149,7 +149,7 @@ class accountsController extends Controller
         }
         
 
-        public function amountTransfer($acc1,$acc2,$amount){
+        public function amountTransfer($acc1,$acc2,$amount,$remarks){
             $oldbalance1=self::getAccountBalance($acc1);
             $oldbalance1-= $amount;
             $newbalance1=self::UpdateNewBalance($acc1,$oldbalance1);
@@ -166,9 +166,9 @@ class accountsController extends Controller
             $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
 
             $transactionRecord1=TransactionFlow::addTransaction(Null,"Debit",$Tcate,$amount,$dateStamp,
-            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc1,Null);
+            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc1,Null,$remarks);
             $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
-            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc2,Null);
+            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc2,Null,$remarks);
             
 
 
