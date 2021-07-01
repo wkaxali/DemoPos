@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class accountsController extends Controller
 {
     public static function loadCategory(){
@@ -133,5 +133,44 @@ class accountsController extends Controller
                 </table>';
             return $table;
         }
+
+        public static function getAccounts(){
+            $option='';
+            $data=DB:: select('select * from tblaccounts');
+            $option='<option value=""></option>';
+                foreach ($data as $d){
+                    $option=$option.'
+                    <option value='.$d->AID.'>'.$d->AccountName.'</option>';
+                }
+                return $option;
+        }
         
+
+        public function amountTransfer($acc1,$acc2,$amount,$remarks){
+            $oldbalance1=self::getAccountBalance($acc1);
+            $oldbalance1-= $amount;
+            $newbalance1=self::UpdateNewBalance($acc1,$oldbalance1);
+            
+
+            $oldbalance2=self::getAccountBalance($acc2);
+            $oldbalance2+= $amount;
+            $newbalance2=self::UpdateNewBalance($acc2,$oldbalance2);
+            
+
+            $Tcate= "Amount Transfer";
+            $dateStamp = Carbon::now()->toDateString();
+            $LID=globalVarriablesController::selfLedgerID();
+            $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
+
+            $transactionRecord1=TransactionFlow::addTransaction(Null,"Debit",$Tcate,$amount,$dateStamp,
+            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc1,Null,$remarks);
+            $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
+            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc2,Null,$remarks);
+            
+
+
+            return "Amount ".$amount." Is Transfered " ;
+        }
+
+
 }

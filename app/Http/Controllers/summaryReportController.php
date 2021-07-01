@@ -77,19 +77,19 @@ class summaryReportController extends Controller
         
         $table=' 
 
-        <h2  align="center"> Summary Report </h2>
+        <h2  align="center"> Summary Report </h2><br><br>
         <h4  align="left">Filter by Month: '.$monthname.'  </h4>
         
         
-        <h3 align="center">Debit</h3> 
-        <table width= 100px style="display: inline-block; margin-right:10px" border="0.4" >
+        <h4 align="left">Debit</h4> 
+        <table cellpadding = "3" cellspacing = "0"  width=50%  style="  font-size:10px; margin-right:20px" border="0.2" >
         <thead></thead>
         <tbody>
              
             <tr>
            
-            <td align="center" ><b>Transaction Catogery</b></td>
-            <td align="center" ><b>Amount</b></td>
+            <td align="center" width="200px;" ><b>Transaction Catogery</b></td>
+            <td align="center" width="200px;" ><b>Amount</b></td>
          
             </tr>
         </tbody>
@@ -99,14 +99,14 @@ foreach ($total as $t){
     foreach ($data as $d){
 
         $table=$table.'
-        <table width= 100px style="display: inline-block;" border="0.4" >
+        <table cellpadding = "3" cellspacing = "0"  width= 100px style="display: inline-block; font-size:10px;" border="0.2" >
     <thead></thead>
     <tbody>
          
         <tr>
        
-        <td align="center" >'.$d->TransactionCatogery.'</td>
-        <td align="center" >'.$d->Amount.'</td>
+        <td align="center" width="200px;">'.$d->TransactionCatogery.'</td>
+        <td align="center" width="200px;">'.$d->Amount.'</td>
      
         </tr>
         </tbody>
@@ -114,21 +114,22 @@ foreach ($total as $t){
 
         ';
     }
-    $table=$table.' <table style="display: inline-block;" border="0.4" ><tr><td align="center" ><b>Total</b></td>
-        <td align="center" >'.$t->Amount.'</td>
+    $table=$table.' <table cellpadding = "3" cellspacing = "0"  style="display: inline-block; font-size:10px;" border="0.2" ><tr>
+        <td align="center" width="200px;"><b>Total</b></td>
+        <td align="center" width="200px;">'.$t->Amount.'</td>
         </tr></table> ';
  }
     
         $table=$table.' 
-        <h3 align="center">Credit</h3> 
-        <table width= 100px style="display: inline-block;" border="0.4" >
+        <h4 align="left">Credit</h4> 
+        <table cellpadding = "3" cellspacing = "0"  style="display: inline-block; font-size:10px;" border="0.2" >
         <thead></thead>
         <tbody>
              
             <tr>
            
-            <td align="center" ><b>Transaction Catogery</b></td>
-            <td align="center" ><b>Amount</b></td>
+            <td align="center" width="200px;"><b>Transaction Catogery</b></td>
+            <td align="center" width="200px;"><b>Amount</b></td>
            
             </tr>
             </tbody>
@@ -144,14 +145,14 @@ foreach ($total as $t){
 
         $table=$table.'
        
-        <table width= 100px style="display: inline-block;" border="0.4" >
+        <table cellpadding = "3" cellspacing = "0"  style="display: inline-block; font-size:10px;" border="0.2" >
         <thead></thead>
     <tbody>
          
         <tr>
        
-        <td align="center" >'.$d->TransactionCatogery.'</td>
-        <td align="center" >'.$d->Amount.'</td></tr>
+        <td align="center" width="200px;">'.$d->TransactionCatogery.'</td>
+        <td align="center" width="200px;">'.$d->Amount.'</td></tr>
         
         </tbody>
     </table> 
@@ -162,8 +163,9 @@ foreach ($total as $t){
 
     
     }
-    $table=$table.' <table style="display: inline-block;" border="0.4" ><tr><td align="center" ><b>Total</b></td>
-        <td align="center" >'.$t->Amount.'</td>
+    $table=$table.' <table cellpadding = "3" cellspacing = "0"  style="display: inline-block; font-size:10px;" border="0.2" ><tr>
+        <td align="center" width="200px;"><b>Total</b></td>
+        <td align="center" width="200px;">'.$t->Amount.'</td>
         </tr></table> ';
  }
 
@@ -178,7 +180,7 @@ foreach ($total as $t){
             $credit=$t->Amount;
         $table=$table.' 
             <br><br><br><br>
-        <table>
+        <table cellpadding = "3" cellspacing = "0" >
         <tr>
         <td><h3  style="font-family: Times New Roman, Times, serif; ">
         Balance (profit/loss)= '.($debit-$credit).'

@@ -74,7 +74,7 @@ Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
 Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
 Route::get('/sd',[summaryReportController::class, 'stockDetails']);
 Route::get('/sum',[summaryReportController::class, 'summaryReport']);
-Route::get('/sum2',[summaryReportController::class, 'summaryReportTabularBase']);
+// Route::get('/sum2',[summaryReportController::class, 'summaryReportTabularBase']);
 Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
 Route::get('/transactions/{dates}',[summaryReportController::class, 'transactions']);
 Route::get('/getUsers',[userAccountController::class, 'getUsers']);
@@ -288,9 +288,10 @@ Route::get('/printTrasactionHistory2/{table}/{category}/{value}',[TransactionFlo
 
 Route::get('/selectedMonthData/{month}',[summaryReportController::class, 'selectedMonthData']);
 Route::get('/printMonthlyTrasaction/{month}/{monthname} ',[summaryReportController::class, 'summaryReportTabularBase']);
+Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
+Route::get('/amountTransfer/{acc1}/{acc2}/{amount}/{remarks}',[accountsController::class, 'amountTransfer']);
 
 
- 
 
 Route::get('/', function () {
 
@@ -1043,7 +1044,9 @@ route::get('/dbo', function(){
 route::get('/eph', function(){
     return view('empPaymentHistory');
 });
-
+route::get('/amt', function(){
+    return view('amountTransfer');
+});
 Route::get('/aa', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){

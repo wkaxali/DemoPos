@@ -12,7 +12,7 @@ class TransactionFlow extends Controller
 {
     
     public static function addTransaction($InvoiceNo,$TType,$Tcate,$amount,$dateStamp,
-    $UserID,$SBB,$SBA,$CBB,$CBA,$LID,$pattyCash,$paidBy,$paidTo,$paidVia,$CID)
+    $UserID,$SBB,$SBA,$CBB,$CBA,$LID,$pattyCash,$paidBy,$paidTo,$paidVia,$CID,$remarks)
     {
 
          // InvoiceNo bigint(20) 
@@ -45,7 +45,8 @@ class TransactionFlow extends Controller
         'PaidTo'=>$paidTo,
         'PaidBy'=>$paidBy,
         'PaidVia'=>$paidVia,
-        'CID'=>$CID
+        'CID'=>$CID,
+        'Remarks'=>$remarks
 
            
           

@@ -124,6 +124,8 @@ style="float: right"></span></a>
 <li><a href="eu">Edit User</a></li>
 <li><a href="/aa">Add Account</a></li>
 <li><a href="ea">Edit Account</a></li>
+<li><a href="amt">Amount Transfer</a></li>
+<li><a href="ac">Add & Edit Category</a></li>
 </ul>
 </li>
 
@@ -172,7 +174,7 @@ style="float: right"></span></a>
 class="fas fa-flag-checkered"></i><span style="font-size: 14px;">Reports</span><span
 class="fa fa-angle-right" style="float: right"></span></a>
 <ul class="collapse firstULs10" id="menu-academico-sub">
-<li id="menu-academico-boletim"><a href="/d">Summary Report</a></li>
+<li id="menu-academico-boletim"><a href="/sumrep">Summary Report</a></li>
 
 <!-- <li id="menu-academico-boletim"><a href="/dl">Due Report</a></li> -->
 
