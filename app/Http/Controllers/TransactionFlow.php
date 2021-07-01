@@ -64,7 +64,11 @@ class TransactionFlow extends Controller
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
             $sum=0;
                     foreach($data as $d){
-                          $sum+= $d->Amount;
+                        if($d->TransactionType=="Credit"){
+                            $sum+= $d->Amount;
+                        }else{
+                            $sum-= $d->Amount;
+                        }
                         }
                       return [$data, $sum];
     
