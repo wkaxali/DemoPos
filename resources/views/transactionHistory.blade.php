@@ -151,6 +151,8 @@
                                      <div class="row my-2" >
                                             <div class="col-md-4" >
                                                 <label for="">From Date</label>
+                   
+                   
                                                 <input type="date" id ="date1">
                                             </div>
                                             <div class="col-md-4" >
@@ -329,6 +331,7 @@
                         //alert("Thisi");
 
                 document.getElementById("pname").innerHTML="Employees";
+
                 } else if((cat.trim()==="Party Payment".trim()) ||  (cat.trim()==="Booking Order".trim()) || 
                 (cat.trim()==="Booking Order".trim())){
             
@@ -342,12 +345,15 @@
                 else if((cat.localeCompare("Expense"))){
                         
                 document.getElementById("pname").innerHTML="Expenses";
+
                 }else if((cat.trim()==="Stock and Service".trim())){
-                        
-                document.getElementById("pname").innerHTML="Customers";
-                }else if(cat.trim()==="Stock and Service".trim()){
-                            
-                document.getElementById("pname").innerHTML="Company";
+               document.getElementById("pname").innerHTML="Customers";
+
+                }else if((cat.trim()==="Stock and Purchased".trim())){
+                  
+                       
+                    document.getElementById("pname").innerHTML="Supplier";
+
                 }else if((cat.trim()===("Sales").trim())){
                             
                  document.getElementById("pname").innerHTML="Customers";
@@ -459,7 +465,7 @@
                                 table.column(0).visible(1);
                                 table.column(1).visible(1);
                                 table.column(4).visible(1);
-                              
+                                document.getElementById("custname").innerHTML="Supplier"; 
                             }else if((category.trim()==="Stock and Service".trim())){
                                 table.column(2).visible(0);
                                 table.column(3).visible(0);
@@ -601,7 +607,7 @@
                                 table.column(0).visible(1);
                                 table.column(1).visible(1);
                                 table.column(4).visible(1);
-                              
+                                document.getElementById("custname").innerHTML="Supplier"; 
                             }else if((category.trim()==="Stock and Service".trim())){
                                 table.column(2).visible(0);
                                 table.column(3).visible(0);
