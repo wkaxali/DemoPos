@@ -51,7 +51,7 @@ class purchaseHistoryController extends Controller
     public static function filterPurchaseDateData($date1,$date2,$catID, $partyID){
         $data=0;
         if($catID=="All" AND $partyID=="All"){
-            $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order" and DateStamp between "'.$date1 .'"and"'.$date2.'"');
+            $data=DB:: select('select * from vw_purchase_transactions where (TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order") and DateStamp between "'.$date1 .'"and"'.$date2.'"');
         
         }else if($catID=="All" AND $partyID!="All"){
             
