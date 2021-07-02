@@ -113,7 +113,6 @@ Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
-
 //---------------------------//LedgerPartiesController
 Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer']);
 Route::get('/getAllCustomers',[CustomerController::class, 'getAllCustomers']);
@@ -121,12 +120,10 @@ Route::get('/getCustomerNames',[CustomerViewController::class, 'getCustomerNames
 //Route::get('/getAllSupliers/',[CustomerController::class, 'getAllCustomers']);
 Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail']);
 Route::get('/getCustomers',[CustomerController::class, 'getCustomers']);
-
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail']);
 Route::get('/addSupplier/{empData}',[LedgerPartiesController::class, 'addSupplier']);
 Route::get('/viewAllSupplier',[LedgerPartiesController::class, 'viewAllSupplier']);
 Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']);
-
 //__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 //getInvoiceCustomer/{data}
@@ -228,55 +225,40 @@ Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategor
 Route::get('/getPartyNames',[LedgerPartiesController::class, 'getPartyNames']);
 Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
-
 Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
-
 Route::get('/getEmployees',[taskController::class, 'getEmployees']);
 Route::get('/getInvestorStock/{data}',[investorController::class, 'getInvestorStock']);
 Route::get('/createQuotation/{data}',[quotationController::class, 'createQuotation']);
 Route::get('/getAutoData/{data}',[getProducts::class, 'getAutoData']);
-
 Route::get('/login/{un}/{pass}',[userAccountController::class, 'signIn']);
 Route::get('/addNewUsers/{AU}',[userAccountController::class, 'addUsers']);
-
 Route::get('/addCategory/{Category}',[productCategoryController::class, 'addCategory']);
-
 Route::get('/getPCategory',[productCategoryController::class, 'getCategory']);
 Route::get('/editCategory/{EC}',[productCategoryController::class, 'editCategory']);
-
 Route::get('/addEmpPay/{AP}',[payController::class, 'addEmpPay']);
-
 Route::get('/updateInvoice/{data}/{id}',[saleInvoiceEditController::class, 'UpdateSaleInvoice']);
 Route::get('/viewQuotations',[quotationController::class, 'viewQuotations']);
-
 Route::get('/negativeComission/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionNegative']);
 Route::get('/PostiveCommision/{data}',[AdditionalTaxesAndCommissionsController::class, 'AddTaxOrCommissionPositive']);
-
 Route::get('/AddProduct/{data}',[AddMenucontroller::class, 'insertProduct']);
 Route::post('/Checkout/{token}',[StripeController::class, 'postCheckout']);
 Route::get('/testpdf',[TEST::class, 'getInfo']);
 Route::get('/testpdf/2',[salePrintInvoice::class, 'printSaleInvoice']);
 Route::get('/monthlyReport',[printMonthlySaleController::class, 'PrintMonthlySale']);
 Route::get('/testpdf/as',[printServiceSaleInvoice::class, 'afterSalesServicePrint']);
-
 Route::get('/addAllowanceHead/{allowName}',[employeeAllowanceController::class, 'addAllowanceHead']);
 Route::get('/getAllowance',[employeeAllowanceController::class, 'getAllowance']);
 Route::get('/editAllowance/{UA}',[employeeAllowanceController::class, 'editAllowance']);
-
 Route::get('/viewDocuments',[printDocuments::class, 'getDocuments']);
-
 Route::get('/printSaleInvReq',[TEST::class, 'saleInvoiceRequest']);
-
 Route::get('/printq',[quotationController::class, 'qoutationToPDF']);
 Route::get('/testpdf/6',[salePrintInvoice::class, 'serviceSalesRequest']);
-
 Route::get('/searchAttendance/{month}/{year}',[attendanceController::class, 'searchAttendance']);
 Route::get('/getMonthlySales',[dashBoardDisplayData::class, 'getMonthlySales']);
 Route::get('/getMonthlyExpenses',[dashBoardDisplayData::class, 'getMonthlyExpenses']);
 Route::get('/getPendingOrders',[OrderFlowController::class, 'getPendingOrders']);
 Route::get('/getBalance',[LedgerPartiesController::class, 'getBalance']);
 Route::get('/getCustomerSales',[CustomerController::class, 'getCustomerSales']);
-
 Route::get('/getEmpPayments',[payController::class, 'getEmpPayments']);
 Route::get('/printTrasactionHistory/{date1}/{date2}/{table}/{category}/{value}',[TransactionFlow::class, 'printTrasactionHistory']);
 Route::get('/selectedSearchData/{category}/{value}/{table}',[TransactionFlow::class, 'selectedSearchData']);
@@ -285,7 +267,6 @@ Route::get('/loadCategoryData/{table}',[TransactionFlow::class, 'loadCategoryDat
 Route::get('/printEmployee',[CustomerController::class, 'printEmployee']);
 Route::get('/printStockData',[OrderFlowController::class, 'printStockData']);
 Route::get('/printTrasactionHistory2/{table}/{category}/{value}',[TransactionFlow::class, 'printTrasactionHistory2']);
-
 Route::get('/selectedMonthData/{month}',[summaryReportController::class, 'selectedMonthData']);
 Route::get('/printMonthlyTrasaction/{month}/{monthname} ',[summaryReportController::class, 'summaryReportTabularBase']);
 Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
