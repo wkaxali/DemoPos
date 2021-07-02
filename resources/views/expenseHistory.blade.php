@@ -138,7 +138,7 @@
                                 
                                 <button 
                                     class="btn  btn-info" data-live-search="true"  style="margin-top:32px;"
-                                    onclick="filterPurchaseData()">
+                                    onclick="filterExpenseData()">
                                     Search
                                 </button>
                                 </div>
@@ -162,14 +162,9 @@
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
-                                            <label for="">Total Sale Amount:</label>
-                                            <h1 id="totalSaleAmount">0</h1></div>
-                                            <div class="col-md-4" >
-                                            <label for="">Total Amount Paid:</label>
-                                            <h1 id="remainingAmount">0</h1></div>
-                                            <div class="col-md-4" >
-                                            <label for="">Total<br> Balance:</label>
-                                            <h1 id="invoiceBalance">0</h1></div>
+                                            <label for="">Total Amount:</label>
+                                            <h1 id="totalexpAmount">0</h1></div>
+                                             
                                             </div>
                                         </div>
                                   </div>
@@ -200,7 +195,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Transaction ID</th>
-                                                    <th>ExpenseHead</th>
+                                                    <th>Expense Head</th>
                                                     <th>Account Name</th>
                                                     <!-- <th>Transaction Category</th> -->
                                                     <th>Total Amount</th>
@@ -301,19 +296,17 @@
                 var dt = JSON.parse(data);
             
                 a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                totalexpAmount=dt[1];
+                
+                document.getElementById('totalexpAmount').innerHTML=totalexpAmount;
+                
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNo, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery, a[i].Amount, 
+                        a[i].TransactionID, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                          a[i].Amount, 
                         a[i].DateStamp
                     ]);
                     });
@@ -328,11 +321,11 @@
         xhttp.send();
     }
 
-    function filterPurchaseData() {
+    function filterExpenseData() {
 
-        var category = $('#category').find(":selected").text();
-        var categoryID = $('#category').find(":selected").val();
-        var partyID = $('#parties').find(":selected").val();
+         
+        var categoryID = $('#expense').find(":selected").val();
+         
         
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -345,20 +338,17 @@
                 var dt = JSON.parse(data);
                
                 a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-  
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                totalexpAmount=dt[1];
+                 
+                document.getElementById('totalexpAmount').innerHTML=totalexpAmount;
+                
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNo, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                        a[i].TransactionID, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                          a[i].Amount, 
                         a[i].DateStamp
                     
                     ]);
@@ -368,14 +358,8 @@
             }
         };
        
-        if(partyID== ""){
-            partyID="All";
-        }
-  
-        // alert(category);
-        // alert(categoryID);
-        // alert(partyID);
-        xhttp.open("GET", "./filterPurchaseData/"+categoryID+"/"+partyID, true);
+         
+        xhttp.open("GET", "./filterExpenseData/"+categoryID , true);
         xhttp.send();
     }
 
@@ -384,7 +368,7 @@
 
             var date1 = document.getElementById("date1").value;
             var date2 = document.getElementById("date2").value;
-            var categoryID = $('#category').find(":selected").val();
+            var categoryID = $('#expense').find(":selected").val();
             var partyID = $('#parties').find(":selected").val();
 
             var xhttp = new XMLHttpRequest();
@@ -398,13 +382,11 @@
                 var dt = JSON.parse(data);
             
                 a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
+                totalexpAmount=dt[1];
+                 
 
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                document.getElementById('totalexpAmount').innerHTML=totalexpAmount;
+                
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
