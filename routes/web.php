@@ -46,7 +46,7 @@ use App\Http\Controllers\purchaseStockEditController;
 use App\Http\Controllers\salesHistoryController;
 use App\Http\Controllers\purchaseHistoryController;
 use App\Http\Controllers\expenseHistoryController;
-
+use App\Http\Controllers\partyPaymentHistory;
 
 /*
 |--------------------------------------------------------------------------
@@ -281,6 +281,7 @@ Route::get('/filterPurchaseData/{catId}/{partyId}',[purchaseHistoryController::c
 Route::get('/filterPurchaseDateData/{date1}/{date2}/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseDateData']);
 Route::get('/loadAllExpenseHead',[expenseController::class, 'getAccounts']);
 Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
+Route::get('/filterSalesDateData/{date1}/{date2}/{catId}/{cusId}',[salesHistoryController::class, 'filterSalesDateData']);
 
 
 
@@ -618,7 +619,7 @@ Route::get('/inv', function () {
     return view("signInSignUp");
     }
 });
-Route::get('/pr', function () {
+Route::get('/npr', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('payRoll'); 
@@ -1099,6 +1100,15 @@ Route::get('/eh', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('expenseHistory'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/pr', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('NewPayRoll'); 
     }else{
     return view("signInSignUp");
     }

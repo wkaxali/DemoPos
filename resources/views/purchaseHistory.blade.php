@@ -177,7 +177,8 @@
                                             <h1 id="invoiceBalance">0</h1></div>
                                             </div>
                                         </div>
-                                  </div>
+                                    </div>
+                                
                           
                 </section>
                 <section>

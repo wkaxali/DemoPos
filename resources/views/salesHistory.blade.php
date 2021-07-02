@@ -150,18 +150,31 @@
                         </div>
                     </div>
                         <div class="container"  >
-                                <div class="row my-2" >
-                                <div class="col-md-4">
-                                    <label for="">Total Sale Amount:</label>
-                                    <h1 id="totalSaleAmount">0</h1>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">Total Amount Paid:</label>
-                                    <h1 id="remainingAmount">0</h1>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">Total Balance:</label>
-                                    <h1 id="invoiceBalance">0</h1>
+                        <div class="row my-2" >
+                                            <div class="col-md-4" >
+                                                <label for="">From Date</label>
+                   
+                   
+                                                <input type="date" id ="date1">
+                                            </div>
+                                            <div class="col-md-4" >
+                                                <label for="">To Date</label>
+                                                <input type="date" id ="date2">
+                                            </div>
+                                            <div class="col-md-4" >
+                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
+                                                        onclick="filterPurchaseDateData()">Search </button> </div>
+                                            </div>
+                                            <div class="row my-2" >
+                                            <div class="col-md-4" >
+                                            <label for="">Total Sale Amount:</label>
+                                            <h1 id="totalSaleAmount">0</h1></div>
+                                            <div class="col-md-4" >
+                                            <label for="">Total Amount Paid:</label>
+                                            <h1 id="remainingAmount">0</h1></div>
+                                            <div class="col-md-4" >
+                                            <label for="">Total<br> Balance:</label>
+                                            <h1 id="invoiceBalance">0</h1></div>
                                 </div>
                             </div>
                         </div>
@@ -366,6 +379,54 @@
         xhttp.open("GET", "./filterSalesHistory/"+categoryID+"/"+customerID, true);
         xhttp.send();
     }
+
+    function filterPurchaseDateData() {
+
+var date1 = document.getElementById("date1").value;
+var date2 = document.getElementById("date2").value;
+var categoryID = $('#category').find(":selected").val();
+var customerID = $('#customers').find(":selected").val();
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+
+if (this.readyState == 4 && this.status == 200) {
+
+    var data = this.responseText;
+    
+    var table;
+    var dt = JSON.parse(data);
+
+    a=dt[0];
+    totalSaleAmount=dt[1];
+    remainingAmount=dt[2];
+    invoiceBalance=dt[3];
+
+    document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
+    document.getElementById('remainingAmount').innerHTML=remainingAmount;
+    document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+    table = $('#myTable').DataTable();
+    table.clear();
+    $.each(a, function (i, item) {
+
+        table.row.add([  
+            a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+            a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+            a[i].DateStamp
+        ]);
+        });
+        table.draw();
+
+    }
+};
+
+if(customerID==" "){
+    customerID="All";
+}
+
+xhttp.open("GET", "./filterSalesDateData/"+date1+"/"+date2+"/"+categoryID+"/"+customerID, true);
+xhttp.send();
+}
 
                
 </script>
