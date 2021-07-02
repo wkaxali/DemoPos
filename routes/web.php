@@ -44,7 +44,7 @@ use App\Http\Controllers\summaryReportController;
 use App\Http\Controllers\employeeAllowanceController;
 use App\Http\Controllers\purchaseStockEditController;
 use App\Http\Controllers\salesHistoryController;
-
+use App\Http\Controllers\purchaseHistoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -225,7 +225,7 @@ Route::get('/getEmployeeCNIC',[payController::class, 'getEmployeeCNIC']);
 Route::get('/getEmployeeID',[payController::class, 'getEmployeeID']);
 Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact']);
 Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory']);
-Route::get('/getPartyNames',[expenseController::class, 'getPartyNames']);
+Route::get('/getPartyNames',[LedgerPartiesController::class, 'getPartyNames']);
 Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
 
@@ -290,8 +290,8 @@ Route::get('/selectedMonthData/{month}',[summaryReportController::class, 'select
 Route::get('/printMonthlyTrasaction/{month}/{monthname} ',[summaryReportController::class, 'summaryReportTabularBase']);
 Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
 Route::get('/amountTransfer/{acc1}/{acc2}/{amount}/{remarks}',[accountsController::class, 'amountTransfer']);
-
-
+Route::get('/loadAllParties',[LedgerPartiesController::class, 'getPartyNames']);
+Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchasesHistory']);
 
 Route::get('/', function () {
 

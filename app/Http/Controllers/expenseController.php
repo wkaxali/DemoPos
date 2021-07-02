@@ -55,22 +55,7 @@ class expenseController extends Controller
         return $EID;
 }
 
-public static function getPartyNames(){
-    $LID=globalVarriablesController::selfLedgerID();
-    $data=DB:: select('select * from tblledgerparties where LID <>'.$LID);
-    
-    $option='<option value=""></option>';
 
-
-    foreach ($data as $d){
-      //print $option;
-
-        $option=$option.'
-        <option value= '.$d->LID.'>'.$d->LID.') '.$d->PartyName.'</option>';
-      
-    }
-    return $option;
-  }
 
   public static function getAccounts(){
     $data=DB:: select('select * from tblaccounts');

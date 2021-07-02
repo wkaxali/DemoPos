@@ -105,7 +105,7 @@
     </style>
 </head>
 
-<body onload="getSalesHistory()">
+<body onload="getPurchasesHistory()">
 
     <div class="page-container">
         <div class="left-content">
@@ -126,16 +126,16 @@
                                 <label style="width:117px;" for="">Select Category</label>
                                 <select class="selectpicker form-control" data-live-search="true" id="category">
                                     <option value="All">All Sales</option>
-                                    <option value="Sales">Auto Sales</option>
-                                    <option value="Stock and Service">Stock and Service</option>
+                                    <option value="Stock Purchased">Stock Purchased</option>
+                                    <option value="Booking Order">Booking Order</option>
 
                                 </select>
                             </div>
 
                             <div class="col-md-4  ">
-                                <label for="" id="pname">Customers</label>
+                                <label for="" id="pname">Parties</label>
                                 <select 
-                                    class="selectpicker form-control" data-live-search="true" id="customers" >
+                                    class="selectpicker form-control" data-live-search="true" id="parties" >
                                     <option value=""></option>
                                 </select>
                                 </div>
@@ -275,23 +275,23 @@
 
 <script>
 
-    function loadAllCustomers() {
+    function loadAllParties() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("customers").innerHTML =
+                document.getElementById("parties").innerHTML =
                     this.responseText;
-                $('#customers').selectpicker('refresh');
+                $('#parties').selectpicker('refresh');
 
             }
         };
 
-        xhttp.open("GET", "./getAllCustomers", true);
+        xhttp.open("GET", "./loadAllParties", true);
         xhttp.send();
     };
                
-    function getSalesHistory() {
-        loadAllCustomers();
+    function getPurchasesHistory() {
+        loadAllParties();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -325,7 +325,7 @@
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./salesHistory/", true);
+        xhttp.open("GET", "./getPurchasesHistory/", true);
 
         xhttp.send();
     }
@@ -334,7 +334,7 @@
 
         var category = $('#category').find(":selected").text();
         var categoryID = $('#category').find(":selected").val();
-        var customerID = $('#customers').find(":selected").val();
+        var customerID = $('#parties').find(":selected").val();
         
 
         var xhttp = new XMLHttpRequest();
