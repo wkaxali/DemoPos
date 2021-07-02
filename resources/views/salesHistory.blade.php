@@ -151,29 +151,20 @@
                     </div>
                                 <div class="container"  >
                                      <div class="row my-2" >
-                                            <div class="col-md-4" >
-                                                <label for="">From Date</label>
-                   
-                   
-                                                <input type="date" id ="date1">
-                                            </div>
-                                            <div class="col-md-4" >
-                                                <label for="">To Date</label>
-                                                <input type="date" id ="date2">
-                                            </div>
-                                            <div class="col-md-4" >
-                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
-                                                        onclick="selectedDateData()">Search </button> </div>
-                                            </div>
+                                        <div class="col-md-4">
                                             <label for="">Total Sale Amount:</label>
                                             <h1 id="totalSaleAmount">0</h1>
+                                        </div>
+                                        <div class="col-md-4">
                                             <label for="">Total Amount Paid:</label>
                                             <h1 id="remainingAmount">0</h1>
+                                        </div>
+                                        <div class="col-md-4">
                                             <label for="">Total Balance:</label>
                                             <h1 id="invoiceBalance">0</h1>
-                                            
                                         </div>
-                                  </div>
+                                    </div>
+                                </div>
                           
                 </section>
                 <section>

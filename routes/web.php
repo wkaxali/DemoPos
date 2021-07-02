@@ -1062,5 +1062,13 @@ Route::get('/ph', function () {
     return view("signInSignUp");
     }
 });
+Route::get('/dt', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('datatable'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
 
 

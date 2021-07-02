@@ -953,6 +953,8 @@
 
                 }
 
+
+
 </script>
 <script>
                 function loaddata() {
@@ -961,6 +963,15 @@
                     
                     
                 }
+
+                $(document).ready(function() {
+    $('#myTable').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ]
+    } );
+} );
 
             </script>
 </body>
