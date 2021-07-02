@@ -45,6 +45,9 @@ use App\Http\Controllers\employeeAllowanceController;
 use App\Http\Controllers\purchaseStockEditController;
 use App\Http\Controllers\salesHistoryController;
 use App\Http\Controllers\purchaseHistoryController;
+use App\Http\Controllers\expenseHistoryController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -273,6 +276,27 @@ Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
 Route::get('/amountTransfer/{acc1}/{acc2}/{amount}/{remarks}',[accountsController::class, 'amountTransfer']);
 Route::get('/loadAllParties',[LedgerPartiesController::class, 'getPartyNames']);
 Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchasesHistory']);
+
+Route::get('/filterPurchaseData/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseData']);
+Route::get('/filterPurchaseDateData/{date1}/{date2}/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseDateData']);
+Route::get('/loadAllExpenseHead',[expenseController::class, 'getAccounts']);
+Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/', function () {
 
@@ -1071,4 +1095,11 @@ Route::get('/dt', function () {
     }
 });
 
-
+Route::get('/eh', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('expenseHistory'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
