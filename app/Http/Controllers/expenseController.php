@@ -74,7 +74,7 @@ class expenseController extends Controller
   }
 
   public static function getExpenseHeads(){
-    $data=DB:: select('select * from tblexpenseheads where ExpenseHead <> "Payment"');
+    $data=DB:: select('select * from tblexpenseheads');
     
     $option='<option value=" "></option>';
 
