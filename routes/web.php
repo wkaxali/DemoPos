@@ -279,11 +279,12 @@ Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchas
 
 Route::get('/filterPurchaseData/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseData']);
 Route::get('/filterPurchaseDateData/{date1}/{date2}/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseDateData']);
-Route::get('/loadAllExpenseHead',[expenseController::class, 'getAccounts']);
+Route::get('/loadAllExpenseHead',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
 Route::get('/filterSalesDateData/{date1}/{date2}/{catId}/{cusId}',[salesHistoryController::class, 'filterSalesDateData']);
+Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']);
 
-
+Route::get('/filterExpenseDateData/{date1}/{date2}/{catId} ',[expenseHistoryController::class, 'filterExpenseDateData']);
 
 
 
@@ -1108,7 +1109,14 @@ Route::get('/eh', function () {
 Route::get('/pr', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('NewPayRoll'); 
+    return view('NewPayRoll');
+    }
+});
+
+Route::get('/ah', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('accountHistory'); 
     }else{
     return view("signInSignUp");
     }

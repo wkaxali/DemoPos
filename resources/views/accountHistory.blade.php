@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Expense History</title>
+    <title>Account History</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -105,7 +105,7 @@
     </style>
 </head>
 
-<body onload="getExpenseHistory()">
+<body onload="getSalesHistory()">
 
     <div class="page-container">
         <div class="left-content">
@@ -114,7 +114,7 @@
                     <div class="container">
                         <div class="row my-3">
                             <div class="col-md-12 text-center ">
-                                <h1 id="firsthello">Expense History</h1>
+                                <h1 id="firsthello">Account History</h1>
                             </div>
                         </div>
                     </div>
@@ -124,12 +124,10 @@
                         <div class="row my-2">
                             <div class="col-md-4">
                                 <label style="width:117px;" for="">Select Category</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="expenseID">
-                                     
-                                   
-                                    
-                                    <option value=""></option>
-                                 
+                                <select class="selectpicker form-control" data-live-search="true" id="category">
+                                    <option value="All">All Sales</option>
+                                    <option value="Sales">Auto Sales</option>
+                                    <option value="Stock and Service">Stock and Service</option>
 
                                 </select>
                             </div>
@@ -138,10 +136,10 @@
                                 
                                 <button 
                                     class="btn  btn-info" data-live-search="true"  style="margin-top:32px;"
-                                    onclick="filterExpenseData()">
+                                    onclick="filterSalesData()">
                                     Search
                                 </button>
-                                </div>
+                                </>
                         </div>
                     </div>
                                 <div class="container"  >
@@ -158,14 +156,15 @@
                                             </div>
                                             <div class="col-md-4" >
                                                 <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
-                                                        onclick="filterExpenseDateData()">Search </button> </div>
+                                                        onclick="selectedDateData()">Search </button> </div>
                                             </div>
-                                            <div class="row my-2" >
-                                            <div class="col-md-4" >
-                                            <label for="">Total Amount:</label>
-                                            <h1 id="totalexpAmount">0</h1></div>
-                                             
-                                            </div>
+                                            <label for="">Total Sale Amount:</label>
+                                            <h1 id="totalSaleAmount">0</h1>
+                                            <label for="">Total Amount Paid:</label>
+                                            <h1 id="remainingAmount">0</h1>
+                                            <label for="">Total Balance:</label>
+                                            <h1 id="invoiceBalance">0</h1>
+                                            
                                         </div>
                                   </div>
                           
@@ -194,12 +193,13 @@
                                        <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
                                             <thead>
                                                 <tr>
-                                                    <th>Transaction ID</th>
-                                                    <th>Expense Head</th>
+                                                    <th>Invoice Number</th>
+                                                    <th>Customer Name</th>
                                                     <th>Account Name</th>
-                                                    <!-- <th>Transaction Category</th> -->
-                                                    <th>Total Amount</th>
-                                                     
+                                                    <th>Transaction Category</th>
+                                                    <th>Total Sale Amount</th>
+                                                    <th>Amount Paid</th>
+                                                    <th>Balance</th>
                                                     <th>Transaction Date</th> 
                                                 </tr>
                                             </thead>
@@ -268,23 +268,23 @@
 
 <script>
 
-    function loadAllExpenseHead() {
+    function loadAllCustomers() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("expenseID").innerHTML =
+                document.getElementById("customers").innerHTML =
                     this.responseText;
-                $('#expenseID').selectpicker('refresh');
+                $('#customers').selectpicker('refresh');
 
             }
         };
 
-        xhttp.open("GET", "./loadAllExpenseHead", true);
+        xhttp.open("GET", "./getAllCustomers", true);
         xhttp.send();
     };
                
-    function getExpenseHistory() {
-        loadAllExpenseHead();
+    function getSalesHistory() {
+        loadAllCustomers();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -296,17 +296,19 @@
                 var dt = JSON.parse(data);
             
                 a=dt[0];
-                totalexpAmount=dt[1];
-                
-                document.getElementById('totalexpAmount').innerHTML=totalexpAmount;
-                
+                totalSaleAmount=dt[1];
+                remainingAmount=dt[2];
+                invoiceBalance=dt[3];
+                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
+                document.getElementById('remainingAmount').innerHTML=remainingAmount;
+                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].TransactionID, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                          a[i].Amount, 
+                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
                         a[i].DateStamp
                     ]);
                     });
@@ -316,17 +318,18 @@
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./getExpenseHistory/", true);
+        xhttp.open("GET", "./salesHistory/", true);
 
         xhttp.send();
     }
 
-    function filterExpenseData() {
+    function filterSalesData() {
 
-         
-        var categoryID = $('#expenseID').find(":selected").val();
-         
+        var category = $('#category').find(":selected").text();
+        var categoryID = $('#category').find(":selected").val();
+        var customerID = $('#customers').find(":selected").val();
         
+
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -338,81 +341,38 @@
                 var dt = JSON.parse(data);
                
                 a=dt[0];
-                totalexpAmount=dt[1];
-                 
-                document.getElementById('totalexpAmount').innerHTML=totalexpAmount;
-                
+                totalSaleAmount=dt[1];
+                remainingAmount=dt[2];
+                invoiceBalance=dt[3];
+  
+                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
+                document.getElementById('remainingAmount').innerHTML=remainingAmount;
+                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].TransactionID, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                          a[i].Amount, 
+                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
                         a[i].DateStamp
-                    
                     ]);
                 });
                 table.draw();
-                                    
+
             }
         };
-         
-        if(categoryID== " "){
-            categoryID="All";
-            }
-             
-        xhttp.open("GET", "./filterExpenseData/"+categoryID , true);
+       
+        if(customerID==" "){
+            customerID="All";
+        }
+  
+
+        xhttp.open("GET", "./filterSalesHistory/"+categoryID+"/"+customerID, true);
         xhttp.send();
     }
 
-
-        function filterExpenseDateData() {
-
-            var date1 = document.getElementById("date1").value;
-            var date2 = document.getElementById("date2").value;
-            var categoryID = $('#expenseID').find(":selected").val();
-            
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-            if (this.readyState == 4 && this.status == 200) {
-
-                var data = this.responseText;
-                
-                var table;
-                var dt = JSON.parse(data);
-            
-                a=dt[0];
-                totalexpAmount=dt[1];
-                 
-
-                document.getElementById('totalexpAmount').innerHTML=totalexpAmount;
-                
-                table = $('#myTable').DataTable();
-                table.clear();
-                $.each(a, function (i, item) {
-
-                    table.row.add([  
-                        a[i].TransactionID, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                          a[i].Amount, 
-                        a[i].DateStamp
-                        ]);
-                    });
-                    table.draw();
-
-                }
-            };
-
-            if(categoryID== " "){
-                categoryID="All";
-            }
- 
-            xhttp.open("GET", "./filterExpenseDateData/"+date1+"/"+date2+"/"+categoryID , true);
-            xhttp.send();
-            }
-                        
+               
 </script>
      
 </body>
