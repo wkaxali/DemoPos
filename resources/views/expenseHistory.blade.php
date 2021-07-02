@@ -124,8 +124,8 @@
                         <div class="row my-2">
                             <div class="col-md-4">
                                 <label style="width:117px;" for="">Select Category</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="expense">
-                                    <option value="All">All Sales</option>
+                                <select class="selectpicker form-control" data-live-search="true" id="expenseID">
+                                     
                                    
                                     
                                     <option value=""></option>
@@ -158,7 +158,7 @@
                                             </div>
                                             <div class="col-md-4" >
                                                 <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
-                                                        onclick="filterPurchaseDateData()">Search </button> </div>
+                                                        onclick="filterExpenseDateData()">Search </button> </div>
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
@@ -272,9 +272,9 @@
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("expense").innerHTML =
+                document.getElementById("expenseID").innerHTML =
                     this.responseText;
-                $('#expense').selectpicker('refresh');
+                $('#expenseID').selectpicker('refresh');
 
             }
         };
@@ -324,7 +324,7 @@
     function filterExpenseData() {
 
          
-        var categoryID = $('#expense').find(":selected").val();
+        var categoryID = $('#expenseID').find(":selected").val();
          
         
         var xhttp = new XMLHttpRequest();
@@ -354,22 +354,25 @@
                     ]);
                 });
                 table.draw();
-
+                                    
             }
         };
-       
          
+        if(categoryID== " "){
+            categoryID="All";
+            }
+             
         xhttp.open("GET", "./filterExpenseData/"+categoryID , true);
         xhttp.send();
     }
 
 
-        function filterPurchaseDateData() {
+        function filterExpenseDateData() {
 
             var date1 = document.getElementById("date1").value;
             var date2 = document.getElementById("date2").value;
-            var categoryID = $('#expense').find(":selected").val();
-            var partyID = $('#parties').find(":selected").val();
+            var categoryID = $('#expenseID').find(":selected").val();
+            
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -392,10 +395,9 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                a[i].InvoiceNo, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
-                a[i].DateStamp
-            
+                        a[i].TransactionID, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                          a[i].Amount, 
+                        a[i].DateStamp
                         ]);
                     });
                     table.draw();
@@ -403,14 +405,11 @@
                 }
             };
 
-            if(partyID== ""){
-                partyID="All";
+            if(categoryID== " "){
+                categoryID="All";
             }
-
-            // alert(category);
-            // alert(categoryID);
-            // alert(partyID);
-            xhttp.open("GET", "./filterPurchaseDateData/"+date1+"/"+date2+"/"+categoryID+"/"+partyID, true);
+ 
+            xhttp.open("GET", "./filterExpenseDateData/"+date1+"/"+date2+"/"+categoryID , true);
             xhttp.send();
             }
                         

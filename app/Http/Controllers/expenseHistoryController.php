@@ -19,8 +19,13 @@ class expenseHistoryController extends Controller
 
     public static function filterExpenseData($catID){
          
-        $data=DB:: select('select * from vw_expenses where ExpenseHead='.$catID);
-        
+       
+        if($catID=="All" ){
+            $data=DB:: select('select * from vw_expenses');
+        }else {
+            
+            $data=DB:: select('select * from vw_expenses where ID='.$catID);
+        }
         $totalAmount=0;
          
         foreach($data as $d){
@@ -31,4 +36,22 @@ class expenseHistoryController extends Controller
     }
 
 
+    public static function filterExpenseDateData($date1,$date2,$catID ){
+        $data=0;
+        if($catID=="All" ){
+            $data=DB:: select('select * from vw_expenses where  DateStamp between "'.$date1 .'"and"'.$date2.'"');
+        
+        }  else if($catID!="All" ){
+            $data=DB:: select('select * from vw_expenses where ID="'.$catID.'" and DateStamp between "'.$date1 .'"and"'.$date2.'"');
+        
+        }
+        $totalAmount=0;
+         
+        foreach($data as $d){
+            $totalAmount += floatval($d->Amount);
+           
+          }
+        return [$data, $totalAmount ];
+    }
+    
 }
