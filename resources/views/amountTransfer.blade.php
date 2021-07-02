@@ -253,8 +253,10 @@
                             
                         }
                     };
-                      
-                    xhttp.open("GET", "./amountTransfer/"+account1+"/"+account2+"/"+amount+"/"+remarks, true);
+                      if (account1==""){
+                        account1= "NULL";
+                      }
+                    xhttp.open("GET", "./amountTransfer/"+account1.trim()+"/"+account2+"/"+amount+"/"+remarks, true);
 
                     xhttp.send();
 

@@ -150,6 +150,23 @@ class accountsController extends Controller
         
 
         public function amountTransfer($acc1,$acc2,$amount,$remarks){
+            if(!strcmp($acc1,"NULL")){
+                
+                $oldbalance2=self::getAccountBalance($acc2);
+                $oldbalance2+= $amount;
+                $newbalance2=self::UpdateNewBalance($acc2,$oldbalance2);
+        
+                $Tcate= "Amount Transfer";
+                $dateStamp = Carbon::now()->toDateString();
+                $LID=globalVarriablesController::selfLedgerID();
+                $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
+
+                $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
+                Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc2,Null,$remarks);
+
+            }else{
+
+
             $oldbalance1=self::getAccountBalance($acc1);
             $oldbalance1-= $amount;
             $newbalance1=self::UpdateNewBalance($acc1,$oldbalance1);
@@ -169,7 +186,7 @@ class accountsController extends Controller
             Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc1,Null,$remarks);
             $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
             Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc2,Null,$remarks);
-            
+        }
 
 
             return "Amount ".$amount." Is Transfered " ;
