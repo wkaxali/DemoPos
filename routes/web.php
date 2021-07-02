@@ -1115,3 +1115,11 @@ Route::get('/eh', function () {
     return view("signInSignUp");
     }
 });
+Route::get('/ah', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('accountHistory'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
