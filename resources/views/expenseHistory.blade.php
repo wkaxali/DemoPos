@@ -105,7 +105,7 @@
     </style>
 </head>
 
-<body onload="getPurchasesHistory()">
+<body onload="getExpenseHistory()">
 
     <div class="page-container">
         <div class="left-content">
@@ -124,7 +124,7 @@
                         <div class="row my-2">
                             <div class="col-md-4">
                                 <label style="width:117px;" for="">Select Category</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="category">
+                                <select class="selectpicker form-control" data-live-search="true" id="expense">
                                     <option value="All">All Sales</option>
                                    
                                     
@@ -160,13 +160,17 @@
                                                 <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
                                                         onclick="filterPurchaseDateData()">Search </button> </div>
                                             </div>
+                                            <div class="row my-2" >
+                                            <div class="col-md-4" >
                                             <label for="">Total Sale Amount:</label>
-                                            <h1 id="totalSaleAmount">0</h1>
+                                            <h1 id="totalSaleAmount">0</h1></div>
+                                            <div class="col-md-4" >
                                             <label for="">Total Amount Paid:</label>
-                                            <h1 id="remainingAmount">0</h1>
-                                            <label for="">Total Balance:</label>
-                                            <h1 id="invoiceBalance">0</h1>
-                                            
+                                            <h1 id="remainingAmount">0</h1></div>
+                                            <div class="col-md-4" >
+                                            <label for="">Total<br> Balance:</label>
+                                            <h1 id="invoiceBalance">0</h1></div>
+                                            </div>
                                         </div>
                                   </div>
                           
@@ -195,13 +199,12 @@
                                        <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
                                             <thead>
                                                 <tr>
-                                                    <th>Invoice Number</th>
-                                                    <th>Party Name</th>
+                                                    <th>Transaction ID</th>
+                                                    <th>ExpenseHead</th>
                                                     <th>Account Name</th>
-                                                    <th>Transaction Category</th>
-                                                    <th>Total Purchase Amount</th>
-                                                    <th>Amount Paid</th>
-                                                    <th>Balance</th>
+                                                    <!-- <th>Transaction Category</th> -->
+                                                    <th>Total Amount</th>
+                                                     
                                                     <th>Transaction Date</th> 
                                                 </tr>
                                             </thead>
@@ -270,23 +273,23 @@
 
 <script>
 
-    function loadAllParties() {
+    function loadAllExpenseHead() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("parties").innerHTML =
+                document.getElementById("expense").innerHTML =
                     this.responseText;
-                $('#parties').selectpicker('refresh');
+                $('#expense').selectpicker('refresh');
 
             }
         };
 
-        xhttp.open("GET", "./loadAllParties", true);
+        xhttp.open("GET", "./loadAllExpenseHead", true);
         xhttp.send();
     };
                
-    function getPurchasesHistory() {
-        loadAllParties();
+    function getExpenseHistory() {
+        loadAllExpenseHead();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -309,8 +312,8 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNo, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                        a[i].InvoiceNo, a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].TransactionCatogery, a[i].Amount, 
                         a[i].DateStamp
                     ]);
                     });
@@ -320,7 +323,7 @@
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./getPurchasesHistory/", true);
+        xhttp.open("GET", "./getExpenseHistory/", true);
 
         xhttp.send();
     }

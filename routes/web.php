@@ -45,6 +45,9 @@ use App\Http\Controllers\employeeAllowanceController;
 use App\Http\Controllers\purchaseStockEditController;
 use App\Http\Controllers\salesHistoryController;
 use App\Http\Controllers\purchaseHistoryController;
+use App\Http\Controllers\expenseHistoryController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -295,7 +298,8 @@ Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchas
 
 Route::get('/filterPurchaseData/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseData']);
 Route::get('/filterPurchaseDateData/{date1}/{date2}/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseDateData']);
-
+Route::get('/loadAllExpenseHead',[expenseController::class, 'getAccounts']);
+Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
 
 
 
