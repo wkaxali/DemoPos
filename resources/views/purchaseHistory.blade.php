@@ -125,7 +125,7 @@
                             <div class="col-md-4">
                                 <label style="width:117px;" for="">Select Category</label>
                                 <select class="selectpicker form-control" data-live-search="true" id="category">
-                                    <option value="All">All Sales</option>
+                                    <option value="All">All Purchase</option>
                                     <option value="Stock Purchased">Stock Purchased</option>
                                     <option value="Booking Order">Booking Order</option>
 
