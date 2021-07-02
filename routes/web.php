@@ -1102,4 +1102,11 @@ Route::get('/ph', function () {
     }
 });
 
-
+Route::get('/eh', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('expenseHistory'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
