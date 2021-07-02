@@ -293,6 +293,26 @@ Route::get('/amountTransfer/{acc1}/{acc2}/{amount}/{remarks}',[accountsControlle
 Route::get('/loadAllParties',[LedgerPartiesController::class, 'getPartyNames']);
 Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchasesHistory']);
 
+Route::get('/filterPurchaseData/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseData']);
+Route::get('/filterPurchaseDateData/{date1}/{date2}/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseDateData']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::get('/', function () {
 
 return view('signInSignUp');

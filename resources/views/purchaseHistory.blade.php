@@ -143,7 +143,7 @@
                                 
                                 <button 
                                     class="btn  btn-info" data-live-search="true"  style="margin-top:32px;"
-                                    onclick="filterSalesData()">
+                                    onclick="filterPurchaseData()">
                                     Search
                                 </button>
                                 </div>
@@ -163,15 +163,15 @@
                                             </div>
                                             <div class="col-md-4" >
                                                 <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
-                                                        onclick="selectedDateData()">Search </button> </div>
+                                                        onclick="filterPurchaseDateData()">Search </button> </div>
                                             </div>
                                             <label for="">Total Sale Amount:</label>
                                             <h1 id="totalSaleAmount">0</h1>
-                                            <!-- <label for="">Total Amount Paid:</label>
+                                            <label for="">Total Amount Paid:</label>
                                             <h1 id="remainingAmount">0</h1>
                                             <label for="">Total Balance:</label>
                                             <h1 id="invoiceBalance">0</h1>
-                                             -->
+                                            
                                         </div>
                                   </div>
                           
@@ -201,10 +201,10 @@
                                             <thead>
                                                 <tr>
                                                     <th>Invoice Number</th>
-                                                    <th>Customer Name</th>
+                                                    <th>Party Name</th>
                                                     <th>Account Name</th>
                                                     <th>Transaction Category</th>
-                                                    <th>Total Sale Amount</th>
+                                                    <th>Total Purchase Amount</th>
                                                     <th>Amount Paid</th>
                                                     <th>Balance</th>
                                                     <th>Transaction Date</th> 
@@ -314,7 +314,7 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].InvoiceNo, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
                         a[i].DateStamp
                     ]);
@@ -330,13 +330,12 @@
         xhttp.send();
     }
 
-    function filterSalesData() {
+    function filterPurchaseData() {
 
         var category = $('#category').find(":selected").text();
         var categoryID = $('#category').find(":selected").val();
-        var customerID = $('#parties').find(":selected").val();
+        var partyID = $('#parties').find(":selected").val();
         
-
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -360,9 +359,10 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].InvoiceNo, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
                         a[i].DateStamp
+                    
                     ]);
                 });
                 table.draw();
@@ -370,16 +370,70 @@
             }
         };
        
-        if(customerID==" "){
-            customerID="All";
+        if(partyID== ""){
+            partyID="All";
         }
   
-
-        xhttp.open("GET", "./filterSalesHistory/"+categoryID+"/"+customerID, true);
+        // alert(category);
+        // alert(categoryID);
+        // alert(partyID);
+        xhttp.open("GET", "./filterPurchaseData/"+categoryID+"/"+partyID, true);
         xhttp.send();
     }
 
-               
+
+        function filterPurchaseDateData() {
+
+            var date1 = document.getElementById("date1").value;
+            var date2 = document.getElementById("date2").value;
+            var categoryID = $('#category').find(":selected").val();
+            var partyID = $('#parties').find(":selected").val();
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                var data = this.responseText;
+                
+                var table;
+                var dt = JSON.parse(data);
+            
+                a=dt[0];
+                totalSaleAmount=dt[1];
+                remainingAmount=dt[2];
+                invoiceBalance=dt[3];
+
+                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
+                document.getElementById('remainingAmount').innerHTML=remainingAmount;
+                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                table = $('#myTable').DataTable();
+                table.clear();
+                $.each(a, function (i, item) {
+
+                    table.row.add([  
+                a[i].InvoiceNo, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                a[i].DateStamp
+            
+                        ]);
+                    });
+                    table.draw();
+
+                }
+            };
+
+            if(partyID== ""){
+                partyID="All";
+            }
+
+            // alert(category);
+            // alert(categoryID);
+            // alert(partyID);
+            xhttp.open("GET", "./filterPurchaseDateData/"+date1+"/"+date2+"/"+categoryID+"/"+partyID, true);
+            xhttp.send();
+            }
+                        
 </script>
      
 </body>
