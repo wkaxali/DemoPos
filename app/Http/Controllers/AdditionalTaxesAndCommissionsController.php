@@ -59,7 +59,7 @@ return $CID;
         LedgerPartiesController::UpdatePartiesBalance($LID, $selfBalance);
         $totCostHere=floatval($totCostHere)+floatval($item[1]);
          TransactionFlow:: addTransaction(NULL,"Debit",$item[0],$item[1],$dateNow,
-        "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null);
+        "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null,Null);
         $OldAccBalance=accountsController::getAccountBalance($AID);
         $newAccountBalance=floatval($OldAccBalance)-floatval($amp);
        
@@ -101,7 +101,7 @@ return $CID;
         LedgerPartiesController::UpdatePartiesBalance($LID, $selfBalance);
         $TotalSaleAmount=floatval($TotalSaleAmount)+floatval($item[1]);
          TransactionFlow:: addTransaction(NULL,"Credit",$item[0],$item[1],$dateNow,
-        "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null);
+        "1",$oldSelfBalance,$selfBalance,NULL,NULL,"2","0","2",NULL,"5",null,Null);
         $OldAccBalance=accountsController::getAccountBalance($AID);
         $newAccountBalance=floatval($OldAccBalance)+floatval($amp);
        

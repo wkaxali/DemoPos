@@ -310,14 +310,14 @@ Route::get('/ed', function () {
     }
 });
 
-Route::get('/sh', function () {
-    $UN = session()->get('Designation');
-    if($UN=="Admin"){
-    return view('stockHistory');
-    }else{
-    return view("signInSignUp");
-    }
-});
+// Route::get('/sh', function () {
+//     $UN = session()->get('Designation');
+//     if($UN=="Admin"){
+//     return view('stockHistory');
+//     }else{
+//     return view("signInSignUp");
+//     }
+// });
 
 Route::get('/chksessions',function(){
 
@@ -1073,4 +1073,13 @@ Route::get('/sh', function () {
     return view("signInSignUp");
     }
 });
+Route::get('/ph', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('purchaseHistory'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
 

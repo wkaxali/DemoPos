@@ -118,7 +118,7 @@ class salesFlow extends Controller
         $paidVia=$AID;
         $selfBalance=$oldSelfBalance+$amp;
         TransactionFlow::addTransaction($invoiceNumber,"Credit","Sales",
-        $amp,$dateNow,"1",$oldSelfBalance,$selfBalance,NULL,NULL,$LID,"0",$CID,"0",$paidVia,NULL);
+        $amp,$dateNow,"1",$oldSelfBalance,$selfBalance,NULL,NULL,$LID,"0",$CID,"0",$paidVia,NULL,Null);
        
         LedgerPartiesController::UpdatePartiesBalance($LID, $selfBalance);
         $OldAccBalance=accountsController::getAccountBalance($AID);
@@ -131,7 +131,7 @@ class salesFlow extends Controller
           $oldBalance= LedgerPartiesController::getPartyBalance($LID);
           $currentBalance=floatval ($oldBalance)-floatval ($amp);
           TransactionFlow::addTransaction($invoiceNumber,"Credit","Customer Paid to Company",
-          $amp,$dateNow,"2", $oldBalance,$currentBalance,NULL,NULL,$LID,"0",$CID,"1",$paidVia,NULL);
+          $amp,$dateNow,"2", $oldBalance,$currentBalance,NULL,NULL,$LID,"0",$CID,"1",$paidVia,NULL,Null);
           $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
           $companyBalance=$oldCompanyBalance-$amp;
         $selfBalance=$oldSelfBalance-$amp;
