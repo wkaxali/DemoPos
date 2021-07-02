@@ -347,8 +347,8 @@ xhttp.send();
 
 
             });
-            //products.shift();
-            alert(products[2][1]);
+
+            //alert(products[2][1]);
             var AID = $('#accounts').find(":selected").val();
             var OID = document.getElementById("OrderId").value;
             var array2 = [products, OID, AID];

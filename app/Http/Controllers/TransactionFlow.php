@@ -65,11 +65,15 @@ class TransactionFlow extends Controller
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
             $sum=0;
                     foreach($data as $d){
-                          $sum+= $d->Amount;
+                        if($d->TransactionType=="Credit"){
+                            $sum+= $d->Amount;
+                        }else{
+                            $sum-= $d->Amount;
+                        }
                         }
                       return [$data, $sum];
     
-        }else if ((!strcmp($table,"investors"))&&(!strcmp($value,"All"))){
+        }else if ((!strcmp($table,"Investors"))&&(!strcmp($value,"All"))){
             $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
             $sum=0;
             foreach($data as $d){
@@ -102,7 +106,7 @@ class TransactionFlow extends Controller
         else if(strcmp($value,"All")){
 
 
-              if (!strcmp($table,"investors")){
+              if (!strcmp($table,"Investors")){
                 $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo ="'.$value.'"');
                 $sum=0;
                 foreach($data as $d){
@@ -110,6 +114,7 @@ class TransactionFlow extends Controller
                     }
                   return [$data, $sum];
             }
+            
             if(!strcmp($category,"tblledgerparties")){
                 
                 $columnName="PaidTo";
@@ -211,7 +216,11 @@ class TransactionFlow extends Controller
                     $data=DB:: select('select * from vw_transaction_flow' );
                     $sum=0;
                     foreach($data as $d){
-                          $sum+= $d->Amount;
+                        if($d->TransactionType=="Credit"){
+                            $sum+= $d->Amount;
+                        }else{
+                            $sum-= $d->Amount;
+                        }
                         }
                       return [$data, $sum];
                 }

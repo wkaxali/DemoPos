@@ -72,7 +72,7 @@ CustomerController::UpdateCustomerBalance($CID,$currentCustomerBalance);
 $selfBalance=floatval($oldSelfBalance)+floatval($totlpaid);
 LedgerPartiesController::UpdatePartiesBalance($LID,$selfBalance);
 TransactionFlow::addTransaction($invoiceNumber,"Credit","Stock and Service",
-$totlpaid,$dateNow,"1",$oldCustomerBalance,$currentCustomerBalance,$oldSelfBalance,$selfBalance,$LID,"0",NULL,$CID,$paidVia,NULL);
+$totlpaid,$dateNow,"1",$oldCustomerBalance,$currentCustomerBalance,$oldSelfBalance,$selfBalance,$LID,"0",$CID,$LID,$paidVia,NULL);
 $OldAccBalance=accountsController::getAccountBalance($AID);
 $newAccountBalance=floatval($OldAccBalance)+floatval($totlpaid);
 
