@@ -53,5 +53,21 @@ class expenseHistoryController extends Controller
           }
         return [$data, $totalAmount ];
     }
+
+    public static function getExpenseHeads(){
+        $data=DB:: select('select * from tblexpenseheads where ExpenseHead <> "Payment"');
+        
+        $option='<option value="All">ALL</option>';
+    
+    
+        foreach ($data as $d){
+          //print $option;
+    
+            $option=$option.'
+            <option value= '.$d->ID.'>'.$d->ID.') '.$d->ExpenseHead.'</option>';
+          
+        }
+        return $option;
+      }
     
 }

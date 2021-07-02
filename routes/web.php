@@ -298,7 +298,7 @@ Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchas
 
 Route::get('/filterPurchaseData/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseData']);
 Route::get('/filterPurchaseDateData/{date1}/{date2}/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseDateData']);
-Route::get('/loadAllExpenseHead',[expenseController::class, 'getExpenseHeads']);
+Route::get('/loadAllExpenseHead',[expenseHistoryController::class, 'getExpenseHeads']);
 Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
 Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']);
 
