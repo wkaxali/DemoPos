@@ -25,10 +25,6 @@ class UpdateStocksController extends Controller
          $status=$oneProduct[5];
          $dateNow = Carbon::now()->toDateString();
       //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
-   
-        
-   
-
 
       $LID=globalVarriablesController::selfLedgerID();
       $oldBalance= LedgerPartiesController::getPartyBalance($LID);
@@ -76,6 +72,67 @@ class UpdateStocksController extends Controller
 
 
          }//if condition
+
+         if($oneProduct[5]==3){
+          $PID=$oneProduct[0];
+          $color=$oneProduct[1];
+          $chasisNumber= $oneProduct[2];
+          $EngineNumber=$oneProduct[3];
+         $TransportCharges =$oneProduct[4];
+          $status=$oneProduct[5];
+          $dateNow = Carbon::now()->toDateString();
+       //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
+ 
+      $LID=globalVarriablesController::selfLedgerID();
+      $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+
+      // $autoData = DB::table('tbltransactionflow')
+      // ->where('InvoiceNo', '=', $InvoiceNumber)
+      // ->get();
+
+      // TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Returned Order',$autoData->Amount,$dateNow,
+      // "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,Null,Null);
+
+      // $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
+      // LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
+ 
+      // $paidVia=$AID;
+      // $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
+      // $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
+      // TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
+      // "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,$CID,Null);
+      // $AID=$paidVia;//This needs o be changed in production
+      // $OldAccBalance=accountsController::getAccountBalance($AID);
+      // $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
+      // accountsController::UpdateNewBalance($AID,$newAccountBalance);
+      $autoData = DB::table('instock')
+      ->where('ProductSerial', '=', $PID)
+      ->get();
+      $oldPrice=floatval($autoData[0]->TotalCost);
+    
+      DB::table('productdefination')
+      ->where('ProductSerial', $PID)
+      ->update(['EngineNumber' =>$EngineNumber,
+      'ChasisNumber' =>$chasisNumber,
+      'color' =>$color
+      ]);
+
+      DB::table('instock')
+      ->where('ProductSerial', $PID)
+      ->update(['Remarks'=>"Delivered on ".$dateNow,
+      'TotalCost' =>$oldPrice,
+      'Status'=>'Ruturned'
+      ]);
+
+      DB::table('tblpurchaseoorderdetaile')
+      ->where('ProductSerial', $PID)
+      ->update(['DilevedStatus'=>"Ruturned"
+      ]);
+ 
+ 
+ 
+ 
+          }//if condition
         }
           
          //->format('Y-m-d h:iA');

@@ -406,7 +406,7 @@ class OrderFlowController extends Controller
           else{
             $option='<select
              id="category"
-            tabindex="null"><option value=1 >Received</option><option value=2 selected>Pending</option></select></td>';
+            tabindex="null"><option value=1 >Received</option><option value=2 selected>Pending</option><option value=3>Returned</option></select></td>';
 
           }
           if($charges==0){
