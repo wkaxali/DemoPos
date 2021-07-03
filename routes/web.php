@@ -48,7 +48,7 @@ use App\Http\Controllers\purchaseHistoryController;
 use App\Http\Controllers\expenseHistoryController;
 use App\Http\Controllers\accountHistoryController;
 use App\Http\Controllers\partyPaymentHistory;
-
+use App\Http\Controllers\purchaseHistoryPrintController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -285,6 +285,8 @@ Route::get('/loadAllExpenseHead',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
 Route::get('/filterSalesDateData/{date1}/{date2}/{catId}/{cusId}',[salesHistoryController::class, 'filterSalesDateData']);
 Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']);
+Route::get('/printPurchaseHistory2/{category}/{partyId} ',[purchaseHistoryPrintController::class, 'printPurchaseHistory2']);
+Route::get('/printPurchaseHistory/{date1}/{date2}/{category}/{partyId} ',[purchaseHistoryPrintController::class, 'printPurchaseHistory']);
 
 
 Route::get('/loadAllExpenseHead',[expenseHistoryController::class, 'getExpenseHeads']);
@@ -298,7 +300,7 @@ Route::get('/getAccountsHistory',[accountHistoryController::class, 'getAccountsH
 Route::get('/filterAccountData/{catId} ',[accountHistoryController::class, 'filterAccountData']); 
 Route::get('/filterAccountHistoryData/{date1}/{date2}/{catId} ',[accountHistoryController::class, 'filterAccountHistoryData']);
 
- 
+
 
 
 

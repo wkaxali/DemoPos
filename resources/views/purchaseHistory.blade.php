@@ -244,7 +244,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="printTrasactionHistory()" class="btn btn-info">Print</button>
+                                <button onclick="printPurchaseHistory()" class="btn btn-info">Print</button>
                                 <!-- <button class="btn btn-danger">Close</button> -->
                             </div>
                         </div>
@@ -440,7 +440,66 @@
             }
                         
 </script>
+<script>
+    function printPurchaseHistory (){
+                    var date1 = document.getElementById("date1").value;
+                    var date2 = document.getElementById("date2").value;
+                    var categoryID = $('#category').find(":selected").val();
+                    var partyID = $('#parties').find(":selected").val();
+                   
+                //    alert(date1);
+                  if (date1==""){
+                    printPurchaseHistory2();
+                }else{
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printPurchaseHistory/'+date1+'/'+date2+'/'+categoryID+'/'+partyID );
+                  
+                }
+            }
+            if(categoryID == ""){
+                categoryID = "All";  
+                    }
+                     if(partyID == ""){
+                        partyID = "All";  
+                    }
+                       
+            // alert("hello");
+            xhttp.open("GET", "./printPurchaseHistory/"+date1.trim()+"/"+date2.trim() +"/"+categoryID.trim()+"/"+partyID.trim(), true);
+            xhttp.send();
+        }
+        }
      
+    function printPurchaseHistory2(){
+                    
+        var categoryID = $('#category').find(":selected").val();
+        var partyID = $('#parties').find(":selected").val();
+                   
+                  
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printPurchaseHistory2/'+categoryID+'/'+partyID);
+                  
+                }
+            }
+             
+            if(categoryID == ""){
+                categoryID = "All";  
+                    }
+                     if(partyID == ""){
+                        partyID = "All";  
+                    }
+                     
+            // alert("hello");
+            xhttp.open("GET", "./printPurchaseHistory2/"+categoryID.trim()+"/"+partyID.trim() ,true);
+            xhttp.send();
+        
+        }
+    </script>
 </body>
 
 </html>
