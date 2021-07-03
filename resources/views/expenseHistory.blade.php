@@ -128,7 +128,7 @@
                                      
                                    
                                     
-                                    <option value="All">ALL</option>
+                                    <option value=""></option>
                                  
 
                                 </select>
@@ -361,7 +361,7 @@
         if(categoryID== " "){
             categoryID="All";
             }
-             
+            alert(categoryID);
         xhttp.open("GET", "./filterExpenseData/"+categoryID , true);
         xhttp.send();
     }

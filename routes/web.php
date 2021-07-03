@@ -46,7 +46,7 @@ use App\Http\Controllers\purchaseStockEditController;
 use App\Http\Controllers\salesHistoryController;
 use App\Http\Controllers\purchaseHistoryController;
 use App\Http\Controllers\expenseHistoryController;
-
+use App\Http\Controllers\accountHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -293,20 +293,26 @@ Route::get('/selectedMonthData/{month}',[summaryReportController::class, 'select
 Route::get('/printMonthlyTrasaction/{month}/{monthname} ',[summaryReportController::class, 'summaryReportTabularBase']);
 Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
 Route::get('/amountTransfer/{acc1}/{acc2}/{amount}/{remarks}',[accountsController::class, 'amountTransfer']);
-Route::get('/loadAllParties',[LedgerPartiesController::class, 'getPartyNames']);
-Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchasesHistory']);
 
+
+Route::get('/loadAllParties',[LedgerPartiesController::class, 'getPartyNames']);
+Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchasesHistory']); 
 Route::get('/filterPurchaseData/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseData']);
 Route::get('/filterPurchaseDateData/{date1}/{date2}/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseDateData']);
+
+
 Route::get('/loadAllExpenseHead',[expenseHistoryController::class, 'getExpenseHeads']);
 Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
-Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']);
-
+Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']); 
 Route::get('/filterExpenseDateData/{date1}/{date2}/{catId} ',[expenseHistoryController::class, 'filterExpenseDateData']);
 
 
+Route::get('/loadAllAccounts',[accountsController::class, 'getAccounts']);
+Route::get('/getAccountsHistory',[accountHistoryController::class, 'getAccountsHistory']);
+Route::get('/filterAccountData/{catId} ',[accountHistoryController::class, 'filterAccountData']); 
+Route::get('/filterAccountHistoryData/{date1}/{date2}/{catId} ',[accountHistoryController::class, 'filterAccountHistoryData']);
 
-
+ 
 
 
 

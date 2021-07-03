@@ -167,7 +167,7 @@
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
-                                            <label for="">Total Sale Amount:</label>
+                                            <label for="">Total Purchase Amount:</label>
                                             <h1 id="totalSaleAmount">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Amount Paid:</label>
