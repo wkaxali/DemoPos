@@ -6,7 +6,7 @@
 <div class="menu">
 <ul id="menu">
 <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i>
-<span style="font-size: 14px;">Dashboard</span></a>
+<span style="font-size: 14px;">Sales</span></a>
 </li>
 <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
 style="font-size:14px;">Sale Parts</span><span class="fa fa-angle-right"
@@ -109,7 +109,7 @@ style="font-size: 14px;">Quotation</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs7">
 <!-- <li><a href="/pr">Payroll</a></li> -->
-<li id="menu-academico-avaliacoes"><a href="/atv">Print  Quotation </a></li>
+li id="menu-academico-avaliacoes"><a href="/atv">View All Quotation </a></li>
 <li id="menu-academico-avaliacoes"><a href="/atv">View All Quotation </a></li>
 
 
