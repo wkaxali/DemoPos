@@ -59,6 +59,7 @@ use App\Http\Controllers\partyPaymentHistory;
 |
 */
 
+Route::get('/partyHistory',[partyPaymentHistory::class, 'getPartyPaymentHistory']);
 Route::get('/filterSalesHistory/{cat}/{cus}',[salesHistoryController::class, 'filterSalesHistory']);
 Route::get('/salesHistory',[salesHistoryController::class, 'getSalesHistory']);
 Route::get('/updatePurchasedStock/{array}/{InvoiceNo}',[purchaseStockEditController::class, 'updatePurchasedStock']);
