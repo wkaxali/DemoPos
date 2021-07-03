@@ -48,6 +48,10 @@ use App\Http\Controllers\purchaseHistoryController;
 use App\Http\Controllers\expenseHistoryController;
 use App\Http\Controllers\accountHistoryController;
 use App\Http\Controllers\partyPaymentHistory;
+use App\Http\Controllers\purchaseHistoryPrintController;
+use App\Http\Controllers\expenseHistoryPrintController;
+use App\Http\Controllers\accountsHistoryPrintController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -286,12 +290,16 @@ Route::get('/loadAllExpenseHead',[expenseController::class, 'getExpenseHeads']);
 Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
 Route::get('/filterSalesDateData/{date1}/{date2}/{catId}/{cusId}',[salesHistoryController::class, 'filterSalesDateData']);
 Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']);
+Route::get('/printPurchaseHistory2/{category}/{partyId} ',[purchaseHistoryPrintController::class, 'printPurchaseHistory2']);
+Route::get('/printPurchaseHistory/{date1}/{date2}/{category}/{partyId} ',[purchaseHistoryPrintController::class, 'printPurchaseHistory']);
 
 
 Route::get('/loadAllExpenseHead',[expenseHistoryController::class, 'getExpenseHeads']);
 Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
 Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']); 
 Route::get('/filterExpenseDateData/{date1}/{date2}/{catId} ',[expenseHistoryController::class, 'filterExpenseDateData']);
+Route::get('/printExpenseHistory2/{catID}/{cat} ',[expenseHistoryPrintController::class, 'printExpenseHistory2']);
+Route::get('/printExpenseHistory/{date1}/{date2}/{catID}/{cat} ',[expenseHistoryPrintController::class, 'printExpenseHistory']);
 
 
 Route::get('/loadAllAccounts',[accountsController::class, 'getAccounts']);
@@ -299,7 +307,7 @@ Route::get('/getAccountsHistory',[accountHistoryController::class, 'getAccountsH
 Route::get('/filterAccountData/{catId} ',[accountHistoryController::class, 'filterAccountData']); 
 Route::get('/filterAccountHistoryData/{date1}/{date2}/{catId} ',[accountHistoryController::class, 'filterAccountHistoryData']);
 
- 
+
 
 
 
