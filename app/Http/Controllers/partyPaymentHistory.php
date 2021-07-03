@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class partyPaymentHistory extends Controller
 {
@@ -14,7 +15,7 @@ class partyPaymentHistory extends Controller
         foreach($data as $d){
             $totalSaleAmount += floatval($d->TotalAmount);
             $remainingAmount += floatval($d->AmountPaid);
-            $invoiceBalance += floatval($d->Balance);
+            $invoiceBalance += floatval($d->RemainingBalance);
           }
         return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }
@@ -26,7 +27,7 @@ class partyPaymentHistory extends Controller
         
         }
         else if($partyID!="All"){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <> 0 and TransactionCatogery="'.$partyID.'"');
+            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo ='.$partyID);
         
         }
 
@@ -36,7 +37,7 @@ class partyPaymentHistory extends Controller
         foreach($data as $d){
             $totalSaleAmount += floatval($d->TotalAmount);
             $remainingAmount += floatval($d->AmountPaid);
-            $invoiceBalance += floatval($d->Balance);
+            $invoiceBalance += floatval($d->RemainingBalance);
           }
         return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }
@@ -48,7 +49,7 @@ class partyPaymentHistory extends Controller
         
         }
         else if($partyID!="All"){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo="'.$partyID.'" and DateStamp between "'.$date1 .'"and"'.$date2.'"');
+            $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$partyID.' and DateStamp between "'.$date1 .'"and"'.$date2.'"');
         
         }
         $totalSaleAmount=0;
@@ -57,7 +58,7 @@ class partyPaymentHistory extends Controller
         foreach($data as $d){
             $totalSaleAmount += floatval($d->TotalAmount);
             $remainingAmount += floatval($d->AmountPaid);
-            $invoiceBalance += floatval($d->Balance);
+            $invoiceBalance += floatval($d->RemainingBalance);
           }
         return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }

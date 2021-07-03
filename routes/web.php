@@ -63,7 +63,8 @@ use App\Http\Controllers\accountsHistoryPrintController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/filterDateData/{date1}/{date2}/{ID} ',[partyPaymentHistory::class, 'filterPartyPaymentDateData']);
+Route::get('/filterPartyData/{ID}',[partyPaymentHistory::class, 'filterPartyPaymentHistory']);
 Route::get('/partyHistory',[partyPaymentHistory::class, 'getPartyPaymentHistory']);
 Route::get('/filterSalesHistory/{cat}/{cus}',[salesHistoryController::class, 'filterSalesHistory']);
 Route::get('/salesHistory',[salesHistoryController::class, 'getSalesHistory']);
@@ -1136,6 +1137,15 @@ Route::get('/ah', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('accountHistory'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/pph', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('partyPaymentHistory'); 
     }else{
     return view("signInSignUp");
     }

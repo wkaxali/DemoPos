@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Parties Payment History</title>
+    <title>Party Payment History</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -32,7 +32,7 @@
 
 
         .ThirdColor {
-            background-color: blue;
+            background-color: crimson;
             height: 30px;
             border-radius: 10px;
         }
@@ -105,7 +105,7 @@
     </style>
 </head>
 
-<body onload="getPartyHistory()">
+<body onload="getHistory()">
 
     <div class="page-container">
         <div class="left-content">
@@ -114,7 +114,7 @@
                     <div class="container">
                         <div class="row my-3">
                             <div class="col-md-12 text-center ">
-                                <h1 id="firsthello">Parties Payment History</h1>
+                                <h1 id="firsthello">Party Payment History</h1>
                             </div>
                         </div>
                     </div>
@@ -122,14 +122,16 @@
                 <section>
                     <div class="container">
                         <div class="row my-2">
-                            <div class="col-md-4">
-                                <label style="width:117px;" for="">Select Party</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="parties">
-                                    
 
+                            <div class="col-md-4  ">
+                                <label for="" id="pname">Parties</label>
+                                <select 
+                                    class="selectpicker form-control" data-live-search="true" id="parties" >
+                                    <option value=""></option>
                                 </select>
-                            </div>
-
+                                </div>
+                            <div class="col-md-4  ">
+                                
                                 <button 
                                     class="btn  btn-info" data-live-search="true"  style="margin-top:32px;"
                                     onclick="filterData()">
@@ -138,8 +140,8 @@
                                 </div>
                         </div>
                     </div>
-                        <div class="container"  >
-                        <div class="row my-2" >
+                                <div class="container"  >
+                                     <div class="row my-2" >
                                             <div class="col-md-4" >
                                                 <label for="">From Date</label>
                    
@@ -156,17 +158,18 @@
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
-                                            <label for="">Total Sale Amount:</label>
+                                            <label for="">Total Amount:</label>
                                             <h1 id="totalSaleAmount">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Amount Paid:</label>
                                             <h1 id="remainingAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total<br> Balance:</label>
+                                            <label for="">Total Balance:</label>
                                             <h1 id="invoiceBalance">0</h1></div>
-                                </div>
-                            </div>
-                        </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
                           
                 </section>
                 <section>
@@ -180,6 +183,9 @@
                         </div>
                     </div>
                 </section>
+
+
+
                 <section >
                     <div class="container">
                         <div class="row">
@@ -190,11 +196,10 @@
                                        <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
                                             <thead>
                                                 <tr>
-                                                    <th>Invoice Number</th>
-                                                    <th>Customer Name</th>
+                                                    <th>Party Name</th>
+                                                    <th>Transaction Catogery</th>
                                                     <th>Account Name</th>
-                                                    <th>Transaction Category</th>
-                                                    <th>Total Sale Amount</th>
+                                                    <th>Total Purchase Amount</th>
                                                     <th>Amount Paid</th>
                                                     <th>Balance</th>
                                                     <th>Transaction Date</th> 
@@ -229,7 +234,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="printTrasactionHistory()" class="btn btn-info">Print</button>
+                                <button onclick="printPurchaseHistory()" class="btn btn-info">Print</button>
                                 <!-- <button class="btn btn-danger">Close</button> -->
                             </div>
                         </div>
@@ -265,22 +270,23 @@
 
 <script>
 
-    function loadParties() {
+    function loadAllParties() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-
-                document.getElementById("parties").innerHTML = this.response;
+                document.getElementById("parties").innerHTML =
+                    this.responseText;
                 $('#parties').selectpicker('refresh');
+
             }
         };
 
-        xhttp.open("GET", "./getPartyNames/", true);
+        xhttp.open("GET", "./loadAllParties", true);
         xhttp.send();
-    }
+    };
                
-    function getPartyHistory() {
-        loadParties();
+    function getHistory() {
+        loadAllParties();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -302,11 +308,21 @@
 
                 $.each(a, function (i, item) {
 
-                    table.row.add([  
-                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
-                        a[i].DateStamp
-                    ]);
+                    if(a[i].AmountPaid!=null){
+                        table.row.add([  
+                            a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
+                            a[i].DateStamp
+                        
+                        ]);
+                    }else if(a[i].AmountPaid==null){
+                        table.row.add([  
+                            a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            0, a[i].Amount, 0, 
+                            a[i].DateStamp
+                        
+                        ]);
+                    }
                     });
                 table.draw();
                 
@@ -319,13 +335,12 @@
         xhttp.send();
     }
 
-    function filterSalesData() {
+    function filterData() {
 
         var category = $('#category').find(":selected").text();
         var categoryID = $('#category').find(":selected").val();
-        var customerID = $('#customers').find(":selected").val();
+        var partyID = $('#parties').find(":selected").val();
         
-
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -347,78 +362,161 @@
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
-
-                    table.row.add([  
-                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
-                        a[i].DateStamp
-                    ]);
+                    if(a[i].AmountPaid!=null){
+                        table.row.add([  
+                            a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
+                            a[i].DateStamp
+                        
+                        ]);
+                    }else if(a[i].AmountPaid==null){
+                        table.row.add([  
+                            a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            0, a[i].Amount, 0, 
+                            a[i].DateStamp
+                        
+                        ]);
+                    }
                 });
                 table.draw();
 
             }
         };
        
-        if(customerID==" "){
-            customerID="All";
+        if(partyID== ""){
+            partyID="All";
         }
   
-
-        xhttp.open("GET", "./filterSalesHistory/"+categoryID+"/"+customerID, true);
+        // alert(category);
+        // alert(categoryID);
+        // alert(partyID);
+        xhttp.open("GET", "./filterPartyData/"+partyID, true);
         xhttp.send();
     }
 
-    function filterPurchaseDateData() {
 
-var date1 = document.getElementById("date1").value;
-var date2 = document.getElementById("date2").value;
-var categoryID = $('#category').find(":selected").val();
-var customerID = $('#customers').find(":selected").val();
+        function filterDateData() {
 
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
+            var date1 = document.getElementById("date1").value;
+            var date2 = document.getElementById("date2").value;
+            var categoryID = $('#category').find(":selected").val();
+            var partyID = $('#parties').find(":selected").val();
 
-if (this.readyState == 4 && this.status == 200) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
 
-    var data = this.responseText;
-    
-    var table;
-    var dt = JSON.parse(data);
+            if (this.readyState == 4 && this.status == 200) {
 
-    a=dt[0];
-    totalSaleAmount=dt[1];
-    remainingAmount=dt[2];
-    invoiceBalance=dt[3];
+                var data = this.responseText;
+                
+                var table;
+                var dt = JSON.parse(data);
+            
+                a=dt[0];
+                totalSaleAmount=dt[1];
+                remainingAmount=dt[2];
+                invoiceBalance=dt[3];
 
-    document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-    document.getElementById('remainingAmount').innerHTML=remainingAmount;
-    document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
-    table = $('#myTable').DataTable();
-    table.clear();
-    $.each(a, function (i, item) {
+                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
+                document.getElementById('remainingAmount').innerHTML=remainingAmount;
+                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                table = $('#myTable').DataTable();
+                table.clear();
+                $.each(a, function (i, item) {
 
-        table.row.add([  
-            a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-            a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
-            a[i].DateStamp
-        ]);
-        });
-        table.draw();
+                    if(a[i].AmountPaid!=null){
+                        table.row.add([  
+                            a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
+                            a[i].DateStamp
+                        
+                        ]);
+                    }else if(a[i].AmountPaid==null){
+                        table.row.add([  
+                            a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            0, a[i].Amount, 0, 
+                            a[i].DateStamp
+                        
+                        ]);
+                    }
+                    });
+                    table.draw();
 
-    }
-};
+                }
+            };
 
-if(customerID==" "){
-    customerID="All";
-}
+            if(partyID== ""){
+                partyID="All";
+            }
 
-xhttp.open("GET", "./filterSalesDateData/"+date1+"/"+date2+"/"+categoryID+"/"+customerID, true);
-xhttp.send();
-}
-
-               
+            // alert(category);
+            // alert(categoryID);
+            // alert(partyID);
+            xhttp.open("GET", "./filterDateData/"+date1+"/"+date2+"/"+partyID, true);
+            xhttp.send();
+            }
+                        
 </script>
+<script>
+    function printPurchaseHistory (){
+                    var date1 = document.getElementById("date1").value;
+                    var date2 = document.getElementById("date2").value;
+                    var categoryID = $('#category').find(":selected").val();
+                    var partyID = $('#parties').find(":selected").val();
+                   
+                //    alert(date1);
+                  if (date1==""){
+                    printPurchaseHistory2();
+                }else{
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printPurchaseHistory/'+date1+'/'+date2+'/'+categoryID+'/'+partyID );
+                  
+                }
+            }
+            if(categoryID == ""){
+                categoryID = "All";  
+                    }
+                     if(partyID == ""){
+                        partyID = "All";  
+                    }
+                       
+            // alert("hello");
+            xhttp.open("GET", "./printPurchaseHistory/"+date1.trim()+"/"+date2.trim() +"/"+categoryID.trim()+"/"+partyID.trim(), true);
+            xhttp.send();
+        }
+        }
      
+    function printPurchaseHistory2(){
+                    
+        var categoryID = $('#category').find(":selected").val();
+        var partyID = $('#parties').find(":selected").val();
+                   
+                  
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printPurchaseHistory2/'+categoryID+'/'+partyID);
+                  
+                }
+            }
+             
+            if(categoryID == ""){
+                categoryID = "All";  
+                    }
+                     if(partyID == ""){
+                        partyID = "All";  
+                    }
+                     
+            // alert("hello");
+            xhttp.open("GET", "./printPurchaseHistory2/"+categoryID.trim()+"/"+partyID.trim() ,true);
+            xhttp.send();
+        
+        }
+    </script>
 </body>
 
 </html>
