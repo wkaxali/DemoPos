@@ -297,8 +297,8 @@ Route::get('/loadAllExpenseHead',[expenseHistoryController::class, 'getExpenseHe
 Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
 Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']); 
 Route::get('/filterExpenseDateData/{date1}/{date2}/{catId} ',[expenseHistoryController::class, 'filterExpenseDateData']);
-Route::get('/printExpenseHistory2/{category} ',[expenseHistoryPrintController::class, 'printExpenseHistory2']);
-Route::get('/printExpenseHistory/{date1}/{date2}/{category} ',[expenseHistoryPrintController::class, 'printExpenseHistory']);
+Route::get('/printExpenseHistory2/{catID}/{cat} ',[expenseHistoryPrintController::class, 'printExpenseHistory2']);
+Route::get('/printExpenseHistory/{date1}/{date2}/{catID}/{cat} ',[expenseHistoryPrintController::class, 'printExpenseHistory']);
 
 
 Route::get('/loadAllAccounts',[accountsController::class, 'getAccounts']);

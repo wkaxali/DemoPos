@@ -419,6 +419,7 @@
                     var date1 = document.getElementById("date1").value;
                     var date2 = document.getElementById("date2").value;
                     var categoryID = $('#expenseID').find(":selected").val();
+                    var category  = $('#expenseID').find(":selected").text();
                     // var partyID = $('#parties').find(":selected").val();
                    
                 //    alert(date1);
@@ -429,7 +430,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printExpenseHistory/'+date1+'/'+date2+'/'+categoryID );
+                    window.open('/printExpenseHistory/'+date1+'/'+date2+'/'+categoryID +'/'+category);
                   
                 }
             }
@@ -439,7 +440,7 @@
                       
                        
             // alert("hello");
-            xhttp.open("GET", "./printExpenseHistory/"+date1.trim()+"/"+date2.trim() +"/"+categoryID.trim() , true);
+            xhttp.open("GET", "./printExpenseHistory/"+date1.trim()+"/"+date2.trim() +"/"+categoryID.trim()+"/"+category.trim() , true);
             xhttp.send();
         }
         }
@@ -448,13 +449,13 @@
                     
         var categoryID = $('#expenseID').find(":selected").val();
         // var partyID = $('#parties').find(":selected").val();
-                   
+        var category  = $('#expenseID').find(":selected").text();
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printExpenseHistory2/'+categoryID );
+                    window.open('/printExpenseHistory2/'+categoryID +'/'+category);
                   
                 }
             }
@@ -464,7 +465,7 @@
                     }
                    
             // alert("hello");
-            xhttp.open("GET", "./printExpenseHistory2/"+categoryID.trim() ,true);
+            xhttp.open("GET", "./printExpenseHistory2/"+categoryID.trim()+"/"+category.trim() ,true);
             xhttp.send();
         
         }
