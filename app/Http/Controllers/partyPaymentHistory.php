@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-class salesHistoryController extends Controller
+
+class partyPaymentHistory extends Controller
 {
-    public static function getSalesHistory(){
+    public static function getPartyPaymentHistory(){
         $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="Stock and Service" or TransactionCatogery="Sales"');
         $totalSaleAmount=0;
         $remainingAmount=0;
@@ -19,7 +19,7 @@ class salesHistoryController extends Controller
         return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }
 
-    public static function filterSalesHistory($catID, $customerID){
+    public static function filterPartyPaymentHistory($catID, $customerID){
         $data=0;
         if($catID=="All" AND $customerID=="All"){
             $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="Stock and Service" or TransactionCatogery="Sales"');
@@ -46,7 +46,7 @@ class salesHistoryController extends Controller
         return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }
 
-    public static function filterSalesDateData($date1,$date2,$catID, $customerID){
+    public static function filterPartyPaymentDateData($date1,$date2,$catID, $customerID){
         $data=0;
         if($catID=="All" AND $customerID=="All"){
             $data=DB:: select('select * from vw_customersale_invoice where (TransactionCatogery="Stock and Service" or TransactionCatogery="Sales") and DateStamp between "'.$date1 .'"and"'.$date2.'"');
@@ -72,5 +72,4 @@ class salesHistoryController extends Controller
           }
         return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }
-    
 }

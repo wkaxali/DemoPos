@@ -280,7 +280,7 @@
                                 name="invo-1" id="NetTotal">
                             <label for="invo-1" style=" font-weight: 500; width: 130px;">Amount Paid</label>
                             <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
-                                name="invo-1" id="AmountPaid" onkeypress="calcForBalance()">
+                                name="invo-1" id="AmountPaid" onchange="calcForBalance()">
                             <label for="prod-1" style=" font-weight: 500; width: 130px;">Remaining Balance</label>
                             <input readonly type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;"
                                 name="invo-1" id="RemainingBalance">
