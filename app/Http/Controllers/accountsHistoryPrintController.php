@@ -15,7 +15,7 @@ class accountsHistoryPrintController extends Controller
             $data=DB:: select('select * from vw_transaction_flow');
         }else {
             
-            $data=DB:: select('select * from vw_transaction_flow where AID='.$AID);
+            $data=DB:: select('select * from vw_transaction_flow where AID='.$catID);
         }
         $totalAmount=0;
          
@@ -70,7 +70,7 @@ class accountsHistoryPrintController extends Controller
               <td height:80px;>'.$d->PartyName.'</td>
               
               <td height:80px;>'.$d->FirstName.''.$d->LastName.'</td>
-              td height:80px;>'.$d->CustomerName.'</td>
+              <td height:80px;>'.$d->CustomerName.'</td>
               <td height:80px;>'.$d->ExpenseHead.'</td>
               <td height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
               <td height:80px;>'.$d->TransactionCatogery.'</td>
@@ -191,7 +191,7 @@ class accountsHistoryPrintController extends Controller
               <td height:80px;>'.$d->PartyName.'</td>
               
               <td height:80px;>'.$d->FirstName.''.$d->LastName.'</td>
-              td height:80px;>'.$d->CustomerName.'</td>
+              <td height:80px;>'.$d->CustomerName.'</td>
               <td height:80px;>'.$d->ExpenseHead.'</td>
               <td height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
               <td height:80px;>'.$d->TransactionCatogery.'</td>
