@@ -324,7 +324,8 @@
 
                         
                 var categoryID = $('#category').find(":selected").val();
-                
+                document.getElementById("date1").value="";
+                    document.getElementById("date2").value="";
 
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
@@ -437,7 +438,7 @@
                     }
                       
                        
-                    alert( categoryID );  alert( category  );
+                   
             xhttp.open("GET", "./printAccountHistory/"+date1.trim()+"/"+date2.trim()+"/"+categoryID.trim() +"/"+category.trim() , true);
             xhttp.send();
         }
@@ -461,7 +462,7 @@
             if(categoryID == " "){
                 categoryID = "All";  
                     }
-                    alert( categoryID );  alert( category  );
+                 
             // alert("hello");
             xhttp.open("GET", "./printAccountHistory2/"+categoryID.trim()+"/"+category.trim()  ,true);
             xhttp.send();
