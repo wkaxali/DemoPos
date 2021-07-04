@@ -232,7 +232,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="printTrasactionHistory()" class="btn btn-info">Print</button>
+                                <button onclick="printAccountHistory()" class="btn btn-info">Print</button>
                                 <!-- <button class="btn btn-danger">Close</button> -->
                             </div>
                         </div>
@@ -412,7 +412,62 @@
 
                
 </script>
+<script>
+    function printAccountHistory (){
+                    var date1 = document.getElementById("date1").value;
+                    var date2 = document.getElementById("date2").value;
+                    var categoryID = $('#category').find(":selected").val();
+                    var category = $('#category').find(":selected").text();
+                    // var partyID = $('#parties').find(":selected").val();
+                   
+                //    alert(date1);
+                  if (date1==""){
+                    printAccountHistory2();
+                }else{
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printAccountHistory/'+date1+'/'+date2+'/'+categoryID+'/'+category  );
+                  
+                }
+            }
+            if(categoryID == " "){
+                categoryID = "All";  
+                    }
+                      
+                       
+                    alert( categoryID );  alert( category  );
+            xhttp.open("GET", "./printAccountHistory/"+date1.trim()+"/"+date2.trim()+"/"+categoryID.trim() +"/"+category.trim() , true);
+            xhttp.send();
+        }
+        }
      
+    function printAccountHistory2(){
+                    
+        var categoryID = $('#category').find(":selected").val();
+        // var partyID = $('#parties').find(":selected").val();
+        var category = $('#category').find(":selected").text();
+                  
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    window.open('/printAccountHistory2/'+categoryID+'/'+category  );
+                  
+                }
+            }
+             
+            if(categoryID == " "){
+                categoryID = "All";  
+                    }
+                    alert( categoryID );  alert( category  );
+            // alert("hello");
+            xhttp.open("GET", "./printAccountHistory2/"+categoryID.trim()+"/"+category.trim()  ,true);
+            xhttp.send();
+        
+        }
+    </script>
 </body>
 
 </html>
