@@ -325,7 +325,8 @@
 
          
         var categoryID = $('#expenseID').find(":selected").val();
-         
+        document.getElementById("date1").value="";
+                    document.getElementById("date2").value="";
         
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {

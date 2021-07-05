@@ -307,6 +307,8 @@ Route::get('/loadAllAccounts',[accountsController::class, 'getAccounts']);
 Route::get('/getAccountsHistory',[accountHistoryController::class, 'getAccountsHistory']);
 Route::get('/filterAccountData/{catId} ',[accountHistoryController::class, 'filterAccountData']); 
 Route::get('/filterAccountHistoryData/{date1}/{date2}/{catId} ',[accountHistoryController::class, 'filterAccountHistoryData']);
+Route::get('/printAccountHistory2/{catID}/{cat}',[accountsHistoryPrintController::class, 'printAccountHistory2']);
+Route::get('/printAccountHistory/{date1}/{date2}/{catID}/{cat}',[accountsHistoryPrintController::class, 'printAccountHistory']);
 
 
 

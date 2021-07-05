@@ -340,7 +340,8 @@
         var category = $('#category').find(":selected").text();
         var categoryID = $('#category').find(":selected").val();
         var partyID = $('#parties').find(":selected").val();
-        
+        document.getElementById("date1").value="";
+                    document.getElementById("date2").value="";
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
