@@ -6,15 +6,16 @@
 <div class="menu">
 <ul id="menu">
 <li id="menu-home"><a href="/db"><i class="fas fa-tachometer-alt"></i>
-<span style="font-size: 14px;">Sales</span></a>
+<span style="font-size: 14px;">DashBoard</span></a>
 </li>
 <li><a data-toggle="collapse" data-target=".new"><i class="fab fa-salesforce"></i><span
-style="font-size:14px;">Sale Parts</span><span class="fa fa-angle-right"
+style="font-size:14px;">Sale</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse list-unstyled new">
+<li><a href="/ss">Sale Parts</a></li>
 <li><a href="/ss">Sale Service</a></li>
 <li><a href="/is">Sale vehicle</a></li>
-
+<li><a href="/sh">Sale History</a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs"><i class="fab fa-salesforce"></i><span
@@ -25,7 +26,7 @@ style="float: right"></span></a>
 <li><a href="/bo">Book Vehicles</a></li>
 <li><a href="/rec">Receive Vehicles</a></li>
 <li><a href="/es"> Receive Parts</a></li>
-
+<li><a href="/ph"> Purchase History</a></li>
 </ul>
 </li>
 
@@ -36,6 +37,11 @@ style="float: right"></span></a>
 <li><a href="/pay">Supplier payments  </a></li>
 <li><a href="/eam">Customer Recovery  </a></li>
 <li><a href="/ep">Employe Payments </a></li>
+<li><a href="/aep">Add Employe Payments </a></li>
+<li><a href="/pph">Party Payment History </a></li>
+<li><a href="/pph">Party Payment History </a></li>
+<li><a href="/adal">Add Allowance </a></li>
+<li><a href="/edal">Edit Allowance </a></li>
 </ul>
 </li>
 
@@ -43,9 +49,10 @@ style="float: right"></span></a>
 style="font-size: 14px;">Expense </span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs2">
-<li><a href="/adc">Add Expense</a></li>
-<li><a href="/ec"> Add Expense Heads</a></li>
-
+<li><a href="/ex">Add Expense</a></li>
+<li><a href="/aeh"> Add Expense Heads</a></li>
+<li><a href="/ah"> Expense History</a></li>
+<li><a href="/exv"> Expense List</a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs3"><i class="fab fa-salesforce"></i><span
@@ -53,23 +60,24 @@ style="font-size: 14px;">Stock</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs3">
 <li><a href="/vs">View Sock</a></li>
-
-<li><a href="/ex">Stock Profit Reports</a></li>
-<li><a href="/dex">Pending Delivery</a></li>
+<li><a href="/ans ">Add SSock</a></li>
+<li><a href="/es ">Edit SSock</a></li>
+<li><a href="/ ">Stock Profit Reports</a></li>
+<li><a href="/ ">Pending Delivery</a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs4"><i
 class="fab fa-alipay"></i>
-<span style="font-size: 14px;">Ladgers</span><span class="fa fa-angle-right"
+<span style="font-size: 14px;">Ledgers</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs4">
 <li id="menu-mensagens" style="width: 201px"><a href="/th"> Transaction History</a>
 </li>
-<li><a href="/ss">Party Ladgers </a>  </li>
-<li><a href="/th"> View Supplies Balance</a>  </li>
-<li><a href="/ss">View Customer Balance </a>  </li>
-<li><a href="/ss">Party Ladgers </a> </li>
-<li><a href="/th">View Employe History </a>  </li>
+<li><a href="/cl ">Party Ledgers </a>  </li>
+<li><a href="/i"> View Supplies Balance</a>  </li>
+<li><a href="/ ">View Customer Balance </a>  </li>
+ 
+<li><a href="/ ">View Employee History </a>  </li>
 
 </ul>
 </li>
@@ -81,11 +89,11 @@ style="float: right"></span></a>
 <ul class="collapse firstULs5">
 <li id="menu-mensagens" style="width: 201px"><a href="/adc">Add Customer </a>
 </li>
-<li id="menu-mensagens" style="width: 201px"><a href="/dpay">View All Customer </a>
+<li id="menu-mensagens" style="width: 201px"><a href="/vc">View All Customer </a>
 </li>
-<li id="menu-mensagens" style="width: 201px"><a href="/ep">Edit Customer</a>
+<li id="menu-mensagens" style="width: 201px"><a href="/ec">Edit Customer</a>
 </li>
-<li id="menu-mensagens" style="width: 201px"><a href="/th">Customer Transaction History</a>
+<li id="menu-mensagens" style="width: 201px"><a href="/ch">Customer Transaction History</a>
 </li>
 
 
@@ -96,10 +104,11 @@ style="float: right"></span></a>
 style="font-size: 14px;">Product Defination</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs6">
-<li><a href="/l">Add Product Details</a></li>
-<li><a href="/igl"> Edit Prduct Details </a></li>
-<li><a href="cl">Change Price</a></li>
-
+<li><a href="/aam">Add Product Details</a></li>
+<li><a href="/eam"> Edit Prduct Details </a></li>
+<li><a href="/ip">Change Price</a></li>
+<li><a href="/ads">Add Supplier</a></li>
+<li><a href="/esp">Edit Supplier</a></li>
 </ul>
 </li>
 
@@ -109,8 +118,9 @@ style="font-size: 14px;">Quotation</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs7">
 <!-- <li><a href="/pr">Payroll</a></li> -->
-li id="menu-academico-avaliacoes"><a href="/atv">View All Quotation </a></li>
-<li id="menu-academico-avaliacoes"><a href="/atv">View All Quotation </a></li>
+<li id="menu-academico-avaliacoes"><a href="/ql">Create Quotation </a></li>
+<li id="menu-academico-avaliacoes"><a href="/ql">Print Quotation </a></li>
+<li id="menu-academico-avaliacoes"><a href="/ql">View All Quotation </a></li>
 
 
 </ul>
@@ -120,18 +130,18 @@ style="font-size: 14px;"> Settings</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs8">
 <li><a href="/aa">Add New Accounts</a></li>
-<li><a href="ea">Edit Accounts</a></li>
-<li><a href="ea">Edit Stock Price</a></li>
-<li><a href="ea">Edit Sale Invoice</a></li>
-<li><a href="ps">Edit Purchase Invoice</a></li>
-<li><a href="ea">Edit Payment For Employe </a></li>
-<li><a href="ea">Edit Expense</a></li>
-<li><a href="ea">Edit Investor</a></li>
-<li><a href="ea">Edit  Book Record and Reciving</a></li>
-<li><a href="ea">Edit  IS</a></li>
-<li><a href="ps">Edit Customer Invoice</a></li>
-<li><a href="ea">Edit   Employee </a></li>
-<li><a href="ea">Edit Employee Pay</a></li>
+<li><a href="/ea">Edit Accounts</a></li>
+<li><a href="/es">Edit Stock Price</a></li>
+<li><a href="/ss">Edit Sale Invoice</a></li>
+<li><a href="/ps">Edit Purchase Invoice</a></li>
+<li><a href="/">Edit Payment For Employe </a></li>
+<li><a href="/dex">Edit Expense</a></li>
+<li><a href="/">Edit Investor</a></li>
+<li><a href="/">Edit Book Record and Reciving</a></li>
+<li><a href="/">Edit IS</a></li>
+<li><a href="/ec">Edit Customer</a></li>
+<li><a href="/ee">Edit Employee </a></li>
+<li><a href="/pr">Edit Employee Pay</a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs9"><i class="fas fa-vials"></i><span
@@ -139,50 +149,51 @@ style="font-size: 14px;"> Accounts(Bank)</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs9">
 <li><a href="/aa">Add New Account</a></li>
-<li><a href="ea">Edit My Account </a></li>
-<li><a href="ea">  View All Accounts</a></li>
-<li><a href="ea">  View Overall Balance</a></li>
-
+<li><a href="/ea">Edit My Account </a></li>
+<li><a href="/ea">View All Accounts</a></li>
+<li><a href="/ah">View Overall Balance</a></li>
+<li><a href="/amt">Amount Transfer</a></li>
+<li><a href="/ac">Add Category</a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fas fa-vials"></i><span
 style="font-size: 14px;"> Attendance</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs10">
-<li><a href="/aa">Mark Attendance </a></li>
-<li><a href="ea"> View Attendance  </a></li>
-<li><a href="ea">  Apply Leave</a></li>
-<li><a href="ea">  Change Reporting Time   </a></li>
-<li><a href="ea">  Change Working Hours    </a></li>
+<li><a href="/at">Mark Attendance </a></li>
+<li><a href="/atv"> View Attendance  </a></li>
+<li><a href="/">  Apply Leave</a></li>
+<li><a href="/">  Change Reporting Time   </a></li>
+<li><a href="/">  Change Working Hours    </a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs11"><i class="fas fa-vials"></i><span
 style="font-size: 14px;"> Users</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs11">
-<li><a href="/aa">Add Users  </a></li>
-<li><a href="ea"> Edit User passcode   </a></li>
-<li><a href="ea">   Edit User Category</a></li>
+<li><a href="/au">Add Users  </a></li>
+<li><a href="/eu"> Edit User passcode   </a></li>
+<li><a href="/eu">   Edit User Category</a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs12"><i class="fas fa-vials"></i><span
 style="font-size: 14px;"> Employee</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs12">
-<li><a href="/aa"> Add New Emloyee </a></li>
-<li><a href="ea"> <Em>Edit Employer Details</Em>   </a></li>
-<li><a href="ea">  Change Reporting Time </a></li>
-<li><a href="ea">  Change Working Hours    </a></li>
-<li><a href="ea"> Print Salary Slip    </a></li>
-<li><a href="ea">  Employee Left    </a></li>
+<li><a href="/ae"> Add New Emloyee </a></li>
+<li><a href="/ee"> <Em>Edit Employer Details</Em>   </a></li>
+<li><a href="/">  Change Reporting Time </a></li>
+<li><a href="/">  Change Working Hours    </a></li>
+<li><a href="/pr"> Print Salary Slip    </a></li>
+<li><a href="/">  Employee Left    </a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs13"><i class="fas fa-vials"></i><span
 style="font-size: 14px;"> Return Sale</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs13">
-<li><a href="/aa">Return With Negative Sale   </a></li>
-<li><a href="ea"> Edit Sale    </a></li>
+<li><a href="/ ">Return With Negative Sale   </a></li>
+<li><a href="/"> Edit Sale    </a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs14"><i class="fas fa-vials"></i><span

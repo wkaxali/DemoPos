@@ -1127,7 +1127,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         </div>
 
 
-    @include('adminNavbar')
+    @include('mainNavbar')
 
     <div class="clearfix"> </div>
 
