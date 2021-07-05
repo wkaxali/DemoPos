@@ -188,7 +188,7 @@
                
             </div>
         </div>
-        @include('sidenavbar')
+        @include('mainNavbar')
     </div>
 
 
