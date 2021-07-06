@@ -3,18 +3,23 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use Carbon\Carbon;
 
-class partyPaymenteHistoryPrintController extends Controller
+use PDF;
+class partyPaymentHistoryPrintController extends Controller
 {
-    public static function printPartyHistory2($catID, $category  ){
+    public static function printPartyHistory2($partyID, $party  ){
 
-        if($catID=="All" ){
+        if($partyID=="All" ){
             $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <>0');
         }else {
             
-            $data=DB:: select('select * from vw_transaction_flow where ID='.$catID);
+            $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$partyID);
         }
-        $totalAmount=0;
+        $totalSaleAmount=0;
+        // $remainingAmount=0;
+        $invoiceBalance=0;
          
         foreach($data as $d){
             $totalSaleAmount += floatval($d->Amount);
@@ -28,22 +33,22 @@ class partyPaymenteHistoryPrintController extends Controller
           <tbody>
           <tr><br><br><br><br>
           
-          <td max-height="20px" ><h2>Total Amount: : '.$totalAmount.' </h2></td>
-           
+          <td max-height="20px" ><h2>Total Amount: : '.$totalSaleAmount.' </h2></td>
+          <td max-height="20px" ><h2>Total Balance: : '.$invoiceBalance.' </h2></td>
 
-          </tr><tr><td max-height="20px"><h3>Filter by : '.$category.'</h3></td></tr>
+          </tr><tr><td max-height="20px"><h3>Filter by : '.$party.'</h3></td></tr>
           </tbody>
           </table> <br><br>
           <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
             <tbody>
                 <tr>
-                <th>Transaction ID</th>
-                <th>Expense Head</th>
+                <th>Party Name</th>
+                <th>Transaction Category</th> 
                 <th>Account Name</th>
-                
-                
-                <th>Amount Paid</th>
-                 
+             
+                <th>Total Purchase Amount</th>
+            
+             
                 <th>Transaction Date</th> 
                     
                 </tr>
@@ -61,14 +66,16 @@ class partyPaymenteHistoryPrintController extends Controller
           <table cellpadding = "2" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
               <tbody>
               <tr>
-              <td height:80px;>'.$d->TransactionID.'</td> 
-              <td height:80px;>'.$d->ExpenseHead.'</td>
+              <td height:80px;>'.$d->PartyName.'</td> 
+              <td height:80px;>'.$d->TransactionCatogery.'</td>
               <td height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
         
               <td height:80px;>'.$d->Amount.'</td>
               
-              <td height:80px;>'.$d->DateStamp.'</td>
              
+            
+              
+              <td height:80px;>'.$d->DateStamp.'</td>
               </tr>   
               </tbody>
           </table> 
@@ -120,20 +127,23 @@ class partyPaymenteHistoryPrintController extends Controller
     }
     
 
-    public static function printPartyHistory($date1,$date2, $catID, $cat ){
+    public static function printPartyHistory($date1,$date2, $partyId, $party ){
         $data=0;
-        if($catID=="All" ){
-            $data=DB:: select('select * from vw_expenses where  DateStamp between "'.$date1 .'"and"'.$date2.'"');
+        if($partyId=="All" ){
+            $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0');
         
-        }  else if($catID!="All" ){
-            $data=DB:: select('select * from vw_expenses where ID="'.$catID.'" and DateStamp between "'.$date1 .'"and"'.$date2.'"');
+        }  else if($partyId!="All" ){
+            $data=DB:: select('select * from vw_transaction_flow where DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo="'.$partyId.'"');
         
         }
-        $totalAmount=0;
+        $totalSaleAmount=0;
+        // $remainingAmount=0;
+        $invoiceBalance=0;
          
         foreach($data as $d){
-            $totalAmount += floatval($d->Amount);
-           
+            $totalSaleAmount += floatval($d->Amount);
+            // $remainingAmount += floatval($d->AmountPaid);
+            $invoiceBalance += floatval($d->PartyBalance);
           } 
            
           $table='
@@ -142,22 +152,23 @@ class partyPaymenteHistoryPrintController extends Controller
           <tbody>
           <tr><br><br><br><br>
           
-          <td max-height="20px" ><h2>Total Amount:  '.$totalAmount.' </h2></td>
+          <td max-height="20px" ><h2>Total Amount:  '.$totalSaleAmount.' </h2></td>
+          <td max-height="20px" ><h2>Total Balance:  '.$invoiceBalance.' </h2></td>
           
 
-          </tr><tr><td max-height="20px"><h3>Filter by : '.$cat.'</h3> <h3>Date From: '.$date1.' To '.$date2.'</h3></td></tr>
+          </tr><tr><td max-height="20px"><h3>Filter by : '.$party.'</h3> <h3>Date From: '.$date1.' To '.$date2.'</h3></td></tr>
           </tbody>
           </table> <br><br>
           <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
             <tbody>
                 <tr>
-                <th>Transaction ID</th>
-                <th>Expense Head</th>
+                <th>Party Name</th>
+                <th>Transaction Category</th> 
                 <th>Account Name</th>
+             
+                <th>Total Purchase Amount</th>
                 
-                
-                <th>Amount Paid</th>
-                 
+               
                 <th>Transaction Date</th> 
                     
                 </tr>
@@ -175,12 +186,12 @@ class partyPaymenteHistoryPrintController extends Controller
           <table cellpadding = "2" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
               <tbody>
               <tr>
-              <td height:80px;>'.$d->TransactionID.'</td> 
-              <td height:80px;>'.$d->ExpenseHead.'</td>
+              <td height:80px;>'.$d->PartyName.'</td> 
+              <td height:80px;>'.$d->TransactionCatogery.'</td>
               <td height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
         
               <td height:80px;>'.$d->Amount.'</td>
-              
+               
               <td height:80px;>'.$d->DateStamp.'</td>
              
               </tr>   

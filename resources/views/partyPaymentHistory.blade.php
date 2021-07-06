@@ -234,7 +234,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="printPurchaseHistory()" class="btn btn-info">Print</button>
+                                <button onclick="printPartyHistory()" class="btn btn-info">Print</button>
                                 <!-- <button class="btn btn-danger">Close</button> -->
                             </div>
                         </div>
@@ -464,7 +464,7 @@
                     var date2 = document.getElementById("date2").value;
                     var categoryID = $('#category').find(":selected").val();
                     var partyID = $('#parties').find(":selected").val();
-                    var category = $('#category').find(":selected").text();
+                    var party  = $('#parties').find(":selected").text();
                 //    alert(date1);
                   if (date1==""){
                     printPartyHistory2();
@@ -473,16 +473,19 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPartyHistory/'+date1+'/'+date2+'/'+ partyID+'/'+category );
+                    window.open('/printPartyHistory/'+date1+'/'+date2+'/'+ partyID+'/'+party );
                   
                 }
             }
             if(partyID== ""){
                 partyID="All";
             }
-                       
+            if(party== ""){
+                party="All";
+            }
+                        
             // alert("hello");
-            xhttp.open("GET", "./printPurchaseHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim(), true);
+            xhttp.open("GET", "./printPartyHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim()+"/" +party.trim(),  true);
             xhttp.send();
         }
         }
@@ -491,23 +494,26 @@
                     
         var categoryID = $('#category').find(":selected").val();
         var partyID = $('#parties').find(":selected").val();
+         var party  = $('#parties').find(":selected").text();
                    
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPartyHistory2/'+partyID );
+                    window.open('/printPartyHistory2/'+partyID+'/'+party );
                   
                 }
             }
              
             if(partyID== ""){
                 partyID="All";
+            } if(party== ""){
+                party="All";
             }
                      
             // alert("hello");
-            xhttp.open("GET", "./printPartyHistory2/" +partyID.trim() ,true);
+            xhttp.open("GET", "./printPartyHistory2/" +partyID.trim() +"/" +party.trim(),true);
             xhttp.send();
         
         }
