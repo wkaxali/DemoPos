@@ -53,13 +53,13 @@ class salesHistoryController extends Controller
         
         }else if($catID=="All" AND $customerID!="All"){
             
-            $data=DB:: select('select * from vw_customersale_invoice where (TransactionCatogery=Stock and Service" or TransactionCatogery="Sales") and DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo='.$partyID);
+            $data=DB:: select('select * from vw_customersale_invoice where (TransactionCatogery=Stock and Service" or TransactionCatogery="Sales") and DateStamp between "'.$date1 .'"and"'.$date2.'" and CustomerID='.$customerID);
            // return $data;
         }else if($catID!="All" AND $customerID=="All"){
             $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="'.$catID.'" and DateStamp between "'.$date1 .'"and"'.$date2.'"');
         
         }else if($catID!="All" AND $customerID!="All"){
-            $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="'.$catID.'" and  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo='.$partyID);
+            $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="'.$catID.'" and  DateStamp between "'.$date1 .'"and"'.$date2.'" and CustomerID='.$customerID);
         
         }
         $totalSaleAmount=0;

@@ -336,7 +336,8 @@
         var category = $('#category').find(":selected").text();
         var categoryID = $('#category').find(":selected").val();
         var customerID = $('#customers').find(":selected").val();
-        
+        document.getElementById("date1").value="";
+        document.getElementById("date2").value="";
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -435,29 +436,29 @@ xhttp.send();
                     var date1 = document.getElementById("date1").value;
                     var date2 = document.getElementById("date2").value;
                     var categoryID = $('#category').find(":selected").val();
-                    var partyID = $('#parties').find(":selected").val();
+                    var customersID = $('#customers').find(":selected").val();
                    
                 //    alert(date1);
                   if (date1==""){
-                    printPurchaseHistory2();
+                    printSaleHistory2();
                 }else{
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printSaleHistory/'+date1+'/'+date2+'/'+categoryID+'/'+partyID );
+                    window.open('/printSaleHistory/'+date1+'/'+date2+'/'+categoryID+'/'+customersID );
                   
                 }
             }
-            if(categoryID == ""){
+            if(categoryID == " "){
                 categoryID = "All";  
                     }
-                     if(partyID == ""){
-                        partyID = "All";  
+                     if(customersID == " "){
+                        customersID = "All";  
                     }
                        
             // alert("hello");
-            xhttp.open("GET", "./printSaleHistory/"+date1.trim()+"/"+date2.trim() +"/"+categoryID.trim()+"/"+partyID.trim(), true);
+            xhttp.open("GET", "./printSaleHistory/"+date1.trim()+"/"+date2.trim() +"/"+categoryID.trim()+"/"+customersID.trim(), true);
             xhttp.send();
         }
         }
@@ -465,27 +466,27 @@ xhttp.send();
     function printSaleHistory2(){
                     
         var categoryID = $('#category').find(":selected").val();
-        var partyID = $('#parties').find(":selected").val();
+        var customersID = $('#customers').find(":selected").val();
                    
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printSaleHistory2/'+categoryID+'/'+partyID);
+                    window.open('/printSaleHistory2/'+categoryID+'/'+customersID);
                   
                 }
             }
              
-            if(categoryID == ""){
+            if(categoryID == " "){
                 categoryID = "All";  
                     }
-                     if(partyID == ""){
-                        partyID = "All";  
+                     if(customersID == " "){
+                        customersID = "All";  
                     }
                      
             // alert("hello");
-            xhttp.open("GET", "./printSaleHistory2/"+categoryID.trim()+"/"+partyID.trim() ,true);
+            xhttp.open("GET", "./printSaleHistory2/"+categoryID.trim()+"/"+customersID.trim() ,true);
             xhttp.send();
         
         }

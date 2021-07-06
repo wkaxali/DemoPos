@@ -24,7 +24,7 @@ class saleHistoryPrintController extends Controller
             $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="'.$category.'"');
         
         }else if($category!="All" AND $CustomerID!="All"){
-            $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="'.$category.'" and PaidTo='.$CustomerID);
+            $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="'.$category.'" and CustomerID='.$CustomerID);
         
         }
         $totalSaleAmount=0;
@@ -37,12 +37,12 @@ class saleHistoryPrintController extends Controller
           }
            
           $table='
-          <h2 style="text-align:center;" >Purchase Transaction History</h2><br>
+          <h2 style="text-align:center;" >Sales Transaction History</h2><br>
           <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
           <tbody>
           <tr><br><br><br><br>
           
-          <td max-height="20px" ><h2>Total Purchase Amount: : '.$totalSaleAmount.' </h2></td>
+          <td max-height="20px" ><h2>Total Sales Amount: : '.$totalSaleAmount.' </h2></td>
           <td max-height="20px" ><h2>Total Amount : '.$remainingAmount.' </h2></td>
           <td max-height="20px" ><h2>Total Balance: '.$invoiceBalance.' </h2></td>
 
@@ -76,8 +76,8 @@ class saleHistoryPrintController extends Controller
           <table cellpadding = "2" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
               <tbody>
               <tr>
-              <td height:80px;>'.$d->InvoiceNo.'</td> 
-              <td height:80px;>'.$d->PartyName.'</td>
+              <td height:80px;>'.$d->InvoiceNumber.'</td> 
+              <td height:80px;>'.$d->CustomerName.'</td>
               <td height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
               <td height:80px;>'.$d->TransactionCatogery .'</td>
               <td height:80px;>'.$d->TotalAmount.'</td>
@@ -139,11 +139,11 @@ class saleHistoryPrintController extends Controller
     public static function printSaleHistory($date1,$date2,$catID, $CustomerID){
         $data=0;
         if($catID=="All" AND $CustomerID=="All"){
-            $data=DB:: select('select * from vw_customersale_invoice where (TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order") and DateStamp between "'.$date1 .'"and"'.$date2.'"');
+            $data=DB:: select('select * from vw_customersale_invoice where (TransactionCatogery="Stock and Service" or TransactionCatogery="Sales") and DateStamp between "'.$date1 .'"and"'.$date2.'"');
         
         }else if($catID=="All" AND $CustomerID!="All"){
             
-            $data=DB:: select('select * from vw_customersale_invoice where (TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order") and DateStamp between "'.$date1 .'"and"'.$date2.'" and CustomerID='.$CustomerID);
+            $data=DB:: select('select * from vw_customersale_invoice where (TransactionCatogery="Stock and Service" or TransactionCatogery="Sales") and DateStamp between "'.$date1 .'"and"'.$date2.'" and CustomerID='.$CustomerID);
            // return $data;
         }else if($catID!="All" AND $CustomerID=="All"){
             $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="'.$catID.'" and DateStamp between "'.$date1 .'"and"'.$date2.'"');
@@ -161,12 +161,12 @@ class saleHistoryPrintController extends Controller
           }
            
           $table='
-          <h2 style="text-align:center;" >Purchase Transaction History</h2><br>
+          <h2 style="text-align:center;" >Sales Transaction History</h2><br>
           <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
           <tbody>
           <tr><br><br><br><br>
           
-          <td max-height="20px" ><h2>Total Purchase Amount:  '.$totalSaleAmount.' </h2></td>
+          <td max-height="20px" ><h2>Total Sales Amount:  '.$totalSaleAmount.' </h2></td>
           <td max-height="20px" ><h2>Total Amount Paid:'.$remainingAmount.' </h2></td>
           <td max-height="20px" ><h2>Total Balance: '.$invoiceBalance.' </h2></td>
 
@@ -199,8 +199,8 @@ class saleHistoryPrintController extends Controller
           <table cellpadding = "2" cellspacing = "0"  border="0.2" style="font-size:7.5px"><thead></thead>
               <tbody>
               <tr>
-              <td height:80px;>'.$d->InvoiceNo.'</td> 
-              <td height:80px;>'.$d->PartyName.'</td>
+              <td height:80px;>'.$d->InvoiceNumber.'</td> 
+              <td height:80px;>'.$d->CustomerName.'</td>
               <td height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
               <td height:80px;>'.$d->TransactionCatogery .'</td>
               <td height:80px;>'.$d->TotalAmount.'</td>
