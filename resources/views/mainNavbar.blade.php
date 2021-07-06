@@ -39,7 +39,7 @@ style="float: right"></span></a>
 <li><a href="/ep">Employe Payments </a></li>
 <li><a href="/aep">Add Employe Payments </a></li>
 <li><a href="/pph">Party Payment History </a></li>
-<li><a href="/pph">Party Payment History </a></li>
+ 
 <li><a href="/adal">Add Allowance </a></li>
 <li><a href="/edal">Edit Allowance </a></li>
 </ul>
@@ -109,6 +109,7 @@ style="float: right"></span></a>
 <li><a href="/ip">Change Price</a></li>
 <li><a href="/ads">Add Supplier</a></li>
 <li><a href="/esp">Edit Supplier</a></li>
+<li><a href="/ac">Add Category</a></li>
 </ul>
 </li>
 
@@ -145,7 +146,7 @@ style="float: right"></span></a>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs9"><i class="fas fa-vials"></i><span
-style="font-size: 14px;"> Accounts(Bank)</span><span class="fa fa-angle-right"
+style="font-size: 14px;"> Accounts (Bank)</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs9">
 <li><a href="/aa">Add New Account</a></li>
@@ -153,7 +154,7 @@ style="float: right"></span></a>
 <li><a href="/ea">View All Accounts</a></li>
 <li><a href="/ah">View Overall Balance</a></li>
 <li><a href="/amt">Amount Transfer</a></li>
-<li><a href="/ac">Add Category</a></li>
+
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fas fa-vials"></i><span
@@ -181,7 +182,7 @@ style="font-size: 14px;"> Employee</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs12">
 <li><a href="/ae"> Add New Emloyee </a></li>
-<li><a href="/ee"> <Em>Edit Employer Details</Em>   </a></li>
+<li><a href="/ee">  Edit Employer Details  </a></li>
 <li><a href="/">  Change Reporting Time </a></li>
 <li><a href="/">  Change Working Hours    </a></li>
 <li><a href="/pr"> Print Salary Slip    </a></li>
