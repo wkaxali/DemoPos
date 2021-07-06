@@ -161,9 +161,9 @@
                                             <label for="">Total Amount:</label>
                                             <h1 id="totalSaleAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total Amount Paid:</label>
+                                            <!-- <label for="">Total Amount Paid:</label>
                                             <h1 id="remainingAmount">0</h1></div>
-                                            <div class="col-md-4" >
+                                            <div class="col-md-4" > -->
                                             <label for="">Total Balance:</label>
                                             <h1 id="invoiceBalance">0</h1></div>
                                             </div>
@@ -299,10 +299,10 @@
             
                 a=dt[0];
                 totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
+                // remainingAmount=dt[2];
+                invoiceBalance=dt[2];
                 document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
+                // document.getElementById('remainingAmount').innerHTML=remainingAmount;
                 document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
                 table = $('#myTable').DataTable();
 
@@ -340,7 +340,8 @@
         var category = $('#category').find(":selected").text();
         var categoryID = $('#category').find(":selected").val();
         var partyID = $('#parties').find(":selected").val();
-        
+        document.getElementById("date1").value="";
+         document.getElementById("date2").value="";
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -353,11 +354,11 @@
                
                 a=dt[0];
                 totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
+                // remainingAmount=dt[2];
+                invoiceBalance=dt[2];
   
                 document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
+                // document.getElementById('remainingAmount').innerHTML=remainingAmount;
                 document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
                 table = $('#myTable').DataTable();
                 table.clear();
@@ -414,11 +415,11 @@
             
                 a=dt[0];
                 totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
+                // remainingAmount=dt[2];
+                invoiceBalance=dt[2];
 
                 document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
+                // document.getElementById('remainingAmount').innerHTML=remainingAmount;
                 document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
                 table = $('#myTable').DataTable();
                 table.clear();
@@ -458,38 +459,35 @@
                         
 </script>
 <script>
-    function printPurchaseHistory (){
+    function printPartyHistory (){
                     var date1 = document.getElementById("date1").value;
                     var date2 = document.getElementById("date2").value;
                     var categoryID = $('#category').find(":selected").val();
                     var partyID = $('#parties').find(":selected").val();
-                   
+                    var category = $('#category').find(":selected").text();
                 //    alert(date1);
                   if (date1==""){
-                    printPurchaseHistory2();
+                    printPartyHistory2();
                 }else{
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPurchaseHistory/'+date1+'/'+date2+'/'+categoryID+'/'+partyID );
+                    window.open('/printPartyHistory/'+date1+'/'+date2+'/'+ partyID+'/'+category );
                   
                 }
             }
-            if(categoryID == ""){
-                categoryID = "All";  
-                    }
-                     if(partyID == ""){
-                        partyID = "All";  
-                    }
+            if(partyID== ""){
+                partyID="All";
+            }
                        
             // alert("hello");
-            xhttp.open("GET", "./printPurchaseHistory/"+date1.trim()+"/"+date2.trim() +"/"+categoryID.trim()+"/"+partyID.trim(), true);
+            xhttp.open("GET", "./printPurchaseHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim(), true);
             xhttp.send();
         }
         }
      
-    function printPurchaseHistory2(){
+    function printPartyHistory2(){
                     
         var categoryID = $('#category').find(":selected").val();
         var partyID = $('#parties').find(":selected").val();
@@ -499,20 +497,17 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPurchaseHistory2/'+categoryID+'/'+partyID);
+                    window.open('/printPartyHistory2/'+partyID );
                   
                 }
             }
              
-            if(categoryID == ""){
-                categoryID = "All";  
-                    }
-                     if(partyID == ""){
-                        partyID = "All";  
-                    }
+            if(partyID== ""){
+                partyID="All";
+            }
                      
             // alert("hello");
-            xhttp.open("GET", "./printPurchaseHistory2/"+categoryID.trim()+"/"+partyID.trim() ,true);
+            xhttp.open("GET", "./printPartyHistory2/" +partyID.trim() ,true);
             xhttp.send();
         
         }

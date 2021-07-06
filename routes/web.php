@@ -67,6 +67,11 @@ use App\Http\Controllers\saleHistoryPrintController;
 Route::get('/filterDateData/{date1}/{date2}/{ID} ',[partyPaymentHistory::class, 'filterPartyPaymentDateData']);
 Route::get('/filterPartyData/{ID}',[partyPaymentHistory::class, 'filterPartyPaymentHistory']);
 Route::get('/partyHistory',[partyPaymentHistory::class, 'getPartyPaymentHistory']);
+Route::get('/printPartyHistory2/{catID}/{cat} ',[partyPaymentHistoryPrintController::class, 'printPartyHistory2']);
+Route::get('/printPartyHistory/{date1}/{date2}/{catID}/{cat} ',[partyPaymentHistoryPrintController::class, 'printPartyHistory']);
+
+
+
 Route::get('/filterSalesHistory/{cat}/{cus}',[salesHistoryController::class, 'filterSalesHistory']);
 Route::get('/salesHistory',[salesHistoryController::class, 'getSalesHistory']);
 Route::get('/updatePurchasedStock/{array}/{InvoiceNo}',[purchaseStockEditController::class, 'updatePurchasedStock']);
