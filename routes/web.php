@@ -305,8 +305,6 @@ Route::get('/filterAccountHistoryData/{date1}/{date2}/{catId} ',[accountHistoryC
 Route::get('/printAccountHistory2/{catID}/{cat}',[accountsHistoryPrintController::class, 'printAccountHistory2']);
 Route::get('/printAccountHistory/{date1}/{date2}/{catID}/{cat}',[accountsHistoryPrintController::class, 'printAccountHistory']);
 
-
-
 Route::get('/', function () {
 return view('signInSignUp');
 });
