@@ -71,8 +71,7 @@ class="fab fa-alipay"></i>
 <span style="font-size: 14px;">Ledgers</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs4">
-<li id="menu-mensagens" style="width: 201px"><a href="/th"> Transaction History</a>
-</li>
+<li id="menu-mensagens" style="width: 201px"><a href="/th"> Transaction History</a></li>
 <li><a href="/pph ">Party Ledgers </a>  </li>
 <li><a href="/i"> View Supplies Balance</a></li>
 <li><a href="/ ">View Customer Balance </a></li>
@@ -87,11 +86,11 @@ style="float: right"></span></a>
 <ul class="collapse firstULs5">
 <li id="menu-mensagens" style="width: 201px"><a href="/adc">Add Customer </a>
 </li>
-<li id="menu-mensagens" style="width: 201px"><a href="/vc">View All Customer </a>
+<li id="menu-mensagens" style="width: 201px"><a href="/vc">View All Customers </a>
 </li>
 <li id="menu-mensagens" style="width: 201px"><a href="/ec">Edit Customer</a>
 </li>
-<li id="menu-mensagens" style="width: 201px"><a href="/ch">Customer Transaction History</a>
+<!-- <li id="menu-mensagens" style="width: 201px"><a href="/ch">Customer Transaction History</a> -->
 </li>
 
 
@@ -133,8 +132,9 @@ style="float: right"></span></a>
 <li><a href="/es">Edit Stock Price</a></li>
 <li><a href="/ss">Edit Sale Invoice</a></li>
 <li><a href="/ps">Edit Purchase Invoice</a></li>
-<li><a href="/">Edit Payment For Employe </a></li>
-<li><a href="/dex">Edit Expense</a></li>
+<li><a href="/dEPay">Delete Payment For Employee </a></li>
+<li><a href="/dex">Delete Expense</a></li>
+<li><a href="/dpay">Delete Party Payments</a></li>
 <li><a href="/">Edit Investor</a></li>
 <li><a href="/">Edit Book Record and Reciving</a></li>
 <li><a href="/">Edit IS</a></li>

@@ -26,7 +26,7 @@ class deletePaymentController extends Controller
         $PartyLID = $transaction->first()->PaidTo;
         if($PartyLID!=NULL){
             $oldPartyBalance= LedgerPartiesController::getPartyBalance($PartyLID);
-            $newPartyBalance = floatval($oldSelfBalance) + floatval($amount);
+            $newPartyBalance = floatval($oldPartyBalance) + floatval($amount);
             LedgerPartiesController::UpdatePartiesBalance($PartyLID, $newPartyBalance);
             LedgerPartiesController::UpdatePartiesBalance($ledgerID, $newSelfBalance);
         }
