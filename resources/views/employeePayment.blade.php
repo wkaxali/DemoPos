@@ -200,13 +200,14 @@
                             <input type="text" class="form-control" style="display: inline-block; width: 192px;"
                                 value="" name=""  onchange="calculatonInTable()" id="amount">
                                 
-                                <label>Deductable
+                                <label>
                                 <input type="radio" checked="checked" id="deductable" name="advanceCat" value="Deductable">
-                                </label>
+                                Deductable</label>
                                 
-                                <label>Non Deductable
+                                <label>
                                 <input type="radio" id="nondeductable" name="advanceCat" value="Non Deductable">
-                                </label><br>
+                                Non Deductable</label>
+                                <br>
                             <label for="">Paid To</label>
                             <select 
                                 class="selectpicker form-control"  data-live-search="true"  id="paidTo" onchange="getAmount()">

@@ -279,7 +279,7 @@
             }
         };
 
-        xhttp.open("GET", "./loadAllAccounts", true);
+        xhttp.open("GET", "./getAccountsForHistory", true);
         xhttp.send();
     };
                

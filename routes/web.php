@@ -240,7 +240,7 @@ Route::get('/getEmployeeID',[payController::class, 'getEmployeeID']);
 Route::get('/getEmployeeContact',[payController::class, 'getEmployeeContact']);
 Route::get('/loadProductCategory',[AddMenuController::class, 'loadProductCategory']);
 Route::get('/getPartyNames',[LedgerPartiesController::class, 'getPartyNames']);
-Route::get('/getAccounts',[expenseController::class, 'getAccounts']);
+Route::get('/getAccountsForHistory',[accountsController::class, 'getAccountsForHistory']);
 Route::get('/getCategory',[taskController::class, 'getCategory']);
 Route::get('/updatecategory/{ID}/{oldcategory}',[taskController::class, 'updateTaskCategory']);
 Route::get('/getEmployees',[taskController::class, 'getEmployees']);
