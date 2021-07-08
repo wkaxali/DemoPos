@@ -70,9 +70,6 @@ Route::get('/filterPartyData/{ID}',[partyPaymentHistory::class, 'filterPartyPaym
 Route::get('/partyHistory',[partyPaymentHistory::class, 'getPartyPaymentHistory']);
 Route::get('/printPartyHistory2/{partyID}/{party} ',[partyPaymentHistoryPrintController::class, 'printPartyHistory2']);
 Route::get('/printPartyHistory/{date1}/{date2}/{partyID}/{party} ',[partyPaymentHistoryPrintController::class, 'printPartyHistory']);
-
-
-
 Route::get('/filterSalesHistory/{cat}/{cus}',[salesHistoryController::class, 'filterSalesHistory']);
 Route::get('/salesHistory',[salesHistoryController::class, 'getSalesHistory']);
 Route::get('/updatePurchasedStock/{array}/{InvoiceNo}',[purchaseStockEditController::class, 'updatePurchasedStock']);
@@ -91,7 +88,6 @@ Route::get('/showAccountsSum',[accountsController::class, 'showAccountsSum']);
 Route::get('/investorReceivedAmount/{LID}',[investorController::class, 'getInvestorReceivedAmount']);
 Route::get('/sd',[summaryReportController::class, 'stockDetails']);
 Route::get('/sum',[summaryReportController::class, 'summaryReport']);
-// Route::get('/sum2',[summaryReportController::class, 'summaryReportTabularBase']);
 Route::get('/soldUnits/{dates}',[summaryReportController::class, 'soldUnits']);
 Route::get('/transactions/{dates}',[summaryReportController::class, 'transactions']);
 Route::get('/getUsers',[userAccountController::class, 'getUsers']);
@@ -130,20 +126,16 @@ Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
-//---------------------------//LedgerPartiesController
 Route::get('/insertCustomer/{data}',[CustomerController::class, 'addCustomer']);
 Route::get('/getAllCustomers',[CustomerController::class, 'getAllCustomers']);
 Route::get('/getCustomerNames',[CustomerViewController::class, 'getCustomerNames']);
-//Route::get('/getAllSupliers/',[CustomerController::class, 'getAllCustomers']);
 Route::get('/getCustomersInfo/{CID}',[CustomerController::class, 'getCustomerDetail']);
 Route::get('/getCustomers',[CustomerController::class, 'getCustomers']);
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail']);
 Route::get('/addSupplier/{empData}',[LedgerPartiesController::class, 'addSupplier']);
 Route::get('/viewAllSupplier',[LedgerPartiesController::class, 'viewAllSupplier']);
 Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']);
-//__________________________Sales Flow___________________________________
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
-//getInvoiceCustomer/{data}
 Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleRequest']);
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate']);
 Route::get('/getInvoiceID',[salesFlow::class, 'getInvoiceNewID']);
@@ -288,8 +280,6 @@ Route::get('/selectedMonthData/{month}',[summaryReportController::class, 'select
 Route::get('/printMonthlyTrasaction/{month}/{monthname} ',[summaryReportController::class, 'summaryReportTabularBase']);
 Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
 Route::get('/amountTransfer/{acc1}/{acc2}/{amount}/{remarks}',[accountsController::class, 'amountTransfer']);
-
-
 Route::get('/loadAllParties',[LedgerPartiesController::class, 'getPartyNames']);
 Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchasesHistory']); 
 Route::get('/filterPurchaseData/{catId}/{partyId}',[purchaseHistoryController::class, 'filterPurchaseData']);
@@ -299,22 +289,15 @@ Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHis
 Route::get('/filterSalesDateData/{date1}/{date2}/{catId}/{cusId}',[salesHistoryController::class, 'filterSalesDateData']);
 Route::get('/printSaleHistory2/{category}/{partyId} ',[saleHistoryPrintController::class, 'printSaleHistory2']);
 Route::get('/printSaleHistory/{date1}/{date2}/{category}/{partyId} ',[saleHistoryPrintController::class, 'printSaleHistory']);
-
-
-
 Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']);
 Route::get('/printPurchaseHistory2/{category}/{partyId} ',[purchaseHistoryPrintController::class, 'printPurchaseHistory2']);
 Route::get('/printPurchaseHistory/{date1}/{date2}/{category}/{partyId} ',[purchaseHistoryPrintController::class, 'printPurchaseHistory']);
-
-
 Route::get('/loadAllExpenseHead',[expenseHistoryController::class, 'getExpenseHeads']);
 Route::get('/getExpenseHistory',[expenseHistoryController::class, 'getExpenseHistory']);
 Route::get('/filterExpenseData/{catId} ',[expenseHistoryController::class, 'filterExpenseData']); 
 Route::get('/filterExpenseDateData/{date1}/{date2}/{catId} ',[expenseHistoryController::class, 'filterExpenseDateData']);
 Route::get('/printExpenseHistory2/{catID}/{cat} ',[expenseHistoryPrintController::class, 'printExpenseHistory2']);
 Route::get('/printExpenseHistory/{date1}/{date2}/{catID}/{cat} ',[expenseHistoryPrintController::class, 'printExpenseHistory']);
-
-
 Route::get('/loadAllAccounts',[accountsController::class, 'getAccounts']);
 Route::get('/getAccountsHistory',[accountHistoryController::class, 'getAccountsHistory']);
 Route::get('/filterAccountData/{catId} ',[accountHistoryController::class, 'filterAccountData']); 
@@ -324,23 +307,9 @@ Route::get('/printAccountHistory/{date1}/{date2}/{catID}/{cat}',[accountsHistory
 
 
 
-
-
-
-
-
-
-
-
-
-
 Route::get('/', function () {
-
 return view('signInSignUp');
 });
-// Route::get('/stripe', function () {
-// return view('stripe');
-// });
 
 Route::get('/ed', function () {
     $UN = session()->get('Designation');
