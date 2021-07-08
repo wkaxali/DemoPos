@@ -465,10 +465,6 @@
             var cell5 = this.cells[4].innerText;
             var cell6 = this.cells[5].innerText;
             var cell7 = this.cells[6].innerText;
-            // var cell8 = this.cells[7].innerText;
-            // var cell9 = this.cells[8].innerText;
-
-
 
             var addtable = document.getElementById("mainStockTable");
             var row = addtable.insertRow(-1);
@@ -482,8 +478,6 @@
             var mcell8 = row.insertCell(7);
             var mcell9 = row.insertCell(8);
             var mcell10 = row.insertCell(9);
-
-
 
             mcell1.innerHTML = cell1;
             mcell2.innerHTML = cell2;
@@ -580,9 +574,6 @@
                     var data = this.responseText;
 
                     var a = JSON.parse(data);
-
-                    var table;
-                    //document.getElementById("mainStocktBody").innerHTML="";
 
                     document.getElementById("selfRatio").value = a[0].OurProfitRatio;
                     document.getElementById("investorRatio").value = a[0].InvestorProfitRatio;

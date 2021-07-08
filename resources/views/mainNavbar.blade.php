@@ -106,6 +106,8 @@ style="float: right"></span></a>
 <li><a href="/ip">Change Price</a></li>
 <li><a href="/ads">Add Supplier</a></li>
 <li><a href="/esp">Edit Supplier</a></li>
+<li><a href="/ads">Add Investor</a></li>
+<li><a href="/esp">Edit Investor</a></li>
 <li><a href="/ac">Add Category</a></li>
 </ul>
 </li>
@@ -132,12 +134,11 @@ style="float: right"></span></a>
 <li><a href="/es">Edit Stock Price</a></li>
 <li><a href="/ss">Edit Sale Invoice</a></li>
 <li><a href="/ps">Edit Purchase Invoice</a></li>
-<li><a href="/dEPay">Delete Payment For Employee </a></li>
+<li><a href="/dEPay">Delete Employee Payment</a></li>
+<li><a href="/dpay">Delete Party Payment</a></li>
 <li><a href="/dex">Delete Expense</a></li>
-<li><a href="/dpay">Delete Party Payments</a></li>
-<li><a href="/">Edit Investor</a></li>
-<li><a href="/">Edit Book Record and Reciving</a></li>
-<li><a href="/">Edit IS</a></li>
+<!-- <li><a href="/">Edit Book Record and Reciving</a></li> -->
+<!-- <li><a href="/">Edit Invoice Service</a></li> -->
 <li><a href="/ec">Edit Customer</a></li>
 <li><a href="/ee">Edit Employee </a></li>
 <li><a href="/pr">Edit Employee Pay</a></li>

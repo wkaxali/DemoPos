@@ -130,13 +130,8 @@ function getInvestorStock($InvestorID){
    $table='';
  
   
-  
-
 
 foreach ($data as $d){
-  //print $option;
-
-
 
     $table=$table.'
 
