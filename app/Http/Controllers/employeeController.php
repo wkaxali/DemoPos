@@ -72,5 +72,41 @@ class employeeController extends Controller
             ->first()->Balance;
             return $re;
         }
+
+        public static function updateEmployeeBalance($EID, $Amount){
+            $re = DB::table('tblemployees')
+            ->where('EID', '=', $EID)
+            ->update([
+                'Balance'=>$Amount,
+                ]);
+            return $re;
+        }
+
+        public static function deleteEmployeePayments($TID){
+
+            $transaction = DB::table('tbltransactionflow')
+                ->where('TransactionID', '=', $TID);
+                 
+    
+            $amount = $transaction->first()->Amount;
+            $AID = $transaction->first()->PaidVia;
+    
+            $ledgerID=globalVarriablesController::selfLedgerID();
+            $oldSelfBalance= LedgerPartiesController::getPartyBalance($ledgerID);
+            $newSelfBalance = floatval($oldSelfBalance) + floatval($amount);
+    
+            $oldAccBalance=accountsController::getAccountBalance($AID);
+            $newAccountBalance = floatval($oldAccBalance) + floatval($amount);
+            $EID = $transaction->first()->EmpID;
+            
+            $oldEmpBalance= self::getEmployeeBalance($EID);
+            $newEmpBalance = floatval($oldEmpBalance) + floatval($amount);
+            self::updateEmployeeBalance($EID, $newEmpBalance);
+            LedgerPartiesController::UpdatePartiesBalance($ledgerID, $newSelfBalance);
+            accountsController::UpdateNewBalance($AID,$newAccountBalance);
+            $deleteTransaction = DB::delete("delete from tbltransactionflow where TransactionID=".$TID);
+    
+            return "Pay number $TID is deleted";
+        }
         
 }

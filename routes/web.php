@@ -64,6 +64,7 @@ use App\Http\Controllers\saleHistoryPrintController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/deleteEmpPay/{TID}',[employeeController::class, 'deleteEmployeePayments']);
 Route::get('/filterDateData/{date1}/{date2}/{ID} ',[partyPaymentHistory::class, 'filterPartyPaymentDateData']);
 Route::get('/filterPartyData/{ID}',[partyPaymentHistory::class, 'filterPartyPaymentHistory']);
 Route::get('/partyHistory',[partyPaymentHistory::class, 'getPartyPaymentHistory']);

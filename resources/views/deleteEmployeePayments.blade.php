@@ -180,7 +180,7 @@
                     location.reload();
                     }
                 };
-                xhttp.open("GET", "./deletePayment/" + EID, true);
+                xhttp.open("GET", "./deleteEmpPay/" + EID, true);
                 xhttp.send();
             }
         }
