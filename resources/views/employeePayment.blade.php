@@ -292,8 +292,6 @@
             <div class="row">
                 <div class="col-md-5 offset-md-7">
                     <div class="footerBtns">
-                        <button class="btn">Close</button>
-                        <button class="btn">Print</button>
                         <button class="btn" onclick = "addExpenses()">Update</button>
                     </div>
                 </div>
