@@ -25,7 +25,7 @@ style="float: right"></span></a>
 <li><a href="/ps">Purchase parts</a></li>
 <li><a href="/bo">Book Vehicles</a></li>
 <li><a href="/rec">Receive Vehicles</a></li>
-<li><a href="/es"> Receive Parts</a></li>
+<!-- <li><a href="/es"> Receive Parts</a></li> -->
 <li><a href="/ph"> Purchase History</a></li>
 </ul>
 </li>
@@ -35,9 +35,9 @@ style="font-size: 14px;">Payments</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs1 ">
 <li><a href="/pay">Supplier payments  </a></li>
-<li><a href="/eam">Customer Recovery  </a></li>
-<li><a href="/ep">Employe Payments </a></li>
-<li><a href="/aep">Add Employe Payments </a></li>
+<!-- <li><a href="/eam">Customer Recovery  </a></li> -->
+<li><a href="/ep">Employee Payments </a></li>
+<li><a href="/aep">Add Employee Payments </a></li>
 <li><a href="/pph">Party Payment History </a></li>
  
 <li><a href="/adal">Add Allowance </a></li>
@@ -60,10 +60,10 @@ style="font-size: 14px;">Stock</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs3">
 <li><a href="/vs">View Sock</a></li>
-<li><a href="/ans ">Add SSock</a></li>
-<li><a href="/es ">Edit SSock</a></li>
-<li><a href="/ ">Stock Profit Reports</a></li>
-<li><a href="/ ">Pending Delivery</a></li>
+<li><a href="/ans ">Add Sock</a></li>
+<li><a href="/es ">Edit Sock</a></li>
+<!-- <li><a href="/ ">Stock Profit Reports</a></li> -->
+<!-- <li><a href="/ ">Pending Delivery</a></li> -->
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs4"><i
