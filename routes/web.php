@@ -1131,3 +1131,12 @@ Route::get('/pph', function () {
     return view("signInSignUp");
     }
 });
+
+Route::get('/ai', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('addInvestor'); 
+    }else{
+    return view("signInSignUp");
+    }
+});

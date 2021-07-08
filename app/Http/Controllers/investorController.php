@@ -76,15 +76,14 @@ class investorController extends Controller
 
         $obj=json_decode($CO);
         $name=$obj[0];
-        $category=$obj[1];
-        $investment=$obj[2];
-        $contantNo=$obj[3];
-        $address=$obj[4];
-        $selfRatio=$obj[5];
-        $investorRatio=$obj[6];
+        $investment=$obj[1];
+        $contantNo=$obj[2];
+        $address=$obj[3];
+        $selfRatio=$obj[4];
+        $investorRatio=$obj[5];
         $id=DB::table('tblledgerparties')->insertGetId([
         'PartyName'=>$name,
-        'Category'=>$category,
+        'Category'=>"Investor",
         'InitialInvestment'=>$investment,
         'ContantNo'=>$contantNo,
         'Address'=>$address,
