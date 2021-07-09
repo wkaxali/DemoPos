@@ -53,6 +53,7 @@ use App\Http\Controllers\expenseHistoryPrintController;
 use App\Http\Controllers\accountsHistoryPrintController;
 use App\Http\Controllers\partyPaymentHistoryPrintController;
 use App\Http\Controllers\saleHistoryPrintController;
+use App\Http\Controllers\investorHistoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +65,10 @@ use App\Http\Controllers\saleHistoryPrintController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/investorHistory',[investorHistoryController::class, 'investorPaymentHistory']);
+Route::get('/filterInvestorData/{ID}',[investorHistoryController::class, 'filterInvestorPaymentHistory']);
+Route::get('/filterInvestorDateData/{date1}/{date2}/{ID} ',[investorHistoryController::class, 'filterInvestorDateData']);
+
 Route::get('/deleteEmpPay/{TID}',[employeeController::class, 'deleteEmployeePayments']);
 Route::get('/filterDateData/{date1}/{date2}/{ID} ',[partyPaymentHistory::class, 'filterPartyPaymentDateData']);
 Route::get('/filterPartyData/{ID}',[partyPaymentHistory::class, 'filterPartyPaymentHistory']);
@@ -317,6 +322,15 @@ Route::get('/ed', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"||$UN=="User"){
     return view('EmpDashboard');
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('/ih', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"||$UN=="User"){
+    return view('investorHistory');
     }else{
     return view("signInSignUp");
     }

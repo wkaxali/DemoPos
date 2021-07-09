@@ -114,7 +114,7 @@
                     <div class="container">
                         <div class="row my-3">
                             <div class="col-md-12 text-center ">
-                                <h1 id="firsthello">Party Payment History</h1>
+                                <h1 id="firsthello">Investor Payment History</h1>
                             </div>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                         <div class="row my-2">
 
                             <div class="col-md-4  ">
-                                <label for="" id="pname">Parties</label>
+                                <label for="" id="pname">Investors</label>
                                 <select 
                                     class="selectpicker form-control" data-live-search="true" id="parties" >
                                     <option value=""></option>
@@ -196,7 +196,7 @@
                                        <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
                                             <thead>
                                                 <tr>
-                                                    <th>Party Name</th>
+                                                    <th>Investor Name</th>
                                                     <th>Transaction Catogery</th>
                                                     <th>Account Name</th>
                                                     <th>Total Purchase Amount</th>
@@ -270,7 +270,7 @@
 
 <script>
 
-    function loadAllParties() {
+    function getInvestors() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -281,12 +281,12 @@
             }
         };
 
-        xhttp.open("GET", "./loadAllParties", true);
+        xhttp.open("GET", "./getInvestors", true);
         xhttp.send();
     };
                
     function getHistory() {
-        loadAllParties();
+        getInvestors();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -330,7 +330,7 @@
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./partyHistory/", true);
+        xhttp.open("GET", "./investorHistory/", true);
 
         xhttp.send();
     }
@@ -384,14 +384,14 @@
             }
         };
        
-        if(partyID== ""){
+        if(partyID== " "){
             partyID="All";
         }
   
         // alert(category);
         // alert(categoryID);
         // alert(partyID);
-        xhttp.open("GET", "./filterPartyData/"+partyID, true);
+        xhttp.open("GET", "./filterInvestorData/"+partyID, true);
         xhttp.send();
     }
 
@@ -446,14 +446,14 @@
                 }
             };
 
-            if(partyID== ""){
+            if(partyID== " "){
                 partyID="All";
             }
 
             // alert(category);
             // alert(categoryID);
             // alert(partyID);
-            xhttp.open("GET", "./filterDateData/"+date1+"/"+date2+"/"+partyID, true);
+            xhttp.open("GET", "./filterInvestorDateData/"+date1+"/"+date2+"/"+partyID, true);
             xhttp.send();
             }
                         
