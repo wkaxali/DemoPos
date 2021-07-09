@@ -191,13 +191,10 @@
                                        <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
                                             <thead>
                                                 <tr>
-                                                <th>Transaction ID</th>
-                                                    <th> Invoice Number</th>
-                                                    <th>Party Name</th>
-                                                    <th>Employee Name</th>
-                                                    <th>Customer Name</th>
-                                                    <th>Expense Head</th>
+                                                    <th>Transaction ID</th>
+                                                   
                                                     <th>Account Name</th>
+                                                    <th>Transaction Type</th>
                                                     <th>Transaction Category</th>
                                                     <th>Amount</th>
                                                     <th>Transaction Date</th> 
@@ -304,7 +301,7 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                        a[i].TransactionID, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionType, a[i].TransactionCatogery,
                           a[i].Amount,  a[i].DateStamp
                     ]);
                     
@@ -347,9 +344,8 @@
                     $.each(a, function (i, item) {
 
                         table.row.add([  
-                            a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                            a[i].TransactionID, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionType, a[i].TransactionCatogery,
                           a[i].Amount,  a[i].DateStamp
-                                
                                 ]);
                             });
                             table.draw();
@@ -394,7 +390,7 @@
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
+                        a[i].TransactionID, a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionType, a[i].TransactionCatogery,
                           a[i].Amount,  a[i].DateStamp
                         ]);
                     });

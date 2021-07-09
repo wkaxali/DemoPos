@@ -40,12 +40,9 @@ class accountsHistoryPrintController extends Controller
             <tbody>
                 <tr>
                 <th>Transaction ID</th>
-                <th> Invoice Number</th>
-                <th>Party Name</th>
-                <th>Employee Name</th>
-                <th>Customer Name</th>
-                <th>Expense Head</th>
+                
                 <th>Account Name</th>
+                <th>Transaction Type</th>
                 <th>Transaction Category</th>
                 <th>Amount</th>
                 <th>Transaction Date</th> 
@@ -66,14 +63,10 @@ class accountsHistoryPrintController extends Controller
               <tbody>
               <tr>
               <td height:80px;>'.$d->TransactionID.'</td> 
-              <td height:80px;>'.$d->InvoiceNo.'</td>
-              <td height:80px;>'.$d->PartyName.'</td>
-              
-              <td height:80px;>'.$d->FirstName.''.$d->LastName.'</td>
-              <td height:80px;>'.$d->CustomerName.'</td>
-              <td height:80px;>'.$d->ExpenseHead.'</td>
+               
               <td height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
               <td height:80px;>'.$d->TransactionCatogery.'</td>
+              <td height:80px;>'.$d->TransactionType.'</td>
               <td height:80px;>'.$d->Amount.'</td>
               
               <td height:80px;>'.$d->DateStamp.'</td>
@@ -161,12 +154,9 @@ class accountsHistoryPrintController extends Controller
             <tbody>
                 <tr>
                 <th>Transaction ID</th>
-                <th> Invoice Number</th>
-                <th>Party Name</th>
-                <th>Employee Name</th>
-                <th>Customer Name</th>
-                <th>Expense Head</th>
+                
                 <th>Account Name</th>
+                <th>Transaction Type</th>
                 <th>Transaction Category</th>
                 <th>Amount</th>
                 <th>Transaction Date</th> 
@@ -187,14 +177,10 @@ class accountsHistoryPrintController extends Controller
               <tbody>
               <tr>
               <td height:80px;>'.$d->TransactionID.'</td> 
-              <td height:80px;>'.$d->InvoiceNo.'</td>
-              <td height:80px;>'.$d->PartyName.'</td>
-              
-              <td height:80px;>'.$d->FirstName.''.$d->LastName.'</td>
-              <td height:80px;>'.$d->CustomerName.'</td>
-              <td height:80px;>'.$d->ExpenseHead.'</td>
+               
               <td height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
               <td height:80px;>'.$d->TransactionCatogery.'</td>
+              <td height:80px;>'.$d->TransactionType.'</td>
               <td height:80px;>'.$d->Amount.'</td>
               
               <td height:80px;>'.$d->DateStamp.'</td>
