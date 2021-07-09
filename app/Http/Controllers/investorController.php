@@ -167,5 +167,31 @@ public function viewAllInvestors(){
 
 }
 
+public static function editInvestor(Request $request, $CO){
+  $ata=json_decode($CO);
+  $LID = $ata[0];
+  $Name = $ata[1];
+  $Investment = $ata[2];
+  $ContantNo = $ata[3];
+  $Address = $ata[4];
+  $selfRatio = $ata[5];
+  $InvestorRatio = $ata[6];
+ 
+
+  $re = DB::table('tblledgerparties')
+  ->where('LID', $LID)
+  ->update([
+    'PartyName'=>$Name,
+    'InitialInvestment'=>$Investment,
+    'ContantNo'=>$ContantNo,
+    'Address'=>$Address,
+    'OurProfitRatio'=>$selfRatio,
+    'InvestorProfitRatio'=>$InvestorRatio
+    
+    ]);
+
+    return $LID;
+  }
+
 }
 

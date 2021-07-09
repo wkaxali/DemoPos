@@ -84,7 +84,7 @@
                 </div>
                 <div class="col-md-4 stockLabels">
                     <label for="id">Investor ID</label>
-                    <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
+                    <input readonly type="text" class="form-control" style="display: inline-block; width: 200px !important;"
                         name="id" id="investorID">
                     <label for="id">Investor Name</label>
                     <input type="text" class="form-control" style="display: inline-block; width: 200px !important;"
@@ -177,7 +177,7 @@ function editInvestor() {
     var contact = document.getElementById("contact").value;
     
     var address = document.getElementById("address").value;
-  i
+
     var selfRatio = document.getElementById("selfRatio").value;
 
     var investorRatio = document.getElementById("investorRatio").value;
@@ -198,7 +198,7 @@ function editInvestor() {
             };
           
             // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./editInveestor/" + ES, true);
+            xhttp.open("GET", "./editInvestor/" + ES, true);
             xhttp.send();
             
         }

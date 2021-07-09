@@ -136,6 +136,9 @@ Route::get('/addSupplier/{empData}',[LedgerPartiesController::class, 'addSupplie
 Route::get('/viewAllSupplier',[LedgerPartiesController::class, 'viewAllSupplier']);
 Route::get('/viewAllInvestors',[investorController::class, 'viewAllInvestors']);
 Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']);
+Route::get('/editInvestor/{EI}',[investorController::class, 'editInvestor']);
+
+
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleRequest']);
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate']);
