@@ -161,5 +161,11 @@ public static function getInvestorReceivedAmount(Request $request, $LID){
   return $SUM;
 }
 
+public function viewAllInvestors(){
+  $results=DB::select('select * from tblledgerparties where category="Investor"');
+  return $results;
+
+}
+
 }
 

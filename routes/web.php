@@ -134,6 +134,7 @@ Route::get('/getCustomers',[CustomerController::class, 'getCustomers']);
 Route::get('/getSuppliersInfo/{SID}',[LedgerPartiesController::class, 'getPartyDetail']);
 Route::get('/addSupplier/{empData}',[LedgerPartiesController::class, 'addSupplier']);
 Route::get('/viewAllSupplier',[LedgerPartiesController::class, 'viewAllSupplier']);
+Route::get('/viewAllInvestors',[investorController::class, 'viewAllInvestors']);
 Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']);
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleRequest']);
@@ -1136,6 +1137,15 @@ Route::get('/ai', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('addInvestor'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('ei', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editInvestor'); 
     }else{
     return view("signInSignUp");
     }
