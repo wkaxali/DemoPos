@@ -184,24 +184,23 @@ function editInvestor() {
     
     var UpdateInvestor = [IID, investortName, investment, contact, address, selfRatio, investorRatio];
  
-
     var ES = JSON.stringify(UpdateInvestor);
             
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Investor " + this.responseText + " is Updated");
+            alert("Investor " + this.responseText + " is Updated");
 
 
-                }
-            };
-          
-            // var MenuID=$('#Menus').find(":selected").val();
-            xhttp.open("GET", "./editInvestor/" + ES, true);
-            xhttp.send();
-            
         }
+    };
+    
+    // var MenuID=$('#Menus').find(":selected").val();
+    xhttp.open("GET", "./editInvestor/" + ES, true);
+    xhttp.send();
+    
+}
 
 
 
