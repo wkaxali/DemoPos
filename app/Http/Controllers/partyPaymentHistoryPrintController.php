@@ -28,7 +28,7 @@ class partyPaymentHistoryPrintController extends Controller
           }
            
           $table='
-          <h2 style="text-align:center;" >Expense Transaction History</h2><br>
+          <h2 style="text-align:center;" >Party Payment Transaction History</h2><br>
           <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
           <tbody>
           <tr><br><br><br><br>
@@ -147,7 +147,7 @@ class partyPaymentHistoryPrintController extends Controller
           } 
            
           $table='
-          <h2 style="text-align:center;" >Expense Transaction History</h2><br>
+          <h2 style="text-align:center;" >Party Payment Transaction History</h2><br>
           <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
           <tbody>
           <tr><br><br><br><br>

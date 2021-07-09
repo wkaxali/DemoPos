@@ -234,7 +234,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 text-right offset-md-8">
-                                <button onclick="printPartyHistory()" class="btn btn-info">Print</button>
+                                <button onclick="printSupplierHistory()" class="btn btn-info">Print</button>
                                 <!-- <button class="btn btn-danger">Close</button> -->
                             </div>
                         </div>
@@ -455,61 +455,52 @@
                         
 </script>
 <script>
-    function printPartyHistory (){
+    function printSupplierHistory (){
                     var date1 = document.getElementById("date1").value;
                     var date2 = document.getElementById("date2").value;
-                    var categoryID = $('#category').find(":selected").val();
-                    var partyID = $('#parties').find(":selected").val();
-                    var party  = $('#parties').find(":selected").text();
+                    var sup = $('#supplier').find(":selected").text();
                 //    alert(date1);
                   if (date1==""){
-                    printPartyHistory2();
+                    printSupplierHistory2();
                 }else{
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPartyHistory/'+date1+'/'+date2+'/'+ partyID+'/'+party );
+                    window.open('/printSupplierHistory/'+date1+'/'+date2+'/'+sup);
                   
                 }
             }
-            if(partyID== ""){
-                partyID="All";
-            }
-            if(party== ""){
-                party="All";
-            }
+            if(sup== ""){
+            sup="All";
+        }
                         
             // alert("hello");
-            xhttp.open("GET", "./printPartyHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim()+"/" +party.trim(),  true);
+            xhttp.open("GET", "./printSupplierHistory/"+date1.trim()+"/"+date2.trim() +"/" +sup.trim() ,  true);
             xhttp.send();
         }
         }
      
-    function printPartyHistory2(){
+    function printSupplierHistory2(){
                     
-        var categoryID = $('#category').find(":selected").val();
-        var partyID = $('#parties').find(":selected").val();
-         var party  = $('#parties').find(":selected").text();
+        var sup = $('#supplier').find(":selected").text();
                    
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPartyHistory2/'+partyID+'/'+party );
+                    window.open('/printSupplierHistory2/'+sup );
                   
                 }
             }
              
-            if(partyID== ""){
-                partyID="All";
-            } if(party== ""){
-                party="All";
-            }
+            if(sup== ""){
+            sup="All";
+        }
                      
             // alert("hello");
-            xhttp.open("GET", "./printPartyHistory2/" +partyID.trim() +"/" +party.trim(),true);
+            xhttp.open("GET", "./printSupplierHistory2/" +sup.trim(),true);
             xhttp.send();
         
         }
