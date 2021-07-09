@@ -198,6 +198,9 @@ class accountsController extends Controller
 
             return "Amount ".$amount." Is Transfered " ;
         }
-
+        public function getAllTransactions(){
+            $data=DB:: select('select * from vw_amounttransfer ');
+            return $data;
+        } 
 
 }
