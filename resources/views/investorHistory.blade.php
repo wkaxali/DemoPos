@@ -32,7 +32,7 @@
 
 
         .ThirdColor {
-            background-color: crimson;
+            background-color: #2B547E;
             height: 30px;
             border-radius: 10px;
         }
