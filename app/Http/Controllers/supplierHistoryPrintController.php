@@ -20,15 +20,7 @@ class supplierHistoryPrintController extends Controller
             $data=DB:: select('select * from vw_transaction_flow where Category="Supplier" and PartyName ="'.$sup.'"');
         
         }
-
-        $totalSaleAmount=0;
-        $remainingAmount=0;
-        $invoiceBalance=0;
-        foreach($data as $d){
-            $totalSaleAmount += floatval($d->Amount);
-            $remainingAmount += floatval($d->AmountPaid);
-            $invoiceBalance += floatval($d->RemainingBalance);
-          }
+  
            
           $table='
           <h2 style="text-align:center;" >Supplier Transaction History</h2><br>
@@ -140,14 +132,7 @@ class supplierHistoryPrintController extends Controller
             $data=DB:: select('select * from vw_transaction_flow where Category="Supplier" and PartyName="'.$sup.'" and DateStamp between "'.$date1 .'"and"'.$date2.'"');
         
         }
-        $totalSaleAmount=0;
-        $remainingAmount=0;
-        $invoiceBalance=0;
-        foreach($data as $d){
-            $totalSaleAmount += floatval($d->Amount);
-            $remainingAmount += floatval($d->AmountPaid);
-            $invoiceBalance += floatval($d->RemainingBalance);
-          }
+       
            
           $table='
           <h2 style="text-align:center;" >Supplier Transaction History</h2><br>
