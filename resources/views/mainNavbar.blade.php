@@ -80,6 +80,7 @@ style="float: right"></span></a>
 <li><a href="/ph">Purchase History </a>  </li>
 <li><a href="/eh">Expense History </a>  </li>
 <li><a href="/eh">Party Payment History </a>  </li>
+<li><a href="/sph">Supplier History </a>  </li>
 <!-- <li><a href="/ ">View Employee History </a>  </li> -->
 
 </ul>

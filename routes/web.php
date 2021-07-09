@@ -1173,3 +1173,12 @@ Route::get('sph', function () {
     return view("signInSignUp");
     }
 });
+
+Route::get('emt', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('editAmountTransfer'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
