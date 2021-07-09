@@ -49,7 +49,7 @@ margin: 0 auto;
 </style>
 </head>
 
-<body onload="getCustomers()">
+<body onload="getAllTransactions()">
 <div class="container">
 
 <header class="idi">
@@ -73,13 +73,13 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
   style="width: 50%; text-align: center;"   id="stocktable">
 <thead>
 
-<th>Customer ID</th>
-<th>Customer Name</th>
-<th>Contact</th>
-<th>Address</>
+<th>Transaction ID</th>
+<th>Account 1 Name</th>
+<th>Account 2 Name</th>
+<th>Amount</th>
 
-<th>CNIC</th>
-<th>Balance</th>
+<th>Remarks</th>
+ 
 
 
 
@@ -94,50 +94,43 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
 </div>
 <div class="col-md-4 stockLabels">
 <div class="input-field"><br>
-<label for="status" style="  width: 273px;">CustomerID</label>
+<label for="status" style="  width: 273px;">Transaction ID</label>
 <input type="text" autocomplete="OFF" class="form-control"
 readonly style="margin-left:30px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="CID">
+id="TID">
 </div><br>
 <div class="input-field">
-<label for="status">CustomerName</label>
+<label for="status">Account 1 </label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="margin-left:6px;  display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="customerName">
+style="margin-left:57px;  display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+id="Account1">
 </div>
 
 <br>
 
 <div class="input-field">
-<label for="status">Contact</label>
-<input type="text" autocomplete="OFF" class="form-control"
-style="margin-left:58px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="Contact" required>
-</div>
-<br>
-<div class="input-field">
-<label for="status">Address</label>
+<label for="status">Account 2</label>
 <input type="text" autocomplete="OFF" class="form-control"
 style="margin-left:58px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="Address" required>
+id="Account2" required>
 </div>
 <br>
 <div class="input-field">
-<label for="status">CNIC</label>
+<label for="status">Amount</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="margin-left:75px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-value="" id="CNIC" required>
+style="margin-left:72px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+id="amount" required>
 </div>
 <br>
-
 <div class="input-field">
-<label for="status">Balance</label>
-<input type="email" autocomplete="OFF" class="form-control"
-style="margin-left:61px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="balance" required>
+<label for="status">Remarks</label>
+<input type="text" autocomplete="OFF" class="form-control"
+style="margin-left:68px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+value="" id="remarks" required>
 </div>
 <br>
 
+ 
 <br>
 <button style="margin-left:110px;" class="btn btn-success" onclick="editEmployee()">Update </button>
 
@@ -200,7 +193,7 @@ $('#stocktable').DataTable();
 
     </script>
 <script>
-function getCustomers() {
+function getAllTransactions() {
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
 if (this.readyState == 4 && this.status == 200) {
@@ -213,80 +206,66 @@ table = $('#stocktable').DataTable();
 
 $.each(a, function (i, item) {
 
-table.row.add([a[i].CustomerID, a[i].CustomerName, a[i].Contect, a[i].Address,
-a[i].CNIC, a[i].Balance
+table.row.add([a[i].TransactionID, a[i].AccountName, a[i].AccountName2,a[i].Amount, a[i].Remarks
 ]);
 });
 table.draw();
-// <th>Customer ID</th>
-// <th>Customer Name</th>
-// <th>Father Name</th>
-// <th>Address</th>
-// <th>Contact</th>
-// <th>CNIC</th>
-// <th>Balance</th>
-// <th>Comments</th>
+ 
 
 }
 };
 
-xhttp.open("GET", "./getCustomers/", true);
+xhttp.open("GET", "./getAllTransactions/", true);
 xhttp.send();
 }
+
+
+
+
+
 $("#stocktable").on('click', 'tr', function () {
-document.getElementById("CID").value = this.cells[0].innerText;
-document.getElementById("customerName").value = this.cells[1].innerText;
-document.getElementById("Contact").value = this.cells[2].innerText;
-document.getElementById("Address").value = this.cells[3].innerText;
+document.getElementById("TID").value = this.cells[0].innerText;
+document.getElementById("Account1").value = this.cells[1].innerText;
+document.getElementById("Account2").value = this.cells[2].innerText;
+document.getElementById("amount").value = this.cells[3].innerText;
 
-document.getElementById("CNIC").value = this.cells[4].innerText;
-document.getElementById("balance").value = this.cells[5].innerText;
-
-
-
-
-
-
-
-
+document.getElementById("remarks").value = this.cells[4].innerText; 
+  
 });
 
-function editEmployee() {
-var CID = document.getElementById("CID").value;
-var customerName = document.getElementById("customerName").value;
-var contact = document.getElementById("Contact").value;
-var address = document.getElementById("Address").value;
+function editTransactions() {
+var TID = document.getElementById("TID").value;
+var Account1 = document.getElementById("Account1").value;
+var Account2 = document.getElementById("Account2").value;
+var amount = document.getElementById("amount").value;
 
-var CNIC = document.getElementById("CNIC").value;
-var balance = document.getElementById("balance").value;
+var remarks = document.getElementById("remarks").value;
+ 
 
-if (customerName == ""  ) {
+ 
+var updateTransaction = [TID, Account1, Account2, amount, remarks, 
+] ;
 
-alert("Please Enter The Name Of Customer");
-} else{
-var updateCustomer = [CID, customerName, contact, address, CNIC, balance,
-]};
-
-var UC = JSON.stringify(updateCustomer);
+var UC = JSON.stringify(updateTransaction);
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
 if (this.readyState == 4 && this.status == 200) {
 
-alert("Customer " + this.responseText + " is Updated");
+alert("Transaction " + this.responseText + " is Updated");
 
 
 }
 };
 
 // var MenuID=$('#Menus').find(":selected").val();
-xhttp.open("GET", "./editCustomer/" + UC, true);
+xhttp.open("GET", "./editTransactions/" + UC, true);
 xhttp.send();
 
 }
 
 </script>
-<script>
+<!-- <script>
     function printEmployee(){
                    
                   
@@ -304,7 +283,7 @@ xhttp.send();
             xhttp.send();
 
         }
-    </script>
+    </script> -->
 </body>
 
 </html>
