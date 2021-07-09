@@ -158,14 +158,14 @@
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
-                                            <label for="">Total Amount:</label>
-                                            <h1 id="totalSaleAmount">0</h1></div>
+                                            <label for="">Total Purchase Amount:</label>
+                                            <h1 id="totalPurchaseAmount">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Amount Paid:</label>
-                                            <h1 id="remainingAmount">0</h1></div>
+                                            <h1 id="amountPaid">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Balance:</label>
-                                            <h1 id="invoiceBalance">0</h1></div>
+                                            <h1 id="remainingBalance">0</h1></div>
                                             </div>
                                         </div>
                                     </div>
@@ -498,17 +498,22 @@
             var totalPurchaseAmount = 0;
             var amountPaid = 0;
             var remainingBalance = 0;
-            
             var x = document.getElementById("myTable").rows.length;
-            for (var i = 1; i < x; i++) {
-                totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
-                amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
-                remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
+            
+            if(x>2){
+                for (var i = 1; i < x; i++) {
+                    totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
+                    amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
+                    remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
+                }
+            }else if(x<=2){
+                totalPurchaseAmount = 0;
+                amountPaid = 0;
+                remainingBalance = 0;
             }
-            document.getElementById('totalSaleAmount').innerHTML=totalPurchaseAmount;
-            document.getElementById('remainingAmount').innerHTML=amountPaid;
-            document.getElementById('invoiceBalance').innerHTML=remainingBalance;
-
+            document.getElementById('totalPurchaseAmount').innerHTML=totalPurchaseAmount;
+            document.getElementById('amountPaid').innerHTML=amountPaid;
+            document.getElementById('remainingBalance').innerHTML=remainingBalance;
         }
 
     </script>

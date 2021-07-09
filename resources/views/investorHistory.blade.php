@@ -369,7 +369,7 @@
             }
         };
        
-        if(partyID== " "){
+        if(partyID== ""){
             partyID="All";
         }
   
@@ -423,7 +423,7 @@
                 }
             };
 
-            if(partyID== " "){
+            if(partyID== ""){
                 partyID="All";
             }
 
