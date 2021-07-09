@@ -191,21 +191,35 @@ margin-bottom: 50px;
         var address=document.getElementById("address").value;
         var selfRatio=document.getElementById("selfRatio").value;
         var investorRatio=document.getElementById("investorRatio").value;
-          
-        var investorData=[name, investment, contactNo, address, selfRatio, investorRatio];
-        var iA = JSON.stringify(investorData);
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
 
-                alert("Investor Number " + this.responseText + " is generated");
+        if(name == ""){
+            alert('Fill in the "Name" Field')
+        }else if(investment == ""){
+            alert('Fill in the "Investment" Field')
+        }else if(contactNo == ""){
+            alert('Fill in the "Contact" Field')
+        }else if(address == ""){
+            alert('Fill in the "Address" Field')
+        }else if(selfRatio == ""){
+            alert('Fill in the "Self Ratio" Field')
+        }else if(investorRatio == ""){
+            alert('Fill in the "Investor Ratio" Field')
+        }else{  
+            var investorData=[name, investment, contactNo, address, selfRatio, investorRatio];
+            var iA = JSON.stringify(investorData);
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
 
-            }
-        };
-        // var MenuID=$('#Menus').find(":selected").val();
-        xhttp.open("GET", "./addInvestor/" + iA, true);
-        xhttp.send();
-      }
+                    alert("Investor Number " + this.responseText + " is generated");
+
+                }
+            };
+            // var MenuID=$('#Menus').find(":selected").val();
+            xhttp.open("GET", "./addInvestor/" + iA, true);
+            xhttp.send();
+        }
+    }
 
     function calc(){
         var selfRatio=Number(document.getElementById("selfRatio").value);
