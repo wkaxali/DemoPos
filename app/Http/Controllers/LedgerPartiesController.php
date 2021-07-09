@@ -177,8 +177,7 @@ class LedgerPartiesController extends Controller
             }
 
             public function viewAllSupplier(){
-                $results=DB::select('select * from tblledgerparties');
-               // mysql_insert_id()
+                $results=DB::select('select * from tblledgerparties where category="Supplier"');
                 return $results;
         
             }

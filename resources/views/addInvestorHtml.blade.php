@@ -20,7 +20,7 @@
                                         <input type="text" style="width:232px;" class="form-control item" name="name" id="name"
                                         placeholder="Investor Name" required />
 
-                                        <input type="text" style="width:232px;" class="form-control item" name="title" id="Investment"
+                                        <input type="number" style="width:232px;" class="form-control item" name="title" id="Investment"
                                         placeholder="Investment" required />
 
                                         <input type="number" style="width:232px;" class="form-control item" name="tel" id="contactNo"
@@ -29,10 +29,10 @@
                                         <input type="text" style="width:232px;" class="form-control item" name="title" id="address" placeholder="Address"
                                         required />
 
-                                        <input type="text" style="width:232px;" class="form-control item" name="phone_number" id="selfRatio"
+                                        <input type="number" style="width:232px;" class="form-control item" name="phone_number" id="selfRatio"
                                         placeholder="Self Profit Ratio" required onchange="calc()"/>
 
-                                        <input readonly type="text" style="width:232px;" class="form-control item" name="phone_number" id="investorRatio"
+                                        <input readonly type="number" style="width:232px;" class="form-control item" name="phone_number" id="investorRatio"
                                         placeholder="Investor Profit Ratio" required />
 
                                         
