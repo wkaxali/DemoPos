@@ -76,8 +76,12 @@ style="float: right"></span></a>
 <li><a href="/cl ">Party Ledgers </a>  </li>
 <li><a href="/i"> View Supplies Balance</a>  </li>
 <li><a href="/ ">View Customer Balance </a>  </li>
- 
-<li><a href="/ ">View Employee History </a>  </li>
+<li><a href="/ah">Accounts History </a>  </li>
+<li><a href="/sh">Sales History </a>  </li>
+<li><a href="/ph">Purchase History </a>  </li>
+<li><a href="/eh">Expense History </a>  </li>
+<li><a href="/eh">Party Payment History </a>  </li>
+<!-- <li><a href="/ ">View Employee History </a>  </li> -->
 
 </ul>
 </li>
