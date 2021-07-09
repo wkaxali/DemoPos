@@ -53,8 +53,14 @@ use App\Http\Controllers\expenseHistoryPrintController;
 use App\Http\Controllers\accountsHistoryPrintController;
 use App\Http\Controllers\partyPaymentHistoryPrintController;
 use App\Http\Controllers\saleHistoryPrintController;
+<<<<<<< HEAD
 use App\Http\Controllers\investorHistoryController;
 use App\Http\Controllers\investorHistoryPrintController;
+=======
+use App\Http\Controllers\supplierHistoryController;
+use App\Http\Controllers\supplierHistoryPrintController;
+
+>>>>>>> f4839346976e571bb2dc08404e87fb02da347e4c
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -315,6 +321,16 @@ Route::get('/filterAccountData/{catId} ',[accountHistoryController::class, 'filt
 Route::get('/filterAccountHistoryData/{date1}/{date2}/{catId} ',[accountHistoryController::class, 'filterAccountHistoryData']);
 Route::get('/printAccountHistory2/{catID}/{cat}',[accountsHistoryPrintController::class, 'printAccountHistory2']);
 Route::get('/printAccountHistory/{date1}/{date2}/{catID}/{cat}',[accountsHistoryPrintController::class, 'printAccountHistory']);
+Route::get('/loadAllSupplier',[LedgerPartiesController::class, 'getAllSupliers']);
+Route::get('/getSupplierHistory',[supplierHistoryController::class, 'getSupplierHistory']);
+Route::get('/filterSupplierData/{sup} ',[supplierHistoryController::class, 'filterSupplierData']);
+
+Route::get('/filterSupplierDateData/{date1}/{date2}/{catId} ',[supplierHistoryController::class, 'filterSupplierDateData']);
+Route::get('/printSupplierHistory2/{sup} ',[supplierHistoryPrintController::class, 'printSupplierHistory2']);
+Route::get('/printSupplierHistory/{date1}/{date2}/{sup} ',[supplierHistoryPrintController::class, 'printSupplierHistory']);
+
+
+
 
 Route::get('/', function () {
 return view('signInSignUp');
@@ -1165,6 +1181,14 @@ Route::get('ei', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('editInvestor'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+Route::get('sph', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('supplierHistory'); 
     }else{
     return view("signInSignUp");
     }

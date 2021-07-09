@@ -4,31 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use PDF;
 use Carbon\Carbon;
 
-use PDF;
-class partyPaymentHistoryPrintController extends Controller
+class supplierHistoryPrintController extends Controller
 {
-    public static function printPartyHistory2($partyID, $party  ){
+    public static function printSupplierHistory2($sup){
 
-        if($partyID=="All" ){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <>0');
-        }else {
-            
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$partyID);
+        $data=0;
+        if($sup=="All"){
+            $data=DB:: select('select * from vw_transaction_flow where Category="Supplier"');
+        
         }
-        $totalSaleAmount=0;
-        // $remainingAmount=0;
-        $invoiceBalance=0;
-         
-        foreach($data as $d){
-            $totalSaleAmount += floatval($d->Amount);
-             
-            $invoiceBalance += floatval($d->PartyBalance);
-          }
+        else if($sup!="All"){
+            $data=DB:: select('select * from vw_transaction_flow where Category="Supplier" and PartyName ="'.$sup.'"');
+        
+        }
+  
            
           $table='
-          <h2 style="text-align:center;" >Party Payment Transaction History</h2><br>
+          <h2 style="text-align:center;" >Supplier Transaction History</h2><br>
           <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
           <tbody>
           <tr><br><br><br><br>
@@ -36,13 +31,13 @@ class partyPaymentHistoryPrintController extends Controller
           <td max-height="20px" ><h2>Total Amount: : '.$totalSaleAmount.' </h2></td>
           <td max-height="20px" ><h2>Total Balance: : '.$invoiceBalance.' </h2></td>
 
-          </tr><tr><td max-height="20px"><h3>Filter by : '.$party.'</h3></td></tr>
+          </tr><tr><td max-height="20px"><h3>Filter by : '.$sup.'</h3></td></tr>
           </tbody>
           </table> <br><br>
           <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
             <tbody>
                 <tr>
-                <th>Party Name</th>
+                <th>Supplier Name</th>
                 <th>Transaction Category</th> 
                 <th>Account Name</th>
              
@@ -127,27 +122,20 @@ class partyPaymentHistoryPrintController extends Controller
     }
     
 
-    public static function printPartyHistory($date1,$date2, $partyId, $party ){
+    public static function printSupplierHistory($date1,$date2, $sup){
         $data=0;
-        if($partyId=="All" ){
-            $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0');
-        
-        }  else if($partyId!="All" ){
-            $data=DB:: select('select * from vw_transaction_flow where DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo="'.$partyId.'"');
+        if($sup=="All"){
+            $data=DB:: select('select * from vw_transaction_flow where Category="Supplier" and DateStamp between "'.$date1.'"and"'.$date2.'"');
         
         }
-        $totalSaleAmount=0;
-        // $remainingAmount=0;
-        $invoiceBalance=0;
-         
-        foreach($data as $d){
-            $totalSaleAmount += floatval($d->Amount);
-            // $remainingAmount += floatval($d->AmountPaid);
-            $invoiceBalance += floatval($d->PartyBalance);
-          } 
+        else if($sup!="All"){
+            $data=DB:: select('select * from vw_transaction_flow where Category="Supplier" and PartyName="'.$sup.'" and DateStamp between "'.$date1 .'"and"'.$date2.'"');
+        
+        }
+       
            
           $table='
-          <h2 style="text-align:center;" >Party Payment Transaction History</h2><br>
+          <h2 style="text-align:center;" >Supplier Transaction History</h2><br>
           <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
           <tbody>
           <tr><br><br><br><br>
@@ -156,13 +144,13 @@ class partyPaymentHistoryPrintController extends Controller
           <td max-height="20px" ><h2>Total Balance:  '.$invoiceBalance.' </h2></td>
           
 
-          </tr><tr><td max-height="20px"><h3>Filter by : '.$party.'</h3> <h3>Date From: '.$date1.' To '.$date2.'</h3></td></tr>
+          </tr><tr><td max-height="20px"><h3>Filter by : '.$sup.'</h3> <h3>Date From: '.$date1.' To '.$date2.'</h3></td></tr>
           </tbody>
           </table> <br><br>
           <table cellpadding = "3" cellspacing = "0"  border="0.2" style="font-size:8.2px"><thead></thead>
             <tbody>
                 <tr>
-                <th>Party Name</th>
+                <th>Supplier Name</th>
                 <th>Transaction Category</th> 
                 <th>Account Name</th>
              
