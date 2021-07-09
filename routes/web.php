@@ -53,14 +53,11 @@ use App\Http\Controllers\expenseHistoryPrintController;
 use App\Http\Controllers\accountsHistoryPrintController;
 use App\Http\Controllers\partyPaymentHistoryPrintController;
 use App\Http\Controllers\saleHistoryPrintController;
-<<<<<<< HEAD
 use App\Http\Controllers\investorHistoryController;
 use App\Http\Controllers\investorHistoryPrintController;
-=======
 use App\Http\Controllers\supplierHistoryController;
 use App\Http\Controllers\supplierHistoryPrintController;
 
->>>>>>> f4839346976e571bb2dc08404e87fb02da347e4c
 /*
 |--------------------------------------------------------------------------
 | Web Routes
