@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Party Payment History</title>
+    <title>Investor Payment History</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -295,15 +295,7 @@
                 var data = this.responseText;
                 //alert(data);
                 var table;
-                var dt = JSON.parse(data);
-            
-                a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                var a = JSON.parse(data);
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
@@ -325,6 +317,7 @@
                     }
                     });
                 table.draw();
+                sumColumns();
                 
 
             }
@@ -350,16 +343,7 @@
                 var data = this.responseText;
                 
                 var table;
-                var dt = JSON.parse(data);
-               
-                a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-  
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                var a = JSON.parse(data);
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
@@ -380,6 +364,7 @@
                     }
                 });
                 table.draw();
+                sumColumns();
 
             }
         };
@@ -411,16 +396,7 @@
                 var data = this.responseText;
                 
                 var table;
-                var dt = JSON.parse(data);
-            
-                a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                var a = JSON.parse(data);
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
@@ -442,6 +418,7 @@
                     }
                     });
                     table.draw();
+                    sumColumns();
 
                 }
             };
@@ -473,7 +450,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPartyHistory/'+date1+'/'+date2+'/'+ partyID+'/'+party );
+                    window.open('/printInvestorHistory/'+date1+'/'+date2+'/'+ partyID+'/'+party );
                   
                 }
             }
@@ -485,7 +462,7 @@
             }
                         
             // alert("hello");
-            xhttp.open("GET", "./printPartyHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim()+"/" +party.trim(),  true);
+            xhttp.open("GET", "./printInvestorHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim()+"/" +party.trim(),  true);
             xhttp.send();
         }
         }
@@ -501,7 +478,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPartyHistory2/'+partyID+'/'+party );
+                    window.open('/printInvestorHistory2/'+partyID+'/'+party );
                   
                 }
             }
@@ -513,10 +490,30 @@
             }
                      
             // alert("hello");
-            xhttp.open("GET", "./printPartyHistory2/" +partyID.trim() +"/" +party.trim(),true);
+            xhttp.open("GET", "./printInvestorHistory2/" +partyID.trim() +"/" +party.trim(),true);
             xhttp.send();
         
         }
+
+        function sumColumns(){
+            
+            var t = document.getElementById("myTable");
+            var totalPurchaseAmount = 0;
+            var amountPaid = 0;
+            var remainingBalance = 0;
+            
+            var x = document.getElementById("myTable").rows.length;
+            for (var i = 1; i < x; i++) {
+                totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
+                amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
+                remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
+            }
+            document.getElementById('totalSaleAmount').innerHTML=totalPurchaseAmount;
+            document.getElementById('remainingAmount').innerHTML=amountPaid;
+            document.getElementById('invoiceBalance').innerHTML=remainingBalance;
+
+        }
+
     </script>
 </body>
 

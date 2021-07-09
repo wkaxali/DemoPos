@@ -54,7 +54,7 @@ use App\Http\Controllers\accountsHistoryPrintController;
 use App\Http\Controllers\partyPaymentHistoryPrintController;
 use App\Http\Controllers\saleHistoryPrintController;
 use App\Http\Controllers\investorHistoryController;
-
+use App\Http\Controllers\investorHistoryPrintController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,6 +68,8 @@ use App\Http\Controllers\investorHistoryController;
 Route::get('/investorHistory',[investorHistoryController::class, 'investorPaymentHistory']);
 Route::get('/filterInvestorData/{ID}',[investorHistoryController::class, 'filterInvestorPaymentHistory']);
 Route::get('/filterInvestorDateData/{date1}/{date2}/{ID} ',[investorHistoryController::class, 'filterInvestorDateData']);
+Route::get('/printInvestorHistory2/{partyID}/{party} ',[partyPaymentHistoryPrintController::class, 'printInvestorHistory2']);
+Route::get('/printInvestorHistory/{date1}/{date2}/{partyID}/{party} ',[partyPaymentHistoryPrintController::class, 'printInvestorHistory']);
 
 Route::get('/deleteEmpPay/{TID}',[employeeController::class, 'deleteEmployeePayments']);
 Route::get('/filterDateData/{date1}/{date2}/{ID} ',[partyPaymentHistory::class, 'filterPartyPaymentDateData']);
