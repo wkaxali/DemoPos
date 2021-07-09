@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Party Payment History</title>
+    <title>Supplier History</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -32,7 +32,7 @@
 
 
         .ThirdColor {
-            background-color: crimson;
+            background-color: #414141;
             height: 30px;
             border-radius: 10px;
         }
@@ -105,7 +105,7 @@
     </style>
 </head>
 
-<body onload="getHistory()">
+<body onload="getSupplierHistory()">
 
     <div class="page-container">
         <div class="left-content">
@@ -114,7 +114,7 @@
                     <div class="container">
                         <div class="row my-3">
                             <div class="col-md-12 text-center ">
-                                <h1 id="firsthello">Party Payment History</h1>
+                                <h1 id="firsthello">Supplier History</h1>
                             </div>
                         </div>
                     </div>
@@ -124,9 +124,9 @@
                         <div class="row my-2">
 
                             <div class="col-md-4  ">
-                                <label for="" id="pname">Parties</label>
+                                <label for="" id="pname">Supplier</label>
                                 <select 
-                                    class="selectpicker form-control" data-live-search="true" id="parties" >
+                                    class="selectpicker form-control" data-live-search="true" id="supplier" >
                                     <option value=""></option>
                                 </select>
                                 </div>
@@ -270,23 +270,23 @@
 
 <script>
 
-    function loadAllParties() {
+    function loadAllSupplier() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("parties").innerHTML =
+                document.getElementById("supplier").innerHTML = 
                     this.responseText;
-                $('#parties').selectpicker('refresh');
+                $('#supplier').selectpicker('refresh');
 
             }
         };
 
-        xhttp.open("GET", "./loadAllParties", true);
+        xhttp.open("GET", "./loadAllSupplier", true);
         xhttp.send();
     };
                
-    function getHistory() {
-        loadAllParties();
+    function getSupplierHistory() {
+        loadAllSupplier();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
@@ -330,16 +330,15 @@
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./partyHistory/", true);
+        xhttp.open("GET", "./getSupplierHistory/", true);
 
         xhttp.send();
     }
 
     function filterData() {
 
-        var category = $('#category').find(":selected").text();
-        var categoryID = $('#category').find(":selected").val();
-        var partyID = $('#parties').find(":selected").val();
+       
+        var sup = $('#supplier').find(":selected").text();
         document.getElementById("date1").value="";
          document.getElementById("date2").value="";
         var xhttp = new XMLHttpRequest();
@@ -384,14 +383,14 @@
             }
         };
        
-        if(partyID== ""){
-            partyID="All";
+        if(sup== ""){
+            sup="All";
         }
   
         // alert(category);
         // alert(categoryID);
         // alert(partyID);
-        xhttp.open("GET", "./filterPartyData/"+partyID, true);
+        xhttp.open("GET", "./filterSupplierData/"+sup, true);
         xhttp.send();
     }
 
@@ -400,8 +399,8 @@
 
             var date1 = document.getElementById("date1").value;
             var date2 = document.getElementById("date2").value;
-            var categoryID = $('#category').find(":selected").val();
-            var partyID = $('#parties').find(":selected").val();
+          
+        var sup = $('#supplier').find(":selected").text();
 
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -446,14 +445,11 @@
                 }
             };
 
-            if(partyID== ""){
-                partyID="All";
-            }
-
-            // alert(category);
-            // alert(categoryID);
-            // alert(partyID);
-            xhttp.open("GET", "./filterDateData/"+date1+"/"+date2+"/"+partyID, true);
+            if(sup== ""){
+            sup="All";
+        }
+   
+            xhttp.open("GET", "./filterSupplierDateData/"+date1+"/"+date2+"/"+sup, true);
             xhttp.send();
             }
                         
