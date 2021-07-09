@@ -25,7 +25,7 @@ style="float: right"></span></a>
 <li><a href="/ps">Purchase parts</a></li>
 <li><a href="/bo">Book Vehicles</a></li>
 <li><a href="/rec">Receive Vehicles</a></li>
-<!-- <li><a href="/es"> Receive Parts</a></li> -->
+<li><a href="/es"> Receive Parts</a></li>
 <li><a href="/ph"> Purchase History</a></li>
 </ul>
 </li>
@@ -35,9 +35,9 @@ style="font-size: 14px;">Payments</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs1 ">
 <li><a href="/pay">Supplier payments  </a></li>
-<!-- <li><a href="/eam">Customer Recovery  </a></li> -->
-<li><a href="/ep">Employee Payments </a></li>
-<li><a href="/aep">Add Employee Payments </a></li>
+<li><a href="/eam">Customer Recovery  </a></li>
+<li><a href="/ep">Employe Payments </a></li>
+<li><a href="/aep">Add Employe Payments </a></li>
 <li><a href="/pph">Party Payment History </a></li>
  
 <li><a href="/adal">Add Allowance </a></li>
@@ -60,10 +60,10 @@ style="font-size: 14px;">Stock</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs3">
 <li><a href="/vs">View Sock</a></li>
-<li><a href="/ans ">Add Sock</a></li>
-<li><a href="/es ">Edit Sock</a></li>
-<!-- <li><a href="/ ">Stock Profit Reports</a></li> -->
-<!-- <li><a href="/ ">Pending Delivery</a></li> -->
+<li><a href="/ans ">Add SSock</a></li>
+<li><a href="/es ">Edit SSock</a></li>
+<li><a href="/ ">Stock Profit Reports</a></li>
+<li><a href="/ ">Pending Delivery</a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs4"><i
@@ -71,11 +71,18 @@ class="fab fa-alipay"></i>
 <span style="font-size: 14px;">Ledgers</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs4">
-<li id="menu-mensagens" style="width: 201px"><a href="/th"> Transaction History</a></li>
-<li><a href="/pph ">Party Ledgers </a>  </li>
-<li><a href="/i"> View Supplies Balance</a></li>
-<li><a href="/ ">View Customer Balance </a></li>
-<li><a href="/ ">View Employee History </a></li>
+<li id="menu-mensagens" style="width: 201px"><a href="/th"> Transaction History</a>
+</li>
+<li><a href="/cl ">Party Ledgers </a>  </li>
+<li><a href="/i"> View Supplies Balance</a>  </li>
+<li><a href="/ ">View Customer Balance </a>  </li>
+<li><a href="/ah">Accounts History </a>  </li>
+<li><a href="/sh">Sales History </a>  </li>
+<li><a href="/ph">Purchase History </a>  </li>
+<li><a href="/eh">Expense History </a>  </li>
+<li><a href="/eh">Party Payment History </a>  </li>
+<!-- <li><a href="/ ">View Employee History </a>  </li> -->
+
 </ul>
 </li>
 
@@ -86,11 +93,11 @@ style="float: right"></span></a>
 <ul class="collapse firstULs5">
 <li id="menu-mensagens" style="width: 201px"><a href="/adc">Add Customer </a>
 </li>
-<li id="menu-mensagens" style="width: 201px"><a href="/vc">View All Customers </a>
+<li id="menu-mensagens" style="width: 201px"><a href="/vc">View All Customer </a>
 </li>
 <li id="menu-mensagens" style="width: 201px"><a href="/ec">Edit Customer</a>
 </li>
-<!-- <li id="menu-mensagens" style="width: 201px"><a href="/ch">Customer Transaction History</a> -->
+<li id="menu-mensagens" style="width: 201px"><a href="/ch">Customer Transaction History</a>
 </li>
 
 
@@ -106,8 +113,6 @@ style="float: right"></span></a>
 <li><a href="/ip">Change Price</a></li>
 <li><a href="/ads">Add Supplier</a></li>
 <li><a href="/esp">Edit Supplier</a></li>
-<li><a href="/ads">Add Investor</a></li>
-<li><a href="/esp">Edit Investor</a></li>
 <li><a href="/ac">Add Category</a></li>
 </ul>
 </li>
@@ -134,11 +139,11 @@ style="float: right"></span></a>
 <li><a href="/es">Edit Stock Price</a></li>
 <li><a href="/ss">Edit Sale Invoice</a></li>
 <li><a href="/ps">Edit Purchase Invoice</a></li>
-<li><a href="/dEPay">Delete Employee Payment</a></li>
-<li><a href="/dpay">Delete Party Payment</a></li>
-<li><a href="/dex">Delete Expense</a></li>
-<!-- <li><a href="/">Edit Book Record and Reciving</a></li> -->
-<!-- <li><a href="/">Edit Invoice Service</a></li> -->
+<li><a href="/">Edit Payment For Employe </a></li>
+<li><a href="/dex">Edit Expense</a></li>
+<li><a href="/">Edit Investor</a></li>
+<li><a href="/">Edit Book Record and Reciving</a></li>
+<li><a href="/">Edit IS</a></li>
 <li><a href="/ec">Edit Customer</a></li>
 <li><a href="/ee">Edit Employee </a></li>
 <li><a href="/pr">Edit Employee Pay</a></li>
