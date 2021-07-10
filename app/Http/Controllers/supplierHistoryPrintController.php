@@ -9,8 +9,11 @@ use Carbon\Carbon;
 
 class supplierHistoryPrintController extends Controller
 {
-    public static function printSupplierHistory2($sup){
-
+    public static function printSupplierHistory2($sup, $colSums){
+        $sums=json_decode($colSums);
+        $totalPurchaseAmount=$sums[0];
+        $amountPaid=$sums[1];
+        $remainingBalance=$sums[2];
         $data=0;
         if($sup=="All"){
             $data=DB:: select('select * from vw_transaction_flow where Category="Supplier"');
@@ -28,8 +31,9 @@ class supplierHistoryPrintController extends Controller
           <tbody>
           <tr><br><br><br><br>
           
-          <td max-height="20px" ><h2>Total Amount: : '.$totalSaleAmount.' </h2></td>
-          <td max-height="20px" ><h2>Total Balance: : '.$invoiceBalance.' </h2></td>
+          <td max-height="20px" ><h2>Total Purchase Amount: : '.$totalPurchaseAmount.' </h2></td>
+          <td max-height="20px" ><h2>Total Amount Paid: : '.$amountPaid.' </h2></td>
+          <td max-height="20px" ><h2>Total Remaining Balance: : '.$remainingBalance.' </h2></td>
 
           </tr><tr><td max-height="20px"><h3>Filter by : '.$sup.'</h3></td></tr>
           </tbody>
@@ -122,8 +126,13 @@ class supplierHistoryPrintController extends Controller
     }
     
 
-    public static function printSupplierHistory($date1,$date2, $sup){
+    public static function printSupplierHistory($date1,$date2, $sup,  $colSums){
         $data=0;
+        $sums=json_decode($colSums);
+        $totalPurchaseAmount=$sums[0];
+        $amountPaid=$sums[1];
+        $remainingBalance=$sums[2];
+
         if($sup=="All"){
             $data=DB:: select('select * from vw_transaction_flow where Category="Supplier" and DateStamp between "'.$date1.'"and"'.$date2.'"');
         
@@ -140,8 +149,9 @@ class supplierHistoryPrintController extends Controller
           <tbody>
           <tr><br><br><br><br>
           
-          <td max-height="20px" ><h2>Total Amount:  '.$totalSaleAmount.' </h2></td>
-          <td max-height="20px" ><h2>Total Balance:  '.$invoiceBalance.' </h2></td>
+          <td max-height="20px" ><h2>Total Purchase Amount: : '.$totalPurchaseAmount.' </h2></td>
+          <td max-height="20px" ><h2>Total Amount Paid: : '.$amountPaid.' </h2></td>
+          <td max-height="20px" ><h2>Total Remaining Balance: : '.$remainingBalance.' </h2></td>
           
 
           </tr><tr><td max-height="20px"><h3>Filter by : '.$sup.'</h3> <h3>Date From: '.$date1.' To '.$date2.'</h3></td></tr>

@@ -9,7 +9,11 @@ use Carbon\Carbon;
 use PDF;
 class partyPaymentHistoryPrintController extends Controller
 {
-    public static function printPartyHistory2($partyID, $party  ){
+    public static function printPartyHistory2($partyID, $party, $colSums){
+        $sums=json_decode($colSums);
+        $totalPurchaseAmount=$sums[0];
+        $amountPaid=$sums[1];
+        $remainingBalance=$sums[2];
 
         if($partyID=="All" ){
             $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <>0');
@@ -17,15 +21,6 @@ class partyPaymentHistoryPrintController extends Controller
             
             $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$partyID);
         }
-        $totalSaleAmount=0;
-        // $remainingAmount=0;
-        $invoiceBalance=0;
-         
-        foreach($data as $d){
-            $totalSaleAmount += floatval($d->Amount);
-             
-            $invoiceBalance += floatval($d->PartyBalance);
-          }
            
           $table='
           <h2 style="text-align:center;" >Party Payment Transaction History</h2><br>
@@ -33,8 +28,9 @@ class partyPaymentHistoryPrintController extends Controller
           <tbody>
           <tr><br><br><br><br>
           
-          <td max-height="20px" ><h2>Total Amount: : '.$totalSaleAmount.' </h2></td>
-          <td max-height="20px" ><h2>Total Balance: : '.$invoiceBalance.' </h2></td>
+          <td max-height="20px" ><h2>Total Purchase Amount: : '.$totalPurchaseAmount.' </h2></td>
+          <td max-height="20px" ><h2>Total Amount Paid: : '.$amountPaid.' </h2></td>
+          <td max-height="20px" ><h2>Total Remaining Balance: : '.$remainingBalance.' </h2></td>
 
           </tr><tr><td max-height="20px"><h3>Filter by : '.$party.'</h3></td></tr>
           </tbody>
@@ -127,8 +123,13 @@ class partyPaymentHistoryPrintController extends Controller
     }
     
 
-    public static function printPartyHistory($date1,$date2, $partyId, $party ){
+    public static function printPartyHistory($date1,$date2, $partyId, $party, $colSums){
         $data=0;
+        $sums=json_decode($colSums);
+        $totalPurchaseAmount=$sums[0];
+        $amountPaid=$sums[1];
+        $remainingBalance=$sums[2];
+
         if($partyId=="All" ){
             $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0');
         
@@ -136,24 +137,16 @@ class partyPaymentHistoryPrintController extends Controller
             $data=DB:: select('select * from vw_transaction_flow where DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo="'.$partyId.'"');
         
         }
-        $totalSaleAmount=0;
-        // $remainingAmount=0;
-        $invoiceBalance=0;
-         
-        foreach($data as $d){
-            $totalSaleAmount += floatval($d->Amount);
-            // $remainingAmount += floatval($d->AmountPaid);
-            $invoiceBalance += floatval($d->PartyBalance);
-          } 
-           
+  
           $table='
           <h2 style="text-align:center;" >Party Payment Transaction History</h2><br>
           <table cellpadding = "2" cellspacing = "0"  border="0" style="font-size:7.5px"><thead></thead>
           <tbody>
           <tr><br><br><br><br>
           
-          <td max-height="20px" ><h2>Total Amount:  '.$totalSaleAmount.' </h2></td>
-          <td max-height="20px" ><h2>Total Balance:  '.$invoiceBalance.' </h2></td>
+          <td max-height="20px" ><h2>Total Purchase Amount: : '.$totalPurchaseAmount.' </h2></td>
+          <td max-height="20px" ><h2>Total Amount Paid: : '.$amountPaid.' </h2></td>
+          <td max-height="20px" ><h2>Total Remaining Balance: : '.$remainingBalance.' </h2></td>
           
 
           </tr><tr><td max-height="20px"><h3>Filter by : '.$party.'</h3> <h3>Date From: '.$date1.' To '.$date2.'</h3></td></tr>

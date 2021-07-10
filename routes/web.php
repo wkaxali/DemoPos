@@ -71,15 +71,15 @@ use App\Http\Controllers\supplierHistoryPrintController;
 Route::get('/investorHistory',[investorHistoryController::class, 'investorPaymentHistory']);
 Route::get('/filterInvestorData/{ID}',[investorHistoryController::class, 'filterInvestorPaymentHistory']);
 Route::get('/filterInvestorDateData/{date1}/{date2}/{ID} ',[investorHistoryController::class, 'filterInvestorDateData']);
-Route::get('/printInvestorHistory2/{partyID}/{party} ',[partyPaymentHistoryPrintController::class, 'printInvestorHistory2']);
-Route::get('/printInvestorHistory/{date1}/{date2}/{partyID}/{party} ',[partyPaymentHistoryPrintController::class, 'printInvestorHistory']);
+Route::get('/printInvestorHistory2/{partyID}/{party}/{colSums}',[investorHistoryPrintController::class, 'printInvestorHistory2']);
+Route::get('/printInvestorHistory/{date1}/{date2}/{partyID}/{party}/{colSums}',[investorHistoryPrintController::class, 'printInvestorHistory']);
 
 Route::get('/deleteEmpPay/{TID}',[employeeController::class, 'deleteEmployeePayments']);
 Route::get('/filterDateData/{date1}/{date2}/{ID} ',[partyPaymentHistory::class, 'filterPartyPaymentDateData']);
 Route::get('/filterPartyData/{ID}',[partyPaymentHistory::class, 'filterPartyPaymentHistory']);
 Route::get('/partyHistory',[partyPaymentHistory::class, 'getPartyPaymentHistory']);
-Route::get('/printPartyHistory2/{partyID}/{party} ',[partyPaymentHistoryPrintController::class, 'printPartyHistory2']);
-Route::get('/printPartyHistory/{date1}/{date2}/{partyID}/{party} ',[partyPaymentHistoryPrintController::class, 'printPartyHistory']);
+Route::get('/printPartyHistory2/{partyID}/{party}/{colSums}',[partyPaymentHistoryPrintController::class, 'printPartyHistory2']);
+Route::get('/printPartyHistory/{date1}/{date2}/{partyID}/{party}/{colSums}',[partyPaymentHistoryPrintController::class, 'printPartyHistory']);
 Route::get('/filterSalesHistory/{cat}/{cus}',[salesHistoryController::class, 'filterSalesHistory']);
 Route::get('/salesHistory',[salesHistoryController::class, 'getSalesHistory']);
 Route::get('/updatePurchasedStock/{array}/{InvoiceNo}',[purchaseStockEditController::class, 'updatePurchasedStock']);
@@ -323,8 +323,8 @@ Route::get('/getSupplierHistory',[supplierHistoryController::class, 'getSupplier
 Route::get('/filterSupplierData/{sup} ',[supplierHistoryController::class, 'filterSupplierData']);
 
 Route::get('/filterSupplierDateData/{date1}/{date2}/{catId} ',[supplierHistoryController::class, 'filterSupplierDateData']);
-Route::get('/printSupplierHistory2/{sup} ',[supplierHistoryPrintController::class, 'printSupplierHistory2']);
-Route::get('/printSupplierHistory/{date1}/{date2}/{sup} ',[supplierHistoryPrintController::class, 'printSupplierHistory']);
+Route::get('/printSupplierHistory2/{sup}/{colSums}',[supplierHistoryPrintController::class, 'printSupplierHistory2']);
+Route::get('/printSupplierHistory/{date1}/{date2}/{sup}/{colSums}',[supplierHistoryPrintController::class, 'printSupplierHistory']);
 Route::get('/getAllTransactions',[accountsController::class, 'getAllTransactions']);
 
 

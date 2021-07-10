@@ -154,18 +154,18 @@
                                             </div>
                                             <div class="col-md-4" >
                                                 <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
-                                                        onclick="filterDateData()">Search </button> </div>
+                                                onclick="filterDateData()">Search </button> </div>
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
-                                            <label for="">Total Amount:</label>
-                                            <h1 id="totalSaleAmount">0</h1></div>
+                                            <label for="">Total Purchase Amount:</label>
+                                            <h1 id="totalPurchaseAmount">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Amount Paid:</label>
-                                            <h1 id="remainingAmount">0</h1></div>
+                                            <h1 id="amountPaid">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Balance:</label>
-                                            <h1 id="invoiceBalance">0</h1></div>
+                                            <h1 id="remainingBalance">0</h1></div>
                                             </div>
                                         </div>
                                     </div>
@@ -432,10 +432,13 @@
 </script>
 <script>
     function printSupplierHistory (){
-                    var date1 = document.getElementById("date1").value;
-                    var date2 = document.getElementById("date2").value;
-                    var sup = $('#supplier').find(":selected").text();
-                //    alert(date1);
+        var date1 = document.getElementById("date1").value;
+        var date2 = document.getElementById("date2").value;
+        var sup = $('#supplier').find(":selected").text();
+        var totalPurchaseAmount = document.getElementById('totalPurchaseAmount').innerHTML;
+        var amountPaid = document.getElementById('amountPaid').innerHTML;
+        var remainingBalance = document.getElementById('remainingBalance').innerHTML;
+        var colSums = JSON.stringify([totalPurchaseAmount, amountPaid, remainingBalance]);
                   if (date1==""){
                     printSupplierHistory2();
                 }else{
@@ -443,7 +446,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printSupplierHistory/'+date1+'/'+date2+'/'+sup);
+                    window.open('/printSupplierHistory/'+date1+'/'+date2+'/'+sup+'/'+colSums);
                   
                 }
             }
@@ -452,13 +455,16 @@
         }
                         
             // alert("hello");
-            xhttp.open("GET", "./printSupplierHistory/"+date1.trim()+"/"+date2.trim() +"/" +sup.trim() ,  true);
+            xhttp.open("GET", "./printSupplierHistory/"+date1.trim()+"/"+date2.trim() +"/" +sup.trim() +'/'+colSums,  true);
             xhttp.send();
         }
         }
      
     function printSupplierHistory2(){
-                    
+        var totalPurchaseAmount = document.getElementById('totalPurchaseAmount').innerHTML;
+        var amountPaid = document.getElementById('amountPaid').innerHTML;
+        var remainingBalance = document.getElementById('remainingBalance').innerHTML;
+        var colSums = JSON.stringify([totalPurchaseAmount, amountPaid, remainingBalance]);
         var sup = $('#supplier').find(":selected").text();
                    
                   
@@ -466,7 +472,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printSupplierHistory2/'+sup );
+                    window.open('/printSupplierHistory2/'+sup +'/'+colSums);
                   
                 }
             }
@@ -476,7 +482,7 @@
         }
                      
             // alert("hello");
-            xhttp.open("GET", "./printSupplierHistory2/" +sup.trim(),true);
+            xhttp.open("GET", "./printSupplierHistory2/" +sup.trim()+'/'+colSums,true);
             xhttp.send();
         
         }
@@ -488,17 +494,23 @@
             var totalPurchaseAmount = 0;
             var amountPaid = 0;
             var remainingBalance = 0;
-            
             var x = document.getElementById("myTable").rows.length;
-            for (var i = 1; i < x; i++) {
-                totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
-                amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
-                remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
+            
+            table = $('#myTable').DataTable();
+            if(table.rows().any()){
+                for (var i = 1; i < x; i++) {
+                    totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
+                    amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
+                    remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
+                }
+            }else{
+                totalPurchaseAmount = 0;
+                amountPaid = 0;
+                remainingBalance = 0;
             }
-            document.getElementById('totalSaleAmount').innerHTML=totalPurchaseAmount;
-            document.getElementById('remainingAmount').innerHTML=amountPaid;
-            document.getElementById('invoiceBalance').innerHTML=remainingBalance;
-
+            document.getElementById('totalPurchaseAmount').innerHTML=totalPurchaseAmount;
+            document.getElementById('amountPaid').innerHTML=amountPaid;
+            document.getElementById('remainingBalance').innerHTML=remainingBalance;
         }
     </script>
 </body>

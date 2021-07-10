@@ -158,14 +158,14 @@
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
-                                            <label for="">Total Amount:</label>
-                                            <h1 id="totalSaleAmount">0</h1></div>
+                                            <label for="">Total Purchase Amount:</label>
+                                            <h1 id="totalPurchaseAmount">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Amount Paid:</label>
-                                            <h1 id="remainingAmount">0</h1></div>
+                                            <h1 id="amountPaid">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Balance:</label>
-                                            <h1 id="invoiceBalance">0</h1></div>
+                                            <h1 id="remainingBalance">0</h1></div>
                                             </div>
                                         </div>
                                     </div>
@@ -369,7 +369,7 @@
             }
         };
        
-        if(partyID== ""){
+        if(partyID== " "){
             partyID="All";
         }
   
@@ -423,7 +423,7 @@
                 }
             };
 
-            if(partyID== ""){
+            if(partyID== " "){
                 partyID="All";
             }
 
@@ -442,7 +442,10 @@
                     var categoryID = $('#category').find(":selected").val();
                     var partyID = $('#parties').find(":selected").val();
                     var party  = $('#parties').find(":selected").text();
-                //    alert(date1);
+                    var totalPurchaseAmount = document.getElementById('totalPurchaseAmount').innerHTML;
+                    var amountPaid = document.getElementById('amountPaid').innerHTML;
+                    var remainingBalance = document.getElementById('remainingBalance').innerHTML;
+                    var colSums = JSON.stringify([totalPurchaseAmount, amountPaid, remainingBalance]);
                   if (date1==""){
                     printPartyHistory2();
                 }else{
@@ -450,11 +453,11 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printInvestorHistory/'+date1+'/'+date2+'/'+ partyID+'/'+party );
+                    window.open('/printInvestorHistory/'+date1+'/'+date2+'/'+ partyID+'/'+party+'/'+colSums );
                   
                 }
             }
-            if(partyID== ""){
+            if(partyID== " "){
                 partyID="All";
             }
             if(party== ""){
@@ -462,7 +465,7 @@
             }
                         
             // alert("hello");
-            xhttp.open("GET", "./printInvestorHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim()+"/" +party.trim(),  true);
+            xhttp.open("GET", "./printInvestorHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim()+"/" +party.trim()+'/'+colSums,  true);
             xhttp.send();
         }
         }
@@ -472,25 +475,28 @@
         var categoryID = $('#category').find(":selected").val();
         var partyID = $('#parties').find(":selected").val();
          var party  = $('#parties').find(":selected").text();
-                   
+         var totalPurchaseAmount = document.getElementById('totalPurchaseAmount').innerHTML;
+        var amountPaid = document.getElementById('amountPaid').innerHTML;
+        var remainingBalance = document.getElementById('remainingBalance').innerHTML;
+        var colSums = JSON.stringify([totalPurchaseAmount, amountPaid, remainingBalance]);
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printInvestorHistory2/'+partyID+'/'+party );
+                    window.open('/printInvestorHistory2/'+partyID+'/'+party+'/'+colSums );
                   
                 }
             }
              
-            if(partyID== ""){
+            if(partyID== " "){
                 partyID="All";
             } if(party== ""){
                 party="All";
             }
                      
             // alert("hello");
-            xhttp.open("GET", "./printInvestorHistory2/" +partyID.trim() +"/" +party.trim(),true);
+            xhttp.open("GET", "./printInvestorHistory2/" +partyID.trim() +"/" +party.trim()+'/'+colSums,true);
             xhttp.send();
         
         }
@@ -501,17 +507,23 @@
             var totalPurchaseAmount = 0;
             var amountPaid = 0;
             var remainingBalance = 0;
-            
             var x = document.getElementById("myTable").rows.length;
-            for (var i = 1; i < x; i++) {
-                totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
-                amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
-                remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
+            
+            table = $('#myTable').DataTable();
+            if(table.rows().any()){
+                for (var i = 1; i < x; i++) {
+                    totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
+                    amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
+                    remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
+                }
+            }else{
+                totalPurchaseAmount = 0;
+                amountPaid = 0;
+                remainingBalance = 0;
             }
-            document.getElementById('totalSaleAmount').innerHTML=totalPurchaseAmount;
-            document.getElementById('remainingAmount').innerHTML=amountPaid;
-            document.getElementById('invoiceBalance').innerHTML=remainingBalance;
-
+            document.getElementById('totalPurchaseAmount').innerHTML=totalPurchaseAmount;
+            document.getElementById('amountPaid').innerHTML=amountPaid;
+            document.getElementById('remainingBalance').innerHTML=remainingBalance;
         }
 
     </script>

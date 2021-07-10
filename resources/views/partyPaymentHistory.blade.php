@@ -434,20 +434,24 @@
 </script>
 <script>
     function printPartyHistory (){
-                    var date1 = document.getElementById("date1").value;
-                    var date2 = document.getElementById("date2").value;
-                    var categoryID = $('#category').find(":selected").val();
-                    var partyID = $('#parties').find(":selected").val();
-                    var party  = $('#parties').find(":selected").text();
-                //    alert(date1);
-                  if (date1==""){
-                    printPartyHistory2();
-                }else{
+        var date1 = document.getElementById("date1").value;
+        var date2 = document.getElementById("date2").value;
+        var categoryID = $('#category').find(":selected").val();
+        var partyID = $('#parties').find(":selected").val();
+        var party  = $('#parties').find(":selected").text();
+
+        var totalPurchaseAmount = document.getElementById('totalPurchaseAmount').innerHTML;
+        var amountPaid = document.getElementById('amountPaid').innerHTML;
+        var remainingBalance = document.getElementById('remainingBalance').innerHTML;
+        var colSums = JSON.stringify([totalPurchaseAmount, amountPaid, remainingBalance]);
+        if (date1==""){
+            printPartyHistory2();
+        }else{
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPartyHistory/'+date1+'/'+date2+'/'+ partyID+'/'+party );
+                    window.open('/printPartyHistory/'+date1+'/'+date2+'/'+ partyID+'/'+party+'/'+colSums);
                   
                 }
             }
@@ -459,7 +463,7 @@
             }
                         
             // alert("hello");
-            xhttp.open("GET", "./printPartyHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim()+"/" +party.trim(),  true);
+            xhttp.open("GET", "./printPartyHistory/"+date1.trim()+"/"+date2.trim() +"/" +partyID.trim()+"/" +party.trim()+'/'+colSums,  true);
             xhttp.send();
         }
         }
@@ -468,14 +472,18 @@
                     
         var categoryID = $('#category').find(":selected").val();
         var partyID = $('#parties').find(":selected").val();
-         var party  = $('#parties').find(":selected").text();
-                   
+        var party  = $('#parties').find(":selected").text();
+
+        var totalPurchaseAmount = document.getElementById('totalPurchaseAmount').innerHTML;
+        var amountPaid = document.getElementById('amountPaid').innerHTML;
+        var remainingBalance = document.getElementById('remainingBalance').innerHTML;
+        var colSums = JSON.stringify([totalPurchaseAmount, amountPaid, remainingBalance]);
                   
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    window.open('/printPartyHistory2/'+partyID+'/'+party );
+                    window.open('/printPartyHistory2/'+partyID+'/'+party+'/'+colSums );
                   
                 }
             }
@@ -486,8 +494,7 @@
                 party="All";
             }
                      
-            // alert("hello");
-            xhttp.open("GET", "./printPartyHistory2/" +partyID.trim() +"/" +party.trim(),true);
+            xhttp.open("GET", "./printPartyHistory2/" +partyID.trim() +"/" +party.trim()+'/'+colSums,true);
             xhttp.send();
         
         }
@@ -500,13 +507,14 @@
             var remainingBalance = 0;
             var x = document.getElementById("myTable").rows.length;
             
-            if(x>2){
+            table = $('#myTable').DataTable();
+            if(table.rows().any()){
                 for (var i = 1; i < x; i++) {
                     totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
                     amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
                     remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
                 }
-            }else if(x<=2){
+            }else{
                 totalPurchaseAmount = 0;
                 amountPaid = 0;
                 remainingBalance = 0;
