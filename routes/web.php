@@ -68,12 +68,12 @@ use App\Http\Controllers\supplierHistoryPrintController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/investorHistory',[investorHistoryController::class, 'investorPaymentHistory']);
 Route::get('/filterInvestorData/{ID}',[investorHistoryController::class, 'filterInvestorPaymentHistory']);
 Route::get('/filterInvestorDateData/{date1}/{date2}/{ID} ',[investorHistoryController::class, 'filterInvestorDateData']);
 Route::get('/printInvestorHistory2/{partyID}/{party}/{colSums}',[investorHistoryPrintController::class, 'printInvestorHistory2']);
 Route::get('/printInvestorHistory/{date1}/{date2}/{partyID}/{party}/{colSums}',[investorHistoryPrintController::class, 'printInvestorHistory']);
-
 Route::get('/deleteEmpPay/{TID}',[employeeController::class, 'deleteEmployeePayments']);
 Route::get('/filterDateData/{date1}/{date2}/{ID} ',[partyPaymentHistory::class, 'filterPartyPaymentDateData']);
 Route::get('/filterPartyData/{ID}',[partyPaymentHistory::class, 'filterPartyPaymentHistory']);
@@ -147,8 +147,6 @@ Route::get('/viewAllSupplier',[LedgerPartiesController::class, 'viewAllSupplier'
 Route::get('/viewAllInvestors',[investorController::class, 'viewAllInvestors']);
 Route::get('/editSupplier/{ES}',[LedgerPartiesController::class, 'editSupplier']);
 Route::get('/editInvestor/{EI}',[investorController::class, 'editInvestor']);
-
-
 Route::get('/addSalesForSS/{data}',[serviceSalesFlow::class, 'SalesFlow']);
 Route::get('/getSaleInvReq/{id}',[saleRequestController::class, 'getInvoiceSaleRequest']);
 Route::get('/addPurchaseForSS/{data}',[OrderFlowController::class, 'PurchaseOrderWithStockUpdate']);
@@ -321,7 +319,6 @@ Route::get('/printAccountHistory/{date1}/{date2}/{catID}/{cat}',[accountsHistory
 Route::get('/loadAllSupplier',[LedgerPartiesController::class, 'getAllSupliers']);
 Route::get('/getSupplierHistory',[supplierHistoryController::class, 'getSupplierHistory']);
 Route::get('/filterSupplierData/{sup} ',[supplierHistoryController::class, 'filterSupplierData']);
-
 Route::get('/filterSupplierDateData/{date1}/{date2}/{catId} ',[supplierHistoryController::class, 'filterSupplierDateData']);
 Route::get('/printSupplierHistory2/{sup}/{colSums}',[supplierHistoryPrintController::class, 'printSupplierHistory2']);
 Route::get('/printSupplierHistory/{date1}/{date2}/{sup}/{colSums}',[supplierHistoryPrintController::class, 'printSupplierHistory']);
@@ -350,15 +347,6 @@ Route::get('/ih', function () {
     return view("signInSignUp");
     }
 });
-
-// Route::get('/sh', function () {
-//     $UN = session()->get('Designation');
-//     if($UN=="Admin"){
-//     return view('stockHistory');
-//     }else{
-//     return view("signInSignUp");
-//     }
-// });
 
 Route::get('/chksessions',function(){
 
@@ -396,8 +384,7 @@ Route::get('/aep', function () {
     return view("signInSignUp");
     }
 });
- 
-//61bd06c
+
 Route::get('/logout', function () {
 session(['Designation' =>null]);
 
@@ -507,9 +494,6 @@ Route::get('/th', function () {
     return view("signInSignUp");
     }
 });
-// Route::get('/loop', function () {
-// return view('forLoopCheck');
-// });
 
 Route::get('/vc', function () {
     $UN = session()->get('Designation');
@@ -535,9 +519,7 @@ Route::get('/vs', function () {
     return view("signInSignUp");
     }
 });
-// Route::get('/ajax', function () {
-// return view('ajax');
-// });
+
 Route::get('/scratch', function () {
 return view('scratch');
 
@@ -576,32 +558,13 @@ Route::get('/ev', function () {
 });
 Route::get('/etv', function () {
     $UN = session()->get('Designation');
-
-    if($UN=="Admin"||$UN=="User"){
-        
-        return view('EmployeeTaskView');
-  
+    if($UN=="Admin"||$UN=="User"){   
+    return view('EmployeeTaskView');
    }else{
-       return "Invalid Adminname Or Password";
+    return "Invalid Adminname Or Password";
    }
-
 });
-// Route::get('/emptv', function () {
-//     $UN = session()->get('Designation');
-//     if($UN=="Admin"){
-//     return view('employertaskViews'); 
-//     }else{
-//     return view("signInSignUp");
-//     }
-// });
-// Route::get('/e', function () {
-//     $UN = session()->get('Designation');
-//     if($UN=="Admin"){
-//     return view('Employee'); 
-//     }else{
-//     return view("signInSignUp");
-//     };
-// });
+
 Route::get('/at', function (){
     $UN = session()->get('Designation');
     if($UN=="Admin"||$UN=="User"){
@@ -679,6 +642,7 @@ Route::get('/es', function () {
     return view("signInSignUp");
     }
 });
+
 Route::get('/cr', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -883,8 +847,6 @@ Route::get('/exv', function (){
     return view("signInSignUp");
     };
 });
-
-
 
 Route::get('/pdfvs', function () {
 ini_set('max_execution_time', 60);

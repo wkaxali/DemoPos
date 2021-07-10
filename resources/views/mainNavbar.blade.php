@@ -72,15 +72,15 @@ style="float: right"></span></a>
 <ul class="collapse firstULs4">
 <li id="menu-mensagens" style="width: 201px"><a href="/th"> Transaction History</a>
 </li>
-<li><a href="/cl ">Party Ledgers </a>  </li>
-<li><a href="/i"> View Supplies Balance</a>  </li>
-<li><a href="/ ">View Customer Balance </a>  </li>
+<li><a href="/pph ">Party Ledgers </a>  </li>
+<li><a href="/sph"> View Supplies Balance</a>  </li>
+<li><a href="/ih"> View Investor Balance</a>  </li>
+<!-- <li><a href="/ ">View Customer Balance </a>  </li> -->
 <li><a href="/ah">Accounts History </a>  </li>
 <li><a href="/sh">Sales History </a>  </li>
 <li><a href="/ph">Purchase History </a>  </li>
 <li><a href="/eh">Expense History </a>  </li>
-<li><a href="/eh">Party Payment History </a>  </li>
-<li><a href="/sph">Supplier History </a>  </li>
+<li><a href="/eh">Party Payment History </a></li>
 <!-- <li><a href="/ ">View Employee History </a>  </li> -->
 
 </ul>
@@ -179,6 +179,7 @@ style="font-size: 14px;"> Users</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs11">
 <li><a href="/au">Add Users  </a></li>
+<li><a href="/suu">Employee Sign Up  </a></li>
 <li><a href="/eu"> Edit User passcode   </a></li>
 <li><a href="/eu">   Edit User Category</a></li>
 </ul>
@@ -188,7 +189,7 @@ style="font-size: 14px;"> Employee</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs12">
 <li><a href="/ae"> Add New Emloyee </a></li>
-<li><a href="/ee">  Edit Employer Details  </a></li>
+<li><a href="/ee">  Edit Employee Details  </a></li>
 <li><a href="/pr">  Change Reporting Time </a></li>
 <li><a href="/pr">  Change Working Hours    </a></li>
 <li><a href="/pr"> Print Salary Slip    </a></li>

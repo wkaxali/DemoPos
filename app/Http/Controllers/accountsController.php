@@ -169,7 +169,7 @@ class accountsController extends Controller
                 $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
 
                 $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
-                Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc2,Null,$remarks);
+                Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$LID,$acc2,Null,$remarks);
 
             }else{
 
@@ -190,9 +190,9 @@ class accountsController extends Controller
             $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
 
             $transactionRecord1=TransactionFlow::addTransaction(Null,"Debit",$Tcate,$amount,$dateStamp,
-            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc1,Null,$remarks);
+            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
             $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
-            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,$LID,$LID,$acc2,Null,$remarks);
+            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
         }
 
 
