@@ -210,6 +210,16 @@ class accountsController extends Controller
             $amount = $ata[5];
             $remarks = $ata[6];
             if(!strcmp($Account1,"NULL")){
+
+              $oldbalance1=self::getAccountBalance($Account1);
+            $oldbalance1-= $amount;
+            $newbalance1=self::UpdateNewBalance($Account1,$oldbalance1);
+            
+
+            $oldbalance2=self::getAccountBalance($Account2);
+            $oldbalance2+= $amount;
+            $newbalance2=self::UpdateNewBalance($Account2,$oldbalance2);
+
             $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $TID)
             ->update([
