@@ -198,6 +198,42 @@ class accountsController extends Controller
 
             return "Amount ".$amount." Is Transfered " ;
         }
+        
+        public static function editTransactions(Request $request, $UT){
+            
+            $ata=json_decode($UT);
+            $TID = $ata[0];
+            $AID1 = $ata[1];
+            $AID2 = $ata[2];
+            $Account1 = $ata[3];
+            $Account2 = $ata[4];
+            $amount = $ata[5];
+            $remarks = $ata[6];
+            if(!strcmp($Account1,"NULL")){
+            $re = DB::table('tbltransactionflow')
+            ->where('TransactionID', $TID)
+            ->update([
+            'PaidVia'=>$AID1,
+            'PaidTo'=>$AID2,
+            'Amount'=>$amount,
+            'Remarks'=>$remarks,
+            ]);
+        }else{
+             
+            
+            $re = DB::table('tbltransactionflow')
+            ->where('TransactionID', $TID)
+            ->update([
+             
+            'PaidTo'=>$AID2,
+            'Amount'=>$amount,
+            'Remarks'=>$remarks,
+            ]);
+        }
+            return $TID;
+            
+            }
+
         public function getAllTransactions(){
             $data=DB:: select('select * from vw_amounttransfer ');
             return $data;

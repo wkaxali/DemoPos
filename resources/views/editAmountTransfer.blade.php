@@ -75,12 +75,14 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
 
 <th>Transaction ID</th>
 <th>Account 1 Name</th>
-<th>Account 2 Name</th>
+
+<th>Transaction Type</th>
 <th>Amount</th>
 
 <th>Remarks</th>
- 
-
+<th>Account 2 Name</th>
+<th>Account1 ID</th>
+<th>Account2 ID</th>
 
 
 </tr>
@@ -99,20 +101,25 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
 readonly style="margin-left:30px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="TID">
 </div><br>
-<div class="input-field">
-<label for="status">Account 1 </label>
-<input type="text" autocomplete="OFF" class="form-control"
-style="margin-left:57px;  display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="Account1">
+<div class="input-field"><div class="col-md-5">
+<label for="status">Account 1</label>
+ 
+   <select style="margin-left:130px; class="selectpicker form-control" data-live-search="true" id="account1">
+         <option value="All">All Accounts</option>
+                                   
+  </select>
+  </div>   
 </div>
-
 <br>
 
-<div class="input-field">
+<div class="input-field"><div class="col-md-5">
 <label for="status">Account 2</label>
-<input type="text" autocomplete="OFF" class="form-control"
-style="margin-left:58px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
-id="Account2" required>
+ 
+   <select style="margin-left:130px; class="selectpicker form-control" data-live-search="true" id="account2">
+         <option value="All">All Accounts</option>
+                                   
+  </select>
+  </div>   
 </div>
 <br>
 <div class="input-field">
@@ -132,9 +139,9 @@ value="" id="remarks" required>
 
  
 <br>
-<button style="margin-left:110px;" class="btn btn-success" onclick="editEmployee()">Update </button>
+<button style="margin-left:128px;" class="btn btn-success" onclick="editTransactions()">Update </button>
 
-<button style="margin-left:10px;" class="btn btn-success" onclick="printEmployee()">Print </button>
+<!-- <button style="margin-left:10px;" class="btn btn-success" onclick="printEmployee()">Print </button> -->
 
 
 </div>
@@ -194,6 +201,8 @@ $('#stocktable').DataTable();
     </script>
 <script>
 function getAllTransactions() {
+    loadAllAccounts1();
+    loadAllAccounts2();
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
 if (this.readyState == 4 && this.status == 200) {
@@ -206,7 +215,7 @@ table = $('#stocktable').DataTable();
 
 $.each(a, function (i, item) {
 
-table.row.add([a[i].TransactionID, a[i].AccountName, a[i].AccountName2,a[i].Amount, a[i].Remarks
+table.row.add([a[i].TransactionID, a[i].AccountName, a[i].TransactionType,a[i].Amount, a[i].Remarks,a[i].AccountName2,a[i].PaidVia,a[i].PaidTo
 ]);
 });
 table.draw();
@@ -224,29 +233,37 @@ xhttp.send();
 
 
 $("#stocktable").on('click', 'tr', function () {
-document.getElementById("TID").value = this.cells[0].innerText;
-document.getElementById("Account1").value = this.cells[1].innerText;
-document.getElementById("Account2").value = this.cells[2].innerText;
+    document.getElementById("TID").value = this.cells[0].innerText;
+  
 document.getElementById("amount").value = this.cells[3].innerText;
 
 document.getElementById("remarks").value = this.cells[4].innerText; 
-  
+    $('#account1').val(this.cells[6].innerText);
+   
+    $('#account2').val(this.cells[7].innerText);
+    $('#account1').selectpicker('refresh');
+   $('#account2').selectpicker('refresh');  
+
+
+
+    
+ 
 });
 
 function editTransactions() {
 var TID = document.getElementById("TID").value;
-var Account1 = document.getElementById("Account1").value;
-var Account2 = document.getElementById("Account2").value;
+var AID1 = $('#account1').find(":selected").val();
+var AID2 = $('#account2').find(":selected").val();
+var Account1 =$('#account2').find(":selected").text();
+var Account2 = $('#account2').find(":selected").text();
 var amount = document.getElementById("amount").value;
 
 var remarks = document.getElementById("remarks").value;
  
-
- 
-var updateTransaction = [TID, Account1, Account2, amount, remarks, 
+var updateTransaction = [TID,AID1,AID2, Account1, Account2, amount, remarks, 
 ] ;
 
-var UC = JSON.stringify(updateTransaction);
+var UT = JSON.stringify(updateTransaction);
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
@@ -257,9 +274,11 @@ alert("Transaction " + this.responseText + " is Updated");
 
 }
 };
-
+if (Account1== " "){
+    Account1="NULL"
+}
 // var MenuID=$('#Menus').find(":selected").val();
-xhttp.open("GET", "./editTransactions/" + UC, true);
+xhttp.open("GET", "./editTransactions/" + UT, true);
 xhttp.send();
 
 }
@@ -284,6 +303,44 @@ xhttp.send();
 
         }
     </script> -->
+    <script>
+         function loadAllAccounts1() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                var a =this.responseText;
+                document.getElementById("account1").innerHTML = '<option value=" "> </option>' +a;
+                    
+                $('#account1').selectpicker('refresh');
+               
+
+            }
+        };
+
+        xhttp.open("GET", "./getAccounts", true);
+        xhttp.send();
+    };
+
+
+    function loadAllAccounts2() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+
+                var a =this.responseText;
+                 
+                document.getElementById("account2").innerHTML =  a;
+                $('#account2').selectpicker('refresh');
+
+            }
+        };
+
+        xhttp.open("GET", "./getAccounts", true);
+        xhttp.send();
+    };
+    </script>
+
 </body>
 
 </html>

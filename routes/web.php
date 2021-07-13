@@ -323,7 +323,7 @@ Route::get('/filterSupplierDateData/{date1}/{date2}/{catId} ',[supplierHistoryCo
 Route::get('/printSupplierHistory2/{sup}/{colSums}',[supplierHistoryPrintController::class, 'printSupplierHistory2']);
 Route::get('/printSupplierHistory/{date1}/{date2}/{sup}/{colSums}',[supplierHistoryPrintController::class, 'printSupplierHistory']);
 Route::get('/getAllTransactions',[accountsController::class, 'getAllTransactions']);
-
+Route::get('/editTransactions/{UT}',[accountsController::class, 'editTransactions']);
 
 
 Route::get('/', function () {
