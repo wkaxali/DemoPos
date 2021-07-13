@@ -46,6 +46,7 @@
 </head>
 
 <body> <br><br><br><br><br><br>
+@include('mainNavbar')
     <div class="helloworld">
 
         <div class="borderMain">

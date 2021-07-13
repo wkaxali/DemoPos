@@ -39,7 +39,7 @@
 </head>
 
 <body onload="getAutoModel()">
-
+@include('mainNavbar')
     <header class="idi">
         <div class="container">
             <div class="row">

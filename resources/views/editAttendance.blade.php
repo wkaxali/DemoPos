@@ -44,7 +44,7 @@ margin: 0 auto;
 </style>
 </head>
 
-<body onload="getCustomers()">
+<body onload="getCustomers()">@include('mainNavbar')
 <div class="container">
 
 <header class="idi">

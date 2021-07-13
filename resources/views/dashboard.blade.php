@@ -409,7 +409,13 @@ function graph(){
   }
 ];
 
-Plotly.newPlot('graphDiv', data);
+var layout = {
+            width: 600,
+            height: 400,
+            margin: { t: 35, b: 35, l: 35, r: 35 },
+            };
+
+Plotly.newPlot('graphDiv', data, layout);
 }
 
 function scatter(){
@@ -436,7 +442,14 @@ var trace3 = {
 
 var data = [trace1, trace2, trace3];
 
-Plotly.newPlot('scatterDiv', data);
+var layout = {
+            width: 600,
+            height: 400,
+            margin: { t: 35, b: 35, l: 35, r: 35 },
+            };
+
+Plotly.newPlot('scatterDiv', data, layout);
+
 }
 
 function gauge(){
@@ -447,10 +460,10 @@ function gauge(){
         if (this.readyState == 4 && this.status == 200) {
 
             var d = JSON.parse(this.responseText);
-            var colCount = 5;
+            var colCount = 6;
             var column = 0;
             var row = 0;
-            var width = 250;
+            var width = 200;
             var height = 200;
             data = [];
         

@@ -207,6 +207,7 @@
 </head>
 
 <body>
+@include('mainNavbar')
     <main>
         <div class="container">
             <div class="row">

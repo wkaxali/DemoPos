@@ -69,7 +69,7 @@
         </div>
 
 
-        @include('adminNavbar')
+        @include('mainNavbar')
 
 
 

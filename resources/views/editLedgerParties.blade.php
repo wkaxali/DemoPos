@@ -44,7 +44,7 @@
 </head>
 
 <body onload="getParty()">
-
+@include('mainNavbar')
     <header class="idi">
         <div class="container">
             <div class="row">

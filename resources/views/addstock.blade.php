@@ -284,7 +284,7 @@
 
 </head>
 
-<body> @include('sidenavbar')
+<body> @include('mainNavbar')
     <header>
         <div class="container">
             <div class="row">

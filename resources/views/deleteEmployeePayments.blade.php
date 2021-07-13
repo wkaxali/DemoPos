@@ -108,7 +108,7 @@
     </section>
     
 </div>
-@include('sidenavbar')<div class="clearfix"></div>
+@include('mainNavbar')<div class="clearfix"></div>
 
 
 

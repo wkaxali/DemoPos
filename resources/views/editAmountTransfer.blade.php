@@ -49,7 +49,7 @@ margin: 0 auto;
 </style>
 </head>
 
-<body onload="getAllTransactions()">
+<body onload="getAllTransactions()">@include('mainNavbar')
 <div class="container">
 
 <header class="idi">
