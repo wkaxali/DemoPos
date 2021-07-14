@@ -257,10 +257,7 @@ var AID2 = $('#account2').find(":selected").val();
 var Account1 =$('#account2').find(":selected").text();
 var Account2 = $('#account2').find(":selected").text();
 var amount = document.getElementById("amount").value;
-$("#stocktable").on('click', 'tr', function () {
-var test = this.cells[6].innerText;
-alert(test)
-});
+ 
 var remarks = document.getElementById("remarks").value;
  
 var updateTransaction = [TID,AID1,AID2, Account1, Account2, amount, remarks, 
