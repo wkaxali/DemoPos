@@ -211,30 +211,33 @@ class accountsController extends Controller
             $remarks = $ata[6];
             if(!strcmp($Account1,"NULL")){
 
-              $oldbalance1=self::getAccountBalance($Account1);
-            $oldbalance1-= $amount;
-            $newbalance1=self::UpdateNewBalance($Account1,$oldbalance1);
-            
-
-            $oldbalance2=self::getAccountBalance($Account2);
+             
+            $oldbalance2=self::getAccountBalance($AID2);
             $oldbalance2+= $amount;
-            $newbalance2=self::UpdateNewBalance($Account2,$oldbalance2);
+            $newbalance2=self::UpdateNewBalance($AID2,$oldbalance2);
+
+          
 
             $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $TID)
             ->update([
-            'PaidVia'=>$AID1,
+            
             'PaidTo'=>$AID2,
             'Amount'=>$amount,
             'Remarks'=>$remarks,
             ]);
         }else{
-             
+            $oldbalance1=self::getAccountBalance($AID1);
+            $oldbalance1-= $amount;
+            $newbalance1=self::UpdateNewBalance($AID1,$oldbalance1);
+            $oldbalance2=self::getAccountBalance($AID2);
+            $oldbalance2+= $amount;
+            $newbalance2=self::UpdateNewBalance($AID2,$oldbalance2);
             
             $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $TID)
             ->update([
-             
+                'PaidVia'=>$AID1,
             'PaidTo'=>$AID2,
             'Amount'=>$amount,
             'Remarks'=>$remarks,
