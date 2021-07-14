@@ -191,10 +191,10 @@ $('#stocktable').DataTable();
                 },
                 columnDefs: [{
                     className: 'control',
-                    orderable: false,
+                    orderable: true,
                     targets: 0
                 }],
-                order: [1, 'asc']
+                order: [0, 'asc']
             });
         });
 
