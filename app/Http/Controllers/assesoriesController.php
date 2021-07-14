@@ -7,12 +7,6 @@ use DB;
 class assesoriesController extends Controller
 {
     
-
-
-
-
-
-
 public static function AddAcessories(Request $request, $CO){
     $ata=json_decode($CO);
     $toolkit = $ata[1];
