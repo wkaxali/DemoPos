@@ -32,57 +32,8 @@
 
          }
 
-         .printBtns {
 
-             background-color: #ffffff;
-             border: 1px solid#0a549d;
-             color: #0a549d;
-             transition: .7s;
-         }
-
-         .printBtns:hover {
-             background-color: #0a549d;
-             border-color: #0a549d;
-             color: #ffffff;
-             transition: .7s;
-         }
-
-         .receivingMain {
-             border: 1px solid #aaaaaa;
-             border-radius: 10px;
-             height: 550px;
-             padding: 10px;
-             overflow: auto;
-         }
-
-
-
-         table {
-             border-spacing: 0;
-             border-collapse: collapse;
-             border-style: hidden;
-
-             width: 100%;
-             max-width: 100%;
-         }
-
-         th,
-         td {
-             border: 1px solid #aaaaaa;
-             padding: 5px;
-         }
-
-         .mainRows {
-             display: flex;
-             justify-content: space-between;
-         }
-
-         .receivingTable {
-             border: 1px solid #aaaaaa;
-             border-radius: 10px;
-             padding: 10px;
-             overflow: auto !important;
-         }
+        
          
         ::-webkit-scrollbar {
             width: 10px;
@@ -173,7 +124,7 @@
                  </header>
              </div>
          </div>
-         @include('sidenavbar')
+         @include('mainNavbar')
          <div class="clearfix"></div>
      </div>
 

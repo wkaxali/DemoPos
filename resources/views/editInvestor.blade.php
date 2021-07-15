@@ -43,6 +43,7 @@
 </head>
 
 <body onload="searchRawMatirial()">
+@include('mainNavbar')
 <div class="container">
 
 

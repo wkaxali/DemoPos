@@ -144,6 +144,6 @@
 
     </div>
 </div>
-@include('adminNavbar')
+@include('mainNavbar')
 <div class="clearfix"></div>
 </div>

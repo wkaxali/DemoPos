@@ -45,7 +45,7 @@
 </head>
 
 <body onload="getUsers()">
-
+@include('mainNavbar')
     <div class="container">
 
         <header class="idi">

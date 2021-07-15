@@ -124,11 +124,8 @@ public static function getPartyNames(){
   
   public function getExpenses(){
     $results=DB::select('select * from vw_expenses');
-   // mysql_insert_id()
     return $results;
 
 }
-
-    // deleteExpense
 
 }

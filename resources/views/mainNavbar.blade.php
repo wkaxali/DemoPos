@@ -72,7 +72,7 @@ style="float: right"></span></a>
 <ul class="collapse firstULs4">
 <li id="menu-mensagens" style="width: 201px"><a href="/th"> Transaction History</a>
 </li>
-<li><a href="/pph ">Party Ledgers </a>  </li>
+<li><a href="/pph ">Party Payment History</a>  </li>
 <li><a href="/sph"> View Supplies Balance</a>  </li>
 <li><a href="/ih"> View Investor Balance</a>  </li>
 <!-- <li><a href="/ ">View Customer Balance </a>  </li> -->
@@ -80,7 +80,6 @@ style="float: right"></span></a>
 <li><a href="/sh">Sales History </a>  </li>
 <li><a href="/ph">Purchase History </a>  </li>
 <li><a href="/eh">Expense History </a>  </li>
-<li><a href="/eh">Party Payment History </a></li>
 <!-- <li><a href="/ ">View Employee History </a>  </li> -->
 
 </ul>

@@ -1,7 +1,10 @@
 <head>
     <style>
+        .pageContainer{
+            width: 1300px;
+        }
 
-        #progress{
+        .child{
             border-color: grey;
             width: auto;
             border-radius: 10px;
@@ -9,24 +12,6 @@
             box-shadow: 1px 2px 2px 1px grey ;
         }
 
-        #piechart{
-            border-color: grey;
-            width: 600px;
-            border-radius: 10px;
-            margin-left:20px;
-            box-shadow: 1px 2px 2px 1px grey ;
-        }
-
-        #top_x_div{
-            border-color: grey;
-            width: 600px;
-            border-radius: 10px;
-            margin-left:20px;
-            box-shadow: 1px 2px 2px 1px grey ;
-        }
-
-        
-    
         #movetop {
             position: fixed;
             bottom: 40px;
@@ -1058,6 +1043,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     </li>
                 </ul> -->
                 <div class="clearmain"></div>
+                <div class="pageContainer">
 
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
@@ -1115,17 +1101,17 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         </div>
 
         <div class="mainParent" style="display: flex; justify-content: space-between;">
-            <div id="piechart"></div>
-            <div id="top_x_div"></div>
+            <div class = "child" id="piechart"></div>
+            <div class = "child" id="top_x_div"></div>
         </div>
             <br>
-            <div id="progress"></div>
+            <div class = "child" id="progress"></div>
             <br>
         <div class="mainParent" style="display: flex; justify-content: space-between;">
-            <div id="graphDiv"></div>
-            <div id="scatterDiv"></div>
+            <div class = "child" id="graphDiv"></div>
+            <div class = "child" id="scatterDiv"></div>
         </div>
-
+        </div>
 
     @include('mainNavbar')
 

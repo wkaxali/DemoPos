@@ -12,6 +12,7 @@
 
 
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <style>
         table th,
@@ -43,6 +44,7 @@
 </head>
 
 <body onload="searchRawMatirial()">
+
 <div class="container">
 
 
@@ -109,6 +111,8 @@
             </div>
         </div>
     </section>
+    @include('mainNavbar')
+         <div class="clearfix"></div>
 </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -126,6 +130,27 @@
     <!--end::Global Theme Bundle-->
 
 <script>
+
+var toggle = true;
+
+$(".sidebar-icon").click(function () {
+    if (toggle) {
+        $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+        $("#menu span").css({
+            "position": "absolute",
+
+        });
+    } else {
+        $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+        setTimeout(function () {
+            $("#menu span").css({
+                "position": "relative",
+
+            });
+        }, 400);
+    }
+    toggle = !toggle;
+});
 
 function searchRawMatirial() {
     var xhttp = new XMLHttpRequest();

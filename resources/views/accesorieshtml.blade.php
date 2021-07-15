@@ -69,6 +69,6 @@
                 </div>
             </div>
         </div>
-    </section> @include('sidenavbar')
+    </section> @include('mainNavbar')
 </div>
     

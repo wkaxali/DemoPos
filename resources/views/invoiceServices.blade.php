@@ -22,15 +22,87 @@
 
     <title>Invoice</title>
     <style>
+
+.page-container.sidebar-collapsed-back .left-content {
+                width: 83%;
+            }
+        .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
+        .page-container.sidebar-collapsed-back .left-content {
+            transition: all 100ms linear;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            float: right;
+            width: 84%;
+        }
+            .page-container.sidebar-collapsed-back .sidebar-menu {
+                width: 55px;
+            }
+
+            .sidebar-menu {
+                width: 45px;
+            }
+
+            .logo {
+                left: 7px;
+            }
+
+            .page-container.sidebar-collapsed .logo {
+                left: 7px;
+            }
+
+            #menu li a {
+                padding: 15px 10px;
+                font-size: 1em;
+            }
+
+            ul.dropdown-menu {
+                min-width: 195px;
+            }
+
+            .profile_details ul li ul.dropdown-menu.drp-mnu {
+                min-width: 160px;
+            }
+
+            .popular-follo-right h4 {
+                font-size: 1em;
+            }
+
+            .popular-follo-right h5 {
+                font-size: 0.85em;
+            }
+
+            .popular-follo-right {
+                padding: 1.45em 1em;
+            }
+
+            .popular-bran-left h3 {
+                font-size: 1em;
+            }
+
+            .page-container.sidebar-collapsed .sidebar-menu {
+                width: 130px;
+            }
+
+            .market-update-block h3 {
+                font-size: 1.7em;
+            }
+
+            .forgot a {
+                font-size: 0.65em;
+            }
+
+
+
         @media (max-width: 1366px) {
             .left-content {
                 width: 83%;
             }
         }
 
-        .page-container.sidebar-collapsed-back .left-content {
-            width: 83% !important;
-        }
+        
 
         .registration-form {
             padding: 0px 0;
@@ -112,15 +184,7 @@
         label {
             width: 150px;
         }
-
-        .page-container.sidebar-collapsed-back .left-content {
-            transition: all 100ms linear;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-            float: right;
-            width: 84%;
-        }
+        
 
         .update {
             background-color: #e61d2f;
@@ -170,9 +234,7 @@
                 width: 86%;
             }
 
-            .page-container.sidebar-collapsed-back .left-content {
-                width: 83%;
-            }
+            
 
             .header-main {
                 padding: 1em 0.5em;
@@ -608,63 +670,7 @@
                 font-size: 0.8em;
             }
 
-            .page-container.sidebar-collapsed-back .sidebar-menu {
-                width: 55px;
-            }
-
-            .sidebar-menu {
-                width: 45px;
-            }
-
-            .logo {
-                left: 7px;
-            }
-
-            .page-container.sidebar-collapsed .logo {
-                left: 7px;
-            }
-
-            #menu li a {
-                padding: 15px 10px;
-                font-size: 1em;
-            }
-
-            ul.dropdown-menu {
-                min-width: 195px;
-            }
-
-            .profile_details ul li ul.dropdown-menu.drp-mnu {
-                min-width: 160px;
-            }
-
-            .popular-follo-right h4 {
-                font-size: 1em;
-            }
-
-            .popular-follo-right h5 {
-                font-size: 0.85em;
-            }
-
-            .popular-follo-right {
-                padding: 1.45em 1em;
-            }
-
-            .popular-bran-left h3 {
-                font-size: 1em;
-            }
-
-            .page-container.sidebar-collapsed .sidebar-menu {
-                width: 130px;
-            }
-
-            .market-update-block h3 {
-                font-size: 1.7em;
-            }
-
-            .forgot a {
-                font-size: 0.65em;
-            }
-
+        
             .inbox-details-body input[type="text"] {
                 font-size: 0.8em;
                 height: 33px;
