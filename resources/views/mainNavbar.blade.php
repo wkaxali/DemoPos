@@ -50,17 +50,17 @@ style="float: right"></span></a>
 <ul class="collapse firstULs2">
 <li><a href="/ex">Add Expense</a></li>
 <li><a href="/aeh"> Add Expense Heads</a></li>
-<li><a href="/ah"> Expense History</a></li>
+<li><a href="/eh"> Expense History</a></li>
 <li><a href="/exv"> Expense List</a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs3"><i class="fab fa-salesforce"></i><span
-style="font-size: 14px;">Stock</span><span class="fa fa-angle-right"
+style="font-size: 14px;">Stocks</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs3">
-<li><a href="/vs">View Sock</a></li>
-<li><a href="/ans ">Add SSock</a></li>
-<li><a href="/es ">Edit SSock</a></li>
+<li><a href="/vs">View Stock</a></li>
+<li><a href="/ans ">Add Stock</a></li>
+<li><a href="/es ">Edit Stock</a></li>
 <li><a href="/ ">Stock Profit Reports</a></li>
 <li><a href="/ ">Pending Delivery</a></li>
 </ul>
