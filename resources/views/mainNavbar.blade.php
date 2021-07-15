@@ -73,8 +73,8 @@ style="float: right"></span></a>
 <li id="menu-mensagens" style="width: 201px"><a href="/th"> Transaction History</a>
 </li>
 <li><a href="/pph ">Party Payment History</a>  </li>
-<li><a href="/sph"> View Supplies Balance</a>  </li>
-<li><a href="/ih"> View Investor Balance</a>  </li>
+<li><a href="/sph">Supplier Payment History</a>  </li>
+<li><a href="/ih">Investor Payment History</a>  </li>
 <!-- <li><a href="/ ">View Customer Balance </a>  </li> -->
 <li><a href="/ah">Accounts History </a>  </li>
 <li><a href="/sh">Sales History </a>  </li>

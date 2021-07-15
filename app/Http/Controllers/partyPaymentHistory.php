@@ -8,18 +8,18 @@ use DB;
 class partyPaymentHistory extends Controller
 {
     public static function getPartyPaymentHistory(){
-        $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <>0');
+        $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <>0 and TransactionCatogery <> "Amount Transfer"');
         return $data;
     }
 
     public static function filterPartyPaymentHistory($partyID){
         $data=0;
         if($partyID=="All"){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <> 0');
+            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <> 0 and TransactionCatogery <> "Amount Transfer"');
         
         }
         else if($partyID!="All"){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo ='.$partyID);
+            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and  and TransactionCatogery <> "Amount Transfer" PaidTo ='.$partyID);
         
         }
 
@@ -29,11 +29,11 @@ class partyPaymentHistory extends Controller
     public static function filterPartyPaymentDateData($date1,$date2,$partyID){
         $data=0;
         if($partyID=="All"){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <> 0 and DateStamp between "'.$date1.'"and"'.$date2.'"');
+            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <> 0  and TransactionCatogery <> "Amount Transfer" and DateStamp between "'.$date1.'"and"'.$date2.'"');
         
         }
         else if($partyID!="All"){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$partyID.' and DateStamp between "'.$date1 .'"and"'.$date2.'"');
+            $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$partyID.' and  and TransactionCatogery <> "Amount Transfer" DateStamp between "'.$date1 .'"and"'.$date2.'"');
         
         }
         return $data;
