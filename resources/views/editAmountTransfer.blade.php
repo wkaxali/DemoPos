@@ -285,9 +285,8 @@ var AID1 = $('#account1').find(":selected").val();
 var AID2 = $('#account2').find(":selected").val();
 var Account1 =$('#account2').find(":selected").text();  
 var remarks = document.getElementById("remarks").value;
- 
-var updateTransaction = [ATID, amount, AID1,AID2,remarks
-] ;
+var updateTransaction = [ATID, amount, AID1,AID2,remarks];
+
 
 var UT = JSON.stringify(updateTransaction);
 
@@ -300,9 +299,8 @@ alert("Transaction " + this.responseText + " is Updated");
 
 }
 };
-if (AID1== " "){
-    AID1="NULL"
-}
+
+alert(updateTransaction);
 // var MenuID=$('#Menus').find(":selected").val();
 xhttp.open("GET", "./editTransactions/" + UT, true);
 xhttp.send();
