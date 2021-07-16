@@ -278,57 +278,29 @@ class accountsController extends Controller
             $OldAID2=$data[0]->AID2;
             $OldRemarks=$data[0]->Remarks;
 
-            if(!strcmp($AID1,"NULL")){
-                //previous accounts balance returning
-                $OldAccount2Balance=self::getAccountBalance($OldAID2);
-                $NewAccount2Balance=$OldAccount2Balance-$OldAmount;
-                self::UpdateNewBalance($OldAID2,$NewAccount2Balance);
- 
-                 //Update Transactions
-            $oldbalance2=self::getAccountBalance($AID2);
-            $oldbalance2+= $amount;
-            $newbalance2=self::UpdateNewBalance($AID2,$oldbalance2);
-
-          
-
-            $re = DB::table('tbltransactionflow')
-            ->where('TransactionID', $TID)
-            ->update([
-            
-            'PaidTo'=>$AID2,
-            'Amount'=>$amount,
-            'Remarks'=>$remarks,
-            ]);
-        }else{
+        if(!strcmp($AID1,"NULL")){
             //previous accounts balance returning
-            $oldbalance2=self::getAccountBalance($PaidVia);
-            $oldbalance2+= $amount;
-            $newbalance2=self::UpdateNewBalance($PaidVia,$oldbalance2);
-
-            $oldbalance2=self::getAccountBalance($PaidTo);
-            $oldbalance2-= $amount;
-            $newbalance2=self::UpdateNewBalance($PaidTo,$oldbalance2);
-
-             //Update Transactions
-            $oldbalance1=self::getAccountBalance($AID1);
-            $oldbalance1-= $amount;
-            $newbalance1=self::UpdateNewBalance($AID1,$oldbalance1);
-            $oldbalance2=self::getAccountBalance($AID2);
-            $oldbalance2+= $amount;
-            $newbalance2=self::UpdateNewBalance($AID2,$oldbalance2);
+            $OldAccount2Balance=self::getAccountBalance($OldAID2);
+            $NewAccount2Balance=$OldAccount2Balance-$OldAmount;
+            self::UpdateNewBalance($OldAID2,$NewAccount2Balance);
             
-            $re = DB::table('tbltransactionflow')
-            ->where('TransactionID', $TID)
-            ->update([
-                'PaidVia'=>$AID1,
-            'PaidTo'=>$AID2,
-            'Amount'=>$amount,
-            'Remarks'=>$remarks,
-            ]);
+        }else{
+            $OldAccount1Balance=self::getAccountBalance($OldAID1);
+            $NewAccount1Balance=$OldAccount1Balance+$OldAmount;
+            self::UpdateNewBalance($OldAID1,$NewAccount1Balance);
+
+            $OldAccount2Balance=self::getAccountBalance($OldAID2);
+            $NewAccount2Balance=$OldAccount2Balance-$OldAmount;
+            self::UpdateNewBalance($OldAID2,$NewAccount2Balance);
         }
-            return $TID;
-            
-            }
+
+        //delete previous Transactions
+        DB::delete('DELETE FROM tbltransactionflow WHERE ATID ='.$ATID);
+
+        //Update New Acoounts and Transaction
+        self::amountTransfer($AID1,$AID2,$Amount,$Remarks);
+
+    }
 
         public function getAllTransactions(){
             $data=DB:: select('select * from vw_accountstransactions');
