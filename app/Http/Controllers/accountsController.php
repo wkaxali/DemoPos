@@ -328,7 +328,7 @@ class accountsController extends Controller
             }
 
         public function getAllTransactions(){
-            $data=DB:: select('select * from vw_accountstransactions ');
+            $data=DB:: select('select * from vw_accountstransactions');
             return $data;
         } 
 
