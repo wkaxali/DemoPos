@@ -157,7 +157,7 @@ class accountsController extends Controller
         
 
         public function amountTransfer($acc1,$acc2,$amount,$remarks){
-            if(!strcmp($acc1,"NULL")){
+            if(!strcmp($acc1,"Null")){
 
                 $ATID=DB::table('tbl_accountstransactions')->insertGetId([
                     
@@ -175,9 +175,9 @@ class accountsController extends Controller
                 $dateStamp = Carbon::now()->toDateString();
                 $LID=globalVarriablesController::selfLedgerID();
                 $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
-                
+                $newSelfBalance = $amount+ $oldSelfBalance;
                 LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
-                
+
                 $transactionId2=DB::table('tbltransactionflow')->insertGetId([
                     
                     'TransactionType'=>"Credit",
