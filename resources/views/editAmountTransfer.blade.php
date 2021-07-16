@@ -286,7 +286,7 @@ var AID2 = $('#account2').find(":selected").val();
 var Account1 =$('#account2').find(":selected").text();  
 var remarks = document.getElementById("remarks").value;
  
-var updateTransaction = [ATID, amount, AID1,AID2,amount
+var updateTransaction = [ATID, amount, AID1,AID2,remarks
 ] ;
 
 var UT = JSON.stringify(updateTransaction);
