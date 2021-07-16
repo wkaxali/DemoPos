@@ -245,7 +245,7 @@
                     var account2 = $('#acc2').find(":selected").val();
                   
                     var remarks = document.getElementById("Remarks").value;
-                    var array = [,amount,account1,account2,remarks];
+                    var array = [,amount, account1,account2,remarks];
                     var Amt = JSON.stringify(array);
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
@@ -254,7 +254,7 @@
                             
                         }
                     };
-                    alert(Amt);
+                  
                     xhttp.open("GET", "./accountsTransfer/"+Amt , true);
 
                     xhttp.send();

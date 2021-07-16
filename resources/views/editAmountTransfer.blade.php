@@ -294,13 +294,15 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
 if (this.readyState == 4 && this.status == 200) {
 
-alert("Transaction " + this.responseText + " is Updated");
+alert(this.responseText);
+$('#stocktable').DataTable().clear();
+getAllTransactions();
 
 
 }
 };
 
-alert(updateTransaction);
+
 // var MenuID=$('#Menus').find(":selected").val();
 xhttp.open("GET", "./editTransactions/" + UT, true);
 xhttp.send();

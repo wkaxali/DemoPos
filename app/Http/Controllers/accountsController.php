@@ -156,8 +156,8 @@ class accountsController extends Controller
         }
         
 
-        public static function amountTransfer($array){
-            $ata = json_decode($array);
+        public static function amountTransfer($UT){
+            $ata = json_decode($UT);
             $ATID = $ata[0];
             $amount = $ata[1];
             $acc1 = $ata[2];
@@ -279,6 +279,7 @@ class accountsController extends Controller
             $AID1 = $ata[2];
             $AID2 = $ata[3];
             $Remarks = $ata[4];
+            $LID=globalVarriablesController::selfLedgerID();
 
             $data=DB:: select('select * from tbl_accountstransactions where ATID='. $ATID);
             $OldAmount=$data[0]->Amount;
@@ -291,7 +292,11 @@ class accountsController extends Controller
             $OldAccount2Balance=self::getAccountBalance($OldAID2);
             $NewAccount2Balance=$OldAccount2Balance-$OldAmount;
             self::UpdateNewBalance($OldAID2,$NewAccount2Balance);
-            
+
+            $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
+            $newSelfBalance = $oldSelfBalance-$OldAmount;
+            LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
+
         }else{
             //previous accounts1 balance returning
             $OldAccount1Balance=self::getAccountBalance($OldAID1);
