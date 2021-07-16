@@ -162,7 +162,7 @@ class accountsController extends Controller
             $acc2 = $ata[1];
             $amount = $ata[2];
             $remarks = $ata[3];
-            if(!strcmp($acc1,"Null")){
+            if(!strcmp($acc1,"")){
   
                 $ATID=DB::table('tbl_accountstransactions')->insertGetId([
                    
