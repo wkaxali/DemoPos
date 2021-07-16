@@ -263,12 +263,12 @@ xhttp.send();
 $("#stocktable").on('click', 'tr', function () {
     document.getElementById("TID").value = this.cells[0].innerText;
   
-document.getElementById("amount").value = this.cells[3].innerText;
+document.getElementById("amount").value = this.cells[1].innerText;
 
-document.getElementById("remarks").value = this.cells[4].innerText; 
-    $('#account1').val(this.cells[6].innerText);
+document.getElementById("remarks").value = this.cells[8].innerText; 
+    $('#account1').val(this.cells[2].innerText);
    
-    $('#account2').val(this.cells[7].innerText);
+    $('#account2').val(this.cells[5].innerText);
     $('#account1').selectpicker('refresh');
    $('#account2').selectpicker('refresh');  
 
@@ -279,16 +279,14 @@ document.getElementById("remarks").value = this.cells[4].innerText;
 });
 
 function editTransactions() {
-var TID = document.getElementById("TID").value;
+var ATID = document.getElementById("TID").value;
+var amount = document.getElementById("amount").value;
 var AID1 = $('#account1').find(":selected").val();
 var AID2 = $('#account2').find(":selected").val();
-var Account1 =$('#account2').find(":selected").text();
-var Account2 = $('#account2').find(":selected").text();
-var amount = document.getElementById("amount").value;
- 
+var Account1 =$('#account2').find(":selected").text();  
 var remarks = document.getElementById("remarks").value;
  
-var updateTransaction = [TID,AID1,AID2, Account1, Account2, amount, remarks, 
+var updateTransaction = [ATID, amount, AID1,AID2,amount
 ] ;
 
 var UT = JSON.stringify(updateTransaction);
@@ -302,8 +300,8 @@ alert("Transaction " + this.responseText + " is Updated");
 
 }
 };
-if (Account1== " "){
-    Account1="NULL"
+if (AID1== " "){
+    AID1="NULL"
 }
 // var MenuID=$('#Menus').find(":selected").val();
 xhttp.open("GET", "./editTransactions/" + UT, true);
