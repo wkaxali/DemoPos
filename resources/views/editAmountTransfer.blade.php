@@ -73,7 +73,7 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
   style="width: 50%; text-align: center;"   id="stocktable">
 <thead>
 
-<th>Transaction ID</th>
+<th>Account Transaction ID</th>
 <th>Account 1 Name</th>
 
 <th>Transaction Type</th>
@@ -215,7 +215,7 @@ table = $('#stocktable').DataTable();
 
 $.each(a, function (i, item) {
 
-table.row.add([a[i].TransactionID, a[i].AccountName, a[i].TransactionType,a[i].Amount, a[i].Remarks,a[i].AccountName2,a[i].PaidVia,a[i].PaidTo
+table.row.add([a[i].ATID, a[i].AccountName, a[i].TransactionType,a[i].Amount, a[i].Remarks,a[i].AccountName2,a[i].PaidVia,a[i].PaidTo
 ]);
 });
 table.draw();

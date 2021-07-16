@@ -161,7 +161,8 @@ class accountsController extends Controller
 
                 $ATID=DB::table('tbl_accountstransactions')->insertGetId([
                     
-                    'AID2'=>$acc2 
+                    'AID2'=>$acc2,
+                    'Amounts'=>$amount 
                     
                     ]);
                 
@@ -197,8 +198,8 @@ class accountsController extends Controller
 
                 $ATID=DB::table('tbl_accountstransactions')->insertGetId([
                     'AID'=>$acc1,
-                    'AID2'=>$acc2 
-                    
+                    'AID2'=>$acc2, 
+                    'Amounts'=>$amount
                     ]);
 
                   
@@ -247,7 +248,7 @@ class accountsController extends Controller
                 'LID'=>$LID, 
                 'PaidVia'=>$acc2,  
                 'Remarks'=>$remarks,
-                'ATID'=>$ATID,        
+                'ATID'=>$ATID, 
                 ]);  
                 
             // $transactionId1=TransactionFlow::addTransaction(Null,"Debit",$Tcate,$amount,$dateStamp,
@@ -327,7 +328,7 @@ class accountsController extends Controller
             }
 
         public function getAllTransactions(){
-            $data=DB:: select('select * from vw_amounttransfer ');
+            $data=DB:: select('select * from vw_accountstransactions ');
             return $data;
         } 
 
