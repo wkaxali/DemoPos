@@ -162,7 +162,8 @@ class accountsController extends Controller
                 $ATID=DB::table('tbl_accountstransactions')->insertGetId([
                     
                     'AID2'=>$acc2,
-                    'Amounts'=>$amount 
+                    'Amount'=>$amount,
+                    'Remarks'=>$remarks 
                     
                     ]);
                 
@@ -197,9 +198,10 @@ class accountsController extends Controller
             }else{
 
                 $ATID=DB::table('tbl_accountstransactions')->insertGetId([
-                    'AID'=>$acc1,
+                    'AID1'=>$acc1,
                     'AID2'=>$acc2, 
-                    'Amounts'=>$amount
+                    'Amount'=>$amount,
+                    'Remarks'=>$remarks,
                     ]);
 
                   
