@@ -265,10 +265,10 @@ $("#stocktable").on('click', 'tr', function () {
   
 document.getElementById("amount").value = this.cells[1].innerText;
 
-document.getElementById("remarks").value = this.cells[8].innerText; 
+document.getElementById("remarks").value = this.cells[6].innerText; 
     $('#account1').val(this.cells[2].innerText);
    
-    $('#account2').val(this.cells[5].innerText);
+    $('#account2').val(this.cells[4].innerText);
     $('#account1').selectpicker('refresh');
    $('#account2').selectpicker('refresh');  
 
