@@ -12,8 +12,12 @@ integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xX
 
 
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 <style>
+
+    
+
 table th,
 td {
 border: 1px solid rgb(202, 202, 202);
@@ -49,7 +53,7 @@ margin: 0 auto;
 </style>
 </head>
 
-<body onload="getAllTransactions()">@include('mainNavbar')
+<body onload="getAllTransactions()">
 <div class="container">
 
 <header class="idi">
@@ -73,16 +77,17 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
   style="width: 50%; text-align: center;"   id="stocktable">
 <thead>
 
-<th>Transaction ID</th>
-<th>Account 1 Name</th>
-
-<th>Transaction Type</th>
+<th>Account Transaction ID</th>
 <th>Amount</th>
+<th>Account 1 ID</th>
+<th>Account 1 Name</th>
+<th>Account 1 Number</th>
+<th>Account 2 ID</th>
+<th>Account 2 Name</th>
+<th>Account 2 Number</th>
 
 <th>Remarks</th>
-<th>Account 2 Name</th>
-<th>Account1 ID</th>
-<th>Account2 ID</th>
+
 
 
 </tr>
@@ -104,7 +109,7 @@ id="TID">
 <div class="input-field"><div class="col-md-5">
 <label for="status">Account 1</label>
  
-   <select style="margin-left:130px; class="selectpicker form-control" data-live-search="true" id="account1">
+   <select style="margin-left:130px; class="selectpicker form-control data-live-search="true" id="account1">
          <option value="All">All Accounts</option>
                                    
   </select>
@@ -181,6 +186,29 @@ $('#stocktable').DataTable();
 </script> -->
 <!--end::Global Theme Bundle-->
 <script>
+
+var toggle = true;
+
+$(".sidebar-icon").click(function () {
+    if (toggle) {
+        $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+        $("#menu span").css({
+            "position": "absolute",
+
+        });
+    } else {
+        $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+        setTimeout(function () {
+            $("#menu span").css({
+                "position": "relative",
+
+            });
+        }, 400);
+    }
+    toggle = !toggle;
+});
+
+
         $(document).ready(function () {
             $('#stocktable').DataTable({
                 responsive: {
@@ -215,7 +243,7 @@ table = $('#stocktable').DataTable();
 
 $.each(a, function (i, item) {
 
-table.row.add([a[i].TransactionID, a[i].AccountName, a[i].TransactionType,a[i].Amount, a[i].Remarks,a[i].AccountName2,a[i].PaidVia,a[i].PaidTo
+table.row.add([a[i].ATID, a[i].Amount, a[i].AID1, a[i].Account1Name,a[i].Account1Number, a[i].AID2, a[i].Account2Name,a[i].Account2Number, a[i].Remarks
 ]);
 });
 table.draw();
@@ -340,7 +368,7 @@ xhttp.send();
         xhttp.send();
     };
     </script>
-
+@include('mainNavbar')
 </body>
 
 </html>
