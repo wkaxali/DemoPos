@@ -81,10 +81,10 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
 <th>Amount</th>
 <th>Account 1 ID</th>
 <th>Account 1 Name</th>
-<th>Account 1 Number</th>
+ 
 <th>Account 2 ID</th>
 <th>Account 2 Name</th>
-<th>Account 2 Number</th>
+ 
 
 <th>Remarks</th>
 
@@ -243,7 +243,7 @@ table = $('#stocktable').DataTable();
 
 $.each(a, function (i, item) {
 
-table.row.add([a[i].ATID, a[i].Amount, a[i].AID1, a[i].Account1Name,a[i].Account1Number, a[i].AID2, a[i].Account2Name,a[i].Account2Number, a[i].Remarks
+table.row.add([a[i].ATID, a[i].Amount, a[i].AID1, a[i].Account1Name +" ("+ a[i].Account1Number+")", a[i].AID2, a[i].Account2Name +" ("+ a[i].Account2Number+")", a[i].Remarks
 ]);
 });
 table.draw();
