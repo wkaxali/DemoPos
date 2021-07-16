@@ -77,15 +77,12 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
   style="width: 50%; text-align: center;"   id="stocktable">
 <thead>
 
-<th>Account Transaction ID</th>
+<th>A/C TID</th>
 <th>Amount</th>
-<th>Account 1 ID</th>
-<th>Account 1 Name</th>
- 
-<th>Account 2 ID</th>
-<th>Account 2 Name</th>
- 
-
+<th>A/C 1 ID</th>
+<th>A/C 1 Name</th>
+<th>A/C 2 ID</th>
+<th>A/C 2 Name</th>
 <th>Remarks</th>
 
 
