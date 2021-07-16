@@ -202,22 +202,23 @@ class accountsController extends Controller
         public static function editTransactions(Request $request, $UT){
             
             $ata=json_decode($UT);
-            $TID = $ata[0];
-            $AID1 = $ata[1];
-            $AID2 = $ata[2];
-            $Account1 = $ata[3];
-            $Account2 = $ata[4];
-            $amount = $ata[5];
-            $remarks = $ata[6];
-            $data=DB:: select('select PaidVia,PaidTo from vw_amounttransfer where TransactionID='. $TID);
-            $PaidVia=$data[0]->PaidVia;
-             
-            $PaidTo=$data[0]->PaidTo;
-            if(!strcmp($Account1,"NULL")){
+            $ATID = $ata[0];
+            $Amount = $ata[1];
+            $AID1 = $ata[2];
+            $AID2 = $ata[3];
+            $remarks[4];
+
+            $data=DB:: select('select * from tbl_accountstransactions where ATID='. $ATID);
+            $OldAmount=$data[0]->Amount;
+            $OldAID1=$data[0]->AID1;
+            $OldAID2=$data[0]->AID2;
+            $OldRemarks=$data[0]->Remarks;
+
+            if(!strcmp($AID1,"NULL")){
                 //previous accounts balance returning
-                $oldbalance2=self::getAccountBalance($PaidTo);
-                $oldbalance2-= $amount;
-                $newbalance2=self::UpdateNewBalance($PaidTo,$oldbalance2);
+                $OldAccount2Balance=self::getAccountBalance($OldAID2);
+                $NewAccount2Balance=$OldAccount2Balance-$OldAmount;
+                self::UpdateNewBalance($OldAID2,$NewAccount2Balance);
  
                  //Update Transactions
             $oldbalance2=self::getAccountBalance($AID2);
