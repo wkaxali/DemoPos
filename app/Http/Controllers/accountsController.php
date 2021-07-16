@@ -156,11 +156,16 @@ class accountsController extends Controller
         }
         
 
-        public static function amountTransfer($acc1,$acc2,$amount,$remarks){
-            if(!strcmp($acc1,"")){
-
+        public function amountTransfer($array){
+            $ata = json_decode($array);
+            $acc1 = $ata[0];
+            $acc2 = $ata[1];
+            $amount = $ata[2];
+            $remarks = $ata[3];
+            if(!strcmp($acc1,"Null")){
+  
                 $ATID=DB::table('tbl_accountstransactions')->insertGetId([
-                    
+                   
                     'AID2'=>$acc2,
                     'Amount'=>$amount,
                     'Remarks'=>$remarks 
