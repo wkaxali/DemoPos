@@ -156,13 +156,14 @@ class accountsController extends Controller
         }
         
 
-        public function amountTransfer($array){
+        public static function amountTransfer($array){
             $ata = json_decode($array);
-            $acc1 = $ata[0];
-            $acc2 = $ata[1];
-            $amount = $ata[2];
-            $remarks = $ata[3];
-            if(!strcmp($acc1,"Null")){
+            $ATID = $ata[0];
+            $amount = $ata[1];
+            $acc1 = $ata[2];
+            $acc2 = $ata[3];
+            $remarks = $ata[4];
+            if(!strcmp($acc1,"")){
   
                 $ATID=DB::table('tbl_accountstransactions')->insertGetId([
                    
@@ -308,7 +309,7 @@ class accountsController extends Controller
         DB::delete('DELETE FROM tbl_accountstransactions WHERE ATID ='.$ATID);
 
         //Update New Acoounts and Transaction
-        self::amountTransfer($AID1,$AID2,$Amount,$Remarks);
+        self::amountTransfer($UT);
         return "Transaction ".$ATID." is Updated";
 
     }
