@@ -156,8 +156,22 @@ class accountsController extends Controller
         }
         
 
-        public function amountTransfer($acc1,$acc2,$amount,$remarks){
-            if(!strcmp($acc1,"NULL")){
+        public static function amountTransfer($UT){
+            $ata = json_decode($UT);
+            $ATID = $ata[0];
+            $amount = $ata[1];
+            $acc1 = $ata[2];
+            $acc2 = $ata[3];
+            $remarks = $ata[4];
+            if(!strcmp($acc1,"")){
+  
+                $ATID=DB::table('tbl_accountstransactions')->insertGetId([
+                   
+                    'AID2'=>$acc2,
+                    'Amount'=>$amount,
+                    'Remarks'=>$remarks 
+                    
+                    ]);
                 
                 $oldbalance2=self::getAccountBalance($acc2);
                 $oldbalance2+= $amount;
@@ -167,12 +181,40 @@ class accountsController extends Controller
                 $dateStamp = Carbon::now()->toDateString();
                 $LID=globalVarriablesController::selfLedgerID();
                 $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
+                $newSelfBalance = $amount+ $oldSelfBalance;
+                LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
 
-                $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
-                Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$LID,$acc2,Null,$remarks);
+                $transactionId2=DB::table('tbltransactionflow')->insertGetId([
+                    
+                    'TransactionType'=>"Credit",
+                    'TransactionCatogery'=>$Tcate ,
+                    
+                    'Amount'=>$amount,
+                    'DateStamp'=>$dateStamp,
+                    'SBB'=>$oldSelfBalance,
+                    'SBA'=>$oldSelfBalance,
+                    'LID'=>$LID, 
+                    'PaidVia'=>$acc2,  
+                    'Remarks'=>$remarks,
+                    'ATID'=>$ATID,        
+                    ]);
 
+                // $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
+                // Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$LID,$acc2,Null,$remarks);
+
+               
             }else{
 
+                $ATID=DB::table('tbl_accountstransactions')->insertGetId([
+                    'AID1'=>$acc1,
+                    'AID2'=>$acc2, 
+                    'Amount'=>$amount,
+                    'Remarks'=>$remarks,
+                    ]);
+
+                  
+                         
+    
 
             $oldbalance1=self::getAccountBalance($acc1);
             $oldbalance1-= $amount;
@@ -189,10 +231,40 @@ class accountsController extends Controller
             $LID=globalVarriablesController::selfLedgerID();
             $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
 
-            $transactionRecord1=TransactionFlow::addTransaction(Null,"Debit",$Tcate,$amount,$dateStamp,
-            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
-            $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
-            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
+            $transactionId2=DB::table('tbltransactionflow')->insertGetId([
+                    
+                'TransactionType'=>"Debit",
+                'TransactionCatogery'=>$Tcate ,
+                
+                'Amount'=>$amount,
+                'DateStamp'=>$dateStamp,
+                'SBB'=>$oldSelfBalance,
+                'SBA'=>$oldSelfBalance,
+                'LID'=>$LID, 
+                'PaidVia'=>$acc1,  
+                'Remarks'=>$remarks,
+                'ATID'=>$ATID,        
+                ]);  
+
+            $transactionId2=DB::table('tbltransactionflow')->insertGetId([
+            
+                'TransactionType'=>"Credit",
+                'TransactionCatogery'=>$Tcate ,
+                
+                'Amount'=>$amount,
+                'DateStamp'=>$dateStamp,
+                'SBB'=>$oldSelfBalance,
+                'SBA'=>$oldSelfBalance,
+                'LID'=>$LID, 
+                'PaidVia'=>$acc2,  
+                'Remarks'=>$remarks,
+                'ATID'=>$ATID, 
+                ]);  
+                
+            // $transactionId1=TransactionFlow::addTransaction(Null,"Debit",$Tcate,$amount,$dateStamp,
+            // Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
+            // $transactionId2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
+            // Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
         }
 
 
@@ -202,71 +274,53 @@ class accountsController extends Controller
         public static function editTransactions(Request $request, $UT){
             
             $ata=json_decode($UT);
-            $TID = $ata[0];
-            $AID1 = $ata[1];
-            $AID2 = $ata[2];
-            $Account1 = $ata[3];
-            $Account2 = $ata[4];
-            $amount = $ata[5];
-            $remarks = $ata[6];
-            $data=DB:: select('select PaidVia,PaidTo from vw_amounttransfer where TransactionID='. $TID);
-            $PaidVia=$data[0]->PaidVia;
-             
-            $PaidTo=$data[0]->PaidTo;
-            if(!strcmp($Account1,"NULL")){
-                //previous accounts balance returning
-                $oldbalance2=self::getAccountBalance($PaidTo);
-                $oldbalance2-= $amount;
-                $newbalance2=self::UpdateNewBalance($PaidTo,$oldbalance2);
- 
-                 //Update Transactions
-            $oldbalance2=self::getAccountBalance($AID2);
-            $oldbalance2+= $amount;
-            $newbalance2=self::UpdateNewBalance($AID2,$oldbalance2);
+            $ATID = $ata[0];
+            $Amount = $ata[1];
+            $AID1 = $ata[2];
+            $AID2 = $ata[3];
+            $Remarks = $ata[4];
+            $LID=globalVarriablesController::selfLedgerID();
 
-          
+            $data=DB:: select('select * from tbl_accountstransactions where ATID='. $ATID);
+            $OldAmount=$data[0]->Amount;
+            $OldAID1=$data[0]->AID1;
+            $OldAID2=$data[0]->AID2;
+            $OldRemarks=$data[0]->Remarks;
 
-            $re = DB::table('tbltransactionflow')
-            ->where('TransactionID', $TID)
-            ->update([
-            
-            'PaidTo'=>$AID2,
-            'Amount'=>$amount,
-            'Remarks'=>$remarks,
-            ]);
-        }else{
+        if(!strcmp($AID1,"")){
             //previous accounts balance returning
-            $oldbalance2=self::getAccountBalance($PaidVia);
-            $oldbalance2+= $amount;
-            $newbalance2=self::UpdateNewBalance($PaidVia,$oldbalance2);
+            $OldAccount2Balance=self::getAccountBalance($OldAID2);
+            $NewAccount2Balance=$OldAccount2Balance-$OldAmount;
+            self::UpdateNewBalance($OldAID2,$NewAccount2Balance);
 
-            $oldbalance2=self::getAccountBalance($PaidTo);
-            $oldbalance2-= $amount;
-            $newbalance2=self::UpdateNewBalance($PaidTo,$oldbalance2);
+            $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
+            $newSelfBalance = $oldSelfBalance-$OldAmount;
+            LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
 
-             //Update Transactions
-            $oldbalance1=self::getAccountBalance($AID1);
-            $oldbalance1-= $amount;
-            $newbalance1=self::UpdateNewBalance($AID1,$oldbalance1);
-            $oldbalance2=self::getAccountBalance($AID2);
-            $oldbalance2+= $amount;
-            $newbalance2=self::UpdateNewBalance($AID2,$oldbalance2);
-            
-            $re = DB::table('tbltransactionflow')
-            ->where('TransactionID', $TID)
-            ->update([
-                'PaidVia'=>$AID1,
-            'PaidTo'=>$AID2,
-            'Amount'=>$amount,
-            'Remarks'=>$remarks,
-            ]);
+        }else{
+            //previous accounts1 balance returning
+            $OldAccount1Balance=self::getAccountBalance($OldAID1);
+            $NewAccount1Balance=$OldAccount1Balance+$OldAmount;
+            self::UpdateNewBalance($OldAID1,$NewAccount1Balance);
+
+            //previous accounts2 balance returning
+            $OldAccount2Balance=self::getAccountBalance($OldAID2);
+            $NewAccount2Balance=$OldAccount2Balance-$OldAmount;
+            self::UpdateNewBalance($OldAID2,$NewAccount2Balance);
         }
-            return $TID;
-            
-            }
+
+        //delete previous Transactions
+        DB::delete('DELETE FROM tbltransactionflow WHERE ATID ='.$ATID);
+        DB::delete('DELETE FROM tbl_accountstransactions WHERE ATID ='.$ATID);
+
+        //Update New Acoounts and Transaction
+        self::amountTransfer($UT);
+        return "Transaction ".$ATID." is Updated";
+
+    }
 
         public function getAllTransactions(){
-            $data=DB:: select('select * from vw_amounttransfer ');
+            $data=DB:: select('select * from vw_accountstransactions');
             return $data;
         } 
 

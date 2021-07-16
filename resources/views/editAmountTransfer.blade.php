@@ -12,8 +12,12 @@ integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xX
 
 
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 <style>
+
+    
+
 table th,
 td {
 border: 1px solid rgb(202, 202, 202);
@@ -49,7 +53,7 @@ margin: 0 auto;
 </style>
 </head>
 
-<body onload="getAllTransactions()">@include('mainNavbar')
+<body onload="getAllTransactions()">
 <div class="container">
 
 <header class="idi">
@@ -73,16 +77,17 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
   style="width: 50%; text-align: center;"   id="stocktable">
 <thead>
 
-<th>Transaction ID</th>
-<th>Account 1 Name</th>
-
-<th>Transaction Type</th>
+<th>Account Transaction ID</th>
 <th>Amount</th>
+<th>Account 1 ID</th>
+<th>Account 1 Name</th>
+<th>Account 1 Number</th>
+<th>Account 2 ID</th>
+<th>Account 2 Name</th>
+<th>Account 2 Number</th>
 
 <th>Remarks</th>
-<th>Account 2 Name</th>
-<th>Account1 ID</th>
-<th>Account2 ID</th>
+
 
 
 </tr>
@@ -104,7 +109,7 @@ id="TID">
 <div class="input-field"><div class="col-md-5">
 <label for="status">Account 1</label>
  
-   <select style="margin-left:130px; class="selectpicker form-control" data-live-search="true" id="account1">
+   <select style="margin-left:130px; class="selectpicker form-control data-live-search="true" id="account1">
          <option value="All">All Accounts</option>
                                    
   </select>
@@ -181,6 +186,29 @@ $('#stocktable').DataTable();
 </script> -->
 <!--end::Global Theme Bundle-->
 <script>
+
+var toggle = true;
+
+$(".sidebar-icon").click(function () {
+    if (toggle) {
+        $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+        $("#menu span").css({
+            "position": "absolute",
+
+        });
+    } else {
+        $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+        setTimeout(function () {
+            $("#menu span").css({
+                "position": "relative",
+
+            });
+        }, 400);
+    }
+    toggle = !toggle;
+});
+
+
         $(document).ready(function () {
             $('#stocktable').DataTable({
                 responsive: {
@@ -215,7 +243,7 @@ table = $('#stocktable').DataTable();
 
 $.each(a, function (i, item) {
 
-table.row.add([a[i].TransactionID, a[i].AccountName, a[i].TransactionType,a[i].Amount, a[i].Remarks,a[i].AccountName2,a[i].PaidVia,a[i].PaidTo
+table.row.add([a[i].ATID, a[i].Amount, a[i].AID1, a[i].Account1Name,a[i].Account1Number, a[i].AID2, a[i].Account2Name,a[i].Account2Number, a[i].Remarks
 ]);
 });
 table.draw();
@@ -235,12 +263,12 @@ xhttp.send();
 $("#stocktable").on('click', 'tr', function () {
     document.getElementById("TID").value = this.cells[0].innerText;
   
-document.getElementById("amount").value = this.cells[3].innerText;
+document.getElementById("amount").value = this.cells[1].innerText;
 
-document.getElementById("remarks").value = this.cells[4].innerText; 
-    $('#account1').val(this.cells[6].innerText);
+document.getElementById("remarks").value = this.cells[8].innerText; 
+    $('#account1').val(this.cells[2].innerText);
    
-    $('#account2').val(this.cells[7].innerText);
+    $('#account2').val(this.cells[5].innerText);
     $('#account1').selectpicker('refresh');
    $('#account2').selectpicker('refresh');  
 
@@ -251,17 +279,14 @@ document.getElementById("remarks").value = this.cells[4].innerText;
 });
 
 function editTransactions() {
-var TID = document.getElementById("TID").value;
+var ATID = document.getElementById("TID").value;
+var amount = document.getElementById("amount").value;
 var AID1 = $('#account1').find(":selected").val();
 var AID2 = $('#account2').find(":selected").val();
-var Account1 =$('#account2').find(":selected").text();
-var Account2 = $('#account2').find(":selected").text();
-var amount = document.getElementById("amount").value;
- 
+var Account1 =$('#account2').find(":selected").text();  
 var remarks = document.getElementById("remarks").value;
- 
-var updateTransaction = [TID,AID1,AID2, Account1, Account2, amount, remarks, 
-] ;
+var updateTransaction = [ATID, amount, AID1,AID2,remarks];
+
 
 var UT = JSON.stringify(updateTransaction);
 
@@ -269,14 +294,15 @@ var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function () {
 if (this.readyState == 4 && this.status == 200) {
 
-alert("Transaction " + this.responseText + " is Updated");
+alert(this.responseText);
+$('#stocktable').DataTable().clear();
+getAllTransactions();
 
 
 }
 };
-if (Account1== " "){
-    Account1="NULL"
-}
+
+
 // var MenuID=$('#Menus').find(":selected").val();
 xhttp.open("GET", "./editTransactions/" + UT, true);
 xhttp.send();
@@ -340,7 +366,7 @@ xhttp.send();
         xhttp.send();
     };
     </script>
-
+@include('mainNavbar')
 </body>
 
 </html>

@@ -268,7 +268,7 @@
         ::-webkit-scrollbar-thumb {
             background-color: #e61d2f;
         }
-
+ 
         .fa-bars {
             color: #fff;
         }

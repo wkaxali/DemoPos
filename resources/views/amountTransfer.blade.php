@@ -226,7 +226,7 @@
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             // alert(this.response);
-                            document.getElementById("acc1").innerHTML = this.response;
+                            document.getElementById("acc1").innerHTML ='<option value=""> </option>'+ this.response;
                             $('#acc1').selectpicker('refresh');
                             document.getElementById("acc2").innerHTML = this.response;
                             $('#acc2').selectpicker('refresh');
@@ -238,14 +238,15 @@
                     xhttp.send();
 
                 }
-
+                 
                 function amountTransfer(){
-                    
+                    var amount = document.getElementById("amount").value;
                     var account1 = $('#acc1').find(":selected").val();
                     var account2 = $('#acc2').find(":selected").val();
-                    var amount = document.getElementById("amount").value;
+                  
                     var remarks = document.getElementById("Remarks").value;
-                //  alert(account1);   alert(account2);
+                    var array = [,amount, account1,account2,remarks];
+                    var Amt = JSON.stringify(array);
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
@@ -253,10 +254,8 @@
                             
                         }
                     };
-                      if (account1==""){
-                        account1= "NULL";
-                      }
-                    xhttp.open("GET", "./amountTransfer/"+account1.trim()+"/"+account2+"/"+amount+"/"+remarks, true);
+                  
+                    xhttp.open("GET", "./accountsTransfer/"+Amt , true);
 
                     xhttp.send();
 

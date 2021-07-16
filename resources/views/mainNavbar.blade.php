@@ -61,8 +61,8 @@ style="float: right"></span></a>
 <li><a href="/vs">View Stock</a></li>
 <li><a href="/ans ">Add Stock</a></li>
 <li><a href="/es ">Edit Stock</a></li>
-<li><a href="/ ">Stock Profit Reports</a></li>
-<li><a href="/ ">Pending Delivery</a></li>
+<!-- <li><a href="/ ">Stock Profit Reports</a></li> -->
+<!-- <li><a href="/ ">Pending Delivery</a></li> -->
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs4"><i
