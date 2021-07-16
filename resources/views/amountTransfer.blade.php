@@ -238,14 +238,14 @@
                     xhttp.send();
 
                 }
-
+                 
                 function amountTransfer(){
-                    
+                    var amount = document.getElementById("amount").value;
                     var account1 = $('#acc1').find(":selected").val();
                     var account2 = $('#acc2').find(":selected").val();
-                    var amount = document.getElementById("amount").value;
+                  
                     var remarks = document.getElementById("Remarks").value;
-                    var array = [account1,account2,amount,remarks];
+                    var array = [,amount,account1,account2,remarks];
                     var Amt = JSON.stringify(array);
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
