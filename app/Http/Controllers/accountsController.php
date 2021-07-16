@@ -156,7 +156,7 @@ class accountsController extends Controller
         }
         
 
-        public function amountTransfer($array){
+        public static function amountTransfer($array){
             $ata = json_decode($array);
             $acc1 = $ata[0];
             $acc2 = $ata[1];
