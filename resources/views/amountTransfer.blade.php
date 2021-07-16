@@ -233,7 +233,7 @@
                         }
                     };
                     
-                    xhttp.open("GET", "./getAccounts/" , true);
+                    xhttp.open("GET", "./getAccountsAll" , true);
 
                     xhttp.send();
 

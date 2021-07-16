@@ -175,7 +175,9 @@ class accountsController extends Controller
                 $dateStamp = Carbon::now()->toDateString();
                 $LID=globalVarriablesController::selfLedgerID();
                 $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
-
+                
+                LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
+                
                 $transactionId2=DB::table('tbltransactionflow')->insertGetId([
                     
                     'TransactionType'=>"Credit",
@@ -287,8 +289,7 @@ class accountsController extends Controller
             $oldbalance2=self::getAccountBalance($AID2);
             $oldbalance2+= $amount;
             $newbalance2=self::UpdateNewBalance($AID2,$oldbalance2);
-
-          
+           
 
             $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $TID)
