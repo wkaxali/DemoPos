@@ -226,14 +226,14 @@
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
                             // alert(this.response);
-                            document.getElementById("acc1").innerHTML = this.response;
+                            document.getElementById("acc1").innerHTML ='<option value="Null">Null</option>'+ this.response;
                             $('#acc1').selectpicker('refresh');
                             document.getElementById("acc2").innerHTML = this.response;
                             $('#acc2').selectpicker('refresh');
                         }
                     };
                     
-                    xhttp.open("GET", "./getAccountsAll" , true);
+                    xhttp.open("GET", "./getAccounts/" , true);
 
                     xhttp.send();
 
@@ -253,7 +253,7 @@
                             
                         }
                     };
-                      if (account1==""){
+                      if (account1=="NULL"){
                         account1= "NULL";
                       }
                     xhttp.open("GET", "./amountTransfer/"+account1.trim()+"/"+account2+"/"+amount+"/"+remarks, true);
