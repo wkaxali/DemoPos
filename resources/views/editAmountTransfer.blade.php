@@ -297,7 +297,11 @@ if (this.readyState == 4 && this.status == 200) {
 alert(this.responseText);
 $('#stocktable').DataTable().clear();
 getAllTransactions();
-
+document.getElementById("TID").value="";
+document.getElementById("amount").value="";
+document.getElementById("remarks").value="";
+$('#account1').find(":selected").val()="";
+$('#account2').find(":selected").val()="";
 
 }
 };
