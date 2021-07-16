@@ -272,7 +272,7 @@ class accountsController extends Controller
             $Amount = $ata[1];
             $AID1 = $ata[2];
             $AID2 = $ata[3];
-            $remarks[4];
+            $Remarks[4];
 
             $data=DB:: select('select * from tbl_accountstransactions where ATID='. $ATID);
             $OldAmount=$data[0]->Amount;
