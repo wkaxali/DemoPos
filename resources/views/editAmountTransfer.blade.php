@@ -364,7 +364,7 @@ xhttp.send();
         xhttp.send();
     };
     </script>
-@include('mainNavbar')
+ 
 </body>
 
 </html>
