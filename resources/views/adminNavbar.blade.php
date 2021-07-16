@@ -159,7 +159,7 @@ style="float: right"></span></a>
 <li><a href="/ea">View All Accounts</a></li>
 <li><a href="/ah">View Overall Balance</a></li>
 <li><a href="/amt">Amount Transfer</a></li>
-
+<li><a href="/emt">Edit Amount Transfer</a></li>
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs10"><i class="fas fa-vials"></i><span
