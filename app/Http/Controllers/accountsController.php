@@ -156,8 +156,8 @@ class accountsController extends Controller
         }
         
 
-        public function amountTransfer($acc1,$acc2,$amount,$remarks){
-            if(!strcmp($acc1,"Null")){
+        public static function amountTransfer($acc1,$acc2,$amount,$remarks){
+            if(!strcmp($acc1,"")){
 
                 $ATID=DB::table('tbl_accountstransactions')->insertGetId([
                     
@@ -272,7 +272,7 @@ class accountsController extends Controller
             $Amount = $ata[1];
             $AID1 = $ata[2];
             $AID2 = $ata[3];
-            $Remarks[4];
+            $Remarks = $ata[4];
 
             $data=DB:: select('select * from tbl_accountstransactions where ATID='. $ATID);
             $OldAmount=$data[0]->Amount;
@@ -280,7 +280,7 @@ class accountsController extends Controller
             $OldAID2=$data[0]->AID2;
             $OldRemarks=$data[0]->Remarks;
 
-        if(!strcmp($AID1,"NULL")){
+        if(!strcmp($AID1,"")){
             //previous accounts balance returning
             $OldAccount2Balance=self::getAccountBalance($OldAID2);
             $NewAccount2Balance=$OldAccount2Balance-$OldAmount;
@@ -300,6 +300,7 @@ class accountsController extends Controller
 
         //delete previous Transactions
         DB::delete('DELETE FROM tbltransactionflow WHERE ATID ='.$ATID);
+        DB::delete('DELETE FROM tbl_accountstransactions WHERE ATID ='.$ATID);
 
         //Update New Acoounts and Transaction
         self::amountTransfer($AID1,$AID2,$Amount,$Remarks);
