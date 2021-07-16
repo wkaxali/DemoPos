@@ -158,6 +158,12 @@ class accountsController extends Controller
 
         public function amountTransfer($acc1,$acc2,$amount,$remarks){
             if(!strcmp($acc1,"NULL")){
+
+                $ATID=DB::table('tbl_accountstransactions')->insertGetId([
+                    
+                    'AID2'=>$acc2 
+                    
+                    ]);
                 
                 $oldbalance2=self::getAccountBalance($acc2);
                 $oldbalance2+= $amount;
@@ -168,11 +174,36 @@ class accountsController extends Controller
                 $LID=globalVarriablesController::selfLedgerID();
                 $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
 
-                $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
-                Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$LID,$acc2,Null,$remarks);
+                $transactionId2=DB::table('tbltransactionflow')->insertGetId([
+                    
+                    'TransactionType'=>"Credit",
+                    'TransactionCatogery'=>$Tcate ,
+                    
+                    'Amount'=>$amount,
+                    'DateStamp'=>$dateStamp,
+                    'SBB'=>$oldSelfBalance,
+                    'SBA'=>$oldSelfBalance,
+                    'LID'=>$LID, 
+                    'PaidVia'=>$acc2,  
+                    'Remarks'=>$remarks,
+                    'ATID'=>$ATID,        
+                    ]);
 
+                // $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
+                // Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$LID,$acc2,Null,$remarks);
+
+               
             }else{
 
+                $ATID=DB::table('tbl_accountstransactions')->insertGetId([
+                    'AID'=>$acc1,
+                    'AID2'=>$acc2 
+                    
+                    ]);
+
+                  
+                         
+    
 
             $oldbalance1=self::getAccountBalance($acc1);
             $oldbalance1-= $amount;
@@ -189,10 +220,40 @@ class accountsController extends Controller
             $LID=globalVarriablesController::selfLedgerID();
             $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
 
-            $transactionRecord1=TransactionFlow::addTransaction(Null,"Debit",$Tcate,$amount,$dateStamp,
-            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
-            $transactionRecord2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
-            Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
+            $transactionId2=DB::table('tbltransactionflow')->insertGetId([
+                    
+                'TransactionType'=>"Debit",
+                'TransactionCatogery'=>$Tcate ,
+                
+                'Amount'=>$amount,
+                'DateStamp'=>$dateStamp,
+                'SBB'=>$oldSelfBalance,
+                'SBA'=>$oldSelfBalance,
+                'LID'=>$LID, 
+                'PaidVia'=>$acc1,  
+                'Remarks'=>$remarks,
+                'ATID'=>$ATID,        
+                ]);  
+
+            $transactionId2=DB::table('tbltransactionflow')->insertGetId([
+            
+                'TransactionType'=>"Credit",
+                'TransactionCatogery'=>$Tcate ,
+                
+                'Amount'=>$amount,
+                'DateStamp'=>$dateStamp,
+                'SBB'=>$oldSelfBalance,
+                'SBA'=>$oldSelfBalance,
+                'LID'=>$LID, 
+                'PaidVia'=>$acc2,  
+                'Remarks'=>$remarks,
+                'ATID'=>$ATID,        
+                ]);  
+                
+            // $transactionId1=TransactionFlow::addTransaction(Null,"Debit",$Tcate,$amount,$dateStamp,
+            // Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
+            // $transactionId2=TransactionFlow::addTransaction(Null,"Credit",$Tcate,$amount,$dateStamp,
+            // Null,$oldSelfBalance,$oldSelfBalance,Null,Null,$LID,Null,Null,$acc2,$acc1,Null,$remarks);
         }
 
 
