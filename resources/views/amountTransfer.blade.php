@@ -254,8 +254,8 @@
                             
                         }
                     };
-                    //    alert(account1);
-                    xhttp.open("GET", "./amountTransfer/"+Amt , true);
+                    alert(Amt);
+                    xhttp.open("GET", "./accountsTransfer/"+Amt , true);
 
                     xhttp.send();
 
