@@ -285,10 +285,12 @@ class accountsController extends Controller
             self::UpdateNewBalance($OldAID2,$NewAccount2Balance);
             
         }else{
+            //previous accounts1 balance returning
             $OldAccount1Balance=self::getAccountBalance($OldAID1);
             $NewAccount1Balance=$OldAccount1Balance+$OldAmount;
             self::UpdateNewBalance($OldAID1,$NewAccount1Balance);
 
+            //previous accounts2 balance returning
             $OldAccount2Balance=self::getAccountBalance($OldAID2);
             $NewAccount2Balance=$OldAccount2Balance-$OldAmount;
             self::UpdateNewBalance($OldAID2,$NewAccount2Balance);
@@ -299,6 +301,7 @@ class accountsController extends Controller
 
         //Update New Acoounts and Transaction
         self::amountTransfer($AID1,$AID2,$Amount,$Remarks);
+        return "Transaction ".$ATID." is Updated";
 
     }
 
