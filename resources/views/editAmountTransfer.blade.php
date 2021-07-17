@@ -77,15 +77,12 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
   style="width: 50%; text-align: center;"   id="stocktable">
 <thead>
 
-<th>Account Transaction ID</th>
+<th>A/C TID</th>
 <th>Amount</th>
-<th>Account 1 ID</th>
-<th>Account 1 Name</th>
- 
-<th>Account 2 ID</th>
-<th>Account 2 Name</th>
- 
-
+<th>A/C 1 ID</th>
+<th>A/C 1 Name</th>
+<th>A/C 2 ID</th>
+<th>A/C 2 Name</th>
 <th>Remarks</th>
 
 
@@ -101,13 +98,13 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
 </div>
 <div class="col-md-4 stockLabels">
 <div class="input-field"><br>
-<label for="status" style="  width: 273px;">Transaction ID</label>
+<label for="status" style="  width: 270px;">Transaction ID</label>
 <input type="text" autocomplete="OFF" class="form-control"
 readonly style="margin-left:30px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="TID">
 </div><br>
-<div class="input-field"><div class="col-md-5">
-<label for="status">Account 1</label>
+<div class="input-field"><div class="col-md-7">
+<label for="status" style="  width: 273px;">Account 1 :</label>
  
    <select style="margin-left:130px; class="selectpicker form-control data-live-search="true" id="account1">
          <option value="All">All Accounts</option>
@@ -117,8 +114,8 @@ id="TID">
 </div>
 <br>
 
-<div class="input-field"><div class="col-md-5">
-<label for="status">Account 2</label>
+<div class="input-field"><div class="col-md-7">
+<label for="status">Account 2 :</label>
  
    <select style="margin-left:130px; class="selectpicker form-control" data-live-search="true" id="account2">
          <option value="All">All Accounts</option>
@@ -130,7 +127,7 @@ id="TID">
 <div class="input-field">
 <label for="status">Amount</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="margin-left:72px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+style="margin-left:77px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="amount" required>
 </div>
 <br>

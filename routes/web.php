@@ -290,7 +290,7 @@ Route::get('/printStockData',[OrderFlowController::class, 'printStockData']);
 Route::get('/printTrasactionHistory2/{table}/{category}/{value}',[TransactionFlow::class, 'printTrasactionHistory2']);
 Route::get('/selectedMonthData/{month}',[summaryReportController::class, 'selectedMonthData']);
 Route::get('/printMonthlyTrasaction/{month}/{monthname} ',[summaryReportController::class, 'summaryReportTabularBase']);
-Route::get('/getAccounts',[accountsController::class, 'getAccounts']);
+Route::get('/getAccounts',[accountsController::class, 'getAccountsWithNumbers']);
 Route::get('/accountsTransfer/{array} ',[accountsController::class, 'amountTransfer']);
 Route::get('/loadAllParties',[LedgerPartiesController::class, 'getPartyNames']);
 Route::get('/getPurchasesHistory',[purchaseHistoryController::class, 'getPurchasesHistory']); 

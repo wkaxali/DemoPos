@@ -144,6 +144,16 @@ class accountsController extends Controller
                 return $option;
         }
 
+        public static function getAccountsWithNumbers(){
+            $option='';
+            $data=DB:: select('select * from tblaccounts');
+                foreach ($data as $d){
+                    $option=$option.'
+                    <option value='.$d->AID.'>'.$d->AccountName.' '.$d->AccountNumber.'</option>';
+                }
+                return $option;
+        }
+
         public static function getAccountsForHistory(){
             $option='<option value="All">All</option>';
             $data=DB:: select('select * from tblaccounts');
