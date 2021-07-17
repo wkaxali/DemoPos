@@ -53,8 +53,16 @@ class salesFlow extends Controller
       $EID=$Array[22];
     
 
-       //return $TransactionMode;
-         
+       
+        
+       if(DB::table('tblemployeepay')
+       ->where('EID', '=', $EID)
+        ->exists()){
+            
+        $commission = DB::table('tblemployeepay')
+      ->where('EID', '=', $EID)
+       ->first()->commission;
+ 
       $dateNow = Carbon::now()->toDateString();
       //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
       
@@ -94,9 +102,8 @@ class salesFlow extends Controller
         'EID'=>$EID
         
         ]);
-        $commission =DB::table('tblemployeepay')
-        ->where('EID', '=', $EID)
-         ->first()->commission;
+        
+        
 
         $com=DB::table('tbl_employee_sale_commission')->insertGetId([
         'InvoiceNumber'=>$invoiceNumber,
@@ -152,7 +159,12 @@ class salesFlow extends Controller
         saleRequestController::getInvoiceSaleRequest($invoiceNumber);
 
       
-        return $invoiceNumber;
+        return "Invoice ".$invoiceNumber." is Generated";
+    }else{
+        return "Coundn't generate sale. Assign Basic Pay to the Sales Person first";
+    }
+    
+    
     }
     public function insertInDetailedOrder($row,$InvoiceID,$date){
      

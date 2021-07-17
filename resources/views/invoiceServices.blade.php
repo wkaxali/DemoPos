@@ -38,11 +38,11 @@
             width: 84%;
         }
             .page-container.sidebar-collapsed-back .sidebar-menu {
-                width: 55px;
+                width: 250px;
             }
 
             .sidebar-menu {
-                width: 45px;
+                width: 250px;
             }
 
             .logo {
@@ -55,7 +55,7 @@
 
             #menu li a {
                 padding: 15px 10px;
-                font-size: 1em;
+                font-size: 1.2em;
             }
 
             ul.dropdown-menu {
@@ -83,7 +83,7 @@
             }
 
             .page-container.sidebar-collapsed .sidebar-menu {
-                width: 130px;
+                width: 55px;
             }
 
             .market-update-block h3 {
@@ -1807,7 +1807,7 @@
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
-                    alert("Invoice =" + this.responseText + " is generated");
+                    alert(this.responseText);
                     
                     document.getElementById("InvoiceID").value=this.responseText;
 

@@ -151,7 +151,7 @@
                 </div>
             </div>
         </div>
-        @include('sidenavbar')
+        @include('mainNavbar')
 
         <div class="clearfix"></div>
     </div>
