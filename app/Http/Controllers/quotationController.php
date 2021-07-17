@@ -207,15 +207,15 @@ Quotation For '.session()->get("productName").'
 
 
 <tbody>
-<tr><td>'.session()->get("description").'</td>
+<tr><td rowspan="2">'.session()->get("description").'</td>
 <td rowspan="2">'.session()->get("color").'</td>
-<td >Rs</td>
+<td rowspan="2">Rs <br> '.session()->get("price").'</td>
 <td rowspan="2" width="40">'.session()->get("quantity").'</td>
-<td width="173">Rs</td></tr>
+<td width="173" rowspan="2">Rs <br> '.session()->get("total").'</td></tr>
 <tr><td >'.session()->get("city").'</td>
 
-<td>'.session()->get("price").'</td>
-<td width="173">'.session()->get("total").'</td>
+ 
+ 
 </tr>
 
 
@@ -314,10 +314,7 @@ Quotation For '.session()->get("productName").'
 <br>
 <br> <br>
 
-<br>
-
-
-<br>
+ 
 <tr>
 <td width="60%" border="0"></td>
 <td width="40%" align="center" border="0">_______________________</td>
