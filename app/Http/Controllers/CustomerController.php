@@ -172,15 +172,17 @@ class CustomerController extends Controller
         $ata=json_decode($CO);
         $CID = $ata[0];
         $customerName = $ata[1];
-        $contact = $ata[2];
-        $address = $ata[3];
-        $CNIC = $ata[4];
-        $balance = $ata[5];
+        $fatherName = $ata[2];
+        $contact = $ata[3];
+        $address = $ata[4];
+        $CNIC = $ata[5];
+        $balance = $ata[6];
 
         $re = DB::table('customeinformation')
         ->where('CustomerID', $CID)
         ->update([
           'CustomerName'=>$customerName,
+          'FatherName'=>$fatherName,
           'Contect'=>$contact,
           'Address'=>$address,
           'CNIC'=>$CNIC,
