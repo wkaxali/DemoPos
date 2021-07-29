@@ -15,12 +15,20 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+
+
+    <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 <title>Add & Edit Category</title>
 
 
 
 
 <style>
+     .page-container.sidebar-collapsed-back .left-content {
+            width: 83% !important;
+        }
+
+
     table th,
     td {
         border: 1px solid rgb(202, 202, 202);
@@ -185,6 +193,9 @@
 <body onload="getPCategory()">
     <div class="page-container">
 
+    @include('mainNavbar')
+    <div class="clearfix"></div>
+    </div>
         <div class="left-content">
             <div class="inner-block">
 
@@ -277,9 +288,6 @@
 
 
     
-    @include('mainNavbar')
-    <div class="clearfix"></div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
