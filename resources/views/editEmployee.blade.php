@@ -30,7 +30,7 @@
 
         .stock-table {
             border-radius: 10px;
-            padding: 10px;
+            padding:60px;
         }
 
         .containerMy {
