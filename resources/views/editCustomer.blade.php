@@ -12,10 +12,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 <title>Edit Customer</title>
 
-<title>Edit Customer</title>
 
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 <style>
 table th,
@@ -363,7 +361,6 @@ xhttp.send();
 
         }
     </script>
-    @include('mainNavbar')
 </body>
 
 </html>
