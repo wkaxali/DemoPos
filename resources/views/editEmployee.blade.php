@@ -58,14 +58,7 @@
 }
 
 
-.page-container.sidebar-collapsed-back .left-content {
-            transition: all 100ms linear;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-            float: right;
-            width: 84%;
-        }
+ 
     </style>
 </head>
 
