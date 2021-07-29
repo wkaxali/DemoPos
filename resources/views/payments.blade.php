@@ -48,7 +48,11 @@
     .mainButtons button {
     width: 150px;
     } */
-
+    .container {
+        margin-left: 300px;
+        margin-top: 10px;
+    }
+    
     th,
     td {
     text-align: center;

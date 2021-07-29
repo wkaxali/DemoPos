@@ -23,18 +23,21 @@ padding: 5px;
 }
 
 .stockLabels label {
-width: 235px;
+width: 215px;
 }
 
 .stockLabels {
 padding: 20px 10px;
 border-radius: 10px;
 border: 1px solid rgb(202, 202, 202);
+ 
+ 
 }
 
 .stock-table {
 border-radius: 10px;
 padding: 10px;
+margin-left: 5px;
 }
 
 .containerMy {
