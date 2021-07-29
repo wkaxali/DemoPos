@@ -143,7 +143,10 @@
     </style>
 
 <body>
-
+<div class="page-container">
+@include('mainNavbar')
+ <div class="clearfix"></div>
+</div>
     <div class="page-container">
         <div class="left-content">
             <div class="inner-block">
@@ -183,7 +186,7 @@
             </div>
         </div>
 
-        @include('mainNavbar')
+        
 
 
         <div class="clearfix"></div>

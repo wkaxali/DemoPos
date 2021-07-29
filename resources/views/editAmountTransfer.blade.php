@@ -12,9 +12,24 @@ integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xX
 
 
 <link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
-<style>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
+
+    <style>
+
+.page-container.sidebar-collapsed-back .left-content {
+            transition: all 100ms linear;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            float: right;
+            width: 84%;
+        }
 
     
 
@@ -54,6 +69,10 @@ margin: 0 auto;
 </head>
 
 <body onload="getAllTransactions()">
+<div class="page-container">
+@include('mainNavbar')
+ <div class="clearfix"></div>
+</div>
 <div class="container">
 
 <header class="idi">
@@ -182,6 +201,32 @@ $('#stocktable').DataTable();
 
 </script> -->
 <!--end::Global Theme Bundle-->
+<script>
+        $(document).ready(function () {
+            $('#myTables').DataTable();
+        });
+        var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute",
+
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
+
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+
+    </script>
 <script>
 
 var toggle = true;
