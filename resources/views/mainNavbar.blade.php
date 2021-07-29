@@ -140,14 +140,14 @@ style="float: right"></span></a>
 <li><a href="/es">Edit Stock Price</a></li>
 <li><a href="/ss">Edit Sale Invoice</a></li>
 <li><a href="/ps">Edit Purchase Invoice</a></li>
-<li><a href="/">Edit Payment For Employe </a></li>
-<li><a href="/dex">Edit Expense</a></li>
+<li><a href="/dpay">Delete Party Payment</a></li>
+<li><a href="/dex">Delete Expense</a></li>
 <li><a href="/ei">Edit Investor</a></li>
 <!-- <li><a href="/">Edit Book Record and Reciving</a></li> -->
 <!-- <li><a href="/">Edit IS</a></li> -->
 <li><a href="/ec">Edit Customer</a></li>
 <li><a href="/ee">Edit Employee </a></li>
-<li><a href="/pr">Edit Employee Pay</a></li>
+
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs9"><i class="fas fa-vials"></i><span
@@ -155,8 +155,7 @@ style="font-size: 14px;"> Accounts (Bank)</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs9">
 <li><a href="/aa">Add New Account</a></li>
-<li><a href="/ea">Edit My Account </a></li>
-<li><a href="/ea">View All Accounts</a></li>
+<li><a href="/ea">Edit/View Accounts </a></li>
 <li><a href="/ah">View Overall Balance</a></li>
 <li><a href="/amt">Amount Transfer</a></li>
 <li><a href="/emt">Edit Amount Transfer</a></li>
@@ -179,8 +178,8 @@ style="float: right"></span></a>
 <ul class="collapse firstULs11">
 <li><a href="/au">Add Users  </a></li>
 <li><a href="/suu">Employee Sign Up  </a></li>
-<li><a href="/eu"> Edit User passcode   </a></li>
-<li><a href="/eu">   Edit User Category</a></li>
+<li><a href="/eu">Edit User Info</a></li>
+<!-- <li><a href="/eu">Edit User Category</a></li> -->
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs12"><i class="fas fa-vials"></i><span
