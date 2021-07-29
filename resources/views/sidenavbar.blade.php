@@ -35,12 +35,10 @@ style="font-size: 14px;">Payments</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs1 ">
 <li><a href="/pay">Supplier payments  </a></li>
-<li><a href="/eam">Customer Recovery  </a></li>
+<!-- <li><a href="/eam">Customer Recovery  </a></li> -->
 <li><a href="/ep">Employe Payments </a></li>
-<li><a href="/aep">Add Employe Payments </a></li>
 <li><a href="/pph">Party Payment History </a></li>
-<li><a href="/adal">Add Allowance </a></li>
-<li><a href="/edal">Edit Allowance </a></li>
+
 </ul>
 </li>
 
@@ -51,7 +49,7 @@ style="float: right"></span></a>
 <li><a href="/ex">Add Expense</a></li>
 <li><a href="/aeh"> Add Expense Heads</a></li>
 <li><a href="/eh"> Expense History</a></li>
-<li><a href="/exv"> Expense List</a></li>
+
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs3"><i class="fab fa-salesforce"></i><span
@@ -96,8 +94,8 @@ style="float: right"></span></a>
 </li>
 <li id="menu-mensagens" style="width: 201px"><a href="/ec">Edit Customer</a>
 </li>
-<li id="menu-mensagens" style="width: 201px"><a href="/ch">Customer Transaction History</a>
-</li>
+<!-- <li id="menu-mensagens" style="width: 201px"><a href="/ch">Customer Transaction History</a>
+</li> -->
 
 
 </ul>
@@ -107,9 +105,9 @@ style="float: right"></span></a>
 style="font-size: 14px;">Product Defination</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs6">
-<li><a href="/aam">Add Product Details</a></li>
-<li><a href="/eam"> Edit Prduct Details </a></li>
-<li><a href="/ip">Change Price</a></li>
+<li><a href="/aam">Add Auto Model</a></li>
+<li><a href="/eam"> Edit Auto Model </a></li>
+<!-- <li><a href="/ip">Change Price</a></li> -->
 <li><a href="/ads">Add Supplier</a></li>
 <li><a href="/esp">Edit Supplier</a></li>
 <li><a href="/ai">Add Investor</a></li>
@@ -135,19 +133,21 @@ style="float: right"></span></a>
 style="font-size: 14px;"> Settings</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs8">
+<li><a href="/adal">Add Allowance Head</a></li>
+<li><a href="/edal">Edit Allowance Head</a></li>
 <li><a href="/aa">Add New Accounts</a></li>
 <li><a href="/ea">Edit Accounts</a></li>
 <li><a href="/es">Edit Stock Price</a></li>
 <li><a href="/ss">Edit Sale Invoice</a></li>
 <li><a href="/ps">Edit Purchase Invoice</a></li>
-<li><a href="/">Edit Payment For Employe </a></li>
+<!-- <li><a href="/">Edit Payment For Employe </a></li> -->
 <li><a href="/dex">Edit Expense</a></li>
 <li><a href="/ei">Edit Investor</a></li>
 <!-- <li><a href="/">Edit Book Record and Reciving</a></li> -->
 <!-- <li><a href="/">Edit IS</a></li> -->
 <li><a href="/ec">Edit Customer</a></li>
 <li><a href="/ee">Edit Employee </a></li>
-<li><a href="/pr">Edit Employee Pay</a></li>
+
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs9"><i class="fas fa-vials"></i><span
@@ -155,8 +155,7 @@ style="font-size: 14px;"> Accounts (Bank)</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs9">
 <li><a href="/aa">Add New Account</a></li>
-<li><a href="/ea">Edit My Account </a></li>
-<li><a href="/ea">View All Accounts</a></li>
+<li><a href="/ea">Edit/View Accounts </a></li>
 <li><a href="/ah">View Overall Balance</a></li>
 <li><a href="/amt">Amount Transfer</a></li>
 <li><a href="/emt">Edit Amount Transfer</a></li>
@@ -179,8 +178,8 @@ style="float: right"></span></a>
 <ul class="collapse firstULs11">
 <li><a href="/au">Add Users  </a></li>
 <li><a href="/suu">Employee Sign Up  </a></li>
-<li><a href="/eu"> Edit User passcode   </a></li>
-<li><a href="/eu">   Edit User Category</a></li>
+<li><a href="/eu">Edit User Info</a></li>
+<!-- <li><a href="/eu">Edit User Category</a></li> -->
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs12"><i class="fas fa-vials"></i><span
@@ -188,6 +187,7 @@ style="font-size: 14px;"> Employee</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs12">
 <li><a href="/ae"> Add New Emloyee </a></li>
+<li><a href="/aep">Assign Employee Pay</a></li>
 <li><a href="/ee">  Edit Employee Details  </a></li>
 <li><a href="/pr">  Change Reporting Time </a></li>
 <li><a href="/pr">  Change Working Hours    </a></li>
