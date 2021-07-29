@@ -112,7 +112,7 @@ id="customerName">
 <div class="input-field">
 <label for="status">Father Name</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="margin-left:6px;  display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+style="margin-left:24px;  display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="fatherName">
 </div>
 
@@ -135,7 +135,7 @@ id="Address" required>
 <div class="input-field">
 <label for="status">CNIC</label>
 <input type="text" autocomplete="OFF" class="form-control"
-style="margin-left:75px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+style="margin-left:77px; display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 value="" id="CNIC" required>
 </div>
 <br>
