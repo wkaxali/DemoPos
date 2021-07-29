@@ -37,7 +37,7 @@
         .containerMy {
             max-width: 1400px;
             margin: 0 auto;
-
+            margin-left: 110px;
         }
 
         .page-container.sidebar-collapsed-back .left-content {
