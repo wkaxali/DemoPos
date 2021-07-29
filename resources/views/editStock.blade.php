@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>Set Ideal Stock</title>
-
-
-    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <style>
@@ -40,11 +39,27 @@
             margin: 0 auto;
 
         }
+
+        .page-container.sidebar-collapsed-back .left-content {
+            transition: all 100ms linear;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            float: right;
+            width: 84%;
+        }
+
     </style>
 </head>
 
 <body onload="searchRawMatirial()">
+<div class="page-container">
+@include('mainNavbar')
+ 
 
+
+ <div class="clearfix"></div>
+</div>
 <div class="container">
 
 
@@ -111,9 +126,7 @@
             </div>
         </div>
     </section>
-    @include('mainNavbar')
-         <div class="clearfix"></div>
-</div>
+   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
