@@ -50,7 +50,10 @@
             border-radius: 10px;
             padding: 3px;
         }
+        .container-fluid{
+            margin-left:115px;
 
+        }
     </style>
 </head>
 

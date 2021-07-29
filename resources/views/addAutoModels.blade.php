@@ -214,6 +214,28 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
     <script>
+ var toggle = true;
+
+$(".sidebar-icon").click(function () {
+    if (toggle) {
+        $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+        $("#menu span").css({
+            "position": "absolute",
+
+        });
+    } else {
+        $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+        setTimeout(function () {
+            $("#menu span").css({
+                "position": "relative",
+
+            });
+        }, 400);
+    }
+    toggle = !toggle;
+});
+
+
         function addAutoModels() {
 
             var comp = document.getElementById("Company").value;

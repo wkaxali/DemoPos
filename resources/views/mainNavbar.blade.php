@@ -94,8 +94,8 @@ style="float: right"></span></a>
 </li>
 <li id="menu-mensagens" style="width: 201px"><a href="/ec">Edit Customer</a>
 </li>
-<li id="menu-mensagens" style="width: 201px"><a href="/ch">Customer Transaction History</a>
-</li>
+<!-- <li id="menu-mensagens" style="width: 201px"><a href="/ch">Customer Transaction History</a>
+</li> -->
 
 
 </ul>
