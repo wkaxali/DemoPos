@@ -188,6 +188,7 @@ style="font-size: 14px;"> Employee</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs12">
 <li><a href="/ae"> Add New Emloyee </a></li>
+<li><a href="/aep">Assign Employee Pay</a></li>
 <li><a href="/ee">  Edit Employee Details  </a></li>
 <li><a href="/pr">  Change Reporting Time </a></li>
 <li><a href="/pr">  Change Working Hours    </a></li>
