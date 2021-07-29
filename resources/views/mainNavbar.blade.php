@@ -35,12 +35,10 @@ style="font-size: 14px;">Payments</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs1 ">
 <li><a href="/pay">Supplier payments  </a></li>
-<li><a href="/eam">Customer Recovery  </a></li>
+<!-- <li><a href="/eam">Customer Recovery  </a></li> -->
 <li><a href="/ep">Employe Payments </a></li>
-<li><a href="/aep">Add Employe Payments </a></li>
 <li><a href="/pph">Party Payment History </a></li>
-<li><a href="/adal">Add Allowance </a></li>
-<li><a href="/edal">Edit Allowance </a></li>
+
 </ul>
 </li>
 
@@ -135,6 +133,8 @@ style="float: right"></span></a>
 style="font-size: 14px;"> Settings</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs8">
+<li><a href="/adal">Add Allowance Head</a></li>
+<li><a href="/edal">Edit Allowance Head</a></li>
 <li><a href="/aa">Add New Accounts</a></li>
 <li><a href="/ea">Edit Accounts</a></li>
 <li><a href="/es">Edit Stock Price</a></li>

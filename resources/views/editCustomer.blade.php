@@ -8,10 +8,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
 integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
 <title>Edit Customer</title>
 
-
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
 <style>
 table th,
@@ -49,7 +50,8 @@ margin: 0 auto;
 </style>
 </head>
 
-<body onload="getCustomers()">@include('mainNavbar')
+<body onload="getCustomers()">
+
 <div class="container">
 
 <header class="idi">
@@ -317,6 +319,7 @@ xhttp.send();
 
         }
     </script>
+    @include('mainNavbar')
 </body>
 
 </html>
