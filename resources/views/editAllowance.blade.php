@@ -3,17 +3,29 @@
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-<!-- CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 <title>Edit Allowance</title>
 
 
 <link rel="stylesheet" href="assets/css/style.css">
 
 <style>
+
+.page-container.sidebar-collapsed-back .left-content {
+            transition: all 100ms linear;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            float: right;
+            width: 84%;
+        }
+
 table th,
 td {
 border: 1px solid rgb(202, 202, 202);
@@ -44,8 +56,14 @@ margin: 0 auto;
 </style>
 </head>
 
-<body onload="getAllowance()"> <div class="page-container">
+<body onload="getAllowance()">  
+<div class="page-container">
+@include('mainNavbar')
+ 
 
+
+ <div class="clearfix"></div>
+</div>
 <div class="left-content">
 <div class="container">
 
@@ -130,6 +148,29 @@ crossorigin="anonymous">
 src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </script>
+<script>
+         var toggle = true;
+
+        $(".sidebar-icon").click(function () {
+            if (toggle) {
+                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+                $("#menu span").css({
+                    "position": "absolute",
+
+                });
+            } else {
+                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+                setTimeout(function () {
+                    $("#menu span").css({
+                        "position": "relative",
+
+                    });
+                }, 400);
+            }
+            toggle = !toggle;
+        });
+
+    </script>
 <script>
 $(document).ready(function () {
 $('#stocktable').DataTable();
