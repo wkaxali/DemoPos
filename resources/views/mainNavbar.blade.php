@@ -49,7 +49,7 @@ style="float: right"></span></a>
 <li><a href="/ex">Add Expense</a></li>
 <li><a href="/aeh"> Add Expense Heads</a></li>
 <li><a href="/eh"> Expense History</a></li>
-<li><a href="/exv"> Expense List</a></li>
+
 </ul>
 </li>
 <li><a data-toggle="collapse" data-target=".firstULs3"><i class="fab fa-salesforce"></i><span
@@ -105,9 +105,9 @@ style="float: right"></span></a>
 style="font-size: 14px;">Product Defination</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs6">
-<li><a href="/aam">Add Product Details</a></li>
-<li><a href="/eam"> Edit Prduct Details </a></li>
-<li><a href="/ip">Change Price</a></li>
+<li><a href="/aam">Add Auto Model</a></li>
+<li><a href="/eam"> Edit Auto Model </a></li>
+<!-- <li><a href="/ip">Change Price</a></li> -->
 <li><a href="/ads">Add Supplier</a></li>
 <li><a href="/esp">Edit Supplier</a></li>
 <li><a href="/ai">Add Investor</a></li>

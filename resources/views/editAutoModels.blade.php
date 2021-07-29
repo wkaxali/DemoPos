@@ -55,13 +55,12 @@
 </head>
 
 <body onload="getAutoModel()">
+
 <div class="page-container">
 @include('mainNavbar')
- 
-
-
  <div class="clearfix"></div>
 </div>
+
     <header class="idi">
         <div class="container">
      
