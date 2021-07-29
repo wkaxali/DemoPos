@@ -2,16 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>Edit Users</title>
-
-
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
@@ -19,7 +13,7 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
-
+    <title>Edit Users</title>
     <style>
 
 .page-container.sidebar-collapsed-back .left-content {
@@ -30,6 +24,7 @@
             float: right;
             width: 84%;
         }
+
         table th,
         td {
             border: 1px solid rgb(202, 202, 202);
@@ -181,9 +176,7 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
      <script>
-        $(document).ready(function () {
-            $('#myTables').DataTable();
-        });
+      
         var toggle = true;
 
         $(".sidebar-icon").click(function () {
@@ -297,12 +290,7 @@
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
-    <script>
-        $(document).ready(function () {
-            $('#usertable').DataTable();
-        });
-
-    </script>
+     
     <!--end::Global Theme Bundle-->
 
     <script>
