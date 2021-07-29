@@ -17,14 +17,8 @@
     <style>
 
 .page-container.sidebar-collapsed-back .left-content {
-            transition: all 100ms linear;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-            float: right;
-            width: 84%;
+            width: 83% !important;
         }
-
         table th,
         td {
             border: 1px solid rgb(202, 202, 202);
@@ -49,6 +43,11 @@
         .containerMy {
             max-width: 1400px;
             margin: 0 auto;
+
+        }
+        .container {
+           
+            margin-left: 250px;  
 
         }
 
@@ -175,35 +174,34 @@
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
-     <script>
       
-        var toggle = true;
-
-        $(".sidebar-icon").click(function () {
-            if (toggle) {
-                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-                $("#menu span").css({
-                    "position": "absolute",
-
-                });
-            } else {
-                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-                setTimeout(function () {
-                    $("#menu span").css({
-                        "position": "relative",
-
-                    });
-                }, 400);
-            }
-            toggle = !toggle;
-        });
-
-    </script>
+     
+     
+      
     <script>
         $(document).ready(function () {
             $('#usertable').DataTable();
         });
+        var toggle = true;
 
+    $(".sidebar-icon").click(function () {
+    if (toggle) {
+        $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+        $("#menu span").css({
+            "position": "absolute",
+
+        });
+    } else {
+        $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+        setTimeout(function () {
+            $("#menu span").css({
+                "position": "relative",
+
+            });
+        }, 400);
+    }
+    toggle = !toggle;
+});
     </script>
     <!--end::Global Theme Bundle-->
 
@@ -282,14 +280,7 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-    </script>
+ 
      
     <!--end::Global Theme Bundle-->
 
