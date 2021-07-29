@@ -208,7 +208,7 @@
                     $.each(a, function (i, item) {
 
                         table.row.add([a[i].EID, a[i].FirstName, a[i].LastName, a[i].CNIC, a[i].ContactNo,
-                            a[i].HomeAddress, a[i].EmailID, a[i].Designation, a[i].JoiningDate
+                            a[i].HomeAddress, a[i].EmailID, a[i].DesignationID, a[i].JoiningDate
                         ]);
                     });
                     table.draw();
