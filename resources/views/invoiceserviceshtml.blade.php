@@ -232,7 +232,7 @@
                                     </div>
                                     <div class="input-field">
                                         <label for="status">Movement City/Area</label>
-                                        <input readonly type="text" autocomplete="OFF" class="form-control"
+                                        <input type="text" autocomplete="OFF" class="form-control"
                                             style="display: inline-block !important; height: 30px !important; width: 183px;"
                                             name="name" id="city">
 

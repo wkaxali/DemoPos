@@ -75,6 +75,7 @@ style="height:580px; width:102%; border: 1px solid rgb(202, 202, 202); overflow:
 
 <th>Customer ID</th>
 <th>Customer Name</th>
+<th>Father Name</th>
 <th>Contact</th>
 <th>Address</>
 
@@ -104,6 +105,15 @@ id="CID">
 <input type="text" autocomplete="OFF" class="form-control"
 style="margin-left:6px;  display: inline-block !important; height: 30px !important; width: 183px;" name="name"
 id="customerName">
+</div>
+
+<br>
+
+<div class="input-field">
+<label for="status">Father Name</label>
+<input type="text" autocomplete="OFF" class="form-control"
+style="margin-left:6px;  display: inline-block !important; height: 30px !important; width: 183px;" name="name"
+id="fatherName">
 </div>
 
 <br>
@@ -213,7 +223,7 @@ table = $('#stocktable').DataTable();
 
 $.each(a, function (i, item) {
 
-table.row.add([a[i].CustomerID, a[i].CustomerName, a[i].Contect, a[i].Address,
+table.row.add([a[i].CustomerID, a[i].CustomerName, a[i].FatherName, a[i].Contect, a[i].Address,
 a[i].CNIC, a[i].Balance
 ]);
 });
@@ -236,11 +246,12 @@ xhttp.send();
 $("#stocktable").on('click', 'tr', function () {
 document.getElementById("CID").value = this.cells[0].innerText;
 document.getElementById("customerName").value = this.cells[1].innerText;
-document.getElementById("Contact").value = this.cells[2].innerText;
-document.getElementById("Address").value = this.cells[3].innerText;
+document.getElementById("fatherName").value = this.cells[2].innerText;
+document.getElementById("Contact").value = this.cells[3].innerText;
+document.getElementById("Address").value = this.cells[4].innerText;
 
-document.getElementById("CNIC").value = this.cells[4].innerText;
-document.getElementById("balance").value = this.cells[5].innerText;
+document.getElementById("CNIC").value = this.cells[5].innerText;
+document.getElementById("balance").value = this.cells[6].innerText;
 
 
 
@@ -254,6 +265,7 @@ document.getElementById("balance").value = this.cells[5].innerText;
 function editEmployee() {
 var CID = document.getElementById("CID").value;
 var customerName = document.getElementById("customerName").value;
+var fatherName = document.getElementById("fatherName").value;
 var contact = document.getElementById("Contact").value;
 var address = document.getElementById("Address").value;
 
@@ -264,7 +276,7 @@ if (customerName == ""  ) {
 
 alert("Please Enter The Name Of Customer");
 } else{
-var updateCustomer = [CID, customerName, contact, address, CNIC, balance,
+var updateCustomer = [CID, customerName,fatherName, contact, address, CNIC, balance,
 ]};
 
 var UC = JSON.stringify(updateCustomer);
