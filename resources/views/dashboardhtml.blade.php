@@ -1076,7 +1076,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                 <div class="col-md-4 market-update-gd">
                                     <div class="market-update-block clr-block-3">
                                         <div class="col-md-8 market-update-left">
-                                            <h3 id="balance">23</h3><br>
+                                            <h3 id="balance">0</h3><br>
                                             <h4>Balance Due To FJW</h4>
 
                                         </div>

@@ -27,6 +27,13 @@ class LedgerPartiesController extends Controller
 
 
     }
+
+    
+    public static function fjwBalance(){
+        $balance = self::getPartyBalance(1);
+        return $balance;
+    }
+
     public static function getPartyBalance($LID){
 
        
