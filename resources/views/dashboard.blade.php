@@ -1061,12 +1061,12 @@ function drawChart() {
 
     <script>
         function loadFields() {
-            dailySaleAmount();
+        
             loadAutos();
             gauge();
             getMonthlySales();
             getMonthlyExpenses();
-            getCustomerSales();
+            
         }
 
         function updateModelData() {
@@ -1109,65 +1109,10 @@ function drawChart() {
 
 
 
-        $(document).ready(function () {
-                $("#killme").click(function () {
-                    $('.bd-example-modal-lg').modal('hide');
-                })
-            })
-            (function () {
-                "use strict";
-
-                // custom scrollbar
-
-                $("html").niceScroll({
-                    styler: "fb",
-                    cursorcolor: "#68ae00",
-                    cursorwidth: '6',
-                    cursorborderradius: '10px',
-                    background: '#FFFFFF',
-                    spacebarenabled: false,
-                    cursorborder: '0',
-                    zindex: '1000'
-                });
-
-                $(".scrollbar1").niceScroll({
-                    styler: "fb",
-                    cursorcolor: "#68ae00",
-                    cursorwidth: '6',
-                    cursorborderradius: '0',
-                    autohidemode: 'false',
-                    background: '#FFFFFF',
-                    spacebarenabled: false,
-                    cursorborder: '0'
-                });
-
-
-
-                $(".scrollbar1").getNiceScroll();
-                if ($('body').hasClass('scrollbar1-collapsed')) {
-                    $(".scrollbar1").getNiceScroll().hide();
-                }
-
-            })(jQuery);
-
+        
     </script>
     <script>
-        function dailySaleAmount() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var data = this.responseText;
-                    var a = JSON.parse(data);
-                    document.getElementById("saleAmount").innerHTML = a[0].DailySale;
-
-                }
-            }
-
-            xhttp.open("GET", "./dailySaleAmount/", true);
-            xhttp.send();
-
-
-        }
+   
 
 
 

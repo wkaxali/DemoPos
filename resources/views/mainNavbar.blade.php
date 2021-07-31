@@ -141,6 +141,7 @@ style="float: right"></span></a>
 <li><a href="/ss">Edit Sale Invoice</a></li>
 <li><a href="/ps">Edit Purchase Invoice</a></li>
 <li><a href="/dpay">Delete Party Payment</a></li>
+<li><a href="/dpay">Delete Employee Payment</a></li>
 <li><a href="/dex">Delete Expense</a></li>
 <li><a href="/ei">Edit Investor</a></li>
 <!-- <li><a href="/">Edit Book Record and Reciving</a></li> -->
