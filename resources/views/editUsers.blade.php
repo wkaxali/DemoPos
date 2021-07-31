@@ -2,16 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
-    <title>Edit Users</title>
-
-
-    <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
@@ -19,16 +13,11 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
-
+    <title>Edit Users</title>
     <style>
 
 .page-container.sidebar-collapsed-back .left-content {
-            transition: all 100ms linear;
-            -webkit-transition: all 0.3s ease;
-            -moz-transition: all 0.3s ease;
-            transition: all 0.3s ease;
-            float: right;
-            width: 84%;
+            width: 83% !important;
         }
         table th,
         td {
@@ -54,6 +43,11 @@
         .containerMy {
             max-width: 1400px;
             margin: 0 auto;
+
+        }
+        .container {
+           
+            margin-left: 250px;  
 
         }
 
@@ -180,37 +174,34 @@
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
-     <script>
-        $(document).ready(function () {
-            $('#myTables').DataTable();
-        });
-        var toggle = true;
-
-        $(".sidebar-icon").click(function () {
-            if (toggle) {
-                $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
-                $("#menu span").css({
-                    "position": "absolute",
-
-                });
-            } else {
-                $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
-                setTimeout(function () {
-                    $("#menu span").css({
-                        "position": "relative",
-
-                    });
-                }, 400);
-            }
-            toggle = !toggle;
-        });
-
-    </script>
+      
+     
+     
+      
     <script>
         $(document).ready(function () {
             $('#usertable').DataTable();
         });
+        var toggle = true;
 
+    $(".sidebar-icon").click(function () {
+    if (toggle) {
+        $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+        $("#menu span").css({
+            "position": "absolute",
+
+        });
+    } else {
+        $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+        setTimeout(function () {
+            $("#menu span").css({
+                "position": "relative",
+
+            });
+        }, 400);
+    }
+    toggle = !toggle;
+});
     </script>
     <!--end::Global Theme Bundle-->
 
@@ -289,20 +280,8 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('#usertable').DataTable();
-        });
-
-    </script>
+ 
+     
     <!--end::Global Theme Bundle-->
 
     <script>
