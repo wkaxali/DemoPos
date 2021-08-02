@@ -1177,6 +1177,9 @@
                 margin: 5px 0px;
             }
         }
+        .container{
+            margin-left: 60px;
+        }
         @media print {
             .left-content{
                 width: 100% !important;
