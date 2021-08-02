@@ -27,7 +27,9 @@
             border: 1px solid rgb(202, 202, 202);
             padding: 5px;
         }
-
+        .container{
+            margin-left: 270px;
+        }
         .stockLabels label {
             width: 235px;
         }
