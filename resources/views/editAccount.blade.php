@@ -22,7 +22,9 @@
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
     <style>
-
+ .container{
+            margin-left: 270px;
+        }
 .page-container.sidebar-collapsed-back .left-content {
             transition: all 100ms linear;
             -webkit-transition: all 0.3s ease;
