@@ -535,7 +535,7 @@
 
         #kt_bodys .okay-invo .modal-content label {
             font-size: 10px;
-            width: 190px;
+            width: 210px;
         }
 
         #kt_bodys .okay-invo-1 label {
@@ -1300,7 +1300,7 @@
         LoadAllSupliers();
         loadAccounts();
         getInvoiceID();
-
+        getPurchaseHistory();
 
     };
 
@@ -1415,6 +1415,7 @@
 
 
     }
+
 
 
 
@@ -1925,7 +1926,53 @@ if (AID == "") {
 }
 }
 
+$(document).ready(function () {
+    $("#purchaseHistoryTable").on('click', 'tr', function () {
+        var InvoiceID = this.cells[0].innerText; // get current row 1st TD value
+        alert(InvoiceID);
+        document.getElementById("InvoiceID").value=InvoiceID;
+        getInvoiceStock();
+    });
+});
 
+
+
+            function getPurchaseHistory() {
+
+                var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                var data = this.responseText;
+                //alert(data);
+                var table;
+                var dt = JSON.parse(data);
+            
+                a=dt[0];
+                
+                table = $('#purchaseHistoryTable').DataTable();
+
+                $.each(a, function (i, item) {
+
+                    table.row.add([  
+                        a[i].InvoiceNo, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                        a[i].DateStamp
+                    ]);
+                    });
+                table.draw();
+                
+
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getPurchasesHistory/", true);
+
+        xhttp.send();
+
+
+            }
 </script>
 
 </html>

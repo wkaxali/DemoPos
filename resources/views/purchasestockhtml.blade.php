@@ -91,7 +91,7 @@
                         <div class="modal fade bd-data-modal-xl" tabindex="-1" role="dialog"
                             aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog  modal-xl">
-                                <div class="modal-content" style="margin: 0 auto; width: 70%;">
+                                <div class="modal-content" style="margin: 0 auto; width: 90%;">
                                     <div class="modal-header">
                                         <h5 class="modal-title">Forland Modern Motors</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -114,18 +114,17 @@
                                                     <thead>
                                                         <tr>
 
-                                                            <th>Product Id</th>
+                                                            <th>Invoice No</th>
 
-                                                            <th>Product Name</th>
-                                                            <th>Company</th>
-                                                            <th>Price</th>
-                                                            <th>Stock</th>
-                                                            <th>Product Id</th>
+                                                            <th>Party Name</th>
+                                                            <th>Account Name</th>
+                                                            <th>Transaction Catogery</th>
+                                                            <th>Total Amount</th>
+                                                            <th>Amount Paid</th>
 
-                                                            <th>Product Name</th>
-                                                            <th>Company</th>
-                                                            <th>Price</th>
-                                                            <th>Stock</th>
+                                                            <th>Balance</th>
+                                                            <th>DateStamp</th>
+                                                             
 
 
 
