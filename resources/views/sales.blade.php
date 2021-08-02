@@ -27,7 +27,9 @@
                 width: 83%;
             }
         }
-
+        .container{
+            margin-left: 60px;
+        }
         .page-container.sidebar-collapsed-back .left-content {
             width: 83% !important;
         }

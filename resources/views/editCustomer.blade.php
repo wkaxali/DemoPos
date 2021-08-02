@@ -60,7 +60,9 @@ margin: 0 auto;
             width: 84%;
         }
 
-
+        .container-fluid{
+            margin-left: 60px;
+        }
 </style>
 </head>
 
