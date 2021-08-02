@@ -35,7 +35,10 @@
             border: 1px solid rgb(202, 202, 202);
             padding: 5px;
         }
-
+        .stock-table{
+            width: 750px;
+            margin-left:200px;
+        }
          label {
             width: 150px;
         }
