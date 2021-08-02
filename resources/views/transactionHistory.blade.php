@@ -385,7 +385,7 @@
                             var table;
                             var dt = JSON.parse(data);
                             a=dt[0];
-                            sum=dt[1];
+                            sum=numberWithCommas(dt[1]);
                             document.getElementById('tableSum').innerHTML=sum;
                         
                             table = $('#myTable').DataTable();
@@ -528,7 +528,7 @@
                             var table;
                             var dt = JSON.parse(data);
                             a=dt[0];
-                            sum=dt[1];
+                            sum=numberWithCommas(dt[1]);
                             document.getElementById('tableSum').innerHTML=sum;
                         
                             table = $('#myTable').DataTable();
@@ -686,7 +686,7 @@
                             var table;
                             var dt = JSON.parse(data);
                             a=dt[0];
-                            sum=dt[1];
+                            sum=numberWithCommas(dt[1]);
                             document.getElementById('tableSum').innerHTML=sum;
                             //alert(a[0].TransactionID);
                             table = $('#myTable').DataTable();
@@ -973,6 +973,11 @@
         ]
     } );
 } );
+
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
             </script>
 </body>
