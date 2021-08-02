@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ b<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -196,15 +196,16 @@
                                                 <tr>
                                                    
                                                     <th>Transaction ID</th>
+                                                    <th>Account Name</th>
+                                                    <th>Transaction Category</th>
+                                                    <th>Amount</th>
+                                                    <th>Transaction Date</th> 
                                                     <th id ="Invoice">Invoice Number</th>
                                                     <th id="partyname">Party Name</th>
                                                     <th id="empname">Employee Name</th>
                                                     <th id="custname">Customer Name</th>
                                                     <th id="expname">Expense Head</th>
-                                                    <th>Account Name</th>
-                                                    <th>Transaction Category</th>
-                                                    <th>Amount</th>
-                                                    <th>Transaction Date</th> 
+                                                     
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -693,9 +694,9 @@
                             $.each(a, function (i, item) {
 
                                 table.row.add([  
-                                    a[i].TransactionID,a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                                    a[i].TransactionID, a[i].AccountName+" ("+a[i].AccountNumber+")",
                                     a[i].TransactionCatogery, a[i].Amount,
-                                    a[i].DateStamp
+                                    a[i].DateStamp,a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName,  a[i].ExpenseHead, 
                                 ]);
                             });
                             table.draw();
