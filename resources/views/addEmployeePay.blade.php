@@ -28,7 +28,9 @@
     float: right !important;
     margin-top: 10px;
     }
-
+    .container{
+            margin-left: 290px;
+        }
     .footerBtns button {
     width: 100px;
     }
