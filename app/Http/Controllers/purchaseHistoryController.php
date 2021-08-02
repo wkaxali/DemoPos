@@ -74,4 +74,9 @@ class purchaseHistoryController extends Controller
           }
         return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }
+
+    public static function purchaseStockHistory(){
+        $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="Stock Purchased"');
+        return $data;
+    }
 }
