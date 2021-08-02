@@ -586,10 +586,7 @@ function drawChart() {
 }
 </script>
 
-    <button id="movetop" data-toggle="modal" data-target="#myModal" title="Go to top">
-        <span class="fas fa-plus-circle" aria-hidden="true"></span>
-
-    </button>
+     
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
