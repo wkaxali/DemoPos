@@ -199,8 +199,10 @@
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.js">
     </script>
-       <script>
-        
+     <script>
+        $(document).ready(function () {
+            $('#myTables').DataTable();
+        });
         var toggle = true;
 
         $(".sidebar-icon").click(function () {

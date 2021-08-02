@@ -890,183 +890,13 @@ function drawChart() {
     </script>
 
     <script>
-        function getEmployeeData() {
-            var employeeName = $('#employee').find(":selected").text();
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
-
-
-                }
-            };
-         
-            xhttp.open("GET", "./getEmployeeData/", true);
-
-            xhttp.send();
-            loadEmployees();
-            displayOptions();
-            getStock();
-
-        }
-
-
-        function displayOptions() {
-            var userCategor = ('{{ Session::get('
-                EMPID ')}}');
-
-            if (userCategor == 2) {
-
-
-            }
-
-
-        }
-
-        function searchEmployeeData() {
-            var employeeID = document.getElementById("employee").value;
-            var employeeName = $('#employee').find(":selected").text();
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("cardsCanvas").innerHTML = "";
-                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
-
-
-                }
-            };
-            
-            xhttp.open("GET", "./searchEmployeeData/" + employeeID + "/" + employeeName, true);
-
-            xhttp.send();
-        }
-
-        function searchTaskWithStatus() {
-            var employeeID = document.getElementById("employee").value;
-            var employeeName = $('#employee').find(":selected").text();
-            var status = document.getElementById("status").value;
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("cardsCanvas").innerHTML = "";
-                    document.getElementById("cardsCanvas").innerHTML = this.responseText;
-
-
-                }
-            };
-            
-            xhttp.open("GET", "./searchTaskWithStatus/" + employeeID + "/" + status + "/" + employeeName, true);
-
-            xhttp.send();
-        }
-
-        function loadTaskDetails(taskID) {
-
-            
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-                    var data = this.responseText;
-                    var a = JSON.parse(data);
-                    document.getElementById("mainTask").value = a[0].Subject;
-                    document.getElementById("mainTaskID").value = a[0].TaskID;
-                    document.getElementById("employeeID").value = a[0].EID;
-                    a[0].TaskID;
-                    a[0].STaskID;
-                    a[0].Subject;
-                    a[0].Status;
-                    a[0].DueDate;
-                    a[0].taskDetails;
-                    a[0].StockIn;
-                    a[0].AssignedBy;
-                    a[0].AssignedTo;
-                    a[0].DueDate;
-                    a[0].taskDetails;
-                    a[0].Priority;
-                    a[0].Remarks;
-                    a[0].EID;
-                    a[0].FirstName;
-                    a[0].LastName;
-
-                    document.getElementById("AllSubTasks").innerHTML = "";
-                    var st = "";
-
-
-
-                    $.each(a, function (i, item) {
-                        if (a[i].Status == "Pending") {
-                            // document.getElementById("AllSubTasks").innerHTML=;
-                            st = st + '<div class="row">\
-                    <div class="col-md-8 ">\
-                    <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="' +
-                                item.taskDetails + '">\
-                    </div>\
-                    <div class="col-md-4">\
-                    <select style="height: 35px !important; width: 120px !important; "\
-                    class="form-control" \
-                    id="TaskStatus[]">\
-                    <option value="' + item.STaskID + '">Pending</option>\
-                    <option value="' + item.STaskID + '">Completed</option>\
-                    </select>\
-                    </div>\
-                    </div>';
-                        }
-                        if (a[i].Status != "Pending") {
-
-                            st = st + '<div class="row">\
-                    <div class="col-md-8 ">\
-                    <input type="text" class="form-control" name="subTasksFromDB" id="subTask[]" value="' +
-                                item.taskDetails + '">\
-                    </div>\
-                    <div class="col-md-4">\
-                    <input style="height: 35px !important; width: 120px !important; " readonly\
-                    class="form-control" value="' + item.Status + '">\
-                    </input>\
-                    </div>\
-                    </div>';
-                        }
-                        var userCategory = ('{{ Session::get('
-                            EMPID ')}}');
-                        if (userCategory != 1) {
-                            document.getElementById("adminUseOnly").style.visibility = "hidden";
-                            document.getElementById("adminUseOnly2").style.visibility = "hidden";
-
-                        } else {
-                            document.getElementById("updateEmployeeStatus").style.visibility = "hidden";
-                        }
-                    });
-                }
-
-                document.getElementById("AllSubTasks").innerHTML = st;
-
-
-            }
-
-        
-            xhttp.open("GET", "./loadTaskDetails/" + taskID, true);
-
-            xhttp.send();
-
-        }
-
-    </script>
-
-    <script>
         function loadFields() {
-            dailySaleAmount();
+        
             loadAutos();
             gauge();
             getMonthlySales();
             getMonthlyExpenses();
-            getCustomerSales();
+            getFJWBalance();
         }
 
         function updateModelData() {
@@ -1109,65 +939,10 @@ function drawChart() {
 
 
 
-        $(document).ready(function () {
-                $("#killme").click(function () {
-                    $('.bd-example-modal-lg').modal('hide');
-                })
-            })
-            (function () {
-                "use strict";
-
-                // custom scrollbar
-
-                $("html").niceScroll({
-                    styler: "fb",
-                    cursorcolor: "#68ae00",
-                    cursorwidth: '6',
-                    cursorborderradius: '10px',
-                    background: '#FFFFFF',
-                    spacebarenabled: false,
-                    cursorborder: '0',
-                    zindex: '1000'
-                });
-
-                $(".scrollbar1").niceScroll({
-                    styler: "fb",
-                    cursorcolor: "#68ae00",
-                    cursorwidth: '6',
-                    cursorborderradius: '0',
-                    autohidemode: 'false',
-                    background: '#FFFFFF',
-                    spacebarenabled: false,
-                    cursorborder: '0'
-                });
-
-
-
-                $(".scrollbar1").getNiceScroll();
-                if ($('body').hasClass('scrollbar1-collapsed')) {
-                    $(".scrollbar1").getNiceScroll().hide();
-                }
-
-            })(jQuery);
-
+        
     </script>
     <script>
-        function dailySaleAmount() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    var data = this.responseText;
-                    var a = JSON.parse(data);
-                    document.getElementById("saleAmount").innerHTML = a[0].DailySale;
-
-                }
-            }
-
-            xhttp.open("GET", "./dailySaleAmount/", true);
-            xhttp.send();
-
-
-        }
+   
 
 
 
@@ -1305,23 +1080,6 @@ function drawChart() {
 
         }
 
-        function loadEmployees() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-
-                    document.getElementById("employee").innerHTML = this.response;
-                    $('#employee').selectpicker('refresh');
-                }
-            };
-            
-            xhttp.open("GET", "./getEmployees/", true);
-
-            xhttp.send();
-
-
-        }
 
     </script>
     <script>
@@ -1396,6 +1154,23 @@ function drawChart() {
            };
           
            xhttp.open("GET", "./getMonthlyExpenses/", true);
+
+           xhttp.send();
+       }
+
+       function getFJWBalance(){
+           
+
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function () {
+
+               if (this.readyState == 4 && this.status == 200) {
+                   var data= JSON.parse(this.responseText);
+                   document.getElementById("balance").innerHTML = data;
+               }
+           };
+          
+           xhttp.open("GET", "./fjwBalance/", true);
 
            xhttp.send();
        }
