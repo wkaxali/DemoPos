@@ -118,7 +118,7 @@
 
                                                             <th>Party Name</th>
                                                             <th>Account Name</th>
-                                                            <th>Transaction Catogery</th>
+                                                            
                                                             <th>Total Amount</th>
                                                             <th>Amount Paid</th>
 
@@ -151,9 +151,9 @@
                             <!-- <input type="number" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
                             <br>
                             <div class="centhour">
-                            <button type="button" class="btn"
-                                style="height: 25px; margin-top: -5px;background-color:#0a549d;" data-toggle="modal"
-                                data-target=".bd-data-modal-xl" style="margin: 0 auto; width: 70%;">Get History</button>
+                            <button type="button"  class="btn"
+                                style=" background-color:#0a549d;" data-toggle="modal"
+                                data-target=".bd-data-modal-xl"  >  History</button>
                             </div>
                             <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
                         </div>

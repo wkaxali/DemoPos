@@ -1947,9 +1947,9 @@ $(document).ready(function () {
                 var data = this.responseText;
                 //alert(data);
                 var table;
-                var dt = JSON.parse(data);
+                var a = JSON.parse(data);
             
-                a=dt[0];
+                 
                 
                 table = $('#purchaseHistoryTable').DataTable();
 
@@ -1957,7 +1957,7 @@ $(document).ready(function () {
 
                     table.row.add([  
                         a[i].InvoiceNo, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                          a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
                         a[i].DateStamp
                     ]);
                     });
@@ -1967,7 +1967,7 @@ $(document).ready(function () {
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./getPurchasesHistory/", true);
+        xhttp.open("GET", "./getPSHistory/", true);
 
         xhttp.send();
 
