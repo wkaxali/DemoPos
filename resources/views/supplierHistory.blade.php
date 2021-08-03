@@ -156,16 +156,16 @@
                                                 <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
                                                 onclick="filterDateData()">Search </button> </div>
                                             </div>
-                                            <div class="row my-2" >
+                                            <div class="row my-3" >
                                             <div class="col-md-4" >
                                             <label for="">Total Purchase Amount:</label>
-                                            <h1 id="totalPurchaseAmount">0</h1></div>
+                                            <h2 id="totalPurchaseAmount">0</h2></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Amount Paid:</label>
-                                            <h1 id="amountPaid">0</h1></div>
+                                            <h2 id="amountPaid">0</h2></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Balance:</label>
-                                            <h1 id="remainingBalance">0</h1></div>
+                                            <h2 id="remainingBalance">0</h2></div>
                                             </div>
                                         </div>
                                     </div>
@@ -317,7 +317,8 @@ $(".sidebar-icon").click(function () {
                 var table;
                 var a = JSON.parse(data);
              
-                 
+                
+                           
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
@@ -528,10 +529,19 @@ $(".sidebar-icon").click(function () {
                 amountPaid = 0;
                 remainingBalance = 0;
             }
-            document.getElementById('totalPurchaseAmount').innerHTML=totalPurchaseAmount;
-            document.getElementById('amountPaid').innerHTML=amountPaid;
-            document.getElementById('remainingBalance').innerHTML=remainingBalance;
+            sum1=numberWithCommas(totalPurchaseAmount);
+            sum2=numberWithCommas(amountPaid);
+            sum3=numberWithCommas(remainingBalance);
+
+            document.getElementById('totalPurchaseAmount').innerHTML=sum1;
+            document.getElementById('amountPaid').innerHTML=sum2;
+            document.getElementById('remainingBalance').innerHTML=sum3;
         }
+
+        
+        function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
     </script>
 </body>
 

@@ -315,9 +315,10 @@ $(".sidebar-icon").click(function () {
                 var dt = JSON.parse(data);
             
                 a=dt[0];
-                    totalamount=dt[1];
-                    
-                    document.getElementById('totalSaleAmount').innerHTML=totalamount;
+                  
+                    sum=numberWithCommas(dt[1]);
+                            
+                    document.getElementById('totalSaleAmount').innerHTML=sum;
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
@@ -357,9 +358,10 @@ $(".sidebar-icon").click(function () {
                     var dt = JSON.parse(data);
                 
                     a=dt[0];
-                    totalamount=dt[1];
                     
-                    document.getElementById('totalSaleAmount').innerHTML=totalamount;
+                    
+                    sum=numberWithCommas(dt[1]);
+                    document.getElementById('totalSaleAmount').innerHTML=sum;
                     
                     table = $('#myTable').DataTable();
                     table.clear();
@@ -402,9 +404,8 @@ $(".sidebar-icon").click(function () {
                 var dt = JSON.parse(data);
             
                     a=dt[0];
-                    totalamount=dt[1];
-                    
-                    document.getElementById('totalSaleAmount').innerHTML=totalamount;
+                    sum=numberWithCommas(dt[1]);
+                    document.getElementById('totalSaleAmount').innerHTML=sum;
                      
                 
                 table = $('#myTable').DataTable();
@@ -486,6 +487,11 @@ $(".sidebar-icon").click(function () {
             xhttp.send();
         
         }
+        function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
     </script>
 </body>
 

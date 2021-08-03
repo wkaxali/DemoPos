@@ -394,10 +394,10 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add([a[i].TransactionID, a[i].InvoiceNo, a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
-                                    a[i]
-                                    .Amount,
-                                    a[i].DateStamp
+                                table.row.add([a[i].TransactionID, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                                    a[i].TransactionCatogery, a[i].Amount,
+                                    a[i].DateStamp,a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName,
+                                     a[i].CustomerName,  a[i].ExpenseHead
                                 ]);
                             });
                             table.draw();
@@ -537,10 +537,10 @@
                             $.each(a, function (i, item) {
 
                                 date = dateFormat();
-                                table.row.add([  a[i].TransactionID, a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName, a[i].CustomerName, a[i].ExpenseHead,a[i].AccountName+" ("+a[i].AccountNumber+")", a[i].TransactionCatogery,
-                                    a[i]
-                                    .Amount,
-                                    a[i].DateStamp
+                                table.row.add([   a[i].TransactionID, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                                    a[i].TransactionCatogery, a[i].Amount,
+                                    a[i].DateStamp,a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName,
+                                     a[i].CustomerName,  a[i].ExpenseHead
                                 ]);
                             });
                             table.draw(); 
