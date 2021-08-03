@@ -69,6 +69,7 @@ use App\Http\Controllers\supplierHistoryPrintController;
 |
 */
 
+Route::get('/getSSHistory',[salesHistoryController::class, 'saleStockHistory']);
 Route::get('/getPSHistory',[purchaseHistoryController::class, 'purchaseStockHistory']);
 Route::get('/fjwBalance',[LedgerPartiesController::class, 'fjwBalance']);
 Route::get('/investorHistory',[investorHistoryController::class, 'investorPaymentHistory']);

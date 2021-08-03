@@ -8,6 +8,62 @@
                     </div>
                 </div>
             </div>
+            <div class="modal fade bd-data-modal-xl" tabindex="-1" role="dialog"
+                            aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog  modal-xl">
+                                <div class="modal-content" style="margin: 0 auto; width: 90%;">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Forland Modern Motors</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                    <div class="container">
+                                        <div class="row">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="overFlowingTable"
+                                                style="padding: 20px; overflow: auto !important; width: 908px !important; margin: 15px auto !important; ">
+
+
+                                                <table class="table table-bordered " id="saleHistoryTable">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th>Invoice No</th>
+
+                                                            <th>Party Name</th>
+                                                            <th>Account Name</th>
+                                                            
+                                                            <th>Total Amount</th>
+                                                            <th>Amount Paid</th>
+
+                                                            <th>Balance</th>
+                                                            <th>DateStamp</th>
+                                                             
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
             <div class="container">
                 <div class="row" id="selectFirst">
                     <div class="col-xl-3  col-lg-6 col-md-6   okay-invo">
@@ -89,9 +145,10 @@
                         <!-- <input type="text" class="form-control" style="display: inline-block; width: 177px; height: 30px;" name="invo-1" id="invo-1"> -->
 
                         <div class="centhour">
-                            <button class="btn" style="background-color: #13579a;" onclick="pageReload()">New</button>
-                           
-                        </div>
+                            <button type="button"  class="btn"
+                                style=" background-color:#0a549d;" data-toggle="modal"
+                                data-target=".bd-data-modal-xl"  >  History</button>
+                            </div>
                         <!-- <button class="btn btn-danger ctrl-1">Delete Invoice</button> -->
                     </div>
 

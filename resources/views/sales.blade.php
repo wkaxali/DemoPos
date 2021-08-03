@@ -1572,6 +1572,7 @@ width: 153px;
             loadAllCustomers();
             loadAccounts();
             getInvoiceID();
+            getSaleHistory();
 
 
         };
@@ -2132,6 +2133,48 @@ width: 153px;
 
         }
 }
+
+$(document).ready(function () {
+    $("#saleHistoryTable").on('click', 'tr', function () {
+        var InvoiceID = this.cells[0].innerText; // get current row 1st ID value
+        document.getElementById("InvoiceID").value=InvoiceID;
+        getInvoiceCustomer();
+    });
+});
+
+
+
+        function getSaleHistory() {
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+
+            if (this.readyState == 4 && this.status == 200) {
+
+                var data = this.responseText;
+                var table;
+                var a = JSON.parse(data);
+                table = $('#saleHistoryTable').DataTable();
+
+                $.each(a, function (i, item) {
+                    table.row.add([  
+                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                          a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                        a[i].DateStamp
+                    ]);
+                    });
+                table.draw();
+                
+
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getSSHistory/", true);
+
+        xhttp.send();
+
+
+        }
 
     </script>
 </body>

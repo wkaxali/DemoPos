@@ -19,7 +19,7 @@ class partyPaymentHistory extends Controller
         
         }
         else if($partyID!="All"){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and  and TransactionCatogery <> "Amount Transfer" PaidTo ='.$partyID);
+            $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery <> "Amount Transfer" and PaidTo ='.$partyID);
         
         }
 
@@ -33,7 +33,7 @@ class partyPaymentHistory extends Controller
         
         }
         else if($partyID!="All"){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$partyID.' and  and TransactionCatogery <> "Amount Transfer" DateStamp between "'.$date1 .'"and"'.$date2.'"');
+            $data=DB:: select('select * from vw_transaction_flow where PaidTo='.$partyID.' and TransactionCatogery <> "Amount Transfer" and DateStamp between "'.$date1 .'" and "'.$date2.'"');
         
         }
         return $data;

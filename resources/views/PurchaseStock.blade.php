@@ -1910,26 +1910,19 @@ if (AID == "") {
 }else if (amp == "") {
     alert('Please fill "Amount Paid" Field');
 }else {
-
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-
             alert("Invoice =" + this.responseText + " is generated");
-            
-
         }
     };
-
     xhttp.open("GET", "./updatePurchasedStock/" + array + "/" + invoiceID, true);
-    // var MenuID=$('#Menus').find(":selected").val();
     xhttp.send();
 }
 }
 
 $(document).ready(function () {
     $("#purchaseHistoryTable").on('click', 'tr', function () {
-        var InvoiceID = this.cells[0].innerText; // get current row 1st TD value
-        alert(InvoiceID);
+        var InvoiceID = this.cells[0].innerText; // get current row 1st ID value
         document.getElementById("InvoiceID").value=InvoiceID;
         getInvoiceStock();
     });
@@ -1937,24 +1930,19 @@ $(document).ready(function () {
 
 
 
-            function getPurchaseHistory() {
+        function getPurchaseHistory() {
 
-                var xhttp = new XMLHttpRequest();
+        var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
 
             if (this.readyState == 4 && this.status == 200) {
 
                 var data = this.responseText;
-                //alert(data);
                 var table;
                 var a = JSON.parse(data);
-            
-                 
-                
                 table = $('#purchaseHistoryTable').DataTable();
 
                 $.each(a, function (i, item) {
-
                     table.row.add([  
                         a[i].InvoiceNo, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                           a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 

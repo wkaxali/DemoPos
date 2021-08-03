@@ -73,4 +73,8 @@ class salesHistoryController extends Controller
         return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }
     
+    public static function saleStockHistory(){
+        $data=DB:: select('select * from vw_customersale_invoice where TransactionCatogery="Stock and Service"');
+        return $data;
+    }
 }
