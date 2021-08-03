@@ -202,12 +202,13 @@
                                             <thead>
                                                 <tr>
                                                     <th>Invoice Number</th>
-                                                    <th>Customer Name</th>
-                                                    <th>Account Name</th>
-                                                    <th>Transaction Category</th>
                                                     <th>Total Sale Amount</th>
                                                     <th>Amount Paid</th>
                                                     <th>Balance</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Account Name</th>
+                                                    <th>Transaction Category</th>
+                                                   
                                                     <th>Transaction Date</th> 
                                                 </tr>
                                             </thead>
@@ -324,19 +325,19 @@ $(".sidebar-icon").click(function () {
                 var dt = JSON.parse(data);
             
                 a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                sum1=numberWithCommas(dt[1]);
+                sum2=numberWithCommas(dt[2]);
+                sum3=numberWithCommas(dt[3]);
+                document.getElementById('totalSaleAmount').innerHTML=sum1;
+                document.getElementById('remainingAmount').innerHTML=sum2;
+                document.getElementById('invoiceBalance').innerHTML=sum3;
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                        a[i].InvoiceNumber,  a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].TransactionCatogery,
                         a[i].DateStamp
                     ]);
                     });
@@ -370,20 +371,19 @@ $(".sidebar-icon").click(function () {
                 var dt = JSON.parse(data);
                
                 a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-  
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                sum1=numberWithCommas(dt[1]);
+                sum2=numberWithCommas(dt[2]);
+                sum3=numberWithCommas(dt[3]);
+                document.getElementById('totalSaleAmount').innerHTML=sum1;
+                document.getElementById('remainingAmount').innerHTML=sum2;
+                document.getElementById('invoiceBalance').innerHTML=sum3;
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                        a[i].InvoiceNumber,  a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].TransactionCatogery,
                         a[i].DateStamp
                     ]);
                 });
@@ -419,21 +419,20 @@ if (this.readyState == 4 && this.status == 200) {
     var dt = JSON.parse(data);
 
     a=dt[0];
-    totalSaleAmount=dt[1];
-    remainingAmount=dt[2];
-    invoiceBalance=dt[3];
-
-    document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-    document.getElementById('remainingAmount').innerHTML=remainingAmount;
-    document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                sum1=numberWithCommas(dt[1]);
+                sum2=numberWithCommas(dt[2]);
+                sum3=numberWithCommas(dt[3]);
+                document.getElementById('totalSaleAmount').innerHTML=sum1;
+                document.getElementById('remainingAmount').innerHTML=sum2;
+                document.getElementById('invoiceBalance').innerHTML=sum3;
     table = $('#myTable').DataTable();
     table.clear();
     $.each(a, function (i, item) {
 
         table.row.add([  
-            a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-            a[i].TransactionCatogery, a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
-            a[i].DateStamp
+            a[i].InvoiceNumber,  a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].TransactionCatogery,
+                        a[i].DateStamp
         ]);
         });
         table.draw();
@@ -510,6 +509,11 @@ xhttp.send();
             xhttp.send();
         
         }
+
+        function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
     </script>
 
 </body>

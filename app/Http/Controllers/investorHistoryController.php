@@ -20,7 +20,7 @@ class investorHistoryController extends Controller
         
         }
         else if($partyID!="All"){
-            $data=DB:: select('select * from vw_transaction_flow where category="Investor" and  and TransactionCatogery <> "Amount Transfer" and PaidTo IS NOT NULL and PaidTo ='.$partyID);
+            $data=DB:: select('select * from vw_transaction_flow where category="Investor" and    TransactionCatogery <> "Amount Transfer"   and PaidTo ='.$partyID);
         
         }
 
