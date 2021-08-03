@@ -542,11 +542,17 @@
                 amountPaid = 0;
                 remainingBalance = 0;
             }
-            document.getElementById('totalPurchaseAmount').innerHTML=totalPurchaseAmount;
-            document.getElementById('amountPaid').innerHTML=amountPaid;
-            document.getElementById('remainingBalance').innerHTML=remainingBalance;
-        }
+            sum1=numberWithCommas(totalPurchaseAmount);
+            sum2=numberWithCommas(amountPaid);
+            sum3=numberWithCommas(remainingBalance);
 
+            document.getElementById('totalPurchaseAmount').innerHTML=sum1;
+            document.getElementById('amountPaid').innerHTML=sum2;
+            document.getElementById('remainingBalance').innerHTML=sum3;
+        }
+        function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
     </script>
 </body>
 

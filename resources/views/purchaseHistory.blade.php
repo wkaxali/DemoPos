@@ -333,9 +333,12 @@ $(".sidebar-icon").click(function () {
                 totalSaleAmount=dt[1];
                 remainingAmount=dt[2];
                 invoiceBalance=dt[3];
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                sum1=numberWithCommas(dt[1]);
+                sum2=numberWithCommas(dt[2]);
+                sum3=numberWithCommas(dt[3]);
+                document.getElementById('totalSaleAmount').innerHTML=sum1;
+                document.getElementById('remainingAmount').innerHTML=sum2;
+                document.getElementById('invoiceBalance').innerHTML=sum3;
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
@@ -378,10 +381,12 @@ $(".sidebar-icon").click(function () {
                 totalSaleAmount=dt[1];
                 remainingAmount=dt[2];
                 invoiceBalance=dt[3];
-  
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                sum1=numberWithCommas(dt[1]);
+                sum2=numberWithCommas(dt[2]);
+                sum3=numberWithCommas(dt[3]);
+                document.getElementById('totalSaleAmount').innerHTML=sum1;
+                document.getElementById('remainingAmount').innerHTML=sum2;
+                document.getElementById('invoiceBalance').innerHTML=sum3;
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
@@ -431,10 +436,12 @@ $(".sidebar-icon").click(function () {
                 totalSaleAmount=dt[1];
                 remainingAmount=dt[2];
                 invoiceBalance=dt[3];
-
-                document.getElementById('totalSaleAmount').innerHTML=totalSaleAmount;
-                document.getElementById('remainingAmount').innerHTML=remainingAmount;
-                document.getElementById('invoiceBalance').innerHTML=invoiceBalance;
+                sum1=numberWithCommas(dt[1]);
+                sum2=numberWithCommas(dt[2]);
+                sum3=numberWithCommas(dt[3]);
+                document.getElementById('totalSaleAmount').innerHTML=sum1;
+                document.getElementById('remainingAmount').innerHTML=sum2;
+                document.getElementById('invoiceBalance').innerHTML=sum3;
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
@@ -521,6 +528,12 @@ $(".sidebar-icon").click(function () {
             xhttp.send();
         
         }
+
+
+        function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
     </script>
 </body>
 
