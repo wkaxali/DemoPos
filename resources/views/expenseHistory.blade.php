@@ -319,9 +319,9 @@
                 var dt = JSON.parse(data);
             
                 a=dt[0];
-                totalexpAmount=dt[1];
-                
-                document.getElementById('totalexpAmount').innerHTML=totalexpAmount;
+                 
+                sum=numberWithCommas(dt[1]);
+                document.getElementById('totalexpAmount').innerHTML=sum;
                 
                 table = $('#myTable').DataTable();
 
@@ -362,9 +362,8 @@
                 var dt = JSON.parse(data);
                
                 a=dt[0];
-                totalexpAmount=dt[1];
-                 
-                document.getElementById('totalexpAmount').innerHTML=totalexpAmount;
+                sum=numberWithCommas(dt[1]);
+                document.getElementById('totalexpAmount').innerHTML=sum;
                 
                 table = $('#myTable').DataTable();
                 table.clear();
@@ -409,10 +408,8 @@
                 var dt = JSON.parse(data);
             
                 a=dt[0];
-                totalexpAmount=dt[1];
-                 
-
-                document.getElementById('totalexpAmount').innerHTML=totalexpAmount;
+                sum=numberWithCommas(dt[1]);
+                document.getElementById('totalexpAmount').innerHTML=sum;
                 
                 table = $('#myTable').DataTable();
                 table.clear();
@@ -493,6 +490,11 @@
             xhttp.send();
         
         }
+
+        function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
     </script>
 </body>
 
