@@ -114,7 +114,7 @@ b<!DOCTYPE html>
                     <div class="container">
                         <div class="row my-3">
                             <div class="col-md-12 text-center ">
-                                <h1 id="firsthello">All Transactions History</h1>
+                                <h1 id="firsthello">All Transactions History</h1><br><br>
                             </div>
                         </div>
                     </div>
