@@ -353,7 +353,11 @@ b<!DOCTYPE html>
                             var dt = JSON.parse(data);
                             a=dt[0];
                             sum=numberWithCommas(dt[1]);
+                            creditAmount=numberWithCommas(dt[2]);
+                            debitAmount=numberWithCommas(dt[3]);
                             document.getElementById('tableSum').innerHTML=sum;
+                            document.getElementById('creditAmount').innerHTML=creditAmount;
+                            document.getElementById('debitAmount').innerHTML=debitAmount;
                         
                             table = $('#myTable').DataTable();
                             table.clear();
@@ -504,7 +508,11 @@ b<!DOCTYPE html>
                             var dt = JSON.parse(data);
                             a=dt[0];
                             sum=numberWithCommas(dt[1]);
+                            creditAmount=numberWithCommas(dt[2]);
+                            debitAmount=numberWithCommas(dt[3]);
                             document.getElementById('tableSum').innerHTML=sum;
+                            document.getElementById('creditAmount').innerHTML=creditAmount;
+                            document.getElementById('debitAmount').innerHTML=debitAmount;
                             //alert(a[0].TransactionID);
                             table = $('#myTable').DataTable();
 

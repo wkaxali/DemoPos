@@ -64,14 +64,18 @@ class TransactionFlow extends Controller
                 
             $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
             $sum=0;
-                    foreach($data as $d){
-                        if($d->TransactionType=="Credit"){
-                            $sum+= $d->Amount;
-                        }else{
-                            $sum-= $d->Amount;
-                        }
-                        }
-                      return [$data, $sum];
+        $crediSum=0;
+        $debitSum=0;
+        foreach($data as $d){
+          if($d->TransactionType=="Credit"){
+            $sum+=$d->Amount;
+            $crediSum+=$d->Amount;
+          }else{
+            $sum-=$d->Amount;
+            $debitSum+=$d->Amount;
+        }
+          }
+        return [$data, $sum, $crediSum, $debitSum];
     
         }else if ((!strcmp($table,"Investors"))&&(!strcmp($value,"All"))){
             $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
