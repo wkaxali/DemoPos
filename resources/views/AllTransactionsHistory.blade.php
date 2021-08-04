@@ -139,14 +139,14 @@ b<!DOCTYPE html>
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
-                                            <label for="">Total:</label>
+                                            <label for="">Total <br> Amount:</label>
                                             <h1 id="tableSum">0</h1></div>
-                                            <div class="col-md-4" >
-                                            <label for="">Debit Amount:</label>
-                                            <h1 id="debitAmount">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Credit Amount:</label>
                                             <h1 id="creditAmount">0</h1></div>
+                                            <div class="col-md-4" >
+                                            <label for="">Debit Amount:</label>
+                                            <h1 id="debitAmount">0</h1></div>
                                             </div>
                                         </div>
                                         
