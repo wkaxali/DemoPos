@@ -918,6 +918,10 @@ function drawChart() {
             xhttp.send();
         }
 
+        function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
         function loadAutos() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
@@ -1122,8 +1126,10 @@ function drawChart() {
 
                     var a = this.responseText;
                     var data= JSON.parse(a);
-                    document.getElementById("monthlysale").innerHTML  = "Total Sales: "+ data[0].TotalSales;
-                    document.getElementById("monthlyamount").innerHTML  = data[0].Amount;
+                    document.getElementById("monthlysale").innerHTML  = "Total Sales: "+ numberWithCommas(data[0].TotalSales);
+                    document.getElementById("monthlyamount").innerHTML  = numberWithCommas(data[0].Amount);
+
+                    
 
                 }
             };
@@ -1144,8 +1150,9 @@ function drawChart() {
 
                    var b = this.responseText;
                    var data= JSON.parse(b);
-                   document.getElementById("totalexpense").innerHTML  = "Total Expenses: "+ data[0].TotalSales;
-                   document.getElementById("monthlyexpense").innerHTML  = data[0].TotalAmount;
+                   
+                   document.getElementById("totalexpense").innerHTML  = "Total Expenses: "+ numberWithCommas(data[0].TotalSales);
+                   document.getElementById("monthlyexpense").innerHTML  = numberWithCommas(data[0].TotalAmount);
 
                }
            };
@@ -1155,6 +1162,10 @@ function drawChart() {
            xhttp.send();
        }
 
+
+       
+
+
        function getFJWBalance(){
            
 
@@ -1163,7 +1174,7 @@ function drawChart() {
 
                if (this.readyState == 4 && this.status == 200) {
                    var data= JSON.parse(this.responseText);
-                   document.getElementById("balance").innerHTML = data;
+                   document.getElementById("balance").innerHTML = numberWithCommas(data);
                }
            };
           
@@ -1185,7 +1196,7 @@ function drawChart() {
             $bar.text($bar.width() / 4 + "%");
         }, 800);
 
-
+        
 
     </script>
 
