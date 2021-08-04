@@ -145,7 +145,7 @@ b<!DOCTYPE html>
                                             <label for="">Credit Amount:</label>
                                             <h1 id="creditAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Debit Amount:</label>
+                                            <label for="">Debit <br>Amount:</label>
                                             <h1 id="debitAmount">0</h1></div>
                                             </div>
                                         </div>
