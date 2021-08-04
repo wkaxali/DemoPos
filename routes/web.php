@@ -496,7 +496,7 @@ Route::get('/stock', function () {
 Route::get('/th', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('transactionHistory'); 
+    return view('AllTransactionsHistory'); 
     }else{
     return view("signInSignUp");
     }
