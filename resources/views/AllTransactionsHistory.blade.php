@@ -348,9 +348,9 @@ b<!DOCTYPE html>
                     var category = $('#transactionCategory').find(":selected").text();
                    
                     if(date1=="" || date2==""){
-                        alert("select the date first");
+                        getTransactionHistory();
                 
-                    }
+                    }else{
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function () {
                         if (this.readyState == 4 && this.status == 200) {
@@ -482,7 +482,7 @@ b<!DOCTYPE html>
                     }if(category == ""){
                         category = "Everything";  
                     }
-
+                }
                     // alert("table is ="+table);
                     
                     xhttp.open("GET", "./selectedDateData/"+date1+"/"+date2+"/"+table+"/"+category.trim()+"/"+value, true);
