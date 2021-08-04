@@ -138,9 +138,14 @@ b<!DOCTYPE html>
                                                         onclick="selectedDateData()">Search </button> </div>
                                             </div>
                                             <label for="">Total:</label>
-                                            <h1 id="tableSum">0</h1>
+                                            <h2 id="tableSum">0</h2>
+                                            <label for="">Debit Amount:</label>
+                                            <h2 id="debitAmount">0</h2>
+                                            <label for="">Credit Amount:</label>
+                                            <h2 id="creditAmount">0</h2>
                                             
                                         </div>
+                                        
                                   </div>
                           
                 </section>
