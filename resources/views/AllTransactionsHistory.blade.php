@@ -348,6 +348,8 @@ b<!DOCTYPE html>
                     var category = $('#transactionCategory').find(":selected").text();
                    
                     if(date1=="" || date2==""){
+                        table = $('#myTable').DataTable();
+                            table.clear();
                         getTransactionHistory();
                 
                     }else{
