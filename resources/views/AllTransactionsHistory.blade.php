@@ -32,7 +32,7 @@ b<!DOCTYPE html>
 
 
         .ThirdColor {
-            background-color: blue;
+            background-color: teal;
             height: 30px;
             border-radius: 10px;
         }
@@ -120,33 +120,7 @@ b<!DOCTYPE html>
                     </div>
                 </header>
                 <section>
-                    <div class="container">
-                        <div class="row my-2">
-                            <div class="col-md-4">
-                                <label style="width:117px;" for="">Select Category</label>
-                                <select class="selectpicker form-control" data-live-search="true" id="transactionCategory"  onchange="loaddata()">
-                                    
-
-                                </select>
-                            </div>
-
-                            <div class="col-md-4  ">
-                                <label for="" id="pname">Select Data</label>
-                                <select 
-                                    class="selectpicker form-control" data-live-search="true" id="tables" >
-                                    <option value=""></option>
-                                </select>
-                                </div>
-                            <div class="col-md-4  ">
-                                
-                                <button 
-                                    class="btn  btn-info" data-live-search="true"  style="margin-top:32px;"
-                                    onclick="selectedSearchData()">
-                                    Search
-                                </button>
-                                </div>
-                        </div>
-                    </div>
+                     
                                 <div class="container"  >
                                      <div class="row my-2" >
                                             <div class="col-md-4" >
@@ -160,7 +134,7 @@ b<!DOCTYPE html>
                                                 <input type="date" id ="date2">
                                             </div>
                                             <div class="col-md-4" >
-                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
+                                                <button  class="btn  btn-info"  id="dates" style="margin-top:2px;"
                                                         onclick="selectedDateData()">Search </button> </div>
                                             </div>
                                             <label for="">Total:</label>
@@ -504,157 +478,7 @@ b<!DOCTYPE html>
 
                 }
 
-                function selectedSearchData(){
-                    var category = $('#transactionCategory').find(":selected").text();
-                    var table = $('#transactionCategory').find(":selected").val();
-                    var value = $('#tables').find(":selected").val();
-                    
-                    document.getElementById("date1").value="";
-                    document.getElementById("date2").value="";
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            
-                            var data = this.responseText;
-                              
-                             
-                            var table;
-                            var dt = JSON.parse(data);
-                            a=dt[0];
-                            sum=numberWithCommas(dt[1]);
-                            document.getElementById('tableSum').innerHTML=sum;
-                        
-                            table = $('#myTable').DataTable();
-                            table.clear();
-
-                            $.each(a, function (i, item) {
-
-                                date = dateFormat();
-                                table.row.add([   a[i].TransactionID, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                                    a[i].TransactionCatogery, a[i].Amount,
-                                    a[i].DateStamp,a[i].InvoiceNo,a[i].PartyName, a[i].FirstName+" "+a[i].LastName,
-                                     a[i].CustomerName,  a[i].ExpenseHead
-                                ]);
-                            });
-                            table.draw(); 
-
-                            if((category.trim()==="Salary Payment".trim())){
-                                table.column(1).visible(0);
-                                table.column(2).visible(0);
-                                table.column(4).visible(0);
-                                table.column(5).visible(0);
-                                table.column(0).visible(1);
-                                table.column(3).visible(1);
-
-                            } else if((category.trim()==="Party Payment".trim())){
-                                table.column(1).visible(0);
-                                table.column(3).visible(0);
-                                table.column(4).visible(0);
-                                table.column(5).visible(0);
-                                table.column(0).visible(1);
-                                table.column(2).visible(1);
-
-                            }else if((category.trim()==="Booking Order".trim())){
-
-                                
-                                table.column(3).visible(0);
-                                table.column(4).visible(0);
-                                table.column(5).visible(0);
-                                table.column(0).visible(1);
-                                table.column(1).visible(1);
-                                table.column(2).visible(1);
-
-                            }if((category.trim()==="Sales".trim())){ 
-                                table.column(2).visible(0);
-                                table.column(3).visible(0);
-                                table.column(5).visible(0);
-
-                                table.column(0).visible(1);
-                                table.column(1).visible(1);
-                                table.column(4).visible(1);
-                             
-                            }else if((category.trim()==="Expense".trim())){
-                              
-                                table.column(1).visible(0);
-                                table.column(2).visible(0);
-                                table.column(3).visible(0);
-                                table.column(4).visible(0);
-
-                                table.column(0).visible(1);
-                                table.column(5).visible(1);
-                            
-                            }else if((category.trim()==="Transportation Charges".trim())){
-                               
-                                table.column(2).visible(0);
-                                table.column(3).visible(0);
-                                table.column(4).visible(0);
-                                table.column(5).visible(0);
-
-                                table.column(0).visible(1);
-                                table.column(1).visible(1);
-                               
-                            }else if((category.trim()==="Stock and Purchased".trim())){
-                                table.column(2).visible(0);
-                                table.column(3).visible(0);
-                                table.column(5).visible(0);
-
-                                table.column(0).visible(1);
-                                table.column(1).visible(1);
-                                table.column(4).visible(1);
-                                document.getElementById("custname").innerHTML="Supplier"; 
-                            }else if((category.trim()==="Stock and Service".trim())){
-                                table.column(2).visible(0);
-                                table.column(3).visible(0);
-                                table.column(5).visible(0);
-                                
-                                table.column(0).visible(1);
-                                table.column(1).visible(1);
-                                table.column(4).visible(1);
-                               
-                            }else if((category.trim()==="Investors".trim())){
-                                      table.column(3).visible(0);
-                                      table.column(4).visible(0);
-                                      table.column(5).visible(0);
-                                      
-                                      table.column(0).visible(1);
-                                      table.column(1).visible(1);
-                                      table.column(2).visible(1);
-                                      
-      
-                                  }
-                            
-                            
-                            
-                            else if((category.trim()==="Everything".trim())){
-                                      
-                                table.column(0).visible(1);
-                                table.column(1).visible(1);
-                                table.column(2).visible(1);
-                                table.column(3).visible(1);
-                                table.column(4).visible(1);
-                                table.column(5).visible(1);
-
-                            }
-                    };
-            
-                 };
-                 
-                
-                 if(value == ""){
-                        value = "All";  
-                    }
-                    if(table == ""){
-                        table = "All";  
-                    }if(category == ""){
-                        category = "Everything";  
-                    }
-
-                    xhttp.open("GET", "./selectedSearchData/"+category.trim()+"/"+value.trim()+"/"+table , true);
-
-                    xhttp.send();
-                }
-
-            </script>
+                </script>
 
             <script>
 
@@ -833,27 +657,8 @@ b<!DOCTYPE html>
                 }
 
             </script>
-       <!-- <script>
-		    function printDiv(mydata){
-                   
-               
-                   var printContents = document.getElementById('mydata').innerHTML;
-                   var originalContents = document.body.innerHTML;
-       
-                   document.body.innerHTML = printContents;
-                   document.getElementById("myTable_length").style.visibility = "hidden";
-                   document.getElementById("myTable_filter").style.visibility = "hidden";
-                   document.getElementById("myTable_info").style.visibility = "hidden";
-                   document.getElementById("myTable_paginate").style.visibility = "hidden";
-                   
-                   window.print();
-               
-                   
-                   document.body.innerHTML = originalContents;
-                   location.reload(); 
-            }
-        </script> -->
-    <script>
+     
+    <!-- <script>
     function printTrasactionHistory(){
                     var date1 = document.getElementById("date1").value;
                     var date2 = document.getElementById("date2").value;
@@ -886,9 +691,9 @@ b<!DOCTYPE html>
             xhttp.send();
         }
         }
-    </script>
+    </script> -->
 
-<script>
+<!-- <script>
     function printTrasactionHistory2(){
                     
                     var table = $('#transactionCategory').find(":selected").val();
@@ -918,41 +723,14 @@ b<!DOCTYPE html>
             xhttp.send();
         
         }
-    </script>
+    </script> -->
 
 
 
-<script>
- function loadCategoryData(){
-                    var category = $('#transactionCategory').find(":selected").text();
-                    var table = $('#transactionCategory').find(":selected").val();
-                //  alert(category);
-                    if(table==""){
-                        table = "All";
-                    }
-                   
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            // alert(this.response);
-                            document.getElementById("tables").innerHTML = this.response;
-                            $('#tables').selectpicker('refresh');
-                            
-                        }
-                    };
-                    
-                    xhttp.open("GET", "./loadCategoryData/"+table, true);
-
-                    xhttp.send();
-
-                }
-
-
-
-</script>
+ 
 <script>
                 function loaddata() {
-                    loadCategoryData();
+                     
                     changeCategory();
                     
                     
