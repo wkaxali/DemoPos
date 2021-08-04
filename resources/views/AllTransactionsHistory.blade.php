@@ -137,13 +137,17 @@ b<!DOCTYPE html>
                                                 <button  class="btn  btn-info"  id="dates" style="margin-top:2px;"
                                                         onclick="selectedDateData()">Search </button> </div>
                                             </div>
+                                            <div class="row my-2" >
+                                            <div class="col-md-4" >
                                             <label for="">Total:</label>
-                                            <h2 id="tableSum">0</h2>
+                                            <h1 id="tableSum">0</h1></div>
+                                            <div class="col-md-4" >
                                             <label for="">Debit Amount:</label>
-                                            <h2 id="debitAmount">0</h2>
+                                            <h1 id="debitAmount">0</h1></div>
+                                            <div class="col-md-4" >
                                             <label for="">Credit Amount:</label>
-                                            <h2 id="creditAmount">0</h2>
-                                            
+                                            <h1 id="creditAmount">0</h1></div>
+                                            </div>
                                         </div>
                                         
                                   </div>
