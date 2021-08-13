@@ -293,7 +293,7 @@ class OrderFlowController extends Controller
       }
       
       function transactionHistory(){
-        $data=DB:: select('select * from vw_transaction_flow');
+        $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery<>"Customer Paid to Company"');
         $sum=0;
         $crediSum=0;
         $debitSum=0;

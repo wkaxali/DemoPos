@@ -29,7 +29,6 @@ class saleInvoiceEditController extends Controller
         $RBI=$Array[7];
          $CID=$Array[8];
          $CLB=$Array[9];
-
          $CCB=$Array[10];
          $AID=$Array[11];
          $ProductsInTable=$Array[0];
