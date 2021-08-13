@@ -295,7 +295,7 @@ class TransactionFlow extends Controller
 
     }
     public static function getTransactionsForParties($LID){
-        $data=DB:: select('select * from tbltransactionflow where PaidTo='.$LID);
+        $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery<>"Customer Paid to Company"');
         return $data;
     }
     public static function DebitTransactions(){
