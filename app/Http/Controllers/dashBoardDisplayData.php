@@ -43,7 +43,7 @@ class dashBoardDisplayData extends Controller
             $thismonth =  Carbon::createFromFormat('Y-m-d', $date)->format('m');
         $data=DB:: select('SELECT
         COUNT(InvoiceNumber) AS TotalSales, SUM(TotalAmount) AS Amount 
-        FROM vw_customersale_invoice where Category = 1
+        FROM vw_customersale_invoice where TransactionCatogery != "Customer Paid to Company"
         AND month(DateStamp)= '.$thismonth);
         return $data;
     }
