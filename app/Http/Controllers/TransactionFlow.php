@@ -78,7 +78,7 @@ class TransactionFlow extends Controller
         return [$data, $sum, $crediSum, $debitSum];
     
         }else if ((!strcmp($table,"Investors"))&&(!strcmp($value,"All"))){
-            $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0 ');
+            $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo IS NOT NULL and PaidTo <>0  and TransactionCatogery<>"Customer Paid to Company" ');
             $sum=0;
             foreach($data as $d){
                   $sum+= $d->Amount;
@@ -86,7 +86,7 @@ class TransactionFlow extends Controller
               return [$data, $sum];
         }
         else if(!strcmp($value,"All")){
-            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"  and TransactionCatogery<>"Customer Paid to Company"' );
             $sum=0;
                     foreach($data as $d){
                           $sum+= $d->Amount;
@@ -98,7 +98,7 @@ class TransactionFlow extends Controller
         
         else if(!strcmp($category,"All")){
                 
-            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"' );
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery="'.$table.'"  and TransactionCatogery<>"Customer Paid to Company"' );
             $sum=0;
                     foreach($data as $d){
                           $sum+= $d->Amount;
@@ -111,7 +111,7 @@ class TransactionFlow extends Controller
 
 
               if (!strcmp($table,"Investors")){
-                $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo ="'.$value.'"');
+                $data=DB:: select('select * from vw_transaction_flow where  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo ="'.$value.'"  and TransactionCatogery<>"Customer Paid to Company"');
                 $sum=0;
                 foreach($data as $d){
                       $sum+= $d->Amount;
@@ -144,7 +144,7 @@ class TransactionFlow extends Controller
         
             }
         }
-            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value );
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'"  and TransactionCatogery="'.$table.'" and '.$columnName.'='.$value.'  and TransactionCatogery<>"Customer Paid to Company" ');
             $sum=0;
             foreach($data as $d){
                   $sum+= $d->Amount;
