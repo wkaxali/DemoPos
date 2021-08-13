@@ -62,7 +62,7 @@ class TransactionFlow extends Controller
 
         if(!strcmp($table,"Everything")){
                 
-            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery<>"Customer Paid to Company" ');
             $sum=0;
         $crediSum=0;
         $debitSum=0;
@@ -295,7 +295,7 @@ class TransactionFlow extends Controller
 
     }
     public static function getTransactionsForParties($LID){
-        $data=DB:: select('select * from vw_transaction_flow where TransactionCatogery<>"Customer Paid to Company"');
+        $data=DB:: select('select * from tbltransactionflow where PaidTo='.$LID);
         return $data;
     }
     public static function DebitTransactions(){
