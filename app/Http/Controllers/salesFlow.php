@@ -137,7 +137,7 @@ class salesFlow extends Controller
           $paidVia=$AID;
           $oldBalance= LedgerPartiesController::getPartyBalance($LID);
           $currentBalance=floatval ($oldBalance)-floatval ($amp);
-          TransactionFlow::addTransaction($invoiceNumber,"Credit","Customer Paid to Company",
+          TransactionFlow::addTransaction($invoiceNumber,"Debit","Customer Paid to Company",
           $amp,$dateNow,"2", $oldBalance,$currentBalance,NULL,NULL,$LID,"0",$CID,"1",$paidVia,NULL,Null);
           $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
           $companyBalance=$oldCompanyBalance-$amp;
