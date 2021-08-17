@@ -62,7 +62,7 @@ class TransactionFlow extends Controller
 
         if(!strcmp($table,"Everything")){
                 
-            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" and TransactionCatogery<>"Customer Paid to Company" ');
+            $data=DB:: select('select * from vw_transaction_flow  where DateStamp between "'.$date1 .'"and"'.$date2.'" ');
             $sum=0;
         $crediSum=0;
         $debitSum=0;
