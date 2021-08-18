@@ -71,7 +71,7 @@ use App\Http\Controllers\deleteBookedOrderController;
 |
 */
 
-Route::get('/deleteOrder',[deleteBookedOrderController::class, 'deleteOrder']);
+Route::get('/deleteOrder/{OID}',[deleteBookedOrderController::class, 'deleteOrder']);
 Route::get('/getSSHistory',[salesHistoryController::class, 'saleStockHistory']);
 Route::get('/getPSHistory',[purchaseHistoryController::class, 'purchaseStockHistory']);
 Route::get('/fjwBalance',[LedgerPartiesController::class, 'fjwBalance']);

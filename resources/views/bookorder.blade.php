@@ -804,26 +804,33 @@
 
     function getOrderDetails(OID) {
 
-
-             
-            var xhttp = new XMLHttpRequest();
-
-
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    
-                    document.getElementById("BookingRecordTable").innerHTML = this.responseText;
-
-                    alert(this.responseText);
-
-
-                }
-
-            };
-
-            xhttp.open("GET", "./getBookedOrders/" + OID, true);
-            xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) { 
+                document.getElementById("BookingRecordTable").innerHTML = this.responseText;
+                alert(this.responseText);
             }
+        };
+        xhttp.open("GET", "./getBookedOrders/" + OID, true);
+        xhttp.send();
+    }
+
+
+    function deleteOrder(){
+        var table = document.getElementById('BookingRecordTable');
+        alert(table.rows[0].cells[0].innerHTML);
+
+
+        // var xhttp = new XMLHttpRequest();
+        // xhttp.onreadystatechange = function () {
+        //     if (this.readyState == 4 && this.status == 200) { 
+        //         document.getElementById("BookingRecordTable").innerHTML = this.responseText;
+        //         alert(this.responseText);
+        //     }
+        // };
+        // xhttp.open("GET", "./deleteOrder/" + OID, true);
+        // xhttp.send();
+    }
 
 
 
