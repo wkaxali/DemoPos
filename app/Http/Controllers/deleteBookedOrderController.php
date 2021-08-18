@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use DB;
+
 class deleteBookedOrderController extends Controller
 {
-    public function deleteOrder(Request $request,$OID){
+    public function deleteOrder(Request $request,$orderID){
         
         $purchaseData=DB:: select('select * from tblpurchaseorder where SupplierID = 1 and InvoiceNumber='.$orderID);
         $transactionData=DB:: select('select * from tbltransactionflow where TransactionCatogery = "Booking Order" and InvoiceNo='.$orderID);
         
-        $orderID = $OID;
+        
         $LID=globalVarriablesController::selfLedgerID();
-        $totlpaid=$purchaseData->AmountPaid;
-        $totRemaining=$purchaseData->Balance;
-        $AID=$transactionData->PaidVia;
+        $totlpaid=$purchaseData[0]->AmountPaid;
+        $totRemaining=$purchaseData[0]->Balance;
+        $AID=$transactionData[0]->PaidVia;
 
         $oldSelfBalance=LedgerPartiesController::getPartyBalance($LID);
         $selfBalance=floatval($oldSelfBalance)+floatval($totlpaid);
