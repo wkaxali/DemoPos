@@ -110,7 +110,7 @@
                         <div class="modal fade bd-data-modal-xl" tabindex="-1" role="dialog"
                             aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog  modal-xl">
-                                <div class="modal-content" style="margin: 0 auto; width: 190%;">
+                                <div class="modal-content" style="margin: 0 auto; width: 80%;">
                                     <div class="modal-header">
                                         <h5 class="modal-title">Forland Modern Motors</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -126,7 +126,7 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="overFlowingTable"
-                                                style="padding: 20px; overflow: auto !important; width:1108px !important; margin: 35px auto !important; ">
+                                                style="padding: 20px; overflow: auto !important; width:708px !important; margin: 35px auto !important; ">
 
 
                                                 <table class="table table-bordered " id="bookingHistoryTable">
