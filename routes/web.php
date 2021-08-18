@@ -57,6 +57,8 @@ use App\Http\Controllers\investorHistoryController;
 use App\Http\Controllers\investorHistoryPrintController;
 use App\Http\Controllers\supplierHistoryController;
 use App\Http\Controllers\supplierHistoryPrintController;
+use App\Http\Controllers\deleteBookedOrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +71,7 @@ use App\Http\Controllers\supplierHistoryPrintController;
 |
 */
 
+Route::get('/deleteOrder',[deleteBookedOrderController::class, 'deleteOrder']);
 Route::get('/getSSHistory',[salesHistoryController::class, 'saleStockHistory']);
 Route::get('/getPSHistory',[purchaseHistoryController::class, 'purchaseStockHistory']);
 Route::get('/fjwBalance',[LedgerPartiesController::class, 'fjwBalance']);
