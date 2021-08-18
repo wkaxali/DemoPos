@@ -329,7 +329,16 @@
                 display: block;
             }
         }
+        @media only screen and (max-width: 768px) {
 
+        .overFlowingTable table thead th {
+            font-size: 10px !important;
+        }
+
+
+
+        }
+       
     </style>
 </head>
 
@@ -587,6 +596,9 @@
         src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
 
 
     <script>
@@ -594,6 +606,7 @@
             getOrderID();
             loadaccounts();
             loadAutos();
+            bookingOrdersHistory();
         }
 
     </script>
@@ -656,6 +669,163 @@
 
             xhttp.send();
         }
+
+
+        // function IsItemExistInDataTable(item) {
+
+
+
+        //     var table = document.getElementById("ProductSaleTable");
+        //     for (var i = 0, row; row = table.rows[i]; i++) {
+
+
+        //         if (item == row.cells[0].innerHTML) {
+
+
+        //             var qty = row.cells[4].children[0].value;
+        //             qty++;
+        //             row.cells[4].children[0].value = qty;
+        //             calculationTrigerOnQtyValueChange(row.cells[4].children[0]);
+
+
+
+
+        //             return false;
+        //         }
+
+        //     }
+
+        //     return true;
+        //     };
+
+    </script>
+
+    <script>
+//   $(document).ready(function () {
+
+// // code to read selected table row cell data (values).
+// $("#bookingHistoryTable").on('click', 'tr', function () {
+//     // get the current row
+
+    
+
+//     var table = document.getElementById("BookingRecordTable");
+
+//     var PID = this.cells[0].innerText; // get current row 1st TD value
+//     var PNAME = this.cells[1].innerText; // get current row 2nd TD
+//     //var qty=currentRow.find("td:eq(2)").text(); // get current row 3rd TD
+//     var CompanyName = this.cells[2].innerText; // get current row 3rd TD
+//     var SalePrice = this.cells[3].innerText; // get current row 3rd TD
+//     var qty = 1;
+//     if (IsItemExistInDataTable(PID)) {
+
+
+//         var row = table.insertRow(-1);
+//         var cell1 = row.insertCell(0);
+//         var cell2 = row.insertCell(1);
+//         var cell3 = row.insertCell(2);
+//         var cell4 = row.insertCell(3);
+//         var cell5 = row.insertCell(4);
+//         var cell6 = row.insertCell(5);
+//         var cell7 = row.insertCell(6);
+//         var cell8 = row.insertCell(7);
+
+
+//         cell1.innerHTML = PID;
+//         cell2.innerHTML = PNAME;
+//         cell3.innerHTML = CompanyName;
+//         cell4.innerHTML = SalePrice;
+//         cell5.innerHTML =
+//             '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=1>';
+//         cell6.innerHTML =
+//             '<input type="text" onchange="calculationTrigerOnQtyValueChange(this)" value=0.0>';
+//         var tot = SalePrice * 1;
+//         cell7.innerHTML = tot;
+//         calc();
+
+
+
+
+
+
+//         //$("#searchModal").modal('hide');
+//         //calculation than enter price
+       
+
+
+//         cell8.innerHTML =
+//             "<button id='DelButton'class=\"btn btn-danger\" style=\"height: 25px;\" value='x' text='x' onclick='RemoveThisRow(this)'></button>";
+
+//     } else {
+//         alert("Quantity Increased");
+//     }
+// });
+// });
+ 
+    function bookingOrdersHistory() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+
+        if (this.readyState == 4 && this.status == 200) {
+
+            var data = this.responseText;
+            var table;
+            var a = JSON.parse(data);
+            table = $('#bookingHistoryTable').DataTable();
+
+            $.each(a, function (i, item) {
+                table.row.add([  
+                    a[i].InvoiceNumber, a[i].TotalAmount, a[i].AmountPaid, 
+                    a[i].DateStamp
+                ]);
+                });
+            table.draw();
+        
+
+            }
+        };
+        //alert("ljd");
+        xhttp.open("GET", "./getboHistory/", true);
+
+        xhttp.send();
+
+
+        }
+        
+    $("#bookingHistoryTable").on('click', 'tr', function () {
+        var OID = parseInt(this.cells[0].innerText);
+          
+         getOrderDetails(OID);
+         
+    });
+
+
+
+    function getOrderDetails(OID) {
+
+
+             
+            var xhttp = new XMLHttpRequest();
+
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    
+                    document.getElementById("BookingRecordTable").innerHTML = this.responseText;
+
+                    alert(this.responseText);
+
+
+                }
+
+            };
+
+            xhttp.open("GET", "./getBookedOrders/" + OID, true);
+            xhttp.send();
+            }
+
+
 
     </script>
 </body>

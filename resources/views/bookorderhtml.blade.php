@@ -92,6 +92,9 @@
                                             <div class="successButtons text-right"
                                                 style=" margin-right:15px;margin-top:35px;">
                                                 <button onclick="valid()" class="btn ">Add</button>
+                                                <button   class="btn "  class="btn"
+                                style=" background-color:#0a549d;" data-toggle="modal"
+                                data-target=".bd-data-modal-xl" >Orders History</button>
                                             </div>
                                         </div>
                                     </div>
@@ -104,6 +107,58 @@
 
                         </div>
                         <br>
+                        <div class="modal fade bd-data-modal-xl" tabindex="-1" role="dialog"
+                            aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog  modal-xl">
+                                <div class="modal-content" style="margin: 0 auto; width: 190%;">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Forland Modern Motors</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                    <div class="container">
+                                        <div class="row">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="overFlowingTable"
+                                                style="padding: 20px; overflow: auto !important; width:1108px !important; margin: 35px auto !important; ">
+
+
+                                                <table class="table table-bordered " id="bookingHistoryTable">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th>Invoice No</th>
+ 
+                                                            <th>Total Amount</th>
+                                                            <th>Amount Paid</th>
+ 
+                                                            <th>Date Stamp</th>
+                                                             
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
                         <main id="mainHeader">
 
 
