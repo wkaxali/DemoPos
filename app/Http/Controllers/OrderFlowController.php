@@ -266,6 +266,53 @@ class OrderFlowController extends Controller
         
       }
 
+      
+      
+
+      function getBookedOrders($oid){
+        $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$oid);
+        
+        $table='<thead>
+        <tr>
+            <th>Id</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>QTY</th>
+            <th>Total</th>
+            <th>Paid</th>
+            <th>Remain</th>
+            <th>Delete
+            </th>
+        </tr>
+    </thead>';
+        foreach($data as $ro) {
+        $table=$table.'
+          
+            <tr>
+            
+            <td  >'.$ro->InvoiceNumber.'</td>
+            <td>'.$ro->ProductName.'</td>
+            <td> '.$ro->PurchasePricePerUnit.'</td>
+            <td> '.$ro->OrderedQuantiy.'</td>
+            <td> '.$ro->TotalAmount.'</td>
+            <td> '.$ro->AmountPaid.'</td>
+            <td> '.$ro->Balance.'</td>
+            <td><button  calss="" onclick="deleteRow(this)">X</button></td>
+             
+          
+                
+        </tr>';
+      }
+        return $table;
+      }
+
+      function getboHistory(){
+        $data=DB:: select('select * from tblpurchaseorder ');
+        return $data;
+      }
+
+
+
       function getPendingOrders(){
         $data=DB:: select('select * from vw_purchaseorderdetails where DilevedStatus = "Pending"');
         return $data;
