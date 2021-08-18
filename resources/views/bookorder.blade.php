@@ -826,8 +826,7 @@
     function deleteOrder(){
         var table = document.getElementById('BookingRecordTable');
         OID = table.rows[1].cells[0].innerHTML;
-        alert(OID);
-
+        if (confirm("Do you want to permanently delete record "+OID)){
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) { 
@@ -836,6 +835,7 @@
         };
         xhttp.open("GET", "./deleteOrder/" + OID, true);
         xhttp.send();
+        }
     }
 
 
