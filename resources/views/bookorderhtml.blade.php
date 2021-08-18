@@ -231,9 +231,10 @@
 
                 <br>
                         <div class="footerBtn">
-                        
+                       
                       
-                            <button class="placeBtns btn" onclick="placeOrder()">Place Order</button>
+                            <button id ="placebutton"  class="btn btn-primary"  onclick="placeOrder()">Place Order</button>
+                            <button id ="deletebutton" class="placeBtns btn" onclick="deleteOrder()">Delete Order</button>
                         </div>
                     </div>
                 </section>

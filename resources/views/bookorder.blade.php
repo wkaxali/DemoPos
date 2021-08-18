@@ -350,6 +350,8 @@
 
     <script>
         function valid() {
+            document.getElementById("deletebutton").style.visibility = "hidden"; 
+            document.getElementById("placebutton").style.visibility = "visible"; 
             var OrderID = document.getElementById("OrderId").value;
             var category = $('#category').find(":selected").val();
             var bookingPrice = document.getElementById("bookingPrice").value;
@@ -795,7 +797,8 @@
         
     $("#bookingHistoryTable").on('click', 'tr', function () {
         var OID = parseInt(this.cells[0].innerText);
-          
+        document.getElementById("deletebutton").style.visibility = "visible"; 
+            document.getElementById("placebutton").style.visibility = "hidden"; 
          getOrderDetails(OID);
          
     });

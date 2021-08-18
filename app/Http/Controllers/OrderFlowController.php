@@ -270,7 +270,7 @@ class OrderFlowController extends Controller
       
 
       function getBookedOrders($oid){
-        $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$oid);
+        $data=DB:: select('select * from vw_purchaseorderdetails where Category= "1" and InvoiceNumber='.$oid);
         
         $table='<thead>
         <tr>
