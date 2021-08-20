@@ -767,6 +767,13 @@
 //     }
 // });
 // });
+
+
+        function clearData(){
+            
+            document.getElementById("BookingRecordTable").innerHTML =    '<thead><tr><th>Id</th><th>Model</th><th>Price</th> <th>QTY</th> <th>Total</th><th>Paid</th><th>Remain</th></th>  <th>Delete </th></tr></thead>' ;
+
+        }
  
     function bookingOrdersHistory() {
 

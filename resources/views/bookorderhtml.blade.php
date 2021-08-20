@@ -199,7 +199,7 @@
                                             </table>
                                         </div>
                                         <div class="mainInputGroups">
-
+                                        <button onclick="clearData()"   style="margin-left:300px; display: inline-block  !important;" class="btn btn-dark ">Clear</button> <br> 
                                             <label style="width: 150px;" for="">Payment Method</label>
                                             <select class="selectpicker form-control" data-live-search="true"
                                                 id="accounts">
