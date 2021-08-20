@@ -331,7 +331,7 @@ Route::get('/printSupplierHistory/{date1}/{date2}/{sup}/{colSums}',[supplierHist
 Route::get('/getAllTransactions',[accountsController::class, 'getAllTransactions']);
 Route::get('/editTransactions/{UT}',[accountsController::class, 'editTransactions']);
 Route::get('/getPurchaseHistory',[purchaseHistoryController::class, 'getPurchasesHistory']);
-Route::get('/getboHistory',[OrderFlowController::class, 'getboHistory']);
+Route::get('/getboHistory',[OrderFlowController::class, 'getBookingHistory']);
 Route::get('/getBookedOrders/{oid}',[OrderFlowController::class, 'getBookedOrders']);
   
 Route::get('/', function () {
