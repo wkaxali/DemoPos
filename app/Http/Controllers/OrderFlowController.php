@@ -281,7 +281,7 @@ class OrderFlowController extends Controller
             <th>Total</th>
             <th>Paid</th>
             <th>Remain</th>
-         
+            <th>Delete</th>
             </th>
         </tr>
     </thead>';
@@ -297,6 +297,7 @@ class OrderFlowController extends Controller
             <td> '.$ro->TotalAmount.'</td>
             <td> '.$ro->AmountPaid.'</td>
             <td> '.$ro->Balance.'</td>
+            <td> <button  calss="" onclick="deleteRow(this)">X</button> </td>
       
              
           
