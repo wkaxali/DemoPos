@@ -267,7 +267,7 @@ class OrderFlowController extends Controller
       }
 
       
-      
+      // and DilevedStatus = "Pending" 
 
       function getBookedOrders($oid){
         $data=DB:: select('select * from vw_purchaseorderdetails where Category= "1" and InvoiceNumber='.$oid);
@@ -307,7 +307,7 @@ class OrderFlowController extends Controller
       }
 
       function getboHistory(){
-        $data=DB:: select('select * from tblpurchaseorder ');
+        $data=DB:: select('select * from tblpurchaseorder  where BillStatus = "Pending"');
         return $data;
       }
 
