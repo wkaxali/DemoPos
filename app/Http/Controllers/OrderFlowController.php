@@ -306,7 +306,7 @@ class OrderFlowController extends Controller
         return $table;
       }
 
-      function getboHistory(){
+      function getBookingHistory(){
         $data=DB:: select('select * from tblpurchaseorder  where BillStatus = "Pending"');
         return $data;
       }
