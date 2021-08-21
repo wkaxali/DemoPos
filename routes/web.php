@@ -334,6 +334,8 @@ Route::get('/getPurchaseHistory',[purchaseHistoryController::class, 'getPurchase
 Route::get('/getboHistory',[OrderFlowController::class, 'getBookingHistory']);
 Route::get('/getBookedOrders/{oid}',[OrderFlowController::class, 'getBookedOrders']);
   
+Route::get('/logout',[userAccountController::class, 'logout']);
+
 Route::get('/', function () {
 return view('signInSignUp');
 });

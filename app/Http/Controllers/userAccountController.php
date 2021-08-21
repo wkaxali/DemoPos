@@ -7,6 +7,15 @@ use DB;
 
 class userAccountController extends Controller
 {
+
+  public static function logout( ){
+    session(['userName' =>null]);
+    session(['Designation' =>null]);
+     
+    return "SignOut Successfully";
+    
+ }
+  
  public static function signIn($userName,$passcode){
 
     $re = DB::table('userinfo')
