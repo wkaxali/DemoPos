@@ -260,14 +260,14 @@
                                     </div>
                                     <div class="col-md-5  ">
                                         <label for="">Contact</label>
-                                        <input readonly type="text" value="date" class="form-control"
+                                        <input readonly type="text"  class="form-control"
                                             style="display: inline-block; width: 200px;margin-top: 3px;" name=""
                                             id="contact">
 
                                     </div>
                                     <div class="col-md-5">
                                         <label for="">CNIC</label>
-                                        <input readonly type="text" value="date" class="form-control"
+                                        <input readonly type="text"  class="form-control"
                                             style="display: inline-block; width: 200px;margin-top: 3px;" name=""
                                             id="cnic">
 
@@ -277,10 +277,10 @@
                                         <input readonly type="text" value="date" class="form-control"
                                             style="display: inline-block; width: 200px;margin-top: 3px;" name=""
                                             id="date">
-                                    </div>
-                                    <div class="col-md-12 ">
+                                    </div><br>
+                                    <div class="col-md-12 "> 
                                         <label for="">Address</label>
-                                        <input readonly type="text" style="display: inline-block; width: 810px;"
+                                        <input readonly type="text" style="display: inline-block; width: 810px; margin-top:11px;"
                                             class="form-control" name="" id="address">
                                     </div>
 
