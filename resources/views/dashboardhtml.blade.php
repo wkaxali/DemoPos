@@ -981,10 +981,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 </div>
                 <div class="header-left">
                     <div class="logo-name">
-                        <a href="/db">
-                            <img src="https://automark.pk/jw-forland/assets/images/logo-footer.png" class="img-fluid"
-                                alt="">
-                        </a>
+                         
                     </div>
 
                     <div class="clearfix"> </div>
