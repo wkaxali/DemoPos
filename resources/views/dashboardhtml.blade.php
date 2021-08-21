@@ -981,7 +981,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 </div>
                 <div class="header-left">
                     <div class="logo-name">
-                         
+                        
                     </div>
 
                     <div class="clearfix"> </div>
@@ -1039,7 +1039,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             aria-controls="pills-year" aria-selected="false">This Year</a>
                     </li>
                 </ul> -->
-                <div class="clearmain"></div>
+                <div class="clearmain"> </div>
                 <div class="pageContainer">
                 <button style ="margin-left:1180px;" id ="logout" class="btn btn-danger" onclick="logout()">LogOut</button><br>
                 <div class="tab-content" id="pills-tabContent">
