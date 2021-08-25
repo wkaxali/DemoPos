@@ -258,7 +258,7 @@
                                         <label for="">Remarks</label>
                                         <input type="text" class="form-control" style="display: inline-block; width: 192px;"
                                         value="" name="" id="remarks"><br>
-                                <button class="btn" onclick="add(), calculatonInTable()"  >Add</button>
+                                <button class="btn btn-danger" onclick="add(), calculatonInTable()"  >Add</button>
                             </div>
 
 
@@ -312,7 +312,7 @@
             <div class="row">
                 <div class="col-md-5 offset-md-7">
                     <div class="footerBtns">
-                        <button class="btn" onclick = "addExpenses()">Update</button>
+                        <button class="btn btn-danger" onclick = "addExpenses()">Update</button>
                     </div>
                 </div>
             </div>
