@@ -263,7 +263,7 @@
     <input type="text" class="form-control" style="display: inline-block; width: 192px;"
     value="" name="" id="remarks">
     <br>
-    <button class="btn" onclick="add(), calculatonInTable()">Add</button>
+    <button class="btn btn-danger" onclick="add(), calculatonInTable()">Add</button>
     </div>
 
 
@@ -318,8 +318,8 @@
     <div class="col-md-5 offset-md-7">
     <div class="footerBtns">
    
-    <button onclick="window.print()" class="btn">Print</button>
-    <button class="btn" onclick="addExpenses()">Update</button>
+    <button onclick="window.print()" class="btn btn-danger">Print</button>
+    <button class="btn btn-primary" onclick="addExpenses()">Update</button>
     </div>
     </div>
 
