@@ -323,14 +323,14 @@ $(".sidebar-icon").click(function () {
 
                 $.each(a, function (i, item) {
 
-                    if(a[i].AmountPaid!=null){
+                    if(a[i].TransactionCatogery=="Booking Order"){
                         table.row.add([  
                             a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
                             a[i].DateStamp
                         
                         ]);
-                    }else if(a[i].AmountPaid==null){
+                    }else if(a[i].AmountPaid=="Party Payment"){
                         table.row.add([  
                             a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             0, a[i].Amount, 0, 
