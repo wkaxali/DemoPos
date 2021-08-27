@@ -186,11 +186,7 @@ class OrderFlowController extends Controller
         
         
         foreach ($OrderDetails as $row){
-          // $(tr).find('td:eq(0)').text(), //productID
-          // $(tr).find('td:eq(3)').text(), //purchase
-          // $(tr).find('td:eq(4) input[type="text"]').val(), //qty
-          // $(tr).find('td:eq(5) input[type="text"]').val(), //discount
-          // $(tr).find('td:eq(6)').text() //totamount
+        
         $pid=$row[0];
         $purchasePrice=$row[1];
         $qty=$row[2];
@@ -198,12 +194,7 @@ class OrderFlowController extends Controller
         $dis=$row[3];
         $totamount=$row[4];
         
-       // for($i=0;$i<$qty;$i++){
-        // $(tr).find('td:eq(4)').text(), //totamount
-        // $(tr).find('td:eq(5)').text(), //Paid
-        // $(tr).find('td:eq(6)').text() //remAmount
-       
-      
+   
   
         $DSID=DB::table('tblpurchaseoorderdetaile')->insertGetId(['InvoiceNumber'=>$InvoiceID,
             
