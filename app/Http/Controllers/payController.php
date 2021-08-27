@@ -140,7 +140,6 @@ public static function getEmployeeName(){
 
 
     foreach ($data as $d){
-      //print $option;
 
         $option=$option.'
         <option value= '.$d->EID.'>'.$d->EID.'</option>';
@@ -156,8 +155,7 @@ public static function getEmployeeName(){
 
 
     foreach ($data as $d){
-      //print $option;
-
+    
         $option=$option.'
         <option value= '.$d->EID.'>'.$d->ContactNo.'</option>';
       
