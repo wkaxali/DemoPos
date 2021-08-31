@@ -1660,7 +1660,7 @@
 
         });
         myTrows.shift();
-
+        alert(myTrows);
         var tot = document.getElementById("Total").value;
         var discount = document.getElementById('DiscountOverall').value;
         var gross = document.getElementById('grossTotal').value;
