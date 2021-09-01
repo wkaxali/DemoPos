@@ -31,7 +31,7 @@
                             <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog"
                             aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog  modal-xl">
-                                <div class="modal-content" style="margin: 0 auto; width: 70%;">
+                                <div class="modal-content" style="margin: 0 auto; width:90%;">
                                     <div class="modal-header">
                                         <h5 class="modal-title">Forland Modern Motors</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -72,7 +72,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4 text-right mt-5 mb-5 offset-md-8">
+                                            <div class="col-md-4 text-right  ">
                                                 <button type="button" class="btn btn-danger"
                                                     data-dismiss="modal">Close</button>
                                                 <button type="submit" data-dismiss="modal"
