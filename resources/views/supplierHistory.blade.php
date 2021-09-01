@@ -314,7 +314,7 @@ $(".sidebar-icon").click(function () {
             if (this.readyState == 4 && this.status == 200) {
 
                 var data = this.responseText;
-                alert(data);
+                // alert(data);
                 var table;
                 var a = JSON.parse(data);
                 
@@ -513,25 +513,26 @@ $(".sidebar-icon").click(function () {
     <script>
         $("#myTable").on('click', 'tr', function() {
             var id = this.cells[0].innerText;
-            getDetails(id); 
+            var cat = this.cells[2].innerText;
+            getDetails(id,cat); 
            
  
             });
 
-            function getDetails(id){
+            function getDetails(id,cat){
                   
                 var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
              
-                    window.open('/getDetails/'+id );
+                    window.open('/getDetails/'+id+'/'+cat  );
                   
                 }
             }
          
                      
-            // alert("hello");
-            xhttp.open("GET", "./getDetails/" +id ,true);
+            alert(cat);
+            xhttp.open("GET", "./getDetails/" +id+'/'+cat.trim()  ,true);
             xhttp.send();
         }
 
