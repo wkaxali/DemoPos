@@ -333,7 +333,7 @@ $(".sidebar-icon").click(function () {
                         ]);
                     }else if(a[i].AmountPaid=="Party Payment"){
                         table.row.add([  
-                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TransactionID,  a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             0, a[i].Amount, 0, 
                             a[i].DateStamp
                         
@@ -369,14 +369,14 @@ $(".sidebar-icon").click(function () {
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
-                    if(a[i].TransactionCatogery=!"Party Payment"){
+                    if(a[i].AmountPaid!=null){
                         table.row.add([  
-                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TransactionID,   a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
                             a[i].DateStamp
                         
                         ]);
-                    }else if(a[i].AmountPaid=="Party Payment"){
+                    }else if(a[i].AmountPaid==null){
                         table.row.add([  
                             a[i].TransactionID,  a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             0, a[i].Amount, 0, 
@@ -422,16 +422,16 @@ $(".sidebar-icon").click(function () {
                 table.clear();
                 $.each(a, function (i, item) {
 
-                    if(a[i].TransactionCatogery=!"Party Payment"){
+                    if(a[i].AmountPaid!=null){
                         table.row.add([  
                             a[i].TransactionID,  a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
                             a[i].DateStamp
                         
                         ]);
-                    }else if(a[i].AmountPaid=="Party Payment"){
+                    }else if(a[i].AmountPaid==null){
                         table.row.add([  
-                            a[i].TransactionID,   a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TransactionID,  a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             0, a[i].Amount, 0, 
                             a[i].DateStamp
                         
@@ -521,9 +521,9 @@ $(".sidebar-icon").click(function () {
             table = $('#myTable').DataTable();
             if(table.rows().any()){
                 for (var i = 1; i < x; i++) {
-                    totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[4].innerText);
-                    amountPaid = amountPaid + Number(t.rows[i].cells[5].innerText);
-                    remainingBalance = remainingBalance + Number(t.rows[i].cells[6].innerText);
+                    totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
+                    amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
+                    remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
                 }
             }else{
                 totalPurchaseAmount = 0;
