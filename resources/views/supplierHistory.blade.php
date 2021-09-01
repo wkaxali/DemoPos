@@ -530,7 +530,7 @@ $(".sidebar-icon").click(function () {
             }
          
                      
-            alert("hello");
+            // alert("hello");
             xhttp.open("GET", "./getDetails/" +id ,true);
             xhttp.send();
         }

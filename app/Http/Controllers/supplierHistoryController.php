@@ -42,20 +42,20 @@ class supplierHistoryController extends Controller
 
     public static function getDetails($id){
        
-        $table='<h1 align="center"> Details</h1>
+        $table='<h1 align="center"> Supplier Transactions Details</h1>
         <br><br><br>
     
-        <table  align="center" cellpadding = "1" cellspacing = "0"  border="1" style="font-size:22.2px margin-left:49px;"><thead></thead>
+        <table  align="center" cellpadding = "7" cellspacing = "0"  border="1" style="font-size:22.2px margin-left:49px;"><thead></thead>
           <tbody>
               <tr>
-              <th>Supplier Name</th>
-              <th>Transaction Category</th> 
-              <th>Account Name</th>
+              <th style="text-align:center;">Transaction ID</th>
+              <th style="text-align:center;">Party Name</th> 
+              <th style="text-align:center;">Account Name</th>
            
-              <th>Total Purchase Amount</th>
+              <th style="text-align:center;">Total Purchase Amount</th>
           
            
-              <th>Transaction Date</th> 
+              <th style="text-align:center;">Transaction Date</th> 
                   
                   
               </tr>
@@ -72,11 +72,11 @@ class supplierHistoryController extends Controller
            
             
             <tr>
-            <td height:80px;>'.$d->PartyName.'</td> 
-              <td height:80px;>'.$d->TransactionCatogery.'</td>
-              <td height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
+            <td style="text-align:center;" height:80px;>'.$d->TransactionID.'</td> 
+              <td style="text-align:center;" height:80px;>'.$d->PartyName.'</td>
+              <td style="text-align:center;" height:80px;>'.$d->AccountName.' ('.$d->AccountNumber.')</td>
         
-              <td height:80px;>'.$d->Amount.'</td>
+              <td style="text-align:center;" height:80px;>'.$d->Amount.'</td>
               
              
             
