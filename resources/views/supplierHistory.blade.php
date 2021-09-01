@@ -521,9 +521,9 @@ $(".sidebar-icon").click(function () {
             table = $('#myTable').DataTable();
             if(table.rows().any()){
                 for (var i = 1; i < x; i++) {
-                    totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
-                    amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
-                    remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
+                    totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[4].innerText);
+                    amountPaid = amountPaid + Number(t.rows[i].cells[5].innerText);
+                    remainingBalance = remainingBalance + Number(t.rows[i].cells[6].innerText);
                 }
             }else{
                 totalPurchaseAmount = 0;
