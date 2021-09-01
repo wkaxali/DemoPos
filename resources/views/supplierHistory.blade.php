@@ -314,7 +314,7 @@ $(".sidebar-icon").click(function () {
             if (this.readyState == 4 && this.status == 200) {
 
                 var data = this.responseText;
-                //alert(data);
+                alert(data);
                 var table;
                 var a = JSON.parse(data);
                 
@@ -324,17 +324,17 @@ $(".sidebar-icon").click(function () {
 
                 $.each(a, function (i, item) {
                     var cat = a[i].TransactionCatogery;
-                    if(cat.trim()==!"Party Payment".trim()){
+                    if(cat.trim()==="Party Payment".trim()){
                         table.row.add([  
                             a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
+                            0, a[i].Amount, 0, 
                             a[i].DateStamp
                         
                         ]);
-                    }else if(cat.trim()==="Party Payment".trim()){
+                    }else{
                         table.row.add([  
-                            a[i].TransactionID,  a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                            0, a[i].Amount, 0, 
+                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
                             a[i].DateStamp
                         
                         ]);
@@ -370,17 +370,17 @@ $(".sidebar-icon").click(function () {
                 table.clear();
                 $.each(a, function (i, item) {
                     var cat = a[i].TransactionCatogery;
-                    if(cat.trim()==!"Party Payment".trim()){
+                    if(cat.trim()==="Party Payment".trim()){
                         table.row.add([  
-                            a[i].TransactionID,   a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
+                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            0, a[i].Amount, 0, 
                             a[i].DateStamp
                         
                         ]);
-                    }else if(cat.trim()==="Party Payment".trim()){
+                    }else{
                         table.row.add([  
-                            a[i].TransactionID,  a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                            0, a[i].Amount, 0, 
+                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
                             a[i].DateStamp
                         
                         ]);
@@ -423,17 +423,17 @@ $(".sidebar-icon").click(function () {
                 table.clear();
                 $.each(a, function (i, item) {
                     var cat = a[i].TransactionCatogery;
-                    if(cat.trim()==!"Party Payment".trim()){
+                    if(cat.trim()==="Party Payment".trim()){
                         table.row.add([  
-                            a[i].TransactionID,  a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
+                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            0, a[i].Amount, 0, 
                             a[i].DateStamp
                         
                         ]);
-                    }else if(cat.trim()==="Party Payment".trim()){
+                    }else{
                         table.row.add([  
-                            a[i].TransactionID,  a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                            0, a[i].Amount, 0, 
+                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
                             a[i].DateStamp
                         
                         ]);
