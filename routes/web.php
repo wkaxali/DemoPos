@@ -333,7 +333,9 @@ Route::get('/editTransactions/{UT}',[accountsController::class, 'editTransaction
 Route::get('/getPurchaseHistory',[purchaseHistoryController::class, 'getPurchasesHistory']);
 Route::get('/getboHistory',[OrderFlowController::class, 'getBookingHistory']);
 Route::get('/getBookedOrders/{oid}',[OrderFlowController::class, 'getBookedOrders']);
-  
+Route::get('/getDetails/{id}',[supplierHistoryController::class, 'getDetails']);
+
+ 
 Route::get('/logout',[userAccountController::class, 'logout']);
 
 Route::get('/', function () {

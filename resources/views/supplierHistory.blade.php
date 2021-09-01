@@ -511,6 +511,33 @@ $(".sidebar-icon").click(function () {
         }
     </script>
     <script>
+        $("#myTable").on('click', 'tr', function() {
+            var id = this.cells[0].innerText;
+            getDetails(id); 
+           
+ 
+            });
+
+            function getDetails(id){
+                  
+                var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+             
+                    window.open('/getDetails/'+id );
+                  
+                }
+            }
+         
+                     
+            alert("hello");
+            xhttp.open("GET", "./getDetails/" +id ,true);
+            xhttp.send();
+        }
+
+
+
+
     function sumColumns(){
             
             var t = document.getElementById("myTable");
