@@ -15,7 +15,7 @@ class partyPaymentHistory extends Controller
     public static function filterPartyPaymentHistory($partyID){
         $data=0;
         if($partyID=="All"){
-            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <> 0 and TransactionCatogery <> "Amount Transfer  and');
+            $data=DB:: select('select * from vw_transaction_flow where PaidTo IS NOT NULL and PaidTo <> 0 and TransactionCatogery <> "Amount Transfer"');
         
         }
         else if($partyID!="All"){
