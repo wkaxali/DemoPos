@@ -260,9 +260,7 @@ class supplierHistoryPrintController extends Controller
         <tbody>
             <tr>
             <th style="text-align:center;">Invoice Number</th>
-            
             <th style="text-align:center;">DateStamp</th>
-        
             <th style="text-align:center;">Total Amount</th>
             <th style="text-align:center;">Net Total</th> 
             <th style="text-align:center;">Amount Paid</th> 
@@ -273,7 +271,6 @@ class supplierHistoryPrintController extends Controller
             <th style="text-align:center;">Father Name</th> 
             <th style="text-align:center;">Contact</th> 
             <th style="text-align:center;">Product Name</th> 
-        
             <th style="text-align:center;">Engine Number</th> 
             <th style="text-align:center;">Chasis Number</th> 
             <th style="text-align:center;">color</th> 
@@ -292,26 +289,18 @@ class supplierHistoryPrintController extends Controller
         
         
         <tr>
-        <td style="text-align:center;" height:80px;>'.$d->InvoiceNumber.'</td> 
-            
+            <td style="text-align:center;" height:80px;>'.$d->InvoiceNumber.'</td> 
             <td style="text-align:center;" height:80px;>'.$d->DateStamp.'</td>
-    
             <td style="text-align:center;" height:80px;>'.$d->TotalAmount.'</td>
-        
             <td height:80px;>'.$d->NetTotal.'</td>
             <td height:80px;>'.$d->AmountPaid.'</td>
-        
             <td height:80px;>'.$d->salesPerson.'</td>
-            
             <td height:80px;>'.$d->NetAmount.'</td>
             <td height:80px;>'.$d->SalePrice.'</td>
             <td height:80px;>'.$d->CustomerName.'</td>
             <td height:80px;>'.$d->FatherName.'</td>
-        
             <td height:80px;>'.$d->Contect.'</td>
-        
             <td height:80px;>'.$d->ProductName.'</td>
-        
             <td height:80px;>'.$d->EngineNumber.'</td>
             <td height:80px;>'.$d->ChasisNumber.'</td>
             <td height:80px;>'.$d->color.'</td>
@@ -342,14 +331,12 @@ class supplierHistoryPrintController extends Controller
     <tbody>
         <tr>
         <th style="text-align:center;">Invoice Number</th>
-        
         <th style="text-align:center;">Product Serial</th>
-    
         <th style="text-align:center;">Product Name</th>
         <th style="text-align:center;">Color</th> 
         <th style="text-align:center;">Engine Number</th> 
         <th style="text-align:center;">Chasis Number</th> 
-        <th style="text-align:center;">Amount Paid</th> 
+        <th style="text-align:center;">Purchase Price Per Unit</th> 
         <th style="text-align:center;">Balance</th> 
         <th style="text-align:center;">DatePurchase</th> 
          
@@ -368,26 +355,25 @@ foreach ($data as $d){
     
     
     <tr>
-    <td style="text-align:center;" height:80px;>'.$d->InvoiceNumber.'</td> 
-        
+        <td style="text-align:center;" height:80px;>'.$d->InvoiceNumber.'</td> 
         <td style="text-align:center;" height:80px;>'.$d->ProductSerial.'</td>
-
         <td style="text-align:center;" height:80px;>'.$d->ProductName.'</td>
-    
         <td height:80px;>'.$d->Color.'</td>
-        
         <td height:80px;>'.$d->EngineNumber.'</td>
         <td height:80px;>'.$d->ChasisNumber.'</td>
-        <td height:80px;>'.$d->AmountPaid.'</td>
-    
-        <td height:80px;>'.$d->Balance.'</td>
+        <td height:80px;>'.$d->PurchasePricePerUnit.'</td>
         <td height:80px;>'.$d->DatePurchase.'</td>
         
         
     </tr>
     
-
+    
          ';}
+
+         $table=$table.'
+         <h2 align="center">Total Booking Amount:  '.$d->TotalAmount.'</h2>
+         <h2 align="center">Total Amount Paid:  '.$d->AmountPaid.'</h2>
+         ';
          return $table;
  
 }
