@@ -337,7 +337,6 @@ class supplierHistoryPrintController extends Controller
         <th style="text-align:center;">Engine Number</th> 
         <th style="text-align:center;">Chasis Number</th> 
         <th style="text-align:center;">Purchase Price Per Unit</th> 
-        <th style="text-align:center;">Balance</th> 
         <th style="text-align:center;">DatePurchase</th> 
          
 
