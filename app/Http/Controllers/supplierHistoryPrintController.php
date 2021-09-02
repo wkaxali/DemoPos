@@ -335,7 +335,7 @@ class supplierHistoryPrintController extends Controller
         ->first()->InvoiceNo;
         $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$in);
       
-    $table='<h1 align="center"> Vehicle Sale Details</h1>
+    $table='<h1 align="center"> Vehicle Booking Details</h1>
     <br><br><br>
         
     <table  align="center" cellpadding = "7" cellspacing = "0"  border="1" style="font-size:22.2px margin-left:49px;"><thead></thead>
