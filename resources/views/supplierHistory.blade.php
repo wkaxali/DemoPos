@@ -516,7 +516,7 @@ $(".sidebar-icon").click(function () {
             var cat = this.cells[2].innerText;
             getDetails(id,cat); 
            
- 
+   
             });
 
             function getDetails(id,cat){
