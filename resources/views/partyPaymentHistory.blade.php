@@ -397,7 +397,6 @@
         if(partyID== ""){
             partyID="All";
         }
-  
         xhttp.open("GET", "./filterPartyData/"+partyID, true);
         xhttp.send();
     }
