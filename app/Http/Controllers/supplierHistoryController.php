@@ -39,4 +39,6 @@ class supplierHistoryController extends Controller
         
         return $data ;
     }
+
+   
 }
