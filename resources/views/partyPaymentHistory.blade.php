@@ -342,8 +342,10 @@
                 table.draw();
                 sumColumns();
                 
+                
 
             }
+            
         };
         //alert("ljd");
         xhttp.open("GET", "./partyHistory/", true);
@@ -395,7 +397,6 @@
         if(partyID== ""){
             partyID="All";
         }
-  
         xhttp.open("GET", "./filterPartyData/"+partyID, true);
         xhttp.send();
     }
@@ -528,6 +529,7 @@
             var totalPurchaseAmount = 0;
             var amountPaid = 0;
             var remainingBalance = 0;
+            tableRemainingBalance = 0
             var x = document.getElementById("myTable").rows.length;
             
             table = $('#myTable').DataTable();
@@ -535,12 +537,14 @@
                 for (var i = 1; i < x; i++) {
                     totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[3].innerText);
                     amountPaid = amountPaid + Number(t.rows[i].cells[4].innerText);
-                    remainingBalance = remainingBalance + Number(t.rows[i].cells[5].innerText);
+                    remainingBalance = totalPurchaseAmount-amountPaid;
+                    tableRemainingBalance = tableRemainingBalance + Number(t.rows[i].cells[5].innerText);
                 }
             }else{
                 totalPurchaseAmount = 0;
                 amountPaid = 0;
                 remainingBalance = 0;
+                tableRemainingBalance = 0
             }
             sum1=numberWithCommas(totalPurchaseAmount);
             sum2=numberWithCommas(amountPaid);

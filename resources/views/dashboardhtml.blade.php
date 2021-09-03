@@ -1041,7 +1041,7 @@ role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 </ul> -->
                 <div class="clearmain"> </div>
                 <div class="pageContainer">
-                <button style ="margin-left:1180px;" id ="logout" class="btn btn-danger" onclick="logout()">LogOut</button><br>
+                <button style ="margin-left:1180px;" id ="logout" class="btn btn-danger" onclick="logout()">Log Out</button><br>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                         aria-labelledby="pills-home-tab">
