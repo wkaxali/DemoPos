@@ -7,19 +7,26 @@ use DB;
 class purchaseHistoryController extends Controller
 {
     public static function getPurchasesHistory(){
-        $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order" or TransactionCatogery="Customer Paid to Company"');
-        
-        return $data;
+        $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order"');
+        $totalpurchaseAmount=0;
+        $remainingAmount=0;
+        $invoiceBalance=0;
+        foreach($data as $d){
+            $totalpurchaseAmount += floatval($d->TotalAmount);
+            $remainingAmount += floatval($d->AmountPaid);
+            $invoiceBalance += floatval($d->Balance);
+          }
+        return [$data, $totalpurchaseAmount, $remainingAmount, $invoiceBalance];
     }
 
     public static function filterPurchaseData($catID, $partyID){
         $data=0;
         if($catID=="All" AND $partyID=="All"){
-            $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order" or TransactionCatogery="Booking Order" or TransactionCatogery="Customer Paid to Company');
+            $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order"');
         
         }else if($catID=="All" AND $partyID!="All"){
             
-            $data=DB:: select('select * from vw_purchase_transactions where (TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order" or TransactionCatogery="Booking Order" or TransactionCatogery="Customer Paid to Company) and PaidTo='.$partyID);
+            $data=DB:: select('select * from vw_purchase_transactions where (TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order") and PaidTo='.$partyID);
            // return $data;
         }else if($catID!="All" AND $partyID=="All"){
             $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="'.$catID.'"');
@@ -28,8 +35,15 @@ class purchaseHistoryController extends Controller
             $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="'.$catID.'" and PaidTo='.$partyID);
         
         }
-        
-        return $data;
+        $totalSaleAmount=0;
+        $remainingAmount=0;
+        $invoiceBalance=0;
+        foreach($data as $d){
+            $totalSaleAmount += floatval($d->TotalAmount);
+            $remainingAmount += floatval($d->AmountPaid);
+            $invoiceBalance += floatval($d->Balance);
+          }
+        return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }
 
 
@@ -37,11 +51,11 @@ class purchaseHistoryController extends Controller
     public static function filterPurchaseDateData($date1,$date2,$catID, $partyID){
         $data=0;
         if($catID=="All" AND $partyID=="All"){
-            $data=DB:: select('select * from vw_purchase_transactions where (TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order" or TransactionCatogery="Booking Order" or TransactionCatogery="Customer Paid to Company) and DateStamp between "'.$date1 .'"and"'.$date2.'"');
+            $data=DB:: select('select * from vw_purchase_transactions where (TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order") and DateStamp between "'.$date1 .'"and"'.$date2.'"');
         
         }else if($catID=="All" AND $partyID!="All"){
             
-            $data=DB:: select('select * from vw_purchase_transactions where (TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order" or TransactionCatogery="Booking Order" or TransactionCatogery="Customer Paid to Company) and DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo='.$partyID);
+            $data=DB:: select('select * from vw_purchase_transactions where (TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order") and DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo='.$partyID);
            // return $data;
         }else if($catID!="All" AND $partyID=="All"){
             $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="'.$catID.'" and DateStamp between "'.$date1 .'"and"'.$date2.'"');
@@ -50,8 +64,15 @@ class purchaseHistoryController extends Controller
             $data=DB:: select('select * from vw_purchase_transactions where TransactionCatogery="'.$catID.'" and  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo='.$partyID);
         
         }
-        
-        return $data;
+        $totalSaleAmount=0;
+        $remainingAmount=0;
+        $invoiceBalance=0;
+        foreach($data as $d){
+            $totalSaleAmount += floatval($d->TotalAmount);
+            $remainingAmount += floatval($d->AmountPaid);
+            $invoiceBalance += floatval($d->Balance);
+          }
+        return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
     }
 
     public static function purchaseStockHistory(){
