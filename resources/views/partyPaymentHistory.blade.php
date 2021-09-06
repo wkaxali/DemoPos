@@ -550,17 +550,29 @@
         }
 
         function sumColumns(){
+            var table = $('#myTable').DataTable();
+            table.rows().eq(0).each( function ( index ) {
+                var row = table.row( index );
             
-            var t = document.getElementById("myTable");
+                var data = row.data();
+                // ... do something with data(), or row.node(), etc
+                console.log(data[5]);
+            } );
+           
+            
+            
             var totalPurchaseAmount = 0;
             var amountPaid = 0;
             var remainingBalance = 0;
             tableRemainingBalance = 0
-            var x = document.getElementById("myTable").rows.length;
-            
+           
             table = $('#myTable').DataTable();
+            x = table.rows()[0].length;
+            console.log( t)
             if(table.rows().any()){
-                for (var i = 1; i < x; i++) {
+
+                for (var i = 1; i < x-1; i++) {
+                    console.log(i);
                     totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[4].innerText);
                     amountPaid = amountPaid + Number(t.rows[i].cells[5].innerText);
                     remainingBalance = totalPurchaseAmount-amountPaid;
