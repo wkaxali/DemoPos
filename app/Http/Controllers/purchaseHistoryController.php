@@ -8,7 +8,7 @@ class purchaseHistoryController extends Controller
 {
     public static function getPurchasesHistory(){
         $data=DB:: select('select * from vw_all_transactions where TransactionCatogery="Stock Purchased" or TransactionCatogery="Booking Order"');
-        $PurhaseAmountAfterDiscount=0;
+        $totalpurchaseAmount=0;
         $remainingAmount=0;
         $invoiceBalance=0;
         foreach($data as $d){
@@ -35,15 +35,15 @@ class purchaseHistoryController extends Controller
             $data=DB:: select('select * from vw_all_transactions where TransactionCatogery="'.$catID.'" and PaidTo='.$partyID);
         
         }
-        $totalSaleAmount=0;
+        $totalpurchaseAmount=0;
         $remainingAmount=0;
         $invoiceBalance=0;
         foreach($data as $d){
-            $totalSaleAmount += floatval($d->PurchaseTotalAmount);
+            $totalpurchaseAmount += floatval($d->PurchaseTotalAmount);
             $remainingAmount += floatval($d->PurchaseAmountPaid);
             $invoiceBalance += floatval($d->PurchaseRemainingBalance);
           }
-        return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
+        return [$data, $totalpurchaseAmount, $remainingAmount, $invoiceBalance];
     }
 
 
@@ -64,15 +64,15 @@ class purchaseHistoryController extends Controller
             $data=DB:: select('select * from vw_all_transactions where TransactionCatogery="'.$catID.'" and  DateStamp between "'.$date1 .'"and"'.$date2.'" and PaidTo='.$partyID);
         
         }
-        $totalSaleAmount=0;
+        $totalpurchaseAmount=0;
         $remainingAmount=0;
         $invoiceBalance=0;
         foreach($data as $d){
-            $totalSaleAmount += floatval($d->PurchaseTotalAmount);
+            $totalpurchaseAmount += floatval($d->PurchaseTotalAmount);
             $remainingAmount += floatval($d->PurchaseAmountPaid);
             $invoiceBalance += floatval($d->PurchaseRemainingBalance);
           }
-        return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
+        return [$data, $totalpurchaseAmount, $remainingAmount, $invoiceBalance];
     }
 
     public static function purchaseStockHistory(){
