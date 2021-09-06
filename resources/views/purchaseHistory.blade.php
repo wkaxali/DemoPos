@@ -325,20 +325,13 @@ $(".sidebar-icon").click(function () {
             if (this.readyState == 4 && this.status == 200) {
 
                 var data = this.responseText;
-                //alert(data);
+                
+               
                 var table;
                 var dt = JSON.parse(data);
-            
+               
                 a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-                sum1=numberWithCommas(dt[1]);
-                sum2=numberWithCommas(dt[2]);
-                sum3=numberWithCommas(dt[3]);
-                document.getElementById('totalSaleAmount').innerHTML=sum1;
-                document.getElementById('remainingAmount').innerHTML=sum2;
-                document.getElementById('invoiceBalance').innerHTML=sum3;
+                
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
@@ -350,7 +343,7 @@ $(".sidebar-icon").click(function () {
                     ]);
                     });
                 table.draw();
-                
+                sumColumns();
 
             }
         };
@@ -374,19 +367,12 @@ $(".sidebar-icon").click(function () {
 
                 var data = this.responseText;
                 
+               
                 var table;
                 var dt = JSON.parse(data);
                
                 a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-                sum1=numberWithCommas(dt[1]);
-                sum2=numberWithCommas(dt[2]);
-                sum3=numberWithCommas(dt[3]);
-                document.getElementById('totalSaleAmount').innerHTML=sum1;
-                document.getElementById('remainingAmount').innerHTML=sum2;
-                document.getElementById('invoiceBalance').innerHTML=sum3;
+                
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
@@ -399,7 +385,7 @@ $(".sidebar-icon").click(function () {
                     ]);
                 });
                 table.draw();
-
+                sumColumns();
             }
         };
        
@@ -428,20 +414,12 @@ $(".sidebar-icon").click(function () {
             if (this.readyState == 4 && this.status == 200) {
 
                 var data = this.responseText;
-                
+                 
+                 
                 var table;
                 var dt = JSON.parse(data);
-            
+               
                 a=dt[0];
-                totalSaleAmount=dt[1];
-                remainingAmount=dt[2];
-                invoiceBalance=dt[3];
-                sum1=numberWithCommas(dt[1]);
-                sum2=numberWithCommas(dt[2]);
-                sum3=numberWithCommas(dt[3]);
-                document.getElementById('totalSaleAmount').innerHTML=sum1;
-                document.getElementById('remainingAmount').innerHTML=sum2;
-                document.getElementById('invoiceBalance').innerHTML=sum3;
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
@@ -453,7 +431,7 @@ $(".sidebar-icon").click(function () {
                         ]);
                     });
                     table.draw();
-
+                    sumColumns();
                 }
             };
 
@@ -529,6 +507,37 @@ $(".sidebar-icon").click(function () {
         
         }
 
+                function sumColumns(){
+
+        var t = document.getElementById("myTable");
+        var totalPurchaseAmount = 0;
+        var PurchaseAmountPaid = 0;
+        var remainingBalance = 0;
+        tableRemainingBalance = 0
+        var x = document.getElementById("myTable").rows.length;
+
+        table = $('#myTable').DataTable();
+        if(table.rows().any()){
+            for (var i = 1; i < x; i++) {
+                totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[1].innerText);
+                PurchaseAmountPaid = PurchaseAmountPaid + Number(t.rows[i].cells[2].innerText);
+                remainingBalance = totalPurchaseAmount-PurchaseAmountPaid;
+                remainingBalance = remainingBalance + Number(t.rows[i].cells[3].innerText);
+            }
+        }else{
+            totalPurchaseAmount = 0;
+            PurchaseAmountPaid = 0;
+            remainingBalance = 0;
+            tableRemainingBalance = 0
+        }
+        sum1=numberWithCommas(totalPurchaseAmount);
+        sum2=numberWithCommas(PurchaseAmountPaid);
+        sum3=numberWithCommas(remainingBalance);
+        document.getElementById('totalSaleAmount').innerHTML=sum1;
+        document.getElementById('remainingAmount').innerHTML=sum2;
+        document.getElementById('invoiceBalance').innerHTML=sum3;
+
+        }
 
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

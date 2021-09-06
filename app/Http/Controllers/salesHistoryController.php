@@ -8,15 +8,15 @@ class salesHistoryController extends Controller
 {
     public static function getSalesHistory(){
         $data=DB:: select('select * from vw_transactionflow_sales where TransactionCatogery="Stock and Service" or TransactionCatogery="Sales"');
-        $totalSaleAmount=0;
-        $remainingAmount=0;
-        $invoiceBalance=0;
+        $PurchaseTotalAmount=0;
+        $PurchaseAmountPaid=0;
+        $PurchaseRemainingBalance=0;
         foreach($data as $d){
-            $totalSaleAmount += floatval($d->SaleTotalAmount);
-            $remainingAmount += floatval($d->SaleAmountPaid);
-            $invoiceBalance += floatval($d->SaleRemainingBalance);
+            $PurchaseTotalAmount += floatval($d->PurchaseTotalAmount);
+            $PurchaseAmountPaid += floatval($d->PurchaseAmountPaid);
+            $PurchaseRemainingBalance += floatval($d->PurchaseRemainingBalance);
           }
-        return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
+        return [$data, $PurchaseTotalAmount, $PurchaseAmountPaid, $PurchaseRemainingBalance];
     }
 
     public static function filterSalesHistory($catID, $customerID){
@@ -35,15 +35,15 @@ class salesHistoryController extends Controller
             $data=DB:: select('select * from vw_transactionflow_sales where TransactionCatogery="'.$catID.'" and CustomerID='.$customerID);
         
         }
-        $totalSaleAmount=0;
-        $remainingAmount=0;
-        $invoiceBalance=0;
+        $PurchaseTotalAmount=0;
+        $PurchaseAmountPaid=0;
+        $PurchaseRemainingBalance=0;
         foreach($data as $d){
-            $totalSaleAmount += floatval($d->SaleTotalAmount);
-            $remainingAmount += floatval($d->SaleAmountPaid);
-            $invoiceBalance += floatval($d->SaleRemainingBalance);
+            $PurchaseTotalAmount += floatval($d->PurchaseTotalAmount);
+            $PurchaseAmountPaid += floatval($d->PurchaseAmountPaid);
+            $PurchaseRemainingBalance += floatval($d->PurchaseRemainingBalance);
           }
-        return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
+        return [$data, $PurchaseTotalAmount, $PurchaseAmountPaid, $PurchaseRemainingBalance];
     }
 
     public static function filterSalesDateData($date1,$date2,$catID, $customerID){
@@ -62,15 +62,15 @@ class salesHistoryController extends Controller
             $data=DB:: select('select * from vw_transactionflow_sales where TransactionCatogery="'.$catID.'" and  DateStamp between "'.$date1 .'"and"'.$date2.'" and CustomerID='.$customerID);
         
         }
-        $totalSaleAmount=0;
-        $remainingAmount=0;
-        $invoiceBalance=0;
+        $PurchaseTotalAmount=0;
+        $PurchaseAmountPaid=0;
+        $PurchaseRemainingBalance=0;
         foreach($data as $d){
-            $totalSaleAmount += floatval($d->SaleTotalAmount);
-            $remainingAmount += floatval($d->SaleAmountPaid);
-            $invoiceBalance += floatval($d->SaleRemainingBalance);
+            $PurchaseTotalAmount += floatval($d->PurchaseTotalAmount);
+            $PurchaseAmountPaid += floatval($d->PurchaseAmountPaid);
+            $PurchaseRemainingBalance += floatval($d->PurchaseRemainingBalance);
           }
-        return [$data, $totalSaleAmount, $remainingAmount, $invoiceBalance];
+        return [$data, $PurchaseTotalAmount, $PurchaseAmountPaid, $PurchaseRemainingBalance];
     }
     
     public static function saleStockHistory(){
