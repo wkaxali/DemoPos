@@ -336,7 +336,7 @@ $(".sidebar-icon").click(function () {
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNumber,  a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].InvoiceNo,  a[i].SaleTotalAmount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery,
                         a[i].DateStamp
                     ]);
@@ -382,7 +382,7 @@ $(".sidebar-icon").click(function () {
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNumber,  a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].InvoiceNo,  a[i].SaleTotalAmount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery,
                         a[i].DateStamp
                     ]);
@@ -430,7 +430,7 @@ if (this.readyState == 4 && this.status == 200) {
     $.each(a, function (i, item) {
 
         table.row.add([  
-            a[i].InvoiceNumber,  a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+            a[i].InvoiceNo,  a[i].SaleTotalAmount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery,
                         a[i].DateStamp
         ]);
