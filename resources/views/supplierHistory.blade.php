@@ -331,10 +331,18 @@ $(".sidebar-icon").click(function () {
                             a[i].DateStamp
                         
                         ]);
+                    }else if(cat.trim()==="Customer Paid to Company".trim()){
+                        table.row.add([  
+                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].SaleTotalAmount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, 
+                            a[i].DateStamp
+                        
+                        ]);
+
                     }else{
                         table.row.add([  
                             a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
+                            a[i].PurchaseTotalAmount, a[i].PurchaseAmountPaid, a[i].PurchaseRemainingBalance, 
                             a[i].DateStamp
                         
                         ]);
@@ -377,10 +385,18 @@ $(".sidebar-icon").click(function () {
                             a[i].DateStamp
                         
                         ]);
+                    }else if(cat.trim()==="Customer Paid to Company".trim()){
+                        table.row.add([  
+                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].SaleTotalAmount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, 
+                            a[i].DateStamp
+                        
+                        ]);
+
                     }else{
                         table.row.add([  
                             a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
+                            a[i].PurchaseTotalAmount, a[i].PurchaseAmountPaid, a[i].PurchaseRemainingBalance, 
                             a[i].DateStamp
                         
                         ]);
@@ -430,10 +446,18 @@ $(".sidebar-icon").click(function () {
                             a[i].DateStamp
                         
                         ]);
+                    }else if(cat.trim()==="Customer Paid to Company".trim()){
+                        table.row.add([  
+                            a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].SaleTotalAmount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, 
+                            a[i].DateStamp
+                        
+                        ]);
+
                     }else{
                         table.row.add([  
                             a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                            a[i].TotalAmount, a[i].AmountPaid, a[i].RemainingBalance, 
+                            a[i].PurchaseTotalAmount, a[i].PurchaseAmountPaid, a[i].PurchaseRemainingBalance, 
                             a[i].DateStamp
                         
                         ]);
