@@ -337,7 +337,7 @@ $(".sidebar-icon").click(function () {
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNo,a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                        a[i].InvoiceNo,a[i].PurchaseTotalAmount, a[i].PurchaseAmountPaid, a[i].PurchaseRemainingBalance, 
                         a[i].DateStamp, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery
                     ]);
@@ -378,7 +378,7 @@ $(".sidebar-icon").click(function () {
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNo,a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                        a[i].InvoiceNo,a[i].PurchaseTotalAmount, a[i].PurchaseAmountPaid, a[i].PurchaseRemainingBalance, 
                         a[i].DateStamp, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery
                     
@@ -425,7 +425,7 @@ $(".sidebar-icon").click(function () {
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNo,a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                        a[i].InvoiceNo,a[i].PurchaseTotalAmount, a[i].PurchaseAmountPaid, a[i].PurchaseRemainingBalance, 
                         a[i].DateStamp, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery
                         ]);
