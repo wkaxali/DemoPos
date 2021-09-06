@@ -325,23 +325,18 @@ $(".sidebar-icon").click(function () {
                 var dt = JSON.parse(data);
             
                 a=dt[0];
-                sum1=numberWithCommas(dt[1]);
-                sum2=numberWithCommas(dt[2]);
-                sum3=numberWithCommas(dt[3]);
-                document.getElementById('totalSaleAmount').innerHTML=sum1;
-                document.getElementById('remainingAmount').innerHTML=sum2;
-                document.getElementById('invoiceBalance').innerHTML=sum3;
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNo,  a[i].SaleTotalAmount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].InvoiceNo,  a[i].AmountAfterDiscount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery,
                         a[i].DateStamp
                     ]);
                     });
                 table.draw();
+                sumColumns();
                 
 
             }
@@ -371,23 +366,18 @@ $(".sidebar-icon").click(function () {
                 var dt = JSON.parse(data);
                
                 a=dt[0];
-                sum1=numberWithCommas(dt[1]);
-                sum2=numberWithCommas(dt[2]);
-                sum3=numberWithCommas(dt[3]);
-                document.getElementById('totalSaleAmount').innerHTML=sum1;
-                document.getElementById('remainingAmount').innerHTML=sum2;
-                document.getElementById('invoiceBalance').innerHTML=sum3;
                 table = $('#myTable').DataTable();
                 table.clear();
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNo,  a[i].SaleTotalAmount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].InvoiceNo,  a[i].AmountAfterDiscount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                         a[i].TransactionCatogery,
                         a[i].DateStamp
                     ]);
                 });
                 table.draw();
+                sumColumns();
 
             }
         };
@@ -419,23 +409,18 @@ if (this.readyState == 4 && this.status == 200) {
     var dt = JSON.parse(data);
 
     a=dt[0];
-                sum1=numberWithCommas(dt[1]);
-                sum2=numberWithCommas(dt[2]);
-                sum3=numberWithCommas(dt[3]);
-                document.getElementById('totalSaleAmount').innerHTML=sum1;
-                document.getElementById('remainingAmount').innerHTML=sum2;
-                document.getElementById('invoiceBalance').innerHTML=sum3;
     table = $('#myTable').DataTable();
     table.clear();
     $.each(a, function (i, item) {
 
         table.row.add([  
-            a[i].InvoiceNo,  a[i].SaleTotalAmount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery,
-                        a[i].DateStamp
+            a[i].InvoiceNo,  a[i].AmountAfterDiscount, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+            a[i].TransactionCatogery,
+            a[i].DateStamp
         ]);
         });
         table.draw();
+        sumColumns();
 
     }
 };
@@ -510,9 +495,41 @@ xhttp.send();
         
         }
 
+        function sumColumns(){
+
+            var t = document.getElementById("myTable");
+            var totalSaleAmount = 0;
+            var SaleAmountPaid = 0;
+            var remainingBalance = 0;
+            tableRemainingBalance = 0
+            var x = document.getElementById("myTable").rows.length;
+            
+            table = $('#myTable').DataTable();
+            if(table.rows().any()){
+                for (var i = 1; i < x; i++) {
+                    totalSaleAmount = totalSaleAmount + Number(t.rows[i].cells[1].innerText);
+                    SaleAmountPaid = SaleAmountPaid + Number(t.rows[i].cells[2].innerText);
+                    remainingBalance = totalSaleAmount-SaleAmountPaid;
+                    remainingBalance = remainingBalance + Number(t.rows[i].cells[3].innerText);
+                }
+            }else{
+                totalSaleAmount = 0;
+                SaleAmountPaid = 0;
+                remainingBalance = 0;
+                tableRemainingBalance = 0
+            }
+            sum1=numberWithCommas(totalSaleAmount);
+            sum2=numberWithCommas(SaleAmountPaid);
+            sum3=numberWithCommas(remainingBalance);
+            document.getElementById('totalSaleAmount').innerHTML=sum1;
+            document.getElementById('remainingAmount').innerHTML=sum2;
+            document.getElementById('invoiceBalance').innerHTML=sum3;
+            
+        }
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 
     </script>
 
