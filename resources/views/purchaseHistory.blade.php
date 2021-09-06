@@ -522,7 +522,7 @@ $(".sidebar-icon").click(function () {
                 totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[1].innerText);
                 PurchaseAmountPaid = PurchaseAmountPaid + Number(t.rows[i].cells[2].innerText);
                 remainingBalance = totalPurchaseAmount-PurchaseAmountPaid;
-                remainingBalance = remainingBalance + Number(t.rows[i].cells[3].innerText);
+                
             }
         }else{
             totalPurchaseAmount = 0;
