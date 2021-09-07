@@ -2158,7 +2158,7 @@ $(document).ready(function () {
 
                 $.each(a, function (i, item) {
                     table.row.add([  
-                        a[i].InvoiceNumber, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                        a[i].InvoiceNo, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
                           a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
                         a[i].DateStamp
                     ]);
