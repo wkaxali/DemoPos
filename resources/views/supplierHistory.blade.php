@@ -563,26 +563,21 @@ $(".sidebar-icon").click(function () {
 
 
 
-    function sumColumns(){
-            
-            var t = document.getElementById("myTable");
+        function sumColumns(){
+            var table = $('#myTable').DataTable();
             var totalPurchaseAmount = 0;
             var amountPaid = 0;
             var remainingBalance = 0;
-            var x = document.getElementById("myTable").rows.length;
-            
-            table = $('#myTable').DataTable();
-            if(table.rows().any()){
-                for (var i = 1; i < x; i++) {
-                    totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[4].innerText);
-                    amountPaid = amountPaid + Number(t.rows[i].cells[5].innerText);
-                    remainingBalance = totalPurchaseAmount - amountPaid;
-                }
-            }else{
-                totalPurchaseAmount = 0;
-                amountPaid = 0;
-                remainingBalance = 0;
-            }
+           
+            table.rows().eq(0).each( function ( index ) {
+                var row = table.row( index );
+                var data = row.data();
+
+                totalPurchaseAmount = totalPurchaseAmount + Number(data[4]);
+                amountPaid = amountPaid + Number(data[5]);
+                remainingBalance = remainingBalance + Number(data[6]);
+            } );
+
             sum1=numberWithCommas(totalPurchaseAmount);
             sum2=numberWithCommas(amountPaid);
             sum3=numberWithCommas(remainingBalance);

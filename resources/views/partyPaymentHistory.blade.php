@@ -551,39 +551,24 @@
 
         function sumColumns(){
             var table = $('#myTable').DataTable();
-            table.rows().eq(0).each( function ( index ) {
-                var row = table.row( index );
-            
-                var data = row.data();
-                // ... do something with data(), or row.node(), etc
-                console.log(data[5]);
-            } );
-           
-            
-            
             var totalPurchaseAmount = 0;
             var amountPaid = 0;
             var remainingBalance = 0;
-            tableRemainingBalance = 0
            
-            table = $('#myTable').DataTable();
-            x = table.rows()[0].length;
-            console.log( t)
-            if(table.rows().any()){
+            table.rows().eq(0).each( function ( index ) {
+                var row = table.row( index );
+                var data = row.data();
 
-                for (var i = 1; i < x-1; i++) {
-                    console.log(i);
-                    totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[4].innerText);
-                    amountPaid = amountPaid + Number(t.rows[i].cells[5].innerText);
-                    remainingBalance = totalPurchaseAmount-amountPaid;
-                    tableRemainingBalance = tableRemainingBalance + Number(t.rows[i].cells[6].innerText);
-                }
-            }else{
-                totalPurchaseAmount = 0;
-                amountPaid = 0;
-                remainingBalance = 0;
-                tableRemainingBalance = 0
-            }
+                totalPurchaseAmount = totalPurchaseAmount + Number(data[4]);
+                console.log(data[4])
+                amountPaid = amountPaid + Number(data[5]);
+                remainingBalance = remainingBalance + Number(data[6]);
+            } );
+
+            console.log(totalPurchaseAmount);
+            console.log(amountPaid);
+            console.log(remainingBalance);
+
             sum1=numberWithCommas(totalPurchaseAmount);
             sum2=numberWithCommas(amountPaid);
             sum3=numberWithCommas(remainingBalance);
