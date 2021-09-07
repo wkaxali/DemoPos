@@ -168,13 +168,13 @@
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
                                             <label for="">Total Purchase Amount:</label>
-                                            <h1 id="totalSaleAmount">0</h1></div>
+                                            <h1 id="totalPurchaseAmount">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total Amount Paid:</label>
-                                            <h1 id="remainingAmount">0</h1></div>
+                                            <h1 id="amountPaid">0</h1></div>
                                             <div class="col-md-4" >
                                             <label for="">Total<br> Balance:</label>
-                                            <h1 id="invoiceBalance">0</h1></div>
+                                            <h1 id="remainingBalance">0</h1></div>
                                             </div>
                                         </div>
                                     </div>
@@ -507,37 +507,36 @@ $(".sidebar-icon").click(function () {
         
         }
 
-                function sumColumns(){
 
-        var t = document.getElementById("myTable");
-        var totalPurchaseAmount = 0;
-        var PurchaseAmountPaid = 0;
-        var remainingBalance = 0;
-        tableRemainingBalance = 0
-        var x = document.getElementById("myTable").rows.length;
 
-        table = $('#myTable').DataTable();
-        if(table.rows().any()){
-            for (var i = 1; i < x; i++) {
-                totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[1].innerText);
-                PurchaseAmountPaid = PurchaseAmountPaid + Number(t.rows[i].cells[2].innerText);
-                remainingBalance = totalPurchaseAmount-PurchaseAmountPaid;
-                
-            }
-        }else{
-            totalPurchaseAmount = 0;
-            PurchaseAmountPaid = 0;
-            remainingBalance = 0;
-            tableRemainingBalance = 0
+        function sumColumns(){
+            var table = $('#myTable').DataTable();
+            var totalPurchaseAmount = 0;
+            var amountPaid = 0;
+            var remainingBalance = 0;
+           
+            table.rows().eq(0).each( function ( index ) {
+                var row = table.row( index );
+                var data = row.data();
+
+                totalPurchaseAmount = totalPurchaseAmount + Number(data[1]);
+                 
+                amountPaid = amountPaid + Number(data[2]);
+                remainingBalance = totalPurchaseAmount-amountPaid;
+            } );
+
+          
+
+            sum1=numberWithCommas(totalPurchaseAmount);
+            sum2=numberWithCommas(amountPaid);
+            sum3=numberWithCommas(remainingBalance);
+
+            document.getElementById('totalPurchaseAmount').innerHTML=sum1;
+            document.getElementById('amountPaid').innerHTML=sum2;
+            document.getElementById('remainingBalance').innerHTML=sum3;
         }
-        sum1=numberWithCommas(totalPurchaseAmount);
-        sum2=numberWithCommas(PurchaseAmountPaid);
-        sum3=numberWithCommas(remainingBalance);
-        document.getElementById('totalSaleAmount').innerHTML=sum1;
-        document.getElementById('remainingAmount').innerHTML=sum2;
-        document.getElementById('invoiceBalance').innerHTML=sum3;
 
-        }
+             
 
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

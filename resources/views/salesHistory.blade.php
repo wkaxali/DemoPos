@@ -495,29 +495,23 @@ xhttp.send();
         
         }
 
+        
         function sumColumns(){
-
-            var t = document.getElementById("myTable");
+            var table = $('#myTable').DataTable();
             var totalSaleAmount = 0;
             var SaleAmountPaid = 0;
             var remainingBalance = 0;
-            tableRemainingBalance = 0
-            var x = document.getElementById("myTable").rows.length;
-            
-            table = $('#myTable').DataTable();
-            if(table.rows().any()){
-                for (var i = 1; i < x; i++) {
-                    totalSaleAmount = totalSaleAmount + Number(t.rows[i].cells[1].innerText);
-                    SaleAmountPaid = SaleAmountPaid + Number(t.rows[i].cells[2].innerText);
-                    remainingBalance = totalSaleAmount-SaleAmountPaid;
-                    remainingBalance = remainingBalance + Number(t.rows[i].cells[3].innerText);
-                }
-            }else{
-                totalSaleAmount = 0;
-                SaleAmountPaid = 0;
-                remainingBalance = 0;
-                tableRemainingBalance = 0
-            }
+           
+            table.rows().eq(0).each( function ( index ) {
+                var row = table.row( index );
+                var data = row.data();
+
+                totalSaleAmount = totalSaleAmount + Number(data[1]);
+  
+                SaleAmountPaid = SaleAmountPaid + Number(data[2]);
+                remainingBalance =   totalSaleAmount-SaleAmountPaid;
+            } );
+ 
             sum1=numberWithCommas(totalSaleAmount);
             sum2=numberWithCommas(SaleAmountPaid);
             sum3=numberWithCommas(remainingBalance);
@@ -526,6 +520,8 @@ xhttp.send();
             document.getElementById('invoiceBalance').innerHTML=sum3;
             
         }
+
+
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
