@@ -562,7 +562,7 @@
                 totalPurchaseAmount = totalPurchaseAmount + Number(data[4]);
                 amountPaid = amountPaid + Number(data[5]);
                 remainingBalance = totalPurchaseAmount-amountPaid;
-            } );
+            });
 
             sum1=numberWithCommas(totalPurchaseAmount);
             sum2=numberWithCommas(amountPaid);
