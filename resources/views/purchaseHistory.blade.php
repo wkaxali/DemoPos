@@ -520,14 +520,12 @@ $(".sidebar-icon").click(function () {
                 var data = row.data();
 
                 totalPurchaseAmount = totalPurchaseAmount + Number(data[1]);
-                console.log(data[4])
+                 
                 amountPaid = amountPaid + Number(data[2]);
-                remainingBalance = remainingBalance + Number(data[3]);
+                remainingBalance = totalPurchaseAmount-amountPaid;
             } );
 
-            console.log(totalPurchaseAmount);
-            console.log(amountPaid);
-            console.log(remainingBalance);
+          
 
             sum1=numberWithCommas(totalPurchaseAmount);
             sum2=numberWithCommas(amountPaid);

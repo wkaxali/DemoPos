@@ -509,7 +509,7 @@ xhttp.send();
                 totalSaleAmount = totalSaleAmount + Number(data[1]);
   
                 SaleAmountPaid = SaleAmountPaid + Number(data[2]);
-                remainingBalance = remainingBalance + Number(data[3]);
+                remainingBalance =   totalSaleAmount-SaleAmountPaid;
             } );
  
             sum1=numberWithCommas(totalSaleAmount);
