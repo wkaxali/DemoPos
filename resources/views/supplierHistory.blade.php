@@ -572,11 +572,15 @@ $(".sidebar-icon").click(function () {
             var x = document.getElementById("myTable").rows.length;
             
             table = $('#myTable').DataTable();
+            var x = table.column( 4 ).data().sum();
+                    alert( x );
             if(table.rows().any()){
                 for (var i = 1; i < x; i++) {
                     totalPurchaseAmount = totalPurchaseAmount + Number(t.rows[i].cells[4].innerText);
                     amountPaid = amountPaid + Number(t.rows[i].cells[5].innerText);
                     remainingBalance = totalPurchaseAmount - amountPaid;
+
+                   
                 }
             }else{
                 totalPurchaseAmount = 0;
