@@ -11,7 +11,7 @@ use DB;
 
 use PDF;
 use NumberToWords\NumberToWords;
-
+ 
 class printServiceSaleInvoice extends Controller
 {
 public function afterSalesServicePrint()
