@@ -527,8 +527,35 @@ xhttp.send();
                 document.getElementById("invoiceBalance").style.color = "green";
             }
         }
+      
+        $("#myTable").on('click', 'tr', function() {
+            var id = this.cells[0].innerText;
+            var cat = this.cells[6].innerText;
+            // alert (id,cat);
+            if(cat=="Sales"){
+                getDetails(id); 
+           }else{
+               alert("Not a Sale");
+           }
+            
+   
+            });
 
-
+            function getDetails(id){
+                  
+                var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+             
+                    window.open('./testpdf/2');
+                  
+                }
+            }
+         
+            
+            xhttp.open("GET", "./invoiceDetails/"+id, true);
+            xhttp.send();
+        }
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
