@@ -170,10 +170,10 @@
                                             <label for="">Total Purchase Amount:</label>
                                             <h1 id="totalPurchaseAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total Amount Paid:</label>
+                                            <label for="">Total <br>Amount <br>Paid:</label>
                                             <h1 id="amountPaid">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total<br> Balance:</label>
+                                            <label for="">Total<br>Remaining Balance:</label>
                                             <h1 id="remainingBalance">0</h1></div>
                                             </div>
                                         </div>
