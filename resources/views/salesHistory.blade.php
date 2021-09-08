@@ -167,13 +167,13 @@
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
-                                            <label for="">Total Sale Amount:</label>
+                                            <label for="">Total<br> Sale<br>  Amount:</label>
                                             <h1 id="totalSaleAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total Amount Paid:</label>
+                                            <label for="">Total <br>Amount <br> Paid:</label>
                                             <h1 id="remainingAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total<br> Balance:</label>
+                                            <label for="">Total<br>Remaining Balance:</label>
                                             <h1 id="invoiceBalance">0</h1></div>
                                 </div>
                             </div>
