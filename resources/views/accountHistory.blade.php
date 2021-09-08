@@ -319,6 +319,12 @@ $(".sidebar-icon").click(function () {
                     sum=numberWithCommas(dt[1]);
                             
                     document.getElementById('totalSaleAmount').innerHTML=sum;
+                    if (sum<0){
+                            
+                            document.getElementById("totalSaleAmount").style.color = "green";
+                        } else{
+                            document.getElementById("totalSaleAmount").style.color = "red";
+                        }
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
@@ -362,6 +368,12 @@ $(".sidebar-icon").click(function () {
                     
                     sum=numberWithCommas(dt[1]);
                     document.getElementById('totalSaleAmount').innerHTML=sum;
+                    if (sum<0){
+                            
+                            document.getElementById("totalSaleAmount").style.color = "green";
+                        } else{
+                            document.getElementById("totalSaleAmount").style.color = "red";
+                        }
                     
                     table = $('#myTable').DataTable();
                     table.clear();
@@ -406,6 +418,12 @@ $(".sidebar-icon").click(function () {
                     a=dt[0];
                     sum=numberWithCommas(dt[1]);
                     document.getElementById('totalSaleAmount').innerHTML=sum;
+                    if (sum<0){
+                            
+                            document.getElementById("totalSaleAmount").style.color = "green";
+                        } else{
+                            document.getElementById("totalSaleAmount").style.color = "red";
+                        }
                      
                 
                 table = $('#myTable').DataTable();

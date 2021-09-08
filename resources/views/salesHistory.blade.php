@@ -297,6 +297,8 @@ $(".sidebar-icon").click(function () {
     toggle = !toggle;
 });
 
+     
+
     function loadAllCustomers() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -518,7 +520,12 @@ xhttp.send();
             document.getElementById('totalSaleAmount').innerHTML=sum1;
             document.getElementById('remainingAmount').innerHTML=sum2;
             document.getElementById('invoiceBalance').innerHTML=sum3;
-            
+            if (remainingBalance<0){
+                
+                document.getElementById("invoiceBalance").style.color = "red";
+            } else{
+                document.getElementById("invoiceBalance").style.color = "green";
+            }
         }
 
 

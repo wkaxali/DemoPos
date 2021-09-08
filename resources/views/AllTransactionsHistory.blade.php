@@ -370,7 +370,12 @@ b<!DOCTYPE html>
                             document.getElementById('tableSum').innerHTML=sum;
                             document.getElementById('creditAmount').innerHTML=creditAmount;
                             document.getElementById('debitAmount').innerHTML=debitAmount;
-                        
+                            if (sum<0){
+                            
+                            document.getElementById("tableSum").style.color = "red";
+                        } else{
+                            document.getElementById("tableSum").style.color = "green";
+                        }
                             table = $('#myTable').DataTable();
                             table.clear();
 
@@ -525,6 +530,12 @@ b<!DOCTYPE html>
                             document.getElementById('tableSum').innerHTML=sum;
                             document.getElementById('creditAmount').innerHTML=creditAmount;
                             document.getElementById('debitAmount').innerHTML=debitAmount;
+                            if (sum<0){
+                            
+                            document.getElementById("tableSum").style.color = "red";
+                        } else{
+                            document.getElementById("tableSum").style.color = "green";
+                        }
                             //alert(a[0].TransactionID);
                             table = $('#myTable').DataTable();
 

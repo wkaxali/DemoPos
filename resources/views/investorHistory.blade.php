@@ -548,6 +548,8 @@ $(".sidebar-icon").click(function () {
             document.getElementById('totalPurchaseAmount').innerHTML=sum1;
             document.getElementById('amountPaid').innerHTML=sum2;
             document.getElementById('remainingBalance').innerHTML=sum3;
+   
+                     
         }
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
