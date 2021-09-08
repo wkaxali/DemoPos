@@ -142,18 +142,18 @@
                     </div>
                                 <div class="container"  >
                                      <div class="row my-2" >
-                                            <div class="col-md-4" >
+                                            <div class="col-md-2" >
                                                 <label for="">From Date</label>
                    
                    
                                                 <input type="date" id ="date1">
                                             </div>
-                                            <div class="col-md-4" >
+                                            <div class="col-md-2" >
                                                 <label for="">To Date</label>
                                                 <input type="date" id ="date2">
                                             </div>
-                                            <div class="col-md-4" >
-                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
+                                            <div class="col-md-2" >
+                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:22px;"
                                                         onclick="filterDateData()">Search </button> </div>
                                             </div>
                                             <div class="row my-2" >
@@ -161,10 +161,10 @@
                                             <label for="">Total Purchase Amount:</label>
                                             <h1 id="totalPurchaseAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total Amount Paid:</label>
+                                            <label for="">Total <br>Amount <br>Paid:</label>
                                             <h1 id="amountPaid">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total Balance:</label>
+                                            <label for="">Total<br>Remaining Balance:</label>
                                             <h1 id="remainingBalance">0</h1></div>
                                             </div>
                                         </div>
