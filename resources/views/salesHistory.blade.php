@@ -535,7 +535,8 @@ xhttp.send();
             if(cat=="Sales"){
                 getDetails(id); 
            }else{
-               alert("Not a Sale");
+                
+               getstockdetails(id);
            }
             
    
@@ -556,6 +557,28 @@ xhttp.send();
             xhttp.open("GET", "./invoiceDetails/"+id, true);
             xhttp.send();
         }
+
+        function getstockdetails(id){
+                  
+          
+            var xhttp = new XMLHttpRequest();
+            
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        
+                        window.open("./testpdf/as");
+
+                    }
+                };
+
+                xhttp.open("GET", "./getstockdetails/" + id, true);
+                // var MenuID=$('#Menus').find(":selected").val();
+                xhttp.send();
+
+          }
+
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

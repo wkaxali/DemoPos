@@ -197,7 +197,7 @@ Total in Word </th>
 <br>
 
 <td width="60%" border="0"></td>
-<td width="40%" align="center" border="0">Sign and Signature</td>
+<td width="40%" align="center" border="0">Sign and Stamp</td>
 
 
 
