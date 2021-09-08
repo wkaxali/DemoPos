@@ -560,12 +560,9 @@
                 var data = row.data();
 
                 totalPurchaseAmount = totalPurchaseAmount + Number(data[4]);
-                
                 amountPaid = amountPaid + Number(data[5]);
-                remainingBalance = remainingBalance + Number(data[6]);
-            } );
-
-      
+                remainingBalance = totalPurchaseAmount-amountPaid;
+            });
 
             sum1=numberWithCommas(totalPurchaseAmount);
             sum2=numberWithCommas(amountPaid);
