@@ -551,7 +551,11 @@ $(".sidebar-icon").click(function () {
             if(cat=="Booking Order"){
                 getbookingDetails(id); 
            } 
-            
+           else{
+                
+            getPurchasedStockDetails(id);
+            }
+             
    
             });
 
@@ -570,7 +574,22 @@ $(".sidebar-icon").click(function () {
             xhttp.open("GET", "./getbookingDetails/"+id, true);
             xhttp.send();
         }
+           
+        function getPurchasedStockDetails(id){
+                  
+                  var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
              
+                      window.open('/getPurchasedStockDetails/'+id);
+                    
+                  }
+              }
+           
+              
+              xhttp.open("GET", "./getPurchasedStockDetails/"+id, true);
+              xhttp.send();
+          }
 
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

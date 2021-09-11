@@ -335,9 +335,12 @@ Route::get('/getboHistory',[OrderFlowController::class, 'getBookingHistory']);
 Route::get('/getBookedOrders/{oid}',[OrderFlowController::class, 'getBookedOrders']);
 Route::get('/getDetails/{id}/{cat}',[supplierHistoryPrintController::class, 'getDetails']);
 Route::get('/getstockdetails/{id}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
-
+Route::get('/getPurchasedStockDetails/{id}',[OrderFlowController::class, 'getPurchasedStockDetails']);
 Route::get('/getbookingDetails/{id}',[OrderFlowController::class, 'getbookingDetails']);
 Route::get('/logout',[userAccountController::class, 'logout']);
+
+
+
 
 Route::get('/', function () {
 return view('signInSignUp');
