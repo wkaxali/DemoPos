@@ -626,18 +626,21 @@ class OrderFlowController extends Controller
 
 
    function getbookingDetails($invoiceNo){
-    $data=DB:: select('select * from vw_all_transactions where InvoiceNo='.$invoiceNo);
+    $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$invoiceNo);
     
-      session(['invoiceDate' => $data[0]->DateStamp]);
-      session(['InvoiceNo' => $data[0]->InvoiceNo]);
-      session(['PartyName' => $data[0]->PartyName]);
-      session(['PurchaseTotalAmount' => $data[0]->PurhaseAmountAfterDiscount]);
-      session(['PurchaseAmountPaid' => $data[0]->PurchaseAmountPaid]);
-      session(['PurchaseRemainingBalance' => $data[0]->PurchaseRemainingBalance]);
-      session(['AccountName' => $data[0]->AccountName]);
-      session(['AccountNumber' => $data[0]->AccountNumber]);
+      session(['invoiceDate' => $data[0]->DatePurchase]);
+      session(['InvoiceNo' => $data[0]->InvoiceNumber]);
+      session(['InStockStatus' => $data[0]->InStockStatus]);
+      session(['ProductName' => $data[0]->ProductName]);
+      session(['Color' => $data[0]->Color]);
+      session(['EngineNumber' => $data[0]->EngineNumber]);
+      session(['ChasisNumber' => $data[0]->ChasisNumber]);
+      session(['PurchaseTotalAmount' => $data[0]->TotalAmount]);
+      session(['PurchaseAmountPaid' => $data[0]->AmountPaid]);
+      session(['PurchaseRemainingBalance' => $data[0]->Balance]);
+     
 
-
+      
 $newHTML='<table border="0" cellpadding="2" >
 <thead>
 <tr>
@@ -692,11 +695,35 @@ $newHTML='<table border="0" cellpadding="2" >
 <tr >
 <td width="8%" border="0" align="left" ></td>
 
-<td width="30%" border="1" align="left" >Supplier Name</td>
-<td width="55%" border="1" align="center">'.session()->get("PartyName").'</td>
+<td width="30%" border="1" align="left" > Stock Status</td>
+<td width="55%" border="1" align="center">'.session()->get("InStockStatus").'</td>
 
 </tr>
+<tr >
+<td width="8%" border="0" align="left" ></td>
 
+<td width="30%" border="1" align="left" >Product Name</td>
+<td width="55%" border="1" align="center">'.session()->get("ProductName").'</td>
+
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" > Color</td>
+<td width="55%" border="1" align="center">'.session()->get("Color").'</td>
+
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" > Engine Number</td>
+<td width="55%" border="1" align="center">'.session()->get("EngineNumber").'</td>
+
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Chasis Number</td>
+<td width="55%" border="1" align="center">'.session()->get("ChasisNumber").'</td>
+
+</tr>
 <tr>
 <td width="8%" border="0" align="left" ></td>
 
@@ -721,16 +748,7 @@ $newHTML='<table border="0" cellpadding="2" >
 
 
 </tr>
-
-<tr>
-<td width="8%" border="0" align="left" ></td>
-
-<td width="30%" border="1">Accoun Name</td>
-<td width="55%" align="center" border="1">'.session()->get("AccountName").' ('.session()->get("AccountNumber").')</td>
-
-
-
-</tr>
+ 
  
 
 <tr>
@@ -793,18 +811,21 @@ PDF::Output('invoiceRequest.pdf');
   
   
   function getPurchasedStockDetails($invoiceNo){
-    $data=DB:: select('select * from vw_all_transactions where InvoiceNo='.$invoiceNo);
+    $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$invoiceNo);
     
-      session(['invoiceDate' => $data[0]->DateStamp]);
-      session(['InvoiceNo' => $data[0]->InvoiceNo]);
-      session(['PartyName' => $data[0]->PartyName]);
-      session(['PurchaseTotalAmount' => $data[0]->PurhaseAmountAfterDiscount]);
-      session(['PurchaseAmountPaid' => $data[0]->PurchaseAmountPaid]);
-      session(['PurchaseRemainingBalance' => $data[0]->PurchaseRemainingBalance]);
-      session(['AccountName' => $data[0]->AccountName]);
-      session(['AccountNumber' => $data[0]->AccountNumber]);
+    session(['invoiceDate' => $data[0]->DatePurchase]);
+    session(['InvoiceNo' => $data[0]->InvoiceNumber]);
+    
+    session(['ProductName' => $data[0]->ProductName]);
+    session(['Company' => $data[0]->Company]);
+    session(['Color' => $data[0]->Color]);
+ 
+    session(['PurchaseTotalAmount' => $data[0]->TotalAmount]);
+    session(['PurchaseAmountPaid' => $data[0]->AmountPaid]);
+    session(['PurchaseRemainingBalance' => $data[0]->Balance]);
+   
 
-
+    
 $newHTML='<table border="0" cellpadding="2" >
 <thead>
 <tr>
@@ -819,7 +840,7 @@ $newHTML='<table border="0" cellpadding="2" >
 <br>
 <td>
 
-  <br>
+<br>
 
 </td>
 
@@ -856,14 +877,26 @@ $newHTML='<table border="0" cellpadding="2" >
 <td width="55%" border="1" align="center">'.session()->get("InvoiceNo").'</td>
 
 </tr>
+ 
 <tr >
 <td width="8%" border="0" align="left" ></td>
 
-<td width="30%" border="1" align="left" >Supplier Name</td>
-<td width="55%" border="1" align="center">'.session()->get("PartyName").'</td>
+<td width="30%" border="1" align="left" >Product Name</td>
+<td width="55%" border="1" align="center">'.session()->get("ProductName").'</td>
 
-</tr>
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
 
+<td width="30%" border="1" align="left" > Color</td>
+<td width="55%" border="1" align="center">'.session()->get("Color").'</td>
+
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Company</td>
+<td width="55%" border="1" align="center">'.session()->get("Company").'</td>
+
+</tr> 
 <tr>
 <td width="8%" border="0" align="left" ></td>
 
@@ -884,16 +917,6 @@ $newHTML='<table border="0" cellpadding="2" >
 
 <td width="30%" border="1"> Balance</td>
 <td width="55%" align="center" border="1">'.session()->get("PurchaseRemainingBalance").'</td>
-
-
-
-</tr>
-
-<tr>
-<td width="8%" border="0" align="left" ></td>
-
-<td width="30%" border="1">Accoun Name</td>
-<td width="55%" align="center" border="1">'.session()->get("AccountName").'( '.session()->get("AccountNumber").')</td>
 
 
 
