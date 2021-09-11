@@ -542,6 +542,34 @@ $(".sidebar-icon").click(function () {
             }
         }
 
+
+
+        $("#myTable").on('click', 'tr', function() {
+            var id = this.cells[0].innerText;
+            var cat = this.cells[7].innerText;
+           
+            if(cat=="Booking Order"){
+                getbookingDetails(id); 
+           } 
+            
+   
+            });
+
+            function getbookingDetails(id){
+                  
+                var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+           
+                    window.open('/getbookingDetails/'+id);
+                  
+                }
+            }
+         
+            
+            xhttp.open("GET", "./getbookingDetails/"+id, true);
+            xhttp.send();
+        }
              
 
         function numberWithCommas(x) {

@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\accountsController;
 use App\Http\Controllers\UpdateStocksController;
 use DB;
+use PDF;
 class OrderFlowController extends Controller
 {
     public function OrderFlow(Request $request,$data){
@@ -622,5 +623,170 @@ class OrderFlowController extends Controller
            return $table;
    }
 
+
+
+   function getbookingDetails($invoiceNo){
+    $data=DB:: select('select * from vw_all_transactions where InvoiceNo='.$invoiceNo);
+    
+      session(['invoiceDate' => $data[0]->DateStamp]);
+      session(['InvoiceNo' => $data[0]->InvoiceNo]);
+      session(['PartyName' => $data[0]->PartyName]);
+      session(['PurchaseTotalAmount' => $data[0]->PurhaseAmountAfterDiscount]);
+      session(['PurchaseAmountPaid' => $data[0]->PurchaseAmountPaid]);
+      session(['PurchaseRemainingBalance' => $data[0]->PurchaseRemainingBalance]);
+      session(['AccountName' => $data[0]->AccountName]);
+      session(['AccountNumber' => $data[0]->AccountNumber]);
+
+
+$newHTML='<table border="0" cellpadding="2" >
+<thead>
+<tr>
+
+
+<th align="center"><br><h1>FORLAND MODREN MOTORS</h1></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<br>
+<td>
+
+  <br>
+
+</td>
+
+</tr>
+
+<tr>
+<td width="50%">
+'.session()->get("PartyName").' (PVT)
+</td>
+
+<td width="50%">
+<h4 align="right">Date: '.session()->get("invoiceDate").'</h4>
+</td>
+</tr>
+
+<tr>
+
+<td width="100%" border="0" align="center" ><h4>Booking Order Details</h4></td>
+</tr>
+</tbody>
+
+</table>
+<br>
+<br>
+<br>
+<br>
+<table border="0" cellpadding="9" >
+
+<tbody>
+<tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Invoice No.</td>
+<td width="55%" border="1" align="center">'.session()->get("InvoiceNo").'</td>
+
+</tr>
+<tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Supplier Name</td>
+<td width="55%" border="1" align="center">'.session()->get("PartyName").'</td>
+
+</tr>
+
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Purchase Amount</td>
+<td width="55%" align="center" border="1">'.session()->get("PurchaseTotalAmount").'</td>
+
+</tr>
+<tr>
+
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1"> Amount Paid</td>
+<td width="55%" align="center" border="1">'.session()->get("PurchaseAmountPaid").'</td>
+
+</tr>
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1"> Balance</td>
+<td width="55%" align="center" border="1">'.session()->get("PurchaseRemainingBalance").'</td>
+
+
+
+</tr>
+
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Accoun Name</td>
+<td width="55%" align="center" border="1">'.session()->get("AccountName").' '.session()->get("AccountNumber").'</td>
+
+
+
+</tr>
+ 
+
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Payment Detail</td>
+<td width="55%" align="center" border="1">Payment Details Attached</td>
+
+
+
+</tr>
+
+
+
+</tbody>
+</table>
+<br>
+
+
+
+<br><br> <br>
+<br>
+<table border="0">
+
+<tr>
+
+<td width="90%" align="right">
+_______________________</td>
+
+
+
+
+</tr>
+<tr>
+
+
+<td width="83%" align="right"> Sign & Stamp
+</td>
+
+
+
+</tr>
+
+</table>
+
+'; // $html= $htmldata;
+
+
+PDF::SetTitle('Request for Invoice');
+PDF::AddPage();
+PDF::writeHTML($newHTML, true, false, true, false, '');
+
+PDF::Output('invoiceRequest.pdf');
+
+
+
+  }
 
 }

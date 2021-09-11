@@ -336,7 +336,7 @@ Route::get('/getBookedOrders/{oid}',[OrderFlowController::class, 'getBookedOrder
 Route::get('/getDetails/{id}/{cat}',[supplierHistoryPrintController::class, 'getDetails']);
 Route::get('/getstockdetails/{id}',[serviceSalesFlow::class, 'getAllInvoiceDetails']);
 
-
+Route::get('/getbookingDetails/{id}',[OrderFlowController::class, 'getbookingDetails']);
 Route::get('/logout',[userAccountController::class, 'logout']);
 
 Route::get('/', function () {
