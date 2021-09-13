@@ -2157,11 +2157,11 @@ $(document).ready(function () {
                 table = $('#saleHistoryTable').DataTable();
 
                 $.each(a, function (i, item) {
-                    table.row.add([  
-                        a[i].InvoiceNo, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
-                        a[i].DateStamp
-                    ]);
+                    table.row.add([
+                            a[i].InvoiceNo, a[i].CustomerName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TotalAmount, a[i].AmountPaid, a[i].Balance, 
+                            a[i].DateStamp
+                        ]);
                     });
                 table.draw();
                 

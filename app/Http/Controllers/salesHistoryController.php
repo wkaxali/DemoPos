@@ -77,4 +77,11 @@ class salesHistoryController extends Controller
         $data=DB:: select('select * from vw_transactionflow_sales where TransactionCatogery="Stock and Service"');
         return $data;
     }
+
+    public static function getSoldStockHistory(){
+        $data=DB:: select('select * from vw_all_transactions where TransactionCatogery="Sales" or TransactionCatogery="Customer Paid to Company"');
+        return $data;
+    }
+
+    
 }
