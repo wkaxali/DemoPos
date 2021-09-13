@@ -663,8 +663,8 @@ $newHTML='<table border="0" cellpadding="2" >
 </tr>
 
 <tr>
-<td width="50%">
-'.$partyName[0]->PartyName.' (PVT)
+<td width="50%"><h4>
+'.$partyName[0]->PartyName.' (PVT)</h4> 
 </td>
 
 <td width="50%">
@@ -849,8 +849,8 @@ $newHTML='<table border="0" cellpadding="2" >
 </tr>
 
 <tr>
-<td width="50%">
-'.$partyName[0]->PartyName.' (PVT)
+<td width="50%"><h4> 
+'.$partyName[0]->PartyName.'  (PVT)</h4> 
 </td>
 
 <td width="50%">
