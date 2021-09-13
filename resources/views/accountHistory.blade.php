@@ -143,18 +143,18 @@
                     </div>
                                 <div class="container"  >
                                      <div class="row my-2" >
-                                            <div class="col-md-4" >
-                                                <label for="">From Date</label>
+                                            <div class="col-md-2" >
+                                                <label for=""style="margin-left: -12px;">From Date</label>
                    
                    
-                                                <input type="date" id ="date1">
+                                                <input type="date" id ="date1" style="margin-left: -12px;">
+                                            </div>
+                                            <div class="col-md-2" >
+                                                <label for="" style="margin-left: -12px;">To Date</label>
+                                                <input type="date" id ="date2" style="margin-left: -12px;">
                                             </div>
                                             <div class="col-md-4" >
-                                                <label for="">To Date</label>
-                                                <input type="date" id ="date2">
-                                            </div>
-                                            <div class="col-md-4" >
-                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
+                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:22px; margin-left:-5px;""
                                                         onclick="filterAccountHistoryData()">Search </button> </div>
                                             </div>
                                             <div class="row my-2" >
@@ -319,6 +319,12 @@ $(".sidebar-icon").click(function () {
                     sum=numberWithCommas(dt[1]);
                             
                     document.getElementById('totalSaleAmount').innerHTML=sum;
+                    if (sum<0){
+                            
+                            document.getElementById("totalSaleAmount").style.color = "green";
+                        } else{
+                            document.getElementById("totalSaleAmount").style.color = "red";
+                        }
                 table = $('#myTable').DataTable();
 
                 $.each(a, function (i, item) {
@@ -362,6 +368,12 @@ $(".sidebar-icon").click(function () {
                     
                     sum=numberWithCommas(dt[1]);
                     document.getElementById('totalSaleAmount').innerHTML=sum;
+                    if (sum<0){
+                            
+                            document.getElementById("totalSaleAmount").style.color = "green";
+                        } else{
+                            document.getElementById("totalSaleAmount").style.color = "red";
+                        }
                     
                     table = $('#myTable').DataTable();
                     table.clear();
@@ -406,6 +418,12 @@ $(".sidebar-icon").click(function () {
                     a=dt[0];
                     sum=numberWithCommas(dt[1]);
                     document.getElementById('totalSaleAmount').innerHTML=sum;
+                    if (sum<0){
+                            
+                            document.getElementById("totalSaleAmount").style.color = "green";
+                        } else{
+                            document.getElementById("totalSaleAmount").style.color = "red";
+                        }
                      
                 
                 table = $('#myTable').DataTable();

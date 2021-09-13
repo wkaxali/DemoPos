@@ -133,39 +133,39 @@
                             <div class="col-md-4  ">
                                 
                                 <button 
-                                    class="btn  btn-info" data-live-search="true"  style="margin-top:32px;"
+                                    class="btn  btn-info" data-live-search="true"  style="margin-top:32px;  "
                                     onclick="filterData()">
                                     Search
                                 </button>
                                 </div>
                         </div>
                     </div>
-                                <div class="container"  >
+                                <div class="container" >
                                      <div class="row my-2" >
-                                            <div class="col-md-4" >
+                                            <div class="col-md-2" >
                                                 <label for="">From Date</label>
                    
                    
                                                 <input type="date" id ="date1">
-                                            </div>
-                                            <div class="col-md-4" >
+                                            </div><br>
+                                            <div class="col-md-2" > 
                                                 <label for="">To Date</label>
                                                 <input type="date" id ="date2">
                                             </div>
                                             <div class="col-md-4" >
-                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
+                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:22px;"
                                                 onclick="filterDateData()">Search </button> </div>
                                             </div>
                                             <div class="row my-3" >
-                                            <div class="col-md-4" >
-                                            <label for="">Total Purchase Amount:</label>
-                                            <h2 id="totalPurchaseAmount">0</h2></div>
-                                            <div class="col-md-4" >
-                                            <label for="">Total Amount Paid:</label>
-                                            <h2 id="amountPaid">0</h2></div>
-                                            <div class="col-md-4" >
-                                            <label for="">Total Balance:</label>
-                                            <h2 id="remainingBalance">0</h2></div>
+                                                <div class="col-md-4" >
+                                                <label for="" >Total Purchase Amount:</label>
+                                                <h2 id="totalPurchaseAmount">0</h2></div>
+                                                <div class="col-md-4" >
+                                                <label for=""  >Total <br>Amount <br>Paid:</label>
+                                                <h2 id="amountPaid">0</h2></div>
+                                                <div class="col-md-4" >
+                                                <label for="">Total<br>Remaining Balance:</label>
+                                                <h2 id="remainingBalance">0</h2></div>
                                             </div>
                                         </div>
                                     </div>
@@ -585,6 +585,12 @@ $(".sidebar-icon").click(function () {
             document.getElementById('totalPurchaseAmount').innerHTML=sum1;
             document.getElementById('amountPaid').innerHTML=sum2;
             document.getElementById('remainingBalance').innerHTML=sum3;
+            if (sum3<0){
+                            
+                            document.getElementById("remainingBalance").style.color = "green";
+                        } else{
+                            document.getElementById("remainingBalance").style.color = "red";
+                        }
         }
 
         

@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\accountsController;
 use App\Http\Controllers\UpdateStocksController;
 use DB;
+use PDF;
 class OrderFlowController extends Controller
 {
     public function OrderFlow(Request $request,$data){
@@ -621,6 +622,364 @@ class OrderFlowController extends Controller
            ';}
            return $table;
    }
+
+
+
+   function getbookingDetails($invoiceNo){
+    $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$invoiceNo);
+    $partyName=DB:: select('select PartyName from vw_transactionflow_sales where InvoiceNo='.$invoiceNo);
+    
+      session(['invoiceDate' => $data[0]->DatePurchase]);
+      session(['InvoiceNo' => $data[0]->InvoiceNumber]);
+      session(['InStockStatus' => $data[0]->InStockStatus]);
+      session(['ProductName' => $data[0]->ProductName]);
+      session(['Color' => $data[0]->Color]);
+      session(['EngineNumber' => $data[0]->EngineNumber]);
+      session(['ChasisNumber' => $data[0]->ChasisNumber]);
+      session(['PurchaseTotalAmount' => $data[0]->TotalAmount]);
+      session(['PurchaseAmountPaid' => $data[0]->AmountPaid]);
+      session(['PurchaseRemainingBalance' => $data[0]->Balance]);
+     
+
+      
+$newHTML='<table border="0" cellpadding="2" >
+<thead>
+<tr>
+
+
+<th align="center"><br><h1>FORLAND MODREN MOTORS</h1></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<br>
+<td>
+
+  <br>
+
+</td>
+
+</tr>
+
+<tr>
+<td width="50%"><h4>
+'.$partyName[0]->PartyName.' (PVT)</h4> 
+</td>
+
+<td width="50%">
+<h4 align="right">Date: '.session()->get("invoiceDate").'</h4>
+</td>
+</tr>
+
+<tr>
+
+<td width="100%" border="0" align="center" ><h4>Booking Order Details</h4></td>
+</tr>
+</tbody>
+
+</table>
+<br>
+<br>
+<br>
+<br>
+<table border="0" cellpadding="9" >
+
+<tbody>
+<tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Invoice No.</td>
+<td width="55%" border="1" align="center">'.session()->get("InvoiceNo").'</td>
+
+</tr>
+<tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" > Stock Status</td>
+<td width="55%" border="1" align="center">'.session()->get("InStockStatus").'</td>
+
+</tr>
+<tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Product Name</td>
+<td width="55%" border="1" align="center">'.session()->get("ProductName").'</td>
+
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" > Color</td>
+<td width="55%" border="1" align="center">'.session()->get("Color").'</td>
+
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" > Engine Number</td>
+<td width="55%" border="1" align="center">'.session()->get("EngineNumber").'</td>
+
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Chasis Number</td>
+<td width="55%" border="1" align="center">'.session()->get("ChasisNumber").'</td>
+
+</tr>
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Purchase Amount</td>
+<td width="55%" align="center" border="1">'.session()->get("PurchaseTotalAmount").'</td>
+
+</tr>
+<tr>
+
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1"> Amount Paid</td>
+<td width="55%" align="center" border="1">'.session()->get("PurchaseAmountPaid").'</td>
+
+</tr>
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1"> Balance</td>
+<td width="55%" align="center" border="1">'.session()->get("PurchaseRemainingBalance").'</td>
+
+
+
+</tr>
+ 
+ 
+
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Payment Detail</td>
+<td width="55%" align="center" border="1">Payment Details Attached</td>
+
+
+
+</tr>
+
+
+
+</tbody>
+</table>
+<br>
+
+
+
+<br><br> <br>
+<br>
+<table border="0">
+
+<tr>
+
+<td width="90%" align="right">
+_______________________</td>
+
+
+
+
+</tr>
+<tr>
+
+
+<td width="83%" align="right"> Sign & Stamp
+</td>
+
+
+
+</tr>
+
+</table>
+
+'; // $html= $htmldata;
+
+
+PDF::SetTitle('Request for Invoice');
+PDF::AddPage();
+PDF::writeHTML($newHTML, true, false, true, false, '');
+
+PDF::Output('invoiceRequest.pdf');
+
+
+
+  }
+
+
+  
+  
+  function getPurchasedStockDetails($invoiceNo){
+    $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$invoiceNo);
+    $partyName=DB:: select('select PartyName from vw_transactionflow_sales where InvoiceNo='.$invoiceNo);
+    
+    session(['invoiceDate' => $data[0]->DatePurchase]);
+    session(['InvoiceNo' => $data[0]->InvoiceNumber]);
+    
+    session(['ProductName' => $data[0]->ProductName]);
+    session(['Company' => $data[0]->Company]);
+    session(['Color' => $data[0]->Color]);
+ 
+    session(['PurchaseTotalAmount' => $data[0]->TotalAmount]);
+    session(['PurchaseAmountPaid' => $data[0]->AmountPaid]);
+    session(['PurchaseRemainingBalance' => $data[0]->Balance]);
+   
+
+    
+$newHTML='<table border="0" cellpadding="2" >
+<thead>
+<tr>
+
+
+<th align="center"><br><h1>FORLAND MODREN MOTORS</h1></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<br>
+<td>
+
+<br>
+
+</td>
+
+</tr>
+
+<tr>
+<td width="50%"><h4> 
+'.$partyName[0]->PartyName.'  (PVT)</h4> 
+</td>
+
+<td width="50%">
+<h4 align="right">Date: '.session()->get("invoiceDate").'</h4>
+</td>
+</tr>
+
+<tr>
+
+<td width="100%" border="0" align="center" ><h4>Purchased Stock Details</h4></td>
+</tr>
+</tbody>
+
+</table>
+<br>
+<br>
+<br>
+<br>
+<table border="0" cellpadding="9" >
+
+<tbody>
+<tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Invoice No.</td>
+<td width="55%" border="1" align="center">'.session()->get("InvoiceNo").'</td>
+
+</tr>
+ 
+<tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Product Name</td>
+<td width="55%" border="1" align="center">'.session()->get("ProductName").'</td>
+
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" > Color</td>
+<td width="55%" border="1" align="center">'.session()->get("Color").'</td>
+
+</tr><tr >
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1" align="left" >Company</td>
+<td width="55%" border="1" align="center">'.session()->get("Company").'</td>
+
+</tr> 
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Purchase Amount</td>
+<td width="55%" align="center" border="1">'.session()->get("PurchaseTotalAmount").'</td>
+
+</tr>
+<tr>
+
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1"> Amount Paid</td>
+<td width="55%" align="center" border="1">'.session()->get("PurchaseAmountPaid").'</td>
+
+</tr>
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1"> Balance</td>
+<td width="55%" align="center" border="1">'.session()->get("PurchaseRemainingBalance").'</td>
+
+
+
+</tr>
+ 
+
+<tr>
+<td width="8%" border="0" align="left" ></td>
+
+<td width="30%" border="1">Payment Detail</td>
+<td width="55%" align="center" border="1">Payment Details Attached</td>
+
+
+
+</tr>
+
+
+
+</tbody>
+</table>
+<br>
+
+
+
+<br><br> <br>
+<br>
+<table border="0">
+
+<tr>
+
+<td width="90%" align="right">
+_______________________</td>
+
+
+
+
+</tr>
+<tr>
+
+
+<td width="83%" align="right"> Sign & Stamp
+</td>
+
+
+
+</tr>
+
+</table>
+
+'; // $html= $htmldata;
+
+
+PDF::SetTitle('Request for Invoice');
+PDF::AddPage();
+PDF::writeHTML($newHTML, true, false, true, false, '');
+
+PDF::Output('invoiceRequest.pdf');
+
+
+
+  }
 
 
 }

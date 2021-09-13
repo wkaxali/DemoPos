@@ -167,13 +167,13 @@
                                             </div>
                                             <div class="row my-2" >
                                             <div class="col-md-4" >
-                                            <label for="">Total Sale Amount:</label>
+                                            <label for="">Total<br> Sale<br>  Amount:</label>
                                             <h1 id="totalSaleAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total Amount Paid:</label>
+                                            <label for="">Total <br>Amount <br> Paid:</label>
                                             <h1 id="remainingAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total<br> Balance:</label>
+                                            <label for="">Total<br>Remaining Balance:</label>
                                             <h1 id="invoiceBalance">0</h1></div>
                                 </div>
                             </div>
@@ -296,6 +296,8 @@ $(".sidebar-icon").click(function () {
     }
     toggle = !toggle;
 });
+
+     
 
     function loadAllCustomers() {
         var xhttp = new XMLHttpRequest();
@@ -518,9 +520,64 @@ xhttp.send();
             document.getElementById('totalSaleAmount').innerHTML=sum1;
             document.getElementById('remainingAmount').innerHTML=sum2;
             document.getElementById('invoiceBalance').innerHTML=sum3;
+            if (remainingBalance<0){
+                
+                document.getElementById("invoiceBalance").style.color = "red";
+            } else{
+                document.getElementById("invoiceBalance").style.color = "green";
+            }
+        }
+      
+        $("#myTable").on('click', 'tr', function() {
+            var id = this.cells[0].innerText;
+            var cat = this.cells[6].innerText;
+            // alert (id,cat);
+            if(cat=="Sales"){
+                getDetails(id); 
+           }else{
+                
+               getstockdetails(id);
+           }
             
+   
+            });
+
+            function getDetails(id){
+                  
+                var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+             
+                    window.open('./testpdf/2');
+                  
+                }
+            }
+         
+            
+            xhttp.open("GET", "./invoiceDetails/"+id, true);
+            xhttp.send();
         }
 
+        function getstockdetails(id){
+                  
+          
+            var xhttp = new XMLHttpRequest();
+            
+
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        
+                        window.open("./testpdf/as");
+
+                    }
+                };
+
+                xhttp.open("GET", "./getstockdetails/" + id, true);
+                // var MenuID=$('#Menus').find(":selected").val();
+                xhttp.send();
+
+          }
 
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

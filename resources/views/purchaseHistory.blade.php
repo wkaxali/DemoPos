@@ -170,10 +170,10 @@
                                             <label for="">Total Purchase Amount:</label>
                                             <h1 id="totalPurchaseAmount">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total Amount Paid:</label>
+                                            <label for="">Total <br>Amount <br>Paid:</label>
                                             <h1 id="amountPaid">0</h1></div>
                                             <div class="col-md-4" >
-                                            <label for="">Total<br> Balance:</label>
+                                            <label for="">Total<br>Remaining Balance:</label>
                                             <h1 id="remainingBalance">0</h1></div>
                                             </div>
                                         </div>
@@ -534,9 +534,62 @@ $(".sidebar-icon").click(function () {
             document.getElementById('totalPurchaseAmount').innerHTML=sum1;
             document.getElementById('amountPaid').innerHTML=sum2;
             document.getElementById('remainingBalance').innerHTML=sum3;
+            if (remainingBalance<0){
+                
+                document.getElementById("remainingBalance").style.color = "red";
+            } else{
+                document.getElementById("remainingBalance").style.color = "green";
+            }
         }
 
+
+
+        $("#myTable").on('click', 'tr', function() {
+            var id = this.cells[0].innerText;
+            var cat = this.cells[7].innerText;
+           
+            if(cat=="Booking Order"){
+                getbookingDetails(id); 
+           } 
+           else{
+                
+            getPurchasedStockDetails(id);
+            }
              
+   
+            });
+
+            function getbookingDetails(id){
+                  
+                var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+           
+                    window.open('/getbookingDetails/'+id);
+                  
+                }
+            }
+         
+            
+            xhttp.open("GET", "./getbookingDetails/"+id, true);
+            xhttp.send();
+        }
+           
+        function getPurchasedStockDetails(id){
+                  
+                  var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+             
+                      window.open('/getPurchasedStockDetails/'+id);
+                    
+                  }
+              }
+           
+              
+              xhttp.open("GET", "./getPurchasedStockDetails/"+id, true);
+              xhttp.send();
+          }
 
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

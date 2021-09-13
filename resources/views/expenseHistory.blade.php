@@ -146,18 +146,18 @@
                     </div>
                                 <div class="container"  >
                                      <div class="row my-2" >
-                                            <div class="col-md-4" >
+                                            <div class="col-md-2" >
                                                 <label for="">From Date</label>
                    
                    
                                                 <input type="date" id ="date1">
                                             </div>
-                                            <div class="col-md-4" >
+                                            <div class="col-md-2" >
                                                 <label for="">To Date</label>
                                                 <input type="date" id ="date2">
                                             </div>
                                             <div class="col-md-4" >
-                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:2px;"
+                                                <button  class="btn  btn-info" data-live-search="true" id="dates" style="margin-top:22px;"
                                                         onclick="filterExpenseDateData()">Search </button> </div>
                                             </div>
                                             <div class="row my-2" >
