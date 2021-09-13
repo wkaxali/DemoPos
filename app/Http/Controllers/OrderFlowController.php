@@ -627,6 +627,7 @@ class OrderFlowController extends Controller
 
    function getbookingDetails($invoiceNo){
     $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$invoiceNo);
+    $partyName=DB:: select('select PartyName from vw_transactionflow_sales where InvoiceNo='.$invoiceNo);
     
       session(['invoiceDate' => $data[0]->DatePurchase]);
       session(['InvoiceNo' => $data[0]->InvoiceNumber]);
@@ -663,7 +664,7 @@ $newHTML='<table border="0" cellpadding="2" >
 
 <tr>
 <td width="50%">
-'.session()->get("PartyName").' (PVT)
+'.$partyName[0]->PartyName.' (PVT)
 </td>
 
 <td width="50%">
@@ -812,6 +813,7 @@ PDF::Output('invoiceRequest.pdf');
   
   function getPurchasedStockDetails($invoiceNo){
     $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$invoiceNo);
+    $partyName=DB:: select('select PartyName from vw_transactionflow_sales where InvoiceNo='.$invoiceNo);
     
     session(['invoiceDate' => $data[0]->DatePurchase]);
     session(['InvoiceNo' => $data[0]->InvoiceNumber]);
@@ -848,7 +850,7 @@ $newHTML='<table border="0" cellpadding="2" >
 
 <tr>
 <td width="50%">
-'.session()->get("PartyName").' (PVT)
+'.$partyName[0]->PartyName.' (PVT)
 </td>
 
 <td width="50%">
