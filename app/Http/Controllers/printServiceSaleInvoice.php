@@ -260,14 +260,16 @@ foreach($invoiceDetails as $product){
     $Address =$product->Address;
     $color=$product->color;
     $CNIC=$product->CNIC;
-    $productName=$product->ProductName;
+    $ProductName=$product->ProductName;
     $contact=$product->Contect;
     $TotalAmount=$product->TotalAmount;
     $AmountPaid=$product->AmountPaid;
     $Balance=$product->Balance;
-    
+    $Discount=$product->Discount;
     $NetTotal=$product->NetTotal;
-
+    $PerUnitPurchasePrice=$product->PerUnitPurchasePrice;
+   
+    
     
     
     }
@@ -370,11 +372,11 @@ ID# </td>
 </thead>
 <tbody >
 
-
-
-
-
-'.$productHtmlTDs.'
+<td align="center" bgcolor="#C0C0C0" width="30%">'.$ProductName.'</td>
+<td align="center"bgcolor="#C0C0C0" width="10%">'.$qty.'</td>
+<td align="center" bgcolor=" #C0C0C0" width="20%">'.$PerUnitPurchasePrice.'</td>
+<td align="center" bgcolor=" #C0C0C0" width="15%">'.$Discount.'</td>
+<td align="center" bgcolor=" #C0C0C0" width="15%">'.$TotalAmount.'</td>
 </tbody>
 </table>
 
