@@ -250,35 +250,27 @@ $counter=0;
 $maxinmunLines=13;
 // dd(session()->get('ProductNames'));
 
-$invoiceDetails=DB::select('select * from vw_all_transactions where InvoiceNo= '.$InvoiceNo);
+$invoiceDetails=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+foreach($invoiceDetails as $product){
+    $qty=$product->Quantity;
+    
+    $InvoiceNumber=$product->InvoiceNumber;
+    $CustomerName=$product->CustomerName;
+    $DateStamp=$product->DateStamp;
+    $Address =$product->Address;
+    $color=$product->color;
+    $CNIC=$product->CNIC;
+    $productName=$product->ProductName;
+    $contact=$product->Contect;
+    $TotalAmount=$product->TotalAmount;
+    $AmountPaid=$product->AmountPaid;
+    $Balance=$product->Balance;
+    
+    $NetTotal=$product->NetTotal;
 
-foreach($invoiceDetails as $p){
-$productHtmlTDs =$productHtmlTDs.'<tr>
-<td align="center" width="10%"><div>'.$p[0].'</div></td>
-<td align="center" width="30%"><div>'.$p[1].'</div></td>
-<td align="center" width="10%"><div>'.$p[2].'</div></td>
-<td align="center" width="20%"><div>'.$p[3].'</div></td>
-<td align="center" width="15%"><div>'.$p[4].'</div></td>
-<td align="center" width="15%"><div>'.$p[5].'</div></td></tr>';//..'<td>'.$p[1].'</td><td>'.$p[2].'</td><td>'.$p[3].'</td><td>'.$p[4].'</td><td>'.$p[5].'</td></tr>';
-// $productHtmlTDs =$productHtmlTDs.'<tr><td>'.$p[0].'</td><td>'.$p[1].'</td><td>'.$p[2].'</td><td>'.$p[3].'</td><td>'.$p[4].'</td><td>'.$p[5].'</td></tr>';
-
-
-$counter++;
-}
-
-for( $i=$counter;$i<$maxinmunLines;$i++){
-$productHtmlTDs =$productHtmlTDs.'<tr><td><div></div></td>
-
-<td><div></div></td>
-<td><div></div></td>
-<td><div></div></td>
-<td><div></div></td>
-<td><div></div></td>
-</tr>';
-
-
-}
-
+    
+    
+    }
 //dd($productHtmlTDs);
 $newHTML='<table border="0">
 <thead>
@@ -323,31 +315,31 @@ Customer\'s Copy
 <tbody>
 <tr>
 <td><br><span style="font-size: medium;">Customer Name:</span></td>
-<td align="center"><br>'.session()->get("customerName").'</td>
+<td align="center"><br>'.$CustomerName.'</td>
 <td><br><span style="font-size: medium;">Booking No:</span></td>
-<td align="center"><br>BO-FMM-'.session()->get("invoiceNo").'</td>
+<td align="center"><br>BO-FMM-'.$InvoiceNumber.'</td>
 
 
 </tr>
 <tr>
 <td><br><span style="font-size: medium;">Address:</span></td>
-<td align="center"><br>'.session()->get("address").'</td>
+<td align="center"><br>'.$Address.'</td>
 <td><br><span style="font-size: medium;">Invoice Number:</span></td>
-<td align="center"><br>'.session()->get("invoiceNo").'</td>
+<td align="center"><br>'.$InvoiceNumber.'</td>
 
 
 </tr>
 <tr>
 <td><br><span style="font-size: medium;">CNIC/NTN:</span></td>
-<td align="center"><br>'.session()->get("CNIC").'</td>
+<td align="center"><br>'.$CNIC.'</td>
 <td><br><span style="font-size: medium;">Invoice Date:</span></td>
-<td align="center"><br>'.session()->get("ivd").'</td>
+<td align="center"><br>'.$DateStamp.'</td>
 
 
 </tr>
 <tr>
 <td><br><span style="font-size: medium;">Contact:</span></td>
-<td align="center"><br>'.session()->get("contact").'</td>
+<td align="center"><br>'.$contact.'</td>
 <td><br><span style="font-size: medium;"></span></td>
 <td align="center"><br></td>
 
@@ -403,8 +395,8 @@ Total in Word </th>
 </thead>
 <tbody>
 <tr>
-<td width="70%" border="1" align="center"><b><u>'.session()->get("amountInWords").' Only.</u></b></td>
-<td width="30%" border="1" align="center"><b>'.session()->get("amountPaid").'</b></td>
+<td width="70%" border="1" align="center"><b><u>'.$TotalAmount.' Only.</u></b></td>
+<td width="30%" border="1" align="center"><b>'.$NetTotal.'</b></td>
 
 
 </tr>

@@ -568,7 +568,7 @@ xhttp.send();
                     if (this.readyState == 4 && this.status == 200) {
 
                         
-                        window.open("./testpdf/as");
+                        window.open('/getstockdetails/'+id);
 
                     }
                 };
