@@ -93,11 +93,6 @@ class UpdateStocksController extends Controller
       // ->where('InvoiceNo', '=', $InvoiceNumber)
       // ->get();
       //     return $autoData->Amount;
-      TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Returned Order', $TransportCharges,$dateNow,
-      "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,Null,Null);
-
-      $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
-      LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
  
       $paidVia=$AID;
       $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
