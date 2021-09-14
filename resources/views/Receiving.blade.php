@@ -340,7 +340,8 @@ xhttp.send();
                     $(tr).find('td:eq(4) input[type="text"]').val(), //chasisNumber
                     $(tr).find('td:eq(5) input[type="text"]').val(), //EngineNumber
                     $(tr).find('td:eq(6) input[type="text"]').val(), //Transport charges
-                    $(tr).find('td:eq(7)').find(":selected").val() //Status
+                    $(tr).find('td:eq(7) input[type="text"]').val(), //Remarks
+                    $(tr).find('td:eq(8)').find(":selected").val() //Status
 
 
                 ];

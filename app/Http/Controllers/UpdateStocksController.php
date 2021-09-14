@@ -16,13 +16,14 @@ class UpdateStocksController extends Controller
          $InvoiceNumber=$Array[1];
          $AID=$Array[2];
     foreach($Array[0] as $oneProduct){
-      if($oneProduct[5]==1){
+      if($oneProduct[6]==1){
          $PID=$oneProduct[0];
          $color=$oneProduct[1];
          $chasisNumber= $oneProduct[2];
          $EngineNumber=$oneProduct[3];
         $TransportCharges =$oneProduct[4];
-         $status=$oneProduct[5];
+        $Remarks =$oneProduct[5];
+         $status=$oneProduct[6];
          $dateNow = Carbon::now()->toDateString();
       //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
 
@@ -53,6 +54,7 @@ class UpdateStocksController extends Controller
             ->where('ProductSerial', $PID)
             ->update(['EngineNumber' =>$EngineNumber,
             'ChasisNumber' =>$chasisNumber,
+            'Remarks' =>$Remarks,
             'color' =>$color
             ]);
 
@@ -73,13 +75,14 @@ class UpdateStocksController extends Controller
 
          }//if condition
 
-         if($oneProduct[5]==3){
+         if($oneProduct[6]==3){
           $PID=$oneProduct[0];
           $color=$oneProduct[1];
           $chasisNumber= $oneProduct[2];
           $EngineNumber=$oneProduct[3];
          $TransportCharges =$oneProduct[4];
-          $status=$oneProduct[5];
+         $Remarks =$oneProduct[5];
+          $status=$oneProduct[6];
           $dateNow = Carbon::now()->toDateString();
        //$dateNow =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
  
@@ -114,6 +117,7 @@ class UpdateStocksController extends Controller
       ->where('ProductSerial', $PID)
       ->update(['EngineNumber' =>$EngineNumber,
       'ChasisNumber' =>$chasisNumber,
+      'Remarks' =>$Remarks,
       'color' =>$color
       ]);
 
@@ -121,12 +125,12 @@ class UpdateStocksController extends Controller
       ->where('ProductSerial', $PID)
       ->update(['Remarks'=>"Delivered on ".$dateNow,
       'TotalCost' =>$oldPrice,
-      'Status'=>'Ruturned'
+      'Status'=>'Returned'
       ]);
 
       DB::table('tblpurchaseoorderdetaile')
       ->where('ProductSerial', $PID)
-      ->update(['DilevedStatus'=>"Ruturned"
+      ->update(['DilevedStatus'=>"Returned"
       ]);
  
  
