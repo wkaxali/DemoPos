@@ -299,10 +299,10 @@ $(".sidebar-icon").click(function () {
                 $.each(a, function (i, item) {
 
                     table.row.add([  
-                        a[i].InvoiceNo,a[i].PurhaseAmountAfterDiscount, a[i].PurchaseAmountPaid, a[i].PurchaseRemainingBalance, 
-                        a[i].DateStamp, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
-                        a[i].TransactionCatogery
-                    ]);
+                            a[i].InvoiceNo,a[i].PurhaseAmountAfterDiscount, a[i].PurchaseAmountPaid, a[i].PurchaseRemainingBalance, 
+                            a[i].DateStamp, a[i].PartyName, a[i].AccountName+" ("+a[i].AccountNumber+")",
+                            a[i].TransactionCatogery
+                        ]);
                     });
                 table.draw();
                 sumColumns();
