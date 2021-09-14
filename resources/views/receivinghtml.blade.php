@@ -49,7 +49,7 @@
                                                 <th>Chasis No</th>
                                                 <th>Engine No</th>
                                                 <th>Tranport Charges</th>
-
+                                                <th>Remarks</th>
                                                 <th>Status</th>
 
 
