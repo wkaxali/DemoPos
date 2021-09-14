@@ -268,9 +268,10 @@ foreach($invoiceDetails as $product){
     $Discount=$product->Discount;
     $NetTotal=$product->NetTotal;
     $PerUnitPurchasePrice=$product->PerUnitPurchasePrice;
-   
-    
-    
+    $ProductSerial=$product->ProductSerial;
+    $numberToWords = new NumberToWords();
+    $numberTransformer = $numberToWords->getNumberTransformer('en');
+    $AmountinEnglish= $numberTransformer->toWords($AmountPaid);
     
     }
 //dd($productHtmlTDs);
@@ -369,14 +370,77 @@ ID# </td>
 <td align="center" bgcolor=" #C0C0C0" width="15%">Total</td>
 
 </tr>
-</thead>
+</thead></table>
+<table border="1">
 <tbody >
+<tr>
+<td align="center"  width="10%">'.$ProductSerial.'</td>
+<td align="center"   width="30%">'.$ProductName.'</td>
+<td align="center"  width="10%">'.$qty.'</td>
+<td align="center"   width="20%">'.$PerUnitPurchasePrice.'</td>
+<td align="center"   width="15%">'.$Discount.'</td>
+<td align="center"   width="15%">'.$TotalAmount.'</td></tr>
+<tr>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="30%"> </td>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="20%"> </td>
+<td align="center"   width="15%"> </td>
+<td align="center"   width="15%"> </td></tr>
 
-<td align="center" bgcolor="#C0C0C0" width="30%">'.$ProductName.'</td>
-<td align="center"bgcolor="#C0C0C0" width="10%">'.$qty.'</td>
-<td align="center" bgcolor=" #C0C0C0" width="20%">'.$PerUnitPurchasePrice.'</td>
-<td align="center" bgcolor=" #C0C0C0" width="15%">'.$Discount.'</td>
-<td align="center" bgcolor=" #C0C0C0" width="15%">'.$TotalAmount.'</td>
+<tr>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="30%"> </td>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="20%"> </td>
+<td align="center"   width="15%"> </td>
+<td align="center"   width="15%"> </td></tr>
+<tr>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="30%"> </td>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="20%"> </td>
+<td align="center"   width="15%"> </td>
+<td align="center"   width="15%"> </td></tr>
+<tr>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="30%"> </td>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="20%"> </td>
+<td align="center"   width="15%"> </td>
+<td align="center"   width="15%"> </td></tr>
+<tr>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="30%"> </td>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="20%"> </td>
+<td align="center"   width="15%"> </td>
+<td align="center"   width="15%"> </td></tr>
+
+<tr>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="30%"> </td>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="20%"> </td>
+<td align="center"   width="15%"> </td>
+<td align="center"   width="15%"> </td></tr>
+
+<tr>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="30%"> </td>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="20%"> </td>
+<td align="center"   width="15%"> </td>
+<td align="center"   width="15%"> </td></tr>
+
+<tr>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="30%"> </td>
+<td align="center"  width="10%"> </td>
+<td align="center"   width="20%"> </td>
+<td align="center"   width="15%"> </td>
+<td align="center"   width="15%"> </td></tr>
+
 </tbody>
 </table>
 
@@ -391,14 +455,14 @@ ID# </td>
 <th width="70%" border="1" align="center">
 Total in Word </th>
 
-<th width="30%" border="1" align="center" style="line-height: 100%;"> Total PKR</th>
+<th width="30%" border="1" align="center" style="line-height: 100%;"> Total PKR Paid</th>
 
 </tr>
 </thead>
 <tbody>
 <tr>
-<td width="70%" border="1" align="center"><b><u>'.$TotalAmount.' Only.</u></b></td>
-<td width="30%" border="1" align="center"><b>'.$NetTotal.'</b></td>
+<td width="70%" border="1" align="center"><b><u>'.$AmountinEnglish.' Only.</u></b></td>
+<td width="30%" border="1" align="center"><b>'.$AmountPaid.'</b></td>
 
 
 </tr>
