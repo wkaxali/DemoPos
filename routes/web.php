@@ -71,6 +71,7 @@ use App\Http\Controllers\deleteBookedOrderController;
 |
 */
 
+Route::get('/getSoldStockHistory',[salesHistoryController::class, 'getSoldStockHistory']);
 Route::get('/deleteOrder/{OID}',[deleteBookedOrderController::class, 'deleteOrder']);
 Route::get('/getSSHistory',[salesHistoryController::class, 'saleStockHistory']);
 Route::get('/getPSHistory',[purchaseHistoryController::class, 'purchaseStockHistory']);
@@ -1173,6 +1174,15 @@ Route::get('emt', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('editAmountTransfer'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('cp', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('salePurchaseHistory'); 
     }else{
     return view("signInSignUp");
     }
