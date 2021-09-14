@@ -89,25 +89,25 @@ class UpdateStocksController extends Controller
       $LID=globalVarriablesController::selfLedgerID();
       $oldBalance= LedgerPartiesController::getPartyBalance($LID);
 
-      // $autoData = DB::table('tbltransactionflow')
-      // ->where('InvoiceNo', '=', $InvoiceNumber)
-      // ->get();
+      $autoData = DB::table('tbltransactionflow')
+      ->where('InvoiceNo', '=', $InvoiceNumber)
+      ->get();
 
-      // TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Returned Order',$autoData->Amount,$dateNow,
-      // "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,Null,Null);
+      TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Returned Order',$autoData->Amount,$dateNow,
+      "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,Null,Null);
 
-      // $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
-      // LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
+      $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
+      LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
  
-      // $paidVia=$AID;
-      // $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
-      // $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
-      // TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
-      // "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,$CID,Null);
-      // $AID=$paidVia;//This needs o be changed in production
-      // $OldAccBalance=accountsController::getAccountBalance($AID);
-      // $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
-      // accountsController::UpdateNewBalance($AID,$newAccountBalance);
+      $paidVia=$AID;
+      $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
+      $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
+      TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
+      "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,$CID,Null);
+      $AID=$paidVia;//This needs o be changed in production
+      $OldAccBalance=accountsController::getAccountBalance($AID);
+      $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
+      accountsController::UpdateNewBalance($AID,$newAccountBalance);
       $autoData = DB::table('instock')
       ->where('ProductSerial', '=', $PID)
       ->get();
