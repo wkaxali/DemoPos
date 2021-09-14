@@ -361,7 +361,7 @@ Customer\'s Copy
 <table border="1">
 <thead>
 <tr>
-<td align="left" width="10%" bgcolor="#C0C0C0" >
+<td align="center" width="10%" bgcolor="#C0C0C0" >
 ID# </td>
 <td align="center" bgcolor="#C0C0C0" width="30%">Description</td>
 <td align="center"bgcolor="#C0C0C0" width="10%">Qty</td>
