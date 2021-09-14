@@ -20,7 +20,7 @@ class UpdateStocksController extends Controller
          $PID=$oneProduct[0];
          $color=$oneProduct[1];
          $chasisNumber= $oneProduct[2];
-         $EngineNumber=$oneProduct[3];
+         $EnkgineNumber=$oneProduct[3];
         $TransportCharges =$oneProduct[4];
          $status=$oneProduct[5];
          $dateNow = Carbon::now()->toDateString();
