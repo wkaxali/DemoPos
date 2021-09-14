@@ -476,6 +476,12 @@ class OrderFlowController extends Controller
               else{
                 $color=' value='.$ro->Color.' readonly ="true"';
               }
+              if($ro->Remarks==""){
+                $Remarks=' value='.$ro->Remarks;
+                }
+                else{
+                  $Remarks=' value='.$ro->Remarks.' readonly ="true"';
+                }
           //print $option;
 
             $table=$table.'
@@ -486,7 +492,9 @@ class OrderFlowController extends Controller
             <td><input type="text" '.$color.'></td>
             <td><input type="text" '.$CHN.'></td>
             <td><input type="text" '.$EN.'></td>
+            
             <td><input type="text"'.$tc.'></td>
+            <td><input type="text" '.$Remarks.'></td>
             <td> 
                     '.$option.'</td>
                  
