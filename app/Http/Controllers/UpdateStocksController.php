@@ -20,7 +20,7 @@ class UpdateStocksController extends Controller
          $PID=$oneProduct[0];
          $color=$oneProduct[1];
          $chasisNumber= $oneProduct[2];
-         $EnkgineNumber=$oneProduct[3];
+         $EngineNumber=$oneProduct[3];
         $TransportCharges =$oneProduct[4];
         $Remarks =$oneProduct[5];
          $status=$oneProduct[6];
@@ -89,11 +89,11 @@ class UpdateStocksController extends Controller
       $LID=globalVarriablesController::selfLedgerID();
       $oldBalance= LedgerPartiesController::getPartyBalance($LID);
 
-      $autoData = DB::table('tbltransactionflow')
-      ->where('InvoiceNo', '=', $InvoiceNumber)
-      ->get();
-
-      TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Returned Order',$autoData->Amount,$dateNow,
+      // $autoData = DB::table('tbltransactionflow')
+      // ->where('InvoiceNo', '=', $InvoiceNumber)
+      // ->get();
+      //     return $autoData->Amount;
+      TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Returned Order', $TransportCharges,$dateNow,
       "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,Null,Null);
 
       $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
