@@ -107,7 +107,17 @@ class UpdateStocksController extends Controller
       ->where('ProductSerial', '=', $PID)
       ->get();
       $oldPrice=floatval($autoData[0]->TotalCost);
-    
+
+      $LID=1;
+      $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+      $currentBalance=floatval($oldBalance)-floatval($oldPrice);
+      LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
+
+      TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Vehicle Return',$oldPrice,$dateNow,
+      NULL,NULL,null,NULL,null,1,NULL,NULL,2,NULL,NULL,Null);
+      TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Vehicle Return',$oldPrice,$dateNow,
+      NULL,NULL,null,NULL,null,2,NULL,NULL,2,NULL,NULL,Null);
+      
       DB::table('productdefination')
       ->where('ProductSerial', $PID)
       ->update(['EngineNumber' =>$EngineNumber,
@@ -118,7 +128,7 @@ class UpdateStocksController extends Controller
 
       DB::table('instock')
       ->where('ProductSerial', $PID)
-      ->update(['Remarks'=>"Delivered on ".$dateNow,
+      ->update(['Remarks'=>"Returned on ".$dateNow,
       'TotalCost' =>$oldPrice,
       'Status'=>'Returned'
       ]);
