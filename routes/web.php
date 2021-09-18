@@ -139,7 +139,6 @@ Route::get('/getEmployeePayment',[payController::class, 'getEmployeePayment']);
 Route::get('/getPartyPayment',[payController::class, 'getPartyPayment']);
 Route::get('/editExpense',[expenseController::class, 'editExpense']);
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
-Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
