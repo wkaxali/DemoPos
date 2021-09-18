@@ -248,7 +248,7 @@ class salePrintInvoice extends Controller
       
         <br>
         <br>
-        <br>
+       
         
         
         <br>
@@ -274,7 +274,7 @@ class salePrintInvoice extends Controller
         
         </tbody>
         </table>
-        <br><br> <br>
+        <br> 
         <br>
         <table border="0">
         
