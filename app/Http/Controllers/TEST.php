@@ -49,7 +49,7 @@ Customer\'s Copy
 
 
 </tr>
-<tr><td align="center"><h1>Sales wf3efeanvoice</h1></td></tr>
+<tr><td align="center"><h1>Sales Invoice</h1></td></tr>
 
 
 
@@ -236,7 +236,7 @@ Total in Word </th>
 <br>
 <br>
 <br>
-<br>
+ 
 
 
 <br>
@@ -262,7 +262,7 @@ Total in Word </th>
 
 </tbody>
 </table>
-<br><br> <br>
+<br> 
 <br>
 <table border="0">
 
