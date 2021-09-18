@@ -470,7 +470,7 @@
     });
     expenseDetails.shift();
     var expTable = JSON.stringify(expenseDetails);
-alert(expTable);
+// alert(expTable);
     var xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function () {
