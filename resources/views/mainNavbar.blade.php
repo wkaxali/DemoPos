@@ -116,7 +116,7 @@ style="float: right"></span></a>
 </ul>
 </li>
 <li><a href="/pds"  data-target=".firstULs15"  ><i class="fas fa-vials"></i><span
-style="font-size: 14px;">Print Documents</span><span class="fa fa-angle-right"
+style="font-size: 14px;">Print Documents</span><span  
 style="float: right"></span></a>
  
 </li>
