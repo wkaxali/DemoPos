@@ -1187,3 +1187,12 @@ Route::get('cp', function () {
     return view("signInSignUp");
     }
 });
+
+Route::get('va', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('viewAccounts'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
