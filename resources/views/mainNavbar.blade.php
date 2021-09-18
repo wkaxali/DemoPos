@@ -115,7 +115,11 @@ style="float: right"></span></a>
 <li><a href="/ac">Add/Edit Category</a></li>
 </ul>
 </li>
-
+<li><a href="/pds"  data-target=".firstULs15"  ><i class="fas fa-vials"></i><span
+style="font-size: 14px;">Print Documents</span><span class="fa fa-angle-right"
+style="float: right"></span></a>
+ 
+</li>
 
 <li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-vials"></i><span
 style="font-size: 14px;">Quotation</span><span class="fa fa-angle-right"

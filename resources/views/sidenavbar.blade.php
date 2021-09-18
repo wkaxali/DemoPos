@@ -115,7 +115,11 @@ style="float: right"></span></a>
 <li><a href="/ac">Add/Edit Category</a></li>
 </ul>
 </li>
-
+<li><a href="/pds"  data-target=".firstULs15"  ><i class="fas fa-vials"></i><span
+style="font-size: 14px;">Print Documents</span><span class="fa fa-angle-right"
+style="float: right"></span></a>
+ 
+</li>
 
 <li><a data-toggle="collapse" data-target=".firstULs7"><i class="fas fa-vials"></i><span
 style="font-size: 14px;">Quotation</span><span class="fa fa-angle-right"
@@ -140,8 +144,9 @@ style="float: right"></span></a>
 <li><a href="/es">Edit Stock Price</a></li>
 <li><a href="/ss">Edit Sale Invoice</a></li>
 <li><a href="/ps">Edit Purchase Invoice</a></li>
-<!-- <li><a href="/">Edit Payment For Employe </a></li> -->
-<li><a href="/dex">Edit Expense</a></li>
+<li><a href="/dpay">Delete Party Payment</a></li>
+<li><a href="/dpay">Delete Employee Payment</a></li>
+<li><a href="/dex">Delete Expense</a></li>
 <li><a href="/ei">Edit Investor</a></li>
 <!-- <li><a href="/">Edit Book Record and Reciving</a></li> -->
 <!-- <li><a href="/">Edit IS</a></li> -->
