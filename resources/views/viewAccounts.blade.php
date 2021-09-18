@@ -55,6 +55,7 @@
             padding: 10px;
             border-radius: 10px;
             overflow: auto !important;
+            margin-left: 110px;
         }
         
         @media (max-width: 768px) {
@@ -81,15 +82,16 @@
 <div class="clearfix"></div>
 </div>
 <header>
-    <div class="container">
+    <div class="container" >
         <div class="row">
-            <div class="col-md-12 mt-3 text-center" margin-left: 150px;>
+            <div class="col-md-12 mt-3 text-center" >
                 <h3>View Accounts</h3>
+                <br><br>
             </div>
         </div>
         <br>
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="receivingMain">
 
 
