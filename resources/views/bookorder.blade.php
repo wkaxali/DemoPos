@@ -789,8 +789,8 @@
 
             $.each(a, function (i, item) {
                 table.row.add([  
-                    a[i].InvoiceNumber, a[i].TotalAmount, a[i].AmountPaid, 
-                    a[i].DateStamp
+                    a[i].InvoiceNumber, a[i].ProductName, 
+                a[i].PerUnitSalePrice, a[i].DatePurchase
                 ]);
                 });
             table.draw();
