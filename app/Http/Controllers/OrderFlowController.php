@@ -300,7 +300,7 @@ class OrderFlowController extends Controller
       }
 
       function getboHistory(){
-        $data=DB:: select('select * from tblpurchaseorder where BillStatus = "Pending"');
+        $data=DB:: select('select * from vw_purchaseorderdetails where DilevedStatus = "Pending"');
         return $data;
       }
 

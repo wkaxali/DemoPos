@@ -133,12 +133,10 @@
                                                     <thead>
                                                         <tr>
 
-                                                            <th>Invoice No</th>
- 
-                                                            <th>Total Amount</th>
-                                                            <th>Amount Paid</th>
- 
-                                                            <th>Date Stamp</th>
+                                                        <th>Order Number</th>
+                                                    <th>Product Name</th>
+                                                    <th>Invoice Price</th>
+                                                    <th>Date Purchase</th>
                                                              
 
 
