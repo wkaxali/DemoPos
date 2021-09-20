@@ -356,7 +356,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12  text-center">
-                                <h3>Display Stock</h3>
+                                <h3>Display Stock</h3><br>
                             </div>
                         </div>
 
@@ -561,30 +561,20 @@
                                                 style="display: inline-block !important; width: 135px !important;"
                                                 type="number" name="" id="mainTotal"><br>
 
-
-                                            <label style="width: 150px  ;" for="">Total Paid</label>
-                                            <input type="number" name="" class="form-control"
-                                                style="display: inline-block !important; width: 135px !important;"
-                                                id="totalPaid" onchange="calculatonInTable()"><br>
-
-
-                                            <label style="width: 150px  ;" for="">Total Remaining</label>
-                                            <input readonly type="number" name="" class="form-control"
-                                                style="display: inline-block !important; width: 135px !important;"
-                                                id="totRemaining">
-
+ 
+                                                <div class="footerBtn">
+                       
+                      
+                       <button id ="placebutton" style="   margin-top:51px;" class="btn btn-primary"  onclick="placeOrder()">Place Order</button>
+                      
+                   </div>
 
                                         </div>
                         </main>
                         <div class="clear"></div>
 
                 <br>
-                        <div class="footerBtn">
-                       
-                      
-                            <button id ="placebutton"  class="btn btn-primary"  onclick="placeOrder()">Place Order</button>
-                           
-                        </div>
+                        
                     </div>
                 </section>
 
@@ -818,7 +808,7 @@
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
 
-                        alert("Invoice =" + this.responseText + " is generated");
+                        alert("Invoice  " + this.responseText + " is generated");
                        
 
                     }

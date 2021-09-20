@@ -114,7 +114,7 @@ class OrderFlowController extends Controller
  
       }
    
-       return "Your order ".$invoiceNumber;
+       return  $invoiceNumber;
    }
 
     function getOrderID(){
