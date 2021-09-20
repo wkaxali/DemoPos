@@ -680,7 +680,8 @@
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
-            
+            var cell9 = row.insertCell(8);
+            var cell10 = row.insertCell(9);
             
             cell1.innerHTML = category.options[category.selectedIndex].text;
             cell2.innerHTML = bookingPrice;
@@ -691,7 +692,10 @@
             cell7.innerHTML = colour;
             cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
      
-           
+            cell9.innerHTML = description;
+            cell10.innerHTML = invoicePrice;
+            cell9.style.display = "none";
+            cell10.style.display = "none";
           
             calculatonInTable();
 
@@ -801,8 +805,7 @@
             var mainTotal = document.getElementById("mainTotal").value;
            
        
-
-            var OrderArray = JSON.stringify(orderDetails);
+ 
             var xhttp = new XMLHttpRequest();
 
             if (AID == "") {
@@ -819,7 +822,7 @@
                     }
                 };
                 // var MenuID=$('#Menus').find(":selected").val();
-                xhttp.open("GET", "./placeStock/" + OrderArray, true);
+                xhttp.open("GET", "./placeStock/" + orderDetails, true);
                 xhttp.send();
             }
         }

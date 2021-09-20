@@ -76,26 +76,23 @@ class OrderFlowController extends Controller
     }
 
 
-    public function placeStock(Request $request,$data){
+    public function placeStock(Request $request,$OrderDetails){
       // var Order=[mainTotal,totlpaid,totRemaining,orderDetails];
-
-       $Array=json_decode($data);
-       
-      $OrderDetails =$Array[0];
-      
-     
-    $autoCategory=$Array[0];
-    $qty=$Array[1];
-    $Total=$Array[2];
-    $description=$Array[3];
-    $purchasePrice=$Array[4];
-    $invoicePrice=$Array[5];
-    $engine=$Array[6];
-    $chasis=$Array[7];
-    $color=$Array[8];
-    
-   $dateNow = Carbon::now()->toDateString();
-   
+ 
+       foreach ($OrderDetails as $row){
+        
+          $autoCategory=$row[0];
+          $purchasePrice=$row[2];
+          $qty=$row[1];
+          $engine=$row[3];
+          $chesis=$row[4];
+          $color=$row[5];
+          $total=$row[6];
+          $description=$row[7];
+          $invoicePrice=$row[8];
+          
+        $dateNow = Carbon::now()->toDateString();
+        
        $invoiceNumber=DB::table('displaystock')->insertGetId([ 
         'autoname'=>$autoCategory,
        'bookingprice'=>$purchasePrice,
@@ -105,12 +102,12 @@ class OrderFlowController extends Controller
        'enginenumber'=>$engine,
        'chasisnumber'=>$chasis,
        'colour'=>$color,
-       'total'=>$mainTotal,
-        
+       'total'=>$total,
+       'description'=>$description,
        
        ]);
  
-     
+      }
    
        return "Your order ".$invoiceNumber;
    }
