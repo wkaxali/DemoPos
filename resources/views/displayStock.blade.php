@@ -372,12 +372,7 @@
 
 
                                     <div class="row mb-3">
-                                        <div class="col-md-2">
-                                            <label for="">Stock No</label>
-                                            <input type="number" class="form-control"
-                                                style="width: 135px; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
-                                                name="" id="OrderId" readonly="true">
-                                        </div>
+                                         
                                         <div class="col-md-2">
                                             <label for="Model">Model</label>
                                             <select 
@@ -533,7 +528,7 @@
                                                 style="width: 100%; text-align: center; ">
                                                 <thead>
                                                     <tr>
-                                                        <th>Id</th>
+                                                         
                                                         <th>Model</th>
                                                         <th>Price</th>
                                                         <th>QTY</th>
@@ -611,7 +606,7 @@
     <script>
         function valid() {
        
-            var OrderID = document.getElementById("OrderId").value;
+          
             var category = $('#category').find(":selected").val();
             var bookingPrice = document.getElementById("bookingPrice").value;
             var invoicePrice = document.getElementById("invoice").value;
@@ -664,7 +659,7 @@
     <script>
         function add() {
 
-            var OrderID = document.getElementById("OrderId").value;
+          
             var category = document.getElementById("category");
             var invoicePrice = document.getElementById("invoice").value;
             var bookingPrice = document.getElementById("bookingPrice").value;
@@ -685,17 +680,17 @@
             var cell6 = row.insertCell(5);
             var cell7 = row.insertCell(6);
             var cell8 = row.insertCell(7);
-            var cell9 = row.insertCell(8);
             
-            cell1.innerHTML = OrderID;
-            cell2.innerHTML = category.options[category.selectedIndex].text;
-            cell3.innerHTML = bookingPrice;
-            cell4.innerHTML = qty;
-            cell5.innerHTML = tot;
-            cell6.innerHTML = enginenumber;
-            cell7.innerHTML = chasisnumber;
-            cell8.innerHTML = colour;
-            cell9.innerHTML =  '<button  calss="" onclick="deleteRow(this)">X</button>';
+            
+            cell1.innerHTML = category.options[category.selectedIndex].text;
+            cell2.innerHTML = bookingPrice;
+            cell3.innerHTML = qty;
+            cell4.innerHTML = tot;
+            cell5.innerHTML = enginenumber;
+            cell6.innerHTML = chasisnumber;
+            cell7.innerHTML = colour;
+            cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+     
            
           
             calculatonInTable();
@@ -805,9 +800,9 @@
             var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
            
-            var Order = [mainTotal, orderDetails, AID];
+       
 
-            var OrderArray = JSON.stringify(Order);
+            var OrderArray = JSON.stringify(orderDetails);
             var xhttp = new XMLHttpRequest();
 
             if (AID == "") {
@@ -819,7 +814,7 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice =" + this.responseText + " is generated");
-                        getOrderID();
+                       
 
                     }
                 };
@@ -829,18 +824,7 @@
             }
         }
 
-        function getOrderID() {
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("OrderId").value = this.response;
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./getOrderId/", true);
-            xhttp.send();
-        }
+       
 
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -855,7 +839,7 @@
 
     <script>
         function loadFunction() {
-            getOrderID();
+            
             loadaccounts();
             loadAutos();
             bookingOrdersHistory();

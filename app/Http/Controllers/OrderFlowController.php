@@ -80,25 +80,20 @@ class OrderFlowController extends Controller
       // var Order=[mainTotal,totlpaid,totRemaining,orderDetails];
 
        $Array=json_decode($data);
-       $mainTotal=$Array[0];
+       
+      $OrderDetails =$Array[0];
       
-      $OrderDetails =$Array[1];
-      $AID=$Array[2];
-      foreach ($OrderDetails as $row){
-        // $(tr).find('td:eq(0)').text(), //AutoCategory
-    // $(tr).find('td:eq(2)').text(), //Price
-    // $(tr).find('td:eq(3)').text(), //qty
-   
-    $autoCategory=$row[0];
-    $purchasePrice=$row[1];
-    $invoicePrice=$row[2];
-    $description=$row[3];
-    $qty=$row[4];
-    $Total=$row[5];
-    $engine=$row[6];
-    $chasis=$row[7];
-    $color=$row[8];
-        
+     
+    $autoCategory=$Array[0];
+    $qty=$Array[1];
+    $Total=$Array[2];
+    $description=$Array[3];
+    $purchasePrice=$Array[4];
+    $invoicePrice=$Array[5];
+    $engine=$Array[6];
+    $chasis=$Array[7];
+    $color=$Array[8];
+    
    $dateNow = Carbon::now()->toDateString();
    
        $invoiceNumber=DB::table('displaystock')->insertGetId([ 
@@ -115,7 +110,7 @@ class OrderFlowController extends Controller
        
        ]);
  
-      }
+     
    
        return "Your order ".$invoiceNumber;
    }
