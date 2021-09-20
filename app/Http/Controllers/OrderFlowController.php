@@ -76,22 +76,27 @@ class OrderFlowController extends Controller
     }
 
 
-    public function placeStock(Request $request,$OrderDetails){
+    public function placeStock(Request $request,$data){
       // var Order=[mainTotal,totlpaid,totRemaining,orderDetails];
- 
+      $Array=json_decode($data);
+      $OrderDetails=$Array[0];
+      $AID= $Array[1];
+      
+
+     $dateNow = Carbon::now()->toDateString();
        foreach ($OrderDetails as $row){
         
           $autoCategory=$row[0];
           $purchasePrice=$row[2];
           $qty=$row[1];
           $engine=$row[3];
-          $chesis=$row[4];
+          $chasis=$row[4];
           $color=$row[5];
           $total=$row[6];
           $description=$row[7];
           $invoicePrice=$row[8];
           
-        $dateNow = Carbon::now()->toDateString();
+       
         
        $invoiceNumber=DB::table('displaystock')->insertGetId([ 
         'autoname'=>$autoCategory,

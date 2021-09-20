@@ -803,7 +803,9 @@
       
             var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
-           
+            var Order = [  orderDetails, AID];
+
+            var OrderArray = JSON.stringify(Order);
        
  
             var xhttp = new XMLHttpRequest();
@@ -822,7 +824,7 @@
                     }
                 };
                 // var MenuID=$('#Menus').find(":selected").val();
-                xhttp.open("GET", "./placeStock/" + orderDetails, true);
+                xhttp.open("GET", "./placeStock/" + OrderArray, true);
                 xhttp.send();
             }
         }
