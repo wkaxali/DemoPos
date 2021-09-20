@@ -340,7 +340,7 @@ Route::get('/getPurchasedStockDetails/{id}',[OrderFlowController::class, 'getPur
 Route::get('/getbookingDetails/{id}',[OrderFlowController::class, 'getbookingDetails']);
 Route::get('/logout',[userAccountController::class, 'logout']);
 
-
+Route::get('/placeStock/{data}',[OrderFlowController::class, 'placeStock']);
 
 
 Route::get('/', function () {
@@ -1192,6 +1192,16 @@ Route::get('va', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('viewAccounts'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+
+Route::get('ds', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('displayStock'); 
     }else{
     return view("signInSignUp");
     }
