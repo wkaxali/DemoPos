@@ -662,6 +662,7 @@
             else if (allownces == "") {
                 alert('Please fill in "Allowance" Field');
             }
+            
             else if (total == "") {
                 alert('Please fill in "Total Pay" Field');
             }
@@ -745,7 +746,7 @@
             function printSalary(){
                 var EID = $('#name').find(":selected").val();
                var adv= document.getElementById("balance").value;
-                alert(EID);
+                // alert(EID);
                 var xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function () {
 

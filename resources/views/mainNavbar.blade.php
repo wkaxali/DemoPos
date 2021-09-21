@@ -59,6 +59,7 @@ style="float: right"></span></a>
 <li><a href="/vs">View Stock</a></li>
 <li><a href="/ans ">Add Stock</a></li>
 <li><a href="/es ">Edit Stock</a></li>
+<li><a href="/ds ">Display Stock</a></li>
 <!-- <li><a href="/ ">Stock Profit Reports</a></li> -->
 <!-- <li><a href="/ ">Pending Delivery</a></li> -->
 </ul>
@@ -159,6 +160,7 @@ style="float: right"></span></a>
 style="font-size: 14px;"> Accounts (Bank)</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs9">
+<li><a href="/va">View All Accounts</a></li>
 <li><a href="/aa">Add New Account</a></li>
 <li><a href="/ea">Edit/View Accounts </a></li>
 <li><a href="/ah">View Overall Balance</a></li>

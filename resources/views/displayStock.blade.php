@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Book Order</title>
+    <title>Display Stock</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -348,23 +348,264 @@
 
 <body id="mainBody" onload="loadFunction()">
 
-@include('bookorderhtml')
+
+<div class="page-container">
+        <div class="left-content">
+            <div class="inner-block">
+                <header id="myHeader">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12  text-center">
+                                <h3>Display Stock</h3><br>
+                            </div>
+                        </div>
 
 
+
+                    </div>
+                </header>
+                <section class="mainSection">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="myBookingBorder">
+
+
+                                    <div class="row mb-3">
+                                         
+                                        <div class="col-md-2">
+                                            <label for="Model">Model</label>
+                                            <select 
+                                                class="selectpicker form-control" data-live-search="true" id="category">
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="">Booking Price</label>
+                                            <input type="number" onchange="product()" class="form-control"
+                                                style="width: 135px ; display: inline-block !important;" name=""
+                                                id="bookingPrice">
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="">Invoice Price</label>
+                                            <input type="number" onchange="product()" class="form-control"
+                                                style="width: 135px ; display: inline-block !important;" name=""
+                                                id="invoice">
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="">Description</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 135px; display: inline-block !important;" name=""
+                                                id="description">
+
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="">Qty</label>
+                                            <input type="number" onchange="product()" class="form-control"
+                                                style="width: 135px; display: inline-block !important;" name=""
+                                                id="qty">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-2">
+                                            <label style="width: 50px !important;" for="">Total</label>
+                                            <input type="number" class="form-control"
+                                                style="width: 150px ; margin-top:23px; display: inline-block !important; cursor: not-allowed !important;pointer-events: none !important;"
+                                                name="" id="total" readonly="true">
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label style="width: 100px !important;" for="">Engine Number</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 200px ; margin-right:15px; margin-bottom:45px; display: inline-block !important;" name=""
+                                                id="enginenumber" >
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <label style="width: 50px !important;" for="">Chasis Number</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 200px ;  margin-bottom:35px;  display: inline-block !important;   "
+                                                name="" id="chasisnumber" >
+                                        </div>
+                                        
+                                        <div class="col-md-2">
+                                            <label style="width: 50px !important;" for="">Color</label>
+                                            <input type="text" class="form-control"
+                                                style="width: 150px ; margin-top:25px;  display: inline-block !important;  "
+                                                name="" id="colour"  >
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="successButtons text-right"
+                                                style="   margin-top:51px;">
+                                                <button onclick="valid()" class="btn ">Add</button>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <br>
+                        <div class="modal fade bd-data-modal-xl" tabindex="-1" role="dialog"
+                            aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                            <div class="modal-dialog  modal-xl">
+                                <div class="modal-content" style="margin: 0 auto; width: 80%;">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Forland Modern Motors</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                    <div class="container">
+                                        <div class="row">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="overFlowingTable"
+                                                style="padding: 20px; overflow: auto !important; width:708px !important; margin: 35px auto !important; ">
+
+
+                                                <table class="table table-bordered " id="bookingHistoryTable">
+                                                    <thead>
+                                                        <tr>
+
+                                                        <th>Order Number</th>
+                                                    <th>Product Name</th>
+                                                    <th>Invoice Price</th>
+                                                    <th>Date Purchase</th>
+                                                             
+
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <main id="mainHeader">
+
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="bookingRightTable">
+
+                                        <div class="tableContent  text-center">
+                                            <h3>Your Current Orders </h3>
+                                        </div>
+
+
+
+                                        <div class="tableDiv">
+
+
+                                            <table id="BookingRecordTable" class=" table-striped"
+                                                style="width: 100%; text-align: center; ">
+                                                <thead>
+                                                    <tr>
+                                                         
+                                                        <th>Model</th>
+                                                        <th>Price</th>
+                                                        <th>QTY</th>
+                                                        <th>Total</th>
+                                                        <th>Engine No</th>
+                                                        <th>Chasis No</th>
+                                                        <th>Color</th>
+                                                        <th>Delete
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+
+
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="mainInputGroups">
+                                   <label style="width: 150px;" for="">Payment Method</label>
+                                            <select class="selectpicker form-control" data-live-search="true"
+                                                id="accounts">
+
+                                            </select><br>
+
+
+                                            <label style="width: 150px;" for="">Total Amount</label>
+                                            <input readonly class="form-control"
+                                                style="display: inline-block !important; width: 135px !important;"
+                                                type="number" name="" id="mainTotal"><br>
+
+ 
+                                                <div class="footerBtn">
+                       
+                      
+                       <button id ="placebutton" style="   margin-top:51px;" class="btn btn-primary"  onclick="placeOrder()">Place Order</button>
+                      
+                   </div>
+
+                                        </div>
+                        </main>
+                        <div class="clear"></div>
+
+                <br>
+                        
+                    </div>
+                </section>
+
+
+
+               
+            </div>
+        </div>
+        @include('mainNavbar')
+    </div>
+
+
+
+    <div class="clearfix"></div>
+    </div>
+
+    
 
     <script>
         function valid() {
-            document.getElementById("deletebutton").style.visibility = "hidden"; 
-            document.getElementById("placebutton").style.visibility = "visible"; 
-            var OrderID = document.getElementById("OrderId").value;
+       
+          
             var category = $('#category').find(":selected").val();
             var bookingPrice = document.getElementById("bookingPrice").value;
             var invoicePrice = document.getElementById("invoice").value;
             var description = document.getElementById("description").value;
             var qty = document.getElementById("qty").value;
             var tot = document.getElementById("total").value;
-            var amontPaid = document.getElementById("amount").value;
-            var remaining = document.getElementById("remaining").value;
+            var enginenumber = document.getElementById("enginenumber").value;
+            var chasisnumber = document.getElementById("chasisnumber").value;
+            var colour = document.getElementById("colour").value;
 
             if (invoicePrice == "") {
                 document.getElementById('invoice').focus();
@@ -372,7 +613,7 @@
                 document.getElementById('qty').focus();
             }else if (category == " ") {
                 document.getElementById('category').focus();
-            } else if (amontPaid == "") {
+            } else if (enginenumber == "") {
                 document.getElementById('amount').focus();
             } else if (description == "") {
                 document.getElementById('description').focus();
@@ -395,10 +636,10 @@
 
                 document.getElementById("total").value = "";
 
-                document.getElementById("amount").value = "";
+                document.getElementById("enginenumber").value = "";
 
-                document.getElementById("remaining").value = "";
-
+                document.getElementById("chasisnumber").value = "";
+                document.getElementById("colour").value = "";
             }
 
         }
@@ -408,15 +649,16 @@
     <script>
         function add() {
 
-            var OrderID = document.getElementById("OrderId").value;
+          
             var category = document.getElementById("category");
             var invoicePrice = document.getElementById("invoice").value;
             var bookingPrice = document.getElementById("bookingPrice").value;
             var description = document.getElementById("description").value;
             var qty = document.getElementById("qty").value;
             var tot = document.getElementById("total").value;
-            var amontPaid = document.getElementById("amount").value;
-            var remaining = document.getElementById("remaining").value;
+            var enginenumber = document.getElementById("enginenumber").value;
+            var chasisnumber = document.getElementById("chasisnumber").value;
+            var colour = document.getElementById("colour").value;
 
             var table = document.getElementById("BookingRecordTable");
             var row = table.insertRow(-1);
@@ -430,19 +672,21 @@
             var cell8 = row.insertCell(7);
             var cell9 = row.insertCell(8);
             var cell10 = row.insertCell(9);
-
-            cell1.innerHTML = OrderID;
-            cell2.innerHTML = category.options[category.selectedIndex].text;
-            cell3.innerHTML = bookingPrice;
-            cell4.innerHTML = qty;
-            cell5.innerHTML = tot;
-            cell6.innerHTML = amontPaid;
-            cell7.innerHTML = remaining;
+            
+            cell1.innerHTML = category.options[category.selectedIndex].text;
+            cell2.innerHTML = bookingPrice;
+            cell3.innerHTML = qty;
+            cell4.innerHTML = tot;
+            cell5.innerHTML = enginenumber;
+            cell6.innerHTML = chasisnumber;
+            cell7.innerHTML = colour;
             cell8.innerHTML = '<button  calss="" onclick="deleteRow(this)">X</button>';
+     
             cell9.innerHTML = description;
             cell10.innerHTML = invoicePrice;
             cell9.style.display = "none";
             cell10.style.display = "none";
+          
             calculatonInTable();
 
         
@@ -503,24 +747,16 @@
 
             var t = document.getElementById("BookingRecordTable");
             var tot = 0;
-            var rem = 0;
-            var paid = 0;
+            
 
             var x = document.getElementById("BookingRecordTable").rows.length;
 
             for (var i = 1; i < x; i++) {
                 tot = tot + Number(t.rows[i].cells[4].innerText);
-                paid = paid + Number(t.rows[i].cells[5].innerText);
-                rem = rem + Number(t.rows[i].cells[6].innerText);
-
-
-
-
-
+              
             }
             document.getElementById("mainTotal").value = tot;
-            document.getElementById("totalPaid").value = paid;
-            document.getElementById("totRemaining").value = rem;
+          
 
 
         }
@@ -557,11 +793,11 @@
       
             var AID = $('#accounts').find(":selected").val();
             var mainTotal = document.getElementById("mainTotal").value;
-            var totalpaid = document.getElementById("totalPaid").value;
-            var totRemaining = document.getElementById("totRemaining").value;
-            var Order = [mainTotal, totalpaid, totRemaining, orderDetails, AID];
+            var Order = [  orderDetails, AID];
 
             var OrderArray = JSON.stringify(Order);
+       
+ 
             var xhttp = new XMLHttpRequest();
 
             if (AID == "") {
@@ -573,28 +809,17 @@
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert("Invoice  " + this.responseText + " is generated");
-                        getOrderID();
+                       
 
                     }
                 };
                 // var MenuID=$('#Menus').find(":selected").val();
-                xhttp.open("GET", "./placeOrder/" + OrderArray, true);
+                xhttp.open("GET", "./placeStock/" + OrderArray, true);
                 xhttp.send();
             }
         }
 
-        function getOrderID() {
-
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("OrderId").value = this.response;
-                }
-            };
-            //alert("ljd");
-            xhttp.open("GET", "./getOrderId/", true);
-            xhttp.send();
-        }
+       
 
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -609,7 +834,7 @@
 
     <script>
         function loadFunction() {
-            getOrderID();
+            
             loadaccounts();
             loadAutos();
             bookingOrdersHistory();
