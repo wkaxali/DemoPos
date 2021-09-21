@@ -59,6 +59,7 @@ style="float: right"></span></a>
 <li><a href="/vs">View Stock</a></li>
 <li><a href="/ans ">Add Stock</a></li>
 <li><a href="/es ">Edit Stock</a></li>
+<li><a href="/ds ">Display Stock</a></li>
 <!-- <li><a href="/ ">Stock Profit Reports</a></li> -->
 <!-- <li><a href="/ ">Pending Delivery</a></li> -->
 </ul>
