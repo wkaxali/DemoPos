@@ -23,14 +23,14 @@ class printSalarySlip extends Controller
       session(['TotalPay' => $data[0]->TotalPay]);
 
 
- 
+      
     $ata=DB::select('select * from tbl_employee_payments_flow where Date ='.$date);
     session(['SalaryOf' => $ata[0]->SalaryOf]);
     session(['TotalDeduction' => $ata[0]->TotalDeduction]);
    
     session(['Advance' => $ata[0]->Advance]);
     session(['AbsentsDeduction' => $ata[0]->AbsentsDeduction]);
-    
+     
       
 
       $netTotal=$data[0]->TotalPay-$adv;
@@ -48,7 +48,8 @@ class printSalarySlip extends Controller
  
       <tr> 
       <br><br>
-      <td align="center">Payslip for the month of '.session()->get("SalaryOf").'</td>
+      <td align="center">Payslip for the month of '.session()->get("SalaryOf").'   
+      '.session()->get("AbsentsDeduction").'</td>
       </tr> 
    </table>
   
@@ -99,8 +100,7 @@ CNIC
   
   
    
-   
-  
+
   
   
    </td>
@@ -122,7 +122,7 @@ Bank Name
 200
 </td>
 </tr><tr>
-<td align="center">
+<td  >
 Bank Account Number
 </td>
 <td align="center">

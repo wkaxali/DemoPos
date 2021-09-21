@@ -603,7 +603,23 @@
 
 
         }
+        function printSalary(){
+                var EID = $('#name').find(":selected").val();
+               var date=document.getElementById("paymentDate").value;
+               var adv= document.getElementById("balance").value;
+                
+                var xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function () {
 
+                            if (this.readyState == 4 && this.status == 200) {
+                                window.open('/printsse/'+EID+'/'+adv+'/'+date);
+                            }
+                        };
+                            
+                            xhttp.open("GET", "./printSalaries/"+EID+"/"+adv+"/"+date, true);
+
+                            xhttp.send();
+            }
 
         function bar_group() {
             group_ident = 1, $(".bar_group").each(function () {
@@ -781,22 +797,7 @@
             document.getElementById("amountRemaining").value = amountRemaining;
 
         }
-        function printSalary() {
-            var EID = $('#name').find(":selected").val();
-            var adv = document.getElementById("balance").value;
-            alert(EID);
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-
-                if (this.readyState == 4 && this.status == 200) {
-                    window.open('/printsse/' + EID + "/" + adv);
-                }
-            };
-
-            xhttp.open("GET", "./printSalaries/" + EID + "/" + adv, true);
-
-            xhttp.send();
-        }
+        
         function paySalary() {
             amountPaid = document.getElementById("amountPaid").value;
             payable = document.getElementById("payable").innerHTML;
