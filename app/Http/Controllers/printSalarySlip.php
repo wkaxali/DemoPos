@@ -65,29 +65,29 @@ class printSalarySlip extends Controller
 Name
 </td>
 <td align="center">
-'.session()->get("BasicPay").'
+'.session()->get("firstName").' '.session()->get("lastName").' 
 </td>
 </tr><tr>
 <td>
-Designation
+Contact
 </td>
 <td  align="center" >
-'.session()->get("Alownces").'
+'.session()->get("ContactNo").'
 </td>
 </tr><tr>
 <td>
-Location
+CNIC
 </td>
 <td align="center"  >
-500
+'.session()->get("CNIC").'
 </td>
 </tr>
  
    </table>
   
   
-  
-  
+   
+   
   
   
   
@@ -96,14 +96,14 @@ Location
    <table  CELLPADDING="5" style="font-size:9 px"  >
    
  <tr>
-<td align="center">
+<td  >
 Employee ID
 </td>
 <td align="center">
-'.$adv.'
+'.session()->get("DesignationID").'
 </td>
 </tr><tr>
-<td align="center">
+<td>
 Bank Name
 </td>
 <td align="center">
@@ -134,57 +134,55 @@ Bank Account Number
    
    <br><br><br> 
 
-   <table border="1"  >
+    
   
-   
+   <table border="1" >
    <tr>
    <td>
    
-   <table   CELLPADDING="5" style="font-size:9 px"  border="0 " >
+   <table   CELLPADDING="5" style="font-size:9 px"  border=" 0 " >
   
   
-  
+   
   
  
 <tr>
-<td >
-Earning
+<td colspan="2" >
+Earning &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Amount
 </td>
-<td align="center">
-Amount
-</td>
+ 
 </tr><tr>
 <td>
-others
+Basic Pay
 </td>
 <td  align="center" >
-2222
+'.session()->get("BasicPay").'
 </td>
 </tr><tr>
 <td>
-Location
+Allowances
 </td>
 <td align="center"  >
-500
+'.session()->get("Alownces").'
 </td>
 </tr>
 <tr>
 <td>
-Location
+Bonus
 </td>
-<td align="center"  >
-500
+<td align="center"   >
+200
 </td>
 </tr>
 <tr>
 <td>
-Location
+Total Earning
 </td>
-<td align="center"  >
-500
+<td align="center"   >
+'.session()->get("TotalPay").'
 </td>
 </tr>
- 
+
    </table>
   
   
@@ -195,25 +193,40 @@ Location
   
    </td>
    <td>
-   <table  CELLPADDING="5" style="font-size:9 px"  >
+   <table  CELLPADDING="5" style="font-size:9 px"  border="0"   >
    
- <tr>
-<td align="center">
-Deduction
-</td>
-<td align="center">
-Amount
-</td>
-</tr><tr>
-<td align="center">
-Bank Name
+   <tr>
+   <td  colspan="2" >
+   Deduction    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Amount
+   </td>
+    
+   </tr><tr>
+<td>
+Advance
 </td>
 <td align="center">
 200
 </td>
-</tr><tr>
+
+</tr>
+<tr>
+<td>
+Late Fine   
+</td>
 <td align="center">
-Bank Account Number
+30
+</td>
+</tr><tr>
+<td>
+Tax   
+</td>
+<td align="center">
+30
+</td>
+</tr>
+<tr>
+<td>
+Total Deductions 
 </td>
 <td align="center">
 30
@@ -230,7 +243,6 @@ Bank Account Number
    </td>
    
    </tr>
-  
    </table>
    <table style="font-size:9.5 px">
    <tr>
