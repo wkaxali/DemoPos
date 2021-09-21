@@ -255,8 +255,6 @@ return $results;
 
 public function addInTransactionFlowForSales($invoiceNumber,$dateNow,$AP,$userID,$pattyCash,$CLB,$CCB){
 
-// [TransactionID]
-
 $TID=DB::table('tblTransactionFlow')->insertGetId(['InvoiceNo'=>$invoiceNumber,
 'TransactionCatogery'=>"Sales",
 'Amount'=>$AP,
