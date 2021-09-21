@@ -70,7 +70,7 @@ use App\Http\Controllers\receivedAutosReturn;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/returnAuto/{PID}',[receivedAutosReturn::class, 'autoReturn']);
 Route::get('/getSoldStockHistory',[salesHistoryController::class, 'getSoldStockHistory']);
 Route::get('/deleteOrder/{OID}',[deleteBookedOrderController::class, 'deleteOrder']);
 Route::get('/getSSHistory',[salesHistoryController::class, 'saleStockHistory']);
@@ -1210,7 +1210,7 @@ Route::get('ds', function () {
 Route::get('rr', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
-    return view('displayStock'); 
+    return view('receivedAutoReturn'); 
     }else{
     return view("signInSignUp");
     }

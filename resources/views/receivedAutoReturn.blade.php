@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/css/sidebar.css')}}">
 
-    <title>Delete Payments</title>
+    <title>Return</title>
     <style>
         @media (max-width: 1366px) {
             .left-content {
@@ -70,7 +70,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <h3 class="mt-3">Delete Payments</h3>
+                    <h3 class="mt-3">Auto Return</h3>
                 </div>
             </div>
 
@@ -85,13 +85,15 @@
                         style="height: 550px; border: 1px solid rgb(202, 202, 202); overflow: auto; margin-left: 80px;">
                         <table style="width: 100%;" id="stocktable">
                             <thead>
-                            <th>Transaction ID</>
-                                <th>Date</th>
-                                <th>Amount</th>
-                                <th>Investor</th>
-                                <th>Paid BY</th>
-                                <th>Remarks</th>
-                                <th>Delete</th>
+                                <th>Product Id</th>
+                                <th>Product Name</th>
+                                <th>Color</th>
+                                <th>Engine Number</th>
+                                <th>Chasis Number</th>
+                                <th>Invoice Price</th>
+                                <th>Status</th>
+                                <th>Description</th>
+                                <th>Return</th>
                                 
                                 </tr>
                             </thead>
@@ -153,26 +155,26 @@
                     table = $('#stocktable').DataTable();
 
                     $.each(a, function (i, item) {
-                        transactionID=a[i].TransactionID;
-                        table.row.add([a[i].TransactionID,a[i].DateStamp, a[i].Amount,  a[i].PartyName, 
-                            a[i].AccountName, a[i].Remarks,
-                            '<button class="btn print" onclick="deletePayment('+transactionID+')" >Delete</button>'
+                        table.row.add([a[i].ProductID, a[i].ProductName, a[i].color,
+                        a[i].EngineNumber, a[i].ChasisNumber,
+                        a[i].PerUnitSalePrice, a[i].StatusInStock, a[i].description,
+                        '<button class="btn print" onclick="returnAuto('+a[i].ProductID+')" >Return</button>'
                             
-                            ]);
+                        ]);
                     });
                     table.draw();
 
                 }
             };
 
-            xhttp.open("GET", "./getPartyPayment/", true);
+            xhttp.open("GET", "./getAvailableProducts/", true);
             xhttp.send();
         }
 
 
-        function deletePayment(transactionID){
-            var EID = transactionID;
-            if (confirm("Do you want to permanently delete record "+EID)){
+        function returnAuto(productID){
+            var PID = productID;
+            if (confirm("Do you want to perform this action on Auto "+productID)){
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -180,7 +182,7 @@
                     location.reload();
                     }
                 };
-                xhttp.open("GET", "./deletePayment/" + EID, true);
+                xhttp.open("GET", "./returnAuto/" + PID, true);
                 xhttp.send();
             }
         }
