@@ -7,55 +7,7 @@ use Illuminate\Http\Request;
 class receivedAutosReturn extends Controller
 {
     public static function autoReturn(){
-        $LID=globalVarriablesController::selfLedgerID();
-        $oldBalance= LedgerPartiesController::getPartyBalance($LID);
-        $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
-        LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
-
-        $paidVia=$AID;
-        $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
-        $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
-        TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
-        "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,$CID,Null);
-        $AID=$paidVia;//This needs o be changed in production
-        $OldAccBalance=accountsController::getAccountBalance($AID);
-        $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
-        accountsController::UpdateNewBalance($AID,$newAccountBalance);
-        $OldPrice = DB::table('instock')
-        ->where('ProductSerial', '=', $PID)
-            ->get();
-        $CurrentPrice=floatval($OldPrice[0]->TotalCost)+floatval($TransportCharges);
-        
-        
-
-
-
-        DB::table('productdefination')
-        ->where('ProductSerial', $PID)
-        ->update(['EngineNumber' =>$EngineNumber,
-        'ChasisNumber' =>$chasisNumber,
-            'Remarks' =>$Remarks,
-            'color' =>$color
-            ]);
-
-            DB::table('instock')
-            ->where('ProductSerial', $PID)
-            ->update(['Remarks'=>"Delivered on ".$dateNow,
-            'TotalCost' =>$CurrentPrice,
-            'Status'=>'Available'
-            ]);
-
-            DB::table('tblpurchaseoorderdetaile')
-            ->where('ProductSerial', $PID)
-            ->update(['DilevedStatus'=>"Received"
-            ]);
-
-
-
-
-         }//if condition
-
-         if($oneProduct[6]==3){
+            
           $PID=$oneProduct[0];
           $color=$oneProduct[1];
           $chasisNumber= $oneProduct[2];
@@ -122,16 +74,13 @@ class receivedAutosReturn extends Controller
       ->update(['DilevedStatus'=>"Returned"
       ]);
  
- 
- 
- 
-          }//if condition
-        }
-          
+
+  
+    
          //->format('Y-m-d h:iA');
         // $d= Carbon::createFromFormat('dd/mm/YYYY HH:MM:SS', $dateNow);
  
-        return $AID;
+    return $AID;
 
     }
 }
