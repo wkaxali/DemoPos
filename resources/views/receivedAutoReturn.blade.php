@@ -62,7 +62,7 @@
 
     </style>
 </head>
-<body onload="getPayment()">
+<body onload="availableAutos()">
 <div class="page-container">
 <div class="container">
 
@@ -143,7 +143,7 @@
     <!--end::Global Theme Bundle-->
 
     <script>
-        function getPayment() {
+        function availableAutos() {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
@@ -178,7 +178,7 @@
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                    alert(this.responseText);
+                    alert("Auto"+this.responseText+"is Returned");
                     location.reload();
                     }
                 };
@@ -186,6 +186,8 @@
                 xhttp.send();
             }
         }
+        
+
         
 
     </script>
