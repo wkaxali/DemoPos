@@ -1205,3 +1205,13 @@ Route::get('ds', function () {
     return view("signInSignUp");
     }
 });
+
+
+Route::get('rr', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('displayStock'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
