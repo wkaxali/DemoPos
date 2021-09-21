@@ -10,7 +10,6 @@ use App\Http\Controllers\accountsController;
 class UpdateStocksController extends Controller
 {
     function updateStockDetails(Request $request,$data){
-       
         
          $Array=json_decode($data);
          $InvoiceNumber=$Array[1];
