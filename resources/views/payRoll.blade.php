@@ -745,17 +745,20 @@
         }
             function printSalary(){
                 var EID = $('#name').find(":selected").val();
+               var date=document.getElementById("paymentDate").value;
                var adv= document.getElementById("balance").value;
-                // alert(EID);
+               
+                 alert(adv);
+                 alert(date);
                 var xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function () {
 
                             if (this.readyState == 4 && this.status == 200) {
-                                window.open('/printsse/'+EID+"/"+adv);
+                                window.open('/printsse/'+EID+'/'+adv+'/'+date);
                             }
                         };
                             
-                            xhttp.open("GET", "./printSalaries/"+EID+"/"+adv, true);
+                            xhttp.open("GET", "./printSalaries/"+EID+"/"+adv+"/"+date, true);
 
                             xhttp.send();
             }

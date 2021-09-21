@@ -8,8 +8,9 @@ use DB;
 use Carbon\Carbon;
 class printSalarySlip extends Controller
 {
-    public static function printsalarySlip($id,$adv){
-      $date = Carbon::now()->toDateString();
+    public static function printsalarySlip($id,$adv,$date){
+      
+
       $data = DB::select('select * from vw_employeepay where EID ='.$id);
       session(['BasicPay' => $data[0]->BasicPay]);
       session(['Alownces' => $data[0]->Alownces]);
@@ -20,6 +21,17 @@ class printSalarySlip extends Controller
       session(['CNIC' => $data[0]->CNIC]);
       session(['DesignationID' => $data[0]->DesignationID]);
       session(['TotalPay' => $data[0]->TotalPay]);
+
+
+ 
+    $ata=DB::select('select * from tbl_employee_payments_flow where Date ='.$date);
+    session(['SalaryOf' => $ata[0]->SalaryOf]);
+    session(['TotalDeduction' => $ata[0]->TotalDeduction]);
+   
+    session(['Advance' => $ata[0]->Advance]);
+    session(['AbsentsDeduction' => $ata[0]->AbsentsDeduction]);
+    
+      
 
       $netTotal=$data[0]->TotalPay-$adv;
       $newHTML='
@@ -36,7 +48,7 @@ class printSalarySlip extends Controller
  
       <tr> 
       <br><br>
-      <td align="center">Payslip for  '.$date.'</td>
+      <td align="center">Payslip for the month of '.session()->get("SalaryOf").'</td>
       </tr> 
    </table>
   
