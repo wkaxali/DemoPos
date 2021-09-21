@@ -58,7 +58,7 @@ use App\Http\Controllers\investorHistoryPrintController;
 use App\Http\Controllers\supplierHistoryController;
 use App\Http\Controllers\supplierHistoryPrintController;
 use App\Http\Controllers\deleteBookedOrderController;
-
+use App\Http\Controllers\receivedAutosReturn;
 
 /*
 |--------------------------------------------------------------------------
