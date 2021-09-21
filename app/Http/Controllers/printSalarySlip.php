@@ -49,7 +49,7 @@ class printSalarySlip extends Controller
       <tr> 
       <br><br>
       <td align="center">Payslip for the month of '.session()->get("SalaryOf").'   
-      '.session()->get("AbsentsDeduction").'</td>
+     </td>
       </tr> 
    </table>
   
@@ -217,7 +217,7 @@ Total Earning
 Advance
 </td>
 <td align="center">
-200
+'.$adv.'
 </td>
 
 </tr>
@@ -241,7 +241,7 @@ Tax
 Total Deductions 
 </td>
 <td align="center">
-30
+'.session()->get("TotalDeduction").'
 </td>
 </tr>
  
@@ -259,7 +259,7 @@ Total Deductions
    <table style="font-size:9.5 px">
    <tr>
    <td><br> <br> 
-  Net Pay of the month is 
+  Net Pay of the month is  '.$netTotal.'
    </td>
    </tr>
    <tr> <hr>
