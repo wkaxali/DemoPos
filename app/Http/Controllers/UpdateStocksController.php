@@ -10,7 +10,6 @@ use App\Http\Controllers\accountsController;
 class UpdateStocksController extends Controller
 {
     function updateStockDetails(Request $request,$data){
-       
         
          $Array=json_decode($data);
          $InvoiceNumber=$Array[1];
@@ -99,6 +98,11 @@ class UpdateStocksController extends Controller
       $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
       TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
       "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,$CID,Null);
+
+      $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+      $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
+      LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
+
       $AID=$paidVia;//This needs o be changed in production
       $OldAccBalance=accountsController::getAccountBalance($AID);
       $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
@@ -108,15 +112,14 @@ class UpdateStocksController extends Controller
       ->get();
       $oldPrice=floatval($autoData[0]->TotalCost);
 
-      $LID=1;
-      $oldBalance= LedgerPartiesController::getPartyBalance($LID);
+      $FJW=1;
+      $oldBalance= LedgerPartiesController::getPartyBalance($FJW);
       $currentBalance=floatval($oldBalance)-floatval($oldPrice);
-      LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
+      LedgerPartiesController::UpdatePartiesBalance($FJW,$currentBalance);
 
-      TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Vehicle Return',$oldPrice,$dateNow,
-      NULL,NULL,null,NULL,null,1,NULL,NULL,2,NULL,NULL,Null);
       TransactionFlow::addTransaction($InvoiceNumber,"Credit",'Vehicle Return',$oldPrice,$dateNow,
-      NULL,NULL,null,NULL,null,2,NULL,NULL,2,NULL,NULL,Null);
+      NULL,NULL,null,NULL,null,1,NULL,NULL,2,NULL,NULL,Null);
+      
       
       DB::table('productdefination')
       ->where('ProductSerial', $PID)

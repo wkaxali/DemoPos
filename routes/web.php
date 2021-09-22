@@ -58,7 +58,7 @@ use App\Http\Controllers\investorHistoryPrintController;
 use App\Http\Controllers\supplierHistoryController;
 use App\Http\Controllers\supplierHistoryPrintController;
 use App\Http\Controllers\deleteBookedOrderController;
-
+use App\Http\Controllers\receivedAutosReturn;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ use App\Http\Controllers\deleteBookedOrderController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/returnAuto/{PID}',[receivedAutosReturn::class, 'autoReturn']);
 Route::get('/getSoldStockHistory',[salesHistoryController::class, 'getSoldStockHistory']);
 Route::get('/deleteOrder/{OID}',[deleteBookedOrderController::class, 'deleteOrder']);
 Route::get('/getSSHistory',[salesHistoryController::class, 'saleStockHistory']);
@@ -139,7 +139,6 @@ Route::get('/getEmployeePayment',[payController::class, 'getEmployeePayment']);
 Route::get('/getPartyPayment',[payController::class, 'getPartyPayment']);
 Route::get('/editExpense',[expenseController::class, 'editExpense']);
 Route::get('/addTaskCategory/{data}',[taskController::class, 'addTaskCategory']);
-Route::get('/testpdf/2',[printSaleInvoice::class, 'printSaleInvoice']);
 Route::get('/testpdf/3',[TEST::class, 'saleInvoiceRequest']);
 Route::get('/testpdf/4',[TEST::class, 'gatePass']);
 Route::get('/oqp',[quotationController::class, 'qoutationToPDF']);
@@ -1202,6 +1201,16 @@ Route::get('ds', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('displayStock'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+
+Route::get('rr', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('receivedAutoReturn'); 
     }else{
     return view("signInSignUp");
     }
