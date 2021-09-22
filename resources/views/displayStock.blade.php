@@ -484,12 +484,11 @@
                                                     <thead>
                                                         <tr>
 
-                                                        <th>Order Number</th>
-                                                    <th>Product Name</th>
-                                                    <th>Invoice Price</th>
-                                                    <th>Date Purchase</th>
-                                                             
-
+                                                        <th>Product Name</th>
+                                                    <th>Booking Price</th>
+                                                    <th>Engine Number</th>
+                                                    <th>Chasis Number</th>
+                                                    <th>Date Purchase</th>      
 
 
                                                         </tr>
@@ -564,9 +563,12 @@
  
                                                 <div class="footerBtn">
                        
+                                   <button id ="class="btn "   
+                                   style="   margin-top:51px;" class="btn btn-primary" data-toggle="modal"
+                                data-target=".bd-data-modal-xl">Display History</button>
                       
-                       <button id ="placebutton" style="   margin-top:51px;" class="btn btn-primary"  onclick="placeOrder()">Place Order</button>
-                      
+                                   <button id ="placebutton" style="   margin-top:51px;" class="btn btn-primary"  onclick="placeOrder()">Place Order</button>
+                       
                    </div>
 
                                         </div>
@@ -585,7 +587,7 @@
         </div>
         @include('mainNavbar')
     </div>
-
+    
 
 
     <div class="clearfix"></div>
@@ -594,6 +596,37 @@
     
 
     <script>
+
+function bookingOrdersHistory() {
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+
+    if (this.readyState == 4 && this.status == 200) {
+
+        var data = this.responseText;
+        var table;
+        var a = JSON.parse(data);
+        table = $('#bookingHistoryTable').DataTable();
+
+        $.each(a, function (i, item) {
+            table.row.add([  
+                a[i].InvoiceNumber, a[i].ProductName, 
+            a[i].PerUnitSalePrice, a[i].DatePurchase
+            ]);
+            });
+        table.draw();
+    
+
+        }
+    };
+    //alert("ljd");
+    xhttp.open("GET", "./getboHistory/", true);
+
+    xhttp.send();
+
+
+    }
         function valid() {
        
           
@@ -1014,8 +1047,8 @@
 
             $.each(a, function (i, item) {
                 table.row.add([  
-                    a[i].InvoiceNumber, a[i].ProductName, 
-                a[i].PerUnitSalePrice, a[i].DatePurchase
+                    a[i].autoname, a[i].bookingprice, 
+                a[i].enginenumber, a[i].chasisnumber, a[i].date
                 ]);
                 });
             table.draw();
@@ -1024,7 +1057,7 @@
             }
         };
         //alert("ljd");
-        xhttp.open("GET", "./getboHistory/", true);
+        xhttp.open("GET", "./getDispStockHistory/", true);
 
         xhttp.send();
 

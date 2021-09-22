@@ -346,7 +346,12 @@ class OrderFlowController extends Controller
         return $data;
       }
 
+      function getDispStockHistory(){
+        $data=DB:: select('select * from displaystock ');
+        return $data;
+      }
 
+      
 
       function getPendingOrders(){
         $data=DB:: select('select * from vw_purchaseorderdetails where DilevedStatus = "Pending"');

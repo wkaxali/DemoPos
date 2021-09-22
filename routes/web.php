@@ -338,7 +338,7 @@ Route::get('/getstockdetails/{id}',[printServiceSaleInvoice::class, 'getstockdet
 Route::get('/getPurchasedStockDetails/{id}',[OrderFlowController::class, 'getPurchasedStockDetails']);
 Route::get('/getbookingDetails/{id}',[OrderFlowController::class, 'getbookingDetails']);
 Route::get('/logout',[userAccountController::class, 'logout']);
-
+Route::get('/getDispStockHistory',[OrderFlowController::class, 'getDispStockHistory']);
 Route::get('/placeStock/{data}',[OrderFlowController::class, 'placeStock']);
 
 

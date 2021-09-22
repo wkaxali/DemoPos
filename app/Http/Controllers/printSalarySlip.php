@@ -20,8 +20,7 @@ class printSalarySlip extends Controller
       $LastName = $data[0]-> LastName;
       $CNIC = $data[0]-> CNIC;
       $DesignationID = $data[0]-> DesignationID;
-      $TotalPay = $data[0]-> TotalPay;
- 
+       
       $TotalPay = $BasicPay + $Alownces;
       
     $ata=DB::select('select * from tbl_employee_payments_flow where Date ='.$date);
