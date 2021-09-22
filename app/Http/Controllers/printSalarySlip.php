@@ -12,28 +12,27 @@ class printSalarySlip extends Controller
       
 
       $data = DB::select('select * from vw_employeepay where EID ='.$id);
-      session(['BasicPay' => $data[0]->BasicPay]);
-      session(['Alownces' => $data[0]->Alownces]);
-     
-      session(['ContactNo' => $data[0]->ContactNo]);
-      session(['firstName' => $data[0]->FirstName]);
-      session(['lastName' => $data[0]->LastName]);
-      session(['CNIC' => $data[0]->CNIC]);
-      session(['DesignationID' => $data[0]->DesignationID]);
-      session(['TotalPay' => $data[0]->TotalPay]);
-
-
+       
+      $BasicPay = $data[0]-> BasicPay;
+      $Alownces = $data[0]-> Alownces;
+      $ContactNo = $data[0]-> ContactNo;
+      $FirstName = $data[0]-> FirstName;
+      $LastName = $data[0]-> LastName;
+      $CNIC = $data[0]-> CNIC;
+      $DesignationID = $data[0]-> DesignationID;
+      $TotalPay = $data[0]-> TotalPay;
+ 
+      $TotalPay = $BasicPay + $Alownces;
       
     $ata=DB::select('select * from tbl_employee_payments_flow where Date ='.$date);
-    session(['SalaryOf' => $ata[0]->SalaryOf]);
-    session(['TotalDeduction' => $ata[0]->TotalDeduction]);
-   
-    session(['Advance' => $ata[0]->Advance]);
-    session(['AbsentsDeduction' => $ata[0]->AbsentsDeduction]);
+    
+    $SalaryOf = $ata[0]-> SalaryOf;
+    $TotalDeduction = $ata[0]-> TotalDeduction;
+    $AbsentsDeduction = $ata[0]-> AbsentsDeduction;
+    $Date = $ata[0]-> Date;
      
-      
-
-      $netTotal=$data[0]->TotalPay-$adv;
+      $netTotal=$TotalPay - $TotalDeduction+  $adv;
+       
       $newHTML='
       <table border="0" >
        
@@ -50,7 +49,7 @@ class printSalarySlip extends Controller
  
       <tr> 
       <br><br>
-      <td align="center">Payslip for the month of '.session()->get("SalaryOf").'   
+      <td align="center">Payslip for the month of '.$SalaryOf.'   
      </td>
       </tr> 
    </table>
@@ -80,21 +79,21 @@ class printSalarySlip extends Controller
 Name
 </td>
 <td align="center">
-'.session()->get("firstName").' '.session()->get("lastName").' 
+'.$FirstName.' '. $LastName.' 
 </td>
 </tr><tr>
 <td>
 Contact
 </td>
 <td  align="center" >
-'.session()->get("ContactNo").'
+'.$ContactNo.'
 </td>
 </tr><tr>
 <td>
 CNIC
 </td>
 <td align="center"  >
-'.session()->get("CNIC").'
+'.$CNIC.'
 </td>
 </tr>
  
@@ -114,7 +113,7 @@ CNIC
 Employee ID
 </td>
 <td align="center">
-'.session()->get("DesignationID").'
+'. $DesignationID .'
 </td>
 </tr><tr>
 <td>
@@ -170,14 +169,14 @@ Earning &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 Basic Pay
 </td>
 <td  align="center" >
-'.session()->get("BasicPay").'
+'.$BasicPay .'
 </td>
 </tr><tr>
 <td>
 Allowances
 </td>
 <td align="center"  >
-'.session()->get("Alownces").'
+'.$Alownces.'
 </td>
 </tr>
  
@@ -186,7 +185,7 @@ Allowances
 Total Earning
 </td>
 <td align="center"   >
-'.session()->get("TotalPay").'
+'. $TotalPay .'
 </td>
 </hr>
 
@@ -222,7 +221,7 @@ Absent Deductions
 </td>
 <td align="center">
 
-'.session()->get("AbsentsDeduction").'
+'. $AbsentsDeduction .'
 </td>
 </tr> 
 <tr><hr>
@@ -230,7 +229,7 @@ Absent Deductions
 Total Deductions 
 </td>
 <td align="center">
-'.session()->get("TotalDeduction").'
+'.$TotalDeduction.'
 </td>
 </tr>
  
@@ -258,11 +257,13 @@ Total Deductions
    
    </table>
    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
    <table border="0" >
-   
+       
    <tr>
    <td >
-   <h1 align="center"><img src="/assets/img/logo.jpg" border="0" height="50" width="120" align="left" /> Forland modern  Motors (Company)</h1>
+   <h1 align="center"> <img src="/assets/img/logo.jpg" border="0" height="50" width="120" align="left" />
+  Forland modern  Motors (Employee)</h1>
    <h5 align="center">8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore.</h5>
 
    </td>
@@ -272,7 +273,7 @@ Total Deductions
 
    <tr> 
    <br><br>
-   <td align="center">Payslip for the month of '.session()->get("SalaryOf").'   
+   <td align="center">Payslip for the month of '.$SalaryOf.'   
   </td>
    </tr> 
 </table>
@@ -302,21 +303,21 @@ Total Deductions
 Name
 </td>
 <td align="center">
-'.session()->get("firstName").' '.session()->get("lastName").' 
+'.$FirstName.' '. $LastName.' 
 </td>
 </tr><tr>
 <td>
 Contact
 </td>
 <td  align="center" >
-'.session()->get("ContactNo").'
+'.$ContactNo.'
 </td>
 </tr><tr>
 <td>
 CNIC
 </td>
 <td align="center"  >
-'.session()->get("CNIC").'
+'.$CNIC.'
 </td>
 </tr>
 
@@ -336,7 +337,7 @@ CNIC
 Employee ID
 </td>
 <td align="center">
-'.session()->get("DesignationID").'
+'. $DesignationID .'
 </td>
 </tr><tr>
 <td>
@@ -392,14 +393,14 @@ Earning &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 Basic Pay
 </td>
 <td  align="center" >
-'.session()->get("BasicPay").'
+'.$BasicPay .'
 </td>
 </tr><tr>
 <td>
 Allowances
 </td>
 <td align="center"  >
-'.session()->get("Alownces").'
+'.$Alownces.'
 </td>
 </tr>
 
@@ -408,7 +409,7 @@ Allowances
 Total Earning
 </td>
 <td align="center"   >
-'.session()->get("TotalPay").'
+'. $TotalPay .'
 </td>
 </hr>
 
@@ -444,7 +445,7 @@ Absent Deductions
 </td>
 <td align="center">
 
-'.session()->get("AbsentsDeduction").'
+'. $AbsentsDeduction .'
 </td>
 </tr> 
 <tr><hr>
@@ -452,7 +453,7 @@ Absent Deductions
 Total Deductions 
 </td>
 <td align="center">
-'.session()->get("TotalDeduction").'
+'.$TotalDeduction.'
 </td>
 </tr>
 
@@ -479,7 +480,6 @@ This is a system generated payslip and does not require any signature.
 </tr>
 
 </table>
-
     ';     // $html= $htmldata;
 
     
