@@ -19,8 +19,10 @@ class printSalarySlip extends Controller
       $FirstName = $data[0]-> FirstName;
       $LastName = $data[0]-> LastName;
       $CNIC = $data[0]-> CNIC;
+      $LastName = $data[0]-> LastName;
+      $AllowedHolidays = $data[0]-> AllowedHolidays;
+      $WorkingHours = $data[0]-> WorkingHours;
       $DesignationID = $data[0]-> DesignationID;
-       
       $TotalPay = $BasicPay + $Alownces;
       
     $ata=DB::select('select * from tbl_employee_payments_flow where Date ='.$date);
@@ -29,7 +31,8 @@ class printSalarySlip extends Controller
     $TotalDeduction = $ata[0]-> TotalDeduction;
     $AbsentsDeduction = $ata[0]-> AbsentsDeduction;
     $Date = $ata[0]-> Date;
-     
+    $EmployeeBalanceAfter = $ata[0]-> EmployeeBalanceAfter;
+    
       $netTotal=$TotalPay - $TotalDeduction+  $adv;
        
       $newHTML='
@@ -37,9 +40,9 @@ class printSalarySlip extends Controller
        
       <tr>
       <td >
-      <h1 align="center"> <img src="/assets/img/logo.jpg" border="0" height="50" width="120" align="left" />
-     Forland modern  Motors (Employee)</h1>
-      <h5 align="center">8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore.</h5>
+      <h3 align="center"> <img src="/assets/img/logo.jpg" border="0" height="70" width="188" align="left" /><br>&nbsp;&nbsp;
+     (Company)</h3>
+      <h5 align="center" style="margin-top:120px;" >8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore.</h5>
 
       </td>
       
@@ -116,17 +119,17 @@ Employee ID
 </td>
 </tr><tr>
 <td>
-Bank Name
+Working Hours
 </td>
 <td align="center">
-200
+'. $WorkingHours .'
 </td>
 </tr><tr>
 <td  >
-Bank Account Number
+Allowed Holidays
 </td>
 <td align="center">
-30
+'. $AllowedHolidays .'
 </td>
 </tr>
  
@@ -178,7 +181,15 @@ Allowances
 '.$Alownces.'
 </td>
 </tr>
- 
+<tr>
+<td>
+Remaining Balance 
+</td>
+<td align="center"  >
+'.$EmployeeBalanceAfter.'
+</td>
+</tr>
+
 <tr><hr>
 <td>
 Total Earning
@@ -223,6 +234,11 @@ Absent Deductions
 '. $AbsentsDeduction .'
 </td>
 </tr> 
+<tr>
+<td>
+ 
+</td>
+</tr>
 <tr><hr>
 <td>
 Total Deductions 
@@ -260,44 +276,46 @@ Total Deductions
    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
    <br><br>  
     
-   <tr>
-   <td >
-   <h1 align="center"> <img src="/assets/img/logo.jpg" border="0" height="50" width="120" align="left" />
-  Forland modern  Motors (Employee)</h1>
-   <h5 align="center">8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore.</h5>
-
-   </td>
-   
-   
-   </tr> 
-
-   <tr> 
-   <br><br>
-   <td align="center">Payslip for the month of '.$SalaryOf.'   
-  </td>
-   </tr> 
-</table>
-
+   <table border="0" >
+       
+      <tr>
+      <td >
+      <h3 align="center"> <img src="/assets/img/logo.jpg" border="0" height="70" width="188" align="left" /><br>&nbsp;&nbsp;
+      (Company)</h3>
+       <h5 align="center" style="margin-top:120px;" >8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore.</h5>
  
-
-
-<br><br>
-
-
-
-
-<table border="1" >
-
-
-<tr>
-<td>
-
-<table   CELLPADDING="5" style="font-size:9 px"  border="0 " >
-
-
-
-
-
+      </td>
+      
+      
+      </tr> 
+ 
+      <tr> 
+      <br><br>
+      <td align="center">Payslip for the month of '.$SalaryOf.'   
+     </td>
+      </tr> 
+   </table>
+  
+    
+  
+  
+   <br><br>
+  
+  
+  
+   
+   <table border="1" >
+  
+   
+   <tr>
+   <td>
+   
+   <table   CELLPADDING="5" style="font-size:9 px"  border="0 " >
+  
+  
+  
+  
+ 
 <tr>
 <td>
 Name
@@ -320,19 +338,19 @@ CNIC
 '.$CNIC.'
 </td>
 </tr>
+ 
+   </table>
+  
+  
+   
 
-</table>
-
-
-
-
-
-
-</td>
-<td>
-<table  CELLPADDING="5" style="font-size:9 px"  >
-
-<tr>
+  
+  
+   </td>
+   <td>
+   <table  CELLPADDING="5" style="font-size:9 px"  >
+   
+ <tr>
 <td  >
 Employee ID
 </td>
@@ -341,48 +359,48 @@ Employee ID
 </td>
 </tr><tr>
 <td>
-Bank Name
+Working Hours
 </td>
 <td align="center">
-200
+'. $WorkingHours .'
 </td>
 </tr><tr>
 <td  >
-Bank Account Number
+Allowed Holidays
 </td>
 <td align="center">
-30
+'. $AllowedHolidays .'
 </td>
 </tr>
-
-</table>
-
-
-
-
-
-
-</td>
-
-</tr>
-
-</table>
-
-
-<br><br><br> 
-
  
+   </table>
+  
+  
+  
+  
+  
+  
+   </td>
+   
+   </tr>
+  
+   </table>
 
-<table border="1" >
-<tr>
-<td border="1 ">
+   
+   <br><br><br> 
 
-<table   CELLPADDING="5" style="font-size:9 px"  border=" 0 " >
-
-
-
-
-
+    
+  
+   <table border="1" >
+   <tr>
+   <td border="1 ">
+   
+   <table   CELLPADDING="5" style="font-size:9 px"  border=" 0 " >
+  
+  
+   
+  
+ 
 <tr>
 <td colspan="2" ><b>
 Earning &nbsp;   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Amount
@@ -403,6 +421,14 @@ Allowances
 '.$Alownces.'
 </td>
 </tr>
+<tr>
+<td>
+Remaining Balance 
+</td>
+<td align="center"  >
+'.$EmployeeBalanceAfter.'
+</td>
+</tr>
 
 <tr><hr>
 <td>
@@ -413,24 +439,24 @@ Total Earning
 </td>
 </hr>
 
-</table>
-
-
-
-
-
-
-
-</td>
-<td>
-<table  CELLPADDING="5" style="font-size:9 px"  border="0"   >
-
-<tr>
-<td  colspan="2" ><b>
-Deduction    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Amount
-</b> </td>
- 
-</tr><tr>
+   </table>
+  
+  
+  
+  
+  
+  
+  
+   </td>
+   <td>
+   <table  CELLPADDING="5" style="font-size:9 px"  border="0"   >
+   
+   <tr>
+   <td  colspan="2" ><b>
+   Deduction    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  Amount
+   </b> </td>
+    
+   </tr><tr>
 <td>
 Advance
 </td>
@@ -448,6 +474,11 @@ Absent Deductions
 '. $AbsentsDeduction .'
 </td>
 </tr> 
+<tr>
+<td>
+ 
+</td>
+</tr> 
 <tr><hr>
 <td>
 Total Deductions 
@@ -456,30 +487,30 @@ Total Deductions
 '.$TotalDeduction.'
 </td>
 </tr>
-
-</table>
-
-
-
-
-
-</td>
-
-</tr>
-</table>
-<table style="font-size:9.5 px">
-<tr>
-<td><br> <br> <br> 
-Net Pay of the month is  '.$netTotal.'
-</td>
-</tr>
-<tr> <br><br><br><hr>
-<td align="center"><br>  
-This is a system generated payslip and does not require any signature.
-</td>
-</tr>
-
-</table>
+ 
+   </table>
+  
+ 
+  
+  
+  
+   </td>
+   
+   </tr>
+   </table>
+   <table style="font-size:9.5 px">
+   <tr>
+   <td><br> <br>  <br> 
+  Net Pay of the month is  '.$netTotal.'
+   </td>
+   </tr>
+   <tr> <br><br><br><hr>
+   <td align="center"><br>  <br><br><br>
+  This is a system generated payslip and does not require any signature.
+   </td>
+   </tr>
+   
+   </table>
     ';     // $html= $htmldata;
 
     
