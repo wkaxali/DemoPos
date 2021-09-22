@@ -368,6 +368,10 @@ class OrderFlowController extends Controller
         $data=DB:: select('select * from vw_stockdetails where Category = 1');
         return $data;
       }
+      function viewSoldStock(){
+        $data=DB:: select('select * from vw_stockdetails where Category = 1 and StatusInStock = "Sold"');
+        return $data;
+      }
 
       function viewAllStock(){
         $data=DB:: select('select * from vw_stockdetails');

@@ -182,6 +182,7 @@ Route::get('/debitTransactions',[TransactionFlow::class, 'debitTransactions']);
 Route::get('/creditTransactions',[TransactionFlow::class, 'creditTransactions']);
 Route::get('/companyLedger',[OrderFlowController::class, 'companyLedger']);
 Route::get('/viewStock',[OrderFlowController::class, 'viewStock']);
+
 Route::get('/viewSales',[salesFlow::class, 'viewSales']);
 Route::get('/viewExpense',[expenseController::class, 'viewExpense']);
 Route::get('/viewAllStock',[OrderFlowController::class, 'viewAllStock']);
@@ -340,7 +341,7 @@ Route::get('/getbookingDetails/{id}',[OrderFlowController::class, 'getbookingDet
 Route::get('/logout',[userAccountController::class, 'logout']);
 Route::get('/getDispStockHistory',[OrderFlowController::class, 'getDispStockHistory']);
 Route::get('/placeStock/{data}',[OrderFlowController::class, 'placeStock']);
-
+Route::get('/viewSoldStock',[OrderFlowController::class, 'viewSoldStock']);
 
 Route::get('/', function () {
 return view('signInSignUp');
@@ -1211,6 +1212,15 @@ Route::get('rr', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
     return view('receivedAutoReturn'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+Route::get('vss', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('soldStock'); 
     }else{
     return view("signInSignUp");
     }
