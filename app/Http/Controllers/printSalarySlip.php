@@ -281,7 +281,7 @@ Total Deductions
       <tr>
       <td >
       <h3 align="center"> <img src="/assets/img/logo.jpg" border="0" height="70" width="188" align="left" /><br>&nbsp;&nbsp;
-      (Company)</h3>
+      (Employee)</h3>
        <h5 align="center" style="margin-top:120px;" >8-km Sheikhupura Road, Opposite Milat Tractors Limited,Lahore.</h5>
  
       </td>
