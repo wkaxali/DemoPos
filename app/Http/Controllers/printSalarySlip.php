@@ -244,21 +244,22 @@ Total Deductions
    </table>
    <table style="font-size:9.5 px">
    <tr>
-   <td><br> <br> 
+   <td><br> <br>  <br> 
   Net Pay of the month is  '.$netTotal.'
    </td>
    </tr>
-   <tr> <hr>
-   <td align="center"><br>  
+   <tr> <br><br><br><hr>
+   <td align="center"><br>  <br><br><br>
   This is a system generated payslip and does not require any signature.
    </td>
    </tr>
    
    </table>
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   
    <table border="0" >
-       
+   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <br><br>  
+    
    <tr>
    <td >
    <h1 align="center"> <img src="/assets/img/logo.jpg" border="0" height="50" width="120" align="left" />
@@ -468,11 +469,11 @@ Total Deductions
 </table>
 <table style="font-size:9.5 px">
 <tr>
-<td><br> <br> 
+<td><br> <br> <br> 
 Net Pay of the month is  '.$netTotal.'
 </td>
 </tr>
-<tr> <hr>
+<tr> <br><br><br><hr>
 <td align="center"><br>  
 This is a system generated payslip and does not require any signature.
 </td>
