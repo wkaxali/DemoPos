@@ -33,7 +33,7 @@ class receivedAutosReturn extends Controller
 
         $InvoiceNo = DB::table('tblpurchaseoorderdetaile')
         ->where('ProductSerial', $PID)
-        ->first()->InvoiceNumber;
+        ->first()->SID;
 
         DB::table('tblpurchaseoorderdetaile')
         ->where('ProductSerial', $PID)
