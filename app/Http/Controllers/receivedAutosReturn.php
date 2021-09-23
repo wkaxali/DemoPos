@@ -26,10 +26,8 @@ class receivedAutosReturn extends Controller
         LedgerPartiesController::UpdatePartiesBalance($FJW,$currentBalance);
 
         TransactionFlow::addTransaction("","Credit",'Vehicle Return',$oldPrice,$dateNow,
-        NULL,NULL,null,NULL,null,1,NULL,NULL,2,NULL,NULL,Null);
+        NULL,$oldBalance,$currentBalance,NULL,null,1,NULL,NULL,2,NULL,NULL,Null);
         
-        
-
         DB::table('instock')
         ->where('ProductSerial', $PID)
         ->update(['Remarks'=>"Returned on ".$dateNow,
