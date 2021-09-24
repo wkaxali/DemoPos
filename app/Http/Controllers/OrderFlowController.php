@@ -358,7 +358,6 @@ class OrderFlowController extends Controller
         return $data;
       }
 
-
       function spareParts(){
         $data=DB:: select('select * from vw_stockdetails where Category = 2');
         return $data;

@@ -367,7 +367,7 @@ xhttp.send();
                     if (this.readyState == 4 && this.status == 200) {
 
                         alert( "Auto" + this.responseText + "Is Received");
-
+                        location.reload();
 
                     }
                 };

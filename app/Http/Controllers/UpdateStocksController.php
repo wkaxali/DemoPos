@@ -31,48 +31,44 @@ class UpdateStocksController extends Controller
       $currentBalance=floatval($oldBalance)-floatval($TransportCharges);
       LedgerPartiesController::UpdatePartiesBalance($LID,$currentBalance);
 
-            $paidVia=$AID;
-       $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
-        $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
-            TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
-            "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,$CID,Null);
-            $AID=$paidVia;//This needs o be changed in production
-            $OldAccBalance=accountsController::getAccountBalance($AID);
-            $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
-            accountsController::UpdateNewBalance($AID,$newAccountBalance);
-            $OldPrice = DB::table('instock')
-            ->where('ProductSerial', '=', $PID)
-             ->get();
-            $CurrentPrice=floatval($OldPrice[0]->TotalCost)+floatval($TransportCharges);
-            
-           
+      $paidVia=$AID;
+      $CID= AdditionalTaxesAndCommissionsController::AddTaxOrComminssion ( "Transportation Charges",
+      $TransportCharges,NULL,"COST",$PID,NULL,NULL,$dateNow);
+      TransactionFlow::addTransaction($InvoiceNumber,"Debit",'Transportation Charges',$TransportCharges,$dateNow,
+      "1",null,null,NULL,null,$LID,NULL,NULL,NULL,$paidVia,$CID,Null);
+      $AID=$paidVia;//This needs o be changed in production
+      $OldAccBalance=accountsController::getAccountBalance($AID);
+      $newAccountBalance=floatval($OldAccBalance)-floatval($TransportCharges);
+      accountsController::UpdateNewBalance($AID,$newAccountBalance);
+      $OldPrice = DB::table('instock')
+      ->where('ProductSerial', '=', $PID)
+        ->get();
+      $CurrentPrice=floatval($OldPrice[0]->TotalCost)+floatval($TransportCharges);
+      
+        DB::table('productdefination')
+        ->where('ProductSerial', $PID)
+        ->update(['EngineNumber' =>$EngineNumber,
+        'ChasisNumber' =>$chasisNumber,
+        'Remarks' =>$Remarks,
+        'color' =>$color
+        ]);
 
+          DB::table('instock')
+          ->where('ProductSerial', $PID)
+          ->update(['Remarks'=>"Delivered on ".$dateNow,
+          'TotalCost' =>$CurrentPrice,
+          'Status'=>'Available'
+          ]);
 
-
-            DB::table('productdefination')
-            ->where('ProductSerial', $PID)
-            ->update(['EngineNumber' =>$EngineNumber,
-            'ChasisNumber' =>$chasisNumber,
-            'Remarks' =>$Remarks,
-            'color' =>$color
-            ]);
-
-            DB::table('instock')
-            ->where('ProductSerial', $PID)
-            ->update(['Remarks'=>"Delivered on ".$dateNow,
-            'TotalCost' =>$CurrentPrice,
-            'Status'=>'Available'
-            ]);
-
-            DB::table('tblpurchaseoorderdetaile')
-            ->where('ProductSerial', $PID)
-            ->update(['DilevedStatus'=>"Received"
-            ]);
+          DB::table('tblpurchaseoorderdetaile')
+          ->where('ProductSerial', $PID)
+          ->update(['DilevedStatus'=>"Received"
+          ]);
 
 
 
 
-         }//if condition
+        }//if condition
 
          if($oneProduct[6]==3){
           $PID=$oneProduct[0];
