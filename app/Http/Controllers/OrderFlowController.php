@@ -680,7 +680,52 @@ class OrderFlowController extends Controller
            ';}
            return $table;
    }
+   
+   public static function printSoldStockData(){ 
+       
+        
+    $table='<h1 align="center">All Sold Stock</h1>
+    <br><br><br>
 
+    <table  align="center" cellpadding = "1" cellspacing = "0"  border="1" style="font-size:22.2px margin-left:49px;"><thead></thead>
+      <tbody>
+          <tr>
+              <th align="center"><b>Product ID</b></th>
+             
+              <th align="center"> <b>Product Name</b></th>
+              <th align="center"><b>Invoice Price</b></th>
+              <th align="center"><b>Unit Purchase Price</b></th>
+              <th align="center"><b>Stock</b></th>
+              <th align="center"><b>Enigne Number</b></th>
+              <th align="center"><b>Chasis Number</b></th>
+              <th align="center"><b>Status</b></th>
+          </tr>
+    
+        ';
+
+      $data=DB::select('select * from vw_stockdetails where Category = 1 and StatusInStock = "Sold"');
+    foreach ($data as $d){
+      
+        $table=$table.'
+        
+        <tr>
+        <td align="center">'.$d->ProductSerial.'</td>
+ 
+        <td align="center">'.$d->ProductName.'</td>
+        <td align="center">'.$d->PerUnitSalePrice.'</td>
+        
+        <td align="center">'.$d->PerUnitPurchasePrice.'</td>
+        <td align="center">'.$d->StockIn.'</td>
+        <td align="center">'.$d->EngineNumber.'</td>
+        <td align="center">'.$d->ChasisNumber.'</td>
+        <td align="center">'.$d->Status.'</td>
+        </tr>
+        
+    
+
+         ';}
+         return $table;
+ }
 
 
    function getbookingDetails($invoiceNo){

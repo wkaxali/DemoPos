@@ -294,6 +294,7 @@ Route::get('/selectedDateData/{DATE1}/{DATE2}/{table}/{category}/{value}',[Trans
 Route::get('/loadCategoryData/{table}',[TransactionFlow::class, 'loadCategoryData']);
 Route::get('/printEmployee',[CustomerController::class, 'printEmployee']);
 Route::get('/printStockData',[OrderFlowController::class, 'printStockData']);
+Route::get('/printSoldStockData',[OrderFlowController::class, 'printSoldStockData']);
 Route::get('/printTrasactionHistory2/{table}/{category}/{value}',[TransactionFlow::class, 'printTrasactionHistory2']);
 Route::get('/selectedMonthData/{month}',[summaryReportController::class, 'selectedMonthData']);
 Route::get('/printMonthlyTrasaction/{month}/{monthname} ',[summaryReportController::class, 'summaryReportTabularBase']);
