@@ -25,7 +25,7 @@ class printSalarySlip extends Controller
       $DesignationID = $data[0]-> DesignationID;
       $TotalPay = $BasicPay + $Alownces;
       
-    $ata=DB::select('select * from tbl_employee_payments_flow where where EmployeeID ='.$id.' and month(SalaryOf) ='.$month.' and year(SalaryOf) ='.$year );
+    $ata=DB::select('select * from tbl_employee_payments_flow   where EmployeeID ='.$id.' and month(SalaryOf) ='.$month.' and year(SalaryOf) ='.$year );
     
     $SalaryOf = $ata[0]-> SalaryOf;
     $TotalDeduction = $ata[0]-> TotalDeduction;
