@@ -703,6 +703,8 @@ class OrderFlowController extends Controller
     
         ';
 
+        
+
       $data=DB::select('select * from vw_stockdetails where Category = 1 and StatusInStock = "Sold"');
     foreach ($data as $d){
       
