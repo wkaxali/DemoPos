@@ -261,7 +261,9 @@ Total Deductions
    <table style="font-size:9.5 px">
    <tr>
    <td><br> <br>  <br> 
-  Net Pay of the month is  '.$netTotal.'
+  Net Pay of the month is  '.$netTotal.'<br><br>
+  Dated:  '.$Date.'
+   
    </td>
    </tr>
    <tr> <br><br><br><hr>
@@ -501,7 +503,9 @@ Total Deductions
    <table style="font-size:9.5 px">
    <tr>
    <td><br> <br>  <br> 
-  Net Pay of the month is  '.$netTotal.'
+   Net Pay of the month is  '.$netTotal.'<br><br>
+   Dated:  '.$Date.'
+    
    </td>
    </tr>
    <tr> <br><br><br><hr>
