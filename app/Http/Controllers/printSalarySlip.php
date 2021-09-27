@@ -8,7 +8,7 @@ use DB;
 use Carbon\Carbon;
 class printSalarySlip extends Controller
 {
-    public static function printsalarySlip($id,$adv,$month,$year){
+    public static function printsalarySlip($id,$balance,$month,$year){
       
 
       $data = DB::select('select * from vw_employeepay where EID ='.$id);
@@ -31,7 +31,7 @@ class printSalarySlip extends Controller
     $TotalDeduction = $ata[0]-> TotalDeduction;
     $AbsentsDeduction = $ata[0]-> AbsentsDeduction;
     $Date = $ata[0]-> Date;
-    $EmployeeBalanceAfter = $ata[0]-> EmployeeBalanceAfter;
+ 
     $Advance = $ata[0]-> Advance;
       $netTotal=$TotalPay - $TotalDeduction-  $Advance;
        
@@ -186,7 +186,7 @@ Allowances
 Remaining Balance 
 </td>
 <td align="center"  >
-'.$EmployeeBalanceAfter.'
+'.$balance.'
 </td>
 </tr>
 
@@ -426,7 +426,7 @@ Allowances
 Remaining Balance 
 </td>
 <td align="center"  >
-'.$EmployeeBalanceAfter.'
+'.$balance.'
 </td>
 </tr>
 
@@ -461,7 +461,7 @@ Total Earning
 Advance
 </td>
 <td align="center">
-'.$adv.'
+'.$Advance.'
 </td>
 
 </tr>
