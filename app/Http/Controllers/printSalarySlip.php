@@ -33,7 +33,7 @@ class printSalarySlip extends Controller
     $Date = $ata[0]-> Date;
  
     $Advance = $ata[0]-> Advance;
-    $AmountPaid=$ata[0]-> $AmountPaid;
+    $AmountPaid=$ata[0]-> AmountPaid;
       $netTotal=$TotalPay - $TotalDeduction ;
      
       
@@ -185,10 +185,7 @@ Allowances
 </tr>
 <tr>
 <td>
-Remaining Balance 
-</td>
-<td align="center"  >
-'.$balance.'
+ 
 </td>
 </tr>
 
@@ -431,10 +428,7 @@ Allowances
 </tr>
 <tr>
 <td>
-Remaining Balance 
-</td>
-<td align="center"  >
-'.$balance.'
+ 
 </td>
 </tr>
 
