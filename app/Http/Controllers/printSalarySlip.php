@@ -32,8 +32,8 @@ class printSalarySlip extends Controller
     $AbsentsDeduction = $ata[0]-> AbsentsDeduction;
     $Date = $ata[0]-> Date;
     $EmployeeBalanceAfter = $ata[0]-> EmployeeBalanceAfter;
-    
-      $netTotal=$TotalPay - $TotalDeduction+  $adv;
+    $Advance = $ata[0]-> Advance;
+      $netTotal=$TotalPay - $TotalDeduction-  $Advance;
        
       $newHTML='
       <table border="0" >
@@ -221,7 +221,7 @@ Total Earning
 Advance
 </td>
 <td align="center">
-'.$adv.'
+'.$Advance.'
 </td>
 
 </tr>
