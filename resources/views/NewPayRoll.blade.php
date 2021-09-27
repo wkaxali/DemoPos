@@ -611,8 +611,6 @@
                var month = $('#month').find(":selected").val();
                  var year = $('#year').find(":selected").text();
                
-                 alert(month);
-                 alert(year);
                 var xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function () {
 
