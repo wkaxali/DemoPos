@@ -8,7 +8,7 @@ use DB;
 use Carbon\Carbon;
 class printSalarySlip extends Controller
 {
-    public static function printsalarySlip($id,$adv,$date){
+    public static function printsalarySlip($id,$adv,$month,$year){
       
 
       $data = DB::select('select * from vw_employeepay where EID ='.$id);
@@ -25,7 +25,7 @@ class printSalarySlip extends Controller
       $DesignationID = $data[0]-> DesignationID;
       $TotalPay = $BasicPay + $Alownces;
       
-    $ata=DB::select('select * from tbl_employee_payments_flow where Date ='.$date);
+    $ata=DB::select('select * from tbl_employee_payments_flow where where EmployeeID ='.$id.' and month(SalaryOf) ='.$month.' and month(SalaryOf) ='.$year );
     
     $SalaryOf = $ata[0]-> SalaryOf;
     $TotalDeduction = $ata[0]-> TotalDeduction;
