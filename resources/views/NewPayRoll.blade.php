@@ -351,18 +351,18 @@
                                     <select id='month' onchange="searchMonthlyCommission()"
                                         style="display: inline-block;width: 150px;">
                                         <option selected value=''>--Select Month--</option>
-                                        <option value='0'>Janaury</option>
-                                        <option value='1'>February</option>
-                                        <option value='2'>March</option>
-                                        <option value='3'>April</option>
-                                        <option value='4'>May</option>
-                                        <option value='5'>June</option>
-                                        <option value='6'>July</option>
-                                        <option value='7'>August</option>
-                                        <option value='8'>September</option>
-                                        <option value='9'>October</option>
-                                        <option value='10'>November</option>
-                                        <option value='11'>December</option>
+                                        <option value='1'>Janaury</option>
+                                        <option value='2'>February</option>
+                                        <option value='3'>March</option>
+                                        <option value='34'>April</option>
+                                        <option value='5'>May</option>
+                                        <option value='6'>June</option>
+                                        <option value='7'>July</option>
+                                        <option value='8'>August</option>
+                                        <option value='9'>September</option>
+                                        <option value='10'>October</option>
+                                        <option value='11'>November</option>
+                                        <option value='12'>December</option>
                                     </select>
                                     <select id='year' onchange="searchMonthlyCommission()"
                                         style="display: inline-block;width: 100px; margin-left: 5px;">
@@ -608,17 +608,23 @@
                var date=document.getElementById("paymentDate").value;
                var adv= document.getElementById("balance").value;
                 
+               var month = $('#month').find(":selected").val();
+                 var year = $('#year').find(":selected").text();
+               
+                 alert(month);
+                 alert(year);
                 var xhttp = new XMLHttpRequest();
                         xhttp.onreadystatechange = function () {
 
                             if (this.readyState == 4 && this.status == 200) {
-                                window.open('/printsse/'+EID+'/'+adv+'/'+date);
+                                window.open('/printsse/'+EID+'/'+adv+'/'+month+'/'+year);
                             }
                         };
                             
-                            xhttp.open("GET", "./printSalaries/"+EID+"/"+adv+"/"+date, true);
+                            xhttp.open("GET", "./printSalaries/"+EID+"/"+adv+"/"+month+"/"+year, true);
 
                             xhttp.send();
+                         
             }
 
         function bar_group() {
