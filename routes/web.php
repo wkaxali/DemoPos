@@ -116,7 +116,7 @@ Route::get('/InvoiceRequest',[TEST::class, 'InvoiceRequest']);
 Route::get('/deliveryLetter/{ID}',[deliverLetterPrintController::class, 'deliveryLetter']);
 Route::get('/editEmployee/{UE}',[employeeController::class, 'editEmployee']);
 Route::get('/printSalaries/{ID}/{adv}/{month}/{year}',[printSalarySlip::class, 'printsalarySlip']);
-Route::get('/printsse/{ID}/{adv}/{date}',[printSalarySlip::class, 'printsalarySlip']);
+Route::get('/printsse/{ID}/{adv}/{month}/{year}',[printSalarySlip::class, 'printsalarySlip']);
 Route::get('/getDocuments',[printDocuments::class, 'getDocuments']);
 Route::get('/fetchAllmenu',[AddMenucontroller::class, 'fetchAllMenu']);
 Route::get('/fetchCategories',[AddMenucontroller::class, 'getCategories']);
