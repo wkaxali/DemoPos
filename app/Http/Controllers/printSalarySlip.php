@@ -115,7 +115,7 @@ CNIC
 Employee ID
 </td>
 <td align="center">
-'. $DesignationID .'
+'. $id .'
 </td>
 </tr><tr>
 <td>
@@ -355,7 +355,7 @@ CNIC
 Employee ID
 </td>
 <td align="center">
-'. $DesignationID .'
+'. $id .'
 </td>
 </tr><tr>
 <td>
