@@ -292,7 +292,7 @@ public static function getEmpPay($eid){
 }
 
 public static function getCommissionData($year, $month, $EID){
-  $M=$month+1;
+  $M=$month;
   $pay=DB::select('select * from vw_employee_sale_commission where month(date) ='.$M.' AND EID ='.$EID.' AND year(date) ='.$year);
   $attendanceData=DB::select('select * from tbl_employeeattendance where Status = "Absent" AND month(date) ='.$M.' AND EID ='.$EID.' AND year(date) ='.$year);
   $dailyPay = DB::table('tblemployeepay')
@@ -339,7 +339,7 @@ public static function paySalary($data){
 
 
   
-  $salaryOf = Carbon::createFromDate($year, $month+2, 0, 'Europe/Madrid')->format('Y-m-d');
+  $salaryOf = Carbon::createFromDate($year, $month+1, 0, 'Europe/Madrid')->format('Y-m-d');
     $id=DB::table('tbltransactionflow')->insertGetId([
       'DateStamp'=>$date,
       'Amount'=>$amountPaid,
