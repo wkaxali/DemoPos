@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use PDF;
 use DB;
 use Carbon\Carbon;
+use \Datetime;
 class printSalarySlip extends Controller
 {
     public static function printsalarySlip($id,$balance,$month,$year){
@@ -35,8 +36,9 @@ class printSalarySlip extends Controller
     $Advance = $ata[0]-> Advance;
     $AmountPaid=$ata[0]-> AmountPaid;
       $netTotal=$TotalPay - $TotalDeduction ;
-     
       
+         $dateObj   = DateTime::createFromFormat('!m', $month);
+         $monthName = $dateObj->format('F');
       $newHTML='
       <table border="0" >
        
@@ -53,7 +55,7 @@ class printSalarySlip extends Controller
  
       <tr> 
       <br><br>
-      <td align="center">Payslip for the month of '.$SalaryOf.'   
+      <td align="center">Payslip for the month of '.$monthName.'    '.$year .'
      </td>
       </tr> 
    </table>
@@ -296,7 +298,7 @@ Total Deductions
  
       <tr> 
       <br><br>
-      <td align="center">Payslip for the month of '.$SalaryOf.'   
+      <td align="center">Payslip for the month of '.$monthName.'    '.$year .'
      </td>
       </tr> 
    </table>
