@@ -280,9 +280,8 @@ Total Deductions
    </table>
   
    <table border="0" >
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-   <br><br>  
-    
+   <br><br><br><br><br><br><br><br><br><br> 
+   <br> <br> 
    <table border="0" >
        
       <tr>
