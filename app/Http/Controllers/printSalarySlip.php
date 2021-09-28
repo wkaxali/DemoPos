@@ -264,7 +264,7 @@ Total Deductions
    <td><br> <br>  <br> 
   Net Pay of the month is  '.$netTotal.'<br><br>
   
-  AmountPaid:  '.$AmountPaid.'
+  Amount Paid:  '.$AmountPaid.'
   <br><br>
   
   Dated:  '.$Date.'
@@ -506,7 +506,7 @@ Total Deductions
    <td><br> <br>  <br> 
    Net Pay of the month is  '.$netTotal.'<br><br>
    
-   AmountPaid:  '.$AmountPaid.'
+   Amount Paid:  '.$AmountPaid.'
    <br><br>
    
    Dated:  '.$Date.'
