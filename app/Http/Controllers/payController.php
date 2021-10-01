@@ -90,12 +90,14 @@ class payController extends Controller
           'TransactionCatogery'=>'Salary Payment'
         ]);
 
-          return 'Payment added for Employee '.$paidTo;
+        $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
+        $newBalance = $oldSelfBalance - $amount;
+        LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
+
+        return 'Payment added for Employee '.$paidTo;
         }
 
-    $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
-    $newBalance = $oldSelfBalance - $amount;
-    LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
+    
     if($PT=="Party"){
       $balanceForParty=LedgerPartiesController::getPartyBalance($paidTo);
       $newBalanceOfParty=$balanceForParty-$amount;
