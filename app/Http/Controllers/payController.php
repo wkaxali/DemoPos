@@ -61,7 +61,7 @@ class payController extends Controller
           'EmployeeBalanceBefore'=>$bal,
           'EmployeeBalanceAfter'=>$bal,
         ]);
-        
+
         if($advanceCat=="Deductable"){
 
           $eb = DB::table('tblemployees')
@@ -79,16 +79,17 @@ class payController extends Controller
           ]);
         }
 
+        $TID=DB::table('tbltransactionflow')->insertGetId([
+          'DateStamp'=>$date,
+          'Amount'=>$amount,
+          'PaidVia'=>$paidVia,
+          'TransactionType'=>"Debit",
+          'Remarks'=>$remarks,
+          'LID'=> $LID,
+          'EmpID'=>$paidTo,
+          'TransactionCatogery'=>'Salary Payment'
+        ]);
 
-        
-
-          $re = DB::table('tbltransactionflow')
-            ->where('TransactionID', $TID)
-            ->update([
-              'EmpID'=>$paidTo,
-              'TransactionCatogery'=>'Salary Payment'
-              
-          ]);
           return $paidTo;
         }
 
@@ -103,7 +104,7 @@ class payController extends Controller
     $oldAccountBalance = accountsController::getAccountBalance($paidVia);
     $newAccountBalance = $oldAccountBalance - $amount;
     accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
-    return $LID;
+    return $paidTo;
     }
     
 }
