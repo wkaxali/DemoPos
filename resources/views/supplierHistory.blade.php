@@ -555,7 +555,7 @@ $(".sidebar-icon").click(function () {
             }
          
                      
-            alert(cat);
+            // alert(cat);
             xhttp.open("GET", "./getDetails/" +id+'/'+cat.trim()  ,true);
             xhttp.send();
         }
