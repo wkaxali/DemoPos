@@ -52,21 +52,6 @@ class payController extends Controller
         if($PT=="Employee"){
           $bal=employeeController::getEmployeeBalance($paidTo);
         $newbal= floatval($bal)-floatval($amount);
-        if($advanceCat=="Deductable"){
-
-          $eb = DB::table('tblemployees')
-          ->where('EID', $paidTo)
-          ->update([
-            'Balance'=>$newbal
-          ]);
-
-          $eb = DB::table('tbl_employee_payments_flow')
-          ->where('paymentID', $id)
-          ->update([
-            'EmployeeBalanceAfter'=>$newbal
-          ]);
-        }
-
 
         $id=DB::table('tbl_employee_payments_flow')->insertGetId([
           'EmployeeID'=> $paidTo,
@@ -76,6 +61,26 @@ class payController extends Controller
           'EmployeeBalanceBefore'=>$bal,
           'EmployeeBalanceAfter'=>$bal,
         ]);
+        
+        if($advanceCat=="Deductable"){
+
+          $eb = DB::table('tblemployees')
+          ->where('EID', $paidTo)
+          ->update([
+            'Balance'=>$newbal
+          ]);
+
+          
+
+          $eb = DB::table('tbl_employee_payments_flow')
+          ->where('paymentID', $id)
+          ->update([
+            'EmployeeBalanceAfter'=>$newbal
+          ]);
+        }
+
+
+        
 
           $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $TID)
@@ -84,6 +89,7 @@ class payController extends Controller
               'TransactionCatogery'=>'Salary Payment'
               
           ]);
+          return $paidTo;
         }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
@@ -97,9 +103,9 @@ class payController extends Controller
     $oldAccountBalance = accountsController::getAccountBalance($paidVia);
     $newAccountBalance = $oldAccountBalance - $amount;
     accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
-    
+    return $LID;
     }
-    return $id;
+    
 }
 
 public static function getEmployeeName(){
