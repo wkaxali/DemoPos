@@ -90,7 +90,7 @@ class payController extends Controller
           'TransactionCatogery'=>'Salary Payment'
         ]);
 
-          return $paidTo;
+          return 'Payment added for Employee '.$paidTo;
         }
 
     $oldSelfBalance = LedgerPartiesController::getPartyBalance($LID);
@@ -104,7 +104,7 @@ class payController extends Controller
     $oldAccountBalance = accountsController::getAccountBalance($paidVia);
     $newAccountBalance = $oldAccountBalance - $amount;
     accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
-    return $paidTo;
+    return 'Payment added for Party '.$paidTo;
     }
     
 }
