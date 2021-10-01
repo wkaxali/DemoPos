@@ -27,29 +27,31 @@ class payController extends Controller
         $paidVia=$obj[5];
         $remarks=$obj[6];
 
-        $TID=DB::table('tbltransactionflow')->insertGetId([
-          'DateStamp'=>$date,
-          'Amount'=>$amount,
-          'PaidVia'=>$paidVia,
-          'TransactionType'=>"Debit",
-          'Remarks'=>$remarks,
-          'LID'=> $LID,
-        ]);
+        
 
-        $bal=employeeController::getEmployeeBalance($paidTo);
+        
+
+        
+
+        if($PT=="Party"){
+
+          $TID=DB::table('tbltransactionflow')->insertGetId([
+            'DateStamp'=>$date,
+            'Amount'=>$amount,
+            'PaidVia'=>$paidVia,
+            'TransactionType'=>"Debit",
+            'Remarks'=>$remarks,
+            'LID'=> $LID,
+            'PaidTo'=>$paidTo,
+            'TransactionCatogery'=>'Party Payment'
+          ]);
+
+          
+        }
+        
+        if($PT=="Employee"){
+          $bal=employeeController::getEmployeeBalance($paidTo);
         $newbal= floatval($bal)-floatval($amount);
-
-
-
-        $id=DB::table('tbl_employee_payments_flow')->insertGetId([
-          'EmployeeID'=> $paidTo,
-          'AmountPaid'=>$amount,       
-          'Date'=>$date,
-          'AdvanceCategory'=>$advanceCat,
-          'EmployeeBalanceBefore'=>$bal,
-          'EmployeeBalanceAfter'=>$bal,
-        ]);
-
         if($advanceCat=="Deductable"){
 
           $eb = DB::table('tblemployees')
@@ -65,16 +67,16 @@ class payController extends Controller
           ]);
         }
 
-        if($PT=="Party"){
-          $re = DB::table('tbltransactionflow')
-            ->where('TransactionID', $TID)
-            ->update([
-              'PaidTo'=>$paidTo,
-              'TransactionCatogery'=>'Party Payment',
-          ]);
-        }
-        
-        if($PT=="Employee"){
+
+        $id=DB::table('tbl_employee_payments_flow')->insertGetId([
+          'EmployeeID'=> $paidTo,
+          'AmountPaid'=>$amount,       
+          'Date'=>$date,
+          'AdvanceCategory'=>$advanceCat,
+          'EmployeeBalanceBefore'=>$bal,
+          'EmployeeBalanceAfter'=>$bal,
+        ]);
+
           $re = DB::table('tbltransactionflow')
             ->where('TransactionID', $TID)
             ->update([
