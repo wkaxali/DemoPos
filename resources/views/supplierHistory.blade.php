@@ -411,9 +411,7 @@ $(".sidebar-icon").click(function () {
             sup="All";
         }
   
-        // alert(category);
-        // alert(categoryID);
-        // alert(partyID);
+        
         xhttp.open("GET", "./filterSupplierData/"+sup, true);
         xhttp.send();
     }
