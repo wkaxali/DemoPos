@@ -129,7 +129,14 @@ class saleInvoiceEditController extends Controller
        accountsController::UpdateNewBalance($AID,$newAccountBalance);
 
      //TransactioFlow Edit
- 
+    if($product->Category==1){
+      DB::table('instock')
+      ->where('ProductSerial', $PID)
+      ->update([
+          'Status'=>'Available'
+      ]);
+    }
+     
    
      }
      public function insertInDetailedOrder($OrderDetails,$InvoiceID,$date){
