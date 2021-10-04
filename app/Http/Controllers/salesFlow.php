@@ -48,12 +48,11 @@ class salesFlow extends Controller
       $city=$Array[19];
       $receivedBy=$Array[20];
       $totalCost= $tot-$OverAllDiscount;
-      $vat= $tot*17/100;
       $AmountAfterDiscount=$totalCost+$vat;
       $EID=$Array[22];
-    
 
-       
+      // VAT(Tax) is included in Invoice Price so VAT=0 
+      $vat = 0;
         
        if(DB::table('tblemployeepay')
        ->where('EID', '=', $EID)
@@ -135,8 +134,8 @@ class salesFlow extends Controller
         if($TransactionMode==2){
         $LID=globalVarriablesController::selfLedgerID();
           $paidVia=$AID;
-          $oldBalance= LedgerPartiesController::getPartyBalance($LID);
-          $currentBalance=floatval ($oldBalance)-floatval ($amp);
+          $oldBalance = LedgerPartiesController::getPartyBalance($LID);
+          $currentBalance =floatval ($oldBalance)-floatval ($amp);
           TransactionFlow::addTransaction($invoiceNumber,"Debit","Customer Paid to Company",
           $amp,$dateNow,"2", $oldBalance,$currentBalance,NULL,NULL,$LID,"0",$CID,"1",$paidVia,NULL,Null);
           $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
@@ -200,25 +199,19 @@ class salesFlow extends Controller
       # code...
     }
    
-
-
     public function getInvoiceNewID(){
-      $IID=DB::table('tblsaleinvoice')->max("InvoiceNumber");
-     return $IID+1;
-     
-
+        $IID=DB::table('tblsaleinvoice')->max("InvoiceNumber");
+        return $IID+1;
+    
+    }
+    public static function getAllInvoiceDetails($InvoiceNo){
+        $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
+        return $results;
 
     }
-  public static function getAllInvoiceDetails($InvoiceNo){
-      $results=DB::select('select * from vw_customersale_invoice where InvoiceNumber= '.$InvoiceNo);
-      return $results;
-
-  }
   public function printSaleInvoice()
   {
       
-      
-
       $newHTML='<table border="0">
       <thead>
           <tr>
