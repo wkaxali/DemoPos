@@ -94,6 +94,10 @@ class payController extends Controller
         $newBalance = $oldSelfBalance - $amount;
         LedgerPartiesController::UpdatePartiesBalance($LID, $newBalance);
 
+        $oldAccountBalance = accountsController::getAccountBalance($paidVia);
+        $newAccountBalance = $oldAccountBalance - $amount;
+        accountsController::UpdateNewBalance($paidVia, $newAccountBalance);
+
         return 'Payment added for Employee '.$paidTo;
         }
 

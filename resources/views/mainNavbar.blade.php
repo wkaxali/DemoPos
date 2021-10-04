@@ -216,7 +216,7 @@ style="font-size: 14px;"> Return Purchase</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
 <ul class="collapse firstULs14">
 <!-- <li><a href="/aa">Return With Negative Purchase </a></li> -->
-<li><a href="ps"> Edit Purchase    </a></li>
+<li><a href="rr">Return Auto</a></li>
 <!-- <li><a href="ea">   Edit Pending Order</a></li> -->
 </ul>
 </li>
