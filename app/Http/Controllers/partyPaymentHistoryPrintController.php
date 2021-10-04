@@ -3,12 +3,150 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
+ 
 use Carbon\Carbon;
-
 use PDF;
+use DB;
 class partyPaymentHistoryPrintController extends Controller
 {
+    
+    public static function partyPaymentDetails($TID){
+ 
+     $data=DB:: select('select * from vw_transaction_flow where TransactionID='.$TID);
+  
+        $TransactionID=$data[0]-> TransactionID;
+        
+        $TransactionCatogery=$data[0]-> TransactionCatogery;
+        $Amount=$data[0]-> Amount;
+        $DateStamp=$data[0]-> DateStamp;
+        $PartyName=$data[0]-> PartyName;
+        $AccountName=$data[0]-> AccountName;
+        $AccountNumber=$data[0]-> AccountNumber;
+        $Remarks=$data[0]-> Remarks;
+        
+ 
+        $newHTML='<table border="0" cellpadding="2" >
+        <thead>
+        <tr>
+        
+        
+        <th align="center"><br><h1>FORLAND MODREN MOTORS</h1></th>
+        </tr>
+        </thead>
+        
+        <tbody>
+         
+        
+        <tr>
+        
+        
+        <td width="50%">
+        <h4 align="right">Date: '.$DateStamp.'</h4>
+        </td>
+        </tr>
+        
+        <tr>
+        
+        <td width="100%" border="0" align="center" ><h4>Party Payment Details</h4></td>
+        </tr>
+        </tbody>
+        
+        </table>
+        <br>
+        <br>
+        <br>
+        <br>
+        <table border="0" cellpadding="9" >
+        
+        <tbody>
+      
+         
+        <tr >
+        <td width="8%" border="0" align="left" ></td>
+        
+        <td width="30%" border="1" align="left" > Transaction ID</td>
+        <td width="55%" border="1" align="center">'.$TransactionID.'</td>
+        
+        </tr>
+         <tr>
+        <td width="8%" border="0" align="left" ></td>
+        
+        <td width="30%" border="1" align="left" > Party Name</td>
+        <td width="55%" border="1" align="center">'. $PartyName.'</td>
+        
+        </tr>
+        <tr>
+        <td width="8%" border="0" align="left" ></td>
+        
+        <td width="30%" border="1" align="left" >Amount</td>
+        <td width="55%" border="1" align="center">'.$Amount.'</td>
+        
+        </tr> 
+        <tr>
+        <td width="8%" border="0" align="left" ></td>
+        
+        <td width="30%" border="1"> TransactionCatogery</td>
+        <td width="55%" align="center" border="1">'.$TransactionCatogery.'</td>
+        
+        </tr>
+        <tr>
+        
+        <td width="8%" border="0" align="left" ></td>
+        
+        <td width="30%" border="1"> Account Name</td>
+        <td width="55%" align="center" border="1">'.$AccountName.' ('.$AccountNumber.')</td>
+        
+        </tr>
+        <tr>
+        <td width="8%" border="0" align="left" ></td>
+        
+        <td width="30%" border="1">  Remarks</td>
+        <td width="55%" align="center" border="1">'.$Remarks.'</td>
+        
+         
+        </tbody>
+        </table>
+        <br>
+        
+        
+        
+        <br><br> <br>
+        <br>
+        <table border="0">
+        <tbody>
+        <tr>
+        
+        <td width="90%" align="right">
+        _______________________</td>
+        
+        
+        
+        
+        </tr>
+        <tr>
+        
+        
+        <td width="83%" align="right"> Sign & Stamp
+        </td>
+        
+        
+        
+        </tr>
+        </tbody>
+        </table>
+        
+        '; // $html= $htmldata;
+        
+        
+        PDF::SetTitle('Transaction Details');
+        PDF::AddPage();
+        PDF::writeHTML($newHTML, true, false, true, false, '');
+        
+        PDF::Output('partyPayment.pdf');
+        
+         
+    }
+
     public static function printPartyHistory2($partyID, $party, $colSums){
         $sums=json_decode($colSums);
         $totalPurchaseAmount=$sums[0];
