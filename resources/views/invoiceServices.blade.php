@@ -1800,17 +1800,19 @@
         var array = JSON.stringify(order);
 
         var xhttp = new XMLHttpRequest();
-
+        var invoiceId = document.getElementById("InvoiceID").value;
         if (AID == "") {
             alert('Payment Method not Selected');
         } else {
+
+            if(confirm("Do you want to Generate Sale on Invoice Number "+invoiceId +"?" )){
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
 
                     alert(this.responseText);
                     
                     document.getElementById("InvoiceID").value=this.responseText;
-
+                    location.reload(); 
 
 
 
@@ -1819,6 +1821,7 @@
             // var MenuID=$('#Menus').find(":selected").val();
             xhttp.open("GET", "./addSales/" + array, true);
             xhttp.send();
+        }
         }
     }
 
