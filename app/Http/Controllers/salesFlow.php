@@ -47,13 +47,12 @@ class salesFlow extends Controller
       $productName=$Array[18];
       $city=$Array[19];
       $receivedBy=$Array[20];
-      $totalCost= $tot-$OverAllDiscount;
-      $AmountAfterDiscount=$totalCost+$vat;
       $EID=$Array[22];
-
+      $totalCost= $tot-$OverAllDiscount;
       // VAT(Tax) is included in Invoice Price so VAT=0 
       $vat = 0;
-        
+      $AmountAfterDiscount=$totalCost+$vat;
+      
        if(DB::table('tblemployeepay')
        ->where('EID', '=', $EID)
         ->exists()){
