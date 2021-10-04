@@ -581,6 +581,40 @@
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+
+
+$("#mydata").on('click', 'tr', function() {
+            var id = this.cells[0].innerText;
+            var cat = this.cells[2].innerText;
+        //    alert(cat);
+        //    alert(id);
+            if(cat=="Party Payment"){
+                getPartyPaymentDetails(id); 
+           } 
+           else{
+                
+           alert("Not a Party Payment Record");
+            }
+             
+   
+            });
+
+            function getPartyPaymentDetails(id){
+                  
+                var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+           
+                    window.open('/partyPaymentDetails/'+id);
+                  
+                }
+            }
+         
+            
+            xhttp.open("GET", "./partyPaymentDetails/"+id, true);
+            xhttp.send();
+        }
     </script>
 </body>
 

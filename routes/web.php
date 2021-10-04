@@ -343,6 +343,9 @@ Route::get('/logout',[userAccountController::class, 'logout']);
 Route::get('/getDispStockHistory',[OrderFlowController::class, 'getDispStockHistory']);
 Route::get('/placeStock/{data}',[OrderFlowController::class, 'placeStock']);
 Route::get('/viewSoldStock',[OrderFlowController::class, 'viewSoldStock']);
+Route::get('/partyPaymentDetails/{id}',[partyPaymentHistoryPrintController::class, 'partyPaymentDetails']);
+
+
 
 Route::get('/', function () {
 return view('signInSignUp');
