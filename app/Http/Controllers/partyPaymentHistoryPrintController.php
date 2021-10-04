@@ -25,7 +25,7 @@ class partyPaymentHistoryPrintController extends Controller
         $Remarks=$data[0]-> Remarks;
         
  
-        $newHTML='<table border="0" cellpadding="2" >
+        $newHTML= '<table border="0" cellpadding="2" >
         <thead>
         <tr>
         
@@ -35,15 +35,16 @@ class partyPaymentHistoryPrintController extends Controller
         </thead>
         
         <tbody>
-         
-        
         <tr>
+        <br>
+        <td>
         
+          <br>
         
-        <td width="50%">
-        <h4 align="right">Date: '.$DateStamp.'</h4>
         </td>
+        
         </tr>
+        
         
         <tr>
         
@@ -59,51 +60,70 @@ class partyPaymentHistoryPrintController extends Controller
         <table border="0" cellpadding="9" >
         
         <tbody>
-      
-         
+       
         <tr >
         <td width="8%" border="0" align="left" ></td>
         
-        <td width="30%" border="1" align="left" > Transaction ID</td>
-        <td width="55%" border="1" align="center">'.$TransactionID.'</td>
+        <td width="30%" border="1" align="left" >  Transaction Catogery</td>
+        <td width="55%" border="1" align="center">'. $TransactionCatogery.'</td>
         
         </tr>
-         <tr>
+        <tr >
         <td width="8%" border="0" align="left" ></td>
         
-        <td width="30%" border="1" align="left" > Party Name</td>
-        <td width="55%" border="1" align="center">'. $PartyName.'</td>
+        <td width="30%" border="1" align="left" > PartyName</td>
+        <td width="55%" border="1" align="center">'.$PartyName.'</td>
         
-        </tr>
-        <tr>
+        </tr><tr >
         <td width="8%" border="0" align="left" ></td>
         
-        <td width="30%" border="1" align="left" >Amount</td>
+        <td width="30%" border="1" align="left" >  Amount</td>
         <td width="55%" border="1" align="center">'.$Amount.'</td>
         
-        </tr> 
+        </tr><tr >
+        <td width="8%" border="0" align="left" ></td>
+        
+        <td width="30%" border="1" align="left" > DateStamp</td>
+        <td width="55%" border="1" align="center">'.$DateStamp.'</td>
+        
+        </tr><tr >
+        <td width="8%" border="0" align="left" ></td>
+        
+        <td width="30%" border="1" align="left" >  TransactionCatogery</td>
+        <td width="55%" border="1" align="center">'. $TransactionCatogery.'</td>
+        
+        </tr>
         <tr>
         <td width="8%" border="0" align="left" ></td>
         
-        <td width="30%" border="1"> TransactionCatogery</td>
-        <td width="55%" align="center" border="1">'.$TransactionCatogery.'</td>
+        <td width="30%" border="1">Account Name</td>
+        <td width="55%" align="center" border="1">'.$AccountName.' ('.$AccountName.')</td>
         
         </tr>
         <tr>
         
         <td width="8%" border="0" align="left" ></td>
         
-        <td width="30%" border="1"> Account Name</td>
-        <td width="55%" align="center" border="1">'.$AccountName.' ('.$AccountNumber.')</td>
+        <td width="30%" border="1"> Remarks</td>
+        <td width="55%" align="center" border="1">'.  $Remarks .'</td>
         
         </tr>
-        <tr>
-        <td width="8%" border="0" align="left" ></td>
-        
-        <td width="30%" border="1">  Remarks</td>
-        <td width="55%" align="center" border="1">'.$Remarks.'</td>
         
          
+         
+        
+        <tr>
+        <td width="8%" border="0" align="left" ></td>
+        
+        <td width="30%" border="1">Payment Detail</td>
+        <td width="55%" align="center" border="1">Payment Details Attached</td>
+        
+        
+        
+        </tr>
+        
+        
+        
         </tbody>
         </table>
         <br>
@@ -113,7 +133,7 @@ class partyPaymentHistoryPrintController extends Controller
         <br><br> <br>
         <br>
         <table border="0">
-        <tbody>
+        
         <tr>
         
         <td width="90%" align="right">
@@ -132,18 +152,18 @@ class partyPaymentHistoryPrintController extends Controller
         
         
         </tr>
-        </tbody>
+        
         </table>
         
         '; // $html= $htmldata;
         
         
-        PDF::SetTitle('Transaction Details');
+        PDF::SetTitle('Request for Invoice');
         PDF::AddPage();
         PDF::writeHTML($newHTML, true, false, true, false, '');
-        
-        PDF::Output('partyPayment.pdf');
-        
+    
+        PDF::Output('invoiceRequest.pdf');
+    
          
     }
 
