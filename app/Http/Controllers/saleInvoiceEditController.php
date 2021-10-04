@@ -136,8 +136,23 @@ class saleInvoiceEditController extends Controller
           'Status'=>'Available'
       ]);
     }
+
+    if($product->TransactionCatogery=='Customer Paid to Company'){
+      $OldAccBalance=accountsController::getAccountBalance($AID);
+      $newAccountBalance=floatval($OldAccBalance)+floatval($amount+$AP);
+      accountsController::UpdateNewBalance($AID,$newAccountBalance);
+
+      $oldSelfBalance= LedgerPartiesController::getPartyBalance($LID);
+      $newSelfBalance=floatval($oldSelfBalance)+floatval($amount+$AP);
+      LedgerPartiesController::UpdatePartiesBalance($LID, $newSelfBalance);
+
+      $oldCompanyBalance= LedgerPartiesController::getPartyBalance(1);
+      $newCompanyBalance=floatval($oldCompanyBalance)+floatval($amount+$AP);
+      LedgerPartiesController::UpdatePartiesBalance(1, $newCompanyBalance);
+    }
      
-   
+    TransactionFlow::addTransaction($InvoiceID,"Debit",'Sale Vehicle Return',$amount,$dateNow,
+    NULL,$oldSelfBalance,$newSelfBalance,NULL,null,2,NULL,NULL,1,NULL,NULL,Null);
      }
      public function insertInDetailedOrder($OrderDetails,$InvoiceID,$date){
         foreach ($OrderDetails as $row){
