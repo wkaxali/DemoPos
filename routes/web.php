@@ -344,7 +344,7 @@ Route::get('/getDispStockHistory',[OrderFlowController::class, 'getDispStockHist
 Route::get('/placeStock/{data}',[OrderFlowController::class, 'placeStock']);
 Route::get('/viewSoldStock',[OrderFlowController::class, 'viewSoldStock']);
 Route::get('/partyPaymentDetails/{id}',[partyPaymentHistoryPrintController::class, 'partyPaymentDetails']);
-
+Route::get('/gettransactioncategory/{id}',[OrderFlowController::class, 'gettransactioncategory']);
 
 
 Route::get('/', function () {

@@ -93,8 +93,8 @@
             }
 
         }
-        th { font-size: 13px;   }
-        td { font-size: 13px; }
+        th { font-size: 12px;   }
+        td { font-size: 12px; }
 
         .inner-block {
             padding: 1em 1em 2em 1em;
@@ -190,7 +190,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="transactionTable">
+                                <div class="transactionTable" >
                                      
                                        <div id ="mydata" class="table-responsive">
                                        <table  style="width: 100%; text-align: center;" class="table table-striped display nowrap" id="myTable">
@@ -204,6 +204,7 @@
                                                     <th>Amount Paid</th>
                                                     <th>Balance</th>
                                                     <th>Transaction Date</th> 
+                                                    <th>Action</th> 
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -294,6 +295,10 @@
     </script>
 <script>
 
+
+
+        
+
     function loadAllParties() {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -328,14 +333,14 @@
                         table.row.add([  
                             a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             0, a[i].Amount, 0, 
-                            a[i].DateStamp
+                            a[i].DateStamp,'<button class="btn print" id="btnprint" onclick="printPDF(' + a[i].TransactionID +')" >Print</button>'
                         
                         ]);
                     }else if(cat.trim()==="Customer Paid to Company".trim()){
                         table.row.add([  
                             a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             0, a[i].SaleAmountPaid, a[i].SaleRemainingBalance, 
-                            a[i].DateStamp
+                            a[i].DateStamp,'<button class ="btn print" id="btnprint" onclick="printPDF(' + a[i].TransactionID +')" >Print</button>'
                         
                         ]);
 
@@ -343,7 +348,7 @@
                         table.row.add([  
                             a[i].TransactionID, a[i].PartyName, a[i].TransactionCatogery, a[i].AccountName+" ("+a[i].AccountNumber+")",
                             a[i].PurchaseTotalAmount, a[i].PurchaseAmountPaid, a[i].PurchaseRemainingBalance, 
-                            a[i].DateStamp
+                            a[i].DateStamp,'<button class ="btn print" id="btnprint" onclick="printPDF(' + a[i].TransactionID +')" >Print</button>'
                         
                         ]);
                     }
@@ -361,6 +366,8 @@
 
         xhttp.send();
     }
+
+   
 
     function filterData() {
 
@@ -584,22 +591,36 @@
 
 
 
-$("#mydata").on('click', 'tr', function() {
-            var id = this.cells[0].innerText;
-            var cat = this.cells[2].innerText;
-        //    alert(cat);
-        //    alert(id);
-            if(cat=="Party Payment"){
-                getPartyPaymentDetails(id); 
-           } 
-           else{
+// $("#mydata").on('click', 'tr', function() {
+//             var id = this.cells[0].innerText;
+//             var cat = this.cells[2].innerText;
+//         //    alert(cat);
+//         //    alert(id);
+//             if(cat=="Party Payment"){
+//                 getPartyPaymentDetails(id); 
+//            } 
+//            else{
                 
-           alert("Not a Party Payment Record");
-            }
+//            alert("Not a Party Payment Record");
+//             }
              
    
-            });
+//             });
+        function printPDF(id,cat){
+            var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("supplier").innerHTML = 
+                    this.responseText;
+                 alert(this.responseText);
 
+            }
+        };
+
+        xhttp.open("GET", "./gettransactioncategory/"+id, true);
+        xhttp.send();
+    };
+        
             function getPartyPaymentDetails(id){
                   
                 var xhttp = new XMLHttpRequest();
@@ -615,6 +636,55 @@ $("#mydata").on('click', 'tr', function() {
             xhttp.open("GET", "./partyPaymentDetails/"+id, true);
             xhttp.send();
         }
+
+        function getbookingDetails(id){
+                  
+                  var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+             
+                      window.open('/getbookingDetails/'+id);
+                    
+                  }
+              }
+           
+              
+              xhttp.open("GET", "./getbookingDetails/"+id, true);
+              xhttp.send();
+          }
+             
+          function getPurchasedStockDetails(id){
+                    
+                    var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+               
+                        window.open('/getPurchasedStockDetails/'+id);
+                      
+                    }
+                }
+             
+                
+                xhttp.open("GET", "./getPurchasedStockDetails/"+id, true);
+                xhttp.send();
+            }
+
+            function customerPaidtoCompany(id,cat){
+                  
+                  var xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function () {
+                  if (this.readyState == 4 && this.status == 200) {
+               
+                      window.open('/getDetails/'+id+'/'+cat  );
+                    
+                  }
+              }
+           
+                       
+              // alert(cat);
+              xhttp.open("GET", "./getDetails/" +id+'/'+cat.trim()  ,true);
+              xhttp.send();
+          }
     </script>
 </body>
 

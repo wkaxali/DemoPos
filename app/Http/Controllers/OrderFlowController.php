@@ -396,7 +396,11 @@ class OrderFlowController extends Controller
           }
         return [$data, $sum, $crediSum, $debitSum];
       }
-         
+      
+      function gettransactioncategory($id){
+        $data=DB:: select('select TransactionCatogery from vw_transaction_flow where TransactionID='.$id);
+        return $data;
+      }
       function transactionHistoryforExpance(){
         $data=DB:: select('select * from tbltransactionflow where TransactionType=Credit');
         return $data;
