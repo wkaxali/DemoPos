@@ -1962,5 +1962,37 @@ $(document).ready(function () {
 
             }
 </script>
+<script>
+    function addSupplier() {
+        var name = document.getElementById("name").value;
+        var balance = document.getElementById("balance").value; 
+        var contact = document.getElementById("contact").value;
+        var address = document.getElementById("address").value;
+        var InitialInvestment = document.getElementById("initialinvestment").value;
+        if(name==""||balance==""||contact==""||address==""||InitialInvestment==""){
+            alert("Fill in All Fields");
+        }
+        else{
+            var array = [name, balance, contact,address, InitialInvestment];
+            var suppData = JSON.stringify(array);
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState == 4 && this.status == 200) {
+
+                    alert(this.response);
+                    location.reload();
+                }
+            };
+            
+            xhttp.open("GET", "./addSupplier/" + suppData, true);
+
+            xhttp.send();
+        }
+    }
+
+
+    </script>
 
 </html>
