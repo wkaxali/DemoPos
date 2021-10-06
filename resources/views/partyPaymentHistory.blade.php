@@ -607,18 +607,26 @@
    
 //             });
         function printPDF(id){
-            var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                var a =this.responseText;
-                 alert(a);
+     $("#mydata").on('click', 'tr', function() {
+            var id = this.cells[0].innerText;
+            var cat = this.cells[2].innerText;
+        //    alert(cat);
+          
+            if(cat.trim()=="Party Payment".trim()){
+                getPartyPaymentDetails(id); 
+           } 
+           else if(cat.trim()== "Booking Order".trim()){
                 
+            getbookingDetails(id); 
+            }  else if(cat.trim()== "Stock Purchased".trim()){
+                getPurchasedStockDetails(id); 
+            } else if(cat.trim()== "Customer Paid to Company".trim()){
+                customerPaidtoCompany(id,cat); 
             }
-        };
-
-        xhttp.open("GET", "./gettransactioncategory/"+id, true);
-        xhttp.send();
-    };
+             
+   
+            });
+    } 
         
             function getPartyPaymentDetails(id){
                   

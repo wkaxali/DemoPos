@@ -732,7 +732,13 @@ class OrderFlowController extends Controller
  }
 
 
-   function getbookingDetails($invoiceNo){
+   function getbookingDetails($TID){
+    $invoiceNo = DB::table('vw_transaction_flow')
+    ->where('TransactionID', '=', $TID)
+     ->first()->InvoiceNo;
+
+    
+
     $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$invoiceNo);
     $partyName=DB:: select('select PartyName from vw_transactionflow_sales where InvoiceNo='.$invoiceNo);
     
@@ -918,7 +924,13 @@ PDF::Output('invoiceRequest.pdf');
 
   
   
-  function getPurchasedStockDetails($invoiceNo){
+  function getPurchasedStockDetails($TID){
+    $invoiceNo = DB::table('vw_transaction_flow')
+    ->where('TransactionID', '=', $TID)
+     ->first()->InvoiceNo;
+
+    
+
     $data=DB:: select('select * from vw_purchaseorderdetails where InvoiceNumber='.$invoiceNo);
     $partyName=DB:: select('select PartyName from vw_transactionflow_sales where InvoiceNo='.$invoiceNo);
     
