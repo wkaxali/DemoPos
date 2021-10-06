@@ -249,7 +249,7 @@
 
                                                         <div class="form-group">
                                                             <button type="button"
-                                                                class="btn btn-block create-account" onclick="addSupplier()">Add</button>
+                                                                class="btn btn-block create-account"  onclick="addSupplier()" style=margin-top:20px;>Add</button>
                                                         </div>
 
 
