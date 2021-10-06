@@ -217,19 +217,19 @@
                                                         <div class="SupplierAddition  mb-3"
                                                             style="margin-top:-20px !important;">
                                                             <h2>Add Supplier</h2>
-
+                                                            <br> 
                                                         </div>
-
-                                                        < 
+ 
                                                         <div class="form-group">
                                                             <input type="text" class="form-control item"
                                                                 autocomplete="OFF" id="name"
                                                                 placeholder="Supplier Name">
-                                                        </div>
+                                                        </div><br><br><br>
+
                                                         <div class="form-group">
                                                             <input type="text" class="form-control item"
                                                                 autocomplete="OFF" id="balance" placeholder="Balance">
-                                                        </div>
+                                                        </div><br><br><br>
                                                         <div class="form-group">
                                                             <input type="number" class="form-control item"
                                                                 autocomplete="OFF" id="contact"
@@ -239,13 +239,13 @@
                                                             <input type="text" class="form-control item"
                                                                 autocomplete="OFF" id="address"
                                                                 placeholder="Address">
-                                                        </div>
+                                                        </div><br><br><br>
                                                       
                                                         <div class="form-group">
                                                             <input type="text" class="form-control item"
                                                                 autocomplete="OFF" id="initialinvestment"
                                                                 placeholder="Initial Investment">
-                                                        </div>
+                                                        </div><br><br><br>
 
                                                         <div class="form-group">
                                                             <button type="button"
