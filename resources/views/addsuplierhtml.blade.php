@@ -21,7 +21,7 @@
                                                         placeholder="Supplier Name" required />
                                                     <input type="text" style="width:232px;" class="form-control item" name="title" id="balance"
                                                         placeholder="Balance" required />
-                                                    <input type="number" style="width:232px;" class="form-control item" name="tel" id="contact"
+                                                    <input type="text" style="width:232px;" class="form-control item" name="tel" id="contact"
                                                         placeholder="Contact" required />
                                                     <input type="text" style="width:232px;" class="form-control item" name="title" id="address" placeholder="Address"
                                                         required />
