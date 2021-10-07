@@ -206,10 +206,16 @@ style="float: right"></span></a>
 <li><a data-toggle="collapse" data-target=".firstULs14"><i class="fas fa-vials"></i><span
 style="font-size: 14px;"> Return Purchase</span><span class="fa fa-angle-right"
 style="float: right"></span></a>
+<<<<<<< HEAD
 <ul class="collapse firstULs14">
 <!-- <li><a href="/aa">Return With Negative Purchase </a></li> -->
 <li><a href="ps"> Edit Purchase    </a></li>
 <!-- <li><a href="ea">   Edit Pending Order</a></li> -->
+=======
+<ul class="collapse firstULs20" id="menu-academico-sub">
+
+<li id="menu-academico-boletim"><a href="eu">Change Username Password </a></li>
+>>>>>>> 436db3802378c84a3a3ac4ad1636a9ffe7895118
 </ul>
 </li>
 

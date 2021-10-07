@@ -575,7 +575,7 @@ function AdminLogin(){
 
                   //alert(this.responseText);
                   if(this.responseText!="Invalid Username"){
-                    location.replace("./db")
+                    location.replace("./")
                   }
                   else{
                     alert("Invalid user");

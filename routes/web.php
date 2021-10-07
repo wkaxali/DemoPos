@@ -189,8 +189,13 @@ Route::get('/viewAllStock',[OrderFlowController::class, 'viewAllStock']);
 Route::get('/spareParts',[OrderFlowController::class, 'spareParts']);
 Route::get('/getInvestorData',[investorController::class, 'getInvestorData']);
 Route::get('/getExpenseHeads',[expenseController::class, 'getExpenseHeads']);
+<<<<<<< HEAD
 Route::get('/loadCategory',[accountsController::class, 'loadCategory']);
 Route::get('/customer/{data}',[CustomerViewController::class, 'customerinfo']);
+=======
+Route::get('/getAccountHeads',[accountsController::class, 'getAccountHeads']);
+Route::get('/customer/{EC}',[CustomerViewcontroller::class, 'customerinfo']);
+>>>>>>> 436db3802378c84a3a3ac4ad1636a9ffe7895118
 Route::get('/getAllSoldProducts',[UpdateStocksController::class, 'getAllSoldProducts']);
 Route::get('/getAllAutos/{CID}',[UpdateStocksController::class, 'getAllAutos']);
 Route::get('/viewSoldStock',[UpdateStocksController::class, 'viewSoldStock']);
@@ -751,8 +756,27 @@ Route::get('/sheet', function (){
     return view("signInSignUp");
     }
 });
+<<<<<<< HEAD
 
   
+=======
+// Route::get('/vd', function () {
+//     $UN = session()->get('Designation');
+//     if($UN=="Admin"||$UN=="User"){
+//     return view('vehicleDetails'); 
+//     }else{
+//     return view("signInSignUp");
+//     }
+// });
+Route::get('/sir', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('solutions'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+>>>>>>> 436db3802378c84a3a3ac4ad1636a9ffe7895118
 Route::get('/ql', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){
@@ -878,6 +902,18 @@ $pdf = PDF::loadView('viewExpenses', $data);
 // download PDF file with download method
 return $pdf->download('pdf_file.pdf');
 });
+<<<<<<< HEAD
+=======
+Route::get('/vd', function () {
+    $UN = session()->get('Designation');
+    if($UN=="Admin"){
+    return view('vehicleDetail'); 
+    }else{
+    return view("signInSignUp");
+    }
+});
+
+>>>>>>> 436db3802378c84a3a3ac4ad1636a9ffe7895118
 Route::get('/ssi2', function () {
     $UN = session()->get('Designation');
     if($UN=="Admin"){

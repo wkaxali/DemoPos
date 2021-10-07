@@ -170,7 +170,7 @@
      <script>
          function CustomerInfo() {
 
-             var CusName = documenty.getElementById(" Cusname").value;
+             var CusName = document.getElementById("Cusname").value;
              alert(" coming from blade" + CusName);
 
 
