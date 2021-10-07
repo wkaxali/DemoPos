@@ -6571,6 +6571,8 @@
             var catetext = e.options[e.selectedIndex].text;
             var catValue = e.options[e.selectedIndex].value;
             
+          
+            
             cell1.innerHTML = document.getElementById("productName").value;
             cell2.innerHTML = catetext;
             cell3.innerHTML = document.getElementById("salePrice").value;
@@ -6621,9 +6623,12 @@
 
         });
         myTrows.shift();
-        alert(myTrows[0]);
+        
 
-
+        myTrows[0][0]= myTrows[0][0].replace("/", '|'); 
+        alert(myTrows[0][0]);
+        myTrows[0][4]= myTrows[0][4].replace("/", '|'); 
+        alert(myTrows[0][4]);
         var a = JSON.stringify(myTrows);
 
 
@@ -6643,12 +6648,12 @@
     };
 
 </script>
-</script>
+ 
 <script>
     function AddProduct() {
 
         var ProductName = document.getElementById("productName").value;
-        ProductName = ProductName.replace("/", '|'); 
+        
 
         var ProductCat = document.getElementById("category").value;
 
@@ -6660,7 +6665,7 @@
 
 
         var Description = document.getElementById("description").value;
-        Description = Description.replace("/", '|'); 
+        
 
         var Product = [ProductName, ProductCat, Productsaleprice, ProductCost, Description];
         var xhttp = new XMLHttpRequest();
