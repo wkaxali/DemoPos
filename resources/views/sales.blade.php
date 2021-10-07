@@ -2176,6 +2176,11 @@ $(document).ready(function () {
 
         }
 
+        displayWarehouse(){
+            warehouse = $('#warehouse').find(":selected").val();
+            document.getElementById("warehouseName").innerHTML= warehouse;
+        }
+
     </script>
 </body>
 
