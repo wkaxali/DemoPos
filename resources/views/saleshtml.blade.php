@@ -249,11 +249,11 @@
 
                     <div class="col-md-3  okay-invo-1">
                         <div class="o-inv-1">
-                            <h1 id="warhouseName"align-left>Warehouse</h1>
+                            <h1 id="warehouseName"align-left>Warehouse</h1>
                         </div>
                         <div class="clear">
                         <label for="issue-3">Warehouses</label>
-                            <select class="selectpicker" data-live-search="true" tabindex="null" id="CustomerName"
+                            <select class="selectpicker" data-live-search="true" tabindex="null" id="warehouse"
                                 onchange="displayWarehouse()">
                                 <option value="1">Warehouse 1</option>
                                 <option value="2">Warehouse 2</option>

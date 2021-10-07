@@ -2176,8 +2176,8 @@ $(document).ready(function () {
 
         }
 
-        displayWarehouse(){
-            warehouse = $('#warehouse').find(":selected").val();
+        function displayWarehouse(){
+            warehouse = $('#warehouse').find(":selected").text();
             document.getElementById("warehouseName").innerHTML= warehouse;
         }
 
