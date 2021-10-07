@@ -6624,11 +6624,16 @@
         });
         myTrows.shift();
         
+        for(var i = 0; i < myTrows.length; i++){
 
-        myTrows[0][0]= myTrows[0][0].replace("/", '|'); 
-        // alert(myTrows[0][0]);
-        myTrows[0][4]= myTrows[0][4].replace("/", '|'); 
+        
+        myTrows[i][0]= myTrows[i][0].replace("/", '|'); 
+        
+        myTrows[i][4]= myTrows[i][4].replace("/", '|'); 
+
         // alert(myTrows[0][4]);
+        // alert(myTrows[0][0]);
+    }
         var a = JSON.stringify(myTrows);
 
 
