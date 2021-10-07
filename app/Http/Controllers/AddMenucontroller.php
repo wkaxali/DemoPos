@@ -234,7 +234,10 @@ class AddMenucontroller extends Controller
         $Productsaleprice=$obj[2];
         $ProductCost=$obj[3];
         $Description=$obj[4];
-        
+
+        $ProductName = str_replace('|', '/', $ProductName);
+        $Description = str_replace('|', '/', $Description);
+
         $ProductSerial=DB::table('productdefination')->insertGetId([
         'ProductName'=>$ProductName,
         'Category'=>$ProductCat,

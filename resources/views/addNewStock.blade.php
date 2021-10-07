@@ -6648,7 +6648,7 @@
     function AddProduct() {
 
         var ProductName = document.getElementById("productName").value;
-
+        ProductName = ProductName.replace("/", '|'); 
 
         var ProductCat = document.getElementById("category").value;
 
@@ -6660,7 +6660,7 @@
 
 
         var Description = document.getElementById("description").value;
-
+        Description = Description.replace("/", '|'); 
 
         var Product = [ProductName, ProductCat, Productsaleprice, ProductCost, Description];
         var xhttp = new XMLHttpRequest();

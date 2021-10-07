@@ -17,7 +17,7 @@ use PDF;
 class quotationController extends Controller
 {
 
-        public function h(Request $request,$data){
+        public function createQuotation(Request $request,$data){
      
             $Array=json_decode($data);
             $customerName = $Array[0];
@@ -37,7 +37,9 @@ class quotationController extends Controller
             $payTo = $Array[14];
             $date = Carbon::now()->toDateString();
             //$date =  Carbon::createFromFormat('Y-m-d', $dateRaw)->format('d-F-Y');
-            
+            $customerName = str_replace('|', '/', $customerName);
+
+
             $numberToWords = new NumberToWords();
             $numberTransformer = $numberToWords->getNumberTransformer('en');
             $a= $numberTransformer->toWords($totalPrice);
