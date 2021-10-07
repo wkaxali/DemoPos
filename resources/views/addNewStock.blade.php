@@ -6658,20 +6658,15 @@
     function AddProduct() {
 
         var ProductName = document.getElementById("productName").value;
-        
-
+         
         var ProductCat = document.getElementById("category").value;
-
-
+ 
         var Productsaleprice = document.getElementById("salePrice").value;
-
-
+ 
         var ProductCost = document.getElementById("cost").value;
-
-
+ 
         var Description = document.getElementById("description").value;
-        
-
+         
         var Product = [ProductName, ProductCat, Productsaleprice, ProductCost, Description];
         var xhttp = new XMLHttpRequest();
         if(ProductName!=""||ProductCat!=""||Productsaleprice!=""||ProductCost!=""||Description!=""){
