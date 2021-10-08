@@ -2173,7 +2173,6 @@ $(document).ready(function () {
 
         xhttp.send();
 
-
         }
 
         function displayWarehouse(){
